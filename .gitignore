@@ -11,6 +11,14 @@
 *.sln.docstates
 *.env
 
+# Local lecture-processing data (recordings, models, transcripts, caches)
+.course-data/
+
+# Static-site build and package-manager output
+node_modules/
+dist/
+.DS_Store
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

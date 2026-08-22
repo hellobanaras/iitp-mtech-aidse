@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture Atlas Companion</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <span class="mark">AI</span>
+      <div><strong>Lecture Atlas</strong><small>Recording companion</small></div>
+      <span id="capture-badge" class="badge" hidden>REC</span>
+    </header>
+
+    <main>
+      <section class="lecture-card">
+        <p class="eyebrow">Active tab</p>
+        <h1 id="lecture-title">Reading player…</h1>
+        <dl>
+          <div><dt>Position</dt><dd id="position">—</dd></div>
+          <div><dt>Duration</dt><dd id="duration">—</dd></div>
+          <div><dt>Speed</dt><dd id="speed">—</dd></div>
+        </dl>
+        <p id="player-status" class="hint"></p>
+      </section>
+
+      <section>
+        <div class="section-title"><h2>Review controls</h2><button id="refresh" class="text-button" type="button">Refresh</button></div>
+        <div class="seek-grid">
+          <button data-seek="-300" type="button">−5 min</button>
+          <button id="speed-2x" type="button">Set 2×</button>
+          <button data-seek="300" type="button">+5 min</button>
+        </div>
+        <div class="mark-grid">
+          <button id="mark-start" type="button"><span>Start</span>Mark teaching start</button>
+          <button id="mark-end" type="button"><span>End</span>Mark teaching end</button>
+        </div>
+        <button id="site-download" class="wide secondary" type="button">Use Stream’s permitted Download</button>
+        <button id="export-manifest" class="wide ghost" type="button">Export review manifest</button>
+      </section>
+
+      <section class="capture-section">
+        <h2>Local capture fallback</h2>
+        <p>Use only when personal capture is permitted by the institute/course owner. This records the selected tab in real time and does not extract hidden media URLs.</p>
+        <label class="confirm"><input id="policy-confirm" type="checkbox" /> <span>I confirm personal local capture is permitted.</span></label>
+        <label class="field">Capture mode
+          <select id="capture-mode">
+            <option value="video" selected>Audio + visible tab (for slide references)</option>
+            <option value="audio">Audio only (transcript draft)</option>
+          </select>
+        </label>
+        <button id="capture-toggle" class="wide primary" type="button">Start local capture</button>
+        <p id="capture-status" class="hint" aria-live="polite">Idle</p>
+      </section>
+    </main>
+
+    <footer>One tab at a time · Files stay on this computer</footer>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

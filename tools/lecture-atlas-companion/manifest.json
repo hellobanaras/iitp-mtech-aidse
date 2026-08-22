@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Lecture Atlas Companion",
+  "version": "0.1.0",
+  "description": "Review permitted lecture recordings, mark teaching boundaries, and capture one selected tab locally.",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "offscreen",
+    "scripting",
+    "storage",
+    "tabCapture"
+  ],
+  "action": {
+    "default_title": "Lecture Atlas Companion",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  }
+}

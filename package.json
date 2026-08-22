@@ -1,0 +1,11 @@
+{
+  "name": "iitp-mtech-aidse-lecture-atlas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build_static_site.mjs",
+    "check": "node --check assets/app.js && node --check data/catalog.js && node --check data/i18n.js && node tools/validate_content.mjs",
+    "deploy:cloudflare": "npm run build && npx wrangler pages deploy dist --project-name iitp-mtech-aidse"
+  }
+}
