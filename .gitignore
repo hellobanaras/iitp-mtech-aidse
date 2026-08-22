@@ -17,6 +17,7 @@
 # Static-site build and package-manager output
 node_modules/
 dist/
+.wrangler/
 .DS_Store
 
 # User-specific files (MonoDevelop/Xamarin Studio)
