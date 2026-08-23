@@ -229,9 +229,16 @@ function renderCourse(slug, ctx) {
   const course = catalog.courses.find((item) => item.slug === slug);
   if (!course) return renderNotFound(ctx);
   const resources = resourcesForCourse(slug);
+  const schedule = scheduleBySlug(slug);
+  const publishedCount = course.lectures.filter((lecture) => lecture.status === "published").length;
   main.innerHTML = `<section class="course-hero course-hero--${course.accent}">
       <div><a class="back-link" href="${href(lang, "/courses")}">← ${text.allSubjects}</a><p class="kicker"><span></span>${escapeHtml(course.code)}</p>${compactBilingualCopy(course.title, course.hi.title, "h1")}${bilingualCopy(course.note, course.hi.note, "div", "course-hero__description")}<div class="course-hero__actions"><a class="button button--quiet" href="${escapeHtml(course.recordingUrl)}" target="_blank" rel="noreferrer">${text.allRecordings} ${icon("external")}</a></div></div>
-      <dl><div><dt>${text.schedule}</dt><dd>${bilingualCopy(course.cadence, course.hi.cadence)}</dd></div><div><dt>${text.indiaTime}</dt><dd>${bilingualCopy(course.time, course.hi.time)}</dd></div><div><dt>${text.notes}</dt><dd>${course.lectures.filter((lecture) => lecture.status === "published").length} ${text.published}</dd></div></dl>
+      <dl class="course-hero__facts">
+        <div class="course-hero__fact course-hero__fact--days"><dt>${icon("calendar")} ${text.classDays}</dt><dd>${bilingualCopy(schedule.weekdayLabels.en.join(" & "), schedule.weekdayLabels.hi.join(", "))}</dd></div>
+        <div class="course-hero__fact course-hero__fact--time"><dt>${icon("clock")} ${text.indiaTime}</dt><dd>${bilingualCopy(schedule.indiaSummary.en, schedule.indiaSummary.hi)}</dd></div>
+        <div class="course-hero__fact course-hero__fact--time"><dt>${icon("clock")} ${text.chicagoTime}</dt><dd>${bilingualCopy(schedule.chicagoSummary.en, schedule.chicagoSummary.hi)}</dd></div>
+        <div class="course-hero__fact course-hero__fact--notes"><dt>${text.notes}</dt><dd>${publishedCount} ${text.published}</dd></div>
+      </dl>
     </section>
     <section class="section-shell course-content">
       ${scheduleCard(course, lang, text)}
@@ -582,8 +589,32 @@ function search(query) {
   }
   const courseMatches = ctx.catalog.courses.filter((course) => `${course.code} ${course.title} ${course.note} ${course.hi.title} ${course.hi.note}`.toLocaleLowerCase(ctx.locale).includes(normalized));
   const lectureMatches = ctx.allLectures.filter((lecture) => `${lecture.title} ${lecture.overview.join(" ")} ${lecture.course.title} ${lecture.hi.title} ${lecture.hi.overview.join(" ")} ${lecture.course.hi.title}`.toLocaleLowerCase(ctx.locale).includes(normalized));
-  const results = [...courseMatches.map((course) => ({ href: href(ctx.lang, `/course/${course.slug}`), eyebrow: course.code, title: course.title, titleHi: course.hi.title })), ...lectureMatches.map((lecture) => ({ href: href(ctx.lang, `/lecture/${lecture.id}`), eyebrow: `${lecture.course.code} · ${lecture.displayDate}`, title: lecture.title, titleHi: lecture.hi.title }))];
-  searchResults.innerHTML = results.length ? results.map((result) => `<a href="${result.href}"><span><small>${escapeHtml(result.eyebrow)}</small>${compactBilingualCopy(result.title, result.titleHi, "strong")}</span>${icon("arrow")}</a>`).join("") : `<p class="search-hint">${ctx.text.noMatches} “${escapeHtml(query)}”</p>`;
+  const results = [
+    ...courseMatches.map((course) => ({
+      kind: "course",
+      href: href(ctx.lang, `/course/${course.slug}`),
+      eyebrow: course.code,
+      title: course.title,
+      titleHi: course.hi.title,
+      accent: course.accent,
+      schedule: scheduleBySlug(course.slug)
+    })),
+    ...lectureMatches.map((lecture) => ({
+      kind: "lecture",
+      href: href(ctx.lang, `/lecture/${lecture.id}`),
+      eyebrow: `${lecture.course.code} · ${lecture.displayDate}`,
+      title: lecture.title,
+      titleHi: lecture.hi.title
+    }))
+  ];
+  searchResults.innerHTML = results.length ? results.map((result) => {
+    const scheduleSummary = result.kind === "course" ? `<span class="search-result-card__schedule">
+      <span class="search-result-card__days">${icon("calendar")} ${bilingualCopy(result.schedule.weekdayLabels.en.join(" & "), result.schedule.weekdayLabels.hi.join(", "))}</span>
+      <span>${icon("clock")} ${bilingualCopy(result.schedule.indiaSummary.en, result.schedule.indiaSummary.hi)}</span>
+      <span>${icon("clock")} ${bilingualCopy(result.schedule.chicagoSummary.en, result.schedule.chicagoSummary.hi)}</span>
+    </span>` : "";
+    return `<a class="search-result-card search-result-card--${result.kind}${result.accent ? ` search-result-card--${result.accent}` : ""}" href="${result.href}"><span class="search-result-card__main"><small>${escapeHtml(result.eyebrow)}</small>${compactBilingualCopy(result.title, result.titleHi, "strong")}${scheduleSummary}</span><span class="search-result-card__arrow">${icon("arrow")}</span></a>`;
+  }).join("") : `<p class="search-hint">${ctx.text.noMatches} “${escapeHtml(query)}”</p>`;
 }
 
 searchButton.addEventListener("click", () => searchPanel.hidden ? openSearch() : closeSearch());
