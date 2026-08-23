@@ -510,6 +510,7 @@ body {
 }
 .course-meta dt { font-weight: 760; }
 .course-meta dd { color: #27384d; font-size: .78rem; }
+.course-meta__time dd { color: var(--ink); font-size: clamp(.92rem, 1.35vw, 1.04rem); font-weight: 830; line-height: 1.45; letter-spacing: -.01em; }
 .course-card--featured .course-meta { border-color: #354b62; background: rgb(255 255 255 / 5%); }
 .course-card--featured .course-meta dd { color: #edf2f6; }
 .card-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
@@ -553,6 +554,7 @@ body {
 .schedule-card dl > div { padding: .9rem; border: 1px solid #e0e1dc; border-radius: 13px; background: #f6f6f2; }
 .schedule-card dt { font-weight: 780; letter-spacing: .045em; }
 .schedule-card dd { color: #26384d; line-height: 1.55; }
+.schedule-card__time dd { color: var(--ink); font-size: clamp(1rem, 1.65vw, 1.18rem); font-weight: 840; line-height: 1.45; letter-spacing: -.012em; }
 .schedule-actions { gap: .7rem; }
 .schedule-course-grid .schedule-card { box-shadow: 0 8px 24px rgb(11 24 41 / 7%); }
 
@@ -585,7 +587,7 @@ body {
   box-shadow: 0 5px 14px rgb(11 24 41 / 6%);
 }
 .calendar-event h3 { margin: .45rem 0 .6rem; color: var(--ink); line-height: 1.35; }
-.calendar-event time { color: #41536a; font-weight: 720; }
+.calendar-event time { margin-top: .55rem; color: #31465e; font-size: .8rem; font-weight: 820; line-height: 1.45; }
 .calendar-event small { margin-top: .2rem; line-height: 1.45; }
 .calendar-event a {
   min-height: 44px;
@@ -749,6 +751,7 @@ body {
   .course-card h3 { font-size: clamp(1.65rem, 8vw, 2.15rem); }
   .course-meta { margin-top: 1.25rem; padding: .75rem; }
   .course-meta dd { font-size: .8rem; }
+  .course-meta__time dd { font-size: 1.08rem; }
   .card-actions { grid-template-columns: 1fr; }
   .card-actions .button--text { grid-column: auto; }
   .schedule-card { gap: 1rem; margin-bottom: 2.5rem; padding: 1.15rem; border-radius: 20px; }
@@ -763,7 +766,9 @@ body {
   .calendar-day > header { padding: .85rem 1rem; }
   .calendar-event { padding: 1rem; }
   .calendar-event h3 { font-size: 1rem; }
-  .calendar-event time, .calendar-event small { font-size: .73rem; }
+  .calendar-event time { font-size: .88rem; }
+  .calendar-event small { font-size: .73rem; }
+  .schedule-card__time dd { font-size: 1.12rem; }
   .calendar-event a { width: 100%; }
   .calendar-help { margin-bottom: 2.5rem; text-align: left; }
   .resource-library { gap: 1rem; }

@@ -116,9 +116,9 @@ function statusPill(course) {
 function scheduleMeta(course, lang, text, compact = false) {
   const schedule = scheduleBySlug(course.slug);
   return `<dl class="course-meta${compact ? " course-meta--stack" : ""}">
-    <div><dt>${icon("calendar")} ${text.classDays}</dt><dd>${bilingualCopy(schedule.weekdayLabels.en.join(" & "), schedule.weekdayLabels.hi.join(", "))}</dd></div>
-    <div><dt>${icon("clock")} ${text.indiaTime}</dt><dd>${bilingualCopy(schedule.indiaSummary.en, schedule.indiaSummary.hi)}</dd></div>
-    <div class="course-meta__wide"><dt>${icon("clock")} ${text.chicagoTime}</dt><dd>${bilingualCopy(schedule.chicagoSummary.en, schedule.chicagoSummary.hi)}</dd></div>
+    <div class="course-meta__days"><dt>${icon("calendar")} ${text.classDays}</dt><dd>${bilingualCopy(schedule.weekdayLabels.en.join(" & "), schedule.weekdayLabels.hi.join(", "))}</dd></div>
+    <div class="course-meta__time"><dt>${icon("clock")} ${text.indiaTime}</dt><dd>${bilingualCopy(schedule.indiaSummary.en, schedule.indiaSummary.hi)}</dd></div>
+    <div class="course-meta__wide course-meta__time"><dt>${icon("clock")} ${text.chicagoTime}</dt><dd>${bilingualCopy(schedule.chicagoSummary.en, schedule.chicagoSummary.hi)}</dd></div>
   </dl>`;
 }
 
@@ -198,8 +198,8 @@ function scheduleCard(course, lang, text) {
     <div><p class="eyebrow">${escapeHtml(schedule.code)} · ${escapeHtml(localizedValue(schedule.session))}</p>${compactBilingualCopy(schedule.title.en, schedule.title.hi, "h2")}</div>
     <div class="day-chips">${schedule.weekdayLabels.en.map((day, index) => `<span>${escapeHtml(day)} · ${escapeHtml(schedule.weekdayLabels.hi[index] ?? "")}</span>`).join("")}</div>
     <dl>
-      <div><dt>${text.indiaTime}</dt><dd>${bilingualCopy(schedule.indiaSummary.en, schedule.indiaSummary.hi)}</dd></div>
-      <div><dt>${text.chicagoTime}</dt><dd>${bilingualCopy(schedule.chicagoSummary.en, schedule.chicagoSummary.hi)}</dd></div>
+      <div class="schedule-card__time"><dt>${text.indiaTime}</dt><dd>${bilingualCopy(schedule.indiaSummary.en, schedule.indiaSummary.hi)}</dd></div>
+      <div class="schedule-card__time"><dt>${text.chicagoTime}</dt><dd>${bilingualCopy(schedule.chicagoSummary.en, schedule.chicagoSummary.hi)}</dd></div>
       <div><dt>${text.schedule}</dt><dd>${text.runsThrough}</dd></div>
     </dl>
     <div class="schedule-actions">
