@@ -1,7 +1,6 @@
 import { catalog as catalogBase } from "../data/catalog.js";
 import { localizeCatalog } from "../data/catalog-hi.js";
 import { lectureNotes } from "../data/lecture-notes.js";
-import { privateCapstoneVault } from "../data/private-capstones.enc.js";
 import { ui } from "../data/i18n.js";
 import { semesterSchedule, scheduleBySlug } from "../data/schedule.js";
 import { courseResources } from "../data/resources.js";
@@ -142,6 +141,19 @@ function courseCard(course, lang, text, featured = false) {
   </article>`;
 }
 
+function homeCourseCard(course, lang, text) {
+  const publishedCount = course.lectures.filter((lecture) => lecture.status === "published").length;
+  return `<a class="home-course-card home-course-card--${course.accent}" href="${href(lang, `/course/${course.slug}`)}">
+    <span class="course-monogram">${escapeHtml(course.icon)}</span>
+    <span class="home-course-card__copy">
+      <span class="eyebrow">${escapeHtml(course.code)}</span>
+      ${compactBilingualCopy(course.title, course.hi.title, "strong")}
+      <span class="home-course-card__status"><i></i>${publishedCount} ${text.published}</span>
+    </span>
+    <span class="home-course-card__arrow" aria-hidden="true">${icon("arrow")}</span>
+  </a>`;
+}
+
 function renderHome(ctx) {
   const { lang, text, catalog, allLectures } = ctx;
   const notesReady = allLectures.filter((lecture) => lecture.status === "published").length;
@@ -158,27 +170,15 @@ function renderHome(ctx) {
           <a class="button button--quiet" href="${href(lang, "/schedule")}">${icon("calendar")} ${text.openSchedule}</a>
         </div>
       </div>
-      <aside class="hero-aside" aria-label="${escapeHtml(text.subjects)}">
-        <div class="orbit" aria-hidden="true"><span>3</span><small>${text.subjectsCount}</small></div>${bilingualCopy(ui.en.heroAside, ui.hi.heroAside, "p")}
-      </aside>
+      <ul class="hero-summary" aria-label="${escapeHtml(text.overview)}">
+        <li><strong>3</strong><span>${text.subjectsCount}</span></li>
+        <li><strong>${notesReady}</strong><span>${text.notesPublished}</span></li>
+        <li><strong>25</strong><span>${text.explainedMcqs}</span></li>
+      </ul>
     </section>
-    <section class="stats" aria-label="${escapeHtml(text.overview)}">
-      <div><strong>${catalog.filesInventoried}</strong><span>${text.filesInventoried}</span></div>
-      <div><strong>${notesReady}</strong><span>${text.notesPublished}</span></div>
-      <div><strong>25</strong><span>${text.explainedMcqs}</span></div>
-      <div><strong>1</strong><span>${text.appliedBuild}</span></div>
-    </section>
-    <section class="section-shell">
+    <section class="section-shell home-subjects">
       <div class="section-heading"><div><p class="eyebrow">${text.currentSemester}</p><h2>${text.subjectRadar}</h2></div><a href="${href(lang, "/courses")}">${text.viewAllSubjects} ${icon("arrow")}</a></div>
-      <div class="course-grid">${catalog.courses.map((course, index) => courseCard(course, lang, text, index === 1)).join("")}</div>
-    </section>
-    <section class="process-band"><div><p class="eyebrow">${text.learningLoop}</p><h2>${text.recordingToRecall}</h2></div>
-      <ol>
-        <li><span>01</span>${bilingualCopy(ui.en.validate, ui.hi.validate, "strong")}${bilingualCopy(ui.en.validateBody, ui.hi.validateBody, "p")}</li>
-        <li><span>02</span>${bilingualCopy(ui.en.synthesize, ui.hi.synthesize, "strong")}${bilingualCopy(ui.en.synthesizeBody, ui.hi.synthesizeBody, "p")}</li>
-        <li><span>03</span>${bilingualCopy(ui.en.extend, ui.hi.extend, "strong")}${bilingualCopy(ui.en.extendBody, ui.hi.extendBody, "p")}</li>
-        <li><span>04</span>${bilingualCopy(ui.en.apply, ui.hi.apply, "strong")}${bilingualCopy(ui.en.applyBody, ui.hi.applyBody, "p")}</li>
-      </ol>
+      <div class="home-course-grid">${catalog.courses.map((course) => homeCourseCard(course, lang, text)).join("")}</div>
     </section>`;
 }
 
@@ -299,6 +299,9 @@ function validPrivatePayload(payload) {
 }
 
 async function unlockPrivateCapstones(username, code) {
+  // Fetch a fresh vault for every unlock attempt. The encrypted payload changes
+  // whenever a lecture is added, while browsers may retain the previous module.
+  const { privateCapstoneVault } = await import(`../data/private-capstones.enc.js?unlock=${Date.now()}`);
   const material = await crypto.subtle.importKey(
     "raw",
     new TextEncoder().encode(`${username.trim().toLowerCase()}\0${code.trim()}`),
