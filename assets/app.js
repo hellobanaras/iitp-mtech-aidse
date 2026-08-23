@@ -121,12 +121,12 @@ function scheduleMeta(course, lang, text, compact = false) {
   </dl>`;
 }
 
-function courseActions(course, lang, text, includeCalendar = true) {
+function courseActions(course, lang, text) {
   const schedule = scheduleBySlug(course.slug);
   return `<div class="card-actions">
     <a class="button button--primary" href="${escapeHtml(schedule.joinUrl)}" target="_blank" rel="noreferrer">${text.joinSession} ${icon("external")}</a>
+    <a class="button button--quiet-light" href="${escapeHtml(course.recordingUrl)}" target="_blank" rel="noreferrer">${text.allRecordings} ${icon("video")}</a>
     <a class="button button--quiet-light" href="${href(lang, `/course/${course.slug}`)}">${text.openSubject} ${icon("arrow")}</a>
-    ${includeCalendar ? `<a class="button button--text" href="calendar/${course.slug}.ics" download="${course.slug}-iit-patna-2026.ics">${icon("calendar")} ${text.addCalendar}</a>` : ""}
   </div>`;
 }
 
@@ -187,13 +187,12 @@ function lectureRow(lecture, lang, text) {
   return `<article class="lecture-row ${available ? "" : "lecture-row--pending"}">
     <div class="lecture-number">${String(lecture.number).padStart(2, "0")}</div>
     <div class="lecture-row__body"><p class="eyebrow">${escapeHtml(lecture.displayDate)} · ${escapeHtml(lecture.hi.displayDate)} · ${escapeHtml(lecture.duration)}</p>${compactBilingualCopy(lecture.title, lecture.hi.title, "h3")}<ul class="topic-chips">${lecture.overview.map((item, index) => `<li>${compactBilingualCopy(item, lecture.hi.overview[index])}</li>`).join("")}</ul></div>
-    ${available ? `<div class="lecture-row__actions"><a class="card-link" href="${href(lang, `/lecture/${lecture.id}`)}">${text.readNotes} ${icon("arrow")}</a><a class="card-link card-link--recording" href="${escapeHtml(lecture.recordingUrl)}" target="_blank" rel="noreferrer">${text.watchRecording} ${icon("video")}</a></div>` : `<span class="status status--processing"><i></i>${escapeHtml(lecture.statusLabel)} · ${escapeHtml(lecture.hi.statusLabel)}</span>`}
+    ${available ? `<div class="lecture-row__actions"><a class="card-link card-link--notes" href="${href(lang, `/lecture/${lecture.id}`)}">${text.readNotes} ${icon("arrow")}</a><a class="card-link card-link--recording" href="${escapeHtml(lecture.recordingUrl)}" target="_blank" rel="noreferrer">${text.watchRecording} ${icon("video")}</a></div>` : `<span class="status status--processing"><i></i>${escapeHtml(lecture.statusLabel)} · ${escapeHtml(lecture.hi.statusLabel)}</span>`}
   </article>`;
 }
 
 function scheduleCard(course, lang, text) {
   const schedule = scheduleBySlug(course.slug);
-  const nextUrl = outlookUrl(schedule, lang);
   return `<article class="schedule-card schedule-card--${schedule.accent}">
     <div><p class="eyebrow">${escapeHtml(schedule.code)} · ${escapeHtml(localizedValue(schedule.session))}</p>${compactBilingualCopy(schedule.title.en, schedule.title.hi, "h2")}</div>
     <div class="day-chips">${schedule.weekdayLabels.en.map((day, index) => `<span>${escapeHtml(day)} · ${escapeHtml(schedule.weekdayLabels.hi[index] ?? "")}</span>`).join("")}</div>
@@ -204,8 +203,7 @@ function scheduleCard(course, lang, text) {
     </dl>
     <div class="schedule-actions">
       <a class="button button--primary" href="${escapeHtml(schedule.joinUrl)}" target="_blank" rel="noreferrer">${text.joinSession} ${icon("external")}</a>
-      <a class="button button--quiet-light" href="calendar/${course.slug}.ics" download="${course.slug}-iit-patna-2026.ics">${icon("calendar")} ${text.addCalendar}</a>
-      <a class="button button--text" href="${escapeHtml(nextUrl)}" target="_blank" rel="noreferrer">${text.nextClass} ${icon("external")}</a>
+      <a class="button button--quiet-light" href="${escapeHtml(course.recordingUrl)}" target="_blank" rel="noreferrer">${text.allRecordings} ${icon("video")}</a>
     </div>
   </article>`;
 }
@@ -453,7 +451,6 @@ function renderSchedule(ctx) {
           return `<article class="calendar-event calendar-event--${occurrence.course.accent}${isPast ? " calendar-event--past" : ""}"${isPast ? ' aria-disabled="true"' : ""}><p>${escapeHtml(occurrence.course.code.split(" /")[0])}</p>${compactBilingualCopy(occurrence.course.title.en, occurrence.course.title.hi, "h3")}<time>${escapeHtml(chicagoEventTime(occurrence, locale))}</time><small>${text.originalIst}: ${escapeHtml(occurrence.indiaDate)} · ${escapeHtml(occurrence.course.start)}–${escapeHtml(occurrence.course.end)}</small>${isPast ? `<span class="calendar-event__past">${text.pastClass}</span>` : `<a href="${escapeHtml(occurrence.course.joinUrl)}" target="_blank" rel="noreferrer">${text.joinSession} ${icon("external")}</a>`}</article>`;
         }).join("") : `<p class="calendar-empty">${text.noClasses}</p>`}</div></section>`;
       }).join("")}</div>
-      <p class="calendar-help">${text.calendarHelp}</p>
       <div class="schedule-course-grid">${ctx.catalog.courses.map((course) => scheduleCard(course, lang, text)).join("")}</div>
     </section>`;
 }
@@ -482,12 +479,6 @@ function renderResourceViewer(courseSlug, id, ctx) {
   const isLocal = ["localhost", "127.0.0.1"].includes(location.hostname);
   const viewer = resource.kind === "pdf" ? `<iframe class="document-frame" src="${escapeHtml(sourceUrl)}#view=FitH" title="${escapeHtml(resource.title)}"></iframe>` : !isLocal ? `<iframe class="document-frame" src="https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(sourceUrl)}" title="${escapeHtml(resource.title)}"></iframe>` : `<div class="viewer-fallback"><span>${icon("file")}</span><p>${text.viewerUnavailable}</p></div>`;
   main.innerHTML = `<section class="viewer-header"><a class="back-link" href="${href(lang, `/resources/${courseSlug}`)}">← ${text.backToResources}</a><p class="eyebrow">${escapeHtml(course.code)} · ${escapeHtml(resource.extension.toUpperCase())}</p>${compactBilingualCopy(resource.title, titleHi, "h1")}<div class="viewer-actions"><a class="button button--primary" href="${escapeHtml(sourceUrl)}" target="_blank" rel="noreferrer">${text.openOriginal} ${icon("external")}</a><a class="button button--quiet" href="${escapeHtml(sourceUrl)}" download>${text.download}</a></div></section><section class="viewer-shell">${viewer}</section>`;
-}
-
-function outlookUrl(schedule, lang) {
-  const next = occurrences.find((occurrence) => occurrence.course.slug === schedule.slug && occurrence.start >= new Date()) || occurrences.find((occurrence) => occurrence.course.slug === schedule.slug);
-  const params = new URLSearchParams({ path: "/calendar/action/compose", rru: "addevent", subject: `IIT Patna — ${localizedValue(schedule.title)}`, startdt: next.start.toISOString(), enddt: next.end.toISOString(), body: `${localizedValue(schedule.session)}\n${schedule.joinUrl}`, location: "Microsoft Teams" });
-  return `https://outlook.office.com/calendar/0/deeplink/compose?${params}`;
 }
 
 function renderNotFound(ctx, message = "") {

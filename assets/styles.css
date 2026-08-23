@@ -601,6 +601,15 @@ body {
   background: #f1f2ef;
 }
 .card-link:hover { color: #155a56; background: rgb(39 143 137 / 10%); }
+.card-link--notes {
+  min-height: 48px;
+  padding: .72rem 1rem;
+  color: var(--white);
+  background: linear-gradient(135deg, #132a44, var(--navy));
+  box-shadow: 0 8px 18px rgb(11 24 41 / 18%);
+}
+.card-link--notes:hover { color: var(--white); background: linear-gradient(135deg, #1b395a, #10243b); box-shadow: 0 11px 22px rgb(11 24 41 / 23%); }
+.card-link--notes svg { color: var(--amber); }
 .card-link--recording { color: #176d67; }
 
 .schedule-card {
