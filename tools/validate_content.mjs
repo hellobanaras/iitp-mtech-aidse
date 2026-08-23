@@ -12,6 +12,17 @@ const assert = (condition, message) => {
   if (!condition) errors.push(message);
 };
 
+const isSubjectRecordingUrl = (value) => {
+  try {
+    const url = new URL(value);
+    if (url.protocol !== "https:" || url.hostname !== "cciitpatna-my.sharepoint.com") return false;
+    return url.pathname.startsWith("/:f:/") ||
+      (url.pathname === "/people" && url.searchParams.has("emailId"));
+  } catch {
+    return false;
+  }
+};
+
 const lectures = catalog.courses.flatMap((course) =>
   course.lectures.map((lecture) => ({ ...lecture, course }))
 );
@@ -23,7 +34,7 @@ assert(Number.isInteger(catalog.filesInventoried) && catalog.filesInventoried >=
 const ids = lectures.map((lecture) => lecture.id);
 assert(new Set(ids).size === ids.length, "Catalog lecture ids must be unique.");
 for (const course of catalog.courses) {
-  assert(/^https:\/\/cciitpatna-my\.sharepoint\.com\/:f:\//.test(course.recordingUrl || ""),
+  assert(isSubjectRecordingUrl(course.recordingUrl || ""),
     `${course.code}: subject recording-folder URL is missing or invalid.`);
   const dates = course.lectures.map((lecture) => lecture.date);
   const sortedDates = [...dates].sort();

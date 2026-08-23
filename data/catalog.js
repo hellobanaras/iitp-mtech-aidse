@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-08-22",
+  updated: "2026-08-23",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 6,
+  filesInventoried: 7,
   courses: [
     {
       code: "EAI 6401",
@@ -80,11 +80,24 @@ export const catalog = {
       time: "3:30–5:00 PM IST",
       accent: "amber",
       icon: "GA",
-      recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course73_hybrid_iitp_ac_in/IgAf1eu3AHhfSrcxcaecYZMNATQhlfd3YfjXM5Mv7A8kSxY?e=rTSIGO",
-      status: "waiting",
-      statusLabel: "Awaiting recording",
-      note: "The supplied link currently resolves to the same folder as Meta Learning; no matching Generative AI recording is visible yet.",
-      lectures: []
+      recordingUrl: "https://cciitpatna-my.sharepoint.com/people?emailId=course74%5Fhybrid%40iitp%2Eac%2Ein",
+      status: "active",
+      statusLabel: "1 lecture available",
+      note: "Lecture 1 is published from the bounded 00:30–53:35 source interval with a verified transcript, slide trail, three student Q&As, further study, and 25 explained MCQs.",
+      lectures: [
+        {
+          id: "eai-6403-2026-08-23",
+          number: 1,
+          date: "2026-08-23",
+          displayDate: "23 August 2026",
+          title: "Transformer foundations: tokens, attention, and controlled generation",
+          duration: "53m 05s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course74_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse74_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSelective%20Topics%20in%20Generative%20AI%2D20260823%5F153847%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Transformer architecture", "Tokens, embeddings, and attention", "Temperature, top-k, and top-p"]
+        }
+      ]
     }
   ]
 };

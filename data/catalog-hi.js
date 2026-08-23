@@ -44,9 +44,16 @@ export const catalogHi = {
       shortTitle: "जनरेटिव एआई",
       cadence: "शनिवार और रविवार",
       time: "दोपहर 3:30–5:00 IST",
-      statusLabel: "रिकॉर्डिंग की प्रतीक्षा",
-      note: "दिया गया लिंक अभी Meta Learning वाले फ़ोल्डर पर ही जाता है; Generative AI की कोई उपयुक्त रिकॉर्डिंग अभी दिखाई नहीं दे रही है।",
-      lectures: {}
+      statusLabel: "1 व्याख्यान उपलब्ध",
+      note: "व्याख्यान 1 सत्यापित transcript, slide trail, तीन student Q&A, further study और 25 व्याख्यायुक्त MCQs के साथ 00:30–53:35 interval से प्रकाशित है।",
+      lectures: {
+        "eai-6403-2026-08-23": {
+          displayDate: "23 अगस्त 2026",
+          title: "Transformer की बुनियाद: token, attention और controlled generation",
+          statusLabel: "नोट्स प्रकाशित",
+          overview: ["Transformer architecture", "Tokens, embeddings और attention", "Temperature, top-k और top-p"]
+        }
+      }
     }
   }
 };
