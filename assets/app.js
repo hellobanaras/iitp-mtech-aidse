@@ -654,7 +654,10 @@ document.addEventListener("submit", async (event) => {
       String(formData.get("code") || "")
     );
     route();
-    document.getElementById("project")?.scrollIntoView({ block: "start" });
+    const project = document.getElementById("project");
+    if (project) {
+      window.scrollTo({ top: window.scrollY + project.getBoundingClientRect().top, left: 0, behavior: "auto" });
+    }
   } catch {
     form.elements.code.value = "";
     error.hidden = false;
