@@ -510,9 +510,19 @@ body {
 }
 .course-meta dt { font-weight: 760; }
 .course-meta dd { color: #27384d; font-size: .78rem; }
+.course-meta > div { padding: .72rem; border: 1px solid transparent; border-radius: 12px; }
+.course-meta__days { border-color: rgb(39 143 137 / 22%) !important; background: rgb(39 143 137 / 9%); }
+.course-meta__days dt { color: #1d6f6a; }
+.course-meta__days dd { color: #153f46; font-size: .92rem; font-weight: 800; }
+.course-meta__time { border-color: rgb(229 169 54 / 28%) !important; background: rgb(229 169 54 / 11%); box-shadow: inset 4px 0 0 rgb(229 169 54 / 78%); }
+.course-meta__time dt { color: #81580f; }
 .course-meta__time dd { color: var(--ink); font-size: clamp(.92rem, 1.35vw, 1.04rem); font-weight: 830; line-height: 1.45; letter-spacing: -.01em; }
 .course-card--featured .course-meta { border-color: #354b62; background: rgb(255 255 255 / 5%); }
 .course-card--featured .course-meta dd { color: #edf2f6; }
+.course-card--featured .course-meta__days { border-color: rgb(81 191 181 / 28%) !important; background: rgb(39 143 137 / 13%); }
+.course-card--featured .course-meta__days dt { color: #8dd8d1; }
+.course-card--featured .course-meta__time { border-color: rgb(229 169 54 / 28%) !important; background: rgb(229 169 54 / 9%); }
+.course-card--featured .course-meta__time dt { color: #f0c870; }
 .card-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
 .card-actions .button { width: 100%; min-height: 46px; }
 .card-actions .button--text { grid-column: 1 / -1; justify-content: flex-start; }
@@ -552,8 +562,10 @@ body {
 .schedule-card h2 { color: var(--ink); }
 .schedule-card dl { gap: .7rem; }
 .schedule-card dl > div { padding: .9rem; border: 1px solid #e0e1dc; border-radius: 13px; background: #f6f6f2; }
+.schedule-card dl > .schedule-card__time { border-color: #ead8b6; background: linear-gradient(145deg, #fff9ec, #f5efe3); box-shadow: inset 4px 0 0 var(--amber); }
 .schedule-card dt { font-weight: 780; letter-spacing: .045em; }
 .schedule-card dd { color: #26384d; line-height: 1.55; }
+.schedule-card__time dt { color: #81580f; }
 .schedule-card__time dd { color: var(--ink); font-size: clamp(1rem, 1.65vw, 1.18rem); font-weight: 840; line-height: 1.45; letter-spacing: -.012em; }
 .schedule-actions { gap: .7rem; }
 .schedule-course-grid .schedule-card { box-shadow: 0 8px 24px rgb(11 24 41 / 7%); }
@@ -575,8 +587,8 @@ body {
 }
 .calendar-day--active { border-color: #bdc7c5; box-shadow: 0 10px 26px rgb(11 24 41 / 9%); }
 .calendar-day > header { padding: .9rem 1rem; background: linear-gradient(135deg, #ece9e1, #f3f1ea); }
-.calendar-day > header span { color: #516177; font-weight: 760; letter-spacing: .045em; }
-.calendar-day > header strong { color: var(--ink); font-size: .82rem; }
+.calendar-day > header span { color: #41536a; font-size: .78rem; font-weight: 820; letter-spacing: .045em; }
+.calendar-day > header strong { color: var(--ink); font-size: .9rem; }
 .calendar-day > div { gap: .7rem; padding: .75rem; }
 .calendar-empty { min-height: 54px; display: flex; align-items: center; margin: .4rem; }
 .calendar-event {
@@ -587,7 +599,7 @@ body {
   box-shadow: 0 5px 14px rgb(11 24 41 / 6%);
 }
 .calendar-event h3 { margin: .45rem 0 .6rem; color: var(--ink); line-height: 1.35; }
-.calendar-event time { margin-top: .55rem; color: #31465e; font-size: .8rem; font-weight: 820; line-height: 1.45; }
+.calendar-event time { width: fit-content; margin-top: .6rem; padding: .42rem .58rem; border: 1px solid rgb(229 169 54 / 28%); border-radius: 8px; color: #523b13; background: rgb(229 169 54 / 13%); font-size: .86rem; font-weight: 840; line-height: 1.4; }
 .calendar-event small { margin-top: .2rem; line-height: 1.45; }
 .calendar-event a {
   min-height: 44px;
@@ -606,6 +618,7 @@ body {
   box-shadow: none;
 }
 .calendar-event--past p, .calendar-event--past h3, .calendar-event--past time, .calendar-event--past small { color: #7b838c; }
+.calendar-event--past time { border-color: #d4d4cf; background: #e5e4df; }
 .calendar-event__past { color: #737b84; background: #e6e5e0; border-color: #d1d2cd; }
 .calendar-help { margin-top: 1.5rem; padding: 1rem 1.15rem; border: 1px solid #d8dad6; border-radius: 14px; background: rgb(255 253 248 / 72%); }
 
@@ -750,8 +763,10 @@ body {
   .course-card__top { margin-bottom: 1.25rem; }
   .course-card h3 { font-size: clamp(1.65rem, 8vw, 2.15rem); }
   .course-meta { margin-top: 1.25rem; padding: .75rem; }
+  .course-meta > div { padding: .8rem; }
   .course-meta dd { font-size: .8rem; }
-  .course-meta__time dd { font-size: 1.08rem; }
+  .course-meta__days dd { font-size: 1.02rem; }
+  .course-meta__time dd { font-size: 1.16rem; }
   .card-actions { grid-template-columns: 1fr; }
   .card-actions .button--text { grid-column: auto; }
   .schedule-card { gap: 1rem; margin-bottom: 2.5rem; padding: 1.15rem; border-radius: 20px; }
@@ -763,12 +778,14 @@ body {
   .schedule-toolbar > div > strong.bilingual-copy { display: flex; flex-wrap: wrap; justify-content: center; gap: .15rem .45rem; line-height: 1.35; }
   .schedule-toolbar > div > strong.bilingual-copy > [lang="hi"] { padding: 0; border: 0; }
   .calendar-day { border-radius: 18px; }
-  .calendar-day > header { padding: .85rem 1rem; }
+  .calendar-day > header { padding: .9rem 1rem; }
+  .calendar-day > header span { font-size: .82rem; }
+  .calendar-day > header strong { font-size: .94rem; }
   .calendar-event { padding: 1rem; }
   .calendar-event h3 { font-size: 1rem; }
-  .calendar-event time { font-size: .88rem; }
+  .calendar-event time { font-size: .96rem; }
   .calendar-event small { font-size: .73rem; }
-  .schedule-card__time dd { font-size: 1.12rem; }
+  .schedule-card__time dd { font-size: 1.2rem; }
   .calendar-event a { width: 100%; }
   .calendar-help { margin-bottom: 2.5rem; text-align: left; }
   .resource-library { gap: 1rem; }
