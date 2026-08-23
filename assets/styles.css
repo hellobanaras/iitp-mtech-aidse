@@ -515,6 +515,13 @@ body {
 .card-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
 .card-actions .button { width: 100%; min-height: 46px; }
 .card-actions .button--text { grid-column: 1 / -1; justify-content: flex-start; }
+.course-card--featured .button--quiet-light {
+  color: var(--navy);
+  border-color: #f5f3ec;
+  background: #f5f3ec;
+  box-shadow: 0 8px 18px rgb(0 0 0 / 18%);
+}
+.course-card--featured .button--quiet-light:hover { color: #071321; border-color: var(--white); background: var(--white); }
 .course-card--featured .button--text { color: #a7ddd8; background: rgb(39 143 137 / 12%); border-color: rgb(81 191 181 / 30%); }
 
 .lecture-row, .resource-card, .signal-card, .insight-list article, .quiz-item, .video-resource, .key-terms {
