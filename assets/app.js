@@ -331,23 +331,29 @@ async function unlockPrivateCapstones(username, code) {
 
 function privateProjectSection(id, text) {
   const projects = unlockedCapstones?.[id];
-  if (!projects) {
-    return `<section id="project" class="notes-section private-capstone"><div class="private-lock">
-      <span class="private-lock__badge">${text.ownerOnly}</span>
-      <p class="eyebrow">${text.privateCapstone}</p><h2>${text.privateCapstoneHeading}</h2>
-      <p class="private-lock__intro">${text.privateCapstoneIntro}</p>
-      <form class="private-login" data-capstone-login autocomplete="off">
-        <label>${text.username}<input name="username" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" required></label>
-        <label>${text.accessCode}<input name="code" type="password" inputmode="numeric" autocomplete="off" required></label>
-        <button class="button button--primary" type="submit">${text.unlockCapstone}</button>
-      </form>
-      <p class="private-lock__privacy">${text.privateCredentialsPrivacy}</p>
-      <p class="private-lock__error" data-capstone-error role="alert" hidden>${text.invalidCredentials}</p>
-    </div></section>`;
-  }
+  if (!projects) return "";
   const { en, hi } = projects;
   const pairedList = (english, hindi) => english.map((item, index) => `<li>${bilingualCopy(item, hindi[index])}</li>`).join("");
   return `<section id="project" class="notes-section project-brief"><p class="eyebrow">${text.capstoneLens}</p>${bilingualCopy(en.title, hi.title, "h2")}${bilingualCopy(en.pitch, hi.pitch, "div", "project-pitch")}<div class="project-grid"><div><h3>${text.problem}</h3>${bilingualCopy(en.problem, hi.problem, "p")}</div><div><h3>${text.learningValue}</h3>${bilingualCopy(en.learning, hi.learning, "p")}</div><div><h3>${text.mvp}</h3><ul>${pairedList(en.mvp, hi.mvp)}</ul></div><div><h3>${text.stretchGoals}</h3><ul>${pairedList(en.stretch, hi.stretch)}</ul></div></div><div class="build-plan"><h3>${text.buildPlan}</h3><ol>${pairedList(en.plan, hi.plan)}</ol></div></section>`;
+}
+
+function renderOwnerAccess(ctx) {
+  const { lang, text } = ctx;
+  const sessionActive = Boolean(unlockedCapstones);
+  main.innerHTML = `<section class="owner-access-page"><div class="private-lock">
+    <span class="private-lock__badge">${text.ownerOnly}</span>
+    <p class="eyebrow">${text.privateCapstone}</p>
+    ${sessionActive
+      ? `<h1>${text.ownerSessionActive}</h1><p class="private-lock__intro">${text.ownerSessionIntro}</p><a class="button button--primary" href="${href(lang, "/courses")}">${text.exploreSubjects} ${icon("arrow")}</a>`
+      : `<h1>${text.privateCapstoneHeading}</h1><p class="private-lock__intro">${text.ownerLoginIntro}</p>
+        <form class="private-login" data-capstone-login autocomplete="off">
+          <label>${text.username}<input name="username" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" required></label>
+          <label>${text.accessCode}<input name="code" type="password" inputmode="numeric" autocomplete="off" required></label>
+          <button class="button button--primary" type="submit">${text.unlockCapstone}</button>
+        </form>
+        <p class="private-lock__privacy">${text.privateCredentialsPrivacy}</p>
+        <p class="private-lock__error" data-capstone-error role="alert" hidden>${text.invalidCredentials}</p>`}
+  </div></section>`;
 }
 
 function renderLecture(id, ctx) {
@@ -356,7 +362,8 @@ function renderLecture(id, ctx) {
   const notes = noteCollection[id];
   if (!found || !notes) return renderNotFound(ctx);
   const { en, hi } = notes;
-  const navItems = [["coverage", text.coverage], ["slides", text.slideTrail], ["summary", text.fullSummary], ["signals", text.courseSignals], ["insights", text.insights], ["resources", text.furtherStudy], ["quiz", text.mcqs], ["project", text.privateCapstone]];
+  const navItems = [["coverage", text.coverage], ["slides", text.slideTrail], ["summary", text.fullSummary], ["signals", text.courseSignals], ["insights", text.insights], ["resources", text.furtherStudy], ["quiz", text.mcqs]];
+  if (unlockedCapstones?.[id]) navItems.push(["project", text.privateCapstone]);
   main.innerHTML = `<header class="lecture-hero"><div class="lecture-hero__meta"><a class="back-link" href="${href(lang, `/course/${found.course.slug}`)}">← ${escapeHtml(found.course.code)}</a><span>${text.lecture} ${String(found.number).padStart(2, "0")}</span><span>${escapeHtml(found.displayDate)} · ${escapeHtml(found.hi.displayDate)}</span></div>${compactBilingualCopy(en.title, hi.title, "h1")}${bilingualCopy(en.lede, hi.lede, "div", "lecture-hero__lede")}<dl><div><dt>${text.recording}</dt><dd>${escapeHtml(found.duration)}</dd></div><div><dt>${text.instructionalInterval}</dt><dd>${escapeHtml(en.instructionalInterval)}</dd></div><div><dt>${text.reviewLevel}</dt><dd>${compactBilingualCopy(en.reviewLevel, hi.reviewLevel)}</dd></div></dl></header>
     <div class="notes-layout"><aside class="notes-toc"><p>${text.onThisPage}</p><nav>${navItems.map(([anchor, label]) => `<a href="#${anchor}" data-scroll="${anchor}">${label}</a>`).join("")}</nav></aside><article class="notes-article">
       <section id="coverage" class="notes-section"><p class="eyebrow">${text.highLevelCoverage}</p><h2>${text.lectureAtGlance}</h2><div class="coverage-grid">${en.coverage.map((item, index) => `<div><span>${String(index + 1).padStart(2, "0")}</span>${compactBilingualCopy(item.title, hi.coverage[index].title, "h3")}${bilingualCopy(item.body, hi.coverage[index].body, "p")}</div>`).join("")}</div><div class="takeaway"><strong>${text.oneSentence}</strong>${bilingualCopy(en.takeaway, hi.takeaway, "p")}</div></section>
@@ -553,6 +560,7 @@ function route() {
   else if (parsed.route.startsWith("/resource/")) renderResourceViewer(parsed.parts[1], parsed.parts[2], ctx);
   else if (parsed.route.startsWith("/course/")) renderCourse(parsed.parts[1], ctx);
   else if (parsed.route.startsWith("/lecture/")) renderLecture(parsed.parts[1], ctx);
+  else if (parsed.route === "/owner-access") renderOwnerAccess(ctx);
   else renderNotFound(ctx);
   main.focus({ preventScroll: true });
   window.scrollTo({ top: 0, behavior: "instant" });
@@ -654,10 +662,6 @@ document.addEventListener("submit", async (event) => {
       String(formData.get("code") || "")
     );
     route();
-    const project = document.getElementById("project");
-    if (project) {
-      window.scrollTo({ top: window.scrollY + project.getBoundingClientRect().top, left: 0, behavior: "auto" });
-    }
   } catch {
     form.elements.code.value = "";
     error.hidden = false;

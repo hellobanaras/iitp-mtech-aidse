@@ -396,7 +396,10 @@ h1, h2, h3 { margin-top: 0; font-family: Georgia, "Times New Roman", serif; line
 .project-grid p, .project-grid li, .build-plan li { color: #b6c3d0; font-size: .8rem; }
 .build-plan { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #405168; }
 .build-plan ol { display: grid; gap: .5rem; padding-left: 1.2rem; }
-.private-capstone { padding: clamp(1rem, 4vw, 2rem); border-radius: 20px; background: linear-gradient(145deg, #142338, #0d1929); }
+.owner-access-page { min-height: calc(100vh - 150px); display: grid; place-items: center; padding: clamp(2rem, 7vw, 6rem) 1.25rem; background: radial-gradient(circle at 78% 24%, rgb(39 143 137 / 24%), transparent 24rem), var(--navy); }
+.owner-access-page .private-lock { width: min(100%, 760px); }
+.owner-access-page .private-lock h1 { margin: .45rem 0 1rem; color: var(--white); font: 500 clamp(2.2rem, 6vw, 4rem)/1.05 Georgia, serif; letter-spacing: -.04em; }
+.owner-access-page .private-lock > .button { margin-top: 1rem; }
 .private-lock { max-width: 700px; margin: 0 auto; padding: clamp(1.4rem, 5vw, 3.5rem); border: 1px solid rgb(255 255 255 / 12%); border-radius: 16px; color: var(--white); background: rgb(255 255 255 / 4%); }
 .private-lock .eyebrow { margin-top: 1.4rem; color: var(--amber); }
 .private-lock h2 { margin: .45rem 0 1rem; color: var(--white); font-size: clamp(2rem, 5vw, 3.4rem); }
@@ -836,6 +839,9 @@ body {
   .video-frame { min-height: 210px; }
   .private-login { grid-template-columns: 1fr; }
   .private-login .button { width: 100%; }
+  .owner-access-page { min-height: calc(100vh - 132px); padding: 1.25rem; }
+  .owner-access-page .private-lock { padding: 1.35rem; }
+  .owner-access-page .private-lock h1 { font-size: clamp(2rem, 10vw, 2.8rem); }
   .schedule-card dl { grid-template-columns: 1fr; }
   .schedule-toolbar { grid-template-columns: 1fr 1fr; }
   .schedule-toolbar > div { grid-column: 1 / -1; grid-row: 1; }
