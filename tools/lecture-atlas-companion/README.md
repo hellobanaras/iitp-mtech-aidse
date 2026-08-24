@@ -10,6 +10,7 @@ An unpacked Chrome Manifest V3 extension for reviewing lecture recordings withou
 - captures one explicitly selected tab to a local audio+video or audio-only WebM file;
 - keeps tab audio audible while capture is active;
 - stops automatically when the marked teaching interval or source video ends and saves a timing-map JSON sidecar with the stop reason;
+- immediately resumes incidental provider pauses while an authorized capture is active so accelerated playback and source-time mapping stay aligned;
 - prevents concurrent captures.
 
 Audio + visible tab is the production mode for lecture notes because timestamped frames preserve the slide and whiteboard source trail. Audio-only is a smaller transcript-draft mode and cannot support visual citations by itself. At accelerated playback, the sidecar maps a captured timestamp to the original lecture with `sourceSeconds = captureStartSourceSeconds + (captureSeconds × playbackRate)`.

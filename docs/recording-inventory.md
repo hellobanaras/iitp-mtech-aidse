@@ -1,6 +1,6 @@
 # Recording inventory
 
-Last checked: 23 August 2026 (America/Chicago)
+Last checked: 24 August 2026 (America/Chicago)
 
 This file records only technical metadata needed for study-note production. It intentionally omits participant names and private meeting details.
 
@@ -13,12 +13,15 @@ This file records only technical metadata needed for study-note production. It i
 | 17 Aug 2026 | numbered copy 2 | 39.5 MB | 4h 00m | view only | `idle/error`: same size and same static timeline pattern as copy 1 |
 | 17 Aug 2026 | numbered copy 3 | 12.1 MB | 1h 13m | view only | `idle/error`: silent, static participant-avatar recording |
 | 18 Aug 2026 | base recording | 236 MB | 2h 29m 44s | view only | `canonical`; verified instruction 0:00–1:11:43 and 1:13:08–1:21:39; notes published |
+| 24 Aug 2026 | base recording | 254 MB | 2h 43m 12s | view only | `canonical`; verified instruction 1:12–39:57 and 41:10–1:18:01; 1h25m11s idle/non-instructional material excluded; notes published |
 
 All August 17 variants have now been sampled across their timelines: the base recording is canonical and all three numbered variants are `idle/error`. The bounded canonical capture, clean transcript, 26-candidate slide review, categorized academic signals, and public note are complete.
 
 The learner confirmed that instruction in the four-hour base recording ends at `01:07:00`. The saved sidecar records `captureEndSourceSeconds: 4020` and `stopReason: marked-teaching-end`; the remaining 2h53m was not captured or transcribed. Processing found 1.65% silence, 66 distinct sampled visual hashes, 21 meaningful transitions, and 26 slide candidates, confirming substantive instruction throughout the bounded source.
 
 The August 18 base recording was swept before capture. Slides and worked examples are visible at the beginning, 37:53, 1:15:04, 1:20:30, and 1:21:38; the view has returned to the participant grid by 1:22:15 and remains idle later. Capture, clean transcription, and slide-frame review verified teaching intervals of `00:00–01:11:43` and `01:13:08–01:21:39`, separated by a brief connection interruption. The remaining ~1h08m tail is excluded, and the day-wise note is published.
+
+The August 24 base recording was the only new queue item. Its stable identity is `EAI 6401` plus the original filename `Reinforcement Learning-20260824_180948-Meeting Recording.mp4`. The pre-capture sweep found a participant grid at 0:00:33, instruction by 0:01:00, regret slides from 0:17:28, a short connection interruption around 0:39:58–0:41:10, worked examples through 1:18:01, and only participant/black idle states later. The bounded 2× visible-tab capture and source-time-restored transcript verified instructional intervals `01:12–39:57` and `41:10–1:18:01`. Processing retained 44 slide candidates from 83 sampled frames, measured only 3.03% silence inside the bounded capture, and recorded 77 distinct visual hashes with 23 meaningful transitions. The idle tail was excluded and the bilingual note with 25 explained MCQs was published.
 
 The folder was re-inventoried on 23 August 2026. It still contains exactly the five sources listed above; no filename, size, access mode, or visible source identity changed, so the deterministic review queue gained no EAI 6401 item.
 
@@ -36,6 +39,8 @@ Five-minute visual sampling and the timestamped transcript confirm that the reco
 
 The supplied EAI 6402 folder was re-inventoried on 23 August 2026. It still exposes only `Meta Learning-20260822_100819-Meeting Recording.mp4` at 291 MB; this source already has a completed canonical disposition and was not reopened.
 
+The EAI 6402 folder was checked again on 24 August 2026 and still contains exactly the same single completed source.
+
 ## EAI 6403 — Selective Topics in Generative AI
 
 | Nominal session | Source | Size | Reported duration | Access | Review state |
@@ -50,4 +55,6 @@ Microsoft Stream exposed no Download action for this view-only source. The permi
 
 The older supplied EAI 6403 link was also checked on 23 August 2026 and incorrectly resolved to the `course73` Meta Learning folder. It is retained only as historical configuration evidence and is no longer the active EAI 6403 source.
 
-The Moodle elective page was also rechecked after restoring the existing Microsoft session. Its schedules and Teams links remain unchanged. All visible EAI 6401, EAI 6402, and EAI 6403 sources now have completed dispositions, so the deterministic queue is empty.
+The `course74` people listing was checked again on 24 August 2026 and still exposes only the completed 23 August recording.
+
+The Moodle elective page was also rechecked after restoring the existing Microsoft session. Its schedules and Teams links remain unchanged. The 24 August check reached the Moodle login page because that separate session had expired, so Moodle schedule/link change verification is blocked until the learner signs in again. The deterministic recording queue is clear after completing and closing the 24 August EAI 6401 source.

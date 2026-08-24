@@ -127,9 +127,28 @@ async function toggleCapture() {
   await execute((teachingEndSeconds) => {
     const video = document.querySelector("video");
     if (!video) return false;
+    window.__lectureAtlasCaptureGuard?.stop?.();
+    const guard = {
+      stopped: false,
+      timer: null,
+      stop() {
+        this.stopped = true;
+        if (this.timer) clearInterval(this.timer);
+        video.removeEventListener("pause", keepPlaying);
+      }
+    };
+    const keepPlaying = () => {
+      if (guard.stopped || video.ended) return;
+      if (Number.isFinite(teachingEndSeconds) && video.currentTime >= teachingEndSeconds - 0.25) return;
+      if (video.paused) video.play().catch(() => {});
+    };
+    video.addEventListener("pause", keepPlaying);
+    guard.timer = setInterval(keepPlaying, 750);
+    window.__lectureAtlasCaptureGuard = guard;
     if (!window.__lectureAtlasEndWatcher) {
       window.__lectureAtlasEndWatcher = true;
       video.addEventListener("ended", () => {
+        guard.stop();
         chrome.runtime.sendMessage({ type: "SOURCE_VIDEO_ENDED" }).catch(() => {});
         window.__lectureAtlasEndWatcher = false;
       }, { once: true });
@@ -138,6 +157,7 @@ async function toggleCapture() {
       const stopAtTeachingEnd = () => {
         if (video.currentTime < teachingEndSeconds - 0.25) return;
         video.removeEventListener("timeupdate", stopAtTeachingEnd);
+        guard.stop();
         chrome.runtime.sendMessage({ type: "SOURCE_TEACHING_ENDED" }).catch(() => {});
       };
       video.addEventListener("timeupdate", stopAtTeachingEnd);
@@ -151,6 +171,7 @@ async function toggleCapture() {
     metadata: {
       ...playerState,
       tabTitle: activeTab.title,
+      sourceTabId: activeTab.id,
       captureStartSourceSeconds: playerState.currentTime,
       captureEndSourceSeconds: review?.marks?.end?.seconds ?? null,
       captureStartedAt: new Date().toISOString()

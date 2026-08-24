@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Lecture Atlas Companion",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Review permitted lecture recordings, mark teaching boundaries, and capture one selected tab locally.",
   "minimum_chrome_version": "116",
   "permissions": [

@@ -37,6 +37,8 @@ While seeking, build a slide trail containing the slide title or visible topic, 
 
 For view-only recordings, production capture must include the visible tab as well as audio. Audio-only capture is suitable for a transcript draft but cannot establish slide references. The companion saves capture timing metadata; at 2× playback map a captured frame back to the source with `sourceSeconds = captureStartSourceSeconds + (captureSeconds × playbackRate)`. Extract frames at regular intervals and scene changes, deduplicate visually similar frames, then use the remaining frames to build the slide trail.
 
+Before leaving a real-time capture unattended, keep the audio output stable and verify at least 15 seconds of continuous source-time progress. Connecting or disconnecting Bluetooth audio can make the provider pause playback; restart a capture whose timing map includes an unbounded pause instead of treating it as canonical evidence. The companion's playback guard may resume incidental provider pauses, but it does not replace this progress check.
+
 Do not trim short course announcements merely because they precede the main topic; include them in a clearly labeled administrative section when they affect assessment, schedule, or learning expectations.
 
 ## 3. Resolve duplicate or broken recordings

@@ -21,6 +21,18 @@ async function setCaptureState(state) {
   if (state.status === "recording") await chrome.action.setBadgeBackgroundColor({ color: "#ca3c48" });
 }
 
+async function stopPlaybackGuard(tabId) {
+  if (!Number.isInteger(tabId)) return;
+  try {
+    await chrome.scripting.executeScript({
+      target: { tabId },
+      func: () => window.__lectureAtlasCaptureGuard?.stop?.()
+    });
+  } catch {
+    // The source tab may already be closed; capture finalization must continue.
+  }
+}
+
 function reviewKey(metadata) {
   return metadata.url || metadata.tabTitle || "unknown-lecture";
 }
@@ -73,21 +85,30 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         const current = await captureState();
         if (current.status === "recording") throw new Error("Another lecture tab is already being captured.");
         await ensureOffscreen();
-        const state = { status: "recording", startedAt: Date.now(), mode: message.mode, title: message.metadata.title || message.metadata.tabTitle };
+        const state = {
+          status: "recording",
+          startedAt: Date.now(),
+          mode: message.mode,
+          title: message.metadata.title || message.metadata.tabTitle,
+          tabId: message.metadata.sourceTabId
+        };
         await chrome.runtime.sendMessage({ ...message, target: "offscreen" });
         await setCaptureState(state);
         sendResponse(state);
         break;
       }
       case "STOP_CAPTURE":
+        await stopPlaybackGuard((await captureState()).tabId);
         await chrome.runtime.sendMessage({ type: "STOP_CAPTURE", target: "offscreen", reason: message.reason || "manual-stop" });
         sendResponse({ ok: true });
         break;
       case "SOURCE_VIDEO_ENDED":
+        await stopPlaybackGuard((await captureState()).tabId);
         await chrome.runtime.sendMessage({ type: "STOP_CAPTURE", target: "offscreen", reason: "source-video-ended" });
         sendResponse({ ok: true });
         break;
       case "SOURCE_TEACHING_ENDED":
+        await stopPlaybackGuard((await captureState()).tabId);
         await chrome.runtime.sendMessage({ type: "STOP_CAPTURE", target: "offscreen", reason: "marked-teaching-end" });
         sendResponse({ ok: true });
         break;
