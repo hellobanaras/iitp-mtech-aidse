@@ -81,7 +81,7 @@ An occurrence remains visible after it ends so the weekly history is understanda
 
 ## 10. Resource folders are a public-release boundary
 
-Files under `resources/<course-slug>/` are intentionally public and are indexed into the site during deployment. Only add books, PDFs, or slide decks when redistribution is permitted. Private recordings, transcripts, participant information, and restricted course documents never enter this folder. PDF files may render inline; PPT/PPTX files use an inline public Office viewer with direct-open fallback.
+Files under `resources/<course-slug>/` and `resources/program/` are intentionally public and are indexed into the site during deployment. Only add books, PDFs, slide decks, or institute documents when redistribution is permitted. Private recordings, transcripts, participant information, and restricted course documents never enter this folder. PDF files may render inline; PPT/PPTX files use an inline public Office viewer with direct-open fallback. The authoritative Executive M.Tech AI & DSE curriculum is the permitted PDF under `resources/program/`; structured program facts such as curriculum year, total credits, and the cohort's current semester belong in `data/program.js`.
 
 ## 12. Recording links are source-navigation metadata
 

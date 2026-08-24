@@ -696,6 +696,9 @@ body {
   box-shadow: 0 10px 28px rgb(11 24 41 / 7%);
 }
 .resource-course .section-heading { margin-bottom: 1.35rem; }
+.program-resource-section { border-color: rgb(39 143 137 / 38%); background: linear-gradient(145deg, #fffdf8, #edf5f1); }
+.program-resource-section .resource-grid { grid-template-columns: minmax(0, 1fr); }
+.program-semester-pill { width: fit-content; display: inline-flex; margin-top: .8rem; padding: .38rem .65rem; border: 1px solid rgb(39 143 137 / 28%); border-radius: 999px; color: #176d67; background: rgb(39 143 137 / 9%); font-size: .68rem; font-weight: 820; }
 .resource-card { transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
 .resource-card:hover { transform: translateY(-2px); border-color: rgb(39 143 137 / 45%); box-shadow: 0 11px 25px rgb(11 24 41 / 10%); }
 .empty-state {

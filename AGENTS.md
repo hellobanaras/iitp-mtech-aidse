@@ -23,6 +23,7 @@ Important persistent lessons:
 - Keep past schedule occurrences visible for context, but mark an occurrence disabled and remove its Join action once its calculated end time has passed.
 - Every subject page must expose its verified recording-folder URL, and every published lecture row must expose the stable Microsoft Stream page URL captured from that subject folder. Strip transient `referrer` and `referrerScenario` parameters. Do not discover, store, or publish hidden manifests, signed media URLs, cookies, tokens, DRM data, or direct stream segments.
 - Public books and slide decks belong only in `resources/<course-slug>/`. Run `node tools/index_resources.mjs` after a permitted PDF/PPT/PPTX is added. Treat anything in this folder as publicly deployed; never copy private or redistribution-restricted course material into it.
+- Program-wide permitted documents belong in `resources/program/`. Treat the curriculum PDF there as the authoritative IIT Patna Executive M.Tech AI & DSE syllabus, and keep curriculum year, total credits, and the cohort's current semester synchronized in `data/program.js`.
 - Render direct YouTube video references with the privacy-enhanced inline player and retain an explicit external YouTube link. Do not embed arbitrary non-video pages.
 - Keep raw videos, participant data, private transcripts, model files, and processing caches under `.course-data/`, which must remain untracked.
 - Publish original study notes rather than recordings or verbatim transcripts.

@@ -6,6 +6,7 @@ import { lectureNotes } from "../data/lecture-notes.js";
 import { privateCapstoneVault } from "../data/private-capstones.enc.js";
 import { semesterSchedule } from "../data/schedule.js";
 import { courseResources } from "../data/resources.js";
+import { programProfile } from "../data/program.js";
 
 const errors = [];
 const assert = (condition, message) => {
@@ -157,8 +158,11 @@ for (const course of catalog.courses) {
 
 const resourceIds = courseResources.map((resource) => resource.id);
 assert(new Set(resourceIds).size === resourceIds.length, "Resource ids must be unique.");
+assert(programProfile.currentSemester === 4, "Program profile must identify the current cohort as Semester 4.");
+assert(programProfile.totalCredits === 84, "Program profile total credits must match the official syllabus.");
+const permittedResourceGroups = new Set([...scheduledSlugs, programProfile.resourceGroup.slug]);
 for (const resource of courseResources) {
-  assert(scheduledSlugs.includes(resource.course), `${resource.id}: resource has an unknown course.`);
+  assert(permittedResourceGroups.has(resource.course), `${resource.id}: resource has an unknown group.`);
   assert(["pdf", "presentation"].includes(resource.kind), `${resource.id}: unsupported resource kind.`);
   assert(/^resources\//.test(decodeURIComponent(resource.path)), `${resource.id}: resource path must stay under resources/.`);
 }

@@ -4,6 +4,7 @@ import { lectureNotes } from "../data/lecture-notes.js";
 import { ui } from "../data/i18n.js";
 import { semesterSchedule, scheduleBySlug } from "../data/schedule.js";
 import { courseResources } from "../data/resources.js";
+import { programProfile } from "../data/program.js";
 
 const main = document.querySelector("#main-content");
 const searchButton = document.querySelector("#search-button");
@@ -466,7 +467,9 @@ function renderResources(ctx, courseFilter = "") {
   const { lang, text, catalog } = ctx;
   const visible = courseFilter ? courseResources.filter((resource) => resource.course === courseFilter) : courseResources;
   const courses = courseFilter ? catalog.courses.filter((course) => course.slug === courseFilter) : catalog.courses;
-  main.innerHTML = `<section class="page-intro"><p class="kicker"><span></span>${text.resources}</p>${bilingualCopy(ui.en.resourceLibrary, ui.hi.resourceLibrary, "h1")}${bilingualCopy(ui.en.resourceIntro, ui.hi.resourceIntro, "div", "page-intro__copy")}</section><section class="section-shell resource-library">${courses.map((course) => {
+  const programItems = courseFilter ? [] : visible.filter((resource) => resource.course === programProfile.resourceGroup.slug);
+  const programSection = programItems.length ? `<section class="resource-course program-resource-section"><div class="section-heading"><div><p class="eyebrow">${escapeHtml(programProfile.resourceGroup.code)}</p>${compactBilingualCopy(programProfile.resourceGroup.title.en, programProfile.resourceGroup.title.hi, "h2")}<span class="program-semester-pill">${text.currentSemester}: ${programProfile.currentSemester} · ${programProfile.totalCredits} credits</span></div></div><div class="resource-grid">${programItems.map((resource) => resourceCard(resource, lang, text)).join("")}</div></section>` : "";
+  main.innerHTML = `<section class="page-intro"><p class="kicker"><span></span>${text.resources}</p>${bilingualCopy(ui.en.resourceLibrary, ui.hi.resourceLibrary, "h1")}${bilingualCopy(ui.en.resourceIntro, ui.hi.resourceIntro, "div", "page-intro__copy")}</section><section class="section-shell resource-library">${programSection}${courses.map((course) => {
     const items = visible.filter((resource) => resource.course === course.slug);
     return `<section class="resource-course"><div class="section-heading"><div><p class="eyebrow">${escapeHtml(course.code)}</p>${compactBilingualCopy(course.title, course.hi.title, "h2")}</div><a href="${href(lang, `/course/${course.slug}`)}">${text.openSubject} ${icon("arrow")}</a></div>${items.length ? `<div class="resource-grid">${items.map((resource) => resourceCard(resource, lang, text)).join("")}</div>` : `<div class="empty-state empty-state--compact"><span>${icon("file")}</span><h3>${text.noResources}</h3></div>`}</section>`;
   }).join("")}</section>`;
@@ -479,13 +482,19 @@ function resourceAbsoluteUrl(resource) {
 function renderResourceViewer(courseSlug, id, ctx) {
   const { lang, text, catalog } = ctx;
   const resource = courseResources.find((item) => item.course === courseSlug && item.id === id);
-  const course = catalog.courses.find((item) => item.slug === courseSlug);
+  const course = catalog.courses.find((item) => item.slug === courseSlug) || (courseSlug === programProfile.resourceGroup.slug ? {
+    slug: programProfile.resourceGroup.slug,
+    code: programProfile.code,
+    title: programProfile.resourceGroup.title.en,
+    hi: { title: programProfile.resourceGroup.title.hi }
+  } : null);
   if (!resource || !course) return renderNotFound(ctx);
   const titleHi = resource.titleHi || resource.title;
   const sourceUrl = resourceAbsoluteUrl(resource);
   const isLocal = ["localhost", "127.0.0.1"].includes(location.hostname);
   const viewer = resource.kind === "pdf" ? `<iframe class="document-frame" src="${escapeHtml(sourceUrl)}#view=FitH" title="${escapeHtml(resource.title)}"></iframe>` : !isLocal ? `<iframe class="document-frame" src="https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(sourceUrl)}" title="${escapeHtml(resource.title)}"></iframe>` : `<div class="viewer-fallback"><span>${icon("file")}</span><p>${text.viewerUnavailable}</p></div>`;
-  main.innerHTML = `<section class="viewer-header"><a class="back-link" href="${href(lang, `/resources/${courseSlug}`)}">← ${text.backToResources}</a><p class="eyebrow">${escapeHtml(course.code)} · ${escapeHtml(resource.extension.toUpperCase())}</p>${compactBilingualCopy(resource.title, titleHi, "h1")}<div class="viewer-actions"><a class="button button--primary" href="${escapeHtml(sourceUrl)}" target="_blank" rel="noreferrer">${text.openOriginal} ${icon("external")}</a><a class="button button--quiet" href="${escapeHtml(sourceUrl)}" download>${text.download}</a></div></section><section class="viewer-shell">${viewer}</section>`;
+  const backPath = courseSlug === programProfile.resourceGroup.slug ? "/resources" : `/resources/${courseSlug}`;
+  main.innerHTML = `<section class="viewer-header"><a class="back-link" href="${href(lang, backPath)}">← ${text.backToResources}</a><p class="eyebrow">${escapeHtml(course.code)} · ${escapeHtml(resource.extension.toUpperCase())}</p>${compactBilingualCopy(resource.title, titleHi, "h1")}<div class="viewer-actions"><a class="button button--primary" href="${escapeHtml(sourceUrl)}" target="_blank" rel="noreferrer">${text.openOriginal} ${icon("external")}</a><a class="button button--quiet" href="${escapeHtml(sourceUrl)}" download>${text.download}</a></div></section><section class="viewer-shell">${viewer}</section>`;
 }
 
 function renderNotFound(ctx, message = "") {
