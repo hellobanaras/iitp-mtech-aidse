@@ -1,10 +1,21 @@
-import { catalog as catalogBase } from "../data/catalog.js";
-import { localizeCatalog } from "../data/catalog-hi.js";
-import { lectureNotes } from "../data/lecture-notes.js";
-import { ui } from "../data/i18n.js";
-import { semesterSchedule, scheduleBySlug } from "../data/schedule.js";
-import { courseResources } from "../data/resources.js";
-import { programProfile } from "../data/program.js";
+const releaseVersion = new URL(import.meta.url).searchParams.get("v") || "dev";
+const [
+  { catalog: catalogBase },
+  { localizeCatalog },
+  { lectureNotes },
+  { ui },
+  { semesterSchedule, scheduleBySlug },
+  { courseResources },
+  { programProfile }
+] = await Promise.all([
+  import(`../data/catalog.js?v=${releaseVersion}`),
+  import(`../data/catalog-hi.js?v=${releaseVersion}`),
+  import(`../data/lecture-notes.js?v=${releaseVersion}`),
+  import(`../data/i18n.js?v=${releaseVersion}`),
+  import(`../data/schedule.js?v=${releaseVersion}`),
+  import(`../data/resources.js?v=${releaseVersion}`),
+  import(`../data/program.js?v=${releaseVersion}`)
+]);
 
 const main = document.querySelector("#main-content");
 const searchButton = document.querySelector("#search-button");
