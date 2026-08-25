@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-08-24",
+  updated: "2026-08-25",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 8,
+  filesInventoried: 9,
   courses: [
     {
       code: "EAI 6401",
@@ -14,8 +14,8 @@ export const catalog = {
       icon: "RL",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course72_hybrid_iitp_ac_in/IgAGzyBinTNjQ69x8TC7U-ZQAedbzLJLRwPOzm3drlcdWcc?e=fR761s",
       status: "active",
-      statusLabel: "3 lectures available",
-      note: "The August 17, 18, and 24 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error and excluded; the August 24 idle tail after 1:18:01 was also excluded.",
+      statusLabel: "4 lectures available",
+      note: "The August 17, 18, 24, and 25 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; long idle tails after the verified class intervals are excluded.",
       lectures: [
         {
           id: "eai-6401-2026-08-17",
@@ -52,6 +52,18 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Regret and action gaps", "Sample-average estimates", "10-armed testbed and worked exercise"]
+        },
+        {
+          id: "eai-6401-2026-08-25",
+          number: 4,
+          date: "2026-08-25",
+          displayDate: "25 August 2026",
+          title: "Incremental bandits, nonstationary tracking, and optimistic exploration",
+          duration: "1h 11m 13s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course72_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse72%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FReinforcement%20Learning%2D20260825%5F181536%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Incremental action-value updates", "Recency weighting for drift", "Optimistic exploration"]
         }
       ]
     },

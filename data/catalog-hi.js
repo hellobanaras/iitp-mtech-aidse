@@ -6,8 +6,8 @@ export const catalogHi = {
       shortTitle: "रीइन्फोर्समेंट लर्निंग",
       cadence: "सोमवार और मंगलवार",
       time: "शाम 6:00–7:30 IST",
-      statusLabel: "3 व्याख्यान उपलब्ध",
-      note: "17, 18 और 24 अगस्त के व्याख्यान कालानुक्रमिक क्रम में प्रकाशित हैं। 17 अगस्त की तीन क्रमांकित uploads निष्क्रिय/त्रुटिपूर्ण थीं; 24 अगस्त का 1:18:01 के बाद का idle tail भी हटाया गया।",
+      statusLabel: "4 व्याख्यान उपलब्ध",
+      note: "17, 18, 24 और 25 अगस्त के व्याख्यान कालानुक्रमिक क्रम में प्रकाशित हैं। 17 अगस्त की तीन क्रमांकित uploads निष्क्रिय/त्रुटिपूर्ण थीं और सत्यापित class intervals के बाद के लंबे idle tails हटा दिए गए हैं।",
       lectures: {
         "eai-6401-2026-08-17": {
           displayDate: "17 अगस्त 2026",
@@ -26,6 +26,12 @@ export const catalogHi = {
           title: "Regret, action-value estimation और 10-armed testbed",
           statusLabel: "नोट्स प्रकाशित",
           overview: ["Regret और action gaps", "Sample-average estimates", "10-armed testbed और worked exercise"]
+        },
+        "eai-6401-2026-08-25": {
+          displayDate: "25 अगस्त 2026",
+          title: "Incremental bandits, nonstationary tracking और optimistic exploration",
+          statusLabel: "नोट्स प्रकाशित",
+          overview: ["Incremental action-value updates", "Drift के लिए recency weighting", "Optimistic exploration"]
         }
       }
     },
