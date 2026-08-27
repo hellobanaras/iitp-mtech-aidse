@@ -75,4 +75,6 @@ The six folders below were verified from the signed-in IIT Patna Moodle “Lectu
 
 The next review pass will inspect these folders without opening multiple recordings, create a stable source queue ordered by original recording timestamp, and—where sources are contemporaneous—rotate one oldest eligible lecture per subject before revisiting any subject. The existing global oldest-first ordering remains authoritative.
 
+The first folder-access check (`course75`, ECS 6402) on 27 August 2026 reached Microsoft 365’s “You don't have permission to access this item” page in the current Chrome session. No file metadata was read and no recording was opened. Resume folder inventory only after the learner signs in to the institute Microsoft account that has access; the remaining new folders were intentionally not tried because they share the same access boundary.
+
 The Moodle elective page was also rechecked after restoring the existing Microsoft session. Its schedules and Teams links remain unchanged. The 24 August check reached the Moodle login page because that separate session had expired, so Moodle schedule/link change verification is blocked until the learner signs in again. The deterministic recording queue is clear after completing and closing the 24 August EAI 6401 source.
