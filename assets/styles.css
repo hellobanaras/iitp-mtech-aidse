@@ -619,9 +619,13 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 .course-hero .time-zone-panel__primary > span { color: #fde68a; }
 .course-hero .time-zone-panel--india .time-zone-panel__primary > span { color: #bfdbfe; }
 .course-hero .time-zone-panel__primary > strong { color: #f8fafc; }
+.course-hero .time-zone-panel__primary > small { color: #fef3c7; }
+.course-hero .time-zone-panel--india .time-zone-panel__primary > small { color: #dbeafe; }
 .course-hero .time-zone-panel__reference { color: #cbd5e1; }
-.course-hero .time-zone-panel__reference > span { color: #f8fafc; }
+.course-hero .time-zone-panel__reference > span { color: #cbd5e1; }
+.course-hero .time-zone-panel__reference > strong { color: #f8fafc; }
 .course-hero .time-zone-panel__shift { border-color: rgba(255, 255, 255, 0.12); color: #cbd5e1; }
+.course-hero .time-zone-panel__shift > span { color: #fcd34d; }
 .course-hero .time-zone-panel__shift > strong { color: #f8fafc; }
 .course-hero__facts dt { display: flex; align-items: center; gap: .4rem; color: #94a3b8; font-size: .7rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
 .course-hero__facts dt svg { width: 15px; height: 15px; }
