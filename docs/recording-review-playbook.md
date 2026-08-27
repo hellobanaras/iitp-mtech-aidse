@@ -10,6 +10,8 @@ Use this checklist before treating a video as a lecture source.
 4. Open only the first unprocessed recording. Triage it, reject or process it, persist the result, and close its tab before opening the next queue item.
 5. Keep transcription and frame processing local and sequentially associated with that source. Never play two recordings at once.
 
+When several newly added subjects have recordings in the same chronological cohort, review in subject rounds: take at most one oldest eligible source per subject before taking a second source from any of them. This rotation broadens coverage without overriding the primary oldest-first rule; never skip an older source merely to complete a round.
+
 When publishing, sort a course archive by date, source recording timestamp, then source filename. If the course has more than one valid lecture on a date, give each new lecture a time-qualified source-stable id (`<course>-YYYY-MM-DD-HHmmss-<six-char-source-hash>`); do not overwrite a date-only legacy note or assume its lecture number is sufficient to disambiguate it.
 
 ## 1. Inventory without assumptions

@@ -4,7 +4,7 @@ const [
   { localizeCatalog },
   { lectureNotes },
   { ui },
-  { semesterSchedule, scheduleBySlug },
+  { semesterSchedule, scheduleBySlug, meetingsForCourse },
   { courseResources },
   { programProfile }
 ] = await Promise.all([
@@ -149,18 +149,41 @@ function statusPill(course) {
   return `<span class="status status--${escapeHtml(course.status)}"><i></i>${escapeHtml(course.statusLabel)} · ${escapeHtml(course.hi.statusLabel)}</span>`;
 }
 
+function scheduleDays(schedule) {
+  const days = new Map();
+  meetingsForCourse(schedule).forEach((meeting) => meeting.weekdayLabels.en.forEach((day, index) => {
+    days.set(day, { en: day, hi: meeting.weekdayLabels.hi[index] ?? day });
+  }));
+  return [...days.values()];
+}
+
+function scheduleDaysCopy(schedule) {
+  const days = scheduleDays(schedule);
+  return bilingualCopy(days.map((day) => day.en).join(" & "), days.map((day) => day.hi).join(", "));
+}
+
+function scheduleJoinActions(schedule, text, className = "") {
+  const meetings = meetingsForCourse(schedule);
+  return meetings.map((meeting) => {
+    const label = meetings.length === 1
+      ? text.joinSession
+      : compactBilingualCopy(`Join ${meeting.weekdayLabels.en[0]}`, `शामिल हों · ${meeting.weekdayLabels.hi[0]}`, "span");
+    return `<a class="button button--primary${className ? ` ${className}` : ""}" href="${escapeHtml(meeting.joinUrl)}" target="_blank" rel="noreferrer">${label} ${icon("external")}</a>`;
+  }).join("");
+}
+
 function scheduleMeta(course, lang, text, compact = false) {
   const schedule = scheduleBySlug(course.slug);
   return `<dl class="course-meta${compact ? " course-meta--stack" : ""}">
-    <div class="course-meta__days"><dt>${icon("calendar")} ${text.classDays}</dt><dd>${bilingualCopy(schedule.weekdayLabels.en.join(" & "), schedule.weekdayLabels.hi.join(", "))}</dd></div>
-    <div class="course-meta__zones">${timeZonePresentation(course, "compact")}</div>
+    <div class="course-meta__days"><dt>${icon("calendar")} ${text.classDays}</dt><dd>${scheduleDaysCopy(schedule)}</dd></div>
+    <div class="course-meta__zones">${meetingsForCourse(schedule).map((meeting) => timeZonePresentation(course, "compact", null, meeting)).join("")}</div>
   </dl>`;
 }
 
 function courseActions(course, lang, text) {
   const schedule = scheduleBySlug(course.slug);
   return `<div class="card-actions">
-    <a class="button button--primary" href="${escapeHtml(schedule.joinUrl)}" target="_blank" rel="noreferrer">${text.joinSession} ${icon("external")}</a>
+    ${scheduleJoinActions(schedule, text)}
     <a class="button button--quiet-light" href="${escapeHtml(course.recordingUrl)}" target="_blank" rel="noreferrer">${text.allRecordings} ${icon("video")}</a>
     <a class="button button--quiet-light" href="${href(lang, coursePath(course))}">${text.openSubject} ${icon("arrow")}</a>
   </div>`;
@@ -207,7 +230,7 @@ function renderHome(ctx) {
         </div>
       </div>
       <ul class="hero-summary" aria-label="${escapeHtml(text.overview)}">
-        <li><strong>3</strong><span>${text.subjectsCount}</span></li>
+        <li><strong>${catalog.courses.length}</strong><span>${text.subjectsCount}</span></li>
         <li><strong>${notesReady}</strong><span>${text.notesPublished}</span></li>
         <li><strong>25</strong><span>${text.explainedMcqs}</span></li>
       </ul>
@@ -231,10 +254,10 @@ function scheduleCard(course, lang, text) {
   const schedule = scheduleBySlug(course.slug);
   return `<article class="schedule-card schedule-card--${schedule.accent}">
     <div><p class="eyebrow">${escapeHtml(schedule.code)} · ${escapeHtml(localizedValue(schedule.session))}</p>${compactBilingualCopy(schedule.title.en, schedule.title.hi, "h2")}</div>
-    <div class="day-chips">${schedule.weekdayLabels.en.map((day, index) => `<span>${escapeHtml(day)} · ${escapeHtml(schedule.weekdayLabels.hi[index] ?? "")}</span>`).join("")}</div>
-    <div class="schedule-card__details">${timeZonePresentation(course, "schedule")}<p class="schedule-card__term"><span>${text.schedule}</span>${text.runsThrough}</p></div>
+    <div class="day-chips">${meetingsForCourse(schedule).map((meeting) => `<span>${escapeHtml(meeting.weekdayLabels.en.join(" & "))}</span>`).join("")}</div>
+    <div class="schedule-card__details"><div class="time-zone-panel-list">${meetingsForCourse(schedule).map((meeting) => timeZonePresentation(course, "schedule", null, meeting)).join("")}</div><p class="schedule-card__term"><span>${text.schedule}</span>${text.runsThrough}</p></div>
     <div class="schedule-actions">
-      <a class="button button--primary" href="${escapeHtml(schedule.joinUrl)}" target="_blank" rel="noreferrer">${text.joinSession} ${icon("external")}</a>
+      ${scheduleJoinActions(schedule, text)}
       <a class="button button--quiet-light" href="${escapeHtml(course.recordingUrl)}" target="_blank" rel="noreferrer">${text.allRecordings} ${icon("video")}</a>
     </div>
   </article>`;
@@ -265,8 +288,8 @@ function renderCourse(slug, ctx) {
   main.innerHTML = `<section class="course-hero course-hero--${course.accent}">
       <div><a class="back-link" href="${href(lang, "/courses")}">← ${text.allSubjects}</a><p class="kicker"><span></span>${escapeHtml(course.code)}</p>${compactBilingualCopy(course.title, course.hi.title, "h1")}${bilingualCopy(course.note, course.hi.note, "div", "course-hero__description")}<div class="course-hero__actions"><a class="button button--quiet" href="${escapeHtml(course.recordingUrl)}" target="_blank" rel="noreferrer">${text.allRecordings} ${icon("external")}</a></div></div>
       <dl class="course-hero__facts">
-        <div class="course-hero__fact course-hero__fact--days"><dt>${icon("calendar")} ${text.classDays}</dt><dd>${bilingualCopy(schedule.weekdayLabels.en.join(" & "), schedule.weekdayLabels.hi.join(", "))}</dd></div>
-        <div class="course-hero__fact course-hero__fact--zones">${timeZonePresentation(course, "hero")}</div>
+        <div class="course-hero__fact course-hero__fact--days"><dt>${icon("calendar")} ${text.classDays}</dt><dd>${scheduleDaysCopy(schedule)}</dd></div>
+        <div class="course-hero__fact course-hero__fact--zones"><div class="time-zone-panel-list">${meetingsForCourse(schedule).map((meeting) => timeZonePresentation(course, "hero", null, meeting)).join("")}</div></div>
         <div class="course-hero__fact course-hero__fact--notes"><dt>${text.notes}</dt><dd>${publishedCount} ${text.published}</dd></div>
       </dl>
     </section>
@@ -426,15 +449,17 @@ function dateRange(startKey, endKey) {
   return dates;
 }
 
-const occurrences = semesterSchedule.courses.flatMap((course) => dateRange(semesterSchedule.startsOn, semesterSchedule.endsOn)
-  .filter((dateKey) => course.weekdays.includes(new Date(`${dateKey}T12:00:00Z`).getUTCDay()))
-  .map((dateKey) => ({
-    course,
-    indiaDate: dateKey,
-    start: indiaDateToUtc(dateKey, course.start),
-    end: indiaDateToUtc(dateKey, course.end)
-  }))
-).sort((left, right) => left.start - right.start);
+const occurrences = semesterSchedule.courses.flatMap((course) => meetingsForCourse(course).flatMap((meeting) =>
+  dateRange(semesterSchedule.startsOn, semesterSchedule.endsOn)
+    .filter((dateKey) => meeting.weekdays.includes(new Date(`${dateKey}T12:00:00Z`).getUTCDay()))
+    .map((dateKey) => ({
+      course,
+      meeting,
+      indiaDate: dateKey,
+      start: indiaDateToUtc(dateKey, meeting.start),
+      end: indiaDateToUtc(dateKey, meeting.end)
+    }))
+)).sort((left, right) => left.start - right.start);
 
 function zonedDateKey(date, timeZone = semesterSchedule.displayTimeZone) {
   const parts = new Intl.DateTimeFormat("en-CA", { timeZone, year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(date);
@@ -483,9 +508,9 @@ function zoneDay(date, timeZone) {
   return new Intl.DateTimeFormat("en-US", { timeZone, weekday: "short" }).format(date);
 }
 
-function chicagoTimeVariants(course) {
+function chicagoTimeVariants(course, meeting) {
   const variants = new Map();
-  occurrences.filter((occurrence) => occurrence.course.slug === course.slug).forEach((occurrence) => {
+  occurrences.filter((occurrence) => occurrence.course.slug === course.slug && occurrence.meeting.id === meeting.id).forEach((occurrence) => {
     const startDay = zoneDay(occurrence.start, semesterSchedule.displayTimeZone);
     const endDay = zoneDay(occurrence.end, semesterSchedule.displayTimeZone);
     const crossesDay = zonedDateKey(occurrence.start) !== zonedDateKey(occurrence.end);
@@ -562,7 +587,7 @@ function occurrenceZoneRange(occurrence, timeZone) {
   return `${start}–${endDay}${zoneClock(occurrence.end, timeZone)}`;
 }
 
-function timeZonePresentation(course, variant = "standard", occurrence = null) {
+function timeZonePresentation(course, variant = "standard", occurrence = null, meeting = null) {
   const schedule = scheduleBySlug(course.slug);
   if (occurrence) {
     const showChicago = preferredTimeZone === "chicago";
@@ -578,11 +603,12 @@ function timeZonePresentation(course, variant = "standard", occurrence = null) {
     </div>`;
   }
 
-  const variants = chicagoTimeVariants(course);
+  const activeMeeting = meeting ?? meetingsForCourse(schedule)[0];
+  const variants = chicagoTimeVariants(course, activeMeeting);
   const current = activeChicagoVariant(variants);
   const futureShift = current && variants.find((item) => item.first.start > current.last.start);
-  const indiaRange = clockRange(formatWallClock(schedule.start), formatWallClock(schedule.end));
-  const indiaDays = shortDayList(schedule.weekdayLabels.en);
+  const indiaRange = clockRange(formatWallClock(activeMeeting.start), formatWallClock(activeMeeting.end));
+  const indiaDays = shortDayList(activeMeeting.weekdayLabels.en);
   const showChicago = preferredTimeZone === "chicago";
   const chicagoRangeText = current ? clockRange(current.startTime, current.endTime) : "Time to be confirmed";
   const chicagoDays = chicagoDayLabel(current);
@@ -619,7 +645,7 @@ function renderSchedule(ctx) {
         const events = occurrences.filter((occurrence) => zonedDateKey(occurrence.start) === dayKey);
         return `<section class="calendar-day${events.length ? " calendar-day--active" : ""}"><header><span>${formatPlainDate(dayKey, "en-US", { weekday: "short" })} · ${formatPlainDate(dayKey, hindiDateLocale, { weekday: "short" })}</span><strong>${formatPlainDate(dayKey, "en-US", { month: "short", day: "numeric" })}</strong></header><div>${events.length ? events.map((occurrence) => {
           const isPast = occurrence.end <= now;
-          return `<article class="calendar-event calendar-event--${occurrence.course.accent}${isPast ? " calendar-event--past" : ""}"${isPast ? ' aria-disabled="true"' : ""}><p>${escapeHtml(occurrence.course.code.split(" /")[0])}</p>${compactBilingualCopy(occurrence.course.title.en, occurrence.course.title.hi, "h3")}${timeZonePresentation(occurrence.course, "calendar", occurrence)}${isPast ? `<span class="calendar-event__past">${text.pastClass}</span>` : `<a href="${escapeHtml(occurrence.course.joinUrl)}" target="_blank" rel="noreferrer">${text.joinSession} ${icon("external")}</a>`}</article>`;
+          return `<article class="calendar-event calendar-event--${occurrence.course.accent}${isPast ? " calendar-event--past" : ""}"${isPast ? ' aria-disabled="true"' : ""}><p>${escapeHtml(occurrence.course.code.split(" /")[0])}</p>${compactBilingualCopy(occurrence.course.title.en, occurrence.course.title.hi, "h3")}${timeZonePresentation(occurrence.course, "calendar", occurrence)}${isPast ? `<span class="calendar-event__past">${text.pastClass}</span>` : `<a href="${escapeHtml(occurrence.meeting.joinUrl)}" target="_blank" rel="noreferrer">${text.joinSession} ${icon("external")}</a>`}</article>`;
         }).join("") : `<p class="calendar-empty">${text.noClasses}</p>`}</div></section>`;
       }).join("")}</div>
       <div class="schedule-course-grid">${ctx.catalog.courses.map((course) => scheduleCard(course, lang, text)).join("")}</div>
@@ -808,8 +834,8 @@ function search(query) {
   ];
   searchResults.innerHTML = results.length ? results.map((result) => {
     const scheduleSummary = result.kind === "course" ? `<div class="search-result-card__schedule">
-      <span class="search-result-card__days">${icon("calendar")} ${bilingualCopy(result.schedule.weekdayLabels.en.join(" & "), result.schedule.weekdayLabels.hi.join(", "))}</span>
-      ${timeZonePresentation(result.schedule, "search")}
+      <span class="search-result-card__days">${icon("calendar")} ${scheduleDaysCopy(result.schedule)}</span>
+      <div class="time-zone-panel-list">${meetingsForCourse(result.schedule).map((meeting) => timeZonePresentation(result.schedule, "search", null, meeting)).join("")}</div>
     </div>` : "";
     return `<a class="search-result-card search-result-card--${result.kind}${result.accent ? ` search-result-card--${result.accent}` : ""}" href="${result.href}"><div class="search-result-card__main"><small>${escapeHtml(result.eyebrow)}</small>${compactBilingualCopy(result.title, result.titleHi, "strong")}${scheduleSummary}</div><span class="search-result-card__arrow">${icon("arrow")}</span></a>`;
   }).join("") : `<p class="search-hint">${ctx.text.noMatches} “${escapeHtml(query)}”</p>`;

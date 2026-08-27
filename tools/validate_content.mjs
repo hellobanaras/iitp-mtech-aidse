@@ -4,7 +4,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { catalog } from "../data/catalog.js";
 import { lectureNotes } from "../data/lecture-notes.js";
 import { privateCapstoneVault } from "../data/private-capstones.enc.js";
-import { semesterSchedule } from "../data/schedule.js";
+import { meetingsForCourse, semesterSchedule } from "../data/schedule.js";
 import { courseResources } from "../data/resources.js";
 import { programProfile } from "../data/program.js";
 
@@ -68,7 +68,7 @@ for (const course of catalog.courses) {
 }
 
 for (const lecture of lectures) {
-  assert(/^eai-640[123]-\d{4}-\d{2}-\d{2}(?:-\d{6}(?:-[a-z0-9]{6,})?)?$/.test(lecture.id), `${lecture.id}: invalid id format.`);
+  assert(new RegExp(`^${lecture.course.slug}-\\d{4}-\\d{2}-\\d{2}(?:-\\d{6}(?:-[a-z0-9]{6,})?)?$`).test(lecture.id), `${lecture.id}: invalid id format.`);
   assert(/^\d{4}-\d{2}-\d{2}$/.test(lecture.date), `${lecture.id}: invalid date.`);
   assert(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/.test(lecture.sourceRecordedAt || "")
     && !Number.isNaN(Date.parse(lecture.sourceRecordedAt)), `${lecture.id}: source recording timestamp is missing or invalid.`);
@@ -175,13 +175,19 @@ for (const course of catalog.courses) {
   const schedule = semesterSchedule.courses.find((item) => item.slug === course.slug);
   assert(Boolean(schedule), `${course.code}: schedule is missing.`);
   if (!schedule) continue;
-  assert(/^https:\/\/teams\.microsoft\.com\/meet\//.test(schedule.joinUrl), `${course.code}: Teams join URL is invalid.`);
-  assert(schedule.weekdays?.length > 0, `${course.code}: schedule weekdays are missing.`);
-  assert(/^\d{2}:\d{2}$/.test(schedule.start) && /^\d{2}:\d{2}$/.test(schedule.end), `${course.code}: schedule times are invalid.`);
+  const meetings = meetingsForCourse(schedule);
+  assert(meetings.length > 0, `${course.code}: schedule meetings are missing.`);
+  meetings.forEach((meeting) => {
+    assert(/^https:\/\/teams\.microsoft\.com\/meet\//.test(meeting.joinUrl), `${course.code}/${meeting.id}: Teams join URL is invalid.`);
+    assert(meeting.weekdays?.length > 0, `${course.code}/${meeting.id}: schedule weekdays are missing.`);
+    assert(/^\d{2}:\d{2}$/.test(meeting.start) && /^\d{2}:\d{2}$/.test(meeting.end), `${course.code}/${meeting.id}: schedule times are invalid.`);
+    assert(meeting.weekdayLabels?.en?.length === meeting.weekdays.length && meeting.weekdayLabels?.hi?.length === meeting.weekdays.length,
+      `${course.code}/${meeting.id}: weekday labels must align with weekdays.`);
+  });
   assert(!("indiaSummary" in schedule) && !("chicagoSummary" in schedule), `${course.code}: store source start/end only; timezone summaries are calculated centrally.`);
   const calendarText = readFileSync(new URL(`../calendar/${course.slug}.ics`, import.meta.url), "utf8");
   assert(calendarText.includes("BEGIN:VCALENDAR") && calendarText.includes("RRULE:FREQ=WEEKLY"), `${course.code}: recurring calendar file is invalid.`);
-  assert(calendarText.includes(schedule.joinUrl), `${course.code}: calendar file does not include the Teams URL.`);
+  meetings.forEach((meeting) => assert(calendarText.includes(meeting.joinUrl), `${course.code}/${meeting.id}: calendar file does not include the Teams URL.`));
   assert(calendarText.includes("UNTIL=20261130"), `${course.code}: calendar file does not run through 30 November 2026.`);
 }
 

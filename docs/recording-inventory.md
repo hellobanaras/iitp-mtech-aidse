@@ -1,6 +1,6 @@
 # Recording inventory
 
-Last checked: 25 August 2026 (America/Chicago)
+Last checked: 27 August 2026 (America/Chicago)
 
 This file records only technical metadata needed for study-note production. It intentionally omits participant names and private meeting details.
 
@@ -59,5 +59,20 @@ Microsoft Stream exposed no Download action for this view-only source. The permi
 The older supplied EAI 6403 link was also checked on 23 August 2026 and incorrectly resolved to the `course73` Meta Learning folder. It is retained only as historical configuration evidence and is no longer the active EAI 6403 source.
 
 The `course74` people listing was checked again on 24 August 2026 and still exposes only the completed 23 August recording.
+
+## Newly catalogued Moodle electives
+
+The six folders below were verified from the signed-in IIT Patna Moodle “Lecture Room and Recordings” card on 27 August 2026. Only the course-level links and recurring session data have been published at this stage. Their file inventories, sizes, durations, and individual human-facing Stream pages remain pending; no recording has been opened or captured yet.
+
+| Course | Verified recording folder | Review state |
+| --- | --- | --- |
+| ECS 6402 — Selected Topics in Wireless Networks | `course75` SharePoint folder | inventory pending |
+| EBB 6401 — Smart Contracts and Solidity Programming | `course77` SharePoint folder | inventory pending |
+| EBB 6403 — Security and Privacy for Big Data | `course78` SharePoint folder | inventory pending; separate Friday and Saturday sessions/Teams links recorded |
+| ECS 6401 / ESD 6301 — Advanced Time Series Analysis | `course129` SharePoint folder | inventory pending |
+| ECC 6404 — Data Warehousing | `course76` SharePoint folder | inventory pending |
+| EBB 6402 — Blockchain Policy — Legal, Social and Economic Impact | `course126` SharePoint folder | inventory pending; Tuesday and Thursday share one Teams link |
+
+The next review pass will inspect these folders without opening multiple recordings, create a stable source queue ordered by original recording timestamp, and—where sources are contemporaneous—rotate one oldest eligible lecture per subject before revisiting any subject. The existing global oldest-first ordering remains authoritative.
 
 The Moodle elective page was also rechecked after restoring the existing Microsoft session. Its schedules and Teams links remain unchanged. The 24 August check reached the Moodle login page because that separate session had expired, so Moodle schedule/link change verification is blocked until the learner signs in again. The deterministic recording queue is clear after completing and closing the 24 August EAI 6401 source.

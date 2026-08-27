@@ -66,6 +66,60 @@ export const catalogHi = {
           overview: ["Transformer architecture", "Tokens, embeddings और attention", "Temperature, top-k और top-p"]
         }
       }
+    },
+    "ecs-6402": {
+      title: "वायरलेस नेटवर्क में चयनित विषय",
+      shortTitle: "वायरलेस नेटवर्क",
+      cadence: "गुरुवार और शुक्रवार",
+      time: "रात ८:३०–१०:०० IST",
+      statusLabel: "रिकॉर्डिंग सूचीकरण लंबित",
+      note: "कक्षा कार्यक्रम, Teams session और recording folder IIT Patna Moodle card से सत्यापित हैं। course directory प्रकाशित होने के बाद सबसे पुरानी उपलब्ध recording साझा review queue में आएगी।",
+      lectures: {}
+    },
+    "ebb-6401": {
+      title: "स्मार्ट कॉन्ट्रैक्ट्स और Solidity प्रोग्रामिंग",
+      shortTitle: "स्मार्ट कॉन्ट्रैक्ट्स",
+      cadence: "सोमवार और बुधवार",
+      time: "शाम ६:००–७:३० IST",
+      statusLabel: "रिकॉर्डिंग सूचीकरण लंबित",
+      note: "कक्षा कार्यक्रम, Teams session और recording folder IIT Patna Moodle card से सत्यापित हैं। course directory प्रकाशित होने के बाद सबसे पुरानी उपलब्ध recording साझा review queue में आएगी।",
+      lectures: {}
+    },
+    "ebb-6403": {
+      title: "बिग डेटा के लिए सुरक्षा और गोपनीयता",
+      shortTitle: "बिग डेटा सुरक्षा",
+      cadence: "शुक्रवार और शनिवार",
+      time: "शुक्रवार रात ८:००–९:०० · शनिवार शाम ६:००–८:०० IST",
+      statusLabel: "रिकॉर्डिंग सूचीकरण लंबित",
+      note: "Moodle पर दी गई दोनों साप्ताहिक Teams sessions और साझा recording folder सत्यापित हैं। directory प्रकाशित होने के बाद सबसे पुराना उपलब्ध source साझा review queue में आएगा।",
+      lectures: {}
+    },
+    "ecs-6401": {
+      title: "उन्नत समय-श्रृंखला विश्लेषण",
+      shortTitle: "समय-श्रृंखला विश्लेषण",
+      cadence: "बुधवार और शुक्रवार",
+      time: "शाम ६:००–७:३० IST",
+      statusLabel: "रिकॉर्डिंग सूचीकरण लंबित",
+      note: "कक्षा कार्यक्रम, Teams session और recording folder IIT Patna Moodle card से सत्यापित हैं। course directory प्रकाशित होने के बाद सबसे पुरानी उपलब्ध recording साझा review queue में आएगी।",
+      lectures: {}
+    },
+    "ecc-6404": {
+      title: "डेटा वेयरहाउसिंग",
+      shortTitle: "डेटा वेयरहाउसिंग",
+      cadence: "सोमवार और बुधवार",
+      time: "शाम ७:३०–९:०० IST",
+      statusLabel: "रिकॉर्डिंग सूचीकरण लंबित",
+      note: "कक्षा कार्यक्रम, Teams session और recording folder IIT Patna Moodle card से सत्यापित हैं। course directory प्रकाशित होने के बाद सबसे पुरानी उपलब्ध recording साझा review queue में आएगी।",
+      lectures: {}
+    },
+    "ebb-6402": {
+      title: "ब्लॉकचेन नीति — कानूनी, सामाजिक और आर्थिक प्रभाव",
+      shortTitle: "ब्लॉकचेन नीति",
+      cadence: "मंगलवार और गुरुवार",
+      time: "शाम ६:००–७:३० IST",
+      statusLabel: "रिकॉर्डिंग सूचीकरण लंबित",
+      note: "कक्षा कार्यक्रम, Teams session और recording folder IIT Patna Moodle card से सत्यापित हैं। course directory प्रकाशित होने के बाद सबसे पुरानी उपलब्ध recording साझा review queue में आएगी।",
+      lectures: {}
     }
   }
 };

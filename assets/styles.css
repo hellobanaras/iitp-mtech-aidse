@@ -13,6 +13,11 @@
   --teal-dark: #0f766e;
   --cobalt: #2563eb;
   --cobalt-dark: #1d4ed8;
+  --violet: #7c3aed;
+  --indigo: #4f46e5;
+  --cyan: #0891b2;
+  --emerald: #059669;
+  --orange: #ea580c;
   --rose: #e11d48;
   --shadow-sm: 0 2px 8px -2px rgba(15, 23, 42, 0.08);
   --shadow: 0 16px 40px -12px rgba(15, 23, 42, 0.12);
@@ -423,6 +428,12 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 .home-course-card--teal { --accent: var(--teal); }
 .home-course-card--amber { --accent: var(--amber); }
 .home-course-card--cobalt { --accent: var(--cobalt); }
+.home-course-card--violet { --accent: var(--violet); }
+.home-course-card--rose { --accent: var(--rose); }
+.home-course-card--indigo { --accent: var(--indigo); }
+.home-course-card--cyan { --accent: var(--cyan); }
+.home-course-card--emerald { --accent: var(--emerald); }
+.home-course-card--orange { --accent: var(--orange); }
 .home-course-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--shadow-glow); }
 .home-course-card .course-monogram {
   width: 52px;
@@ -439,6 +450,11 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 }
 .home-course-card--teal .course-monogram { background: rgba(13, 148, 136, 0.08); box-shadow: inset 0 0 0 1px rgba(13, 148, 136, 0.2); }
 .home-course-card--amber .course-monogram { background: rgba(245, 158, 11, 0.08); box-shadow: inset 0 0 0 1px rgba(245, 158, 11, 0.2); }
+.home-course-card--violet .course-monogram, .home-course-card--indigo .course-monogram { background: rgba(79, 70, 229, 0.08); box-shadow: inset 0 0 0 1px rgba(79, 70, 229, 0.2); }
+.home-course-card--rose .course-monogram { background: rgba(225, 29, 72, 0.08); box-shadow: inset 0 0 0 1px rgba(225, 29, 72, 0.2); }
+.home-course-card--cyan .course-monogram { background: rgba(8, 145, 178, 0.08); box-shadow: inset 0 0 0 1px rgba(8, 145, 178, 0.2); }
+.home-course-card--emerald .course-monogram { background: rgba(5, 150, 105, 0.08); box-shadow: inset 0 0 0 1px rgba(5, 150, 105, 0.2); }
+.home-course-card--orange .course-monogram { background: rgba(234, 88, 12, 0.08); box-shadow: inset 0 0 0 1px rgba(234, 88, 12, 0.2); }
 .home-course-card__copy { min-width: 0; }
 .home-course-card__copy .eyebrow { display: block; margin-bottom: .3rem; color: var(--accent); }
 .home-course-card__copy > strong { display: block; color: var(--ink); font: 700 1.1rem/1.3 'Outfit', sans-serif; letter-spacing: -.01em; }
@@ -471,6 +487,12 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 .course-card--teal { --accent: var(--teal); }
 .course-card--amber { --accent: var(--amber); }
 .course-card--cobalt { --accent: var(--cobalt); }
+.course-card--violet { --accent: var(--violet); }
+.course-card--rose { --accent: var(--rose); }
+.course-card--indigo { --accent: var(--indigo); }
+.course-card--cyan { --accent: var(--cyan); }
+.course-card--emerald { --accent: var(--emerald); }
+.course-card--orange { --accent: var(--orange); }
 .course-card--featured {
   color: var(--white);
   background: linear-gradient(145deg, #070f1e, #0f1d35);
@@ -565,6 +587,7 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 .time-zone-panel--search .time-zone-panel__primary > small { font-size: .58rem; }
 .time-zone-panel--search .time-zone-panel__reference { font-size: .6rem; }
 .time-zone-panel--search .time-zone-panel__shift { grid-template-columns: 1fr; gap: .15rem; padding-top: .45rem; font-size: .59rem; }
+.time-zone-panel-list { min-width: 0; display: grid; gap: .72rem; }
 .card-link { display: inline-flex; align-items: center; justify-content: space-between; gap: .5rem; font-size: .8rem; font-weight: 800; }
 .card-link svg { width: 18px; transition: transform .2s ease; }
 .card-link:hover svg { transform: translateX(3px); }
@@ -598,6 +621,12 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 }
 .course-hero--teal { --course-accent: var(--teal); }
 .course-hero--amber { --course-accent: var(--amber); }
+.course-hero--violet { --course-accent: var(--violet); }
+.course-hero--rose { --course-accent: var(--rose); }
+.course-hero--indigo { --course-accent: var(--indigo); }
+.course-hero--cyan { --course-accent: var(--cyan); }
+.course-hero--emerald { --course-accent: var(--emerald); }
+.course-hero--orange { --course-accent: var(--orange); }
 .course-hero .kicker { margin-top: 3rem; }
 .course-hero .kicker span { background: var(--course-accent); }
 .course-hero h1 { max-width: 920px; margin-bottom: 1.2rem; font-size: clamp(2.4rem, 4.2vw, 4.3rem); font-weight: 700; }
@@ -833,6 +862,12 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 }
 .schedule-card--teal { --schedule-accent: var(--teal); }
 .schedule-card--amber { --schedule-accent: var(--amber); }
+.schedule-card--violet { --schedule-accent: var(--violet); }
+.schedule-card--rose { --schedule-accent: var(--rose); }
+.schedule-card--indigo { --schedule-accent: var(--indigo); }
+.schedule-card--cyan { --schedule-accent: var(--cyan); }
+.schedule-card--emerald { --schedule-accent: var(--emerald); }
+.schedule-card--orange { --schedule-accent: var(--orange); }
 .schedule-card h2 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.35rem); color: var(--ink); }
 .day-chips { display: flex; flex-wrap: wrap; gap: .45rem; }
 .day-chips span { padding: .35rem .7rem; border-radius: 999px; color: var(--white); background: var(--schedule-accent); font-size: .72rem; font-weight: 800; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2); }
@@ -861,6 +896,12 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 .calendar-event { --event-accent: var(--cobalt); padding: .95rem; border: 1px solid var(--line); border-left: 4px solid var(--event-accent); border-radius: 12px; background: var(--white); box-shadow: var(--shadow-sm); }
 .calendar-event--teal { --event-accent: var(--teal); }
 .calendar-event--amber { --event-accent: var(--amber); }
+.calendar-event--violet { --event-accent: var(--violet); }
+.calendar-event--rose { --event-accent: var(--rose); }
+.calendar-event--indigo { --event-accent: var(--indigo); }
+.calendar-event--cyan { --event-accent: var(--cyan); }
+.calendar-event--emerald { --event-accent: var(--emerald); }
+.calendar-event--orange { --event-accent: var(--orange); }
 .calendar-event p { margin: 0; color: var(--event-accent); font-size: .66rem; font-weight: 850; letter-spacing: .06em; }
 .calendar-event h3 { margin: .45rem 0 .65rem; color: var(--ink); font-size: .98rem; line-height: 1.35; }
 .calendar-event h3.bilingual-copy { grid-template-columns: 1fr; gap: .25rem; }

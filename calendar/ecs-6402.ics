@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Lecture Atlas//IIT Patna Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:ecs-6402-thursday-friday-2026@lecture-atlas
+DTSTAMP:20260822T120000Z
+DTSTART:20260820T150000Z
+DTEND:20260820T163000Z
+RRULE:FREQ=WEEKLY;BYDAY=TH,FR;UNTIL=20261130T182900Z
+SUMMARY:IIT Patna — Selected Topics in Wireless Networks
+DESCRIPTION:Online class via Microsoft Teams. https://teams.microsoft.com/meet/472502322608749?p=xgva9NT6xqpvczlFVr
+LOCATION:Microsoft Teams
+URL:https://teams.microsoft.com/meet/472502322608749?p=xgva9NT6xqpvczlFVr
+END:VEVENT
+END:VCALENDAR

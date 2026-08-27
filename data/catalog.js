@@ -1,5 +1,5 @@
 export const catalog = {
-  updated: "2026-08-25",
+  updated: "2026-08-27",
   semester: "Semester 4 · August–November 2026",
   filesInventoried: 9,
   courses: [
@@ -137,6 +137,102 @@ export const catalog = {
           overview: ["Transformer architecture", "Tokens, embeddings, and attention", "Temperature, top-k, and top-p"]
         }
       ]
+    },
+    {
+      code: "ECS 6402",
+      slug: "ecs-6402",
+      routeSlug: "ecs-6402-selected-topics-in-wireless-networks",
+      title: "Selected Topics in Wireless Networks",
+      shortTitle: "Wireless Networks",
+      cadence: "Thursday & Friday",
+      time: "8:30–10:00 PM IST",
+      accent: "violet",
+      icon: "WN",
+      recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
+      status: "waiting",
+      statusLabel: "Recording inventory pending",
+      note: "The class schedule, Teams session, and recording folder are verified from the IIT Patna Moodle card. The oldest available recording will enter the shared review queue after the course directory is published.",
+      lectures: []
+    },
+    {
+      code: "EBB 6401",
+      slug: "ebb-6401",
+      routeSlug: "ebb-6401-smart-contracts-and-solidity-programming",
+      title: "Smart Contracts and Solidity Programming",
+      shortTitle: "Smart Contracts",
+      cadence: "Monday & Wednesday",
+      time: "6:00–7:30 PM IST",
+      accent: "rose",
+      icon: "SC",
+      recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course77_hybrid_iitp_ac_in/IgCEBeWWlU_wQLE9fUZWW9fTAYhpk32mpJi8Lbo6Iba_Cy8?e=5wSELF",
+      status: "waiting",
+      statusLabel: "Recording inventory pending",
+      note: "The class schedule, Teams session, and recording folder are verified from the IIT Patna Moodle card. The oldest available recording will enter the shared review queue after the course directory is published.",
+      lectures: []
+    },
+    {
+      code: "EBB 6403",
+      slug: "ebb-6403",
+      routeSlug: "ebb-6403-security-and-privacy-for-big-data",
+      title: "Security and Privacy for Big Data",
+      shortTitle: "Big Data Security",
+      cadence: "Friday & Saturday",
+      time: "Friday 8:00–9:00 PM · Saturday 6:00–8:00 PM IST",
+      accent: "indigo",
+      icon: "SP",
+      recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course78_hybrid_iitp_ac_in/IgCwVcRuGq_lR6u1S5D-yQeRAb5jOjVzObdfYRB-vn1qvBQ?e=wtwqhi",
+      status: "waiting",
+      statusLabel: "Recording inventory pending",
+      note: "Both Moodle-listed weekly Teams sessions and the shared recording folder are verified. The earliest available source will enter the shared review queue after the directory is published.",
+      lectures: []
+    },
+    {
+      code: "ECS 6401 / ESD 6301",
+      slug: "ecs-6401",
+      routeSlug: "ecs-6401-advanced-time-series-analysis",
+      title: "Advanced Time Series Analysis",
+      shortTitle: "Time Series Analysis",
+      cadence: "Wednesday & Friday",
+      time: "6:00–7:30 PM IST",
+      accent: "cyan",
+      icon: "TS",
+      recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course129_hybrid_iitp_ac_in/IgC377O2f2n2SI6uo-EJPeMMAZbBcmUQN6fmgL_JHX60GiA?e=yUCaLx",
+      status: "waiting",
+      statusLabel: "Recording inventory pending",
+      note: "The class schedule, Teams session, and recording folder are verified from the IIT Patna Moodle card. The oldest available recording will enter the shared review queue after the course directory is published.",
+      lectures: []
+    },
+    {
+      code: "ECC 6404",
+      slug: "ecc-6404",
+      routeSlug: "ecc-6404-data-warehousing",
+      title: "Data Warehousing",
+      shortTitle: "Data Warehousing",
+      cadence: "Monday & Wednesday",
+      time: "7:30–9:00 PM IST",
+      accent: "emerald",
+      icon: "DW",
+      recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course76_hybrid_iitp_ac_in/IgAWWFJqFmpXRay8IkonggGRASO0x6czOy20BYDTjv8HHXI?e=5DXrhH",
+      status: "waiting",
+      statusLabel: "Recording inventory pending",
+      note: "The class schedule, Teams session, and recording folder are verified from the IIT Patna Moodle card. The oldest available recording will enter the shared review queue after the course directory is published.",
+      lectures: []
+    },
+    {
+      code: "EBB 6402",
+      slug: "ebb-6402",
+      routeSlug: "ebb-6402-blockchain-policy-legal-social-and-economic-impact",
+      title: "Blockchain Policy — Legal, Social and Economic Impact",
+      shortTitle: "Blockchain Policy",
+      cadence: "Tuesday & Thursday",
+      time: "6:00–7:30 PM IST",
+      accent: "orange",
+      icon: "BP",
+      recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course126_hybrid_iitp_ac_in/IgCHFNnPY4p5T6ER5i66wfU6ARez8raFCClh3yjgh9MvxQ4?e=BpEdrU",
+      status: "waiting",
+      statusLabel: "Recording inventory pending",
+      note: "The class schedule, Teams session, and recording folder are verified from the IIT Patna Moodle card. The oldest available recording will enter the shared review queue after the course directory is published.",
+      lectures: []
     }
   ]
 };
