@@ -23,11 +23,22 @@ const searchPanel = document.querySelector("#search-panel");
 const searchInput = document.querySelector("#site-search");
 const searchResults = document.querySelector("#search-results");
 const scrollFab = document.querySelector("#scroll-fab");
+const timeZoneToggle = document.querySelector("#time-zone-toggle");
 const navLinks = [...document.querySelectorAll("[data-nav]")];
 let scheduleWeekIndex = null;
 let unlockedCapstones = null;
 let lastScrollY = 0;
 let scrollFrame = 0;
+const timeZonePreferenceKey = "lecture-atlas-time-zone";
+const hindiDateLocale = "hi-IN-u-nu-deva";
+let preferredTimeZone = (() => {
+  try {
+    const saved = window.localStorage.getItem(timeZonePreferenceKey);
+    return saved === "india" || saved === "chicago" ? saved : "chicago";
+  } catch {
+    return "chicago";
+  }
+})();
 
 const escapeHtml = (value = "") => String(value)
   .replaceAll("&", "&amp;")
@@ -142,8 +153,7 @@ function scheduleMeta(course, lang, text, compact = false) {
   const schedule = scheduleBySlug(course.slug);
   return `<dl class="course-meta${compact ? " course-meta--stack" : ""}">
     <div class="course-meta__days"><dt>${icon("calendar")} ${text.classDays}</dt><dd>${bilingualCopy(schedule.weekdayLabels.en.join(" & "), schedule.weekdayLabels.hi.join(", "))}</dd></div>
-    <div class="course-meta__time"><dt>${icon("clock")} ${text.indiaTime}</dt><dd>${bilingualCopy(schedule.indiaSummary.en, schedule.indiaSummary.hi)}</dd></div>
-    <div class="course-meta__wide course-meta__time"><dt>${icon("clock")} ${text.chicagoTime}</dt><dd>${bilingualCopy(schedule.chicagoSummary.en, schedule.chicagoSummary.hi)}</dd></div>
+    <div class="course-meta__zones">${timeZonePresentation(course, "compact")}</div>
   </dl>`;
 }
 
@@ -222,11 +232,7 @@ function scheduleCard(course, lang, text) {
   return `<article class="schedule-card schedule-card--${schedule.accent}">
     <div><p class="eyebrow">${escapeHtml(schedule.code)} · ${escapeHtml(localizedValue(schedule.session))}</p>${compactBilingualCopy(schedule.title.en, schedule.title.hi, "h2")}</div>
     <div class="day-chips">${schedule.weekdayLabels.en.map((day, index) => `<span>${escapeHtml(day)} · ${escapeHtml(schedule.weekdayLabels.hi[index] ?? "")}</span>`).join("")}</div>
-    <dl>
-      <div class="schedule-card__time"><dt>${text.indiaTime}</dt><dd>${bilingualCopy(schedule.indiaSummary.en, schedule.indiaSummary.hi)}</dd></div>
-      <div class="schedule-card__time"><dt>${text.chicagoTime}</dt><dd>${bilingualCopy(schedule.chicagoSummary.en, schedule.chicagoSummary.hi)}</dd></div>
-      <div><dt>${text.schedule}</dt><dd>${text.runsThrough}</dd></div>
-    </dl>
+    <div class="schedule-card__details">${timeZonePresentation(course, "schedule")}<p class="schedule-card__term"><span>${text.schedule}</span>${text.runsThrough}</p></div>
     <div class="schedule-actions">
       <a class="button button--primary" href="${escapeHtml(schedule.joinUrl)}" target="_blank" rel="noreferrer">${text.joinSession} ${icon("external")}</a>
       <a class="button button--quiet-light" href="${escapeHtml(course.recordingUrl)}" target="_blank" rel="noreferrer">${text.allRecordings} ${icon("video")}</a>
@@ -260,8 +266,7 @@ function renderCourse(slug, ctx) {
       <div><a class="back-link" href="${href(lang, "/courses")}">← ${text.allSubjects}</a><p class="kicker"><span></span>${escapeHtml(course.code)}</p>${compactBilingualCopy(course.title, course.hi.title, "h1")}${bilingualCopy(course.note, course.hi.note, "div", "course-hero__description")}<div class="course-hero__actions"><a class="button button--quiet" href="${escapeHtml(course.recordingUrl)}" target="_blank" rel="noreferrer">${text.allRecordings} ${icon("external")}</a></div></div>
       <dl class="course-hero__facts">
         <div class="course-hero__fact course-hero__fact--days"><dt>${icon("calendar")} ${text.classDays}</dt><dd>${bilingualCopy(schedule.weekdayLabels.en.join(" & "), schedule.weekdayLabels.hi.join(", "))}</dd></div>
-        <div class="course-hero__fact course-hero__fact--time"><dt>${icon("clock")} ${text.indiaTime}</dt><dd>${bilingualCopy(schedule.indiaSummary.en, schedule.indiaSummary.hi)}</dd></div>
-        <div class="course-hero__fact course-hero__fact--time"><dt>${icon("clock")} ${text.chicagoTime}</dt><dd>${bilingualCopy(schedule.chicagoSummary.en, schedule.chicagoSummary.hi)}</dd></div>
+        <div class="course-hero__fact course-hero__fact--zones">${timeZonePresentation(course, "hero")}</div>
         <div class="course-hero__fact course-hero__fact--notes"><dt>${text.notes}</dt><dd>${publishedCount} ${text.published}</dd></div>
       </dl>
     </section>
@@ -456,12 +461,144 @@ function formatPlainDate(dateKey, locale, options = {}) {
   return new Intl.DateTimeFormat(locale, { timeZone: "UTC", ...options }).format(new Date(`${dateKey}T12:00:00Z`));
 }
 
-function chicagoEventTime(occurrence, locale) {
-  const dateFormatter = new Intl.DateTimeFormat(locale, { timeZone: semesterSchedule.displayTimeZone, weekday: "short", month: "short", day: "numeric" });
-  const weekdayFormatter = new Intl.DateTimeFormat(locale, { timeZone: semesterSchedule.displayTimeZone, weekday: "short" });
-  const timeFormatter = new Intl.DateTimeFormat("en-US", { timeZone: semesterSchedule.displayTimeZone, hour: "numeric", minute: "2-digit", timeZoneName: "short" });
-  const endDay = zonedDateKey(occurrence.start) === zonedDateKey(occurrence.end) ? "" : `${weekdayFormatter.format(occurrence.end)} `;
-  return `${dateFormatter.format(occurrence.start)} · ${timeFormatter.format(occurrence.start)}–${endDay}${timeFormatter.format(occurrence.end)}`;
+function formatWallClock(time) {
+  return new Intl.DateTimeFormat("en-US", { timeZone: "UTC", hour: "numeric", minute: "2-digit" })
+    .format(new Date(`1970-01-01T${time}:00Z`));
+}
+
+function shortDayList(days) {
+  return days.map((day) => day.slice(0, 3)).join(" & ");
+}
+
+function zoneName(date, timeZone) {
+  return new Intl.DateTimeFormat("en-US", { timeZone, timeZoneName: "short" })
+    .formatToParts(date).find((part) => part.type === "timeZoneName")?.value ?? "CT";
+}
+
+function zoneClock(date, timeZone) {
+  return new Intl.DateTimeFormat("en-US", { timeZone, hour: "numeric", minute: "2-digit" }).format(date);
+}
+
+function zoneDay(date, timeZone) {
+  return new Intl.DateTimeFormat("en-US", { timeZone, weekday: "short" }).format(date);
+}
+
+function chicagoTimeVariants(course) {
+  const variants = new Map();
+  occurrences.filter((occurrence) => occurrence.course.slug === course.slug).forEach((occurrence) => {
+    const startDay = zoneDay(occurrence.start, semesterSchedule.displayTimeZone);
+    const endDay = zoneDay(occurrence.end, semesterSchedule.displayTimeZone);
+    const crossesDay = zonedDateKey(occurrence.start) !== zonedDateKey(occurrence.end);
+    const startTime = zoneClock(occurrence.start, semesterSchedule.displayTimeZone);
+    const endTime = zoneClock(occurrence.end, semesterSchedule.displayTimeZone);
+    const abbreviation = zoneName(occurrence.start, semesterSchedule.displayTimeZone);
+    const key = [startTime, endTime, abbreviation, crossesDay].join("|");
+    const variant = variants.get(key) ?? {
+      abbreviation,
+      startTime,
+      endTime,
+      crossesDay,
+      startDays: new Set(),
+      endDays: new Set(),
+      first: occurrence,
+      last: occurrence,
+      occurrences: []
+    };
+    variant.startDays.add(startDay);
+    variant.endDays.add(endDay);
+    variant.last = occurrence;
+    variant.occurrences.push(occurrence);
+    variants.set(key, variant);
+  });
+  return [...variants.values()].sort((left, right) => left.first.start - right.first.start);
+}
+
+function chicagoRange(variant) {
+  const start = `${[...variant.startDays].join(" & ")} · ${variant.startTime}`;
+  const endDay = variant.crossesDay ? `${[...variant.endDays].join(" & ")} · ` : "";
+  return `${start}–${endDay}${variant.endTime}`;
+}
+
+function chicagoDayLabel(variant) {
+  if (!variant) return "";
+  const starts = [...variant.startDays].join(" & ");
+  const ends = [...variant.endDays].join(" & ");
+  return variant.crossesDay && starts !== ends ? `${starts} → ${ends}` : starts;
+}
+
+function clockRange(start, end) {
+  return `${start}–${end}`;
+}
+
+function monthDay(date) {
+  return new Intl.DateTimeFormat("en-US", { timeZone: semesterSchedule.displayTimeZone, month: "short", day: "numeric" }).format(date);
+}
+
+function activeChicagoVariant(variants) {
+  const now = new Date();
+  return variants.find((variant) => variant.occurrences.some((occurrence) => occurrence.end > now))
+    ?? variants.at(-1)
+    ?? null;
+}
+
+function chicagoShiftDate(current, future) {
+  if (!current || !future) return "";
+  const lastCurrentDate = zonedDateKey(current.last.start);
+  const firstFutureDate = zonedDateKey(future.first.start);
+  for (let dateKey = addDays(lastCurrentDate, 1); dateKey <= firstFutureDate; dateKey = addDays(dateKey, 1)) {
+    const probe = new Date(`${dateKey}T12:00:00Z`);
+    if (zoneName(probe, semesterSchedule.displayTimeZone) !== current.abbreviation) {
+      return formatPlainDate(dateKey, "en-US", { month: "short", day: "numeric" });
+    }
+  }
+  return monthDay(future.first.start);
+}
+
+function occurrenceZoneRange(occurrence, timeZone) {
+  const start = `${zoneDay(occurrence.start, timeZone)} · ${zoneClock(occurrence.start, timeZone)}`;
+  const endDay = zonedDateKey(occurrence.start, timeZone) === zonedDateKey(occurrence.end, timeZone)
+    ? ""
+    : `${zoneDay(occurrence.end, timeZone)} · `;
+  return `${start}–${endDay}${zoneClock(occurrence.end, timeZone)}`;
+}
+
+function timeZonePresentation(course, variant = "standard", occurrence = null) {
+  const schedule = scheduleBySlug(course.slug);
+  if (occurrence) {
+    const showChicago = preferredTimeZone === "chicago";
+    const chicagoAbbreviation = zoneName(occurrence.start, semesterSchedule.displayTimeZone);
+    const primaryLabel = showChicago ? `Chicago · ${chicagoAbbreviation}` : "India · IST";
+    const primaryRange = occurrenceZoneRange(occurrence, showChicago ? semesterSchedule.displayTimeZone : semesterSchedule.sourceTimeZone);
+    const referenceLabel = showChicago ? "Original IST" : `Chicago · ${chicagoAbbreviation}`;
+    const referenceRange = occurrenceZoneRange(occurrence, showChicago ? semesterSchedule.sourceTimeZone : semesterSchedule.displayTimeZone);
+    return `<div class="time-zone-inline time-zone-inline--${variant}">
+      <span class="time-zone-inline__zone">${escapeHtml(primaryLabel)}</span>
+      <strong>${escapeHtml(primaryRange)}</strong>
+      <small>${escapeHtml(referenceLabel)} · ${escapeHtml(referenceRange)}</small>
+    </div>`;
+  }
+
+  const variants = chicagoTimeVariants(course);
+  const current = activeChicagoVariant(variants);
+  const futureShift = current && variants.find((item) => item.first.start > current.last.start);
+  const indiaRange = clockRange(formatWallClock(schedule.start), formatWallClock(schedule.end));
+  const indiaDays = shortDayList(schedule.weekdayLabels.en);
+  const showChicago = preferredTimeZone === "chicago";
+  const chicagoRangeText = current ? clockRange(current.startTime, current.endTime) : "Time to be confirmed";
+  const chicagoDays = chicagoDayLabel(current);
+  const chicagoLabel = `Chicago · ${current?.abbreviation ?? "CT"}`;
+  const primaryLabel = showChicago ? chicagoLabel : "India · IST";
+  const primaryRange = showChicago ? chicagoRangeText : indiaRange;
+  const primaryDays = showChicago ? chicagoDays : indiaDays;
+  const referenceLabel = showChicago ? "Original IST" : chicagoLabel;
+  const referenceRange = showChicago ? indiaRange : chicagoRangeText;
+  const referenceDays = showChicago ? indiaDays : chicagoDays;
+  return `<section class="time-zone-panel time-zone-panel--${variant} time-zone-panel--${showChicago ? "chicago" : "india"}" aria-label="India and Chicago class times">
+    <div class="time-zone-panel__head"><span>${icon("clock")} Class time</span><small>${showChicago ? "Chicago" : "India"} display</small></div>
+    <div class="time-zone-panel__primary"><span>${escapeHtml(primaryLabel)}</span><strong>${escapeHtml(primaryRange)}</strong><small>${escapeHtml(primaryDays)}</small></div>
+    <p class="time-zone-panel__reference"><span>${escapeHtml(referenceLabel)}</span><strong>${escapeHtml(referenceDays ? `${referenceDays} · ${referenceRange}` : referenceRange)}</strong></p>
+    ${futureShift ? `<p class="time-zone-panel__shift"><span>Time changes ${escapeHtml(chicagoShiftDate(current, futureShift))}</span><strong>${escapeHtml(futureShift.abbreviation)} · ${escapeHtml(clockRange(futureShift.startTime, futureShift.endTime))}</strong></p>` : ""}
+  </section>`;
 }
 
 function renderSchedule(ctx) {
@@ -477,12 +614,12 @@ function renderSchedule(ctx) {
   const days = Array.from({ length: 7 }, (_, index) => addDays(weekKey, index));
   main.innerHTML = `<section class="page-intro page-intro--schedule"><p class="kicker"><span></span>${text.schedule}</p>${bilingualCopy(ui.en.weeklySchedule, ui.hi.weeklySchedule, "h1")}${bilingualCopy(ui.en.scheduleIntro, ui.hi.scheduleIntro, "div", "page-intro__copy")}</section>
     <section class="section-shell schedule-shell">
-      <div class="schedule-toolbar"><button type="button" class="button button--quiet-light" data-week="-1" ${scheduleWeekIndex === 0 ? "disabled" : ""}>← ${text.previousWeek}</button><div><span>${text.weekOf}</span>${bilingualCopy(formatPlainDate(weekKey, "en-US", { month: "long", day: "numeric", year: "numeric" }), formatPlainDate(weekKey, "hi-IN", { month: "long", day: "numeric", year: "numeric" }), "strong")}</div><button type="button" class="button button--quiet-light" data-week="1" ${scheduleWeekIndex === scheduleWeeks.length - 1 ? "disabled" : ""}>${text.nextWeek} →</button></div>
+      <div class="schedule-toolbar"><button type="button" class="button button--quiet-light" data-week="-1" ${scheduleWeekIndex === 0 ? "disabled" : ""}>← ${text.previousWeek}</button><div><span>${text.weekOf}</span>${bilingualCopy(formatPlainDate(weekKey, "en-US", { month: "long", day: "numeric", year: "numeric" }), formatPlainDate(weekKey, hindiDateLocale, { month: "long", day: "numeric", year: "numeric" }), "strong", "schedule-toolbar__date")}</div><button type="button" class="button button--quiet-light" data-week="1" ${scheduleWeekIndex === scheduleWeeks.length - 1 ? "disabled" : ""}>${text.nextWeek} →</button></div>
       <div class="week-calendar">${days.map((dayKey) => {
         const events = occurrences.filter((occurrence) => zonedDateKey(occurrence.start) === dayKey);
-        return `<section class="calendar-day${events.length ? " calendar-day--active" : ""}"><header><span>${formatPlainDate(dayKey, "en-US", { weekday: "short" })} · ${formatPlainDate(dayKey, "hi-IN", { weekday: "short" })}</span><strong>${formatPlainDate(dayKey, "en-US", { month: "short", day: "numeric" })}</strong></header><div>${events.length ? events.map((occurrence) => {
+        return `<section class="calendar-day${events.length ? " calendar-day--active" : ""}"><header><span>${formatPlainDate(dayKey, "en-US", { weekday: "short" })} · ${formatPlainDate(dayKey, hindiDateLocale, { weekday: "short" })}</span><strong>${formatPlainDate(dayKey, "en-US", { month: "short", day: "numeric" })}</strong></header><div>${events.length ? events.map((occurrence) => {
           const isPast = occurrence.end <= now;
-          return `<article class="calendar-event calendar-event--${occurrence.course.accent}${isPast ? " calendar-event--past" : ""}"${isPast ? ' aria-disabled="true"' : ""}><p>${escapeHtml(occurrence.course.code.split(" /")[0])}</p>${compactBilingualCopy(occurrence.course.title.en, occurrence.course.title.hi, "h3")}<time>${escapeHtml(chicagoEventTime(occurrence, locale))}</time><small>${text.originalIst}: ${escapeHtml(occurrence.indiaDate)} · ${escapeHtml(occurrence.course.start)}–${escapeHtml(occurrence.course.end)}</small>${isPast ? `<span class="calendar-event__past">${text.pastClass}</span>` : `<a href="${escapeHtml(occurrence.course.joinUrl)}" target="_blank" rel="noreferrer">${text.joinSession} ${icon("external")}</a>`}</article>`;
+          return `<article class="calendar-event calendar-event--${occurrence.course.accent}${isPast ? " calendar-event--past" : ""}"${isPast ? ' aria-disabled="true"' : ""}><p>${escapeHtml(occurrence.course.code.split(" /")[0])}</p>${compactBilingualCopy(occurrence.course.title.en, occurrence.course.title.hi, "h3")}${timeZonePresentation(occurrence.course, "calendar", occurrence)}${isPast ? `<span class="calendar-event__past">${text.pastClass}</span>` : `<a href="${escapeHtml(occurrence.course.joinUrl)}" target="_blank" rel="noreferrer">${text.joinSession} ${icon("external")}</a>`}</article>`;
         }).join("") : `<p class="calendar-empty">${text.noClasses}</p>`}</div></section>`;
       }).join("")}</div>
       <div class="schedule-course-grid">${ctx.catalog.courses.map((course) => scheduleCard(course, lang, text)).join("")}</div>
@@ -552,6 +689,10 @@ function setChrome(ctx, route) {
   });
   searchButton.querySelector(".search-button__label").textContent = text.search;
   searchButton.setAttribute("aria-label", text.search);
+  timeZoneToggle.querySelectorAll("[data-time-zone]").forEach((button) => {
+    const selected = button.dataset.timeZone === preferredTimeZone;
+    button.setAttribute("aria-pressed", String(selected));
+  });
   searchPanel.querySelector("label").textContent = text.searchLabel;
   searchInput.placeholder = text.searchPlaceholder;
   document.querySelector(".site-footer p:first-child").textContent = text.footerNotice;
@@ -559,7 +700,7 @@ function setChrome(ctx, route) {
   document.querySelector("#footer-count-label").textContent = text.verifiedNotes;
   document.querySelector("#footer-updated-label").textContent = text.updated;
   const updatedDate = new Date(`${catalog.updated}T12:00:00`);
-  document.querySelector("#footer-date").textContent = `${new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(updatedDate)} · ${new Intl.DateTimeFormat("hi-IN", { dateStyle: "long" }).format(updatedDate)}`;
+  document.querySelector("#footer-date").textContent = `${new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(updatedDate)} · ${new Intl.DateTimeFormat(hindiDateLocale, { dateStyle: "long" }).format(updatedDate)}`;
 }
 
 function setScrollFabTarget(target) {
@@ -666,12 +807,11 @@ function search(query) {
     }))
   ];
   searchResults.innerHTML = results.length ? results.map((result) => {
-    const scheduleSummary = result.kind === "course" ? `<span class="search-result-card__schedule">
+    const scheduleSummary = result.kind === "course" ? `<div class="search-result-card__schedule">
       <span class="search-result-card__days">${icon("calendar")} ${bilingualCopy(result.schedule.weekdayLabels.en.join(" & "), result.schedule.weekdayLabels.hi.join(", "))}</span>
-      <span>${icon("clock")} ${bilingualCopy(result.schedule.indiaSummary.en, result.schedule.indiaSummary.hi)}</span>
-      <span>${icon("clock")} ${bilingualCopy(result.schedule.chicagoSummary.en, result.schedule.chicagoSummary.hi)}</span>
-    </span>` : "";
-    return `<a class="search-result-card search-result-card--${result.kind}${result.accent ? ` search-result-card--${result.accent}` : ""}" href="${result.href}"><span class="search-result-card__main"><small>${escapeHtml(result.eyebrow)}</small>${compactBilingualCopy(result.title, result.titleHi, "strong")}${scheduleSummary}</span><span class="search-result-card__arrow">${icon("arrow")}</span></a>`;
+      ${timeZonePresentation(result.schedule, "search")}
+    </div>` : "";
+    return `<a class="search-result-card search-result-card--${result.kind}${result.accent ? ` search-result-card--${result.accent}` : ""}" href="${result.href}"><div class="search-result-card__main"><small>${escapeHtml(result.eyebrow)}</small>${compactBilingualCopy(result.title, result.titleHi, "strong")}${scheduleSummary}</div><span class="search-result-card__arrow">${icon("arrow")}</span></a>`;
   }).join("") : `<p class="search-hint">${ctx.text.noMatches} “${escapeHtml(query)}”</p>`;
 }
 
@@ -692,6 +832,20 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 window.addEventListener("resize", () => updateScrollFab());
 document.addEventListener("click", (event) => {
+  const timeZoneButton = event.target.closest("[data-time-zone]");
+  if (timeZoneButton) {
+    const nextTimeZone = timeZoneButton.dataset.timeZone;
+    if (nextTimeZone !== preferredTimeZone && (nextTimeZone === "india" || nextTimeZone === "chicago")) {
+      preferredTimeZone = nextTimeZone;
+      try {
+        window.localStorage.setItem(timeZonePreferenceKey, preferredTimeZone);
+      } catch {
+        // The preference remains active for this visit if storage is unavailable.
+      }
+      route();
+    }
+    return;
+  }
   const scrollLink = event.target.closest("[data-scroll]");
   if (scrollLink) {
     event.preventDefault();

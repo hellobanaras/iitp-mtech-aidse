@@ -8,6 +8,10 @@ The renderer may collapse a compact bilingual label, chip, technical name, or me
 
 For navigation back to primary course material, each course catalog record requires its verified SharePoint `recordingUrl`. Every catalog lecture whose status is `published` also requires a stable, human-facing Microsoft Stream `recordingUrl`. Remove transient `referrer` and `referrerScenario` parameters; never store a hidden media manifest, signed CDN URL, cookie, token, DRM datum, or direct stream segment.
 
+## Schedule display contract
+
+`data/schedule.js` stores the recurring source schedule only: India weekday(s), `start`, `end`, the source/display IANA zones, bounds, and meeting link. Do not add manually duplicated `indiaSummary` or `chicagoSummary` strings. The renderer derives both zone displays from that data, uses the same shared presentation in cards, search, schedule, and calendar views, and computes each calendar occurrence in `America/Chicago` so daylight-saving changes remain correct. The global toggle displays one primary zone per card (Chicago by default) and a smaller reference line for the other; its non-sensitive local device preference is not part of shared route state. Render dates and times in Hindi with Devanagari numerals (`hi-IN-u-nu-deva`); preserve original-recording timestamps as ASCII evidence values when required for cross-column parity. Compact zone labels may remain single-language when the Hindi copy would add no comprehension.
+
 ## Chronological identity and same-day lectures
 
 Each catalog lecture requires `date`, `sourceRecordedAt` (an ISO timestamp in the source time zone), and `sourceFilename`. Course archives are always sorted by those fields, in that order. The fields are source-navigation metadata only; never add participant names or private transcript data.

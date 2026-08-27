@@ -77,7 +77,9 @@ Capstone plaintext is not part of the public lecture-note contract. Its system o
 
 ## 9. Schedules are timezone-aware source data
 
-Meeting links, India weekdays/times, semester bounds, and course-code aliases have one source of truth in `data/schedule.js`. `Asia/Kolkata` is the source schedule. `America/Chicago` display times are calculated for each occurrence so daylight-saving transitions remain correct. Calendar exports must include the official meeting link and must not expose any account credential or attendance token beyond the learner-provided join URL.
+Meeting links, India weekdays/times, semester bounds, and course-code aliases have one source of truth in `data/schedule.js`. Store structural source fields (`weekdays`, `start`, and `end`), not manually maintained India/Chicago prose summaries. `Asia/Kolkata` is the source schedule. The shared time-zone presentation calculates `America/Chicago` values for each occurrence, including daylight-saving transitions, and is reused for course cards, schedule cards, search, and calendar events. It shows one selected primary zone at a time (Chicago by default) and a quiet reference line for the other; the non-sensitive display preference may be stored locally on the device. Calendar exports must include the official meeting link and must not expose any account credential or attendance token beyond the learner-provided join URL.
+
+Whenever a date or class time is rendered in Hindi, use Devanagari numerals. Keep source-recording timestamps in their original ASCII form where bilingual evidence parity requires exact matching.
 
 An occurrence remains visible after it ends so the weekly history is understandable, but it must render as disabled and must not retain an actionable Join link. A class in progress stays enabled through its calculated end time.
 

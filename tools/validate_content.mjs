@@ -178,8 +178,7 @@ for (const course of catalog.courses) {
   assert(/^https:\/\/teams\.microsoft\.com\/meet\//.test(schedule.joinUrl), `${course.code}: Teams join URL is invalid.`);
   assert(schedule.weekdays?.length > 0, `${course.code}: schedule weekdays are missing.`);
   assert(/^\d{2}:\d{2}$/.test(schedule.start) && /^\d{2}:\d{2}$/.test(schedule.end), `${course.code}: schedule times are invalid.`);
-  assert(schedule.indiaSummary?.en && schedule.indiaSummary?.hi, `${course.code}: bilingual India-time summary is missing.`);
-  assert(schedule.chicagoSummary?.en && schedule.chicagoSummary?.hi, `${course.code}: bilingual Chicago-time summary is missing.`);
+  assert(!("indiaSummary" in schedule) && !("chicagoSummary" in schedule), `${course.code}: store source start/end only; timezone summaries are calculated centrally.`);
   const calendarText = readFileSync(new URL(`../calendar/${course.slug}.ics`, import.meta.url), "utf8");
   assert(calendarText.includes("BEGIN:VCALENDAR") && calendarText.includes("RRULE:FREQ=WEEKLY"), `${course.code}: recurring calendar file is invalid.`);
   assert(calendarText.includes(schedule.joinUrl), `${course.code}: calendar file does not include the Teams URL.`);
