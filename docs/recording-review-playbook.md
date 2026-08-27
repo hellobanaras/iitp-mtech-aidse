@@ -5,10 +5,12 @@ Use this checklist before treating a video as a lecture source.
 ## 0. Build the queue and enforce one-at-a-time review
 
 1. Inventory every visible source without opening multiple recordings.
-2. Sort the queue by original lecture date/time, oldest first. Resolve ties by course code and source filename.
+2. Sort the queue by original lecture date/time, oldest first. Resolve ties by course code and source filename. Preserve the source recording timestamp and filename in the private manifest and catalog metadata for every canonical or unique-fragment output.
 3. Check `(course, lecture date, source filename or source URL hash)` against the inventory/processing manifests. Do not reopen a source with a completed disposition unless the inventory records a reason for re-review.
 4. Open only the first unprocessed recording. Triage it, reject or process it, persist the result, and close its tab before opening the next queue item.
 5. Keep transcription and frame processing local and sequentially associated with that source. Never play two recordings at once.
+
+When publishing, sort a course archive by date, source recording timestamp, then source filename. If the course has more than one valid lecture on a date, give each new lecture a time-qualified source-stable id (`<course>-YYYY-MM-DD-HHmmss-<six-char-source-hash>`); do not overwrite a date-only legacy note or assume its lecture number is sufficient to disambiguate it.
 
 ## 1. Inventory without assumptions
 

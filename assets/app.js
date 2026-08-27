@@ -61,6 +61,20 @@ function parseRoute() {
 }
 
 const href = (_lang, path = "/") => `#${path}`;
+const coursePath = (course) => `/course/${course.routeSlug || course.slug}`;
+const courseResourcesPath = (course) => `/resources/${course.routeSlug || course.slug}`;
+const compareLectureChronology = (left, right) =>
+  left.date.localeCompare(right.date)
+  || String(left.sourceRecordedAt || "").localeCompare(String(right.sourceRecordedAt || ""))
+  || String(left.sourceFilename || "").localeCompare(String(right.sourceFilename || ""))
+  || left.id.localeCompare(right.id);
+const compareCatalogLectures = (left, right) =>
+  compareLectureChronology(left, right)
+  || left.course.code.localeCompare(right.course.code)
+  || String(left.sourceFilename || "").localeCompare(String(right.sourceFilename || ""));
+const courseFromRouteSegment = (segment, courses) => courses.find((course) =>
+  segment === course.routeSlug || segment === course.slug
+);
 const bilingualUi = Object.fromEntries(
   Object.keys(ui.en).map((key) => [key, `${ui.en[key]} · ${ui.hi[key]}`])
 );
@@ -103,13 +117,13 @@ function context() {
         lectures: course.lectures.map((lecture) => ({
           ...lecture,
           hi: hindiCourse.lectures.find((item) => item.id === lecture.id)
-        }))
+        })).sort(compareLectureChronology)
       };
     })
   };
   const allLectures = catalog.courses.flatMap((course) =>
     course.lectures.map((lecture) => ({ ...lecture, course }))
-  );
+  ).sort(compareCatalogLectures);
   return {
     lang: "",
     text: bilingualUi,
@@ -138,7 +152,7 @@ function courseActions(course, lang, text) {
   return `<div class="card-actions">
     <a class="button button--primary" href="${escapeHtml(schedule.joinUrl)}" target="_blank" rel="noreferrer">${text.joinSession} ${icon("external")}</a>
     <a class="button button--quiet-light" href="${escapeHtml(course.recordingUrl)}" target="_blank" rel="noreferrer">${text.allRecordings} ${icon("video")}</a>
-    <a class="button button--quiet-light" href="${href(lang, `/course/${course.slug}`)}">${text.openSubject} ${icon("arrow")}</a>
+    <a class="button button--quiet-light" href="${href(lang, coursePath(course))}">${text.openSubject} ${icon("arrow")}</a>
   </div>`;
 }
 
@@ -155,7 +169,7 @@ function courseCard(course, lang, text, featured = false) {
 
 function homeCourseCard(course, lang, text) {
   const publishedCount = course.lectures.filter((lecture) => lecture.status === "published").length;
-  return `<a class="home-course-card home-course-card--${course.accent}" href="${href(lang, `/course/${course.slug}`)}">
+  return `<a class="home-course-card home-course-card--${course.accent}" href="${href(lang, coursePath(course))}">
     <span class="course-monogram">${escapeHtml(course.icon)}</span>
     <span class="home-course-card__copy">
       <span class="eyebrow">${escapeHtml(course.code)}</span>
@@ -224,13 +238,14 @@ function resourcesForCourse(slug) {
   return courseResources.filter((resource) => resource.course === slug);
 }
 
-function resourceCard(resource, lang, text) {
+function resourceCard(resource, lang, text, course = null) {
   const titleHi = resource.titleHi || resource.title;
   const descriptionHi = resource.descriptionHi || resource.description;
+  const courseSegment = course?.routeSlug || resource.course;
   return `<article class="resource-card">
     <span class="resource-card__icon">${icon(resource.kind === "pdf" ? "file" : "video")}</span>
     <div><p class="eyebrow">${escapeHtml(resource.extension.toUpperCase())}${resource.date ? ` · ${escapeHtml(resource.date)}` : ""}</p>${compactBilingualCopy(resource.title, titleHi, "h3")}${resource.description ? bilingualCopy(resource.description, descriptionHi, "p") : ""}</div>
-    <a class="card-link" href="${href(lang, `/resource/${resource.course}/${resource.id}`)}">${text.openViewer} ${icon("arrow")}</a>
+    <a class="card-link" href="${href(lang, `/resource/${courseSegment}/${resource.id}`)}">${text.openViewer} ${icon("arrow")}</a>
   </article>`;
 }
 
@@ -256,8 +271,8 @@ function renderCourse(slug, ctx) {
       ${course.lectures.length ? `<div class="lecture-list">${course.lectures.map((lecture) => lectureRow(lecture, lang, text)).join("")}</div>` : `<div class="empty-state"><span>${escapeHtml(course.icon)}</span><h3>${text.noNotes}</h3>${bilingualCopy(course.note, course.hi.note, "p")}</div>`}
     </section>
     <section class="section-shell section-shell--compact">
-      <div class="section-heading"><div><p class="eyebrow">${text.resources}</p><h2>${text.resourcesForCourse}</h2></div><a href="${href(lang, `/resources/${course.slug}`)}">${text.browseResources} ${icon("arrow")}</a></div>
-      ${resources.length ? `<div class="resource-grid">${resources.map((resource) => resourceCard(resource, lang, text)).join("")}</div>` : `<div class="empty-state empty-state--compact"><span>${icon("file")}</span><h3>${text.noResources}</h3></div>`}
+      <div class="section-heading"><div><p class="eyebrow">${text.resources}</p><h2>${text.resourcesForCourse}</h2></div><a href="${href(lang, courseResourcesPath(course))}">${text.browseResources} ${icon("arrow")}</a></div>
+      ${resources.length ? `<div class="resource-grid">${resources.map((resource) => resourceCard(resource, lang, text, course)).join("")}</div>` : `<div class="empty-state empty-state--compact"><span>${icon("file")}</span><h3>${text.noResources}</h3></div>`}
     </section>`;
 }
 
@@ -376,7 +391,7 @@ function renderLecture(id, ctx) {
   const { en, hi } = notes;
   const navItems = [["coverage", text.coverage], ["slides", text.slideTrail], ["summary", text.fullSummary], ["signals", text.courseSignals], ["insights", text.insights], ["resources", text.furtherStudy], ["quiz", text.mcqs]];
   if (unlockedCapstones?.[id]) navItems.push(["project", text.privateCapstone]);
-  main.innerHTML = `<header class="lecture-hero"><div class="lecture-hero__meta"><a class="back-link" href="${href(lang, `/course/${found.course.slug}`)}">← ${escapeHtml(found.course.code)}</a><span>${text.lecture} ${String(found.number).padStart(2, "0")}</span><span>${escapeHtml(found.displayDate)} · ${escapeHtml(found.hi.displayDate)}</span></div>${compactBilingualCopy(en.title, hi.title, "h1")}${bilingualCopy(en.lede, hi.lede, "div", "lecture-hero__lede")}<dl><div><dt>${text.recording}</dt><dd>${escapeHtml(found.duration)}</dd></div><div><dt>${text.instructionalInterval}</dt><dd>${escapeHtml(en.instructionalInterval)}</dd></div><div><dt>${text.reviewLevel}</dt><dd>${compactBilingualCopy(en.reviewLevel, hi.reviewLevel)}</dd></div></dl></header>
+  main.innerHTML = `<header class="lecture-hero"><div class="lecture-hero__meta"><a class="back-link" href="${href(lang, coursePath(found.course))}">← ${escapeHtml(found.course.code)}</a><span>${text.lecture} ${String(found.number).padStart(2, "0")}</span><span>${escapeHtml(found.displayDate)} · ${escapeHtml(found.hi.displayDate)}</span></div>${compactBilingualCopy(en.title, hi.title, "h1")}${bilingualCopy(en.lede, hi.lede, "div", "lecture-hero__lede")}<dl><div><dt>${text.recording}</dt><dd>${escapeHtml(found.duration)}</dd></div><div><dt>${text.instructionalInterval}</dt><dd>${escapeHtml(en.instructionalInterval)}</dd></div><div><dt>${text.reviewLevel}</dt><dd>${compactBilingualCopy(en.reviewLevel, hi.reviewLevel)}</dd></div></dl></header>
     <div class="notes-layout"><aside class="notes-toc"><p>${text.onThisPage}</p><nav>${navItems.map(([anchor, label]) => `<a href="#${anchor}" data-scroll="${anchor}">${label}</a>`).join("")}</nav></aside><article class="notes-article">
       <section id="coverage" class="notes-section"><p class="eyebrow">${text.highLevelCoverage}</p><h2>${text.lectureAtGlance}</h2><div class="coverage-grid">${en.coverage.map((item, index) => `<div><span>${String(index + 1).padStart(2, "0")}</span>${compactBilingualCopy(item.title, hi.coverage[index].title, "h3")}${bilingualCopy(item.body, hi.coverage[index].body, "p")}</div>`).join("")}</div><div class="takeaway"><strong>${text.oneSentence}</strong>${bilingualCopy(en.takeaway, hi.takeaway, "p")}</div></section>
       <section id="slides" class="notes-section"><p class="eyebrow">${text.lectureSourceTrail}</p><h2>${text.slidesTimecodes}</h2>${bilingualCopy(ui.en.slidesIntro, ui.hi.slidesIntro, "div", "section-intro")}<div class="slide-trail">${en.slideTrail.map((slide, index) => `<article><time>${escapeHtml(slide.time)}</time><div>${compactBilingualCopy(slide.title, hi.slideTrail[index].title, "h3")}${bilingualCopy(slide.note, hi.slideTrail[index].note, "p")}</div></article>`).join("")}</div></section>
@@ -482,7 +497,7 @@ function renderResources(ctx, courseFilter = "") {
   const programSection = programItems.length ? `<section class="resource-course program-resource-section"><div class="section-heading"><div><p class="eyebrow">${escapeHtml(programProfile.resourceGroup.code)}</p>${compactBilingualCopy(programProfile.resourceGroup.title.en, programProfile.resourceGroup.title.hi, "h2")}<span class="program-semester-pill">${text.currentSemester}: ${programProfile.currentSemester} · ${programProfile.totalCredits} credits</span></div></div><div class="resource-grid">${programItems.map((resource) => resourceCard(resource, lang, text)).join("")}</div></section>` : "";
   main.innerHTML = `<section class="page-intro"><p class="kicker"><span></span>${text.resources}</p>${bilingualCopy(ui.en.resourceLibrary, ui.hi.resourceLibrary, "h1")}${bilingualCopy(ui.en.resourceIntro, ui.hi.resourceIntro, "div", "page-intro__copy")}</section><section class="section-shell resource-library">${programSection}${courses.map((course) => {
     const items = visible.filter((resource) => resource.course === course.slug);
-    return `<section class="resource-course"><div class="section-heading"><div><p class="eyebrow">${escapeHtml(course.code)}</p>${compactBilingualCopy(course.title, course.hi.title, "h2")}</div><a href="${href(lang, `/course/${course.slug}`)}">${text.openSubject} ${icon("arrow")}</a></div>${items.length ? `<div class="resource-grid">${items.map((resource) => resourceCard(resource, lang, text)).join("")}</div>` : `<div class="empty-state empty-state--compact"><span>${icon("file")}</span><h3>${text.noResources}</h3></div>`}</section>`;
+    return `<section class="resource-course"><div class="section-heading"><div><p class="eyebrow">${escapeHtml(course.code)}</p>${compactBilingualCopy(course.title, course.hi.title, "h2")}</div><a href="${href(lang, coursePath(course))}">${text.openSubject} ${icon("arrow")}</a></div>${items.length ? `<div class="resource-grid">${items.map((resource) => resourceCard(resource, lang, text, course)).join("")}</div>` : `<div class="empty-state empty-state--compact"><span>${icon("file")}</span><h3>${text.noResources}</h3></div>`}</section>`;
   }).join("")}</section>`;
 }
 
@@ -490,10 +505,16 @@ function resourceAbsoluteUrl(resource) {
   return new URL(resource.path, new URL(".", location.href.split("#")[0])).href;
 }
 
-function renderResourceViewer(courseSlug, id, ctx) {
+function renderResourceViewer(courseSegment, id, ctx) {
   const { lang, text, catalog } = ctx;
+  const catalogCourse = courseFromRouteSegment(courseSegment, catalog.courses);
+  if (catalogCourse && courseSegment !== catalogCourse.routeSlug) {
+    location.replace(href(lang, `/resource/${catalogCourse.routeSlug}/${id}`));
+    return;
+  }
+  const courseSlug = catalogCourse?.slug || courseSegment;
   const resource = courseResources.find((item) => item.course === courseSlug && item.id === id);
-  const course = catalog.courses.find((item) => item.slug === courseSlug) || (courseSlug === programProfile.resourceGroup.slug ? {
+  const course = catalogCourse || (courseSlug === programProfile.resourceGroup.slug ? {
     slug: programProfile.resourceGroup.slug,
     code: programProfile.code,
     title: programProfile.resourceGroup.title.en,
@@ -504,7 +525,7 @@ function renderResourceViewer(courseSlug, id, ctx) {
   const sourceUrl = resourceAbsoluteUrl(resource);
   const isLocal = ["localhost", "127.0.0.1"].includes(location.hostname);
   const viewer = resource.kind === "pdf" ? `<iframe class="document-frame" src="${escapeHtml(sourceUrl)}#view=FitH" title="${escapeHtml(resource.title)}"></iframe>` : !isLocal ? `<iframe class="document-frame" src="https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(sourceUrl)}" title="${escapeHtml(resource.title)}"></iframe>` : `<div class="viewer-fallback"><span>${icon("file")}</span><p>${text.viewerUnavailable}</p></div>`;
-  const backPath = courseSlug === programProfile.resourceGroup.slug ? "/resources" : `/resources/${courseSlug}`;
+  const backPath = courseSlug === programProfile.resourceGroup.slug ? "/resources" : courseResourcesPath(course);
   main.innerHTML = `<section class="viewer-header"><a class="back-link" href="${href(lang, backPath)}">← ${text.backToResources}</a><p class="eyebrow">${escapeHtml(course.code)} · ${escapeHtml(resource.extension.toUpperCase())}</p>${compactBilingualCopy(resource.title, titleHi, "h1")}<div class="viewer-actions"><a class="button button--primary" href="${escapeHtml(sourceUrl)}" target="_blank" rel="noreferrer">${text.openOriginal} ${icon("external")}</a><a class="button button--quiet" href="${escapeHtml(sourceUrl)}" download>${text.download}</a></div></section><section class="viewer-shell">${viewer}</section>`;
 }
 
@@ -553,7 +574,7 @@ function setScrollFabTarget(target) {
 function updateScrollFab(resetDirection = false) {
   const y = Math.max(0, window.scrollY);
   const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-  if (maxScroll < 160) {
+  if (maxScroll < 160 || y < 120) {
     scrollFab.hidden = true;
     lastScrollY = y;
     return;
@@ -570,15 +591,30 @@ function updateScrollFab(resetDirection = false) {
 
 function route() {
   const parsed = parseRoute();
+  if (!searchPanel.hidden) closeSearch();
   const ctx = context(parsed.lang);
   setChrome(ctx, parsed.route);
   if (parsed.route === "/") renderHome(ctx);
   else if (parsed.route === "/courses") renderCourses(ctx);
   else if (parsed.route === "/schedule") renderSchedule(ctx);
   else if (parsed.route === "/resources") renderResources(ctx);
-  else if (parsed.route.startsWith("/resources/")) renderResources(ctx, parsed.parts[1]);
+  else if (parsed.route.startsWith("/resources/")) {
+    const course = courseFromRouteSegment(parsed.parts[1], ctx.catalog.courses);
+    if (!course) renderNotFound(ctx);
+    else if (parsed.parts[1] !== course.routeSlug) {
+      location.replace(href(ctx.lang, courseResourcesPath(course)));
+      return;
+    } else renderResources(ctx, course.slug);
+  }
   else if (parsed.route.startsWith("/resource/")) renderResourceViewer(parsed.parts[1], parsed.parts[2], ctx);
-  else if (parsed.route.startsWith("/course/")) renderCourse(parsed.parts[1], ctx);
+  else if (parsed.route.startsWith("/course/")) {
+    const course = courseFromRouteSegment(parsed.parts[1], ctx.catalog.courses);
+    if (!course) renderNotFound(ctx);
+    else if (parsed.parts[1] !== course.routeSlug) {
+      location.replace(href(ctx.lang, coursePath(course)));
+      return;
+    } else renderCourse(course.slug, ctx);
+  }
   else if (parsed.route.startsWith("/lecture/")) renderLecture(parsed.parts[1], ctx);
   else if (parsed.route === "/owner-access") renderOwnerAccess(ctx);
   else renderNotFound(ctx);
@@ -614,7 +650,7 @@ function search(query) {
   const results = [
     ...courseMatches.map((course) => ({
       kind: "course",
-      href: href(ctx.lang, `/course/${course.slug}`),
+      href: href(ctx.lang, coursePath(course)),
       eyebrow: course.code,
       title: course.title,
       titleHi: course.hi.title,

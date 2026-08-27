@@ -27,6 +27,11 @@ const isSubjectRecordingUrl = (value) => {
 const lectures = catalog.courses.flatMap((course) =>
   course.lectures.map((lecture) => ({ ...lecture, course }))
 );
+const compareLectureChronology = (left, right) =>
+  left.date.localeCompare(right.date)
+  || String(left.sourceRecordedAt || "").localeCompare(String(right.sourceRecordedAt || ""))
+  || String(left.sourceFilename || "").localeCompare(String(right.sourceFilename || ""))
+  || left.id.localeCompare(right.id);
 const indexHtml = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 assert(!/#\/(?:en|hi|bi)(?:\/|["'])/.test(indexHtml), "Public navigation must not expose language-prefixed routes.");
 assert(!existsSync(new URL("../data/lecture-notes-hi.js", import.meta.url)), "Split Hindi note bundle must not exist in public data.");
@@ -34,18 +39,43 @@ assert(Number.isInteger(catalog.filesInventoried) && catalog.filesInventoried >=
   "Catalog filesInventoried must be an integer no smaller than the lecture count.");
 const ids = lectures.map((lecture) => lecture.id);
 assert(new Set(ids).size === ids.length, "Catalog lecture ids must be unique.");
+const courseRouteSlugs = catalog.courses.map((course) => course.routeSlug);
+assert(new Set(courseRouteSlugs).size === courseRouteSlugs.length, "Public course route slugs must be unique.");
 for (const course of catalog.courses) {
   assert(isSubjectRecordingUrl(course.recordingUrl || ""),
     `${course.code}: subject recording-folder URL is missing or invalid.`);
-  const dates = course.lectures.map((lecture) => lecture.date);
-  const sortedDates = [...dates].sort();
-  assert(dates.every((date, index) => date === sortedDates[index]),
+  assert(new RegExp(`^${course.slug}-[a-z0-9]+(?:-[a-z0-9]+)*$`).test(course.routeSlug || ""),
+    `${course.code}: public course route slug is missing or invalid.`);
+  const chronological = [...course.lectures].sort(compareLectureChronology);
+  assert(course.lectures.every((lecture, index) => lecture.id === chronological[index].id),
     `${course.code}: lectures must be ordered oldest first.`);
+  assert(course.lectures.every((lecture, index) => lecture.number === index + 1),
+    `${course.code}: lecture numbers must follow chronological order.`);
+  const identities = course.lectures.map((lecture) => `${lecture.sourceRecordedAt}|${lecture.sourceFilename}`);
+  assert(new Set(identities).size === identities.length,
+    `${course.code}: lecture source identities must be unique.`);
+  const sameDay = new Map();
+  course.lectures.forEach((lecture) => {
+    sameDay.set(lecture.date, [...(sameDay.get(lecture.date) || []), lecture]);
+  });
+  for (const [date, entries] of sameDay) {
+    if (entries.length < 2) continue;
+    entries.forEach((lecture) => {
+      assert(new RegExp(`^${course.slug}-${date}-\\d{6}(?:-[a-z0-9]{6,})?$`).test(lecture.id),
+        `${lecture.id}: same-day lectures require a time-qualified stable id.`);
+    });
+  }
 }
 
 for (const lecture of lectures) {
-  assert(/^eai-640[123]-\d{4}-\d{2}-\d{2}$/.test(lecture.id), `${lecture.id}: invalid id format.`);
+  assert(/^eai-640[123]-\d{4}-\d{2}-\d{2}(?:-\d{6}(?:-[a-z0-9]{6,})?)?$/.test(lecture.id), `${lecture.id}: invalid id format.`);
   assert(/^\d{4}-\d{2}-\d{2}$/.test(lecture.date), `${lecture.id}: invalid date.`);
+  assert(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})$/.test(lecture.sourceRecordedAt || "")
+    && !Number.isNaN(Date.parse(lecture.sourceRecordedAt)), `${lecture.id}: source recording timestamp is missing or invalid.`);
+  assert(lecture.sourceRecordedAt?.slice(0, 10) === lecture.date,
+    `${lecture.id}: source recording timestamp must match the lecture date.`);
+  assert(typeof lecture.sourceFilename === "string" && lecture.sourceFilename.length > 0,
+    `${lecture.id}: source filename is missing.`);
   if (lecture.status !== "published") continue;
 
   assert(/^https:\/\/cciitpatna-my\.sharepoint\.com\/personal\/.*\/stream\.aspx\?id=/.test(lecture.recordingUrl || ""),

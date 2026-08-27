@@ -26,6 +26,8 @@ The review queue is ascending by original lecture date/time, not upload discover
 
 A stable source identity—course, lecture date, and source filename or a hash of the source URL—must be checked against the inventory before opening. A completed disposition prevents accidental repeat review. Re-review requires a recorded reason such as changed content, incomplete earlier evidence, or a corrected upload.
 
+Within a course archive, public notes are ordered by lecture date, original source recording timestamp, then source filename. This prevents ambiguous ordering when two valid classes or fragments share a calendar date. Catalog entries preserve `sourceRecordedAt` and `sourceFilename` for that deterministic order. New same-day public ids use the source time plus a stable filename/source hash; previously published date-only ids remain supported as legacy URLs and are never renamed only for cosmetic consistency.
+
 ## 4. Recording time is not teaching time
 
 Meeting capture may begin 15–30 minutes before instruction or continue for hours after it. Sweep the full timeline before capture, locate sustained teaching, preserve meaningful Q&A and announcements, and exclude waiting rooms, connection gaps, and idle tails.
@@ -86,3 +88,7 @@ Files under `resources/<course-slug>/` and `resources/program/` are intentionall
 ## 12. Recording links are source-navigation metadata
 
 Each subject page exposes the verified SharePoint recording-folder link. Each published lecture exposes the stable Microsoft Stream page URL obtained from that folder so a subscribed learner can return to the source recording. Store the human-facing Stream page, not a discovered media manifest, signed CDN URL, cookie-bearing request, DRM datum, or stream segment. Remove transient navigation parameters such as `referrer` and `referrerScenario` before publication. Access remains subject to the learner's institution account and course permissions.
+
+## 13. Readable canonical course routes
+
+The internal course `slug` is a stable data key, while `routeSlug` is the shareable public URL segment. Canonical public subject URLs include both the course code and a readable English name, for example `#/course/eai-6403-selective-topics-in-generative-ai`. Existing code-only course and resource links redirect to their descriptive equivalent so historical bookmarks continue to work. Public URLs remain language-neutral and do not transliterate the bilingual body content.
