@@ -875,8 +875,8 @@ function updateNotesToc(reset = false) {
   notesTocLastDirection = direction;
   notesTocDirectionalDistance += Math.abs(delta);
   const collapsed = layout.classList.contains("notes-layout--toc-collapsed");
-  const layoutStart = layout.getBoundingClientRect().top + y;
-  const nearNotesStart = y <= layoutStart + notesTocExpandBuffer;
+  const layoutRect = layout.getBoundingClientRect();
+  const nearNotesStart = layoutRect.top >= -notesTocExpandBuffer && layoutRect.top <= notesTocExpandBuffer;
   if (!collapsed && direction > 0 && y > 220 && notesTocDirectionalDistance >= notesTocCollapseDelta) setNotesTocCollapsed(true);
   else if (collapsed && direction < 0 && nearNotesStart && notesTocDirectionalDistance >= notesTocExpandDelta) setNotesTocCollapsed(false);
 }
