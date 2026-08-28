@@ -2,9 +2,30 @@
 set -e
 
 ROOT_DIR="$(git rev-parse --show-toplevel)"
+REMOTE_NAME="${1:-origin}"
+
+if [ "$REMOTE_NAME" != "origin" ] && [ "$REMOTE_NAME" != "github-pages" ]; then
+  echo "❌ Unsafe pre-push target: '$REMOTE_NAME'. Only origin or github-pages are allowed." >&2
+  echo "If you need a different remote for this repository, add a dedicated deployment script." >&2
+  exit 1
+fi
+
+PUSHED_BRANCH="main"
+while read -r _ _ _ remote_ref; do
+  if [ -n "$remote_ref" ]; then
+    PUSHED_BRANCH="${remote_ref#refs/heads/}"
+    break
+  fi
+done
+
+if [ "$PUSHED_BRANCH" != "main" ]; then
+  echo "❌ Pre-push guard expects main branch pushes only (received $PUSHED_BRANCH)." >&2
+  echo "Use explicit scripts for production/source sync paths." >&2
+  exit 1
+fi
+
 node "$ROOT_DIR/tools/guard_deploy.mjs" \
-  --remote origin \
-  --branch main \
+  --remote "$REMOTE_NAME" \
+  --branch "$PUSHED_BRANCH" \
   --must-clean \
   --require-main
-

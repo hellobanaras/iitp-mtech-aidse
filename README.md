@@ -64,7 +64,10 @@ The deployment workflow runs the same indexer automatically. PDFs render inline.
 
 Run `npm run check` and `npm run build` to create the public-only static artifact in `dist/`. The build allowlists only the website shell, catalog data, calendars, and permitted public resources; private processing material and repository instructions are excluded.
 
-Deployment is GitHub-only from this repository.
+Deployment is deterministic:
+
+- Source repository is `origin/main`.
+- Public site is deployed from source state to `github-pages/main` in `hellobanaras/iitp-mtech-aidse`.
 
 Use the following flow for all release pushes:
 
@@ -73,6 +76,18 @@ npm run hooks:install
 npm run check
 npm run build
 npm run deploy:github
+```
+
+Use this production command only for public updates:
+
+```bash
+npm run deploy:github
+```
+
+Use this when syncing only source repository changes:
+
+```bash
+npm run deploy:source
 ```
 
 `npm run deploy:cloudflare` is intentionally disabled for this repository so Cloudflare cannot be used here.

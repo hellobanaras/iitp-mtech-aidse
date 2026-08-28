@@ -34,13 +34,15 @@ Important persistent lessons:
 
 ## Deployment and conflict prevention policy
 
-- Deployment target for this repository is GitHub only via `origin` branch `main`.
-- The public pages mirror is in [`hellobanaras/iitp-mtech-aidse`](https://github.com/hellobanaras/iitp-mtech-aidse).
+- Deployment is deterministic and split by target:
+  - Source repo is `origin`, branch `main`.
+  - Production mirror is `github-pages` remote, branch `main` (repo `hellobanaras/iitp-mtech-aidse`).
 - Do not use Cloudflare deployment for this repo. `npm run deploy:cloudflare` is intentionally disabled and exits with guidance.
-- Use only `npm run deploy:github` for release pushes and keep one clean linear flow:
+- For production deployment (required for public updates), use only:
   - `git pull --rebase origin main`
   - `npm run check`
   - `npm run build`
   - `npm run deploy:github`
+- Use `npm run deploy:source` for source-repo sync to `origin/main` only.
 - Keep the workspace clean before push and enable hooks locally with `npm run hooks:install`.
-- If a push attempts to move against a stale remote, it should be blocked by the pre-push guard (`tools/guard_deploy.mjs`).
+- If a push attempts to move against a stale/incorrect remote, the guard blocks it (`tools/guard_deploy.mjs`).

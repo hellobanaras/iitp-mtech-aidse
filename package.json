@@ -8,7 +8,8 @@
     "check": "node --check assets/app.js && node --check assets/analytics.js && node --check data/catalog.js && node --check data/i18n.js && node --check data/capstones.js && node --check data/open-resources.js && node tools/validate_content.mjs && node tools/validate_repo_discovery.mjs",
     "update-discovery": "node tools/validate_repo_discovery.mjs --update",
     "guard:deploy": "node tools/guard_deploy.mjs --remote origin --branch main --require-main --must-clean",
-    "deploy:github": "npm run check && npm run guard:deploy && npm run build && git push origin main",
+    "deploy:source": "npm run check && npm run guard:deploy && npm run build && git push origin main",
+    "deploy:github": "npm run check && node tools/guard_deploy.mjs --remote github-pages --branch main --require-main --must-clean && npm run build && git push github-pages main:main",
     "deploy:cloudflare": "node -e \"console.error('Cloudflare deployment is disabled for this repository. Use npm run deploy:github.'); process.exit(1);\"",
     "hooks:install": "node tools/install_git_hooks.mjs"
   }
