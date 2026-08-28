@@ -62,13 +62,22 @@ const escapeHtml = (value = "") => String(value)
 // full mathematical layout while this fallback keeps inline indices readable.
 function formulaMarkup(formula) {
   const source = String(formula || "");
+  // Normalize the compact notation used in the note data into explicit,
+  // braced TeX subscripts.  Braces are important here: a later replacement
+  // must never rewrite the `max_` inside the argmax operator and leave
+  // MathJax with an orphaned `_` (which renders as a TeX error).
   const tex = source
-    .replace(/\bargmax_/g, "\\operatorname*{arg\\,max}_")
-    .replace(/\bmax_/g, "\\max_")
-    .replace(/\bsum_/g, "\\sum_")
+    .replace(/\bargmax_(?:\{([^{}]+)\}|([A-Za-z0-9]+))/g, (_, braced, plain) =>
+      `\\operatorname*{arg\\,max}_{${braced || plain}}`)
+    .replace(/\bmax_(?:\{([^{}]+)\}|([A-Za-z0-9]+))/g, (_, braced, plain) =>
+      `\\max_{${braced || plain}}`)
+    .replace(/\bsum_(?:\{([^{}]+)\}|([A-Za-z0-9]+))/g, (_, braced, plain) =>
+      `\\sum_{${braced || plain}}`)
     .replace(/\bDelta/g, "\\Delta")
     .replace(/\b(Alpha|Beta|Gamma|alpha|beta|gamma|epsilon|theta|lambda|mu|sigma)\b/g, (name) => `\\${name}`)
-    .replace(/([A-Za-z])\*/g, "$1^{*}");
+    // Only expand postfix stars on symbols (q*, V*); do not touch the
+    // asterisk in TeX command names such as `\\operatorname*`.
+    .replace(/\b([A-Za-z])\*/g, "$1^{*}");
   return `<div class="formula" role="math" aria-label="${escapeHtml(source)}"><span class="formula__label">Formula</span><span class="formula__text">\\(${escapeHtml(tex)}\\)</span></div>`;
 }
 
