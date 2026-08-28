@@ -83,12 +83,11 @@ for (const lecture of lectures) {
   assert(!/[?&](?:referrer|referrerScenario)=/.test(lecture.recordingUrl || ""),
     `${lecture.id}: recording URL contains transient referrer parameters.`);
 
-  const bilingual = lectureNotes[lecture.id];
-  assert(Boolean(bilingual?.en && bilingual?.hi), `${lecture.id}: published lecture has no complete bilingual note.`);
-  if (!bilingual?.en || !bilingual?.hi) continue;
-  const notes = bilingual.en;
-  const hindi = bilingual.hi;
-  assert(Object.keys(bilingual).length === 2, `${lecture.id}: only en and hi may exist inside one bilingual publication unit.`);
+  const publication = lectureNotes[lecture.id];
+  assert(Boolean(publication?.en), `${lecture.id}: published lecture has no English note.`);
+  if (!publication?.en) continue;
+  assert(Object.keys(publication).length === 1, `${lecture.id}: published lecture notes must contain only the English edition.`);
+  const notes = publication.en;
 
   assert(notes.title?.length > 0, `${lecture.id}: title is missing.`);
   assert(notes.lede?.length > 0, `${lecture.id}: lede is missing.`);
@@ -130,46 +129,18 @@ for (const lecture of lectures) {
     assert(question.optionNotes?.length === 4, `${label} must explain all 4 options.`);
   });
   const capstone = capstones[lecture.id];
-  assert(Boolean(capstone?.en && capstone?.hi), `${lecture.id}: public bilingual capstone is missing.`);
-  if (capstone?.en && capstone?.hi) {
-    for (const language of ["en", "hi"]) {
-      const project = capstone[language];
-      for (const forbiddenField of ["username", "accessCode", "password", "credentialHash", "verifier", "ciphertext"]) {
-        assert(!Object.hasOwn(project, forbiddenField), `${lecture.id}: capstone contains a forbidden access field (${forbiddenField}).`);
-      }
-      assert(project.title?.length > 0 && project.pitch?.length > 0 && project.problem?.length > 0 && project.learning?.length > 0,
-        `${lecture.id}: ${language} capstone narrative is incomplete.`);
-      assert(project.mvp?.length >= 3, `${lecture.id}: ${language} capstone needs at least 3 MVP items.`);
-      if (project.stretch) assert(project.stretch.length >= 2, `${lecture.id}: ${language} capstone stretch list is incomplete.`);
-      if (project.plan) assert(project.plan.length >= 3, `${lecture.id}: ${language} capstone build plan is incomplete.`);
+  assert(Boolean(capstone?.en), `${lecture.id}: public English capstone is missing.`);
+  if (capstone?.en) {
+    assert(Object.keys(capstone).length === 1, `${lecture.id}: capstone must contain only the English edition.`);
+    const project = capstone.en;
+    for (const forbiddenField of ["username", "accessCode", "password", "credentialHash", "verifier", "ciphertext"]) {
+      assert(!Object.hasOwn(project, forbiddenField), `${lecture.id}: capstone contains a forbidden access field (${forbiddenField}).`);
     }
-    assert(capstone.en.mvp.length === capstone.hi.mvp.length, `${lecture.id}: capstone MVP parity differs.`);
-    assert((capstone.en.stretch?.length || 0) === (capstone.hi.stretch?.length || 0), `${lecture.id}: capstone stretch parity differs.`);
-    assert((capstone.en.plan?.length || 0) === (capstone.hi.plan?.length || 0), `${lecture.id}: capstone plan parity differs.`);
-    for (const field of ["stack", "milestones"]) {
-      assert((capstone.en[field]?.length || 0) === (capstone.hi[field]?.length || 0), `${lecture.id}: capstone ${field} parity differs.`);
-    }
-  }
-
-  if (hindi) {
-    assert(hindi.title?.length > 0 && hindi.title !== notes.title, `${lecture.id}: Hindi title is missing or untranslated.`);
-    assert(hindi.lede?.length > 0, `${lecture.id}: Hindi lede is missing.`);
-    assert(hindi.coverage?.length === notes.coverage.length, `${lecture.id}: Hindi coverage count differs from English.`);
-    assert(hindi.slideTrail?.length === notes.slideTrail.length, `${lecture.id}: Hindi slide trail count differs from English.`);
-    assert(hindi.summary?.length === notes.summary.length, `${lecture.id}: Hindi summary count differs from English.`);
-    assert(hindi.insights?.length === notes.insights.length, `${lecture.id}: Hindi insight count differs from English.`);
-    assert(hindi.resources?.length === notes.resources.length, `${lecture.id}: Hindi resource count differs from English.`);
-    assert(hindi.quiz?.length === 25, `${lecture.id}: Hindi edition needs exactly 25 MCQs.`);
-    hindi.quiz?.forEach((question, index) => {
-      assert(question.options?.length === 4 && question.optionNotes?.length === 4,
-        `${lecture.id}: Hindi MCQ ${index + 1} must preserve four options and explanations.`);
-      assert(question.answer === notes.quiz[index].answer,
-        `${lecture.id}: Hindi MCQ ${index + 1} changed the correct-answer index.`);
-    });
-    signalKeys.forEach((key) => {
-      assert(hindi.courseSignals?.[key]?.length === notes.courseSignals[key].length,
-        `${lecture.id}: Hindi courseSignals.${key} differs from English.`);
-    });
+    assert(project.title?.length > 0 && project.pitch?.length > 0 && project.problem?.length > 0 && project.learning?.length > 0,
+      `${lecture.id}: English capstone narrative is incomplete.`);
+    assert(project.mvp?.length >= 3, `${lecture.id}: English capstone needs at least 3 MVP items.`);
+    if (project.stretch) assert(project.stretch.length >= 2, `${lecture.id}: English capstone stretch list is incomplete.`);
+    if (project.plan) assert(project.plan.length >= 3, `${lecture.id}: English capstone build plan is incomplete.`);
   }
 }
 

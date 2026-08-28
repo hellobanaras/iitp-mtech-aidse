@@ -1,222 +1,723 @@
-const localized = (items, lang) => items.map((item) => Object.fromEntries(
-  Object.entries(item).map(([key, value]) => {
-    const bilingualTextKeys = new Set(["title", "body", "note", "term", "definition", "label", "type", "creator", "why"]);
-    if (bilingualTextKeys.has(key) && Array.isArray(value) && value.length === 2 && value.every((entry) => typeof entry === "string")) {
-      return [key, value[lang === "en" ? 0 : 1]];
-    }
-    if (key === "paragraphs" && Array.isArray(value) && value.every((entry) => Array.isArray(entry) && entry.length === 2)) {
-      return [key, value.map((entry) => entry[lang === "en" ? 0 : 1])];
-    }
-    return [key, value];
-  })
-));
-
-const coverage = [
-  { title: ["Bandit benchmark", "Bandit benchmark"], body: ["True action values define the optimal arm and the reward benchmark against which a learner is judged.", "True action value optimal arm और वह reward benchmark तय करते हैं जिसके विरुद्ध learner का मूल्यांकन होता है।"] },
-  { title: ["Regret as opportunity loss", "Regret यानी opportunity loss"], body: ["Instantaneous regret measures one missed reward opportunity; cumulative regret adds those gaps across the decision horizon.", "Instantaneous regret एक निर्णय में छूटे reward अवसर को मापता है; cumulative regret पूरे decision horizon के gaps को जोड़ता है।"] },
-  { title: ["Gap–count decomposition", "Gap–count decomposition"], body: ["Total regret depends on how often each arm is chosen and how far that arm lies below the optimum.", "कुल regret इस पर निर्भर है कि हर arm कितनी बार चुनी गई और वह optimum से कितनी नीचे है।"] },
-  { title: ["Exploration schedules", "Exploration schedule"], body: ["Pure greed can lock onto an early mistake, while permanent fixed-rate exploration keeps paying avoidable regret.", "Pure greedy नीति शुरुआती गलती में फँस सकती है, जबकि हमेशा fixed-rate exploration अनावश्यक regret देता रहता है।"] },
-  { title: ["Sample-average estimates", "Sample-average estimate"], body: ["Q_t(a) is estimated from rewards observed only on pulls of action a and converges under stationary, repeated sampling.", "Q_t(a) केवल action a को चुनने पर मिले rewards से अनुमानित होता है और stationary repeated sampling में converge करता है।"] },
-  { title: ["10-armed testbed and exercise", "10-armed testbed और exercise"], body: ["Replicated experiments compare greedy and epsilon-greedy learning, followed by a stepwise reconstruction of a four-armed example.", "Repeated experiments greedy और epsilon-greedy learning की तुलना करते हैं; फिर four-armed example को step-by-step reconstruct किया गया।"] }
-];
-
-const slides = [
-  { time: "1:12–8:59", title: ["k-armed bandit recap", "k-armed bandit recap"], note: ["A stationary reward distribution gives every action an unknown true value q*(a); the learner must sample while accumulating reward.", "Stationary reward distribution हर action को unknown true value q*(a) देता है; learner को reward जुटाते हुए sample करना होता है।"] },
-  { time: "8:59–16:59", title: ["Exploration–exploitation dilemma", "Exploration–exploitation dilemma"], note: ["The greedy set is argmax_a Q_t(a); actions outside it explore, and the exploration rate may decrease as evidence grows.", "Greedy set argmax_a Q_t(a) है; इसके बाहर के actions explore करते हैं और evidence बढ़ने पर exploration rate घटाया जा सकता है।"] },
-  { time: "16:59–30:59", title: ["Regret", "Regret"], note: ["The slide defines q*(a)=E[R|A=a], V*=max_a q*(a), one-step opportunity loss, and accumulated regret.", "Slide q*(a)=E[R|A=a], V*=max_a q*(a), one-step opportunity loss और accumulated regret परिभाषित करती है।"] },
-  { time: "30:59–34:59", title: ["Regret from gaps and counts", "Gaps और counts से regret"], note: ["With Delta_a=V*−q*(a) and N_t(a) selections, L_t=sum_a E[N_t(a)]Delta_a.", "Delta_a=V*−q*(a) और N_t(a) selections के साथ L_t=sum_a E[N_t(a)]Delta_a मिलता है।"] },
-  { time: "34:59–39:57", title: ["Linear versus sublinear regret", "Linear बनाम sublinear regret"], note: ["The graph contrasts forever exploring, never exploring, and decaying epsilon-greedy behavior.", "Graph हमेशा explore करने, कभी explore न करने और decaying epsilon-greedy behavior की तुलना करता है।"] },
-  { time: "41:10–43:59", title: ["Methods roadmap", "Methods roadmap"], note: ["The instructor previews epsilon-greedy, incremental updates, nonstationarity, optimistic values, UCB, gradient bandits, and contextual bandits; only the first method is developed today.", "Instructor epsilon-greedy, incremental update, nonstationarity, optimistic values, UCB, gradient bandits और contextual bandits का roadmap देती हैं; आज केवल पहला method विस्तार से पढ़ाया गया।"] },
-  { time: "43:59–48:59", title: ["Action-value methods", "Action-value methods"], note: ["Q_t(a) is the sample mean of rewards received before t on selections of a, with an indicator-sum form shown on the slide.", "Q_t(a), समय t से पहले action a चुनने पर मिले rewards का sample mean है; slide पर indicator-sum form भी दिखा।"] },
-  { time: "48:59–50:59", title: ["Epsilon-greedy action selection", "Epsilon-greedy action selection"], note: ["Most decisions use a current greedy action, while an epsilon fraction use a uniformly random action.", "अधिकांश decisions current greedy action चुनते हैं, जबकि epsilon fraction uniformly random action चुनता है।"] },
-  { time: "50:59–55:59", title: ["The 10-armed testbed", "10-armed testbed"], note: ["Each task samples q*(a)~N(0,1), rewards follow N(q*(a),1), and results average 1,000 steps over 2,000 tasks.", "हर task में q*(a)~N(0,1), rewards N(q*(a),1) से आते हैं और results 2,000 tasks के 1,000 steps पर average किए जाते हैं।"] },
-  { time: "55:59–1:03:59", title: ["Greedy and epsilon-greedy results", "Greedy और epsilon-greedy results"], note: ["Average reward and percent-optimal-action plots compare epsilon=0, 0.01, and 0.1.", "Average reward और percent-optimal-action plots epsilon=0, 0.01 और 0.1 की तुलना करते हैं।"] },
-  { time: "1:03:59–1:18:01", title: ["Exercise 1: four-armed reconstruction", "Exercise 1: four-armed reconstruction"], note: ["The class updates Q after five rewards and identifies steps 4 and 5 as definitely selected by the random branch.", "Class पाँच rewards के बाद Q update करती है और steps 4 तथा 5 को निश्चित रूप से random branch द्वारा चुना हुआ पहचानती है।"] }
-];
-
-const summaries = [
-  {
-    title: ["1. True values create a benchmark, not an observable answer key", "1. True value benchmark बनाते हैं, observable answer key नहीं"],
-    sourceRefs: ["1:12–16:59", "Bandit recap and exploration slides"],
-    paragraphs: [[
-      "In a stationary k-armed bandit, q*(a)=E[R_t|A_t=a] is the unknown mean reward of action a. The optimal value V*=max_a q*(a) is the expected payoff of an optimal arm. The learner cannot read these quantities directly; it sees only the reward of the action it actually selected.",
-      "Stationary k-armed bandit में q*(a)=E[R_t|A_t=a], action a का unknown mean reward है। Optimal value V*=max_a q*(a), optimal arm का expected payoff है। Learner इन values को सीधे नहीं देखता; उसे केवल चुने गए action का reward मिलता है।"
-    ], [
-      "Current estimates Q_t(a) therefore serve two roles: they rank actions for exploitation and summarize the evidence gathered by exploration. A greedy action belongs to argmax_a Q_t(a); selecting outside that set is unambiguously exploratory, although a random exploration draw can still land on a greedy action.",
-      "Current estimates Q_t(a) दो काम करते हैं: exploitation के लिए actions rank करना और exploration से मिला evidence summarize करना। Greedy action argmax_a Q_t(a) में होता है; इसके बाहर चयन निश्चित exploration है, पर random exploration draw किसी greedy action पर भी आ सकता है।"
-    ]],
-    formula: "q*(a)=E[R_t | A_t=a] · V*=max_a q*(a) · A*_t∈argmax_a Q_t(a)"
-  },
-  {
-    title: ["2. Regret measures opportunity loss", "2. Regret opportunity loss मापता है"],
-    sourceRefs: ["16:59–30:59", "Regret slide and annotated payoff graph"],
-    paragraphs: [[
-      "Instantaneous expected regret is the gap between the optimal arm's mean and the mean of the selected arm. It can be positive even when the observed reward is positive: regret compares a choice with the reward opportunity that was available, not with zero.",
-      "Instantaneous expected regret optimal arm के mean और selected arm के mean का gap है। Observed reward positive होने पर भी regret positive हो सकता है, क्योंकि तुलना zero से नहीं बल्कि उपलब्ध बेहतर reward opportunity से होती है।"
-    ], [
-      "Cumulative regret sums these missed opportunities. Against a fixed optimal-arm benchmark in a stationary bandit, expected optimal reward over T steps is a constant, so maximizing expected cumulative reward is equivalent to minimizing expected cumulative regret.",
-      "Cumulative regret इन छूटे अवसरों को जोड़ता है। Stationary bandit में fixed optimal-arm benchmark के विरुद्ध T steps का expected optimal reward constant है, इसलिए expected cumulative reward maximize करना expected cumulative regret minimize करने के बराबर है।"
-    ]],
-    formula: "l_t=V*−q*(A_t) · L_T=E[sum_{t=1}^T l_t]"
-  },
-  {
-    title: ["3. Gaps and counts expose where regret comes from", "3. Gaps और counts बताते हैं कि regret कहाँ से आता है"],
-    sourceRefs: ["30:59–34:59", "Second Regret slide"],
-    paragraphs: [[
-      "Define the suboptimality gap Delta_a=V*−q*(a) and let N_T(a) count how often action a is selected. Then total expected regret decomposes into E[N_T(a)]Delta_a summed over arms. A large-gap arm is expensive every time it is pulled; a near-optimal arm is cheaper to investigate.",
-      "Suboptimality gap Delta_a=V*−q*(a) मानें और N_T(a) को action a के selection count के रूप में लें। तब total expected regret, सभी arms पर E[N_T(a)]Delta_a का sum है। Large-gap arm का हर pull महँगा है; near-optimal arm की जाँच comparatively सस्ती है।"
-    ], [
-      "The difficulty is circular: the algorithm should stop sampling bad arms quickly, but the gaps are initially unknown. Exploration is therefore an information-allocation problem—collect enough evidence to distinguish arms without paying for unnecessary samples forever.",
-      "कठिनाई circular है: algorithm को bad arms जल्दी छोड़नी चाहिए, पर gaps शुरू में unknown हैं। इसलिए exploration एक information-allocation problem है—arms को अलग पहचानने जितना evidence लें, पर हमेशा अनावश्यक samples का खर्च न दें।"
-    ]],
-    formula: "Delta_a=V*−q*(a) · L_T=sum_a E[N_T(a)]Delta_a"
-  },
-  {
-    title: ["4. Both exploration extremes can fail linearly", "4. Exploration की दोनों extremes linear failure दे सकती हैं"],
-    sourceRefs: ["34:59–39:57", "Total-regret comparison graph"],
-    paragraphs: [[
-      "A policy that never explores may commit to an arm made attractive by early noise and then receive a constant reward shortfall. A policy that explores forever at a fixed positive rate keeps selecting known suboptimal arms with constant probability. Either mechanism can accumulate regret proportional to time.",
-      "कभी explore न करने वाली policy शुरुआती noise से अच्छे दिखे arm में फँस सकती है और लगातार reward shortfall पा सकती है। Fixed positive rate से हमेशा explore करने वाली policy known suboptimal arms को constant probability से चुनती रहती है। दोनों स्थितियों में regret समय के समानुपाती बढ़ सकता है।"
-    ], [
-      "The lecture's decaying-epsilon curve represents the desired idea: reduce random exploration as confidence grows. This can avoid permanent exploration cost, but a schedule that decays too quickly can still freeze an incorrect ranking; the rate must preserve enough learning.",
-      "Lecture की decaying-epsilon curve यही विचार दिखाती है: confidence बढ़ने पर random exploration घटाएँ। इससे permanent exploration cost घटती है, लेकिन बहुत तेज decay गलत ranking को freeze कर सकता है; schedule को पर्याप्त learning बचानी चाहिए।"
-    ]]
-  },
-  {
-    title: ["5. Sample averages learn stationary action values", "5. Sample average stationary action value सीखता है"],
-    sourceRefs: ["41:10–50:59", "Methods and Action-Value Methods slides"],
-    paragraphs: [[
-      "For action a, Q_t(a) averages only rewards from earlier times when a was selected. Indicator notation makes this filtering explicit. When N_t(a)=0, the ratio is undefined, so an implementation must initialize the estimate and count deliberately rather than divide by zero.",
-      "Action a के लिए Q_t(a) केवल उन पुराने rewards का average है जब a चुना गया था। Indicator notation इस filtering को स्पष्ट करता है। N_t(a)=0 पर ratio undefined है, इसलिए implementation को estimate और count initialize करना चाहिए।"
-    ], [
-      "In a stationary bandit, if action a is sampled infinitely often, its sample average converges toward q*(a). The equivalent incremental update Q_n=Q_{n-1}+(1/n)(R_n−Q_{n-1}) stores only the current estimate and count; this update is an added derivation from the displayed sample-average formula, not a separately developed slide today.",
-      "Stationary bandit में action a को infinitely often sample करने पर उसका sample average q*(a) की ओर converge करता है। Equivalent incremental update Q_n=Q_{n-1}+(1/n)(R_n−Q_{n-1}) केवल current estimate और count रखता है; यह displayed sample-average formula से निकला अतिरिक्त derivation है, आज अलग slide के रूप में विकसित नहीं हुआ।"
-    ]],
-    formula: "Q_t(a)=sum_{i<t} R_i 1{A_i=a}/N_t(a) · Q_n=Q_{n-1}+(1/n)(R_n−Q_{n-1})"
-  },
-  {
-    title: ["6. The testbed measures learning, not one lucky run", "6. Testbed learning मापता है, एक lucky run नहीं"],
-    sourceRefs: ["50:59–1:03:59", "10-armed Testbed and result plots"],
-    paragraphs: [[
-      "Each independent task draws ten true action values from N(0,1). Pulling action a produces a noisy reward from N(q*(a),1). A method runs for 1,000 steps, and curves are averaged over 2,000 independent tasks so differences reflect repeatable learning behavior rather than one favorable bandit instance.",
-      "हर independent task दस true action values N(0,1) से draw करता है। Action a चुनने पर N(q*(a),1) से noisy reward मिलता है। Method 1,000 steps चलता है और curves 2,000 independent tasks पर average होती हैं, ताकि difference किसी एक favorable instance के बजाय repeatable learning behavior दिखाए।"
-    ], [
-      "Average reward shows the magnitude of achieved payoff, while percent optimal action shows how often the method identifies and chooses the best arm. Greedy epsilon=0 can improve quickly and then stall after misleading samples. Epsilon=0.1 learns faster than 0.01 early in the plotted horizon, while smaller continuing exploration pays less random-action cost later.",
-      "Average reward payoff की मात्रा दिखाता है, जबकि percent optimal action बताता है कि method best arm को कितनी बार चुनता है। Greedy epsilon=0 जल्दी सुधरकर misleading samples के बाद रुक सकता है। Plot में epsilon=0.1, 0.01 से जल्दी सीखता है, जबकि छोटा continuing exploration बाद में कम random-action cost देता है।"
-    ]],
-    formula: "q*(a)~N(0,1) · R_t|A_t=a~N(q*(a),1) · 10 arms × 1,000 steps × 2,000 tasks"
-  },
-  {
-    title: ["7. The worked exercise separates definite from possible exploration", "7. Worked exercise definite और possible exploration अलग करता है"],
-    sourceRefs: ["1:03:59–1:18:01", "Exercise 1 and whiteboard solution"],
-    paragraphs: [[
-      "Starting from Q_1=(0,0,0,0), the sequence is (1,−1),(2,1),(2,−2),(2,2),(3,0). Before each choice the class recomputes the greedy set: Q_2=(−1,0,0,0), Q_3=(−1,1,0,0), Q_4=(−1,−0.5,0,0), and Q_5=(−1,1/3,0,0).",
-      "Q_1=(0,0,0,0) से sequence (1,−1),(2,1),(2,−2),(2,2),(3,0) है। हर choice से पहले class greedy set दोबारा बनाती है: Q_2=(−1,0,0,0), Q_3=(−1,1,0,0), Q_4=(−1,−0.5,0,0), और Q_5=(−1,1/3,0,0)।"
-    ], [
-      "At steps 4 and 5 the selected action lies outside the current greedy set, so the random epsilon branch definitely occurred. At steps 1–3 the selected action is greedy, but it could still have been produced by the random branch. Therefore randomness definitely occurred at 4 and 5 and might have occurred at every step.",
-      "Steps 4 और 5 पर selected action current greedy set के बाहर है, इसलिए random epsilon branch निश्चित रूप से चला। Steps 1–3 पर selected action greedy है, फिर भी random branch वही action दे सकता था। इसलिए randomness निश्चित रूप से 4 और 5 पर और संभवतः हर step पर हुई।"
-    ]],
-    formula: "Q_1=(0,0,0,0) → Q_2=(−1,0,0,0) → Q_3=(−1,1,0,0) → Q_4=(−1,−0.5,0,0) → Q_5=(−1,1/3,0,0)"
-  }
-];
-
-const terms = [
-  { term: ["True action value q*(a)", "True action value q*(a)"], definition: ["Expected reward from action a under its stationary reward distribution.", "Action a की stationary reward distribution के अंतर्गत expected reward।"] },
-  { term: ["Estimate Q_t(a)", "Estimate Q_t(a)"], definition: ["The learner's evidence-based approximation of q*(a) before decision t.", "Decision t से पहले q*(a) का learner द्वारा evidence-based approximation।"] },
-  { term: ["Optimal value V*", "Optimal value V*"], definition: ["The greatest true mean reward across available actions.", "Available actions में सबसे बड़ा true mean reward।"] },
-  { term: ["Instantaneous regret", "Instantaneous regret"], definition: ["Expected reward gap between the optimal arm and the arm chosen now.", "Optimal arm और अभी चुने गए arm के बीच expected reward gap।"] },
-  { term: ["Cumulative regret", "Cumulative regret"], definition: ["Sum of instantaneous regret across a decision horizon.", "Decision horizon पर instantaneous regret का sum।"] },
-  { term: ["Suboptimality gap Delta_a", "Suboptimality gap Delta_a"], definition: ["V*−q*(a), the expected cost of choosing action a once.", "V*−q*(a), यानी action a को एक बार चुनने की expected cost।"] },
-  { term: ["Selection count N_t(a)", "Selection count N_t(a)"], definition: ["Number of times action a was selected before the horizon or decision index.", "Horizon या decision index से पहले action a के selections की संख्या।"] },
-  { term: ["Greedy action", "Greedy action"], definition: ["Any action tied for the largest current estimate Q_t.", "Largest current estimate Q_t के लिए tied कोई भी action।"] },
-  { term: ["Epsilon-greedy", "Epsilon-greedy"], definition: ["A policy that usually acts greedily and selects a random action with probability epsilon.", "Policy जो सामान्यतः greedy action लेती है और probability epsilon से random action चुनती है।"] },
-  { term: ["Sample-average estimate", "Sample-average estimate"], definition: ["Mean of rewards observed from one action.", "एक action से observe हुए rewards का mean।"] },
-  { term: ["10-armed testbed", "10-armed testbed"], definition: ["A replicated stochastic benchmark for comparing bandit action-selection methods.", "Bandit action-selection methods की तुलना का replicated stochastic benchmark।"] }
-];
-
-const insights = [
-  { label: ["Notation", "Notation"], title: ["Keep truth and estimate separate", "Truth और estimate को अलग रखें"], body: ["The regret slide sometimes writes Q(a) where the derivation needs the true mean. In code and analysis, reserve q*(a) for truth and Q_t(a) for the learned estimate to prevent a silent benchmark error.", "Regret slide कभी Q(a) लिखती है जहाँ derivation को true mean चाहिए। Code और analysis में q*(a) को truth और Q_t(a) को learned estimate रखें, ताकि silent benchmark error न हो।"] },
-  { label: ["Asymptotics", "Asymptotics"], title: ["Fixed epsilon pays forever", "Fixed epsilon हमेशा cost देता है"], body: ["With fixed epsilon>0 and uniform random exploration, known suboptimal arms retain nonzero selection probability. That is useful for finite-horizon learning but normally produces linear asymptotic regret in a stationary problem.", "Fixed epsilon>0 और uniform random exploration में known suboptimal arms की selection probability nonzero रहती है। Finite horizon में यह उपयोगी है, पर stationary problem में सामान्यतः linear asymptotic regret देता है।"] },
-  { label: ["Evaluation", "Evaluation"], title: ["Publish both reward and identification metrics", "Reward और identification दोनों metrics दिखाएँ"], body: ["Percent-optimal action treats every mistake alike, while average reward weights mistakes by their payoff gap and noise. Use both, plus uncertainty intervals, before claiming one policy is better.", "Percent-optimal action हर mistake को समान मानता है, जबकि average reward payoff gap और noise के अनुसार weight करता है। किसी policy को बेहतर कहने से पहले दोनों और uncertainty intervals देखें।"] },
-  { label: ["Implementation", "Implementation"], title: ["Random tie-breaking is part of the algorithm", "Random tie-breaking algorithm का हिस्सा है"], body: ["Always choosing the first argmax action introduces an array-order bias, especially when all Q values start equal. Randomly choose among maximizers and seed the generator for reproducible experiments.", "सभी Q values समान होने पर पहला argmax हमेशा चुनना array-order bias देता है। Maximizers में random choice करें और reproducibility के लिए generator seed करें।"] },
-  { label: ["Production", "Production"], title: ["Stationarity must be monitored", "Stationarity monitor करनी चाहिए"], body: ["The sample average gives old and recent rewards equal influence. If reward distributions drift, use recency weighting or a sliding window and monitor changes in reward and action-frequency behavior.", "Sample average पुराने और नए rewards को समान influence देता है। Reward distribution drift होने पर recency weighting या sliding window अपनाएँ और reward तथा action-frequency changes monitor करें।"] }
-];
-
-const resources = [
-  { type: ["Book", "Book"], title: ["Reinforcement Learning: An Introduction, second edition", "Reinforcement Learning: An Introduction, second edition"], creator: ["Richard S. Sutton & Andrew G. Barto", "Richard S. Sutton & Andrew G. Barto"], why: ["Chapter 2 is the primary treatment of the testbed, epsilon-greedy methods, and the worked exercise.", "Chapter 2 में testbed, epsilon-greedy methods और worked exercise का मूल treatment है।"], url: "https://incompleteideas.net/book/RLbook2020.pdf" },
-  { type: ["Paper", "Paper"], title: ["Finite-time Analysis of the Multiarmed Bandit Problem", "Finite-time Analysis of the Multiarmed Bandit Problem"], creator: ["Auer, Cesa-Bianchi & Fischer", "Auer, Cesa-Bianchi & Fischer"], why: ["Develops finite-time logarithmic-regret analysis and UCB, extending today's regret motivation.", "Finite-time logarithmic-regret analysis और UCB विकसित करता है, जो आज की regret motivation को आगे बढ़ाता है।"], url: "https://link.springer.com/article/10.1023/A:1013689704352" },
-  { type: ["Book", "Book"], title: ["Bandit Algorithms", "Bandit Algorithms"], creator: ["Tor Lattimore & Csaba Szepesvari", "Tor Lattimore & Csaba Szepesvari"], why: ["A rigorous open text on regret, concentration, stochastic bandits, and contextual extensions.", "Regret, concentration, stochastic bandits और contextual extensions पर rigorous open text।"], url: "https://tor-lattimore.com/downloads/book/book.pdf" },
-  { type: ["Watch", "Watch"], title: ["Reinforcement Learning 2: Exploration and Exploitation", "Reinforcement Learning 2: Exploration and Exploitation"], creator: ["Google DeepMind", "Google DeepMind"], why: ["A university lecture that connects epsilon-greedy exploration with stronger confidence-based methods.", "University lecture जो epsilon-greedy exploration को stronger confidence-based methods से जोड़ता है।"], url: "https://www.youtube.com/watch?v=eM6IBYVqXEA" },
-  { type: ["Code", "Code"], title: ["Reinforcement Learning: An Introduction — runnable figures", "Reinforcement Learning: An Introduction — runnable figures"], creator: ["Shangtong Zhang", "Shangtong Zhang"], why: ["Reproduce and modify the textbook's bandit experiments instead of reading the curves passively.", "Textbook के bandit experiments reproduce और modify करें, केवल curves को निष्क्रिय रूप से न पढ़ें।"], url: "https://github.com/ShangtongZhang/reinforcement-learning-an-introduction" }
-];
-
-const quizRows = [
-  { q: ["What does instantaneous regret measure at time t?", "Time t पर instantaneous regret क्या मापता है?"], o: [["The expected gap between the optimal arm and the chosen arm", "Optimal arm और chosen arm के expected reward का gap"], ["The chosen arm's variance", "Chosen arm का variance"], ["The number of untried arms", "Untried arms की संख्या"], ["Total reward collected so far", "अब तक का total collected reward"]], a: 0, e: ["It is the one-step opportunity cost V*−q*(A_t).", "यह one-step opportunity cost V*−q*(A_t) है।"], n: [["Correct: it compares the available optimum with this choice.", "सही: यह available optimum की current choice से तुलना है।"], ["Variance measures spread, not opportunity loss.", "Variance spread मापता है, opportunity loss नहीं।"], ["Untried-arm count may guide exploration but is not regret.", "Untried-arm count exploration guide कर सकता है, regret नहीं है।"], ["That is accumulated payoff, not a one-step gap.", "वह accumulated payoff है, one-step gap नहीं।"]] },
-  { q: ["How is cumulative regret over T steps formed?", "T steps पर cumulative regret कैसे बनता है?"], o: [["By summing instantaneous regrets", "Instantaneous regrets को जोड़कर"], ["By averaging arm variances", "Arm variances का average लेकर"], ["By counting only successful pulls", "केवल successful pulls गिनकर"], ["By subtracting epsilon from reward", "Reward से epsilon घटाकर"]], a: 0, e: ["Cumulative regret adds the opportunity gap at every decision.", "Cumulative regret हर decision का opportunity gap जोड़ता है।"], n: [["Correct: L_T aggregates l_t over the horizon.", "सही: L_T पूरे horizon में l_t aggregate करता है।"], ["Variance is not regret's additive unit.", "Variance regret की additive unit नहीं है।"], ["Failures and successes can both incur regret.", "Failure और success दोनों regret दे सकते हैं।"], ["Epsilon is a policy probability, not a reward deduction.", "Epsilon policy probability है, reward deduction नहीं।"]] },
-  { q: ["Why is maximizing expected reward equivalent to minimizing regret here?", "यहाँ expected reward maximize करना regret minimize करने के बराबर क्यों है?"], o: [["The optimal-arm benchmark over T steps is fixed", "T steps का optimal-arm benchmark fixed है"], ["Every reward is positive", "हर reward positive है"], ["All arms have equal means", "सभी arms के means समान हैं"], ["Regret ignores selected actions", "Regret selected actions को ignore करता है"]], a: 0, e: ["Expected regret is a fixed optimal benchmark minus expected collected reward.", "Expected regret fixed optimal benchmark से expected collected reward घटाने पर मिलता है।"], n: [["Correct: optimizing either side optimizes the other.", "सही: एक side optimize करने पर दूसरी भी optimize होती है।"], ["Rewards may be negative.", "Rewards negative भी हो सकते हैं।"], ["Different means create the problem.", "Different means ही problem बनाते हैं।"], ["Regret depends directly on chosen actions.", "Regret selected actions पर सीधे निर्भर है।"]] },
-  { q: ["What is Delta_a?", "Delta_a क्या है?"], o: [["V*−q*(a)", "V*−q*(a)"], ["Q_t(a)−R_t", "Q_t(a)−R_t"], ["The variance of arm a", "Arm a का variance"], ["The exploration probability", "Exploration probability"]], a: 0, e: ["Delta_a is the suboptimality gap of arm a.", "Delta_a arm a का suboptimality gap है।"], n: [["Correct: it is the expected cost per pull of a.", "सही: यह a के हर pull की expected cost है।"], ["That is a sample prediction error with reversed sign.", "यह reversed sign वाला sample prediction error है।"], ["Reward spread is a separate quantity.", "Reward spread अलग quantity है।"], ["Exploration probability is epsilon.", "Exploration probability epsilon है।"]] },
-  { q: ["What does N_T(a) count?", "N_T(a) क्या count करता है?"], o: [["Selections of action a before horizon T", "Horizon T से पहले action a के selections"], ["All possible actions", "सभी possible actions"], ["Only optimal rewards", "केवल optimal rewards"], ["Changes in q*(a)", "q*(a) में changes"]], a: 0, e: ["N_T(a) is the pull count for a.", "N_T(a), a का pull count है।"], n: [["Correct: it converts per-pull gap into accumulated contribution.", "सही: यह per-pull gap को accumulated contribution में बदलता है।"], ["That count is k, not N_T(a).", "वह count k है, N_T(a) नहीं।"], ["Every selection counts regardless of reward.", "Reward चाहे जो हो, हर selection count होता है।"], ["The lecture assumes stationary q*.", "Lecture stationary q* मानती है।"]] },
-  { q: ["Which expression decomposes expected cumulative regret?", "कौन-सा expression expected cumulative regret decompose करता है?"], o: [["sum_a E[N_T(a)]Delta_a", "sum_a E[N_T(a)]Delta_a"], ["sum_a Q_T(a)", "sum_a Q_T(a)"], ["epsilon/T", "epsilon/T"], ["max_a N_T(a)", "max_a N_T(a)"]], a: 0, e: ["Each arm contributes expected pull count times its gap.", "हर arm expected pull count गुणा gap contribute करता है।"], n: [["Correct: this is the gap–count decomposition.", "सही: यही gap–count decomposition है।"], ["Estimates alone do not encode incurred regret.", "केवल estimates incurred regret encode नहीं करते।"], ["That is not the regret identity.", "यह regret identity नहीं है।"], ["Regret depends on every suboptimal arm, not only one count.", "Regret हर suboptimal arm पर निर्भर है, केवल एक count पर नहीं।"]] },
-  { q: ["What should a good algorithm do with a large-gap arm?", "Good algorithm को large-gap arm के साथ क्या करना चाहिए?"], o: [["Select it only enough to identify it as poor", "उसे poor पहचानने जितना ही select करे"], ["Select it forever", "उसे हमेशा select करे"], ["Assign it the largest Q without evidence", "Evidence के बिना largest Q दे"], ["Remove all reward noise", "सारा reward noise हटा दे"]], a: 0, e: ["Large gaps make repeated mistakes expensive, so their counts should remain small after identification.", "Large gaps repeated mistakes को महँगा बनाते हैं, इसलिए identification के बाद counts छोटे रहने चाहिए।"], n: [["Correct: learn enough, then avoid needless cost.", "सही: पर्याप्त सीखें, फिर अनावश्यक cost बचाएँ।"], ["That produces continuing linear regret.", "इससे continuing linear regret होगा।"], ["Optimism is not arbitrary permanent ranking.", "Optimism arbitrary permanent ranking नहीं है।"], ["The policy cannot remove environment noise.", "Policy environment noise नहीं हटा सकती।"]] },
-  { q: ["Why can never exploring produce linear regret?", "कभी explore न करना linear regret क्यों दे सकता है?"], o: [["An early noisy estimate can lock in a suboptimal arm", "Early noisy estimate suboptimal arm को lock कर सकता है"], ["The optimal arm disappears", "Optimal arm गायब हो जाता है"], ["Every greedy reward becomes zero", "हर greedy reward zero हो जाता है"], ["N_T(a) cannot be counted", "N_T(a) count नहीं हो सकता"]], a: 0, e: ["Pure greed may never collect evidence that corrects an early ranking error.", "Pure greed early ranking error सुधारने वाला evidence शायद कभी collect न करे।"], n: [["Correct: a persistent gap then accumulates each step.", "सही: persistent gap हर step पर accumulate होता है।"], ["Arms remain available in the stationary setup.", "Stationary setup में arms available रहते हैं।"], ["Greedy rewards are stochastic, not forced to zero.", "Greedy rewards stochastic हैं, zero होना आवश्यक नहीं।"], ["Counts remain definable.", "Counts फिर भी definable हैं।"]] },
-  { q: ["Why can fixed positive epsilon produce linear asymptotic regret?", "Fixed positive epsilon linear asymptotic regret क्यों दे सकता है?"], o: [["Suboptimal arms keep nonzero random-selection probability", "Suboptimal arms की random-selection probability nonzero रहती है"], ["Q_t cannot be updated", "Q_t update नहीं हो सकता"], ["The number of arms grows", "Arms की संख्या बढ़ती है"], ["Rewards stop being random", "Rewards random रहना बंद कर देते हैं"]], a: 0, e: ["A constant fraction of future decisions keeps paying known gaps.", "Future decisions का constant fraction known gaps की cost देता रहता है।"], n: [["Correct: constant exploration creates constant per-step expected cost.", "सही: constant exploration constant per-step expected cost बनाता है।"], ["Q_t updates normally.", "Q_t सामान्य रूप से update होता है।"], ["k is fixed in this problem.", "इस problem में k fixed है।"], ["Reward randomness is unrelated to this conclusion.", "Reward randomness इस conclusion से अलग है।"]] },
-  { q: ["What is the purpose of decaying epsilon?", "Decaying epsilon का उद्देश्य क्या है?"], o: [["Reduce random exploration as evidence grows", "Evidence बढ़ने पर random exploration घटाना"], ["Increase every reward", "हर reward बढ़ाना"], ["Make q*(a) observable", "q*(a) observable बनाना"], ["Guarantee zero finite-time regret", "Zero finite-time regret guarantee करना"]], a: 0, e: ["Decay aims to preserve early learning while lowering long-run exploration cost.", "Decay early learning बचाकर long-run exploration cost घटाने का प्रयास है।"], n: [["Correct: exploration adapts over time.", "सही: exploration समय के साथ adapt करता है।"], ["Policy cannot change generated rewards.", "Policy generated rewards नहीं बदलती।"], ["True values remain latent.", "True values latent रहती हैं।"], ["Learning still incurs some finite-time regret.", "Learning में finite-time regret फिर भी होता है।"]] },
-  { q: ["What action does a greedy policy select?", "Greedy policy कौन-सा action चुनती है?"], o: [["Any action in argmax_a Q_t(a)", "argmax_a Q_t(a) का कोई action"], ["The least sampled action only", "केवल least sampled action"], ["A uniformly random action always", "हमेशा uniformly random action"], ["The action with highest variance", "Highest variance वाला action"]], a: 0, e: ["Greedy selection maximizes the current estimate.", "Greedy selection current estimate maximize करता है।"], n: [["Correct: ties may produce multiple greedy actions.", "सही: ties कई greedy actions दे सकती हैं।"], ["That is an exploration heuristic.", "यह exploration heuristic है।"], ["That is pure random behavior.", "यह pure random behavior है।"], ["Variance is not the greedy criterion.", "Variance greedy criterion नहीं है।"]] },
-  { q: ["Under epsilon-greedy, what happens with probability epsilon?", "Epsilon-greedy में probability epsilon पर क्या होता है?"], o: [["An action is selected uniformly at random", "Action uniformly at random चुना जाता है"], ["Learning stops", "Learning रुकती है"], ["The reward is discarded", "Reward discard होता है"], ["The best true arm is revealed", "Best true arm reveal होता है"]], a: 0, e: ["Epsilon controls the random exploration branch.", "Epsilon random exploration branch को control करता है।"], n: [["Correct under the convention used in the lecture.", "Lecture में प्रयुक्त convention के अनुसार सही।"], ["Estimates continue to learn.", "Estimates सीखते रहते हैं।"], ["Exploratory rewards also update estimates.", "Exploratory rewards भी estimates update करते हैं।"], ["The environment does not reveal q*.", "Environment q* reveal नहीं करता।"]] },
-  { q: ["What data enters Q_t(a)'s sample average?", "Q_t(a) के sample average में कौन-सा data जाता है?"], o: [["Rewards from times when action a was selected", "वे rewards जब action a चुना गया"], ["Rewards from every arm", "हर arm के rewards"], ["Only the largest reward", "केवल largest reward"], ["Unobserved counterfactual rewards", "Unobserved counterfactual rewards"]], a: 0, e: ["Bandit feedback reveals only the chosen arm's reward.", "Bandit feedback केवल chosen arm का reward दिखाता है।"], n: [["Correct: the indicator 1{A_i=a} filters observations.", "सही: indicator 1{A_i=a} observations filter करता है।"], ["Other-arm rewards are not observed on that step.", "उस step पर other-arm rewards observe नहीं होते।"], ["A mean uses all observed rewards for a.", "Mean, a के सभी observed rewards उपयोग करता है।"], ["Counterfactual rewards are unavailable.", "Counterfactual rewards उपलब्ध नहीं हैं।"]] },
-  { q: ["Why must N_t(a)=0 be handled explicitly?", "N_t(a)=0 को explicitly handle क्यों करना चाहिए?"], o: [["The sample-average ratio would divide by zero", "Sample-average ratio zero से divide होगा"], ["The arm becomes optimal", "Arm optimal हो जाता है"], ["Epsilon becomes one", "Epsilon one हो जाता है"], ["Reward variance vanishes", "Reward variance vanish हो जाता है"]], a: 0, e: ["An untried arm has no empirical mean yet.", "Untried arm का empirical mean अभी नहीं होता।"], n: [["Correct: initialize its estimate/count deliberately.", "सही: estimate/count को deliberately initialize करें।"], ["Untried does not imply optimal.", "Untried होने का अर्थ optimal नहीं है।"], ["Epsilon is independently chosen.", "Epsilon independently चुना जाता है।"], ["Its reward distribution has not changed.", "उसकी reward distribution नहीं बदली।"]] },
-  { q: ["When does the ordinary sample average converge toward q*(a)?", "Ordinary sample average q*(a) की ओर कब converge करता है?"], o: [["When the stationary arm is sampled infinitely often", "जब stationary arm infinitely often sample हो"], ["After exactly one reward", "ठीक एक reward के बाद"], ["Only when epsilon is zero", "केवल epsilon zero होने पर"], ["Only for deterministic rewards", "केवल deterministic rewards में"]], a: 0, e: ["Repeated stationary samples support the law-of-large-numbers convergence.", "Repeated stationary samples law-of-large-numbers convergence support करते हैं।"], n: [["Correct: both stationarity and continuing samples matter.", "सही: stationarity और continuing samples दोनों जरूरी हैं।"], ["One noisy sample is generally insufficient.", "एक noisy sample सामान्यतः पर्याप्त नहीं है।"], ["Zero epsilon can prevent infinite sampling.", "Zero epsilon infinite sampling रोक सकता है।"], ["Stochastic rewards can also converge in mean.", "Stochastic rewards भी mean में converge कर सकते हैं।"]] },
-  { q: ["Which incremental rule exactly maintains a sample mean after reward R_n?", "Reward R_n के बाद कौन-सा incremental rule exact sample mean रखता है?"], o: [["Q_n=Q_{n-1}+(1/n)(R_n−Q_{n-1})", "Q_n=Q_{n-1}+(1/n)(R_n−Q_{n-1})"], ["Q_n=R_n", "Q_n=R_n"], ["Q_n=Q_{n-1}+R_n", "Q_n=Q_{n-1}+R_n"], ["Q_n=max(Q_{n-1},R_n)", "Q_n=max(Q_{n-1},R_n)"]], a: 0, e: ["The 1/n step size converts the previous mean into the new mean.", "1/n step size previous mean को new mean में बदलता है।"], n: [["Correct: it is algebraically equivalent to averaging all n samples.", "सही: यह सभी n samples के average के algebraically equivalent है।"], ["This forgets all earlier samples.", "यह सभी पुराने samples भूल जाता है।"], ["This stores a sum, not a mean.", "यह sum रखता है, mean नहीं।"], ["This stores a maximum, not an expectation estimate.", "यह maximum रखता है, expectation estimate नहीं।"]] },
-  { q: ["Which estimate is updated after pulling action A_t?", "Action A_t pull करने के बाद कौन-सा estimate update होता है?"], o: [["Q(A_t) only", "केवल Q(A_t)"], ["Every arm's Q", "हर arm का Q"], ["Only V*", "केवल V*"], ["No estimate", "कोई estimate नहीं"]], a: 0, e: ["Only the selected action produces a reward observation.", "केवल selected action reward observation देता है।"], n: [["Correct: bandit feedback is partial.", "सही: bandit feedback partial है।"], ["Unselected arms produce no observed rewards.", "Unselected arms observed rewards नहीं देते।"], ["V* is unknown and not directly updated.", "V* unknown है और सीधे update नहीं होता।"], ["The selected action's evidence must be incorporated.", "Selected action का evidence incorporate करना चाहिए।"]] },
-  { q: ["In the testbed, how are true action values generated?", "Testbed में true action values कैसे generate होते हैं?"], o: [["Independently from N(0,1)", "Independently N(0,1) से"], ["All fixed at zero", "सभी zero पर fixed"], ["From the previous reward", "Previous reward से"], ["By the policy", "Policy द्वारा"]], a: 0, e: ["Each task samples its ten q*(a) values from a standard normal distribution.", "हर task अपने दस q*(a) values standard normal distribution से sample करता है।"], n: [["Correct: this creates a fresh bandit instance.", "सही: इससे fresh bandit instance बनता है।"], ["Zero is the distribution mean, not every draw.", "Zero distribution mean है, हर draw नहीं।"], ["Rewards are sampled around the fixed true value.", "Rewards fixed true value के आसपास sample होते हैं।"], ["The environment generates true values.", "Environment true values generate करता है।"]] },
-  { q: ["What is the reward model after selecting action a in the testbed?", "Testbed में action a चुनने के बाद reward model क्या है?"], o: [["N(q*(a),1)", "N(q*(a),1)"], ["N(0,0)", "N(0,0)"], ["Always q*(a) exactly", "हमेशा exactly q*(a)"], ["Uniform over the arm labels", "Arm labels पर uniform"]], a: 0, e: ["Reward noise has mean q*(a) and variance one.", "Reward noise का mean q*(a) और variance one है।"], n: [["Correct: the observed reward fluctuates around the arm mean.", "सही: observed reward arm mean के आसपास fluctuate करता है।"], ["That is a deterministic zero reward.", "यह deterministic zero reward है।"], ["Unit variance makes observations noisy.", "Unit variance observations को noisy बनाता है।"], ["Labels do not define reward values.", "Labels reward values define नहीं करते।"]] },
-  { q: ["Why average results over 2,000 independent tasks?", "Results को 2,000 independent tasks पर average क्यों किया गया?"], o: [["To reduce dependence on one lucky bandit instance", "एक lucky bandit instance पर dependence घटाने के लिए"], ["To reveal every q*(a)", "हर q*(a) reveal करने के लिए"], ["To eliminate exploration", "Exploration eliminate करने के लिए"], ["To make rewards deterministic", "Rewards deterministic बनाने के लिए"]], a: 0, e: ["Replication estimates typical learning performance across problem draws.", "Replication अलग problem draws पर typical learning performance estimate करता है।"], n: [["Correct: curves become estimates of expected behavior.", "सही: curves expected behavior के estimates बनते हैं।"], ["True values remain internal to each simulation.", "True values हर simulation में internal रहती हैं।"], ["Policies still explore.", "Policies फिर भी explore करती हैं।"], ["Averaging reduces noise but does not change the reward process.", "Averaging noise घटाता है, reward process नहीं बदलता।"]] },
-  { q: ["What does percent optimal action measure?", "Percent optimal action क्या मापता है?"], o: [["The fraction of runs selecting a true best arm at each step", "हर step पर true best arm चुनने वाले runs का fraction"], ["The average reward magnitude", "Average reward magnitude"], ["The value of epsilon", "Epsilon का value"], ["The number of reward samples stored", "Stored reward samples की संख्या"]], a: 0, e: ["It is an identification/selection-frequency metric for the optimal arm.", "यह optimal arm का identification/selection-frequency metric है।"], n: [["Correct: it asks whether the selected arm is truly optimal.", "सही: यह पूछता है कि selected arm truly optimal है या नहीं।"], ["Average reward is plotted separately.", "Average reward अलग plot होता है।"], ["Multiple epsilon values are compared.", "कई epsilon values compare होती हैं।"], ["Storage is unrelated to this percentage.", "Storage इस percentage से unrelated है।"]] },
-  { q: ["Why inspect both average reward and percent optimal action?", "Average reward और percent optimal action दोनों क्यों देखें?"], o: [["They measure payoff magnitude and best-arm selection differently", "वे payoff magnitude और best-arm selection अलग तरह मापते हैं"], ["They are always identical", "वे हमेशा identical होते हैं"], ["One removes all randomness", "एक सारी randomness हटाता है"], ["Both reveal unobserved rewards", "दोनों unobserved rewards reveal करते हैं"]], a: 0, e: ["A wrong near-optimal choice and a wrong poor choice count equally in one metric but not in reward.", "Wrong near-optimal और wrong poor choice एक metric में समान count होते हैं, reward में नहीं।"], n: [["Correct: the metrics answer complementary questions.", "सही: metrics complementary questions के उत्तर देते हैं।"], ["Their curves can behave differently.", "उनकी curves अलग behave कर सकती हैं।"], ["Both remain statistical estimates.", "दोनों statistical estimates रहते हैं।"], ["Counterfactual rewards remain unseen.", "Counterfactual rewards unseen रहते हैं।"]] },
-  { q: ["In Exercise 1, what is Q_4 after rewards −1, 1, and −2?", "Exercise 1 में rewards −1, 1 और −2 के बाद Q_4 क्या है?"], o: [["(−1,−0.5,0,0)", "(−1,−0.5,0,0)"], ["(−1,1,0,0)", "(−1,1,0,0)"], ["(0,0,0,0)", "(0,0,0,0)"], ["(−1,−1,−2,0)", "(−1,−1,−2,0)"]], a: 0, e: ["Action 2's two rewards average to (1−2)/2=−0.5; action 1 remains −1.", "Action 2 के दो rewards का average (1−2)/2=−0.5 है; action 1 −1 रहता है।"], n: [["Correct: only selected arms have changed estimates.", "सही: केवल selected arms के estimates बदले हैं।"], ["That is Q_3 before the −2 update.", "यह −2 update से पहले Q_3 है।"], ["Initial values no longer apply to arms 1 and 2.", "Arms 1 और 2 पर initial values अब लागू नहीं हैं।"], ["Rewards must be averaged per arm, not copied into positions.", "Rewards per arm average होने चाहिए, positions में copy नहीं।"]] },
-  { q: ["At which exercise steps did the random branch definitely occur?", "Exercise में random branch निश्चित रूप से किन steps पर चला?"], o: [["Steps 4 and 5", "Steps 4 और 5"], ["Steps 1 and 2", "Steps 1 और 2"], ["Step 3 only", "केवल step 3"], ["No step", "कोई step नहीं"]], a: 0, e: ["At both steps the selected action lay outside the current greedy set.", "दोनों steps पर selected action current greedy set के बाहर था।"], n: [["Correct: action 2 at step 4 and action 3 at step 5 were nongreedy.", "सही: step 4 पर action 2 और step 5 पर action 3 nongreedy थे।"], ["Those selected actions were in tied greedy sets.", "वे selected actions tied greedy sets में थे।"], ["Action 2 was uniquely greedy at step 3.", "Step 3 पर action 2 uniquely greedy था।"], ["Two choices prove exploration occurred.", "दो choices exploration को prove करती हैं।"]] },
-  { q: ["Why might the random branch also have occurred at steps 1–3?", "Random branch steps 1–3 पर भी क्यों चला हो सकता है?"], o: [["Random exploration can select an action that is also greedy", "Random exploration greedy action भी चुन सकता है"], ["Their rewards were all zero", "उनके rewards सभी zero थे"], ["Q values were unavailable", "Q values unavailable थे"], ["Epsilon was negative", "Epsilon negative था"]], a: 0, e: ["Observing a greedy action does not identify which policy branch produced it.", "Greedy action observe करने से यह नहीं पता चलता कि उसे किस policy branch ने बनाया।"], n: [["Correct: action identity alone cannot distinguish the branches.", "सही: केवल action identity branches अलग नहीं कर सकती।"], ["The rewards were −1, 1, and −2.", "Rewards −1, 1 और −2 थे।"], ["Q values were reconstructed at every step.", "हर step पर Q values reconstruct की गईं।"], ["Epsilon is a probability between zero and one.", "Epsilon zero और one के बीच probability है।"]] }
-];
-
-const makeQuiz = (lang) => quizRows.map((row) => ({
-  question: row.q[lang === "en" ? 0 : 1],
-  options: row.o.map((option) => option[lang === "en" ? 0 : 1]),
-  answer: row.a,
-  explanation: row.e[lang === "en" ? 0 : 1],
-  optionNotes: row.n.map((note) => note[lang === "en" ? 0 : 1])
-}));
-
-const makeSignals = () => ({
-  assignments: [],
-  homework: [],
-  labs: [],
-  projects: [],
-  references: [],
-  studentQuestions: []
-});
-
-const makeEdition = (lang) => ({
-  title: lang === "en" ? "Regret, action-value estimation, and the 10-armed testbed" : "Regret, action-value estimation और 10-armed testbed",
-  lede: lang === "en"
-    ? "The lecture turns the exploration–exploitation dilemma into a measurable objective through regret, derives its gap–count form, builds sample-average action estimates, and tests greedy versus epsilon-greedy behavior before solving a four-armed exercise."
-    : "Lecture exploration–exploitation dilemma को regret के जरिए measurable objective में बदलती है, उसका gap–count form निकालती है, sample-average action estimates बनाती है, greedy बनाम epsilon-greedy behavior जाँचती है और अंत में four-armed exercise हल करती है।",
-  instructionalInterval: "1:12–39:57 and 41:10–1:18:01",
-  reviewLevel: lang === "en" ? "Recording, timestamped transcript, and slide-frame verified" : "Recording, timestamped transcript और slide-frame से सत्यापित",
-  coverage: localized(coverage, lang),
-  takeaway: lang === "en"
-    ? "A strong bandit policy spends exploration where uncertainty is worth its regret, updates values from partial feedback, and reduces avoidable sampling as evidence separates good arms from bad ones."
-    : "मजबूत bandit policy exploration वहीं खर्च करती है जहाँ uncertainty के लिए regret देना उपयोगी हो, partial feedback से values update करती है और evidence से good तथा bad arms अलग होते ही अनावश्यक sampling घटाती है।",
-  slideTrail: localized(slides, lang),
-  summary: localized(summaries, lang),
-  courseSignals: makeSignals(),
-  keyTerms: localized(terms, lang),
-  insights: localized(insights, lang),
-  resources: localized(resources, lang),
-  quiz: makeQuiz(lang)
-});
-
-// One publication unit: English and Hindi are reviewed and rendered together.
+// English-only publication unit.
 export const eai6401Lecture20260824 = {
-  en: makeEdition("en"),
-  hi: makeEdition("hi")
+  en: {
+  "title": "Regret, action-value estimation, and the 10-armed testbed",
+  "lede": "The lecture turns the exploration–exploitation dilemma into a measurable objective through regret, derives its gap–count form, builds sample-average action estimates, and tests greedy versus epsilon-greedy behavior before solving a four-armed exercise.",
+  "instructionalInterval": "1:12–39:57 and 41:10–1:18:01",
+  "reviewLevel": "Recording, timestamped transcript, and slide-frame verified",
+  "coverage": [
+    {
+      "title": "Bandit benchmark",
+      "body": "True action values define the optimal arm and the reward benchmark against which a learner is judged."
+    },
+    {
+      "title": "Regret as opportunity loss",
+      "body": "Instantaneous regret measures one missed reward opportunity; cumulative regret adds those gaps across the decision horizon."
+    },
+    {
+      "title": "Gap–count decomposition",
+      "body": "Total regret depends on how often each arm is chosen and how far that arm lies below the optimum."
+    },
+    {
+      "title": "Exploration schedules",
+      "body": "Pure greed can lock onto an early mistake, while permanent fixed-rate exploration keeps paying avoidable regret."
+    },
+    {
+      "title": "Sample-average estimates",
+      "body": "Q_t(a) is estimated from rewards observed only on pulls of action a and converges under stationary, repeated sampling."
+    },
+    {
+      "title": "10-armed testbed and exercise",
+      "body": "Replicated experiments compare greedy and epsilon-greedy learning, followed by a stepwise reconstruction of a four-armed example."
+    }
+  ],
+  "takeaway": "A strong bandit policy spends exploration where uncertainty is worth its regret, updates values from partial feedback, and reduces avoidable sampling as evidence separates good arms from bad ones.",
+  "slideTrail": [
+    {
+      "time": "1:12–8:59",
+      "title": "k-armed bandit recap",
+      "note": "A stationary reward distribution gives every action an unknown true value q*(a); the learner must sample while accumulating reward."
+    },
+    {
+      "time": "8:59–16:59",
+      "title": "Exploration–exploitation dilemma",
+      "note": "The greedy set is argmax_a Q_t(a); actions outside it explore, and the exploration rate may decrease as evidence grows."
+    },
+    {
+      "time": "16:59–30:59",
+      "title": "Regret",
+      "note": "The slide defines q*(a)=E[R|A=a], V*=max_a q*(a), one-step opportunity loss, and accumulated regret."
+    },
+    {
+      "time": "30:59–34:59",
+      "title": "Regret from gaps and counts",
+      "note": "With Delta_a=V*−q*(a) and N_t(a) selections, L_t=sum_a E[N_t(a)]Delta_a."
+    },
+    {
+      "time": "34:59–39:57",
+      "title": "Linear versus sublinear regret",
+      "note": "The graph contrasts forever exploring, never exploring, and decaying epsilon-greedy behavior."
+    },
+    {
+      "time": "41:10–43:59",
+      "title": "Methods roadmap",
+      "note": "The instructor previews epsilon-greedy, incremental updates, nonstationarity, optimistic values, UCB, gradient bandits, and contextual bandits; only the first method is developed today."
+    },
+    {
+      "time": "43:59–48:59",
+      "title": "Action-value methods",
+      "note": "Q_t(a) is the sample mean of rewards received before t on selections of a, with an indicator-sum form shown on the slide."
+    },
+    {
+      "time": "48:59–50:59",
+      "title": "Epsilon-greedy action selection",
+      "note": "Most decisions use a current greedy action, while an epsilon fraction use a uniformly random action."
+    },
+    {
+      "time": "50:59–55:59",
+      "title": "The 10-armed testbed",
+      "note": "Each task samples q*(a)~N(0,1), rewards follow N(q*(a),1), and results average 1,000 steps over 2,000 tasks."
+    },
+    {
+      "time": "55:59–1:03:59",
+      "title": "Greedy and epsilon-greedy results",
+      "note": "Average reward and percent-optimal-action plots compare epsilon=0, 0.01, and 0.1."
+    },
+    {
+      "time": "1:03:59–1:18:01",
+      "title": "Exercise 1: four-armed reconstruction",
+      "note": "The class updates Q after five rewards and identifies steps 4 and 5 as definitely selected by the random branch."
+    }
+  ],
+  "summary": [
+    {
+      "title": "1. True values create a benchmark, not an observable answer key",
+      "sourceRefs": [
+        "1:12–16:59",
+        "Bandit recap and exploration slides"
+      ],
+      "paragraphs": [
+        "In a stationary k-armed bandit, q*(a)=E[R_t|A_t=a] is the unknown mean reward of action a. The optimal value V*=max_a q*(a) is the expected payoff of an optimal arm. The learner cannot read these quantities directly; it sees only the reward of the action it actually selected.",
+        "Current estimates Q_t(a) therefore serve two roles: they rank actions for exploitation and summarize the evidence gathered by exploration. A greedy action belongs to argmax_a Q_t(a); selecting outside that set is unambiguously exploratory, although a random exploration draw can still land on a greedy action."
+      ],
+      "formula": "q*(a)=E[R_t | A_t=a] · V*=max_a q*(a) · A*_t∈argmax_a Q_t(a)"
+    },
+    {
+      "title": "2. Regret measures opportunity loss",
+      "sourceRefs": [
+        "16:59–30:59",
+        "Regret slide and annotated payoff graph"
+      ],
+      "paragraphs": [
+        "Instantaneous expected regret is the gap between the optimal arm's mean and the mean of the selected arm. It can be positive even when the observed reward is positive: regret compares a choice with the reward opportunity that was available, not with zero.",
+        "Cumulative regret sums these missed opportunities. Against a fixed optimal-arm benchmark in a stationary bandit, expected optimal reward over T steps is a constant, so maximizing expected cumulative reward is equivalent to minimizing expected cumulative regret."
+      ],
+      "formula": "l_t=V*−q*(A_t) · L_T=E[sum_{t=1}^T l_t]"
+    },
+    {
+      "title": "3. Gaps and counts expose where regret comes from",
+      "sourceRefs": [
+        "30:59–34:59",
+        "Second Regret slide"
+      ],
+      "paragraphs": [
+        "Define the suboptimality gap Delta_a=V*−q*(a) and let N_T(a) count how often action a is selected. Then total expected regret decomposes into E[N_T(a)]Delta_a summed over arms. A large-gap arm is expensive every time it is pulled; a near-optimal arm is cheaper to investigate.",
+        "The difficulty is circular: the algorithm should stop sampling bad arms quickly, but the gaps are initially unknown. Exploration is therefore an information-allocation problem—collect enough evidence to distinguish arms without paying for unnecessary samples forever."
+      ],
+      "formula": "Delta_a=V*−q*(a) · L_T=sum_a E[N_T(a)]Delta_a"
+    },
+    {
+      "title": "4. Both exploration extremes can fail linearly",
+      "sourceRefs": [
+        "34:59–39:57",
+        "Total-regret comparison graph"
+      ],
+      "paragraphs": [
+        "A policy that never explores may commit to an arm made attractive by early noise and then receive a constant reward shortfall. A policy that explores forever at a fixed positive rate keeps selecting known suboptimal arms with constant probability. Either mechanism can accumulate regret proportional to time.",
+        "The lecture's decaying-epsilon curve represents the desired idea: reduce random exploration as confidence grows. This can avoid permanent exploration cost, but a schedule that decays too quickly can still freeze an incorrect ranking; the rate must preserve enough learning."
+      ]
+    },
+    {
+      "title": "5. Sample averages learn stationary action values",
+      "sourceRefs": [
+        "41:10–50:59",
+        "Methods and Action-Value Methods slides"
+      ],
+      "paragraphs": [
+        "For action a, Q_t(a) averages only rewards from earlier times when a was selected. Indicator notation makes this filtering explicit. When N_t(a)=0, the ratio is undefined, so an implementation must initialize the estimate and count deliberately rather than divide by zero.",
+        "In a stationary bandit, if action a is sampled infinitely often, its sample average converges toward q*(a). The equivalent incremental update Q_n=Q_{n-1}+(1/n)(R_n−Q_{n-1}) stores only the current estimate and count; this update is an added derivation from the displayed sample-average formula, not a separately developed slide today."
+      ],
+      "formula": "Q_t(a)=sum_{i<t} R_i 1{A_i=a}/N_t(a) · Q_n=Q_{n-1}+(1/n)(R_n−Q_{n-1})"
+    },
+    {
+      "title": "6. The testbed measures learning, not one lucky run",
+      "sourceRefs": [
+        "50:59–1:03:59",
+        "10-armed Testbed and result plots"
+      ],
+      "paragraphs": [
+        "Each independent task draws ten true action values from N(0,1). Pulling action a produces a noisy reward from N(q*(a),1). A method runs for 1,000 steps, and curves are averaged over 2,000 independent tasks so differences reflect repeatable learning behavior rather than one favorable bandit instance.",
+        "Average reward shows the magnitude of achieved payoff, while percent optimal action shows how often the method identifies and chooses the best arm. Greedy epsilon=0 can improve quickly and then stall after misleading samples. Epsilon=0.1 learns faster than 0.01 early in the plotted horizon, while smaller continuing exploration pays less random-action cost later."
+      ],
+      "formula": "q*(a)~N(0,1) · R_t|A_t=a~N(q*(a),1) · 10 arms × 1,000 steps × 2,000 tasks"
+    },
+    {
+      "title": "7. The worked exercise separates definite from possible exploration",
+      "sourceRefs": [
+        "1:03:59–1:18:01",
+        "Exercise 1 and whiteboard solution"
+      ],
+      "paragraphs": [
+        "Starting from Q_1=(0,0,0,0), the sequence is (1,−1),(2,1),(2,−2),(2,2),(3,0). Before each choice the class recomputes the greedy set: Q_2=(−1,0,0,0), Q_3=(−1,1,0,0), Q_4=(−1,−0.5,0,0), and Q_5=(−1,1/3,0,0).",
+        "At steps 4 and 5 the selected action lies outside the current greedy set, so the random epsilon branch definitely occurred. At steps 1–3 the selected action is greedy, but it could still have been produced by the random branch. Therefore randomness definitely occurred at 4 and 5 and might have occurred at every step."
+      ],
+      "formula": "Q_1=(0,0,0,0) → Q_2=(−1,0,0,0) → Q_3=(−1,1,0,0) → Q_4=(−1,−0.5,0,0) → Q_5=(−1,1/3,0,0)"
+    }
+  ],
+  "courseSignals": {
+    "assignments": [],
+    "homework": [],
+    "labs": [],
+    "projects": [],
+    "references": [],
+    "studentQuestions": []
+  },
+  "keyTerms": [
+    {
+      "term": "True action value q*(a)",
+      "definition": "Expected reward from action a under its stationary reward distribution."
+    },
+    {
+      "term": "Estimate Q_t(a)",
+      "definition": "The learner's evidence-based approximation of q*(a) before decision t."
+    },
+    {
+      "term": "Optimal value V*",
+      "definition": "The greatest true mean reward across available actions."
+    },
+    {
+      "term": "Instantaneous regret",
+      "definition": "Expected reward gap between the optimal arm and the arm chosen now."
+    },
+    {
+      "term": "Cumulative regret",
+      "definition": "Sum of instantaneous regret across a decision horizon."
+    },
+    {
+      "term": "Suboptimality gap Delta_a",
+      "definition": "V*−q*(a), the expected cost of choosing action a once."
+    },
+    {
+      "term": "Selection count N_t(a)",
+      "definition": "Number of times action a was selected before the horizon or decision index."
+    },
+    {
+      "term": "Greedy action",
+      "definition": "Any action tied for the largest current estimate Q_t."
+    },
+    {
+      "term": "Epsilon-greedy",
+      "definition": "A policy that usually acts greedily and selects a random action with probability epsilon."
+    },
+    {
+      "term": "Sample-average estimate",
+      "definition": "Mean of rewards observed from one action."
+    },
+    {
+      "term": "10-armed testbed",
+      "definition": "A replicated stochastic benchmark for comparing bandit action-selection methods."
+    }
+  ],
+  "insights": [
+    {
+      "label": "Notation",
+      "title": "Keep truth and estimate separate",
+      "body": "The regret slide sometimes writes Q(a) where the derivation needs the true mean. In code and analysis, reserve q*(a) for truth and Q_t(a) for the learned estimate to prevent a silent benchmark error."
+    },
+    {
+      "label": "Asymptotics",
+      "title": "Fixed epsilon pays forever",
+      "body": "With fixed epsilon>0 and uniform random exploration, known suboptimal arms retain nonzero selection probability. That is useful for finite-horizon learning but normally produces linear asymptotic regret in a stationary problem."
+    },
+    {
+      "label": "Evaluation",
+      "title": "Publish both reward and identification metrics",
+      "body": "Percent-optimal action treats every mistake alike, while average reward weights mistakes by their payoff gap and noise. Use both, plus uncertainty intervals, before claiming one policy is better."
+    },
+    {
+      "label": "Implementation",
+      "title": "Random tie-breaking is part of the algorithm",
+      "body": "Always choosing the first argmax action introduces an array-order bias, especially when all Q values start equal. Randomly choose among maximizers and seed the generator for reproducible experiments."
+    },
+    {
+      "label": "Production",
+      "title": "Stationarity must be monitored",
+      "body": "The sample average gives old and recent rewards equal influence. If reward distributions drift, use recency weighting or a sliding window and monitor changes in reward and action-frequency behavior."
+    }
+  ],
+  "resources": [
+    {
+      "type": "Book",
+      "title": "Reinforcement Learning: An Introduction, second edition",
+      "creator": "Richard S. Sutton & Andrew G. Barto",
+      "why": "Chapter 2 is the primary treatment of the testbed, epsilon-greedy methods, and the worked exercise.",
+      "url": "https://incompleteideas.net/book/RLbook2020.pdf"
+    },
+    {
+      "type": "Paper",
+      "title": "Finite-time Analysis of the Multiarmed Bandit Problem",
+      "creator": "Auer, Cesa-Bianchi & Fischer",
+      "why": "Develops finite-time logarithmic-regret analysis and UCB, extending today's regret motivation.",
+      "url": "https://link.springer.com/article/10.1023/A:1013689704352"
+    },
+    {
+      "type": "Book",
+      "title": "Bandit Algorithms",
+      "creator": "Tor Lattimore & Csaba Szepesvari",
+      "why": "A rigorous open text on regret, concentration, stochastic bandits, and contextual extensions.",
+      "url": "https://tor-lattimore.com/downloads/book/book.pdf"
+    },
+    {
+      "type": "Watch",
+      "title": "Reinforcement Learning 2: Exploration and Exploitation",
+      "creator": "Google DeepMind",
+      "why": "A university lecture that connects epsilon-greedy exploration with stronger confidence-based methods.",
+      "url": "https://www.youtube.com/watch?v=eM6IBYVqXEA"
+    },
+    {
+      "type": "Code",
+      "title": "Reinforcement Learning: An Introduction — runnable figures",
+      "creator": "Shangtong Zhang",
+      "why": "Reproduce and modify the textbook's bandit experiments instead of reading the curves passively.",
+      "url": "https://github.com/ShangtongZhang/reinforcement-learning-an-introduction"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "What does instantaneous regret measure at time t?",
+      "options": [
+        "The expected gap between the optimal arm and the chosen arm",
+        "The chosen arm's variance",
+        "The number of untried arms",
+        "Total reward collected so far"
+      ],
+      "answer": 0,
+      "explanation": "It is the one-step opportunity cost V*−q*(A_t).",
+      "optionNotes": [
+        "Correct: it compares the available optimum with this choice.",
+        "Variance measures spread, not opportunity loss.",
+        "Untried-arm count may guide exploration but is not regret.",
+        "That is accumulated payoff, not a one-step gap."
+      ]
+    },
+    {
+      "question": "How is cumulative regret over T steps formed?",
+      "options": [
+        "By summing instantaneous regrets",
+        "By averaging arm variances",
+        "By counting only successful pulls",
+        "By subtracting epsilon from reward"
+      ],
+      "answer": 0,
+      "explanation": "Cumulative regret adds the opportunity gap at every decision.",
+      "optionNotes": [
+        "Correct: L_T aggregates l_t over the horizon.",
+        "Variance is not regret's additive unit.",
+        "Failures and successes can both incur regret.",
+        "Epsilon is a policy probability, not a reward deduction."
+      ]
+    },
+    {
+      "question": "Why is maximizing expected reward equivalent to minimizing regret here?",
+      "options": [
+        "The optimal-arm benchmark over T steps is fixed",
+        "Every reward is positive",
+        "All arms have equal means",
+        "Regret ignores selected actions"
+      ],
+      "answer": 0,
+      "explanation": "Expected regret is a fixed optimal benchmark minus expected collected reward.",
+      "optionNotes": [
+        "Correct: optimizing either side optimizes the other.",
+        "Rewards may be negative.",
+        "Different means create the problem.",
+        "Regret depends directly on chosen actions."
+      ]
+    },
+    {
+      "question": "What is Delta_a?",
+      "options": [
+        "V*−q*(a)",
+        "Q_t(a)−R_t",
+        "The variance of arm a",
+        "The exploration probability"
+      ],
+      "answer": 0,
+      "explanation": "Delta_a is the suboptimality gap of arm a.",
+      "optionNotes": [
+        "Correct: it is the expected cost per pull of a.",
+        "That is a sample prediction error with reversed sign.",
+        "Reward spread is a separate quantity.",
+        "Exploration probability is epsilon."
+      ]
+    },
+    {
+      "question": "What does N_T(a) count?",
+      "options": [
+        "Selections of action a before horizon T",
+        "All possible actions",
+        "Only optimal rewards",
+        "Changes in q*(a)"
+      ],
+      "answer": 0,
+      "explanation": "N_T(a) is the pull count for a.",
+      "optionNotes": [
+        "Correct: it converts per-pull gap into accumulated contribution.",
+        "That count is k, not N_T(a).",
+        "Every selection counts regardless of reward.",
+        "The lecture assumes stationary q*."
+      ]
+    },
+    {
+      "question": "Which expression decomposes expected cumulative regret?",
+      "options": [
+        "sum_a E[N_T(a)]Delta_a",
+        "sum_a Q_T(a)",
+        "epsilon/T",
+        "max_a N_T(a)"
+      ],
+      "answer": 0,
+      "explanation": "Each arm contributes expected pull count times its gap.",
+      "optionNotes": [
+        "Correct: this is the gap–count decomposition.",
+        "Estimates alone do not encode incurred regret.",
+        "That is not the regret identity.",
+        "Regret depends on every suboptimal arm, not only one count."
+      ]
+    },
+    {
+      "question": "What should a good algorithm do with a large-gap arm?",
+      "options": [
+        "Select it only enough to identify it as poor",
+        "Select it forever",
+        "Assign it the largest Q without evidence",
+        "Remove all reward noise"
+      ],
+      "answer": 0,
+      "explanation": "Large gaps make repeated mistakes expensive, so their counts should remain small after identification.",
+      "optionNotes": [
+        "Correct: learn enough, then avoid needless cost.",
+        "That produces continuing linear regret.",
+        "Optimism is not arbitrary permanent ranking.",
+        "The policy cannot remove environment noise."
+      ]
+    },
+    {
+      "question": "Why can never exploring produce linear regret?",
+      "options": [
+        "An early noisy estimate can lock in a suboptimal arm",
+        "The optimal arm disappears",
+        "Every greedy reward becomes zero",
+        "N_T(a) cannot be counted"
+      ],
+      "answer": 0,
+      "explanation": "Pure greed may never collect evidence that corrects an early ranking error.",
+      "optionNotes": [
+        "Correct: a persistent gap then accumulates each step.",
+        "Arms remain available in the stationary setup.",
+        "Greedy rewards are stochastic, not forced to zero.",
+        "Counts remain definable."
+      ]
+    },
+    {
+      "question": "Why can fixed positive epsilon produce linear asymptotic regret?",
+      "options": [
+        "Suboptimal arms keep nonzero random-selection probability",
+        "Q_t cannot be updated",
+        "The number of arms grows",
+        "Rewards stop being random"
+      ],
+      "answer": 0,
+      "explanation": "A constant fraction of future decisions keeps paying known gaps.",
+      "optionNotes": [
+        "Correct: constant exploration creates constant per-step expected cost.",
+        "Q_t updates normally.",
+        "k is fixed in this problem.",
+        "Reward randomness is unrelated to this conclusion."
+      ]
+    },
+    {
+      "question": "What is the purpose of decaying epsilon?",
+      "options": [
+        "Reduce random exploration as evidence grows",
+        "Increase every reward",
+        "Make q*(a) observable",
+        "Guarantee zero finite-time regret"
+      ],
+      "answer": 0,
+      "explanation": "Decay aims to preserve early learning while lowering long-run exploration cost.",
+      "optionNotes": [
+        "Correct: exploration adapts over time.",
+        "Policy cannot change generated rewards.",
+        "True values remain latent.",
+        "Learning still incurs some finite-time regret."
+      ]
+    },
+    {
+      "question": "What action does a greedy policy select?",
+      "options": [
+        "Any action in argmax_a Q_t(a)",
+        "The least sampled action only",
+        "A uniformly random action always",
+        "The action with highest variance"
+      ],
+      "answer": 0,
+      "explanation": "Greedy selection maximizes the current estimate.",
+      "optionNotes": [
+        "Correct: ties may produce multiple greedy actions.",
+        "That is an exploration heuristic.",
+        "That is pure random behavior.",
+        "Variance is not the greedy criterion."
+      ]
+    },
+    {
+      "question": "Under epsilon-greedy, what happens with probability epsilon?",
+      "options": [
+        "An action is selected uniformly at random",
+        "Learning stops",
+        "The reward is discarded",
+        "The best true arm is revealed"
+      ],
+      "answer": 0,
+      "explanation": "Epsilon controls the random exploration branch.",
+      "optionNotes": [
+        "Correct under the convention used in the lecture.",
+        "Estimates continue to learn.",
+        "Exploratory rewards also update estimates.",
+        "The environment does not reveal q*."
+      ]
+    },
+    {
+      "question": "What data enters Q_t(a)'s sample average?",
+      "options": [
+        "Rewards from times when action a was selected",
+        "Rewards from every arm",
+        "Only the largest reward",
+        "Unobserved counterfactual rewards"
+      ],
+      "answer": 0,
+      "explanation": "Bandit feedback reveals only the chosen arm's reward.",
+      "optionNotes": [
+        "Correct: the indicator 1{A_i=a} filters observations.",
+        "Other-arm rewards are not observed on that step.",
+        "A mean uses all observed rewards for a.",
+        "Counterfactual rewards are unavailable."
+      ]
+    },
+    {
+      "question": "Why must N_t(a)=0 be handled explicitly?",
+      "options": [
+        "The sample-average ratio would divide by zero",
+        "The arm becomes optimal",
+        "Epsilon becomes one",
+        "Reward variance vanishes"
+      ],
+      "answer": 0,
+      "explanation": "An untried arm has no empirical mean yet.",
+      "optionNotes": [
+        "Correct: initialize its estimate/count deliberately.",
+        "Untried does not imply optimal.",
+        "Epsilon is independently chosen.",
+        "Its reward distribution has not changed."
+      ]
+    },
+    {
+      "question": "When does the ordinary sample average converge toward q*(a)?",
+      "options": [
+        "When the stationary arm is sampled infinitely often",
+        "After exactly one reward",
+        "Only when epsilon is zero",
+        "Only for deterministic rewards"
+      ],
+      "answer": 0,
+      "explanation": "Repeated stationary samples support the law-of-large-numbers convergence.",
+      "optionNotes": [
+        "Correct: both stationarity and continuing samples matter.",
+        "One noisy sample is generally insufficient.",
+        "Zero epsilon can prevent infinite sampling.",
+        "Stochastic rewards can also converge in mean."
+      ]
+    },
+    {
+      "question": "Which incremental rule exactly maintains a sample mean after reward R_n?",
+      "options": [
+        "Q_n=Q_{n-1}+(1/n)(R_n−Q_{n-1})",
+        "Q_n=R_n",
+        "Q_n=Q_{n-1}+R_n",
+        "Q_n=max(Q_{n-1},R_n)"
+      ],
+      "answer": 0,
+      "explanation": "The 1/n step size converts the previous mean into the new mean.",
+      "optionNotes": [
+        "Correct: it is algebraically equivalent to averaging all n samples.",
+        "This forgets all earlier samples.",
+        "This stores a sum, not a mean.",
+        "This stores a maximum, not an expectation estimate."
+      ]
+    },
+    {
+      "question": "Which estimate is updated after pulling action A_t?",
+      "options": [
+        "Q(A_t) only",
+        "Every arm's Q",
+        "Only V*",
+        "No estimate"
+      ],
+      "answer": 0,
+      "explanation": "Only the selected action produces a reward observation.",
+      "optionNotes": [
+        "Correct: bandit feedback is partial.",
+        "Unselected arms produce no observed rewards.",
+        "V* is unknown and not directly updated.",
+        "The selected action's evidence must be incorporated."
+      ]
+    },
+    {
+      "question": "In the testbed, how are true action values generated?",
+      "options": [
+        "Independently from N(0,1)",
+        "All fixed at zero",
+        "From the previous reward",
+        "By the policy"
+      ],
+      "answer": 0,
+      "explanation": "Each task samples its ten q*(a) values from a standard normal distribution.",
+      "optionNotes": [
+        "Correct: this creates a fresh bandit instance.",
+        "Zero is the distribution mean, not every draw.",
+        "Rewards are sampled around the fixed true value.",
+        "The environment generates true values."
+      ]
+    },
+    {
+      "question": "What is the reward model after selecting action a in the testbed?",
+      "options": [
+        "N(q*(a),1)",
+        "N(0,0)",
+        "Always q*(a) exactly",
+        "Uniform over the arm labels"
+      ],
+      "answer": 0,
+      "explanation": "Reward noise has mean q*(a) and variance one.",
+      "optionNotes": [
+        "Correct: the observed reward fluctuates around the arm mean.",
+        "That is a deterministic zero reward.",
+        "Unit variance makes observations noisy.",
+        "Labels do not define reward values."
+      ]
+    },
+    {
+      "question": "Why average results over 2,000 independent tasks?",
+      "options": [
+        "To reduce dependence on one lucky bandit instance",
+        "To reveal every q*(a)",
+        "To eliminate exploration",
+        "To make rewards deterministic"
+      ],
+      "answer": 0,
+      "explanation": "Replication estimates typical learning performance across problem draws.",
+      "optionNotes": [
+        "Correct: curves become estimates of expected behavior.",
+        "True values remain internal to each simulation.",
+        "Policies still explore.",
+        "Averaging reduces noise but does not change the reward process."
+      ]
+    },
+    {
+      "question": "What does percent optimal action measure?",
+      "options": [
+        "The fraction of runs selecting a true best arm at each step",
+        "The average reward magnitude",
+        "The value of epsilon",
+        "The number of reward samples stored"
+      ],
+      "answer": 0,
+      "explanation": "It is an identification/selection-frequency metric for the optimal arm.",
+      "optionNotes": [
+        "Correct: it asks whether the selected arm is truly optimal.",
+        "Average reward is plotted separately.",
+        "Multiple epsilon values are compared.",
+        "Storage is unrelated to this percentage."
+      ]
+    },
+    {
+      "question": "Why inspect both average reward and percent optimal action?",
+      "options": [
+        "They measure payoff magnitude and best-arm selection differently",
+        "They are always identical",
+        "One removes all randomness",
+        "Both reveal unobserved rewards"
+      ],
+      "answer": 0,
+      "explanation": "A wrong near-optimal choice and a wrong poor choice count equally in one metric but not in reward.",
+      "optionNotes": [
+        "Correct: the metrics answer complementary questions.",
+        "Their curves can behave differently.",
+        "Both remain statistical estimates.",
+        "Counterfactual rewards remain unseen."
+      ]
+    },
+    {
+      "question": "In Exercise 1, what is Q_4 after rewards −1, 1, and −2?",
+      "options": [
+        "(−1,−0.5,0,0)",
+        "(−1,1,0,0)",
+        "(0,0,0,0)",
+        "(−1,−1,−2,0)"
+      ],
+      "answer": 0,
+      "explanation": "Action 2's two rewards average to (1−2)/2=−0.5; action 1 remains −1.",
+      "optionNotes": [
+        "Correct: only selected arms have changed estimates.",
+        "That is Q_3 before the −2 update.",
+        "Initial values no longer apply to arms 1 and 2.",
+        "Rewards must be averaged per arm, not copied into positions."
+      ]
+    },
+    {
+      "question": "At which exercise steps did the random branch definitely occur?",
+      "options": [
+        "Steps 4 and 5",
+        "Steps 1 and 2",
+        "Step 3 only",
+        "No step"
+      ],
+      "answer": 0,
+      "explanation": "At both steps the selected action lay outside the current greedy set.",
+      "optionNotes": [
+        "Correct: action 2 at step 4 and action 3 at step 5 were nongreedy.",
+        "Those selected actions were in tied greedy sets.",
+        "Action 2 was uniquely greedy at step 3.",
+        "Two choices prove exploration occurred."
+      ]
+    },
+    {
+      "question": "Why might the random branch also have occurred at steps 1–3?",
+      "options": [
+        "Random exploration can select an action that is also greedy",
+        "Their rewards were all zero",
+        "Q values were unavailable",
+        "Epsilon was negative"
+      ],
+      "answer": 0,
+      "explanation": "Observing a greedy action does not identify which policy branch produced it.",
+      "optionNotes": [
+        "Correct: action identity alone cannot distinguish the branches.",
+        "The rewards were −1, 1, and −2.",
+        "Q values were reconstructed at every step.",
+        "Epsilon is a probability between zero and one."
+      ]
+    }
+  ]
+}
 };

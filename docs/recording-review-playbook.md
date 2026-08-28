@@ -2,7 +2,7 @@
 
 Use this checklist before treating a video as a lecture source. The dedicated
 [`agents/recording-note-taker.md`](../agents/recording-note-taker.md) profile
-defines the consistent bilingual synthesis and post-lecture resource-refresh
+defines the consistent English-only synthesis and post-lecture resource-refresh
 behavior; follow it together with this evidence checklist.
 
 ## 0. Build the queue and enforce one-at-a-time review
@@ -80,9 +80,9 @@ Publish a lecture only after confirming:
 - reliable references and further viewing;
 - 25 MCQs with the correct choice and explanations for every option;
 - one applied mini-capstone or startup idea;
-- one complete bilingual publication unit with matching English/Hindi timecodes, formulas, URLs, academic-signal counts, MCQ answer indexes, and a public mini-capstone structure;
+- one complete English publication unit with timecodes, formulas, URLs, academic-signal counts, MCQ answer indexes, and a public mini-capstone structure;
 - the owning subject's curated resource trail reviewed and refreshed with stable, relevant reading, viewing, or practice links (or an explicit record that no addition was justified);
-- URL and layout checks for the single clean `#/lecture/<id>` route, including the aligned bilingual presentation (side-by-side on desktop and sequential on mobile), mobile readability, and inline YouTube players;
+- URL and layout checks for the single clean `#/lecture/<id>` route, including English-only mobile readability and inline YouTube players;
 - no private participant details, raw recordings, or verbatim transcript dumps.
 
 ## 6. Transcript signal extraction
@@ -100,6 +100,6 @@ Classify each verified mention as one of:
 
 Record the original source timecode. Do not elevate illustrative examples or optional suggestions into obligations. The public note must say “None mentioned in this lecture” for any empty category so students can distinguish reviewed absence from missing review.
 
-## 7. Bilingual source and presentation pass
+## 7. English source and presentation pass
 
-Create the English and Hindi columns as one bilingual record after the evidence review. Do not create or publish separate language editions. Preserve English technical terms such as `policy`, `value function`, `few-shot`, or `bandit` in the Hindi column when a forced translation would be less clear. Render both columns together for every substantive title, explanation, summary, question, academic signal, MCQ, and guidance block—side by side on desktop and sequentially on mobile. Compact labels, chips, provider names, and metadata may render once when Hindi adds no meaning; never alternate whole cards or collapse the note into Hindi alone. Spot-check both source sides of the title, lede, every coverage card, the first and last MCQ, all non-empty academic signals, and the public capstone. Run the content validator before marking the bilingual record published.
+Create one English record after the evidence review. Do not create or publish Hindi or duplicate language editions. Preserve technical terms such as `policy`, `value function`, `few-shot`, and `bandit` in their precise English form. Spot-check the title, lede, coverage, first and last MCQ, all non-empty academic signals, and the public capstone. Run the content validator before marking the English record published.

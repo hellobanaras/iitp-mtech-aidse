@@ -1,150 +1,721 @@
-// One bilingual publication unit. Source-time references map to the verified Stream recording.
-const makeQuiz = (rows, language) => rows.map((row) => ({
-  question: language === "hi" ? row[1] : row[0],
-  options: language === "hi" ? row[3] : row[2],
-  answer: row[4],
-  explanation: language === "hi" ? row[6] : row[5],
-  optionNotes: (language === "hi" ? row[3] : row[2]).map((option, index) => index === row[4]
-    ? (language === "hi" ? `सही: ${row[6]}` : `Correct: ${row[5]}`)
-    : (language === "hi"
-      ? `गलत: “${option}” lecture की परिभाषा या उदाहरण से मेल नहीं खाता।`
-      : `Incorrect: “${option}” does not match the lecture's definition or example.`))
-}));
-
-const quizRows = [
-  ["What makes a binary attribute asymmetric?", "Binary attribute को asymmetric क्या बनाता है?", ["Presence/non-zero is informative but absence/zero is not", "Both values are always equally important", "Only zero is informative", "It must be continuous"], ["Presence/non-zero informative है, absence/zero नहीं", "दोनों values हमेशा equally important हैं", "केवल zero informative है", "यह continuous होना चाहिए"], 0, "Asymmetric analysis gives more weight to informative presences than shared absences.", "Asymmetric analysis informative presences को shared absences से अधिक weight देता है।"],
-  ["Why is a student-course matrix a useful asymmetric example?", "Student-course matrix asymmetric example क्यों है?", ["A student takes only a small fraction of available courses", "Every student takes every course", "Zero means the course was taken", "Course data cannot be binary"], ["Student available courses के छोटे fraction को ही लेता है", "हर student हर course लेता है", "Zero का अर्थ course लिया गया है", "Course data binary नहीं हो सकता"], 0, "Most entries are zero, so course presence carries more information than shared absence.", "अधिकांश entries zero होती हैं, इसलिए course presence shared absence से अधिक information देती है।"],
-  ["Why would counting shared zeros make students look falsely similar?", "Shared zeros count करने से students falsely similar क्यों दिख सकते हैं?", ["Most students share many uninformative non-enrolments", "Zeros always mean identical interests", "One means a course was not taken", "The matrix has no rows"], ["अधिकांश students कई uninformative non-enrolments share करते हैं", "Zeros हमेशा identical interests का अर्थ हैं", "One का अर्थ course नहीं लिया", "Matrix में rows नहीं हैं"], 0, "A sparse enrollment matrix is dominated by zeros; matching them hides the informative course presences.", "Sparse enrollment matrix में zeros dominate करते हैं; उन्हें match करना informative course presences छिपा देता है।"],
-  ["Can an asymmetric attribute be discrete or continuous?", "क्या asymmetric attribute discrete या continuous हो सकता है?", ["Yes, either type is possible", "Only continuous", "Only discrete", "Neither"], ["हाँ, दोनों में से कोई भी हो सकता है", "केवल continuous", "केवल discrete", "कोई नहीं"], 0, "The instructor explicitly notes that both discrete and continuous asymmetric features are possible.", "Instructor स्पष्ट कहते हैं कि discrete और continuous दोनों asymmetric features possible हैं।"],
-  ["Which broad dataset groupings are used in the lecture?", "Lecture में कौन-से broad dataset groupings उपयोग हुए?", ["Record, graph-based, and ordered data", "Only audio, image, and video", "Only nominal, ordinal, and ratio", "Rows, columns, and cells"], ["Record, graph-based और ordered data", "केवल audio, image और video", "केवल nominal, ordinal और ratio", "Rows, columns और cells"], 0, "The lecture uses record, graph-based, and ordered data as a practical textbook grouping.", "Lecture record, graph-based और ordered data को practical textbook grouping के रूप में उपयोग करती है।"],
-  ["Is every possible dataset guaranteed to fit one of those three groups?", "क्या हर dataset इन तीन groups में fit होना guaranteed है?", ["No; new data varieties and other groupings can arise", "Yes, exactly one group always applies", "Only image data is excluded", "Groups depend only on file extension"], ["नहीं; नई data varieties और अन्य groupings हो सकती हैं", "हाँ, हमेशा exactly one group लागू होता है", "केवल image data excluded है", "Groups केवल file extension पर depend करते हैं"], 0, "The instructor warns that the grouping is useful but not exhaustive as tools and data varieties evolve.", "Instructor चेतावनी देते हैं कि tools और data varieties evolve होने पर यह useful grouping exhaustive नहीं रहती।"],
-  ["What does dimensionality mean?", "Dimensionality का क्या अर्थ है?", ["The number of attributes or dimensions", "The number of files", "The number of algorithms", "The number of screens"], ["Attributes या dimensions की संख्या", "Files की संख्या", "Algorithms की संख्या", "Screens की संख्या"], 0, "Dimensionality is the number of attributes describing each record or object.", "Dimensionality हर record या object को describe करने वाले attributes की संख्या है।"],
-  ["What problem can irrelevant high-dimensional attributes create?", "Irrelevant high-dimensional attributes कौन-सी समस्या पैदा कर सकते हैं?", ["The curse of dimensionality and weaker analysis", "Guaranteed lower storage", "Automatic perfect clustering", "A meaningful ID scale"], ["Curse of dimensionality और weaker analysis", "Guaranteed lower storage", "Automatic perfect clustering", "Meaningful ID scale"], 0, "Irrelevant dimensions dilute useful structure and motivate dimension reduction.", "Irrelevant dimensions useful structure dilute करते हैं और dimension reduction की जरूरत बताते हैं।"],
-  ["What is sparsity?", "Sparsity क्या है?", ["Few non-zero values compared with many zeros", "Every value is unique", "Only text values are stored", "There are no attributes"], ["बहुत zeros की तुलना में few non-zero values", "हर value unique है", "केवल text values stored हैं", "कोई attributes नहीं हैं"], 0, "Sparse data has relatively few non-zero entries; the lecture notes that some datasets have fewer than one percent non-zero values.", "Sparse data में non-zero entries relatively कम होती हैं; lecture में कुछ datasets में one percent से भी कम non-zero values बताई गई हैं।"],
-  ["Why can sparsity help some algorithms?", "कुछ algorithms में sparsity मददगार क्यों हो सकती है?", ["Only non-zero values need storage and processing", "Every zero must be duplicated", "It removes the need for validation", "It guarantees no noise"], ["केवल non-zero values store और process करनी पड़ती हैं", "हर zero duplicate करना पड़ता है", "Validation की जरूरत नहीं रहती", "Noise कभी नहीं रहता"], 0, "For examples such as Naive Bayes and logistic regression, sparse storage and computation can save time and space.", "Naive Bayes और logistic regression जैसे examples में sparse storage और computation time और space बचा सकते हैं।"],
-  ["Why can sparsity be a problem for a recommender system?", "Recommender system में sparsity problem क्यों हो सकती है?", ["Many zeros represent unknown or unobserved preferences", "Zeros always encode strong preferences", "Recommendations use no attributes", "Sparse matrices cannot be stored"], ["कई zeros unknown या unobserved preferences दर्शाते हैं", "Zeros हमेशा strong preferences encode करते हैं", "Recommendations attributes use नहीं करतीं", "Sparse matrices store नहीं हो सकतीं"], 0, "For recommendation, many zero entries may hide the preference signal the system needs to infer.", "Recommendation में कई zero entries वह preference signal छिपा सकती हैं जिसे system को infer करना है।"],
-  ["What is resolution in a dataset?", "Dataset में resolution क्या है?", ["The scale or granularity at which data is obtained", "The number of file copies", "A category label", "A database password"], ["जिस scale या granularity पर data obtain होता है", "File copies की संख्या", "Category label", "Database password"], 0, "Resolution is the minimum scale used to record or obtain observations.", "Resolution observations record या obtain करने के लिए उपयोग की गई minimum scale है।"],
-  ["What can happen when resolution is too fine or too coarse?", "Resolution बहुत fine या coarse होने पर क्या हो सकता है?", ["A pattern can be buried in noise or disappear after smoothing", "The pattern is always unchanged", "Only the filename changes", "Resolution affects audio only"], ["Pattern noise में दब सकता है या smoothing से गायब हो सकता है", "Pattern हमेशा unchanged रहता है", "केवल filename बदलता है", "Resolution केवल audio को affect करती है"], 0, "The earth-surface and atmospheric-pressure examples show that the visible pattern depends on scale.", "Earth-surface और atmospheric-pressure examples दिखाते हैं कि visible pattern scale पर depend करता है।"],
-  ["What is the usual assumption for record data?", "Record data के लिए usual assumption क्या है?", ["Each record has the same set of attributes without explicit record relationships", "Every record is a graph", "Records must have timestamps", "Only images can be records"], ["हर record में same attributes होते हैं और explicit record relationships नहीं होते", "हर record graph है", "Records में timestamps जरूरी हैं", "केवल images records हो सकती हैं"], 0, "Record data is commonly a collection of objects with the same attributes; relationships are not explicit in the basic representation.", "Record data सामान्यतः same attributes वाले objects का collection है; basic representation में relationships explicit नहीं होते।"],
-  ["What does a transaction or market-basket record represent?", "Transaction या market-basket record क्या represent करता है?", ["Items purchased together in one transaction", "A graph edge only", "A monthly temperature alone", "A participant avatar"], ["एक transaction में साथ खरीदे गए items", "केवल graph edge", "केवल monthly temperature", "Participant avatar"], 0, "The lecture uses purchased items as a record-data example and notes that their binary presence is often sparse and asymmetric.", "Lecture purchased items को record-data example बनाती है और बताती है कि उनकी binary presence अक्सर sparse और asymmetric होती है।"],
-  ["What does graph-based data add to objects?", "Graph-based data objects में क्या जोड़ता है?", ["Relationships or links among objects", "Only a filename", "A fixed sampling interval", "A missing-value marker"], ["Objects के बीच relationships या links", "केवल filename", "Fixed sampling interval", "Missing-value marker"], 0, "Graph data represents objects as nodes and their relationships as links; the lecture shows a chemical-compound example.", "Graph data objects को nodes और उनके relationships को links के रूप में represent करता है; lecture chemical-compound example दिखाती है।"],
-  ["How does sequential data differ from temporal data?", "Sequential data temporal data से कैसे अलग है?", ["It uses order or position without requiring timestamps", "It always has more timestamps", "It cannot contain text", "It is always a graph"], ["यह timestamps के बिना order या position उपयोग करता है", "इसमें हमेशा अधिक timestamps होते हैं", "इसमें text नहीं हो सकता", "यह हमेशा graph है"], 0, "Sequence data preserves order by position, whereas temporal data orders observations by time.", "Sequence data position से order preserve करता है, जबकि temporal data observations को time से order करता है।"],
-  ["What is a time series in the lecture?", "Lecture के अनुसार time series क्या है?", ["A series of measurements taken over time", "A single unordered category", "A graph with no observations", "A list of filenames"], ["Time के साथ लिए गए measurements की series", "एक single unordered category", "बिना observations का graph", "Filenames की list"], 0, "Daily stock values and a city's monthly temperatures are examples of time-series records.", "Daily stock values और city के monthly temperatures time-series records के examples हैं।"],
-  ["What does temporal autocorrelation suggest?", "Temporal autocorrelation क्या suggest करती है?", ["Measurements close in time tend to be more similar", "Distant measurements are always identical", "Time has no analytical meaning", "Only spatial distance matters"], ["Time में पास measurements अधिक similar होने की tendency रखते हैं", "Distant measurements हमेशा identical होते हैं", "Time का analytical meaning नहीं है", "केवल spatial distance matter करती है"], 0, "The lecture says nearby stock measurements are more likely to correlate than measurements far apart in time.", "Lecture कहती है कि पास के stock measurements के far-apart measurements से correlate होने की संभावना अधिक होती है।"],
-  ["What kind of information defines spatial data?", "Spatial data को कौन-सी information define करती है?", ["Positions or areas in physical space", "Only purchase order", "Only a file extension", "A password"], ["Physical space में positions या areas", "केवल purchase order", "केवल file extension", "Password"], 0, "Weather observations such as precipitation, temperature, and pressure are collected for geographic locations.", "Precipitation, temperature और pressure जैसी weather observations geographic locations के लिए collect की जाती हैं।"],
-  ["What does spatial autocorrelation mean?", "Spatial autocorrelation का क्या अर्थ है?", ["Physically close objects tend to be similar in other attributes", "All distant objects are identical", "Order is based only on filenames", "Space cannot be measured"], ["Physically close objects अन्य attributes में भी similar होने की tendency रखते हैं", "सभी दूर objects identical होते हैं", "Order केवल filenames पर आधारित है", "Space measure नहीं हो सकती"], 0, "Nearby places often have similar temperature or rainfall, unlike far-apart places.", "पास के स्थानों में temperature या rainfall अक्सर similar होती है, दूर स्थानों में नहीं।"],
-  ["Why might a non-record dataset be converted into records?", "Non-record dataset को records में क्यों बदला जा सकता है?", ["To use record-oriented algorithms while preserving the information needed for the task", "To delete all relationships", "To guarantee perfect quality", "To remove every timestamp"], ["Task के लिए जरूरी information रखते हुए record-oriented algorithms use करने के लिए", "सारे relationships delete करने के लिए", "Perfect quality guarantee करने के लिए", "हर timestamp हटाने के लिए"], 0, "The lecture notes that conversion can enable algorithms, but it must not discard relationships, order, or other information needed by the analysis.", "Lecture बताती है कि conversion algorithms enable कर सकती है, पर analysis के लिए जरूरी relationships, order या अन्य information discard नहीं करनी चाहिए।"],
-  ["Why should data quality be treated as a real concern?", "Data quality को real concern क्यों मानना चाहिए?", ["Data is often collected for another or unspecified purpose", "All collected data is perfect", "Quality depends only on screen resolution", "Cleaning is never possible"], ["Data अक्सर किसी अन्य या unspecified purpose के लिए collect होता है", "Collected data हमेशा perfect होता है", "Quality केवल screen resolution पर depend करती है", "Cleaning कभी possible नहीं है"], 0, "The lecture lists missing, duplicate, spurious, and inconsistent data as common risks rather than exceptional cases.", "Lecture missing, duplicate, spurious और inconsistent data को common risks बताती है, exceptional cases नहीं।"],
-  ["How does measurement error differ from data-collection error?", "Measurement error data-collection error से कैसे अलग है?", ["Measurement error differs from a true value; collection error omits or inappropriately includes data", "They always mean the same thing", "Collection error changes only colours", "Measurement error cannot be random"], ["Measurement error true value से differ करता है; collection error data omit या inappropriately include करता है", "दोनों का अर्थ हमेशा same है", "Collection error केवल colours बदलता है", "Measurement error random नहीं हो सकता"], 0, "The lecture defines measurement error around the measurement process and collection error around selecting or recording objects and attributes.", "Lecture measurement error को measurement process और collection error को objects/attributes select या record करने से जोड़ती है।"],
-  ["What is the distinction between noise and an artifact?", "Noise और artifact में क्या distinction है?", ["Noise is a random measurement component; an artifact is deterministic/systematic", "Noise is always systematic and artifact random", "Both are browser settings", "Neither is a data error"], ["Noise random measurement component है; artifact deterministic/systematic है", "Noise हमेशा systematic और artifact random है", "दोनों browser settings हैं", "दोनों data errors नहीं हैं"], 0, "The lecture describes noise as random error and artifacts as deterministic error; robust and signal-processing methods can help.", "Lecture noise को random error और artifact को deterministic error बताती है; robust और signal-processing methods मदद कर सकती हैं।"]
-];
-
-const enQuiz = makeQuiz(quizRows, "en");
-const hiQuiz = makeQuiz(quizRows, "hi");
-
-const en = {
-  title: "Dataset types and data quality",
-  lede: "This Data Warehousing lecture surveys asymmetric attributes, record/graph/ordered dataset families, temporal and spatial relationships, and the data-quality problems that motivate cleaning and robust algorithms.",
-  instructionalInterval: "00:30–01:17:26 (source time; capture reviewed at 2×)",
-  reviewLevel: "View-only recording with distributed sweep, timestamped transcript, slide-frame evidence, and idle-tail exclusion",
-  coverage: [
-    { title: "Asymmetric attributes", body: "Presence/non-zero values can be more informative than shared absence; sparse student-course and market-basket data motivate asymmetric analysis." },
-    { title: "Dataset families and characteristics", body: "Record, graph-based, and ordered data are useful broad groupings. Dimensionality, sparsity, and resolution affect which patterns and mining tools are defensible." },
-    { title: "Record, graph, and ordered representations", body: "Records hold attribute values, graphs add links, and ordered data preserves sequence or time; representations should retain information needed by the task." },
-    { title: "Temporal and spatial relationships", body: "Time series use measurements over time and spatial data uses positions or areas; nearby observations often have stronger correlation." },
-    { title: "Quality cannot be assumed", body: "Missing, duplicate, spurious, inconsistent, noisy, and otherwise erroneous data require cleaning plus algorithms that tolerate residual problems." }
+// English-only publication unit.
+export const ecc6404Lecture20260824 = {
+  en: {
+  "title": "Dataset types and data quality",
+  "lede": "This Data Warehousing lecture surveys asymmetric attributes, record/graph/ordered dataset families, temporal and spatial relationships, and the data-quality problems that motivate cleaning and robust algorithms.",
+  "instructionalInterval": "00:30–01:17:26 (source time; capture reviewed at 2×)",
+  "reviewLevel": "View-only recording with distributed sweep, timestamped transcript, slide-frame evidence, and idle-tail exclusion",
+  "coverage": [
+    {
+      "title": "Asymmetric attributes",
+      "body": "Presence/non-zero values can be more informative than shared absence; sparse student-course and market-basket data motivate asymmetric analysis."
+    },
+    {
+      "title": "Dataset families and characteristics",
+      "body": "Record, graph-based, and ordered data are useful broad groupings. Dimensionality, sparsity, and resolution affect which patterns and mining tools are defensible."
+    },
+    {
+      "title": "Record, graph, and ordered representations",
+      "body": "Records hold attribute values, graphs add links, and ordered data preserves sequence or time; representations should retain information needed by the task."
+    },
+    {
+      "title": "Temporal and spatial relationships",
+      "body": "Time series use measurements over time and spatial data uses positions or areas; nearby observations often have stronger correlation."
+    },
+    {
+      "title": "Quality cannot be assumed",
+      "body": "Missing, duplicate, spurious, inconsistent, noisy, and otherwise erroneous data require cleaning plus algorithms that tolerate residual problems."
+    }
   ],
-  takeaway: "Choose a representation and mining method that preserve the data's informative presence, order, relationships, and quality limitations—not just its storage format.",
-  slideTrail: [
-    { time: "00:30", title: "Asymmetric Attributes", note: "Presence is informative while shared zero absences are not; sparse student-course data motivates the idea." },
-    { time: "02:00", title: "Types of Data Sets", note: "Record, graph-based, and ordered data are the lecture's broad families, with a warning that new varieties continue to appear." },
-    { time: "15:44", title: "Types of Data Sets — Record Data", note: "Transaction/market-basket records are sets of items; binary presence vectors and one-hot-style representations are discussed." },
-    { time: "34:44", title: "Types of Data Sets — Graph-based Data", note: "Objects and relationships form graphs; a chemical compound example shows nodes and links." },
-    { time: "44:44", title: "Types of Data Sets — Sequential/Ordered Data", note: "Time-series and other ordered data depend on sequence; order itself carries analytical meaning." },
-    { time: "58:44", title: "Types of Data Sets", note: "The lecture recaps record, graph-based, and ordered families before moving to quality." },
-    { time: "59:44", title: "Data Quality", note: "Data is often collected for another or unspecified purpose, so mining cannot assume quality was designed in at the source." },
-    { time: "01:04:44", title: "Data Quality — Measurement and Data Collection Issues", note: "Measurement error is deviation from truth; collection error includes omitted or inappropriate objects/attributes." },
-    { time: "01:10:44", title: "Data Quality — Noise and Artifacts", note: "Noise is a random measurement component; deterministic error is described as artifacts. Signal-processing ideas motivate robust treatment." },
-    { time: "01:17:26", title: "Closing discussion", note: "Instructor closes the class and defers the next slide to the following meeting; the later desktop/Moodle tail is excluded." }
+  "takeaway": "Choose a representation and mining method that preserve the data's informative presence, order, relationships, and quality limitations—not just its storage format.",
+  "slideTrail": [
+    {
+      "time": "00:30",
+      "title": "Asymmetric Attributes",
+      "note": "Presence is informative while shared zero absences are not; sparse student-course data motivates the idea."
+    },
+    {
+      "time": "02:00",
+      "title": "Types of Data Sets",
+      "note": "Record, graph-based, and ordered data are the lecture's broad families, with a warning that new varieties continue to appear."
+    },
+    {
+      "time": "15:44",
+      "title": "Types of Data Sets — Record Data",
+      "note": "Transaction/market-basket records are sets of items; binary presence vectors and one-hot-style representations are discussed."
+    },
+    {
+      "time": "34:44",
+      "title": "Types of Data Sets — Graph-based Data",
+      "note": "Objects and relationships form graphs; a chemical compound example shows nodes and links."
+    },
+    {
+      "time": "44:44",
+      "title": "Types of Data Sets — Sequential/Ordered Data",
+      "note": "Time-series and other ordered data depend on sequence; order itself carries analytical meaning."
+    },
+    {
+      "time": "58:44",
+      "title": "Types of Data Sets",
+      "note": "The lecture recaps record, graph-based, and ordered families before moving to quality."
+    },
+    {
+      "time": "59:44",
+      "title": "Data Quality",
+      "note": "Data is often collected for another or unspecified purpose, so mining cannot assume quality was designed in at the source."
+    },
+    {
+      "time": "01:04:44",
+      "title": "Data Quality — Measurement and Data Collection Issues",
+      "note": "Measurement error is deviation from truth; collection error includes omitted or inappropriate objects/attributes."
+    },
+    {
+      "time": "01:10:44",
+      "title": "Data Quality — Noise and Artifacts",
+      "note": "Noise is a random measurement component; deterministic error is described as artifacts. Signal-processing ideas motivate robust treatment."
+    },
+    {
+      "time": "01:17:26",
+      "title": "Closing discussion",
+      "note": "Instructor closes the class and defers the next slide to the following meeting; the later desktop/Moodle tail is excluded."
+    }
   ],
-  summary: [
-    { title: "1. Asymmetric presence carries the signal", sourceRefs: ["00:30–03:00", "Slide: Asymmetric Attributes"], paragraphs: ["The opening example treats a student-course matrix as asymmetric: each student takes only a small fraction of available courses, so presence is informative while shared zeros are not. The instructor also notes that asymmetric features can be discrete or continuous.", "This same logic applies to sparse transaction or basket data. A similarity rule that counts every shared absence can swamp the meaningful co-presences, so association-oriented analysis should focus on informative non-zero values."] },
-    { title: "2. Dataset families and their inherent characteristics", sourceRefs: ["03:00–15:00", "Slide: Types of Data Sets"], paragraphs: ["The lecture uses record, graph-based, and ordered data as a practical grouping, while warning that new tools and data varieties may not fit every category. Dimensionality is the number of attributes, sparsity is the relative scarcity of non-zero entries, and resolution is the scale at which observations are obtained.", "Each characteristic changes the mining problem: irrelevant dimensions can produce the curse of dimensionality, sparse storage can help some algorithms but hurt recommendation, and a fine or coarse resolution can reveal, bury, or erase a pattern."] },
-    { title: "3. Record, graph, and ordered representations", sourceRefs: ["15:00–44:30", "Slides: Record Data / Graph-based Data"], paragraphs: ["Record data stores objects with a common set of attributes; transaction and market-basket records make item presence a sparse binary representation. Graph-based data adds nodes and relationships, illustrated with a chemical compound whose links matter as much as its objects.", "A mining representation is useful only if it preserves the information required by the question. Treating a graph or another non-record source as independent rows may enable an algorithm but can discard relationships or order."] },
-    { title: "4. Ordered, temporal, and spatial data", sourceRefs: ["44:30–59:30", "Slides: Sequential (Ordered) Data / Handling Non-Record Data"], paragraphs: ["Ordered data preserves position or sequence; temporal data adds timestamps, and time series record repeated measurements such as daily stock values or monthly city temperatures. Temporal autocorrelation means observations close in time tend to be more related than distant observations.", "Spatial data carries positions or areas, for example weather measurements across geographic locations. Spatial autocorrelation similarly means nearby places tend to have similar temperature or rainfall. These relationships should guide representation and analysis rather than being flattened away."] },
-    { title: "5. Data-quality problems are expected", sourceRefs: ["59:30–01:04:30", "Slide: Data Quality"], paragraphs: ["The instructor emphasizes that data is often collected for another or unspecified purpose, so a miner should expect missing values or objects, spurious or duplicate objects, and inconsistent measurements. Completeness alone does not prove that a record is plausible.", "Data cleaning is the first defense: detect and correct quality problems where possible. The second defense is robust algorithm design that can still produce useful results when some poor-quality observations remain."] },
-    { title: "6. Measurement, collection, noise, and artifacts", sourceRefs: ["01:04:30–01:17:26", "Slides: Measurement and Data Collection Issues / Noise and Artifacts"], paragraphs: ["Measurement error is a problem in the measurement process, including a recorded value differing from the true value. Data-collection error includes omitting objects or attributes or inappropriately including an object; either type can be systematic or random.", "Noise is the random component of measurement error and can obscure a signal, while a deterministic or systematic error is an artifact. Signal or image processing can reduce noise, but robust methods are still needed because complete elimination is difficult. The desktop/Moodle tail after the closing is excluded from this interval."] }
+  "summary": [
+    {
+      "title": "1. Asymmetric presence carries the signal",
+      "sourceRefs": [
+        "00:30–03:00",
+        "Slide: Asymmetric Attributes"
+      ],
+      "paragraphs": [
+        "The opening example treats a student-course matrix as asymmetric: each student takes only a small fraction of available courses, so presence is informative while shared zeros are not. The instructor also notes that asymmetric features can be discrete or continuous.",
+        "This same logic applies to sparse transaction or basket data. A similarity rule that counts every shared absence can swamp the meaningful co-presences, so association-oriented analysis should focus on informative non-zero values."
+      ]
+    },
+    {
+      "title": "2. Dataset families and their inherent characteristics",
+      "sourceRefs": [
+        "03:00–15:00",
+        "Slide: Types of Data Sets"
+      ],
+      "paragraphs": [
+        "The lecture uses record, graph-based, and ordered data as a practical grouping, while warning that new tools and data varieties may not fit every category. Dimensionality is the number of attributes, sparsity is the relative scarcity of non-zero entries, and resolution is the scale at which observations are obtained.",
+        "Each characteristic changes the mining problem: irrelevant dimensions can produce the curse of dimensionality, sparse storage can help some algorithms but hurt recommendation, and a fine or coarse resolution can reveal, bury, or erase a pattern."
+      ]
+    },
+    {
+      "title": "3. Record, graph, and ordered representations",
+      "sourceRefs": [
+        "15:00–44:30",
+        "Slides: Record Data / Graph-based Data"
+      ],
+      "paragraphs": [
+        "Record data stores objects with a common set of attributes; transaction and market-basket records make item presence a sparse binary representation. Graph-based data adds nodes and relationships, illustrated with a chemical compound whose links matter as much as its objects.",
+        "A mining representation is useful only if it preserves the information required by the question. Treating a graph or another non-record source as independent rows may enable an algorithm but can discard relationships or order."
+      ]
+    },
+    {
+      "title": "4. Ordered, temporal, and spatial data",
+      "sourceRefs": [
+        "44:30–59:30",
+        "Slides: Sequential (Ordered) Data / Handling Non-Record Data"
+      ],
+      "paragraphs": [
+        "Ordered data preserves position or sequence; temporal data adds timestamps, and time series record repeated measurements such as daily stock values or monthly city temperatures. Temporal autocorrelation means observations close in time tend to be more related than distant observations.",
+        "Spatial data carries positions or areas, for example weather measurements across geographic locations. Spatial autocorrelation similarly means nearby places tend to have similar temperature or rainfall. These relationships should guide representation and analysis rather than being flattened away."
+      ]
+    },
+    {
+      "title": "5. Data-quality problems are expected",
+      "sourceRefs": [
+        "59:30–01:04:30",
+        "Slide: Data Quality"
+      ],
+      "paragraphs": [
+        "The instructor emphasizes that data is often collected for another or unspecified purpose, so a miner should expect missing values or objects, spurious or duplicate objects, and inconsistent measurements. Completeness alone does not prove that a record is plausible.",
+        "Data cleaning is the first defense: detect and correct quality problems where possible. The second defense is robust algorithm design that can still produce useful results when some poor-quality observations remain."
+      ]
+    },
+    {
+      "title": "6. Measurement, collection, noise, and artifacts",
+      "sourceRefs": [
+        "01:04:30–01:17:26",
+        "Slides: Measurement and Data Collection Issues / Noise and Artifacts"
+      ],
+      "paragraphs": [
+        "Measurement error is a problem in the measurement process, including a recorded value differing from the true value. Data-collection error includes omitting objects or attributes or inappropriately including an object; either type can be systematic or random.",
+        "Noise is the random component of measurement error and can obscure a signal, while a deterministic or systematic error is an artifact. Signal or image processing can reduce noise, but robust methods are still needed because complete elimination is difficult. The desktop/Moodle tail after the closing is excluded from this interval."
+      ]
+    }
   ],
-  courseSignals: { assignments: [], homework: [], labs: [], projects: [], references: [], studentQuestions: [] },
-  keyTerms: [
-    { term: "Data object", definition: "An entity or record described by attributes." },
-    { term: "Attribute", definition: "A property or characteristic of an object." },
-    { term: "Dimensionality", definition: "The number of attributes describing an object." },
-    { term: "Sparsity", definition: "The condition in which non-zero entries are few relative to zeros." },
-    { term: "Resolution", definition: "The scale or granularity at which data is obtained." },
-    { term: "Nominal", definition: "A categorical scale where equality/inequality is meaningful." },
-    { term: "Ordinal", definition: "A scale that adds order but not meaningful spacing." },
-    { term: "Interval", definition: "A scale with meaningful differences but arbitrary zero." },
-    { term: "Ratio", definition: "A scale with meaningful differences, ratios, and absolute zero." },
-    { term: "Asymmetric attribute", definition: "An attribute where presence matters more than absence." },
-    { term: "Temporal autocorrelation", definition: "The tendency for observations close in time to be more related." },
-    { term: "Spatial autocorrelation", definition: "The tendency for physically nearby observations to be more similar." },
-    { term: "Data cleaning", definition: "Detecting and correcting data-quality problems." },
-    { term: "Measurement error", definition: "A recorded value's deviation from the true value." },
-    { term: "Collection error", definition: "Omitting or inappropriately including objects or attribute values during collection." },
-    { term: "Noise", definition: "A random component of measurement error." },
-    { term: "Artifact", definition: "A deterministic/systematic data error." }
+  "courseSignals": {
+    "assignments": [],
+    "homework": [],
+    "labs": [],
+    "projects": [],
+    "references": [],
+    "studentQuestions": []
+  },
+  "keyTerms": [
+    {
+      "term": "Data object",
+      "definition": "An entity or record described by attributes."
+    },
+    {
+      "term": "Attribute",
+      "definition": "A property or characteristic of an object."
+    },
+    {
+      "term": "Dimensionality",
+      "definition": "The number of attributes describing an object."
+    },
+    {
+      "term": "Sparsity",
+      "definition": "The condition in which non-zero entries are few relative to zeros."
+    },
+    {
+      "term": "Resolution",
+      "definition": "The scale or granularity at which data is obtained."
+    },
+    {
+      "term": "Nominal",
+      "definition": "A categorical scale where equality/inequality is meaningful."
+    },
+    {
+      "term": "Ordinal",
+      "definition": "A scale that adds order but not meaningful spacing."
+    },
+    {
+      "term": "Interval",
+      "definition": "A scale with meaningful differences but arbitrary zero."
+    },
+    {
+      "term": "Ratio",
+      "definition": "A scale with meaningful differences, ratios, and absolute zero."
+    },
+    {
+      "term": "Asymmetric attribute",
+      "definition": "An attribute where presence matters more than absence."
+    },
+    {
+      "term": "Temporal autocorrelation",
+      "definition": "The tendency for observations close in time to be more related."
+    },
+    {
+      "term": "Spatial autocorrelation",
+      "definition": "The tendency for physically nearby observations to be more similar."
+    },
+    {
+      "term": "Data cleaning",
+      "definition": "Detecting and correcting data-quality problems."
+    },
+    {
+      "term": "Measurement error",
+      "definition": "A recorded value's deviation from the true value."
+    },
+    {
+      "term": "Collection error",
+      "definition": "Omitting or inappropriately including objects or attribute values during collection."
+    },
+    {
+      "term": "Noise",
+      "definition": "A random component of measurement error."
+    },
+    {
+      "term": "Artifact",
+      "definition": "A deterministic/systematic data error."
+    }
   ],
-  insights: [
-    { label: "Modeling", title: "Record semantic metadata, not just storage types", body: "An integer column can be an ID, rank, count, or ratio measurement. Preserve the measurement level in metadata before encoding, scaling, aggregating, or choosing a distance." },
-    { label: "Representation", title: "Conversion can lose the question", body: "Turning a graph or sequence into independent records may make a familiar algorithm run while discarding links or order. Keep the information required by the analysis explicit." },
-    { label: "Sparse data", title: "Shared zeros can swamp the signal", body: "Presence-focused similarities such as Jaccard-style reasoning are often more faithful for baskets, symptoms, or course enrolments than a symmetric match count." },
-    { label: "Quality", title: "Cleaning and robustness are complementary", body: "Cleaning improves the evidence, but no cleaning procedure proves perfection. Algorithms should tolerate residual noise, missingness, and artifacts and expose their assumptions." },
-    { label: "Resolution", title: "Scale is part of the hypothesis", body: "A fine time or spatial scale may reveal structure or noise; a coarse scale may smooth away the pattern. Choose resolution with the decision horizon in mind." }
+  "insights": [
+    {
+      "label": "Modeling",
+      "title": "Record semantic metadata, not just storage types",
+      "body": "An integer column can be an ID, rank, count, or ratio measurement. Preserve the measurement level in metadata before encoding, scaling, aggregating, or choosing a distance."
+    },
+    {
+      "label": "Representation",
+      "title": "Conversion can lose the question",
+      "body": "Turning a graph or sequence into independent records may make a familiar algorithm run while discarding links or order. Keep the information required by the analysis explicit."
+    },
+    {
+      "label": "Sparse data",
+      "title": "Shared zeros can swamp the signal",
+      "body": "Presence-focused similarities such as Jaccard-style reasoning are often more faithful for baskets, symptoms, or course enrolments than a symmetric match count."
+    },
+    {
+      "label": "Quality",
+      "title": "Cleaning and robustness are complementary",
+      "body": "Cleaning improves the evidence, but no cleaning procedure proves perfection. Algorithms should tolerate residual noise, missingness, and artifacts and expose their assumptions."
+    },
+    {
+      "label": "Resolution",
+      "title": "Scale is part of the hypothesis",
+      "body": "A fine time or spatial scale may reveal structure or noise; a coarse scale may smooth away the pattern. Choose resolution with the decision horizon in mind."
+    }
   ],
-  resources: [
-    { type: "Reference", title: "Data Mining: Concepts and Techniques", creator: "Jiawei Han, Micheline Kamber, Jian Pei", why: "The lecture follows this textbook family for dataset types, measurement scales, and data-quality terminology.", url: "https://www.cs.sfu.ca/~jpei/publications/book/" },
-    { type: "Reference", title: "NIST/SEMATECH e-Handbook: Levels of Measurement", creator: "National Institute of Standards and Technology", why: "A concise authoritative review of nominal, ordinal, interval, and ratio measurement levels.", url: "https://www.itl.nist.gov/div898/handbook/eda/section3/eda356.htm" },
-    { type: "Reference", title: "scikit-learn preprocessing and encoding", creator: "scikit-learn documentation", why: "Practical guidance for encoding categorical variables and scaling numeric features after semantics are established.", url: "https://scikit-learn.org/stable/modules/preprocessing.html" },
-    { type: "Reference", title: "Jaccard index", creator: "Wikipedia", why: "A compact follow-up for presence-focused similarity on asymmetric binary data; compare with symmetric matching before use.", url: "https://en.wikipedia.org/wiki/Jaccard_index" },
-    { type: "Further viewing", title: "Data quality dimensions and measurement error", creator: "NIST/SEMATECH e-Handbook", why: "Use the handbook as a follow-up for formal definitions of measurement, error, and exploratory checks.", url: "https://www.itl.nist.gov/div898/handbook/" }
+  "resources": [
+    {
+      "type": "Reference",
+      "title": "Data Mining: Concepts and Techniques",
+      "creator": "Jiawei Han, Micheline Kamber, Jian Pei",
+      "why": "The lecture follows this textbook family for dataset types, measurement scales, and data-quality terminology.",
+      "url": "https://www.cs.sfu.ca/~jpei/publications/book/"
+    },
+    {
+      "type": "Reference",
+      "title": "NIST/SEMATECH e-Handbook: Levels of Measurement",
+      "creator": "National Institute of Standards and Technology",
+      "why": "A concise authoritative review of nominal, ordinal, interval, and ratio measurement levels.",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda356.htm"
+    },
+    {
+      "type": "Reference",
+      "title": "scikit-learn preprocessing and encoding",
+      "creator": "scikit-learn documentation",
+      "why": "Practical guidance for encoding categorical variables and scaling numeric features after semantics are established.",
+      "url": "https://scikit-learn.org/stable/modules/preprocessing.html"
+    },
+    {
+      "type": "Reference",
+      "title": "Jaccard index",
+      "creator": "Wikipedia",
+      "why": "A compact follow-up for presence-focused similarity on asymmetric binary data; compare with symmetric matching before use.",
+      "url": "https://en.wikipedia.org/wiki/Jaccard_index"
+    },
+    {
+      "type": "Further viewing",
+      "title": "Data quality dimensions and measurement error",
+      "creator": "NIST/SEMATECH e-Handbook",
+      "why": "Use the handbook as a follow-up for formal definitions of measurement, error, and exploratory checks.",
+      "url": "https://www.itl.nist.gov/div898/handbook/"
+    }
   ],
-  quiz: enQuiz
+  "quiz": [
+    {
+      "question": "What makes a binary attribute asymmetric?",
+      "options": [
+        "Presence/non-zero is informative but absence/zero is not",
+        "Both values are always equally important",
+        "Only zero is informative",
+        "It must be continuous"
+      ],
+      "answer": 0,
+      "explanation": "Asymmetric analysis gives more weight to informative presences than shared absences.",
+      "optionNotes": [
+        "Correct: Asymmetric analysis gives more weight to informative presences than shared absences.",
+        "Incorrect: “Both values are always equally important” does not match the lecture's definition or example.",
+        "Incorrect: “Only zero is informative” does not match the lecture's definition or example.",
+        "Incorrect: “It must be continuous” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "Why is a student-course matrix a useful asymmetric example?",
+      "options": [
+        "A student takes only a small fraction of available courses",
+        "Every student takes every course",
+        "Zero means the course was taken",
+        "Course data cannot be binary"
+      ],
+      "answer": 0,
+      "explanation": "Most entries are zero, so course presence carries more information than shared absence.",
+      "optionNotes": [
+        "Correct: Most entries are zero, so course presence carries more information than shared absence.",
+        "Incorrect: “Every student takes every course” does not match the lecture's definition or example.",
+        "Incorrect: “Zero means the course was taken” does not match the lecture's definition or example.",
+        "Incorrect: “Course data cannot be binary” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "Why would counting shared zeros make students look falsely similar?",
+      "options": [
+        "Most students share many uninformative non-enrolments",
+        "Zeros always mean identical interests",
+        "One means a course was not taken",
+        "The matrix has no rows"
+      ],
+      "answer": 0,
+      "explanation": "A sparse enrollment matrix is dominated by zeros; matching them hides the informative course presences.",
+      "optionNotes": [
+        "Correct: A sparse enrollment matrix is dominated by zeros; matching them hides the informative course presences.",
+        "Incorrect: “Zeros always mean identical interests” does not match the lecture's definition or example.",
+        "Incorrect: “One means a course was not taken” does not match the lecture's definition or example.",
+        "Incorrect: “The matrix has no rows” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "Can an asymmetric attribute be discrete or continuous?",
+      "options": [
+        "Yes, either type is possible",
+        "Only continuous",
+        "Only discrete",
+        "Neither"
+      ],
+      "answer": 0,
+      "explanation": "The instructor explicitly notes that both discrete and continuous asymmetric features are possible.",
+      "optionNotes": [
+        "Correct: The instructor explicitly notes that both discrete and continuous asymmetric features are possible.",
+        "Incorrect: “Only continuous” does not match the lecture's definition or example.",
+        "Incorrect: “Only discrete” does not match the lecture's definition or example.",
+        "Incorrect: “Neither” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "Which broad dataset groupings are used in the lecture?",
+      "options": [
+        "Record, graph-based, and ordered data",
+        "Only audio, image, and video",
+        "Only nominal, ordinal, and ratio",
+        "Rows, columns, and cells"
+      ],
+      "answer": 0,
+      "explanation": "The lecture uses record, graph-based, and ordered data as a practical textbook grouping.",
+      "optionNotes": [
+        "Correct: The lecture uses record, graph-based, and ordered data as a practical textbook grouping.",
+        "Incorrect: “Only audio, image, and video” does not match the lecture's definition or example.",
+        "Incorrect: “Only nominal, ordinal, and ratio” does not match the lecture's definition or example.",
+        "Incorrect: “Rows, columns, and cells” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "Is every possible dataset guaranteed to fit one of those three groups?",
+      "options": [
+        "No; new data varieties and other groupings can arise",
+        "Yes, exactly one group always applies",
+        "Only image data is excluded",
+        "Groups depend only on file extension"
+      ],
+      "answer": 0,
+      "explanation": "The instructor warns that the grouping is useful but not exhaustive as tools and data varieties evolve.",
+      "optionNotes": [
+        "Correct: The instructor warns that the grouping is useful but not exhaustive as tools and data varieties evolve.",
+        "Incorrect: “Yes, exactly one group always applies” does not match the lecture's definition or example.",
+        "Incorrect: “Only image data is excluded” does not match the lecture's definition or example.",
+        "Incorrect: “Groups depend only on file extension” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "What does dimensionality mean?",
+      "options": [
+        "The number of attributes or dimensions",
+        "The number of files",
+        "The number of algorithms",
+        "The number of screens"
+      ],
+      "answer": 0,
+      "explanation": "Dimensionality is the number of attributes describing each record or object.",
+      "optionNotes": [
+        "Correct: Dimensionality is the number of attributes describing each record or object.",
+        "Incorrect: “The number of files” does not match the lecture's definition or example.",
+        "Incorrect: “The number of algorithms” does not match the lecture's definition or example.",
+        "Incorrect: “The number of screens” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "What problem can irrelevant high-dimensional attributes create?",
+      "options": [
+        "The curse of dimensionality and weaker analysis",
+        "Guaranteed lower storage",
+        "Automatic perfect clustering",
+        "A meaningful ID scale"
+      ],
+      "answer": 0,
+      "explanation": "Irrelevant dimensions dilute useful structure and motivate dimension reduction.",
+      "optionNotes": [
+        "Correct: Irrelevant dimensions dilute useful structure and motivate dimension reduction.",
+        "Incorrect: “Guaranteed lower storage” does not match the lecture's definition or example.",
+        "Incorrect: “Automatic perfect clustering” does not match the lecture's definition or example.",
+        "Incorrect: “A meaningful ID scale” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "What is sparsity?",
+      "options": [
+        "Few non-zero values compared with many zeros",
+        "Every value is unique",
+        "Only text values are stored",
+        "There are no attributes"
+      ],
+      "answer": 0,
+      "explanation": "Sparse data has relatively few non-zero entries; the lecture notes that some datasets have fewer than one percent non-zero values.",
+      "optionNotes": [
+        "Correct: Sparse data has relatively few non-zero entries; the lecture notes that some datasets have fewer than one percent non-zero values.",
+        "Incorrect: “Every value is unique” does not match the lecture's definition or example.",
+        "Incorrect: “Only text values are stored” does not match the lecture's definition or example.",
+        "Incorrect: “There are no attributes” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "Why can sparsity help some algorithms?",
+      "options": [
+        "Only non-zero values need storage and processing",
+        "Every zero must be duplicated",
+        "It removes the need for validation",
+        "It guarantees no noise"
+      ],
+      "answer": 0,
+      "explanation": "For examples such as Naive Bayes and logistic regression, sparse storage and computation can save time and space.",
+      "optionNotes": [
+        "Correct: For examples such as Naive Bayes and logistic regression, sparse storage and computation can save time and space.",
+        "Incorrect: “Every zero must be duplicated” does not match the lecture's definition or example.",
+        "Incorrect: “It removes the need for validation” does not match the lecture's definition or example.",
+        "Incorrect: “It guarantees no noise” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "Why can sparsity be a problem for a recommender system?",
+      "options": [
+        "Many zeros represent unknown or unobserved preferences",
+        "Zeros always encode strong preferences",
+        "Recommendations use no attributes",
+        "Sparse matrices cannot be stored"
+      ],
+      "answer": 0,
+      "explanation": "For recommendation, many zero entries may hide the preference signal the system needs to infer.",
+      "optionNotes": [
+        "Correct: For recommendation, many zero entries may hide the preference signal the system needs to infer.",
+        "Incorrect: “Zeros always encode strong preferences” does not match the lecture's definition or example.",
+        "Incorrect: “Recommendations use no attributes” does not match the lecture's definition or example.",
+        "Incorrect: “Sparse matrices cannot be stored” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "What is resolution in a dataset?",
+      "options": [
+        "The scale or granularity at which data is obtained",
+        "The number of file copies",
+        "A category label",
+        "A database password"
+      ],
+      "answer": 0,
+      "explanation": "Resolution is the minimum scale used to record or obtain observations.",
+      "optionNotes": [
+        "Correct: Resolution is the minimum scale used to record or obtain observations.",
+        "Incorrect: “The number of file copies” does not match the lecture's definition or example.",
+        "Incorrect: “A category label” does not match the lecture's definition or example.",
+        "Incorrect: “A database password” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "What can happen when resolution is too fine or too coarse?",
+      "options": [
+        "A pattern can be buried in noise or disappear after smoothing",
+        "The pattern is always unchanged",
+        "Only the filename changes",
+        "Resolution affects audio only"
+      ],
+      "answer": 0,
+      "explanation": "The earth-surface and atmospheric-pressure examples show that the visible pattern depends on scale.",
+      "optionNotes": [
+        "Correct: The earth-surface and atmospheric-pressure examples show that the visible pattern depends on scale.",
+        "Incorrect: “The pattern is always unchanged” does not match the lecture's definition or example.",
+        "Incorrect: “Only the filename changes” does not match the lecture's definition or example.",
+        "Incorrect: “Resolution affects audio only” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "What is the usual assumption for record data?",
+      "options": [
+        "Each record has the same set of attributes without explicit record relationships",
+        "Every record is a graph",
+        "Records must have timestamps",
+        "Only images can be records"
+      ],
+      "answer": 0,
+      "explanation": "Record data is commonly a collection of objects with the same attributes; relationships are not explicit in the basic representation.",
+      "optionNotes": [
+        "Correct: Record data is commonly a collection of objects with the same attributes; relationships are not explicit in the basic representation.",
+        "Incorrect: “Every record is a graph” does not match the lecture's definition or example.",
+        "Incorrect: “Records must have timestamps” does not match the lecture's definition or example.",
+        "Incorrect: “Only images can be records” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "What does a transaction or market-basket record represent?",
+      "options": [
+        "Items purchased together in one transaction",
+        "A graph edge only",
+        "A monthly temperature alone",
+        "A participant avatar"
+      ],
+      "answer": 0,
+      "explanation": "The lecture uses purchased items as a record-data example and notes that their binary presence is often sparse and asymmetric.",
+      "optionNotes": [
+        "Correct: The lecture uses purchased items as a record-data example and notes that their binary presence is often sparse and asymmetric.",
+        "Incorrect: “A graph edge only” does not match the lecture's definition or example.",
+        "Incorrect: “A monthly temperature alone” does not match the lecture's definition or example.",
+        "Incorrect: “A participant avatar” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "What does graph-based data add to objects?",
+      "options": [
+        "Relationships or links among objects",
+        "Only a filename",
+        "A fixed sampling interval",
+        "A missing-value marker"
+      ],
+      "answer": 0,
+      "explanation": "Graph data represents objects as nodes and their relationships as links; the lecture shows a chemical-compound example.",
+      "optionNotes": [
+        "Correct: Graph data represents objects as nodes and their relationships as links; the lecture shows a chemical-compound example.",
+        "Incorrect: “Only a filename” does not match the lecture's definition or example.",
+        "Incorrect: “A fixed sampling interval” does not match the lecture's definition or example.",
+        "Incorrect: “A missing-value marker” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "How does sequential data differ from temporal data?",
+      "options": [
+        "It uses order or position without requiring timestamps",
+        "It always has more timestamps",
+        "It cannot contain text",
+        "It is always a graph"
+      ],
+      "answer": 0,
+      "explanation": "Sequence data preserves order by position, whereas temporal data orders observations by time.",
+      "optionNotes": [
+        "Correct: Sequence data preserves order by position, whereas temporal data orders observations by time.",
+        "Incorrect: “It always has more timestamps” does not match the lecture's definition or example.",
+        "Incorrect: “It cannot contain text” does not match the lecture's definition or example.",
+        "Incorrect: “It is always a graph” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "What is a time series in the lecture?",
+      "options": [
+        "A series of measurements taken over time",
+        "A single unordered category",
+        "A graph with no observations",
+        "A list of filenames"
+      ],
+      "answer": 0,
+      "explanation": "Daily stock values and a city's monthly temperatures are examples of time-series records.",
+      "optionNotes": [
+        "Correct: Daily stock values and a city's monthly temperatures are examples of time-series records.",
+        "Incorrect: “A single unordered category” does not match the lecture's definition or example.",
+        "Incorrect: “A graph with no observations” does not match the lecture's definition or example.",
+        "Incorrect: “A list of filenames” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "What does temporal autocorrelation suggest?",
+      "options": [
+        "Measurements close in time tend to be more similar",
+        "Distant measurements are always identical",
+        "Time has no analytical meaning",
+        "Only spatial distance matters"
+      ],
+      "answer": 0,
+      "explanation": "The lecture says nearby stock measurements are more likely to correlate than measurements far apart in time.",
+      "optionNotes": [
+        "Correct: The lecture says nearby stock measurements are more likely to correlate than measurements far apart in time.",
+        "Incorrect: “Distant measurements are always identical” does not match the lecture's definition or example.",
+        "Incorrect: “Time has no analytical meaning” does not match the lecture's definition or example.",
+        "Incorrect: “Only spatial distance matters” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "What kind of information defines spatial data?",
+      "options": [
+        "Positions or areas in physical space",
+        "Only purchase order",
+        "Only a file extension",
+        "A password"
+      ],
+      "answer": 0,
+      "explanation": "Weather observations such as precipitation, temperature, and pressure are collected for geographic locations.",
+      "optionNotes": [
+        "Correct: Weather observations such as precipitation, temperature, and pressure are collected for geographic locations.",
+        "Incorrect: “Only purchase order” does not match the lecture's definition or example.",
+        "Incorrect: “Only a file extension” does not match the lecture's definition or example.",
+        "Incorrect: “A password” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "What does spatial autocorrelation mean?",
+      "options": [
+        "Physically close objects tend to be similar in other attributes",
+        "All distant objects are identical",
+        "Order is based only on filenames",
+        "Space cannot be measured"
+      ],
+      "answer": 0,
+      "explanation": "Nearby places often have similar temperature or rainfall, unlike far-apart places.",
+      "optionNotes": [
+        "Correct: Nearby places often have similar temperature or rainfall, unlike far-apart places.",
+        "Incorrect: “All distant objects are identical” does not match the lecture's definition or example.",
+        "Incorrect: “Order is based only on filenames” does not match the lecture's definition or example.",
+        "Incorrect: “Space cannot be measured” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "Why might a non-record dataset be converted into records?",
+      "options": [
+        "To use record-oriented algorithms while preserving the information needed for the task",
+        "To delete all relationships",
+        "To guarantee perfect quality",
+        "To remove every timestamp"
+      ],
+      "answer": 0,
+      "explanation": "The lecture notes that conversion can enable algorithms, but it must not discard relationships, order, or other information needed by the analysis.",
+      "optionNotes": [
+        "Correct: The lecture notes that conversion can enable algorithms, but it must not discard relationships, order, or other information needed by the analysis.",
+        "Incorrect: “To delete all relationships” does not match the lecture's definition or example.",
+        "Incorrect: “To guarantee perfect quality” does not match the lecture's definition or example.",
+        "Incorrect: “To remove every timestamp” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "Why should data quality be treated as a real concern?",
+      "options": [
+        "Data is often collected for another or unspecified purpose",
+        "All collected data is perfect",
+        "Quality depends only on screen resolution",
+        "Cleaning is never possible"
+      ],
+      "answer": 0,
+      "explanation": "The lecture lists missing, duplicate, spurious, and inconsistent data as common risks rather than exceptional cases.",
+      "optionNotes": [
+        "Correct: The lecture lists missing, duplicate, spurious, and inconsistent data as common risks rather than exceptional cases.",
+        "Incorrect: “All collected data is perfect” does not match the lecture's definition or example.",
+        "Incorrect: “Quality depends only on screen resolution” does not match the lecture's definition or example.",
+        "Incorrect: “Cleaning is never possible” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "How does measurement error differ from data-collection error?",
+      "options": [
+        "Measurement error differs from a true value; collection error omits or inappropriately includes data",
+        "They always mean the same thing",
+        "Collection error changes only colours",
+        "Measurement error cannot be random"
+      ],
+      "answer": 0,
+      "explanation": "The lecture defines measurement error around the measurement process and collection error around selecting or recording objects and attributes.",
+      "optionNotes": [
+        "Correct: The lecture defines measurement error around the measurement process and collection error around selecting or recording objects and attributes.",
+        "Incorrect: “They always mean the same thing” does not match the lecture's definition or example.",
+        "Incorrect: “Collection error changes only colours” does not match the lecture's definition or example.",
+        "Incorrect: “Measurement error cannot be random” does not match the lecture's definition or example."
+      ]
+    },
+    {
+      "question": "What is the distinction between noise and an artifact?",
+      "options": [
+        "Noise is a random measurement component; an artifact is deterministic/systematic",
+        "Noise is always systematic and artifact random",
+        "Both are browser settings",
+        "Neither is a data error"
+      ],
+      "answer": 0,
+      "explanation": "The lecture describes noise as random error and artifacts as deterministic error; robust and signal-processing methods can help.",
+      "optionNotes": [
+        "Correct: The lecture describes noise as random error and artifacts as deterministic error; robust and signal-processing methods can help.",
+        "Incorrect: “Noise is always systematic and artifact random” does not match the lecture's definition or example.",
+        "Incorrect: “Both are browser settings” does not match the lecture's definition or example.",
+        "Incorrect: “Neither is a data error” does not match the lecture's definition or example."
+      ]
+    }
+  ]
+}
 };
-
-const hi = {
-  title: "Dataset types और data quality",
-  lede: "यह Data Warehousing व्याख्यान asymmetric attributes, record/graph/ordered dataset families, temporal और spatial relationships तथा data-quality problems से cleaning और robust algorithms तक जाता है।",
-  instructionalInterval: en.instructionalInterval,
-  reviewLevel: "View-only recording; distributed sweep, timestamped transcript, slide-frame evidence और idle-tail exclusion से सत्यापित",
-  coverage: [
-    { title: "Asymmetric attributes", body: "Presence/non-zero values shared absence से अधिक informative हो सकते हैं; sparse student-course और market-basket data इसका example हैं।" },
-    { title: "Dataset families और characteristics", body: "Record, graph-based और ordered data broad groupings हैं। Dimensionality, sparsity और resolution patterns और mining tools को प्रभावित करते हैं।" },
-    { title: "Record, graph और ordered representations", body: "Records attribute values रखते हैं, graphs links जोड़ते हैं और ordered data sequence या time preserve करता है; representation task की जरूरी information बचाए।" },
-    { title: "Temporal और spatial relationships", body: "Time series time के साथ measurements रखते हैं और spatial data positions/areas रखता है; nearby observations में correlation मजबूत हो सकती है।" },
-    { title: "Quality assume नहीं कर सकते", body: "Missing, duplicate, spurious, inconsistent, noisy और अन्य erroneous data के लिए cleaning और residual problems tolerate करने वाले algorithms चाहिए।" }
-  ],
-  takeaway: "Algorithm, distance, transformation या aggregation storage type से नहीं, attribute semantics और data quality से चुनें।",
-  slideTrail: en.slideTrail.map((slide) => ({ ...slide, note: "सत्यापित slide trail: " + slide.note })),
-  summary: [
-    { title: "1. Asymmetric presence signal देती है", sourceRefs: en.summary[0].sourceRefs, paragraphs: ["Opening example में student-course matrix asymmetric है: student available courses के छोटे fraction को लेता है, इसलिए presence informative और shared zeros uninformative हैं। Asymmetric features discrete या continuous दोनों हो सकते हैं।", "Sparse transaction या basket data में भी यही logic लागू है। हर shared absence count करने वाली similarity meaningful co-presences को दबा सकती है, इसलिए association analysis informative non-zero values पर focus करती है।"] },
-    { title: "2. Dataset families और inherent characteristics", sourceRefs: en.summary[1].sourceRefs, paragraphs: ["Lecture record, graph-based और ordered data को practical grouping के रूप में लेती है, पर नई varieties के कारण यह exhaustive नहीं है। Dimensionality attributes की संख्या, sparsity non-zero entries की कमी और resolution observation scale है।", "हर characteristic mining problem बदलती है: irrelevant dimensions curse of dimensionality ला सकती हैं, sparse storage कुछ algorithms में मदद कर सकती है और fine/coarse resolution pattern दिखा या छिपा सकती है।"] },
-    { title: "3. Record, graph और ordered representations", sourceRefs: en.summary[2].sourceRefs, paragraphs: ["Record data common attributes वाले objects रखता है; transaction और market-basket records sparse binary presence दिखाते हैं। Graph-based data nodes और relationships जोड़ता है, जैसे chemical compound में links।", "Representation तभी useful है जब question की जरूरी information बची रहे। Graph या non-record source को independent rows में बदलने से algorithm चल सकता है, पर relationships या order खो सकते हैं।"] },
-    { title: "4. Ordered, temporal और spatial data", sourceRefs: en.summary[3].sourceRefs, paragraphs: ["Ordered data position/sequence बचाता है; temporal data timestamps जोड़ता है और time series daily stock या monthly temperature जैसे repeated measurements रखते हैं। Temporal autocorrelation में time में पास observations अधिक related होती हैं।", "Spatial data positions या areas रखता है, जैसे अलग geographic locations की weather measurements। Spatial autocorrelation में पास स्थानों का temperature या rainfall अक्सर similar होता है।"] },
-    { title: "5. Data-quality problems expected हैं", sourceRefs: en.summary[4].sourceRefs, paragraphs: ["Data अक्सर किसी अन्य या unspecified purpose के लिए collect होता है, इसलिए missing values/objects, spurious या duplicate objects और inconsistent measurements expect करें। Complete record भी plausible हो, यह जरूरी नहीं।", "Data cleaning पहला defense है: quality problems detect और correct करें। दूसरा defense robust algorithm design है जो residual poor quality के बावजूद useful result दे सके।"] },
-    { title: "6. Measurement, collection, noise और artifacts", sourceRefs: en.summary[5].sourceRefs, paragraphs: ["Measurement error measurement process की समस्या है, जिसमें recorded value true value से अलग हो सकती है। Data-collection error objects या attributes omit करने या inappropriate object include करने से होती है; दोनों systematic या random हो सकते हैं।", "Noise measurement error का random component है और signal को छिपा सकता है, जबकि deterministic/systematic error artifact है। Signal या image processing noise कम कर सकती है, लेकिन complete elimination कठिन है; closing के बाद desktop/Moodle tail interval से बाहर है।"] }
-  ],
-  courseSignals: { assignments: [], homework: [], labs: [], projects: [], references: [], studentQuestions: [] },
-  keyTerms: en.keyTerms.map((term) => ({ term: term.term, definition: term.definition })),
-  insights: [
-    { label: "Modeling", title: "Storage type semantic metadata नहीं है", body: "Integer column ID, rank, count या ratio measurement हो सकता है। Encoding, scaling या distance चुनने से पहले measurement level metadata में लिखें।" },
-    { label: "Representation", title: "Conversion question खो सकती है", body: "Graph या sequence को independent records में बदलने से algorithm चल सकता है, पर links या order खो सकते हैं। Analysis के लिए जरूरी information explicit रखें।" },
-    { label: "Sparse data", title: "Shared zeros signal को दबा सकते हैं", body: "Baskets, symptoms या course enrolments में Jaccard-style presence-focused reasoning symmetric match से अधिक faithful हो सकती है।" },
-    { label: "Quality", title: "Cleaning और robustness दोनों चाहिए", body: "Cleaning evidence सुधारती है, पर perfection prove नहीं करती। Algorithms residual noise, missingness और artifacts tolerate करें और assumptions दिखाएँ।" },
-    { label: "Resolution", title: "Scale hypothesis का हिस्सा है", body: "Fine scale structure या noise दिखा सकती है; coarse scale pattern smooth कर सकती है। Decision horizon के अनुसार resolution चुनें।" }
-  ],
-  resources: en.resources.map((resource) => ({ ...resource, why: resource.why + " (अतिरिक्त reading)" })),
-  quiz: hiQuiz
-};
-
-export const ecc6404Lecture20260824 = { en, hi };

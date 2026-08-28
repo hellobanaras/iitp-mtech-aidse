@@ -37,7 +37,7 @@ const [
   import(`./lectures/ebb-6403-2026-08-21-075934.js?v=${releaseVersion}`)
 ]);
 
-// Each lecture is a single bilingual publication unit.
+// Each lecture is a single English-only publication unit.
 export const lectureNotes = {
   "eai-6401-2026-08-17": eai6401Lecture20260817,
   "eai-6401-2026-08-18": eai6401Lecture20260818,

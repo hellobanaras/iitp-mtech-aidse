@@ -56,7 +56,7 @@ The repository is the system of record:
 - `AGENTS.md` — short instructions loaded by future agents;
 - `docs/agent-constitution.md` — durable invariants and decision hierarchy;
 - `docs/recording-review-playbook.md` — executable review procedure;
-- `agents/recording-note-taker.md` — dedicated processing profile for bilingual synthesis and resource refresh;
+- `agents/recording-note-taker.md` — dedicated processing profile for English-only synthesis and resource refresh;
 - `docs/recording-inventory.md` — source ledger and dispositions;
 - `docs/content-schema.md` — public lecture-note contract;
 - `.course-data/**/processing-manifest.json` — private machine evidence;
@@ -64,17 +64,17 @@ The repository is the system of record:
 
 When the workflow improves, update the constitution only for enduring principles; put implementation detail in the playbook and schema. Preserve superseded evidence rather than overwriting it silently.
 
-## 8. English and Hindi are equal source surfaces
+## 8. English is the sole lecture-note source surface
 
-Every published lecture, schedule, course description, academic signal, MCQ explanation, and mini-capstone is one bilingual source record. Substantive lecture notes are presented as the same aligned English/Hindi pair: side by side on wider screens and sequentially within each paired block on mobile. Do not alternate whole cards between languages or collapse the lecture note into Hindi alone. Public routes are language-neutral (`#/lecture/<id>`, not `/en`, `/hi`, or `/bi`) and no language selector is offered.
+Every published lecture, schedule, course description, academic signal, MCQ explanation, and mini-capstone is published in clear English. Substantive lecture notes use one English source surface on desktop and mobile. Public routes are language-neutral (`#/lecture/<id>`, not `/en`, `/hi`, or `/bi`) and no language selector is offered.
 
-Each `data/lectures/<id>.js` file contains one `{ en, hi }` publication unit, and the matching capstone in `data/capstones.js` contains aligned English/Hindi project guidance. The Hindi column must preserve the English column's evidence: source timecodes, formulas, external URLs, array ordering, and MCQ answer indexes cannot change during translation. Technical terms may remain in English where that improves accuracy. Neither column is publishable alone; compare structural parity and spot-check the paired title, coverage, first and last MCQ, academic signals, and capstone before publishing.
+Each `data/lectures/<id>.js` file contains one `{ en }` publication unit, and the matching capstone in `data/capstones.js` contains English project guidance. Spot-check the title, coverage, first and last MCQ, academic signals, formulas, URLs, and capstone before publishing.
 
-Bilingual completeness is a content invariant, not a command to duplicate every visible fragment. Substantive explanations, summaries, questions, and guidance must retain and render both source versions together. Compact labels, chips, technical names, and metadata may render once when the Hindi version is identical or only replaces a conjunction or isolated word while the rest remains English. This selective presentation avoids visual noise without deleting the aligned source content or weakening its validation.
+English clarity is the content invariant. Do not mechanically translate technical material; retain established English terminology when it is the most precise and readable choice.
 
 ## 11. Public capstones are part of the learning surface
 
-Each published lecture has one complete bilingual mini-capstone/startup idea in tracked `data/capstones.js`, rendered directly below its notes. The validator checks the English/Hindi narrative and list parity. Capstones contain no credentials, authentication UI, participant details, or private learner data; ignored `.course-data/` files may be used as drafting evidence but are never required at runtime.
+Each published lecture has one complete English mini-capstone/startup idea in tracked `data/capstones.js`, rendered directly below its notes. Capstones contain no credentials, authentication UI, participant details, or private learner data; ignored `.course-data/` files may be used as drafting evidence but are never required at runtime.
 
 The recording-note-taker must review the subject's curated resource trail after every verified lecture. Add only stable, public, materially relevant reading, viewing, or practice resources, with a reason tied to the lecture; deduplicate by canonical URL. If no addition is justified, record that the existing trail was intentionally retained.
 

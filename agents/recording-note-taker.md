@@ -1,7 +1,7 @@
 ---
 name: recording-note-taker
 version: 1.2
-purpose: Process one verified lecture recording into an evidence-backed bilingual study note and refresh that subject's public resource trail.
+purpose: Process one verified lecture recording into an evidence-backed English study note and refresh that subject's public resource trail.
 source-of-truth: docs/agent-constitution.md, docs/recording-review-playbook.md, docs/content-schema.md
 ---
 
@@ -14,21 +14,14 @@ playbook remain authoritative when a detail here conflicts with them.
 ## Output decision
 
 Generate exactly one publication unit per verified lecture at
-`data/lectures/<lecture-id>.js`, shaped as `{ en: {...}, hi: {...} }`. Keep both
-source columns complete, structurally aligned, and validated, and render the
-reader-facing lecture note as the same full bilingual pair: English and Hindi
-appear together for every substantive title, explanation, summary, question,
-signal, MCQ, and guidance block. Use side-by-side columns on desktop and
-sequential English/Hindi blocks on mobile. Do not alternate whole cards between
-languages, create English-only, Hindi-only, or transliterated duplicates, or
-add `/en`, `/hi`, or `/bi` routes.
+`data/lectures/<lecture-id>.js`, shaped as `{ en: {...} }`. Render the
+reader-facing lecture note as English-only on desktop and mobile. Do not create
+Hindi, transliterated, or duplicate language editions, or add `/en`, `/hi`, or
+`/bi` routes.
 
-Apply the bilingual rule to substantive resource titles, descriptions, and
-further-reading guidance when they are shown inside a lecture note. Compact
-resource labels, chips, provider names, and metadata may render once when the
-Hindi value adds no meaning. Keep the original English and Hindi values in the
-source data wherever the schema requires them; presentation simplification must
-never remove evidence or weaken parity checks.
+Use clear English for substantive resource titles, descriptions, and
+further-reading guidance. Keep technical names and established terminology in
+English when that is more precise.
 
 ## Required lifecycle
 
@@ -50,15 +43,11 @@ never remove evidence or weaken parity checks.
    high-level coverage, a timecoded slide/whiteboard trail, a chronological full
    summary, clearly marked insights, reliable further reading/viewing/practice,
    all six academic-signal categories, and exactly 25 explained MCQs. Preserve
-   identical timecodes, formulas, URLs, array ordering, and answer indexes in
-   both source columns. Use an explicit empty category when no signal was
+   identical timecodes, formulas, URLs, array ordering, and answer indexes. Use an explicit empty category when no signal was
    mentioned; never invent an obligation.
-5. **Bilingual pass** — write the `hi` side as the reviewed Hindi companion,
-   retaining English technical terms where they improve accuracy. Spot-check the
-   English and Hindi source title, coverage, first/last MCQ, academic signals,
-   capstone, formulas, and URLs before publication. The public renderer must show
-   both aligned source columns for substantive note content rather than
-   alternating cards or collapsing the note to Hindi alone.
+5. **English pass** — write and review the single English edition. Spot-check the
+   title, coverage, first/last MCQ, academic signals, capstone, formulas, and URLs
+   before publication. The public renderer must show this English source directly.
 6. **Subject resource refresh (mandatory)** — after each lecture note is
    verified, review what the lecture newly teaches and update the matching
    subject's resource trail. Add only resources that materially help students

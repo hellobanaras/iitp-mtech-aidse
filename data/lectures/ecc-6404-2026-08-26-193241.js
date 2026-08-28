@@ -1,152 +1,755 @@
-// One bilingual publication unit. Source times map to the verified Stream recording.
-const quizRows = [
-  { q: "What does precision describe?", h: "Precision क्या describe करता है?", o: ["Closeness of repeated measurements to one another", "Distance from the known true value only", "Number of database rows", "A sampling probability"], ho: ["Repeated measurements का आपस में close होना", "केवल known true value से दूरी", "Database rows की संख्या", "Sampling probability"], a: 0, e: "Precision is the agreement among repeated measurements; standard deviation is a common way to quantify it.", he: "Precision repeated measurements की आपसी agreement है; standard deviation इसका common measure है।" },
-  { q: "What is measurement bias?", h: "Measurement bias क्या है?", o: ["A systematic variation from the quantity being measured", "Random irrelevant variation", "A duplicate database row", "A balanced sample"], ho: ["Measured quantity से systematic variation", "Random irrelevant variation", "Duplicate database row", "Balanced sample"], a: 0, e: "Bias is systematic error relative to the quantity being measured, not random scatter.", he: "Bias measured quantity के सापेक्ष systematic error है, random scatter नहीं।" },
-  { q: "How is accuracy defined in the lecture?", h: "Lecture में accuracy कैसे define की गई है?", o: ["Closeness of measurements to the true value", "Closeness of repeated values to each other", "Number of significant digits alone", "The size of a sample"], ho: ["Measurements का true value के close होना", "Repeated values का आपस में close होना", "केवल significant digits की संख्या", "Sample का size"], a: 0, e: "Accuracy concerns error relative to the true value; precision and bias inform it but do not provide one universal formula for it.", he: "Accuracy true value के सापेक्ष error से जुड़ी है; precision और bias inform करते हैं, पर एक universal formula नहीं है।" },
-  { q: "Why should significant digits reflect precision?", h: "Significant digits को precision reflect क्यों करनी चाहिए?", o: ["Extra digits imply unsupported measurement detail", "More digits always remove bias", "Digits determine the sample class", "They replace validation"], ho: ["Extra digits unsupported measurement detail imply करते हैं", "अधिक digits bias हमेशा हटाते हैं", "Digits sample class तय करते हैं", "वे validation की जगह लेती हैं"], a: 0, e: "Reporting only digits justified by measurement precision avoids false accuracy.", he: "Measurement precision से justified digits ही report करने पर false accuracy से बचते हैं।" },
-  { q: "What is an outlier?", h: "Outlier क्या है?", o: ["An unusual object or attribute value that differs from the rest", "Always a random error", "Always an invalid row", "A missing value marker"], ho: ["ऐसा unusual object या attribute value जो बाकी से अलग हो", "हमेशा random error", "हमेशा invalid row", "Missing value marker"], a: 0, e: "An outlier deviates markedly from typical observations and may be valid or erroneous.", he: "Outlier typical observations से markedly deviate करता है और valid या erroneous दोनों हो सकता है।" },
-  { q: "How does noise differ from an outlier?", h: "Noise outlier से कैसे अलग है?", o: ["Noise is random/irrelevant variation; an outlier may be a meaningful rare case", "Noise is always useful and outliers are always bad", "They are identical terms", "Noise means a duplicate only"], ho: ["Noise random/irrelevant variation है; outlier meaningful rare case हो सकता है", "Noise हमेशा useful और outlier हमेशा bad है", "दोनों identical terms हैं", "Noise केवल duplicate का अर्थ है"], a: 0, e: "The lecture treats noise as unwanted degradation, while an outlier can contain a rare signal worth investigating.", he: "Lecture noise को unwanted degradation और outlier को investigate करने योग्य rare signal भी मानती है।" },
-  { q: "Why can an attribute value be missing?", h: "Attribute value missing क्यों हो सकती है?", o: ["It was not collected or is not applicable to the object", "The value is automatically a zero", "Missingness proves duplication", "The dataset has no attributes"], ho: ["Value collect नहीं हुई या object पर applicable नहीं है", "Value automatically zero है", "Missingness duplication prove करती है", "Dataset में attributes नहीं हैं"], a: 0, e: "The lecture gives non-collection and non-applicability as ordinary causes of missing values.", he: "Lecture missing values के ordinary causes के रूप में non-collection और non-applicability बताती है।" },
-  { q: "When is eliminating objects or attributes a safe missing-value strategy?", h: "Objects या attributes eliminate करना कब safe strategy है?", o: ["When removal does not distort the original data characteristics", "Whenever any value is missing", "Only when the dataset is tiny", "When it maximizes the number of columns"], ho: ["जब removal original data characteristics distort न करे", "जब भी कोई value missing हो", "केवल dataset tiny होने पर", "जब columns की संख्या maximize हो"], a: 0, e: "Deletion is acceptable only when the informative patterns and general properties remain intact.", he: "Deletion तभी acceptable है जब informative patterns और general properties intact रहें।" },
-  { q: "Which method can estimate a missing value in a time series?", h: "Time series में missing value estimate करने का कौन-सा method है?", o: ["Interpolation", "Randomly deleting neighbors", "Changing the filename", "Counting duplicate rows"], ho: ["Interpolation", "Neighbors randomly delete करना", "Filename बदलना", "Duplicate rows count करना"], a: 0, e: "Interpolation uses surrounding time-ordered measurements to estimate a gap.", he: "Interpolation आसपास के time-ordered measurements से gap estimate करती है।" },
-  { q: "How can a continuous missing value be estimated from similar objects?", h: "Similar objects से continuous missing value कैसे estimate हो सकती है?", o: ["Average the attribute values of nearest neighbors", "Choose the rarest category", "Use a random filename", "Drop every attribute"], ho: ["Nearest neighbors के attribute values का average लेना", "Rarest category चुनना", "Random filename use करना", "हर attribute drop करना"], a: 0, e: "For a continuous attribute, the lecture proposes the average value among nearby similar objects.", he: "Continuous attribute के लिए lecture nearby similar objects का average propose करती है।" },
-  { q: "What is a sensible estimate for a categorical missing value?", h: "Categorical missing value के लिए sensible estimate क्या है?", o: ["The most commonly occurring value among similar objects", "A negative height", "The largest numeric value", "An arbitrary new category"], ho: ["Similar objects में सबसे common value", "Negative height", "Largest numeric value", "Arbitrary नई category"], a: 0, e: "For categorical data, the local mode is a plausible estimate when the context supports it.", he: "Categorical data में context support करे तो local mode plausible estimate है।" },
-  { q: "What does ignoring a missing value during similarity calculation mean?", h: "Similarity calculation में missing value ignore करने का अर्थ क्या है?", o: ["Use only attributes available for both objects", "Delete the whole dataset", "Treat every missing value as identical", "Invent a new object"], ho: ["दोनों objects में available attributes ही use करना", "पूरा dataset delete करना", "हर missing value को identical मानना", "नया object invent करना"], a: 0, e: "The pairwise similarity can be computed on the non-missing attributes, with the result acknowledged as approximate.", he: "Pairwise similarity non-missing attributes पर compute की जा सकती है; result approximate माना जाता है।" },
-  { q: "Which is an example of an inconsistent value?", h: "Inconsistent value का example कौन-सा है?", o: ["A city paired with a postal code that cannot belong to it", "A valid seven-foot height", "A repeated measurement", "A documented category"], ho: ["ऐसे city के साथ postal code जो वहाँ का हो ही नहीं सकता", "Valid seven-foot height", "Repeated measurement", "Documented category"], a: 0, e: "An address whose city and postal code disagree is a cross-field inconsistency requiring validation or domain knowledge.", he: "City और postal code का disagreement cross-field inconsistency है, जिसे validation या domain knowledge चाहिए।" },
-  { q: "What is a near-duplicate?", h: "Near-duplicate क्या है?", o: ["Different-looking records that carry nearly the same information", "Two values with no relation", "A missing attribute", "A random sample"], ho: ["अलग दिखने वाले records जिनमें लगभग same information हो", "बिना relation के दो values", "Missing attribute", "Random sample"], a: 0, e: "For example, abbreviated and full names for the same city may describe one real-world entity.", he: "जैसे abbreviated और full names एक ही real-world entity को describe कर सकते हैं।" },
-  { q: "What is deduplication?", h: "Deduplication क्या है?", o: ["The preprocessing process of handling duplicate or near-duplicate objects", "Adding more copies to a dataset", "Estimating a time-series gap", "Scaling every feature"], ho: ["Duplicate या near-duplicate objects handle करने की preprocessing process", "Dataset में और copies जोड़ना", "Time-series gap estimate करना", "हर feature scale करना"], a: 0, e: "Deduplication resolves inconsistent representations while preventing distinct but similar entities from being merged accidentally.", he: "Deduplication inconsistent representations resolve करती है, पर distinct similar entities को गलती से merge नहीं करना चाहिए।" },
-  { q: "What does timeliness mean for application-level data quality?", h: "Application-level data quality में timeliness क्या है?", o: ["Data remains pertinent as the application needs it", "Every value is measured repeatedly", "All records are duplicates", "The file has a recent name"], ho: ["Application की जरूरत के अनुसार data pertinent रहना", "हर value repeatedly measure होना", "सभी records duplicates होना", "File का recent नाम"], a: 0, e: "Data can age after collection; stale purchasing or browsing behavior may no longer support a current model.", he: "Collection के बाद data age हो सकता है; stale behavior current model के लिए useful नहीं रह सकता।" },
-  { q: "What is relevance?", h: "Relevance क्या है?", o: ["The data contains information necessary for the intended application", "The data is always recent", "The data has the most columns possible", "The data is sampled with replacement"], ho: ["Data में intended application के लिए जरूरी information होना", "Data हमेशा recent होना", "Data में maximum columns होना", "Data replacement के साथ sampled होना"], a: 0, e: "A driver-accident model without important attributes such as age or gender may be unsuitable for its purpose.", he: "Age या gender जैसे important attributes के बिना driver-accident model अपने purpose के लिए unsuitable हो सकता है।" },
-  { q: "What causes sampling bias?", h: "Sampling bias किस कारण होता है?", o: ["The sample proportions differ from object types' proportions in the population", "Every group is represented exactly", "Only numeric features are used", "The sample is always too large"], ho: ["Sample proportions population में object types की proportions से अलग होना", "हर group exactly represented होना", "केवल numeric features use होना", "Sample हमेशा बहुत बड़ा होना"], a: 0, e: "A rare class can be underrepresented by simple sampling, so analysis fails to reflect the population.", he: "Rare class simple sampling में underrepresented हो सकती है और analysis population को reflect नहीं करेगा।" },
-  { q: "Why is documentation or metadata important?", h: "Documentation या metadata important क्यों है?", o: ["It explains meaning, precision, scales, and markers such as a missing-value code", "It guarantees perfect data", "It removes the need for cleaning", "It changes every categorical field to numeric"], ho: ["यह meaning, precision, scales और missing-value markers explain करता है", "यह perfect data guarantee करता है", "Cleaning की जरूरत हटाता है", "हर categorical field numeric बना देता है"], a: 0, e: "Without metadata, a sentinel such as -9999 can be mistaken for a valid measurement and corrupt analysis.", he: "Metadata के बिना -9999 जैसा sentinel valid measurement समझकर analysis खराब कर सकता है।" },
-  { q: "What is the main goal of data preprocessing?", h: "Data preprocessing का main goal क्या है?", o: ["Make data more suitable for mining while improving time, cost, or quality", "Make every dataset larger", "Hide missing values", "Remove all relationships"], ho: ["Data को mining के लिए suitable बनाते हुए time, cost या quality improve करना", "हर dataset बड़ा बनाना", "Missing values छिपाना", "सभी relationships हटाना"], a: 0, e: "Preprocessing selects or changes objects and attributes so mining algorithms can work with better evidence.", he: "Preprocessing objects/attributes select या change करके mining algorithms के लिए evidence बेहतर बनाती है।" },
-  { q: "How are quantitative attributes commonly aggregated?", h: "Quantitative attributes को commonly कैसे aggregate किया जाता है?", o: ["By a sum or an average", "By choosing a random label", "By deleting every numeric value", "By counting filenames"], ho: ["Sum या average से", "Random label चुनकर", "हर numeric value delete करके", "Filenames count करके"], a: 0, e: "Numeric attributes can be summarized with totals or means when that preserves the question's meaning.", he: "Question का meaning preserve हो तो numeric attributes totals या means से summarize की जा सकती हैं।" },
-  { q: "What is a trade-off of aggregation?", h: "Aggregation का trade-off क्या है?", o: ["It reduces size and variability but can lose interesting detail", "It always increases noise", "It guarantees exact individual behavior", "It prevents any algorithm from running"], ho: ["Size और variability घटती है, पर interesting detail खो सकती है", "यह noise हमेशा बढ़ाती है", "यह exact individual behavior guarantee करती है", "यह algorithms को रोकती है"], a: 0, e: "Aggregation can enable less memory and more expensive algorithms, but the fine-grained details may disappear.", he: "Aggregation memory घटाकर expensive algorithms enable कर सकती है, पर fine-grained details खो सकती हैं।" },
-  { q: "What makes a sample representative?", h: "Sample representative कब होती है?", o: ["It approximately preserves the important properties of the full dataset", "It contains only the rarest class", "It is always one percent of the data", "It changes the original proportions arbitrarily"], ho: ["यह full dataset की important properties approximately preserve करे", "इसमें केवल rarest class हो", "यह हमेशा data का one percent हो", "यह original proportions arbitrarily बदले"], a: 0, e: "Representativeness is about preserving data characteristics, not a fixed percentage or a particular file size.", he: "Representativeness data characteristics preserve करने से जुड़ी है, fixed percentage या file size से नहीं।" },
-  { q: "What is true of sampling with replacement?", h: "Sampling with replacement में क्या true है?", o: ["A selected object remains in the population and can be selected again", "A selected object is permanently removed", "Every group gets equal count automatically", "No sample can be formed"], ho: ["Selected object population में रहता है और फिर select हो सकता है", "Selected object permanently remove होता है", "हर group को automatically equal count मिलता है", "कोई sample नहीं बन सकता"], a: 0, e: "Replacement leaves the object available, so repeated selections are possible.", he: "Replacement object को available रखता है, इसलिए repeated selections possible हैं।" },
-  { q: "Why use stratified sampling for imbalanced groups?", h: "Imbalanced groups के लिए stratified sampling क्यों use करें?", o: ["It deliberately draws equal or proportionate counts from each group", "It ignores rare groups", "It always samples only one object", "It makes all values continuous"], ho: ["यह हर group से equal या proportionate counts deliberately draw करती है", "यह rare groups ignore करती है", "यह हमेशा केवल one object sample करती है", "यह सभी values continuous बनाती है"], a: 0, e: "Stratification protects representation of infrequent classes that simple random sampling might miss.", he: "Stratification infrequent classes की representation बचाती है जिन्हें simple random sampling miss कर सकती है।" }
-];
-
-const makeQuiz = (language) => quizRows.map((row) => ({
-  question: language === "hi" ? row.h : row.q,
-  options: language === "hi" ? row.ho : row.o,
-  answer: row.a,
-  explanation: language === "hi" ? row.he : row.e,
-  optionNotes: (language === "hi" ? row.ho : row.o).map((option, index) => index === row.a
-    ? (language === "hi" ? `सही: ${row.he}` : `Correct: ${row.e}`)
-    : (language === "hi" ? `गलत: “${option}” lecture के इस concept से मेल नहीं खाता।` : `Incorrect: “${option}” does not match the lecture's concept.`))
-}));
-
-const en = {
-  title: "Data quality, preprocessing, and representative sampling",
-  lede: "This Data Warehousing lecture moves from measurement quality (precision, bias, accuracy, significant digits) through outliers, noise, missing/inconsistent/duplicate data, application-level quality, and the preprocessing toolkit of aggregation and sampling.",
-  instructionalInterval: "00:02:16–01:25:35 source time (01:43:40 reported duration; idle tail excluded)",
-  reviewLevel: "View-only Stream recording; distributed sweep, 2× playback, timestamped transcript, slide-frame evidence, and idle-tail exclusion verified.",
-  coverage: [
-    { title: "Measurement quality", body: "Separate precision (repeatability), bias (systematic deviation), and accuracy (closeness to truth); report only significant digits justified by precision." },
-    { title: "Outliers and noise", body: "An outlier can be a valid rare observation, while noise is unwanted random or irrelevant variation that degrades quality." },
-    { title: "Missing values", body: "Choose deletion, estimation, or analysis-time ignoring carefully; interpolation, nearest-neighbor averages, and local modes fit different contexts." },
-    { title: "Consistency and duplicates", body: "Validate cross-field contradictions and deduplicate near-identical objects without merging distinct real-world entities." },
-    { title: "Application fit", body: "Timeliness, relevance, sampling bias, and metadata determine whether data supports the intended analysis." },
-    { title: "Preprocessing and sampling", body: "Aggregation reduces size and variability; representative sampling requires a suitable technique and sample size, including stratification for rare groups." }
+// English-only publication unit.
+export const ecc6404Lecture20260826 = {
+  en: {
+  "title": "Data quality, preprocessing, and representative sampling",
+  "lede": "This Data Warehousing lecture moves from measurement quality (precision, bias, accuracy, significant digits) through outliers, noise, missing/inconsistent/duplicate data, application-level quality, and the preprocessing toolkit of aggregation and sampling.",
+  "instructionalInterval": "00:02:16–01:25:35 source time (01:43:40 reported duration; idle tail excluded)",
+  "reviewLevel": "View-only Stream recording; distributed sweep, 2× playback, timestamped transcript, slide-frame evidence, and idle-tail exclusion verified.",
+  "coverage": [
+    {
+      "title": "Measurement quality",
+      "body": "Separate precision (repeatability), bias (systematic deviation), and accuracy (closeness to truth); report only significant digits justified by precision."
+    },
+    {
+      "title": "Outliers and noise",
+      "body": "An outlier can be a valid rare observation, while noise is unwanted random or irrelevant variation that degrades quality."
+    },
+    {
+      "title": "Missing values",
+      "body": "Choose deletion, estimation, or analysis-time ignoring carefully; interpolation, nearest-neighbor averages, and local modes fit different contexts."
+    },
+    {
+      "title": "Consistency and duplicates",
+      "body": "Validate cross-field contradictions and deduplicate near-identical objects without merging distinct real-world entities."
+    },
+    {
+      "title": "Application fit",
+      "body": "Timeliness, relevance, sampling bias, and metadata determine whether data supports the intended analysis."
+    },
+    {
+      "title": "Preprocessing and sampling",
+      "body": "Aggregation reduces size and variability; representative sampling requires a suitable technique and sample size, including stratification for rare groups."
+    }
   ],
-  takeaway: "Preserve the data characteristics that carry the signal: define measurement semantics, expose quality problems, and select preprocessing and sampling strategies that do not distort the population.",
-  slideTrail: [
-    { time: "02:16", title: "Data Quality – Measurement and Data Collection Issues: Precision, Bias, and Accuracy", note: "Precision is closeness among repeated measurements; bias is systematic variation from the measured quantity; accuracy is closeness to the true value." },
-    { time: "06:57", title: "Accuracy and significant digits", note: "Significant digits must be justified by measurement precision; unsupported digits create false confidence in a result." },
-    { time: "11:52", title: "Outliers", note: "Outliers are unusual data objects or attribute values and may be legitimate, unlike unwanted noise." },
-    { time: "14:59", title: "Noise versus outlier", note: "Noise is random/irrelevant variation that degrades quality; an outlier can represent a rare phenomenon worth analysis." },
-    { time: "20:40", title: "Missing Values", note: "Values may be missing because information was not collected or an attribute is not applicable to every object." },
-    { time: "23:38", title: "Handling missing values: eliminate objects or attributes", note: "Deletion is acceptable only when it does not distort the original patterns or characteristics." },
-    { time: "29:31", title: "Estimate missing values", note: "Use interpolation for time series; use nearby-object averages for continuous attributes and local modes for categorical attributes." },
-    { time: "33:13", title: "Ignore missing values during analysis", note: "Pairwise similarity or classification can be adapted to use available attributes, with the result understood as approximate." },
-    { time: "36:22", title: "Inconsistent Values", note: "A city/postal-code contradiction illustrates why cross-field checks and domain knowledge are needed." },
-    { time: "40:23", title: "Duplicate Data and Deduplication", note: "Near-duplicates can encode one entity with different strings; deduplication must also avoid merging distinct entities with similar attributes." },
-    { time: "49:08", title: "Data quality from the application viewpoint: Timeliness", note: "Purchasing and browsing behavior age, so stale data can yield stale models and patterns." },
-    { time: "51:21", title: "Relevance", note: "The available attributes must contain the information required by the application; omitted drivers' age or gender can undermine an accident model." },
-    { time: "53:37", title: "Sampling Bias", note: "If sample proportions do not match the population, especially for rare classes, analysis may not reflect the true picture." },
-    { time: "55:50", title: "Knowledge about the data", note: "Metadata documents feature meaning, measurement level, precision, and sentinel values such as –9999." },
-    { time: "60:08", title: "Data Preprocessing", note: "Preprocessing selects/changes objects and attributes to improve mining time, cost, and quality." },
-    { time: "61:08", title: "Aggregation", note: "Summing or averaging quantitative attributes reduces data size and variability but can lose detail." },
-    { time: "69:53", title: "Sampling", note: "Sampling analyzes a subset when the full dataset is expensive; the subset must remain representative." },
-    { time: "75:59", title: "Sampling with and without replacement", note: "Without replacement removes selected objects; with replacement leaves them available for another selection." },
-    { time: "78:44", title: "Simple random sampling", note: "Every item has equal selection probability, but rare groups may be underrepresented." },
-    { time: "81:25", title: "Stratified sampling and sample size", note: "Equal or proportionate draws from groups protect rare-class representation; sample size balances representativeness and efficiency." }
+  "takeaway": "Preserve the data characteristics that carry the signal: define measurement semantics, expose quality problems, and select preprocessing and sampling strategies that do not distort the population.",
+  "slideTrail": [
+    {
+      "time": "02:16",
+      "title": "Data Quality – Measurement and Data Collection Issues: Precision, Bias, and Accuracy",
+      "note": "Precision is closeness among repeated measurements; bias is systematic variation from the measured quantity; accuracy is closeness to the true value."
+    },
+    {
+      "time": "06:57",
+      "title": "Accuracy and significant digits",
+      "note": "Significant digits must be justified by measurement precision; unsupported digits create false confidence in a result."
+    },
+    {
+      "time": "11:52",
+      "title": "Outliers",
+      "note": "Outliers are unusual data objects or attribute values and may be legitimate, unlike unwanted noise."
+    },
+    {
+      "time": "14:59",
+      "title": "Noise versus outlier",
+      "note": "Noise is random/irrelevant variation that degrades quality; an outlier can represent a rare phenomenon worth analysis."
+    },
+    {
+      "time": "20:40",
+      "title": "Missing Values",
+      "note": "Values may be missing because information was not collected or an attribute is not applicable to every object."
+    },
+    {
+      "time": "23:38",
+      "title": "Handling missing values: eliminate objects or attributes",
+      "note": "Deletion is acceptable only when it does not distort the original patterns or characteristics."
+    },
+    {
+      "time": "29:31",
+      "title": "Estimate missing values",
+      "note": "Use interpolation for time series; use nearby-object averages for continuous attributes and local modes for categorical attributes."
+    },
+    {
+      "time": "33:13",
+      "title": "Ignore missing values during analysis",
+      "note": "Pairwise similarity or classification can be adapted to use available attributes, with the result understood as approximate."
+    },
+    {
+      "time": "36:22",
+      "title": "Inconsistent Values",
+      "note": "A city/postal-code contradiction illustrates why cross-field checks and domain knowledge are needed."
+    },
+    {
+      "time": "40:23",
+      "title": "Duplicate Data and Deduplication",
+      "note": "Near-duplicates can encode one entity with different strings; deduplication must also avoid merging distinct entities with similar attributes."
+    },
+    {
+      "time": "49:08",
+      "title": "Data quality from the application viewpoint: Timeliness",
+      "note": "Purchasing and browsing behavior age, so stale data can yield stale models and patterns."
+    },
+    {
+      "time": "51:21",
+      "title": "Relevance",
+      "note": "The available attributes must contain the information required by the application; omitted drivers' age or gender can undermine an accident model."
+    },
+    {
+      "time": "53:37",
+      "title": "Sampling Bias",
+      "note": "If sample proportions do not match the population, especially for rare classes, analysis may not reflect the true picture."
+    },
+    {
+      "time": "55:50",
+      "title": "Knowledge about the data",
+      "note": "Metadata documents feature meaning, measurement level, precision, and sentinel values such as –9999."
+    },
+    {
+      "time": "60:08",
+      "title": "Data Preprocessing",
+      "note": "Preprocessing selects/changes objects and attributes to improve mining time, cost, and quality."
+    },
+    {
+      "time": "61:08",
+      "title": "Aggregation",
+      "note": "Summing or averaging quantitative attributes reduces data size and variability but can lose detail."
+    },
+    {
+      "time": "69:53",
+      "title": "Sampling",
+      "note": "Sampling analyzes a subset when the full dataset is expensive; the subset must remain representative."
+    },
+    {
+      "time": "75:59",
+      "title": "Sampling with and without replacement",
+      "note": "Without replacement removes selected objects; with replacement leaves them available for another selection."
+    },
+    {
+      "time": "78:44",
+      "title": "Simple random sampling",
+      "note": "Every item has equal selection probability, but rare groups may be underrepresented."
+    },
+    {
+      "time": "81:25",
+      "title": "Stratified sampling and sample size",
+      "note": "Equal or proportionate draws from groups protect rare-class representation; sample size balances representativeness and efficiency."
+    }
   ],
-  summary: [
-    { title: "1. Precision, bias, accuracy, and significant digits", sourceRefs: ["02:16–10:00", "Slide: Data Quality – Measurement and Data Collection Issues"], paragraphs: ["Repeated measurements let us reason about precision and bias. Precision is the closeness of repeated values to one another and is often summarized with standard deviation. Bias is a systematic deviation from the quantity being measured, while accuracy is the closeness of measurements to the known true value.", "Accuracy is a general concept rather than a single formula made from precision and bias. Reporting significant digits is part of the discipline: only show detail supported by the precision of the instrument or process, otherwise downstream analysis may imply a certainty the data does not have."] },
-    { title: "2. Outliers, noise, and missing values", sourceRefs: ["11:52–33:13", "Slides: Outliers / Noise versus outlier / Missing Values"], paragraphs: ["An outlier is an unusual object or attribute value that differs from the dominant pattern. It may be an error, but it may also be a valid rare event—the seven-foot person example is unusual without being noise. Noise is unwanted random or irrelevant variation that degrades data quality and can obscure a signal.", "Missing values arise through non-collection or non-applicability and must be handled in context. The lecture presents deletion only when characteristics remain intact, interpolation for time series, neighbor-based estimates for continuous or categorical fields, and analysis methods that ignore a missing attribute while accepting approximate similarity."] },
-    { title: "3. Inconsistency and deduplication", sourceRefs: ["36:22–47:00", "Slides: Inconsistent Values / Duplicate Data"], paragraphs: ["Inconsistent values violate known cross-field or domain constraints, such as an impossible city–postal-code pairing. Detection may require redundant information or a domain expert. A dataset can also contain exact or near-duplicate objects, for example a full name and an abbreviation that refer to one person.", "Deduplication is preprocessing that resolves inconsistent representations, but similarity is not proof of identity. Two distinct people can share the same captured attributes if the database omitted the distinguishing field, so entity resolution should use evidence and avoid accidental merges."] },
-    { title: "4. Application-level data quality", sourceRefs: ["49:08–58:00", "Slides: Timeliness / Relevance / Sampling Bias / Knowledge about the Data"], paragraphs: ["Data quality is relative to intended use. Timeliness matters because behavior ages after collection; a stale model can be analytically correct for the past and useless for today. Relevance means the available data contains the attributes needed for the application, not merely many attributes.", "Sampling bias occurs when object types are not present in their population proportions, especially when a rare class is underrepresented. Documentation or metadata supplies feature semantics, measurement levels, precision, and missing-value conventions; without it, a sentinel such as –9999 can be treated as a real number and corrupt results."] },
-    { title: "5. Why preprocessing changes the mining problem", sourceRefs: ["60:08–68:30", "Slide: Data Preprocessing"], paragraphs: ["Preprocessing prepares data for mining through aggregation, sampling, dimensionality reduction, feature selection or creation, discretization/binarization, and variable transformation. These operations either select objects/attributes or create/change attributes, with the goal of improving time, cost, and result quality.", "Aggregation combines objects into a summary. Sums or averages suit quantitative attributes; qualitative attributes may be summarized or omitted only when that does not destroy the question's signal. Aggregation reduces memory and variability and can enable more expensive algorithms, but it sacrifices fine-grained detail."] },
-    { title: "6. Sampling without distorting the population", sourceRefs: ["69:53–85:35", "Slide: Data Preprocessing – Sampling … Contd"], paragraphs: ["Sampling analyzes a subset when processing the full dataset is too expensive. Its central requirement is representativeness: the subset should approximately preserve the original properties. The method and the sample size must be chosen together; a huge sample loses efficiency, while a tiny sample can miss patterns.", "Without replacement removes each selected object from the population. With replacement leaves it available, so an object can appear more than once; the difference is small when the sample is tiny relative to the population. Simple random sampling gives each item equal probability but may miss rare groups. Stratified sampling deliberately draws equal or population-proportionate counts from groups to protect their representation."] }
+  "summary": [
+    {
+      "title": "1. Precision, bias, accuracy, and significant digits",
+      "sourceRefs": [
+        "02:16–10:00",
+        "Slide: Data Quality – Measurement and Data Collection Issues"
+      ],
+      "paragraphs": [
+        "Repeated measurements let us reason about precision and bias. Precision is the closeness of repeated values to one another and is often summarized with standard deviation. Bias is a systematic deviation from the quantity being measured, while accuracy is the closeness of measurements to the known true value.",
+        "Accuracy is a general concept rather than a single formula made from precision and bias. Reporting significant digits is part of the discipline: only show detail supported by the precision of the instrument or process, otherwise downstream analysis may imply a certainty the data does not have."
+      ]
+    },
+    {
+      "title": "2. Outliers, noise, and missing values",
+      "sourceRefs": [
+        "11:52–33:13",
+        "Slides: Outliers / Noise versus outlier / Missing Values"
+      ],
+      "paragraphs": [
+        "An outlier is an unusual object or attribute value that differs from the dominant pattern. It may be an error, but it may also be a valid rare event—the seven-foot person example is unusual without being noise. Noise is unwanted random or irrelevant variation that degrades data quality and can obscure a signal.",
+        "Missing values arise through non-collection or non-applicability and must be handled in context. The lecture presents deletion only when characteristics remain intact, interpolation for time series, neighbor-based estimates for continuous or categorical fields, and analysis methods that ignore a missing attribute while accepting approximate similarity."
+      ]
+    },
+    {
+      "title": "3. Inconsistency and deduplication",
+      "sourceRefs": [
+        "36:22–47:00",
+        "Slides: Inconsistent Values / Duplicate Data"
+      ],
+      "paragraphs": [
+        "Inconsistent values violate known cross-field or domain constraints, such as an impossible city–postal-code pairing. Detection may require redundant information or a domain expert. A dataset can also contain exact or near-duplicate objects, for example a full name and an abbreviation that refer to one person.",
+        "Deduplication is preprocessing that resolves inconsistent representations, but similarity is not proof of identity. Two distinct people can share the same captured attributes if the database omitted the distinguishing field, so entity resolution should use evidence and avoid accidental merges."
+      ]
+    },
+    {
+      "title": "4. Application-level data quality",
+      "sourceRefs": [
+        "49:08–58:00",
+        "Slides: Timeliness / Relevance / Sampling Bias / Knowledge about the Data"
+      ],
+      "paragraphs": [
+        "Data quality is relative to intended use. Timeliness matters because behavior ages after collection; a stale model can be analytically correct for the past and useless for today. Relevance means the available data contains the attributes needed for the application, not merely many attributes.",
+        "Sampling bias occurs when object types are not present in their population proportions, especially when a rare class is underrepresented. Documentation or metadata supplies feature semantics, measurement levels, precision, and missing-value conventions; without it, a sentinel such as –9999 can be treated as a real number and corrupt results."
+      ]
+    },
+    {
+      "title": "5. Why preprocessing changes the mining problem",
+      "sourceRefs": [
+        "60:08–68:30",
+        "Slide: Data Preprocessing"
+      ],
+      "paragraphs": [
+        "Preprocessing prepares data for mining through aggregation, sampling, dimensionality reduction, feature selection or creation, discretization/binarization, and variable transformation. These operations either select objects/attributes or create/change attributes, with the goal of improving time, cost, and result quality.",
+        "Aggregation combines objects into a summary. Sums or averages suit quantitative attributes; qualitative attributes may be summarized or omitted only when that does not destroy the question's signal. Aggregation reduces memory and variability and can enable more expensive algorithms, but it sacrifices fine-grained detail."
+      ]
+    },
+    {
+      "title": "6. Sampling without distorting the population",
+      "sourceRefs": [
+        "69:53–85:35",
+        "Slide: Data Preprocessing – Sampling … Contd"
+      ],
+      "paragraphs": [
+        "Sampling analyzes a subset when processing the full dataset is too expensive. Its central requirement is representativeness: the subset should approximately preserve the original properties. The method and the sample size must be chosen together; a huge sample loses efficiency, while a tiny sample can miss patterns.",
+        "Without replacement removes each selected object from the population. With replacement leaves it available, so an object can appear more than once; the difference is small when the sample is tiny relative to the population. Simple random sampling gives each item equal probability but may miss rare groups. Stratified sampling deliberately draws equal or population-proportionate counts from groups to protect their representation."
+      ]
+    }
   ],
-  courseSignals: { assignments: [], homework: [], labs: [], projects: [], references: [], studentQuestions: [] },
-  keyTerms: [
-    { term: "Precision", definition: "Closeness of repeated measurements to one another." },
-    { term: "Bias", definition: "Systematic variation from the quantity being measured." },
-    { term: "Accuracy", definition: "Closeness of measurements to the true value." },
-    { term: "Outlier", definition: "An unusual object or value that deviates from the rest." },
-    { term: "Noise", definition: "Random or irrelevant variation that degrades data quality." },
-    { term: "Missing value", definition: "An attribute value that was not collected or is not applicable." },
-    { term: "Deduplication", definition: "Preprocessing to resolve duplicate or near-duplicate objects." },
-    { term: "Timeliness", definition: "Whether data remains pertinent for the intended use over time." },
-    { term: "Relevance", definition: "Whether data contains information necessary for the application." },
-    { term: "Sampling bias", definition: "Mismatch between sample composition and population composition." },
-    { term: "Aggregation", definition: "Combining objects into a summarized object or view." },
-    { term: "Stratified sampling", definition: "Sampling that deliberately represents each group." }
+  "courseSignals": {
+    "assignments": [],
+    "homework": [],
+    "labs": [],
+    "projects": [],
+    "references": [],
+    "studentQuestions": []
+  },
+  "keyTerms": [
+    {
+      "term": "Precision",
+      "definition": "Closeness of repeated measurements to one another."
+    },
+    {
+      "term": "Bias",
+      "definition": "Systematic variation from the quantity being measured."
+    },
+    {
+      "term": "Accuracy",
+      "definition": "Closeness of measurements to the true value."
+    },
+    {
+      "term": "Outlier",
+      "definition": "An unusual object or value that deviates from the rest."
+    },
+    {
+      "term": "Noise",
+      "definition": "Random or irrelevant variation that degrades data quality."
+    },
+    {
+      "term": "Missing value",
+      "definition": "An attribute value that was not collected or is not applicable."
+    },
+    {
+      "term": "Deduplication",
+      "definition": "Preprocessing to resolve duplicate or near-duplicate objects."
+    },
+    {
+      "term": "Timeliness",
+      "definition": "Whether data remains pertinent for the intended use over time."
+    },
+    {
+      "term": "Relevance",
+      "definition": "Whether data contains information necessary for the application."
+    },
+    {
+      "term": "Sampling bias",
+      "definition": "Mismatch between sample composition and population composition."
+    },
+    {
+      "term": "Aggregation",
+      "definition": "Combining objects into a summarized object or view."
+    },
+    {
+      "term": "Stratified sampling",
+      "definition": "Sampling that deliberately represents each group."
+    }
   ],
-  insights: [
-    { label: "Measurement", title: "Precision is not truth", body: "A tightly clustered set of repeated measurements can still be systematically biased. Track repeatability and calibration separately before calling a value accurate." },
-    { label: "Data quality", title: "Treat outliers as hypotheses", body: "Filtering every unusual value can delete the rare event the model should detect. First distinguish sensor noise from a legitimate but uncommon object and record the decision." },
-    { label: "Missingness", title: "The missingness mechanism matters", body: "Deletion, interpolation, local-mode imputation, and pairwise ignoring make different assumptions. Compare the resulting population characteristics and document the choice." },
-    { label: "Entity resolution", title: "Similarity is evidence, not identity", body: "Near-duplicate matching should combine multiple stable fields and preserve an uncertainty path; a short name or shared measured attributes alone can merge distinct entities." },
-    { label: "Sampling", title: "Choose the sample with the model in mind", body: "A representative sample for estimating overall averages may be inadequate for rare-event detection. Use strata or evaluation weights when the decision depends on minority groups." }
+  "insights": [
+    {
+      "label": "Measurement",
+      "title": "Precision is not truth",
+      "body": "A tightly clustered set of repeated measurements can still be systematically biased. Track repeatability and calibration separately before calling a value accurate."
+    },
+    {
+      "label": "Data quality",
+      "title": "Treat outliers as hypotheses",
+      "body": "Filtering every unusual value can delete the rare event the model should detect. First distinguish sensor noise from a legitimate but uncommon object and record the decision."
+    },
+    {
+      "label": "Missingness",
+      "title": "The missingness mechanism matters",
+      "body": "Deletion, interpolation, local-mode imputation, and pairwise ignoring make different assumptions. Compare the resulting population characteristics and document the choice."
+    },
+    {
+      "label": "Entity resolution",
+      "title": "Similarity is evidence, not identity",
+      "body": "Near-duplicate matching should combine multiple stable fields and preserve an uncertainty path; a short name or shared measured attributes alone can merge distinct entities."
+    },
+    {
+      "label": "Sampling",
+      "title": "Choose the sample with the model in mind",
+      "body": "A representative sample for estimating overall averages may be inadequate for rare-event detection. Use strata or evaluation weights when the decision depends on minority groups."
+    }
   ],
-  resources: [
-    { type: "Reference", title: "Data Mining: Concepts and Techniques", creator: "Jiawei Han, Micheline Kamber, Jian Pei", why: "The lecture's dataset-quality and preprocessing terminology follows this widely used data-mining text.", url: "https://www.cs.sfu.ca/~jpei/publications/book/" },
-    { type: "Reference", title: "NIST/SEMATECH e-Handbook: Exploratory Data Analysis", creator: "National Institute of Standards and Technology", why: "Authoritative follow-up for measurement, uncertainty, outliers, and exploratory quality checks.", url: "https://www.itl.nist.gov/div898/handbook/" },
-    { type: "Further reading", title: "pandas: Working with missing data", creator: "pandas documentation", why: "Practical examples of detecting, dropping, filling, and interpolating missing values in tabular workflows.", url: "https://pandas.pydata.org/docs/user_guide/missing_data.html" },
-    { type: "Further reading", title: "scikit-learn: Imputation of missing values", creator: "scikit-learn documentation", why: "Compare simple and nearest-neighbor imputers and understand their assumptions before applying them.", url: "https://scikit-learn.org/stable/modules/impute.html" },
-    { type: "Further reading", title: "Sampling (statistics)", creator: "NIST/SEMATECH e-Handbook", why: "Review probability, stratification, and sample-size trade-offs that sit behind the lecture's practical guidance.", url: "https://www.itl.nist.gov/div898/handbook/eda/section3/eda33.htm" }
+  "resources": [
+    {
+      "type": "Reference",
+      "title": "Data Mining: Concepts and Techniques",
+      "creator": "Jiawei Han, Micheline Kamber, Jian Pei",
+      "why": "The lecture's dataset-quality and preprocessing terminology follows this widely used data-mining text.",
+      "url": "https://www.cs.sfu.ca/~jpei/publications/book/"
+    },
+    {
+      "type": "Reference",
+      "title": "NIST/SEMATECH e-Handbook: Exploratory Data Analysis",
+      "creator": "National Institute of Standards and Technology",
+      "why": "Authoritative follow-up for measurement, uncertainty, outliers, and exploratory quality checks.",
+      "url": "https://www.itl.nist.gov/div898/handbook/"
+    },
+    {
+      "type": "Further reading",
+      "title": "pandas: Working with missing data",
+      "creator": "pandas documentation",
+      "why": "Practical examples of detecting, dropping, filling, and interpolating missing values in tabular workflows.",
+      "url": "https://pandas.pydata.org/docs/user_guide/missing_data.html"
+    },
+    {
+      "type": "Further reading",
+      "title": "scikit-learn: Imputation of missing values",
+      "creator": "scikit-learn documentation",
+      "why": "Compare simple and nearest-neighbor imputers and understand their assumptions before applying them.",
+      "url": "https://scikit-learn.org/stable/modules/impute.html"
+    },
+    {
+      "type": "Further reading",
+      "title": "Sampling (statistics)",
+      "creator": "NIST/SEMATECH e-Handbook",
+      "why": "Review probability, stratification, and sample-size trade-offs that sit behind the lecture's practical guidance.",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda33.htm"
+    }
   ],
-  quiz: makeQuiz("en")
+  "quiz": [
+    {
+      "question": "What does precision describe?",
+      "options": [
+        "Closeness of repeated measurements to one another",
+        "Distance from the known true value only",
+        "Number of database rows",
+        "A sampling probability"
+      ],
+      "answer": 0,
+      "explanation": "Precision is the agreement among repeated measurements; standard deviation is a common way to quantify it.",
+      "optionNotes": [
+        "Correct: Precision is the agreement among repeated measurements; standard deviation is a common way to quantify it.",
+        "Incorrect: “Distance from the known true value only” does not match the lecture's concept.",
+        "Incorrect: “Number of database rows” does not match the lecture's concept.",
+        "Incorrect: “A sampling probability” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "What is measurement bias?",
+      "options": [
+        "A systematic variation from the quantity being measured",
+        "Random irrelevant variation",
+        "A duplicate database row",
+        "A balanced sample"
+      ],
+      "answer": 0,
+      "explanation": "Bias is systematic error relative to the quantity being measured, not random scatter.",
+      "optionNotes": [
+        "Correct: Bias is systematic error relative to the quantity being measured, not random scatter.",
+        "Incorrect: “Random irrelevant variation” does not match the lecture's concept.",
+        "Incorrect: “A duplicate database row” does not match the lecture's concept.",
+        "Incorrect: “A balanced sample” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "How is accuracy defined in the lecture?",
+      "options": [
+        "Closeness of measurements to the true value",
+        "Closeness of repeated values to each other",
+        "Number of significant digits alone",
+        "The size of a sample"
+      ],
+      "answer": 0,
+      "explanation": "Accuracy concerns error relative to the true value; precision and bias inform it but do not provide one universal formula for it.",
+      "optionNotes": [
+        "Correct: Accuracy concerns error relative to the true value; precision and bias inform it but do not provide one universal formula for it.",
+        "Incorrect: “Closeness of repeated values to each other” does not match the lecture's concept.",
+        "Incorrect: “Number of significant digits alone” does not match the lecture's concept.",
+        "Incorrect: “The size of a sample” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "Why should significant digits reflect precision?",
+      "options": [
+        "Extra digits imply unsupported measurement detail",
+        "More digits always remove bias",
+        "Digits determine the sample class",
+        "They replace validation"
+      ],
+      "answer": 0,
+      "explanation": "Reporting only digits justified by measurement precision avoids false accuracy.",
+      "optionNotes": [
+        "Correct: Reporting only digits justified by measurement precision avoids false accuracy.",
+        "Incorrect: “More digits always remove bias” does not match the lecture's concept.",
+        "Incorrect: “Digits determine the sample class” does not match the lecture's concept.",
+        "Incorrect: “They replace validation” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "What is an outlier?",
+      "options": [
+        "An unusual object or attribute value that differs from the rest",
+        "Always a random error",
+        "Always an invalid row",
+        "A missing value marker"
+      ],
+      "answer": 0,
+      "explanation": "An outlier deviates markedly from typical observations and may be valid or erroneous.",
+      "optionNotes": [
+        "Correct: An outlier deviates markedly from typical observations and may be valid or erroneous.",
+        "Incorrect: “Always a random error” does not match the lecture's concept.",
+        "Incorrect: “Always an invalid row” does not match the lecture's concept.",
+        "Incorrect: “A missing value marker” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "How does noise differ from an outlier?",
+      "options": [
+        "Noise is random/irrelevant variation; an outlier may be a meaningful rare case",
+        "Noise is always useful and outliers are always bad",
+        "They are identical terms",
+        "Noise means a duplicate only"
+      ],
+      "answer": 0,
+      "explanation": "The lecture treats noise as unwanted degradation, while an outlier can contain a rare signal worth investigating.",
+      "optionNotes": [
+        "Correct: The lecture treats noise as unwanted degradation, while an outlier can contain a rare signal worth investigating.",
+        "Incorrect: “Noise is always useful and outliers are always bad” does not match the lecture's concept.",
+        "Incorrect: “They are identical terms” does not match the lecture's concept.",
+        "Incorrect: “Noise means a duplicate only” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "Why can an attribute value be missing?",
+      "options": [
+        "It was not collected or is not applicable to the object",
+        "The value is automatically a zero",
+        "Missingness proves duplication",
+        "The dataset has no attributes"
+      ],
+      "answer": 0,
+      "explanation": "The lecture gives non-collection and non-applicability as ordinary causes of missing values.",
+      "optionNotes": [
+        "Correct: The lecture gives non-collection and non-applicability as ordinary causes of missing values.",
+        "Incorrect: “The value is automatically a zero” does not match the lecture's concept.",
+        "Incorrect: “Missingness proves duplication” does not match the lecture's concept.",
+        "Incorrect: “The dataset has no attributes” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "When is eliminating objects or attributes a safe missing-value strategy?",
+      "options": [
+        "When removal does not distort the original data characteristics",
+        "Whenever any value is missing",
+        "Only when the dataset is tiny",
+        "When it maximizes the number of columns"
+      ],
+      "answer": 0,
+      "explanation": "Deletion is acceptable only when the informative patterns and general properties remain intact.",
+      "optionNotes": [
+        "Correct: Deletion is acceptable only when the informative patterns and general properties remain intact.",
+        "Incorrect: “Whenever any value is missing” does not match the lecture's concept.",
+        "Incorrect: “Only when the dataset is tiny” does not match the lecture's concept.",
+        "Incorrect: “When it maximizes the number of columns” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "Which method can estimate a missing value in a time series?",
+      "options": [
+        "Interpolation",
+        "Randomly deleting neighbors",
+        "Changing the filename",
+        "Counting duplicate rows"
+      ],
+      "answer": 0,
+      "explanation": "Interpolation uses surrounding time-ordered measurements to estimate a gap.",
+      "optionNotes": [
+        "Correct: Interpolation uses surrounding time-ordered measurements to estimate a gap.",
+        "Incorrect: “Randomly deleting neighbors” does not match the lecture's concept.",
+        "Incorrect: “Changing the filename” does not match the lecture's concept.",
+        "Incorrect: “Counting duplicate rows” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "How can a continuous missing value be estimated from similar objects?",
+      "options": [
+        "Average the attribute values of nearest neighbors",
+        "Choose the rarest category",
+        "Use a random filename",
+        "Drop every attribute"
+      ],
+      "answer": 0,
+      "explanation": "For a continuous attribute, the lecture proposes the average value among nearby similar objects.",
+      "optionNotes": [
+        "Correct: For a continuous attribute, the lecture proposes the average value among nearby similar objects.",
+        "Incorrect: “Choose the rarest category” does not match the lecture's concept.",
+        "Incorrect: “Use a random filename” does not match the lecture's concept.",
+        "Incorrect: “Drop every attribute” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "What is a sensible estimate for a categorical missing value?",
+      "options": [
+        "The most commonly occurring value among similar objects",
+        "A negative height",
+        "The largest numeric value",
+        "An arbitrary new category"
+      ],
+      "answer": 0,
+      "explanation": "For categorical data, the local mode is a plausible estimate when the context supports it.",
+      "optionNotes": [
+        "Correct: For categorical data, the local mode is a plausible estimate when the context supports it.",
+        "Incorrect: “A negative height” does not match the lecture's concept.",
+        "Incorrect: “The largest numeric value” does not match the lecture's concept.",
+        "Incorrect: “An arbitrary new category” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "What does ignoring a missing value during similarity calculation mean?",
+      "options": [
+        "Use only attributes available for both objects",
+        "Delete the whole dataset",
+        "Treat every missing value as identical",
+        "Invent a new object"
+      ],
+      "answer": 0,
+      "explanation": "The pairwise similarity can be computed on the non-missing attributes, with the result acknowledged as approximate.",
+      "optionNotes": [
+        "Correct: The pairwise similarity can be computed on the non-missing attributes, with the result acknowledged as approximate.",
+        "Incorrect: “Delete the whole dataset” does not match the lecture's concept.",
+        "Incorrect: “Treat every missing value as identical” does not match the lecture's concept.",
+        "Incorrect: “Invent a new object” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "Which is an example of an inconsistent value?",
+      "options": [
+        "A city paired with a postal code that cannot belong to it",
+        "A valid seven-foot height",
+        "A repeated measurement",
+        "A documented category"
+      ],
+      "answer": 0,
+      "explanation": "An address whose city and postal code disagree is a cross-field inconsistency requiring validation or domain knowledge.",
+      "optionNotes": [
+        "Correct: An address whose city and postal code disagree is a cross-field inconsistency requiring validation or domain knowledge.",
+        "Incorrect: “A valid seven-foot height” does not match the lecture's concept.",
+        "Incorrect: “A repeated measurement” does not match the lecture's concept.",
+        "Incorrect: “A documented category” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "What is a near-duplicate?",
+      "options": [
+        "Different-looking records that carry nearly the same information",
+        "Two values with no relation",
+        "A missing attribute",
+        "A random sample"
+      ],
+      "answer": 0,
+      "explanation": "For example, abbreviated and full names for the same city may describe one real-world entity.",
+      "optionNotes": [
+        "Correct: For example, abbreviated and full names for the same city may describe one real-world entity.",
+        "Incorrect: “Two values with no relation” does not match the lecture's concept.",
+        "Incorrect: “A missing attribute” does not match the lecture's concept.",
+        "Incorrect: “A random sample” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "What is deduplication?",
+      "options": [
+        "The preprocessing process of handling duplicate or near-duplicate objects",
+        "Adding more copies to a dataset",
+        "Estimating a time-series gap",
+        "Scaling every feature"
+      ],
+      "answer": 0,
+      "explanation": "Deduplication resolves inconsistent representations while preventing distinct but similar entities from being merged accidentally.",
+      "optionNotes": [
+        "Correct: Deduplication resolves inconsistent representations while preventing distinct but similar entities from being merged accidentally.",
+        "Incorrect: “Adding more copies to a dataset” does not match the lecture's concept.",
+        "Incorrect: “Estimating a time-series gap” does not match the lecture's concept.",
+        "Incorrect: “Scaling every feature” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "What does timeliness mean for application-level data quality?",
+      "options": [
+        "Data remains pertinent as the application needs it",
+        "Every value is measured repeatedly",
+        "All records are duplicates",
+        "The file has a recent name"
+      ],
+      "answer": 0,
+      "explanation": "Data can age after collection; stale purchasing or browsing behavior may no longer support a current model.",
+      "optionNotes": [
+        "Correct: Data can age after collection; stale purchasing or browsing behavior may no longer support a current model.",
+        "Incorrect: “Every value is measured repeatedly” does not match the lecture's concept.",
+        "Incorrect: “All records are duplicates” does not match the lecture's concept.",
+        "Incorrect: “The file has a recent name” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "What is relevance?",
+      "options": [
+        "The data contains information necessary for the intended application",
+        "The data is always recent",
+        "The data has the most columns possible",
+        "The data is sampled with replacement"
+      ],
+      "answer": 0,
+      "explanation": "A driver-accident model without important attributes such as age or gender may be unsuitable for its purpose.",
+      "optionNotes": [
+        "Correct: A driver-accident model without important attributes such as age or gender may be unsuitable for its purpose.",
+        "Incorrect: “The data is always recent” does not match the lecture's concept.",
+        "Incorrect: “The data has the most columns possible” does not match the lecture's concept.",
+        "Incorrect: “The data is sampled with replacement” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "What causes sampling bias?",
+      "options": [
+        "The sample proportions differ from object types' proportions in the population",
+        "Every group is represented exactly",
+        "Only numeric features are used",
+        "The sample is always too large"
+      ],
+      "answer": 0,
+      "explanation": "A rare class can be underrepresented by simple sampling, so analysis fails to reflect the population.",
+      "optionNotes": [
+        "Correct: A rare class can be underrepresented by simple sampling, so analysis fails to reflect the population.",
+        "Incorrect: “Every group is represented exactly” does not match the lecture's concept.",
+        "Incorrect: “Only numeric features are used” does not match the lecture's concept.",
+        "Incorrect: “The sample is always too large” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "Why is documentation or metadata important?",
+      "options": [
+        "It explains meaning, precision, scales, and markers such as a missing-value code",
+        "It guarantees perfect data",
+        "It removes the need for cleaning",
+        "It changes every categorical field to numeric"
+      ],
+      "answer": 0,
+      "explanation": "Without metadata, a sentinel such as -9999 can be mistaken for a valid measurement and corrupt analysis.",
+      "optionNotes": [
+        "Correct: Without metadata, a sentinel such as -9999 can be mistaken for a valid measurement and corrupt analysis.",
+        "Incorrect: “It guarantees perfect data” does not match the lecture's concept.",
+        "Incorrect: “It removes the need for cleaning” does not match the lecture's concept.",
+        "Incorrect: “It changes every categorical field to numeric” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "What is the main goal of data preprocessing?",
+      "options": [
+        "Make data more suitable for mining while improving time, cost, or quality",
+        "Make every dataset larger",
+        "Hide missing values",
+        "Remove all relationships"
+      ],
+      "answer": 0,
+      "explanation": "Preprocessing selects or changes objects and attributes so mining algorithms can work with better evidence.",
+      "optionNotes": [
+        "Correct: Preprocessing selects or changes objects and attributes so mining algorithms can work with better evidence.",
+        "Incorrect: “Make every dataset larger” does not match the lecture's concept.",
+        "Incorrect: “Hide missing values” does not match the lecture's concept.",
+        "Incorrect: “Remove all relationships” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "How are quantitative attributes commonly aggregated?",
+      "options": [
+        "By a sum or an average",
+        "By choosing a random label",
+        "By deleting every numeric value",
+        "By counting filenames"
+      ],
+      "answer": 0,
+      "explanation": "Numeric attributes can be summarized with totals or means when that preserves the question's meaning.",
+      "optionNotes": [
+        "Correct: Numeric attributes can be summarized with totals or means when that preserves the question's meaning.",
+        "Incorrect: “By choosing a random label” does not match the lecture's concept.",
+        "Incorrect: “By deleting every numeric value” does not match the lecture's concept.",
+        "Incorrect: “By counting filenames” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "What is a trade-off of aggregation?",
+      "options": [
+        "It reduces size and variability but can lose interesting detail",
+        "It always increases noise",
+        "It guarantees exact individual behavior",
+        "It prevents any algorithm from running"
+      ],
+      "answer": 0,
+      "explanation": "Aggregation can enable less memory and more expensive algorithms, but the fine-grained details may disappear.",
+      "optionNotes": [
+        "Correct: Aggregation can enable less memory and more expensive algorithms, but the fine-grained details may disappear.",
+        "Incorrect: “It always increases noise” does not match the lecture's concept.",
+        "Incorrect: “It guarantees exact individual behavior” does not match the lecture's concept.",
+        "Incorrect: “It prevents any algorithm from running” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "What makes a sample representative?",
+      "options": [
+        "It approximately preserves the important properties of the full dataset",
+        "It contains only the rarest class",
+        "It is always one percent of the data",
+        "It changes the original proportions arbitrarily"
+      ],
+      "answer": 0,
+      "explanation": "Representativeness is about preserving data characteristics, not a fixed percentage or a particular file size.",
+      "optionNotes": [
+        "Correct: Representativeness is about preserving data characteristics, not a fixed percentage or a particular file size.",
+        "Incorrect: “It contains only the rarest class” does not match the lecture's concept.",
+        "Incorrect: “It is always one percent of the data” does not match the lecture's concept.",
+        "Incorrect: “It changes the original proportions arbitrarily” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "What is true of sampling with replacement?",
+      "options": [
+        "A selected object remains in the population and can be selected again",
+        "A selected object is permanently removed",
+        "Every group gets equal count automatically",
+        "No sample can be formed"
+      ],
+      "answer": 0,
+      "explanation": "Replacement leaves the object available, so repeated selections are possible.",
+      "optionNotes": [
+        "Correct: Replacement leaves the object available, so repeated selections are possible.",
+        "Incorrect: “A selected object is permanently removed” does not match the lecture's concept.",
+        "Incorrect: “Every group gets equal count automatically” does not match the lecture's concept.",
+        "Incorrect: “No sample can be formed” does not match the lecture's concept."
+      ]
+    },
+    {
+      "question": "Why use stratified sampling for imbalanced groups?",
+      "options": [
+        "It deliberately draws equal or proportionate counts from each group",
+        "It ignores rare groups",
+        "It always samples only one object",
+        "It makes all values continuous"
+      ],
+      "answer": 0,
+      "explanation": "Stratification protects representation of infrequent classes that simple random sampling might miss.",
+      "optionNotes": [
+        "Correct: Stratification protects representation of infrequent classes that simple random sampling might miss.",
+        "Incorrect: “It ignores rare groups” does not match the lecture's concept.",
+        "Incorrect: “It always samples only one object” does not match the lecture's concept.",
+        "Incorrect: “It makes all values continuous” does not match the lecture's concept."
+      ]
+    }
+  ]
+}
 };
-
-const hi = {
-  title: "Data quality, preprocessing और representative sampling",
-  lede: "यह Data Warehousing lecture measurement quality (precision, bias, accuracy, significant digits) से outliers, noise, missing/inconsistent/duplicate data, application-level quality और aggregation तथा sampling तक जाती है।",
-  instructionalInterval: en.instructionalInterval,
-  reviewLevel: "View-only Stream recording; distributed sweep, 2× playback, timestamped transcript, slide-frame evidence और idle-tail exclusion से सत्यापित।",
-  coverage: [
-    { title: "Measurement quality", body: "Precision repeatability, bias systematic deviation और accuracy truth के closeness को अलग करें; केवल precision से justified significant digits report करें।" },
-    { title: "Outliers और noise", body: "Outlier valid rare observation हो सकता है, जबकि noise unwanted random या irrelevant variation है जो quality घटाती है।" },
-    { title: "Missing values", body: "Deletion, estimation या analysis-time ignoring context के अनुसार चुनें; interpolation, nearest-neighbor averages और local modes अलग परिस्थितियों के लिए हैं।" },
-    { title: "Consistency और duplicates", body: "Cross-field contradictions validate करें और near-identical objects को deduplicate करें, पर distinct real-world entities merge न करें।" },
-    { title: "Application fit", body: "Timeliness, relevance, sampling bias और metadata तय करते हैं कि data intended analysis support करता है या नहीं।" },
-    { title: "Preprocessing और sampling", body: "Aggregation size और variability घटाती है; representative sampling के लिए सही technique और sample size चाहिए, rare groups के लिए stratification उपयोगी है।" }
-  ],
-  takeaway: "Signal वाली data characteristics preserve करें: measurement semantics define करें, quality problems expose करें और ऐसी preprocessing तथा sampling चुनें जो population को distort न करे।",
-  slideTrail: en.slideTrail.map((slide) => ({ ...slide, title: slide.title, note: `सत्यापित slide trail: ${slide.note}` })),
-  summary: [
-    { title: "1. Precision, bias, accuracy और significant digits", sourceRefs: en.summary[0].sourceRefs, paragraphs: ["Repeated measurements precision और bias समझने देती हैं। Precision repeated values की आपसी closeness है और standard deviation से summarize हो सकती है। Bias measured quantity से systematic deviation है, जबकि accuracy known true value के close होने को बताती है।", "Accuracy general concept है, precision और bias से जुड़ी है पर उनकी एक single universal formula नहीं है। Significant digits भी discipline का हिस्सा हैं: instrument या process की precision जितना support करे उतना ही detail report करें।"] },
-    { title: "2. Outliers, noise और missing values", sourceRefs: en.summary[1].sourceRefs, paragraphs: ["Outlier dominant pattern से अलग unusual object या attribute value है। यह error हो सकता है, पर valid rare event भी हो सकता है—seven-foot person unusual है पर noise नहीं। Noise unwanted random या irrelevant variation है जो quality घटाती और signal छिपाती है।", "Missing values non-collection या non-applicability से आती हैं। Lecture deletion तभी बताती है जब characteristics intact रहें; time series में interpolation, continuous/categorical fields में neighbors और analysis में missing attribute ignore करना context के अनुसार चुनें।"] },
-    { title: "3. Inconsistency और deduplication", sourceRefs: en.summary[2].sourceRefs, paragraphs: ["Inconsistent values known cross-field या domain constraints violate करती हैं, जैसे impossible city–postal-code pairing। Detection के लिए redundant information या domain expert की जरूरत हो सकती है। Exact या near-duplicate objects भी dataset में हो सकते हैं।", "Deduplication inconsistent representations resolve करने वाली preprocessing है, पर similarity identity का proof नहीं है। दो distinct लोग captured attributes में same दिख सकते हैं, इसलिए entity resolution में evidence रखें और accidental merge से बचें।"] },
-    { title: "4. Application-level data quality", sourceRefs: en.summary[3].sourceRefs, paragraphs: ["Data quality intended use के सापेक्ष है। Timeliness जरूरी है क्योंकि behavior collection के बाद age होता है। Relevance का अर्थ है कि application के लिए जरूरी attributes उपलब्ध हों, सिर्फ attributes की संख्या अधिक होना पर्याप्त नहीं।", "Sampling bias तब होती है जब object types population proportions में sample में नहीं आतीं, विशेषकर rare class underrepresented हो। Metadata feature meaning, measurement levels, precision और missing-value conventions बताती है; –9999 को valid number मानने पर results corrupt हो सकते हैं।"] },
-    { title: "5. Preprocessing mining problem बदलती है", sourceRefs: en.summary[4].sourceRefs, paragraphs: ["Preprocessing aggregation, sampling, dimensionality reduction, feature selection/creation, discretization/binarization और variable transformation से data को mining के लिए तैयार करती है। Operations objects/attributes select या change करती हैं और time, cost तथा quality improve करने का लक्ष्य रखती हैं।", "Aggregation objects को summary में combine करती है। Quantitative attributes में sum/average उपयोगी हैं; qualitative attributes को तभी summarize या omit करें जब signal नष्ट न हो। Aggregation memory और variability घटाती है, पर fine detail खो सकती है।"] },
-    { title: "6. Population को distort किए बिना sampling", sourceRefs: en.summary[5].sourceRefs, paragraphs: ["Sampling full dataset बहुत expensive होने पर subset analyze करती है। मुख्य requirement representativeness है: subset original properties approximately preserve करे। Method और sample size साथ चुनें; बहुत बड़ा sample efficiency घटाता है और बहुत छोटा pattern miss कर सकता है।", "Without replacement selected object population से हटता है; with replacement में object फिर select हो सकता है। Simple random sampling हर item को equal probability देती है, पर rare groups miss हो सकते हैं। Stratified sampling groups से equal या proportionate draws लेकर representation बचाती है।"] }
-  ],
-  courseSignals: { assignments: [], homework: [], labs: [], projects: [], references: [], studentQuestions: [] },
-  keyTerms: en.keyTerms.map((term) => ({ term: term.term, definition: term.definition })),
-  insights: [
-    { label: "Measurement", title: "Precision truth नहीं है", body: "Repeated measurements tightly clustered हों, फिर भी systematically biased हो सकते हैं। Repeatability और calibration अलग track करें।" },
-    { label: "Data quality", title: "Outlier को hypothesis मानें", body: "हर unusual value filter करने से rare event हट सकता है। पहले sensor noise और legitimate uncommon object अलग करें और decision record करें।" },
-    { label: "Missingness", title: "Missingness mechanism मायने रखता है", body: "Deletion, interpolation, local-mode imputation और pairwise ignoring अलग assumptions लेते हैं। Resulting population characteristics compare और choice document करें।" },
-    { label: "Entity resolution", title: "Similarity identity नहीं है", body: "Near-duplicate matching में stable fields और uncertainty रखें; short name या shared measured attributes alone distinct entities merge कर सकते हैं।" },
-    { label: "Sampling", title: "Model को ध्यान में रखकर sample चुनें", body: "Overall average के लिए representative sample rare-event detection के लिए inadequate हो सकती है। Minority-dependent decision में strata या evaluation weights उपयोग करें।" }
-  ],
-  resources: en.resources.map((resource) => ({ ...resource, why: `${resource.why} (अतिरिक्त reading)` })),
-  quiz: makeQuiz("hi")
-};
-
-export const ecc6404Lecture20260826 = { en, hi };
