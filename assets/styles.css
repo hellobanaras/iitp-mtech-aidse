@@ -837,6 +837,13 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 
 .project-brief { padding: clamp(2.5rem, 5vw, 4.5rem); overflow: hidden; border-radius: 24px; color: var(--white); background: linear-gradient(145deg, #070f1e, #0f1d35); box-shadow: var(--shadow-lg); }
 .project-brief .eyebrow { color: var(--amber); }
+.project-brief > h2 {
+  color: #f8fafc;
+}
+.project-brief .bilingual-copy > [lang="en"],
+.project-brief .bilingual-copy > [lang="hi"],
+.project-brief .project-pitch { color: #e2e8f0; }
+.project-brief .bilingual-copy > [lang="hi"] { color: #bfdbfe; }
 .project-pitch { color: #cbd5e1; font: 1.25rem/1.65 'Outfit', sans-serif; font-weight: 500; }
 .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: 2.2rem; background: rgba(255, 255, 255, 0.15); border-radius: 18px; overflow: hidden; }
 .project-grid > div { padding: 1.5rem; background: #0b172a; }
