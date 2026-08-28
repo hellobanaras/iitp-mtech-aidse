@@ -75,7 +75,7 @@ function formulaMarkup(formula) {
 function inlineMathText(value = "") {
   return escapeHtml(value)
     .replace(/\bDelta_/g, "Δ_")
-    .replace(/([A-Za-z][A-Za-z0-9]*)_([A-Za-z0-9]+)/g, "$1<sub>$2</sub>")
+    .replace(/([A-Za-zΔδ][A-Za-z0-9]*)_([A-Za-z0-9]+)/g, "$1<sub>$2</sub>")
     .replace(/([A-Za-z])\^([A-Za-z0-9+−-]+)/g, "$1<sup>$2</sup>")
     .replace(/([A-Za-z])\*/g, "$1<sup>*</sup>");
 }
@@ -503,7 +503,7 @@ function renderLecture(id, ctx) {
   const text = ui.en;
   // Lecture notes are intentionally published as a single English source.
   // Keep the renderer centralized so compact page chrome can remain unchanged.
-  const englishCopy = (english, _secondary, tag = "span", className = "") => `<${tag}${className ? ` class="${className}"` : ""}>${escapeHtml(english)}</${tag}>`;
+  const englishCopy = (english, _secondary, tag = "span", className = "") => `<${tag}${className ? ` class="${className}"` : ""}>${inlineMathText(english)}</${tag}>`;
   const englishMarkup = (english, _secondary, className = "") => `<div${className ? ` class="${className}"` : ""}>${english}</div>`;
   const bilingualCopy = englishCopy;
   const compactBilingualCopy = englishCopy;
