@@ -58,16 +58,26 @@ const escapeHtml = (value = "") => String(value)
   .replaceAll('"', "&quot;")
   .replaceAll("'", "&#039;");
 
-// Render the lightweight TeX-like notation used by lecture formulas without
-// pulling a heavyweight math library into the mobile-first bundle.
+// Render the TeX-like notation used by lecture formulas; MathJax handles the
+// full mathematical layout while this fallback keeps inline indices readable.
 function formulaMarkup(formula) {
   const source = String(formula || "");
-  let rendered = escapeHtml(source)
-    .replace(/_\{([^{}]+)\}/g, "<sub>$1</sub>")
-    .replace(/\^\{([^{}]+)\}/g, "<sup>$1</sup>")
-    .replace(/_([A-Za-z0-9]+)/g, "<sub>$1</sub>")
-    .replace(/\^([A-Za-z0-9+−-]+)/g, "<sup>$1</sup>");
-  return `<div class="formula" role="math" aria-label="${escapeHtml(source)}"><span class="formula__label">Formula</span><span class="formula__text">${rendered}</span></div>`;
+  const tex = source
+    .replace(/\bargmax_/g, "\\operatorname*{arg\\,max}_")
+    .replace(/\bmax_/g, "\\max_")
+    .replace(/\bsum_/g, "\\sum_")
+    .replace(/\bDelta/g, "\\Delta")
+    .replace(/\b(Alpha|Beta|Gamma|alpha|beta|gamma|epsilon|theta|lambda|mu|sigma)\b/g, (name) => `\\${name}`)
+    .replace(/([A-Za-z])\*/g, "$1^{*}");
+  return `<div class="formula" role="math" aria-label="${escapeHtml(source)}"><span class="formula__label">Formula</span><span class="formula__text">\\(${escapeHtml(tex)}\\)</span></div>`;
+}
+
+function inlineMathText(value = "") {
+  return escapeHtml(value)
+    .replace(/\bDelta_/g, "Δ_")
+    .replace(/([A-Za-z][A-Za-z0-9]*)_([A-Za-z0-9]+)/g, "$1<sub>$2</sub>")
+    .replace(/([A-Za-z])\^([A-Za-z0-9+−-]+)/g, "$1<sup>$2</sup>")
+    .replace(/([A-Za-z])\*/g, "$1<sup>*</sup>");
 }
 
 function icon(name) {
@@ -510,7 +520,7 @@ function renderLecture(id, ctx) {
     <div class="notes-layout"><aside class="notes-toc" id="notes-toc"><button class="notes-toc__toggle" type="button" aria-expanded="true" aria-controls="notes-toc-panel"><span class="notes-toc__toggle-label">${text.onThisPage}</span><span class="notes-toc__toggle-icon" aria-hidden="true">☰</span></button><div class="notes-toc__panel" id="notes-toc-panel"><nav>${navItems.map(([anchor, label]) => `<a href="#${anchor}" data-scroll="${anchor}">${label}</a>`).join("")}</nav></div></aside><article class="notes-article">
       <section id="coverage" class="notes-section"><p class="eyebrow">${text.highLevelCoverage}</p><h2>${text.lectureAtGlance}</h2><div class="coverage-grid">${en.coverage.map((item, index) => `<div><span>${String(index + 1).padStart(2, "0")}</span>${compactBilingualCopy(item.title, hi.coverage[index].title, "h3")}${bilingualCopy(item.body, hi.coverage[index].body, "p")}</div>`).join("")}</div><div class="takeaway"><strong>${text.oneSentence}</strong>${bilingualCopy(en.takeaway, hi.takeaway, "p")}</div></section>
       <section id="slides" class="notes-section"><p class="eyebrow">${text.lectureSourceTrail}</p><h2>${text.slidesTimecodes}</h2>${bilingualCopy(ui.en.slidesIntro, ui.hi.slidesIntro, "div", "section-intro")}<div class="slide-trail">${en.slideTrail.map((slide, index) => `<article><time>${escapeHtml(slide.time)}</time><div>${compactBilingualCopy(slide.title, hi.slideTrail[index].title, "h3")}${bilingualCopy(slide.note, hi.slideTrail[index].note, "p")}</div></article>`).join("")}</div></section>
-      <section id="summary" class="notes-section"><p class="eyebrow">${text.completeSummary}</p><h2>${text.followArgument}</h2>${en.summary.map((section, index) => { const hindi = hi.summary[index]; return `<section class="summary-block">${compactBilingualCopy(section.title, hindi.title, "h3")}${section.sourceRefs?.length ? `<div class="source-refs">${section.sourceRefs.map((reference) => `<span>${escapeHtml(reference)}</span>`).join("")}</div>` : ""}${bilingualMarkup(`${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}${section.points?.length ? `<ul>${section.points.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}</ul>` : ""}`, `${hindi.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}${hindi.points?.length ? `<ul>${hindi.points.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}</ul>` : ""}`)}${section.formula ? formulaMarkup(section.formula) : ""}</section>`; }).join("")}${en.keyTerms?.length ? `<div class="key-terms"><h3>${text.keyTerms}</h3><dl>${en.keyTerms.map((term, index) => `<div>${compactBilingualCopy(term.term, hi.keyTerms[index].term, "dt")}${bilingualCopy(term.definition, hi.keyTerms[index].definition, "dd")}</div>`).join("")}</dl></div>` : ""}</section>
+      <section id="summary" class="notes-section"><p class="eyebrow">${text.completeSummary}</p><h2>${text.followArgument}</h2>${en.summary.map((section, index) => { const hindi = hi.summary[index]; return `<section class="summary-block">${compactBilingualCopy(section.title, hindi.title, "h3")}${section.sourceRefs?.length ? `<div class="source-refs">${section.sourceRefs.map((reference) => `<span>${escapeHtml(reference)}</span>`).join("")}</div>` : ""}${bilingualMarkup(`${section.paragraphs.map((paragraph) => `<p>${inlineMathText(paragraph)}</p>`).join("")}${section.points?.length ? `<ul>${section.points.map((point) => `<li>${inlineMathText(point)}</li>`).join("")}</ul>` : ""}`, `${hindi.paragraphs.map((paragraph) => `<p>${inlineMathText(paragraph)}</p>`).join("")}${hindi.points?.length ? `<ul>${hindi.points.map((point) => `<li>${inlineMathText(point)}</li>`).join("")}</ul>` : ""}`)}${section.formula ? formulaMarkup(section.formula) : ""}</section>`; }).join("")}${en.keyTerms?.length ? `<div class="key-terms"><h3>${text.keyTerms}</h3><dl>${en.keyTerms.map((term, index) => `<div>${compactBilingualCopy(term.term, hi.keyTerms[index].term, "dt")}${bilingualCopy(term.definition, hi.keyTerms[index].definition, "dd")}</div>`).join("")}</dl></div>` : ""}</section>
       <section id="signals" class="notes-section"><p class="eyebrow">${text.transcriptSignals}</p><h2>${text.signalsHeading}</h2>${bilingualCopy(ui.en.signalsIntro, ui.hi.signalsIntro, "div", "section-intro")}<div class="signal-grid">${signalCards(renderNotes, text, bilingualCopy)}</div></section>
       <section id="insights" class="notes-section"><p class="eyebrow">${text.addedAnalysis}</p><h2>${text.insightsConnections}</h2><div class="insight-list">${en.insights.map((item, index) => `<article><span>${escapeHtml(item.label)} · ${escapeHtml(hi.insights[index].label)}</span>${compactBilingualCopy(item.title, hi.insights[index].title, "h3")}${bilingualCopy(item.body, hi.insights[index].body, "p")}</article>`).join("")}</div></section>
       <section id="resources" class="notes-section"><p class="eyebrow">${text.referencesStudy}</p><h2>${text.oneLayerDeeper}</h2><div class="resource-list">${en.resources.map((item, index) => studyResource(item, hi.resources[index], text, bilingualCopy)).join("")}</div></section>
@@ -929,6 +939,10 @@ function route() {
   else renderNotFound(ctx);
   main.focus({ preventScroll: true });
   window.scrollTo({ top: 0, behavior: "instant" });
+  if (window.MathJax?.typesetPromise) {
+    window.MathJax.typesetClear?.([main]);
+    window.MathJax.typesetPromise([main]).catch(() => {});
+  }
   requestAnimationFrame(() => {
     if (parsed.anchor) document.getElementById(parsed.anchor)?.scrollIntoView({ behavior: "instant", block: "start" });
     updateScrollFab(true);

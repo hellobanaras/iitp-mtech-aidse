@@ -773,6 +773,7 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 .formula { margin-top: 1.4rem; padding: 1rem 1.2rem; border-radius: 14px; color: var(--white); background: var(--navy); box-shadow: var(--shadow); overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .formula__label { display: block; margin-bottom: .35rem; color: #93c5fd; font: 700 .68rem/1.2 'Plus Jakarta Sans', sans-serif; letter-spacing: .1em; text-transform: uppercase; }
 .formula__text { display: block; min-width: max-content; font: 600 clamp(.9rem, 2.2vw, 1.08rem)/1.8 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .01em; white-space: nowrap; }
+.formula__text mjx-container { margin: 0 !important; font-size: 1.08em !important; }
 .formula sub, .formula sup { position: relative; font-size: .7em; line-height: 0; }
 .formula sub { bottom: -.2em; }
 .formula sup { top: -.35em; }
