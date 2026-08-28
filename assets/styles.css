@@ -770,7 +770,16 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 .summary-block { padding: 2rem 0; }
 .summary-block + .summary-block { border-top: 1px solid var(--line); }
 .summary-block h3 { font-size: 1.65rem; color: var(--ink); }
-.formula { margin-top: 1.4rem; padding: 1.2rem 1.5rem; border-radius: 14px; color: var(--white); background: var(--navy); font: 1.05rem/1.7 ui-monospace, SFMono-Regular, Menlo, monospace; box-shadow: var(--shadow); }
+.formula { margin-top: 1.4rem; padding: 1rem 1.2rem; border-radius: 14px; color: var(--white); background: var(--navy); box-shadow: var(--shadow); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.formula__label { display: block; margin-bottom: .35rem; color: #93c5fd; font: 700 .68rem/1.2 'Plus Jakarta Sans', sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.formula__text { display: block; min-width: max-content; font: 600 clamp(.9rem, 2.2vw, 1.08rem)/1.8 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .01em; white-space: nowrap; }
+.formula sub, .formula sup { position: relative; font-size: .7em; line-height: 0; }
+.formula sub { bottom: -.2em; }
+.formula sup { top: -.35em; }
+@media (max-width: 600px) {
+  .formula { margin-top: 1rem; padding: .85rem 1rem; border-radius: 12px; }
+  .formula__text { font-size: .88rem; }
+}
 .key-terms { margin-top: 2rem; padding: 1.8rem; border-radius: 20px; background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
 
 .signal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
