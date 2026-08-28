@@ -64,7 +64,20 @@ The deployment workflow runs the same indexer automatically. PDFs render inline.
 
 Run `npm run check` and `npm run build` to create the public-only static artifact in `dist/`. The build allowlists only the website shell, catalog data, calendars, and permitted public resources; private processing material and repository instructions are excluded.
 
-An authorized Cloudflare account can deploy `dist/` with `npm run deploy:cloudflare`, using the deterministic Pages project name `iitp-mtech-aidse`. The public GitHub Pages mirror is maintained separately in the deployment-only repository [`hellobanaras/iitp-mtech-aidse`](https://github.com/hellobanaras/iitp-mtech-aidse), preventing the private source repository from publishing a second Pages site.
+Deployment is GitHub-only from this repository.
+
+Use the following flow for all release pushes:
+
+```bash
+npm run hooks:install
+npm run check
+npm run build
+npm run deploy:github
+```
+
+`npm run deploy:cloudflare` is intentionally disabled for this repository so Cloudflare cannot be used here.
+
+The public GitHub Pages mirror is maintained separately in the deployment-only repository [`hellobanaras/iitp-mtech-aidse`](https://github.com/hellobanaras/iitp-mtech-aidse), preventing this source repository from publishing a second Pages site.
 
 ## Optional Chrome companion
 

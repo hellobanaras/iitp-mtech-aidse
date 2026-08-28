@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+set -e
+
+ROOT_DIR="$(git rev-parse --show-toplevel)"
+node "$ROOT_DIR/tools/guard_deploy.mjs" \
+  --remote origin \
+  --branch main \
+  --must-clean \
+  --require-main
+
