@@ -3,7 +3,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { catalog } from "../data/catalog.js";
 import { lectureNotes } from "../data/lecture-notes.js";
-import { privateCapstoneVault } from "../data/private-capstones.enc.js";
+import { capstones } from "../data/capstones.js";
 import { meetingsForCourse, semesterSchedule } from "../data/schedule.js";
 import { courseResources } from "../data/resources.js";
 import { programProfile } from "../data/program.js";
@@ -129,7 +129,27 @@ for (const lecture of lectures) {
     assert(question.explanation?.length > 0, `${label} has no correct-answer explanation.`);
     assert(question.optionNotes?.length === 4, `${label} must explain all 4 options.`);
   });
-  assert(!Object.hasOwn(notes, "project"), `${lecture.id}: private capstone leaked into public English notes.`);
+  const capstone = capstones[lecture.id];
+  assert(Boolean(capstone?.en && capstone?.hi), `${lecture.id}: public bilingual capstone is missing.`);
+  if (capstone?.en && capstone?.hi) {
+    for (const language of ["en", "hi"]) {
+      const project = capstone[language];
+      for (const forbiddenField of ["username", "accessCode", "password", "credentialHash", "verifier", "ciphertext"]) {
+        assert(!Object.hasOwn(project, forbiddenField), `${lecture.id}: capstone contains a forbidden access field (${forbiddenField}).`);
+      }
+      assert(project.title?.length > 0 && project.pitch?.length > 0 && project.problem?.length > 0 && project.learning?.length > 0,
+        `${lecture.id}: ${language} capstone narrative is incomplete.`);
+      assert(project.mvp?.length >= 3, `${lecture.id}: ${language} capstone needs at least 3 MVP items.`);
+      if (project.stretch) assert(project.stretch.length >= 2, `${lecture.id}: ${language} capstone stretch list is incomplete.`);
+      if (project.plan) assert(project.plan.length >= 3, `${lecture.id}: ${language} capstone build plan is incomplete.`);
+    }
+    assert(capstone.en.mvp.length === capstone.hi.mvp.length, `${lecture.id}: capstone MVP parity differs.`);
+    assert((capstone.en.stretch?.length || 0) === (capstone.hi.stretch?.length || 0), `${lecture.id}: capstone stretch parity differs.`);
+    assert((capstone.en.plan?.length || 0) === (capstone.hi.plan?.length || 0), `${lecture.id}: capstone plan parity differs.`);
+    for (const field of ["stack", "milestones"]) {
+      assert((capstone.en[field]?.length || 0) === (capstone.hi[field]?.length || 0), `${lecture.id}: capstone ${field} parity differs.`);
+    }
+  }
 
   if (hindi) {
     assert(hindi.title?.length > 0 && hindi.title !== notes.title, `${lecture.id}: Hindi title is missing or untranslated.`);
@@ -146,7 +166,6 @@ for (const lecture of lectures) {
       assert(question.answer === notes.quiz[index].answer,
         `${lecture.id}: Hindi MCQ ${index + 1} changed the correct-answer index.`);
     });
-    assert(!Object.hasOwn(hindi, "project"), `${lecture.id}: private capstone leaked into public Hindi notes.`);
     signalKeys.forEach((key) => {
       assert(hindi.courseSignals?.[key]?.length === notes.courseSignals[key].length,
         `${lecture.id}: Hindi courseSignals.${key} differs from English.`);
@@ -158,14 +177,10 @@ for (const id of Object.keys(lectureNotes)) {
   assert(ids.includes(id), `${id}: notes object is not represented in the catalog.`);
 }
 
-assert(privateCapstoneVault.version === 1, "Private capstone vault version is invalid.");
-assert(privateCapstoneVault.kdf === "PBKDF2-SHA-256", "Private capstone vault KDF is invalid.");
-assert(privateCapstoneVault.cipher === "AES-256-GCM", "Private capstone vault cipher is invalid.");
-assert(privateCapstoneVault.iterations >= 600_000, "Private capstone vault KDF is too weak.");
-for (const field of ["salt", "iv", "ciphertext"]) {
-  assert(typeof privateCapstoneVault[field] === "string" && privateCapstoneVault[field].length > 12,
-    `Private capstone vault ${field} is missing.`);
-}
+const publishedIds = lectures.filter((lecture) => lecture.status === "published").map((lecture) => lecture.id);
+assert(Object.keys(capstones).length === publishedIds.length, "Every published lecture must have exactly one capstone.");
+for (const id of publishedIds) assert(Object.hasOwn(capstones, id), `${id}: capstone is missing.`);
+for (const id of Object.keys(capstones)) assert(publishedIds.includes(id), `${id}: capstone has no published lecture.`);
 
 assert(semesterSchedule.endsOn === "2026-11-30", "Schedule must run through 30 November 2026.");
 assert(semesterSchedule.displayTimeZone === "America/Chicago", "Schedule display timezone must be America/Chicago.");

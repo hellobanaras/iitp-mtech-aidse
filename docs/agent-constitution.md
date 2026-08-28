@@ -47,7 +47,7 @@ Each item needs an original-recording timecode and a concise paraphrase. Empty c
 
 ## 6. Privacy and intellectual-property boundary
 
-Raw recordings, participant imagery, names, verbatim transcript dumps, cookies, tokens, private capstone plaintext, and private processing artifacts stay under `.course-data/` and out of Git. Public notes use original summaries and textual slide/time references; full slide images are not republished unless permission is explicit. Credentials, credential verifiers, and decrypted capstones must never enter public source, automation prompts, browser storage, or Git history; the deployable capstone asset is authenticated ciphertext only.
+Raw recordings, participant imagery, names, verbatim transcript dumps, cookies, tokens, and private processing artifacts stay under `.course-data/` and out of Git. Public notes and capstones use original summaries and textual slide/time references; full slide images are not republished unless permission is explicit. Do not place credentials, credential verifiers, authentication controls, or private learner data in the public site.
 
 ## 7. Product continuity
 
@@ -56,6 +56,7 @@ The repository is the system of record:
 - `AGENTS.md` — short instructions loaded by future agents;
 - `docs/agent-constitution.md` — durable invariants and decision hierarchy;
 - `docs/recording-review-playbook.md` — executable review procedure;
+- `agents/recording-note-taker.md` — dedicated processing profile for bilingual synthesis and resource refresh;
 - `docs/recording-inventory.md` — source ledger and dispositions;
 - `docs/content-schema.md` — public lecture-note contract;
 - `.course-data/**/processing-manifest.json` — private machine evidence;
@@ -63,17 +64,19 @@ The repository is the system of record:
 
 When the workflow improves, update the constitution only for enduring principles; put implementation detail in the playbook and schema. Preserve superseded evidence rather than overwriting it silently.
 
-## 8. English and Hindi are equal publication surfaces
+## 8. English and Hindi are equal source surfaces
 
-Every published lecture, schedule, course description, academic signal, MCQ explanation, and unlocked private capstone is one bilingual page. English and Hindi are aligned side by side on wider screens and sequentially within each paired block on mobile. Public routes are language-neutral (`#/lecture/<id>`, not `/en`, `/hi`, or `/bi`) and no language selector is offered.
+Every published lecture, schedule, course description, academic signal, MCQ explanation, and mini-capstone is one bilingual source record. Substantive lecture notes are presented as the same aligned English/Hindi pair: side by side on wider screens and sequentially within each paired block on mobile. Do not alternate whole cards between languages or collapse the lecture note into Hindi alone. Public routes are language-neutral (`#/lecture/<id>`, not `/en`, `/hi`, or `/bi`) and no language selector is offered.
 
-Each `data/lectures/<id>.js` file contains one `{ en, hi }` publication unit. The Hindi column must preserve the English column's evidence: source timecodes, formulas, external URLs, array ordering, and MCQ answer indexes cannot change during translation. Technical terms may remain in English where that improves accuracy. Neither column is publishable alone; compare structural parity and spot-check the paired title, coverage, first and last MCQ, and academic signals before publishing. Review bilingual capstones privately, then regenerate the encrypted vault with credentials supplied only through the local process environment.
+Each `data/lectures/<id>.js` file contains one `{ en, hi }` publication unit, and the matching capstone in `data/capstones.js` contains aligned English/Hindi project guidance. The Hindi column must preserve the English column's evidence: source timecodes, formulas, external URLs, array ordering, and MCQ answer indexes cannot change during translation. Technical terms may remain in English where that improves accuracy. Neither column is publishable alone; compare structural parity and spot-check the paired title, coverage, first and last MCQ, academic signals, and capstone before publishing.
 
-Bilingual completeness is a content invariant, not a command to duplicate every visible fragment. Substantive explanations, summaries, questions, and guidance should show both languages when each improves comprehension. Compact labels, chips, technical names, and metadata should render once when the Hindi version is identical or only replaces a conjunction or isolated word while the rest remains English. This selective presentation avoids visual noise without deleting the aligned source content or weakening its validation.
+Bilingual completeness is a content invariant, not a command to duplicate every visible fragment. Substantive explanations, summaries, questions, and guidance must retain and render both source versions together. Compact labels, chips, technical names, and metadata may render once when the Hindi version is identical or only replaces a conjunction or isolated word while the rest remains English. This selective presentation avoids visual noise without deleting the aligned source content or weakening its validation.
 
-## 11. Private capstones are a separate security boundary
+## 11. Public capstones are part of the learning surface
 
-Capstone plaintext is not part of the public lecture-note contract. Its system of record is ignored `.course-data/private-capstones-source.json`; `data/private-capstones.enc.js` may contain only AES-GCM ciphertext and non-secret KDF metadata. Unlocking must derive a key from user-entered credentials, use a single generic failure message, and retain decrypted data only in memory until refresh. Static client-side encryption prevents casual source inspection but cannot guarantee identity or resist unlimited offline guessing; true owner-only enforcement requires authenticated server-side access.
+Each published lecture has one complete bilingual mini-capstone/startup idea in tracked `data/capstones.js`, rendered directly below its notes. The validator checks the English/Hindi narrative and list parity. Capstones contain no credentials, authentication UI, participant details, or private learner data; ignored `.course-data/` files may be used as drafting evidence but are never required at runtime.
+
+The recording-note-taker must review the subject's curated resource trail after every verified lecture. Add only stable, public, materially relevant reading, viewing, or practice resources, with a reason tied to the lecture; deduplicate by canonical URL. If no addition is justified, record that the existing trail was intentionally retained.
 
 ## 9. Schedules are timezone-aware source data
 
@@ -94,3 +97,9 @@ Each subject page exposes the verified SharePoint recording-folder link. Each pu
 ## 13. Readable canonical course routes
 
 The internal course `slug` is a stable data key, while `routeSlug` is the shareable public URL segment. Canonical public subject URLs include both the course code and a readable English name, for example `#/course/eai-6403-selective-topics-in-generative-ai`. Existing code-only course and resource links redirect to their descriptive equivalent so historical bookmarks continue to work. Public URLs remain language-neutral and do not transliterate the bilingual body content.
+
+## 14. Shared presentation primitives
+
+The same content should have one renderer and one source of truth. Keep lecture rows, note archives, subject-note accordions, timezone panels, and calendar events as reusable view helpers in `assets/app.js`; compose them into home, subject, and schedule pages instead of maintaining near-duplicate card markup. The schedule is the navigation surface for occurrences and links into the subject/lecture archive, while the subject page owns the detailed course context and notes.
+
+The desktop notes rail may auto-collapse after sustained downward movement, but should reopen only after sustained upward movement brings the reader back near the start of the notes. Implement this with accumulated directional thresholds and a short reflow lock so trackpad jitter and scroll anchoring cannot toggle it repeatedly; do not animate the article's grid columns, because frame-by-frame text reflow creates a visible shimmer.

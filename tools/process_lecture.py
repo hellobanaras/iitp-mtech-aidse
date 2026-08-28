@@ -142,7 +142,15 @@ def build_slide_candidates(frame_map: list[dict], output: Path) -> list[dict]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("input", type=Path)
-    parser.add_argument("--course", required=True, choices=["eai-6401", "eai-6402", "eai-6403"])
+    parser.add_argument(
+        "--course",
+        required=True,
+        choices=[
+            "eai-6401", "eai-6402", "eai-6403",
+            "ecs-6402", "ebb-6401", "ebb-6403",
+            "ecs-6401", "ecc-6404", "ebb-6402",
+        ],
+    )
     parser.add_argument("--date", required=True, help="Lecture date in YYYY-MM-DD form")
     parser.add_argument("--segment", default="01", help="Capture segment label, for example 01 or 02")
     parser.add_argument("--sidecar", type=Path)

@@ -6,7 +6,7 @@ export const semesterSchedule = {
   courses: [
     {
       slug: "eai-6401",
-      code: "EAI 6401 / ECS 6404 / ECC 6403",
+      code: "EAI 6401/ECS 6404/ECC 6403",
       title: { en: "Reinforcement Learning", hi: "रीइन्फोर्समेंट लर्निंग" },
       session: { en: "Evening session", hi: "सायंकालीन सत्र" },
       accent: "cobalt",
@@ -21,7 +21,7 @@ export const semesterSchedule = {
     },
     {
       slug: "eai-6402",
-      code: "EAI 6402 / ECC 6401",
+      code: "EAI 6402/ECC 6401",
       title: { en: "Meta Learning", hi: "मेटा लर्निंग" },
       session: { en: "Morning session", hi: "प्रातःकालीन सत्र" },
       accent: "teal",
@@ -106,7 +106,7 @@ export const semesterSchedule = {
     },
     {
       slug: "ecs-6401",
-      code: "ECS 6401 / ESD 6301",
+      code: "ECS 6401/ESD 6301",
       title: { en: "Advanced Time Series Analysis", hi: "उन्नत समय-श्रृंखला विश्लेषण" },
       session: { en: "Evening session", hi: "सायंकालीन सत्र" },
       accent: "cyan",

@@ -28,10 +28,12 @@ const requiredFiles = [
   "README.md",
   "package.json",
   "index.html",
+  "agents/recording-note-taker.md",
   "assets/app.js",
   "assets/styles.css",
   "data/catalog.js",
   "data/lecture-notes.js",
+  "data/capstones.js",
   "data/schedule.js",
   "docs/agent-constitution.md",
   "docs/content-schema.md",
@@ -78,9 +80,10 @@ if (isUpdateMode || errors.length === 0) {
 
         const metadata = {
           title: "IIT Patna AI & DSE Lecture Atlas - Codebase Architecture & Discovery",
-          summary: `Comprehensive codebase discovery detailing ${catalog.courses.length} active courses (${pubLectures} published lectures), SPA router, bilingual invariants, encryption vault, validation suite, and discovery gate.`,
+          summary: `Comprehensive codebase discovery detailing ${catalog.courses.length} active courses (${pubLectures} published lectures), SPA router, bilingual invariants, public capstones, validation suite, and discovery gate.`,
           updatedAt: new Date().toISOString(),
           references: [
+            "agents/recording-note-taker.md",
             "docs/repo-discovery.md",
             "docs/agent-constitution.md",
             "docs/content-schema.md",

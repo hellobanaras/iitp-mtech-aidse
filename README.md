@@ -6,7 +6,7 @@ A public, day-wise study companion for:
 - EAI 6402 — Meta Learning
 - EAI 6403 — Selective Topics in Generative AI
 
-The site tracks lecture recordings, rejects broken or duplicate uploads, and turns verified sessions into structured explanations, external reading, explained MCQs, and encrypted owner-only applied mini-projects.
+The site tracks lecture recordings, rejects broken or duplicate uploads, and turns verified sessions into structured explanations, external reading, explained MCQs, and public bilingual applied mini-projects.
 
 ## Preview locally
 
@@ -18,7 +18,7 @@ python3 -m http.server 4173
 
 Then open `http://localhost:4173`.
 
-Every page is bilingual by default. Share clean routes such as `#/`, `#/course/eai-6401`, and `#/lecture/eai-6401-2026-08-17`; there is no language selector or separate language page. Older `/en`, `/hi`, or `/bi` links redirect to the matching bilingual route.
+The source record is bilingual, and substantive lecture notes render as one aligned English/Hindi surface—side by side on desktop and sequentially on mobile. Compact page chrome remains selective where a second copy adds no value. Share clean routes such as `#/`, `#/course/eai-6401`, and `#/lecture/eai-6401-2026-08-17`; there is no language selector or separate language page. Older `/en`, `/hi`, or `/bi` links redirect to the matching clean route.
 
 ## Content workflow
 
@@ -34,26 +34,21 @@ Before publishing a recording:
 2. Seek past the waiting-room period: the actual class may begin 15–30 minutes after recording starts.
 3. Check unusually small files, abnormally long sessions, and repeated filenames for unique content.
 4. Transcribe downloadable recordings locally. For view-only recordings, use the fastest available Stream playback speed and verify the meaningful interval.
-5. Write the high-level coverage, slide/timecode trail, detailed summary, insights, references, and 25 explained MCQs; prepare the bilingual applied project only in the private capstone source.
-6. Mark the lecture `published` only after a factual and layout review.
+5. Write the high-level coverage, slide/timecode trail, detailed summary, insights, references, 25 explained MCQs, and one bilingual applied project in `data/capstones.js`. The public note reader presents every substantive block as the reviewed English/Hindi pair.
+6. Review and refresh that subject's curated `data/open-resources.js` group with stable, relevant reading, viewing, and practice links—or record why the existing trail was retained.
+7. Mark the lecture `published` only after a factual, resource, and layout review.
 
-Run `node tools/validate_content.mjs` before publication. It checks that every published lecture has its catalog entry, slide references, complete summary, insights, further-study links, exactly 25 four-option MCQs with explanations for every option, and no private capstone plaintext in either public language bundle. It also validates the encrypted vault metadata.
+Run `node tools/validate_content.mjs` before publication. It checks that every published lecture has its catalog entry, slide references, complete summary, insights, further-study links, exactly 25 four-option MCQs with explanations for every option, and one complete bilingual capstone with aligned lists.
 
-The durable rules live in [`docs/agent-constitution.md`](docs/agent-constitution.md), the executable procedure is in [`docs/recording-review-playbook.md`](docs/recording-review-playbook.md), and the public note contract is in [`docs/content-schema.md`](docs/content-schema.md). Together they enforce oldest-first, one-recording-at-a-time review and timestamped extraction of assignments, homework, labs, projects, instructor references, and student Q&A.
+The durable rules live in [`docs/agent-constitution.md`](docs/agent-constitution.md), the executable procedure is in [`docs/recording-review-playbook.md`](docs/recording-review-playbook.md), and the public note contract is in [`docs/content-schema.md`](docs/content-schema.md). Together they enforce oldest-first, one-recording-at-a-time review and timestamped extraction of assignments, homework, labs, projects, instructor references, and student Q&A. The subject-by-subject resource decisions are logged in [`docs/resource-refresh-audit.md`](docs/resource-refresh-audit.md).
 
 ## Bilingual lecture publication
 
-Every published note is one bilingual object with paired `en` and `hi` content in the same lecture module. The two columns share slide timestamps, formulas, academic signals, URLs, and 25 answer indexes, and `node tools/validate_content.mjs` checks their parity. Future processing must write and review the paired record directly; an English-only or Hindi-only draft is not publishable. Established English technical terms may remain in the Hindi column where translation would make the concept less precise.
+Every published note is one bilingual object with paired `en` and `hi` content in the same lecture module. The two source columns share slide timestamps, formulas, academic signals, URLs, and 25 answer indexes, and `node tools/validate_content.mjs` checks their parity. The reader presents the reviewed English/Hindi pair together for every substantive block; it does not alternate cards or reduce the note to Hindi alone. Future processing must write and review the paired record directly; an English-only or Hindi-only draft is not publishable. Established English technical terms may remain in the Hindi column where translation would make the concept less precise.
 
-## Private mini-capstones
+## Public mini-capstones
 
-Readable English and Hindi capstones live only in ignored `.course-data/private-capstones-source.json`. The public application imports `data/private-capstones.enc.js`, an AES-256-GCM ciphertext vault whose key is derived in the browser with PBKDF2. To regenerate it after adding or translating a capstone, supply the credentials locally without writing them to a file:
-
-```bash
-LECTURE_ATLAS_PRIVATE_USER='…' LECTURE_ATLAS_PRIVATE_CODE='…' node tools/encrypt_private_capstones.mjs
-```
-
-Never commit the plaintext source, credentials, a credential verifier, or decrypted output. The page keeps decrypted content in JavaScript memory only and forgets it on refresh. This protects plaintext from casual inspection of a static deployment, but it is not equivalent to server-enforced identity: a determined attacker can make offline guesses against a downloadable ciphertext. Use an authenticated backend or access gateway when exclusive per-user authorization must be guaranteed.
+Each published lecture has one bilingual mini-capstone/startup idea in tracked `data/capstones.js`. The lecture page renders the project directly for every visitor, with an accessible problem statement, learning value, MVP, optional stretch goals, build plan, and (where supplied) stack, milestones, novelty, and success criteria. The module contains no credentials, authentication controls, participant details, or private learner data. Keep raw drafts and processing artifacts under ignored `.course-data/` only.
 
 ## Public books and slide decks
 

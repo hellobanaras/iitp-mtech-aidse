@@ -1,11 +1,17 @@
 # Repository Architecture & Codebase Discovery
 
 **Repository:** `iitp-mtech-aidse-lecture-atlas`
-**Purpose:** Public, bilingual, day-wise study companion for IIT Patna Executive M.Tech AI & Data Science (Semester 4, August–November 2026).
-**Maintained Courses:**
-- **EAI 6401**: Reinforcement Learning
-- **EAI 6402**: Meta Learning
+**Purpose:** Public, day-wise study companion with bilingual source records and an aligned English/Hindi study surface for IIT Patna Executive M.Tech AI & Data Science (Semester 4, August–November 2026).
+**Maintained Courses (Moodle aliases preserved in `data/catalog.js`):**
+- **EAI 6401/ECS 6404/ECC 6403**: Reinforcement Learning
+- **EAI 6402/ECC 6401**: Meta Learning
 - **EAI 6403**: Selective Topics in Generative AI
+- **ECC 6404**: Data Warehousing
+- **ECS 6401/ESD 6301**: Advanced Time Series Analysis
+- **ECS 6402**: Selected Topics in Wireless Networks
+- **EBB 6401**: Smart Contracts and Solidity Programming
+- **EBB 6402**: Blockchain Policy — Legal, Social and Economic Impact
+- **EBB 6403**: Security and Privacy for Big Data
 
 ---
 
@@ -14,11 +20,13 @@
 ```
 .
 ├── AGENTS.md                          # Principal working rules & persistent lessons for AI agents
+├── agents/
+│   └── recording-note-taker.md        # Dedicated evidence-to-bilingual note and resource-refresh profile
 ├── README.md                          # Project introduction, developer setup, and workflow overview
 ├── package.json                       # Scripts for checking, building, and deploying
 ├── index.html                         # SPA entry point with responsive mobile-first shell
 ├── assets/
-│   ├── app.js                         # Single-page application router, UI components, search, and encryption vault decoder
+│   ├── app.js                         # Single-page router, shared note/archive/calendar renderers, search, and bilingual capstone renderer
 │   ├── styles.css                     # Custom CSS system with mobile navigation, dark/light themes, and responsive design
 │   ├── favicon.svg                    # Site favicon
 │   └── lecture-atlas-social.png       # OpenGraph preview asset
@@ -34,7 +42,8 @@
 │   │   ├── eai-6401-2026-08-25.js
 │   │   ├── eai-6402-2026-08-22.js
 │   │   └── eai-6403-2026-08-23.js
-│   ├── private-capstones.enc.js       # AES-256-GCM encrypted ciphertext vault of owner mini-capstones
+│   ├── capstones.js                    # Public bilingual mini-capstone ideas keyed by lecture id
+│   ├── open-resources.js               # Curated free/open links and transparent book catalogues by subject
 │   ├── program.js                     # Cohort semester status, syllabus credit breakdown, and program details
 │   ├── resources.js                   # Catalog of public PDFs and presentation slide decks
 │   └── schedule.js                    # Recurrent timetable, Teams join URLs, and Kolkata/Chicago timezone logic
@@ -49,7 +58,6 @@
 │   ├── validate_content.mjs           # Content validator checking MCQ counts, bilingual parity, URLs & secrets
 │   ├── validate_repo_discovery.mjs    # Discovery gate script verifying discovery status & schema synchronization
 │   ├── index_resources.mjs           # Auto-indexer for public PDFs/presentations in resources/
-│   ├── encrypt_private_capstones.mjs  # AES-256-GCM vault builder using PBKDF2 key derivation
 │   ├── generate_calendars.mjs         # iCalendar (.ics) generator for course schedules
 │   ├── process_lecture.py             # Python video triage, cadence restoration, contact sheet & frame generator
 │   ├── build_review_packet.py         # Python transcript & frame manifest aggregator for manual review
@@ -60,7 +68,7 @@
 │   ├── eai-6403/
 │   └── program/
 ├── calendar/                          # Generated .ics files for calendar sync
-└── .course-data/                      # Ignored private working directory (raw video, transcripts, plaintext capstones)
+└── .course-data/                      # Ignored private working directory (raw video, transcripts, and processing drafts)
 ```
 
 ---
@@ -71,14 +79,19 @@
 2. **Deterministic Queue & Triage**: Recordings must be processed strictly chronologically (oldest to newest). Idle or duplicate recordings are classified according to `docs/recording-review-playbook.md` and recorded in `docs/recording-inventory.md`.
 3. **Single Bilingual Unit Publication**: Lectures are published as single modules (`data/lectures/<id>.js`) holding both `en` and `hi` content simultaneously. Parity across English and Hindi versions (section count, MCQ counts, slide timestamps, correct answer indices) is strictly enforced.
 4. **Clean Hash Routing**: URLs use language-agnostic hash routing (`#/`, `#/course/<slug>`, `#/lecture/<id>`, `#/schedule`, `#/resources`, `#/capstone`). Language routes like `/en` or `/hi` are forbidden.
-5. **Private Applied Mini-Capstones**:
-   - Plaintext projects reside only in untracked `.course-data/private-capstones-source.json`.
-   - Client imports `data/private-capstones.enc.js` containing AES-256-GCM ciphertext derived via PBKDF2-SHA-256 (600,000 iterations).
-   - Plaintext credentials must NEVER be committed to Git.
+5. **Public Applied Mini-Capstones**:
+   - Public projects are aligned bilingual objects in tracked `data/capstones.js`, keyed by published lecture id.
+   - Capstone content is rendered directly; credentials, authentication controls, participant details, and private learner data must never be committed.
 6. **Academic Note Integrity**:
    - Exactly 25 MCQs per published lecture.
    - Explanations required for all 4 options per MCQ.
    - Explicit extraction of assignments, homework, labs, projects, references, and student Q&A with exact timecodes.
+7. **Shared presentation primitives**:
+   - `lectureRow` and `lectureArchive` are the single renderers for chronological note listings on the home accordions and subject pages.
+   - The weekly calendar is the schedule navigation surface; its occurrence cards link to the owning subject and expose Join only while active. Detailed schedule context belongs to the subject page, avoiding a second full course card on the schedule page.
+   - Fixed site chrome is shared across routes: the header stays visible at the top, the opaque mobile navigation stays at the bottom, and hash-linked course-note sections reserve space below the header.
+   - `data/open-resources.js` is the curated external-learning layer. It is rendered by the same resource-page helper for every subject with the approved selective language treatment, while `data/resources.js` remains generated solely from permitted files in `resources/`.
+   - `agents/recording-note-taker.md` is the single operating profile for recording triage, aligned bilingual note synthesis, research, and the mandatory subject-resource refresh after each verified lecture.
 
 ---
 

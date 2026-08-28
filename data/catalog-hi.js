@@ -72,8 +72,8 @@ export const catalogHi = {
       shortTitle: "वायरलेस नेटवर्क",
       cadence: "गुरुवार और शुक्रवार",
       time: "रात ८:३०–१०:०० IST",
-      statusLabel: "रिकॉर्डिंग सूचीकरण लंबित",
-      note: "कक्षा कार्यक्रम, Teams session और recording folder IIT Patna Moodle card से सत्यापित हैं। course directory प्रकाशित होने के बाद सबसे पुरानी उपलब्ध recording साझा review queue में आएगी।",
+      statusLabel: "रिकॉर्डिंग पहुँच अवरुद्ध",
+      note: "कक्षा कार्यक्रम और folder link IIT Patna Moodle card से सत्यापित हैं, लेकिन Microsoft 365 अभी recording folder की पहुँच रोक रहा है। institute access बहाल होने तक यह course note processing से बाहर है।",
       lectures: {}
     },
     "ebb-6401": {
@@ -81,8 +81,8 @@ export const catalogHi = {
       shortTitle: "स्मार्ट कॉन्ट्रैक्ट्स",
       cadence: "सोमवार और बुधवार",
       time: "शाम ६:००–७:३० IST",
-      statusLabel: "रिकॉर्डिंग सूचीकरण लंबित",
-      note: "कक्षा कार्यक्रम, Teams session और recording folder IIT Patna Moodle card से सत्यापित हैं। course directory प्रकाशित होने के बाद सबसे पुरानी उपलब्ध recording साझा review queue में आएगी।",
+      statusLabel: "रिकॉर्डिंग पहुँच अवरुद्ध",
+      note: "कक्षा कार्यक्रम और folder link IIT Patna Moodle card से सत्यापित हैं, लेकिन Microsoft 365 अभी recording folder की पहुँच रोक रहा है। institute access बहाल होने तक यह course note processing से बाहर है।",
       lectures: {}
     },
     "ebb-6403": {
@@ -99,27 +99,48 @@ export const catalogHi = {
       shortTitle: "समय-श्रृंखला विश्लेषण",
       cadence: "बुधवार और शुक्रवार",
       time: "शाम ६:००–७:३० IST",
-      statusLabel: "रिकॉर्डिंग सूचीकरण लंबित",
-      note: "कक्षा कार्यक्रम, Teams session और recording folder IIT Patna Moodle card से सत्यापित हैं। course directory प्रकाशित होने के बाद सबसे पुरानी उपलब्ध recording साझा review queue में आएगी।",
-      lectures: {}
+      statusLabel: "१ व्याख्यान उपलब्ध",
+      note: "व्याख्यान १ सत्यापित ०६:३९–०१:२५:२० source interval से प्रकाशित है; participant-only opening और idle tail को full timeline sweep के बाद हटाया गया।",
+      lectures: {
+        "ecs-6401-2026-08-19-175559": {
+          displayDate: "१९ अगस्त २०२६",
+          title: "Advanced time-series analysis: foundations और course roadmap",
+          statusLabel: "नोट्स प्रकाशित",
+          overview: ["Course roadmap और classical methods", "Time-series definition, dependence और components", "Stationarity, forecasting और sequential models"]
+        }
+      }
     },
     "ecc-6404": {
       title: "डेटा वेयरहाउसिंग",
       shortTitle: "डेटा वेयरहाउसिंग",
       cadence: "सोमवार और बुधवार",
       time: "शाम ७:३०–९:०० IST",
-      statusLabel: "रिकॉर्डिंग सूचीकरण लंबित",
-      note: "कक्षा कार्यक्रम, Teams session और recording folder IIT Patna Moodle card से सत्यापित हैं। course directory प्रकाशित होने के बाद सबसे पुरानी उपलब्ध recording साझा review queue में आएगी।",
-      lectures: {}
+      statusLabel: "२ व्याख्यान उपलब्ध",
+      note: "व्याख्यान १ और २ chronological order में प्रकाशित हैं। १९ अगस्त का source ०१:०४–०१:२२:४३ interval तक सीमित है; waiting-room opening और participant-only idle tail को full timeline sweep के बाद हटाया गया।",
+      lectures: {
+        "ecc-6404-2026-08-17-193438": {
+          title: "Data mining की नींव: KDD, patterns और जिम्मेदार उपयोग",
+          overview: ["KDD pipeline और data preparation", "Mining functions और applications", "Class imbalance, privacy और responsible use"]
+        },
+        "ecc-6404-2026-08-19-193245": {
+          title: "Mining के लिए data types: attributes और measurement scales",
+          overview: ["Data quality और preprocessing", "Nominal, ordinal, interval और ratio scales", "Discrete, continuous और asymmetric attributes"]
+        }
+      }
     },
     "ebb-6402": {
       title: "ब्लॉकचेन नीति — कानूनी, सामाजिक और आर्थिक प्रभाव",
       shortTitle: "ब्लॉकचेन नीति",
       cadence: "मंगलवार और गुरुवार",
       time: "शाम ६:००–७:३० IST",
-      statusLabel: "रिकॉर्डिंग सूचीकरण लंबित",
-      note: "कक्षा कार्यक्रम, Teams session और recording folder IIT Patna Moodle card से सत्यापित हैं। course directory प्रकाशित होने के बाद सबसे पुरानी उपलब्ध recording साझा review queue में आएगी।",
-      lectures: {}
+      statusLabel: "१ व्याख्यान उपलब्ध",
+      note: "व्याख्यान १ सत्यापित ०७:०१–१:३२:१३ source interval से प्रकाशित है। Participant-only opening/idle tail को full timeline sweep के बाद हटाया गया और view-only source को २× पर capture किया गया।",
+      lectures: {
+        "ebb-6402-2026-08-18-180205": {
+          title: "Blockchain policy: कानूनी, सामाजिक और आर्थिक प्रभाव",
+          overview: ["Policy और responsible blockchain adoption", "Privacy, security, interoperability और compliance", "Consensus choices और layered governance"]
+        }
+      }
     }
   }
 };

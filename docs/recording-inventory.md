@@ -1,8 +1,12 @@
 # Recording inventory
 
-Last checked: 27 August 2026 (America/Chicago)
+Last checked: 28 August 2026 (America/Chicago)
 
 This file records only technical metadata needed for study-note production. It intentionally omits participant names and private meeting details.
+
+## Persistent subject-wise ledger
+
+The ignored local ledger at `.course-data/inventory/ledger.json` is the deduplication source of truth. Every visible recording gets one stable identity: `course + nominal date + original filename`; a human-facing source URL may be added when that recording is opened. The ledger preserves completed `canonical`, `unique-fragment`, `duplicate`, and `idle/error` dispositions as well as `pending`, `inProgress`, `captured`, and `failed` states. Before a future folder check, compare visible rows against this ledger, mark only new or changed identities for review, and never reopen a completed identity without recording why. The dated snapshots under `.course-data/inventory/` preserve each check so a failed or interrupted pass can resume without losing its queue position.
 
 ## EAI 6401 — Reinforcement Learning
 
@@ -60,21 +64,101 @@ The older supplied EAI 6403 link was also checked on 23 August 2026 and incorrec
 
 The `course74` people listing was checked again on 24 August 2026 and still exposes only the completed 23 August recording.
 
+## EBB 6403 — Security and Privacy for Big Data
+
+| Nominal session | Source | Size | Reported duration | Access | Review state |
+| --- | --- | ---: | ---: | --- | --- |
+| 21 Aug 2026 | `Security and Privacy for Big Data-20260821_074805-Meeting Recording.mp4` | 29.3 MB | 6m 16s | view only | `idle/error`; visible-tab triage/capture contained no intelligible instruction; excluded from note publication |
+| 21 Aug 2026 | `Security and Privacy for Big Data-20260821_075934-Meeting Recording.mp4` | 108 MB | 48m 00s | view only | `canonical`; verified instruction 01:24–48:00; notes published |
+
+The oldest EBB 6403 source was opened alone and swept at the beginning, 10%, 25%, 50%, 75%, 90%, and near-end. Lecturer video was visible through approximately 03:50, while participant-only black/avatar states began around 04:03 and persisted through the 06:16 nominal end. The authorized visible-tab + audio capture at 2× covered source `00:11–03:50`, then the recording tab was closed. Local processing found a 97.2% silence ratio and only repeated `you` fragments from Whisper; no slide or instructional audio evidence was recoverable. It is therefore recorded as `idle/error`, with no public note created.
+
+The 07:59:34 source was opened only after the rejected recording tab was closed. A full sweep found a title/instructor at 00:00:13, substantive Veracity, threat-modelling, access-control, authentication and anonymization slides at 05:36, 11:58, 23:58, 35:58, 43:10 and 47:29, and the final teaching slide at 47:58. The visible-tab + audio capture ran at 2× from source `01:24` to the 48:00 endpoint; no idle tail was observed. Local processing verified audio/video, restored source-time transcript timestamps, sampled 47 frames with 21 slide candidates, and produced the bilingual note with exactly 25 explained MCQs. No assignment, homework, lab, project, instructor reference, or substantive student question was separately stated, so each signal category is explicitly empty.
+
+## ECS 6401 / ESD 6301 — Advanced Time Series Analysis
+
+| Nominal session | Source | Size | Reported duration | Access | Review state |
+| --- | --- | ---: | ---: | --- | --- |
+| 19 Aug 2026 | `Advanced Time Series Analysis-20260819_175559-Meeting Recording.mp4` | 354 MB | 1h 30m 42s | view only | `canonical`; verified capture 00:06:39–01:25:20; participant-only tail excluded; notes published |
+| 21 Aug 2026 | `Advanced Time Series Analysis-20260821_180935-Meeting Recording.mp4` | 297 MB | 1h 16m 21s | view only | `canonical`; verified capture 00:00:46–01:15:34; participant-only opening and 46s idle camera tail excluded; notes published |
+| 26 Aug 2026 | `Advanced Time Series Analysis-20260826_180538-Meeting Recording.mp4` | 202 MB | 1h 22m 09s reported | view only | `canonical`; verified teaching 00:03:16–01:20:45; participant-only idle tail excluded; notes published |
+
+The 19 August source was opened alone and swept at the beginning, 10%, 25%, 50%, 75%, 90%, and near-end. Participants and the waiting-room view were present at the beginning; sustained instruction was visible by approximately 00:06:02. The instructor covered the course roadmap, visualization, stationarity, autoregression, VAR, cointegration, volatility, financial forecasting, RNN/LSTM/transformers, and the definition/components of time series. The final teaching slide was visible at 01:25:20, followed by participant-only idle content through the 01:30:42 nominal end.
+
+The permitted visible-tab + audio capture ran at 2×. The saved artifact begins at source 00:06:39 because of a short capture-start popup delay; the triage start remains recorded separately. Local processing verified audio/video, restored source-time transcript timestamps, sampled 80 frames, retained 20 slide candidates, and produced the bilingual note with exactly 25 explained MCQs. The stable Microsoft Stream URL is exposed on the subject and lecture rows; no hidden media URL was used.
+
+The 21 August source was opened only after the 19 August recording tab was closed. Its full sweep found a participant-only opening, sustained components/stationarity and visualization teaching, a Python/Jupyter demonstration, synthetic trend/seasonality and additive decomposition, stationarity diagnostics, and moving-average examples. Instruction was verified from source `00:00:46` through `01:15:34`; the final camera-only tail to the `01:16:21` nominal endpoint was excluded. The permitted visible-tab + audio capture ran at 2×, was trimmed to the verified interval, and was processed with source-time restoration. Local processing verified both streams, sampled 78 frames and 44 slide candidates, and produced the bilingual note with exactly 25 explained MCQs. The transcript contains no assignment, homework, lab, project, or substantive student question; the closing study-material/code announcement is recorded under references.
+
+The 26 August source was opened only after the 21 August recording tab was closed. The required distributed sweep found instructor/slide instruction at 00:00:42, 00:08:07, 00:20:37, 00:40:57, 01:01:37, 01:13:47, 01:15:27 and 01:20:27; the endpoint sample at 01:20:57 was participant-only. The permitted visible-tab + audio capture ran at 2× from source `00:03:16` to `01:20:45`. Local processing verified audio/video, restored source-time transcript timestamps, sampled 77 frames with 76 unique perceptual hashes and 48 meaningful transitions, and produced the bilingual note with exactly 25 explained MCQs. The transcript contains no assignment, homework, lab, project, instructor-recommended reference, or substantive student question, so every signal category is explicitly empty. The participant-only tail to the 01:22:09 source endpoint was excluded.
+
+## EBB 6402 — Blockchain Policy
+
+| Nominal session | Source | Size | Reported duration | Access | Review state |
+| --- | --- | ---: | ---: | --- | --- |
+| 18 Aug 2026 | `Blockchain policy – Legal, Social and Economic Impact-20260818_180205-Meeting Recording.mp4` | 154 MB | 1h 33m 12s | view only | `canonical`; verified instruction 00:07:01–01:32:13; notes published |
+| 20 Aug 2026 | `Blockchain policy – Legal, Social and Economic Impact-20260820_180203-Meeting Recording.mp4` | 121 MB | 1h 29m 23s | view only | `canonical`; verified instruction 00:05:58–01:27:25; announced break and idle tail excluded; notes published |
+| 25 Aug 2026 | `Blockchain policy – Legal, Social and Economic Impact-20260825_180424-Meeting Recording.mp4` | 229 MB | 2h 19m 24s reported | view only | `canonical`; verified instruction 00:04:52–02:19:24; participant setup excluded; notes published |
+
+The 18 August source was opened alone and swept at the beginning, 10%, 25%, 50%, 75%, 90%, and near-end. The opening sample was participant-only; sustained policy teaching was visible by approximately 00:05:55 and continued through governance material at 01:32:13. Participant-only Teams UI returned at approximately 01:32:19 and continued to the 01:33:12 nominal end. A paused endpoint capture was rejected as an invalid static audit artifact; the corrected permitted visible-tab + audio capture ran at 2× from source 00:07:01 to 01:32:13. Local processing verified audio/video, restored source timecodes, sampled 85 frames, retained 19 slide candidates, and produced the bilingual note with exactly 25 explained MCQs. No Stream Download action was available.
+
+The lecture covers blockchain policy and its importance; privacy, security, interoperability, legal accountability, HIPAA compliance, and risk management; governance actors, consensus, incentives, and information flow; proof of work versus proof of stake; and institutional-to-infrastructure policy layers. The transcript contains no separately stated assignment, homework, lab, project, instructor-recommended reference, or substantive student question, so each signal category is explicitly empty in the published note.
+
+The 20 August source was opened only after the previous recording tab was closed. The full sweep found a participant/avatar waiting view at 00:00:18, the “Do you ever need Blockchain?” teaching whiteboard at 00:09:19, governance objectives at 00:22:44, on-chain governance at 00:44:31, governance models at 01:06:38, a conclusion at 01:20:02, and the final framework-components slide at 01:27:25. An instructor-announced four-to-five-minute break (01:01:33–01:06:08) was excluded from the meaningful interval, and participant-only idle content began around 01:28:39. The permitted visible-tab + audio capture ran at 2× from source 00:05:58 to 01:27:25. Local processing verified two streams, restored source-time transcript timestamps, sampled 81 frames (48 slide candidates), and produced the bilingual note with exactly 25 explained MCQs. No assignment, homework, lab, project, instructor reference, or substantive student question was separately stated; each category is explicitly empty in the published note. No Stream Download action was available.
+
+The 25 August source was opened only after the 24 August recording tab was closed. The full sweep found a participant avatar at 00:00, sustained risk-management instruction at 00:13:54, AML/KYC financial-flow teaching at 00:34:42, privacy/information-security material at 01:09:18, DLT/disclosure material at 01:43:54, DLT workings at 02:04:32, DLT characteristics at 02:16:17, and a course-outline PDF with spoken recap at 02:18:02–02:18:31. The transcript shows substantive lecture framing beginning around 00:04:52 after greetings, a visibility check, and a finance-domain question; spoken closure continues through the source endpoint at approximately 02:19:24, with no idle tail at the endpoint. The permitted visible-tab + audio capture ran at 2×, preserving the full capture and a bounded teaching artifact under `.course-data/`. Local processing restored source-time timestamps, sampled 138 frames (80 slide candidates), and produced the bilingual note with exactly 25 explained MCQs. The note records the finance case-study question and student project mention in their dedicated signal categories; no assignment, homework, lab, or instructor-recommended reference was separately announced. No Stream Download action was available.
+
+## ECC 6404 — Data Warehousing
+
+| Nominal session | Source | Size | Reported duration | Access | Review state |
+| --- | --- | ---: | ---: | --- | --- |
+| 17 Aug 2026 | `Data Warehousing-20260817_193438-Meeting Recording.mp4` | 276 MB | 1h 21m 46s | view only | `canonical`; verified instruction 00:20:00–01:19:53; idle tail excluded; notes published |
+| 19 Aug 2026 | `Data Warehousing-20260819_193245-Meeting Recording.mp4` | 299 MB | 1h 31m 13s | view only | `canonical`; verified instruction 00:01:04–01:22:43; idle tail excluded; notes published |
+| 24 Aug 2026 | `Data Warehousing-20260824_193338-Meeting Recording.mp4` | 319 MB full capture / 315 MB trimmed | 1h 18m 24s | view only | `canonical`; verified instruction 00:30–01:17:26; ~58s desktop/Moodle idle tail excluded; notes published |
+| 26 Aug 2026 | `Data Warehousing-20260826_193241-Meeting Recording.mp4` | 418 MB provider listing / 435 MB capture | 1h 43m 40s reported; 1h 23m 19s teaching | view only | `canonical`; verified instruction 00:02:16–01:25:35; participant-only idle tail excluded; notes published |
+
+The 17 August Data Warehousing source was opened alone and swept at the beginning, 10%, 25%, 50%, 75%, 90%, and near-end. The opening 00:00:03 sample showed participant avatars; sustained teaching appeared by 00:08:40 and continued through the closing slide at 01:19:25. Participant-only idle content began around 01:20:13. The permitted visible-tab + audio capture ran at 2× from source `00:20:00` to `01:19:53` and stopped at the marked endpoint. Local processing verified audio/video, restored source timecodes, sampled 62 frames (57 unique perceptual hashes; 13 meaningful transitions), retained 20 slide candidates, and produced the bilingual note with exactly 25 explained MCQs. No Stream Download action was available.
+
+The 19 August source was opened only after the 17 August recording was closed. The full sweep found a Teams waiting view at 00:00:07, sustained Data Mining/Data instruction from about 01:04, content at 10%, 25%, 50%, 75%, and 90%, and a Teams chat/participant-only tail by 01:22:53. The visible-tab + audio capture ran at 2× from source `00:01:04` to `01:22:43`; its sidecar maps 2,450.19 capture seconds back to source time. Local processing verified audio/video, restored source timecodes, sampled 82 frames, and produced the bilingual note with exactly 25 explained MCQs. No Stream Download action was available.
+
+The 24 August source was opened only after the 19 August recording was closed. The full sweep covered beginning, 10%, 25%, 50%, 75%, 90%, and near-end positions: a title/participant state at 00:00, sustained “Asymmetric Attributes” teaching by 00:30, Types of Data Sets around 10:00, Record Data/market basket at 20:00, Graph-based Data at 40:00, Data Quality at 60:00, Measurement and Data Collection Issues at 70:00, and Noise and Artifacts at 75:00. The source endpoint was 01:18:24; a desktop/Gmail/Moodle idle tail begins around 01:16:44 and remains non-instructional through the endpoint, after the closing at approximately 01:17:26. The permitted visible-tab + audio capture ran at 2×, preserving the full private capture under `.course-data/` and trimming the retained processing artifact to the verified interval. Local processing verified audio/video, restored source-time timestamps, sampled 77 frames (46 slide candidates), and produced the bilingual note with exactly 25 explained MCQs. No assignment, homework, lab, project, instructor-recommended reference, or substantive student question was separately stated; each category is explicitly empty in the published note. No Stream Download action was available.
+
 ## Newly catalogued Moodle electives
 
-The six folders below were verified from the signed-in IIT Patna Moodle “Lecture Room and Recordings” card on 27 August 2026. Only the course-level links and recurring session data have been published at this stage. Their file inventories, sizes, durations, and individual human-facing Stream pages remain pending; no recording has been opened or captured yet.
+The six folders below were verified from the signed-in IIT Patna Moodle “Lecture Room and Recordings” card on 27 August 2026. Course-level links, recurring session data, and verified lecture notes are published incrementally after each recording. Four folders expose visible file rows, while two remain access-blocked. EBB 6403 now has one rejected idle/error source and one canonical published note; individual human-facing Stream pages remain pending for sources not yet opened.
 
 | Course | Verified recording folder | Review state |
 | --- | --- | --- |
-| ECS 6402 — Selected Topics in Wireless Networks | `course75` SharePoint folder | inventory pending |
-| EBB 6401 — Smart Contracts and Solidity Programming | `course77` SharePoint folder | inventory pending |
-| EBB 6403 — Security and Privacy for Big Data | `course78` SharePoint folder | inventory pending; separate Friday and Saturday sessions/Teams links recorded |
-| ECS 6401 / ESD 6301 — Advanced Time Series Analysis | `course129` SharePoint folder | inventory pending |
-| ECC 6404 — Data Warehousing | `course76` SharePoint folder | inventory pending |
-| EBB 6402 — Blockchain Policy — Legal, Social and Economic Impact | `course126` SharePoint folder | inventory pending; Tuesday and Thursday share one Teams link |
+| ECS 6402 — Selected Topics in Wireless Networks | `course75` SharePoint folder | excluded from note processing (access denied) |
+| EBB 6401 — Smart Contracts and Solidity Programming | `course77` SharePoint folder | excluded from note processing (access denied) |
+| EBB 6403 — Security and Privacy for Big Data | `course78` SharePoint folder | 2 visible sources inventoried; oldest rejected as `idle/error`, 07:59:34 canonical note published; separate Friday and Saturday sessions/Teams links recorded |
+| ECS 6401 / ESD 6301 — Advanced Time Series Analysis | `course129` SharePoint folder | 3 visible sources inventoried; 19, 21, and 26 Aug canonical notes published |
+| ECC 6404 — Data Warehousing | `course76` SharePoint folder | 4 visible sources inventoried; 17, 19, 24, and 26 Aug canonical notes published |
+| EBB 6402 — Blockchain Policy — Legal, Social and Economic Impact | `course126` SharePoint folder | 3 visible sources inventoried; 18, 20, and 25 Aug canonical notes published; Tuesday and Thursday share one Teams link |
 
-The next review pass will inspect these folders without opening multiple recordings, create a stable source queue ordered by original recording timestamp, and—where sources are contemporaneous—rotate one oldest eligible lecture per subject before revisiting any subject. The existing global oldest-first ordering remains authoritative.
+The next review pass will inspect these folders without opening multiple recordings, create a stable source queue ordered by original recording timestamp, and—where sources are contemporaneous—rotate one oldest eligible lecture per subject before revisiting any subject. The existing global oldest-first ordering remains authoritative. ECC 6404 order 1, EBB 6402 order 2, and ECS 6401 / ESD 6301 order 3 are complete; EBB 6403 order 4 is rejected as `idle/error`; ECC 6404 order 5 (19 August), EBB 6402 order 6 (20 August), EBB 6403 order 7 (21 August at 07:59:34), and ECS 6401 / ESD 6301 order 8 (21 August at 18:09:35) are complete. ECC 6404 order 9 (24 August at 19:33:38), EBB 6402 order 10 (25 August at 18:04:24), ECS 6401 / ESD 6301 order 11 (26 August at 18:05:38), and ECC 6404 order 12 (26 August at 19:32:41) are now complete; no eligible queue item remains.
 
-The first folder-access check (`course75`, ECS 6402) on 27 August 2026 reached Microsoft 365’s “You don't have permission to access this item” page in the current Chrome session. No file metadata was read and no recording was opened. Resume folder inventory only after the learner signs in to the institute Microsoft account that has access; the remaining new folders were intentionally not tried because they share the same access boundary.
+The first folder-access check (`course75`, ECS 6402) on 27 August 2026 reached Microsoft 365’s “You don't have permission to access this item” page in the current Chrome session. A second independent check (`course77`, EBB 6401) reached the same Microsoft 365 access-denied page. Both courses are marked `excluded` from note processing until access changes; no file metadata was read and no recording was opened. The other four folders are accessible and their visible rows are recorded in `.course-data/inventory/2026-08-27.json`; the EBB 6403 07:48:05 source was triaged separately on 28 August and rejected as `idle/error`, while its 07:59:34 source is now canonical and published.
 
-The Moodle elective page was also rechecked after restoring the existing Microsoft session. Its schedules and Teams links remain unchanged. The 24 August check reached the Moodle login page because that separate session had expired, so Moodle schedule/link change verification is blocked until the learner signs in again. The deterministic recording queue is clear after completing and closing the 24 August EAI 6401 source.
+Visible source rows from the four accessible folders (all `view-only`; the listing did not expose duration) are:
+
+- **EBB 6403 / course78:** `Security and Privacy for Big Data-20260821_074805-Meeting Recording.mp4` (29.3 MB; rejected `idle/error` after triage); `Security and Privacy for Big Data-20260821_075934-Meeting Recording.mp4` (108 MB; 48m 00s; canonical note published).
+- **ECS 6401 / ESD 6301 / course129:** `Advanced Time Series Analysis-20260819_175559-Meeting Recording.mp4` (354 MB; canonical); `Advanced Time Series Analysis-20260821_180935-Meeting Recording.mp4` (297 MB; canonical); `Advanced Time Series Analysis-20260826_180538-Meeting Recording.mp4` (202 MB; canonical; 00:03:16–01:20:45 teaching).
+- **ECC 6404 / course76:** `Data Warehousing-20260817_193438-Meeting Recording.mp4` (276 MB; canonical); `Data Warehousing-20260819_193245-Meeting Recording.mp4` (299 MB; canonical); `Data Warehousing-20260824_193338-Meeting Recording.mp4` (319 MB full capture / 315 MB trimmed; canonical); `Data Warehousing-20260826_193241-Meeting Recording.mp4` (418 MB provider listing / 435 MB capture; canonical; teaching 00:02:16–01:25:35).
+- **EBB 6402 / course126:** `Blockchain policy – Legal, Social and Economic Impact-20260818_180205-Meeting Recording.mp4` (154 MB; canonical); `Blockchain policy – Legal, Social and Economic Impact-20260820_180203-Meeting Recording.mp4` (121 MB; canonical); `Blockchain policy – Legal, Social and Economic Impact-20260825_180424-Meeting Recording.mp4` (229 MB; canonical, 00:04:52–02:19:24 teaching interval).
+
+### Six-course review queue checkpoint — 28 August 2026
+
+The requested coverage rotation is persisted in `.course-data/review-queue.json` (ignored local state). It keeps one oldest eligible recording per subject in each round, while the global tie-break remains original recording date/time, course code, then source filename. The current state is:
+
+| Course | State | Evidence / next action |
+| --- | --- | --- |
+| ECS 6402 — Selected Topics in Wireless Networks | `excluded` (inventory blocked) | `course75` opened; Microsoft 365 access denied; excluded until the institute account has access |
+| EBB 6401 — Smart Contracts and Solidity Programming | `excluded` (inventory blocked) | `course77` opened; the same access-denied page; excluded until the institute account has access |
+| EBB 6403 — Security and Privacy for Big Data | `active` (1 published, 1 rejected) | 07:48:05 source rejected as `idle/error`; 07:59:34 source captured and published with verified security/privacy timeline |
+| ECS 6401 / ESD 6301 — Advanced Time Series Analysis | `active` (3 published) | 19, 21, and 26 Aug sources captured and published |
+| ECC 6404 — Data Warehousing | `active` (4 published) | 17, 19, 24, and 26 Aug sources captured and published |
+| EBB 6402 — Blockchain Policy — Legal, Social and Economic Impact | `active` (3 published) | 18, 20, and 25 Aug sources captured and published; next round continues with ECS 6401 / ESD 6301 |
+
+Checkpoint evidence: `activeRecordingTabsOpened: 0`, `reviewedRecordingTabsLeftOpen: 0`, `captured: 11`, `rejected: 1`, `pending: 0`, `inProgress: 0`, and `failed: 0`; four accessible folders expose no pending source after the canonical ECC 6404, EBB 6402, ECS 6401 and EBB 6403 captures plus the rejected EBB 6403 source, and two courses are explicitly excluded for access denial. The queue is timestamp-sorted within each subject round in `.course-data/review-queue.json`; process one source at a time and revisit excluded courses only after their permissions change.
+
+The Moodle elective page was also rechecked after restoring the existing Microsoft session. Its schedules and Teams links remain unchanged. The deterministic recording queue has no pending eligible source after ECC 6404 on 26 August at 19:32:41 was captured and its recording tab closed; excluded folders remain blocked until permissions change.

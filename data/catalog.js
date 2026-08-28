@@ -1,10 +1,10 @@
 export const catalog = {
-  updated: "2026-08-27",
+  updated: "2026-08-28",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 9,
+  filesInventoried: 17,
   courses: [
     {
-      code: "EAI 6401",
+      code: "EAI 6401/ECS 6404/ECC 6403",
       slug: "eai-6401",
       routeSlug: "eai-6401-reinforcement-learning",
       title: "Reinforcement Learning",
@@ -77,7 +77,7 @@ export const catalog = {
       ]
     },
     {
-      code: "EAI 6402",
+      code: "EAI 6402/ECC 6401",
       slug: "eai-6402",
       routeSlug: "eai-6402-meta-learning",
       title: "Meta Learning",
@@ -150,8 +150,9 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "waiting",
-      statusLabel: "Recording inventory pending",
-      note: "The class schedule, Teams session, and recording folder are verified from the IIT Patna Moodle card. The oldest available recording will enter the shared review queue after the course directory is published.",
+      statusLabel: "Recording access blocked",
+      note: "The class schedule and folder link are verified from the IIT Patna Moodle card, but Microsoft 365 currently denies access to the recording folder. This course is excluded from note processing until institute access is restored.",
+      excludedFromNoteProcessing: true,
       lectures: []
     },
     {
@@ -166,8 +167,9 @@ export const catalog = {
       icon: "SC",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course77_hybrid_iitp_ac_in/IgCEBeWWlU_wQLE9fUZWW9fTAYhpk32mpJi8Lbo6Iba_Cy8?e=5wSELF",
       status: "waiting",
-      statusLabel: "Recording inventory pending",
-      note: "The class schedule, Teams session, and recording folder are verified from the IIT Patna Moodle card. The oldest available recording will enter the shared review queue after the course directory is published.",
+      statusLabel: "Recording access blocked",
+      note: "The class schedule and folder link are verified from the IIT Patna Moodle card, but Microsoft 365 currently denies access to the recording folder. This course is excluded from note processing until institute access is restored.",
+      excludedFromNoteProcessing: true,
       lectures: []
     },
     {
@@ -181,13 +183,28 @@ export const catalog = {
       accent: "indigo",
       icon: "SP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course78_hybrid_iitp_ac_in/IgCwVcRuGq_lR6u1S5D-yQeRAb5jOjVzObdfYRB-vn1qvBQ?e=wtwqhi",
-      status: "waiting",
-      statusLabel: "Recording inventory pending",
-      note: "Both Moodle-listed weekly Teams sessions and the shared recording folder are verified. The earliest available source will enter the shared review queue after the directory is published.",
-      lectures: []
+      status: "active",
+      statusLabel: "1 lecture available",
+      note: "Lecture 1 is published from the verified 01:24–48:00 source interval; the title opening was excluded and no idle tail was observed after the final teaching slide.",
+      lectures: [
+        {
+          id: "ebb-6403-2026-08-21-075934",
+          number: 1,
+          date: "2026-08-21",
+          sourceRecordedAt: "2026-08-21T07:59:34+05:30",
+          sourceFilename: "Security and Privacy for Big Data-20260821_075934-Meeting Recording.mp4",
+          displayDate: "21 August 2026",
+          title: "Big-data security: STRIDE, access control, and distributed authentication",
+          duration: "46m 35s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course78_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course78%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSecurity%20and%20Privacy%20for%20Big%20Data%2D20260821%5F075934%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Big-data lifecycle and security controls", "STRIDE threat modelling", "RBAC/ABAC/PBAC, MFA, SSO, and Kerberos"]
+        }
+      ]
     },
     {
-      code: "ECS 6401 / ESD 6301",
+      code: "ECS 6401/ESD 6301",
       slug: "ecs-6401",
       routeSlug: "ecs-6401-advanced-time-series-analysis",
       title: "Advanced Time Series Analysis",
@@ -197,10 +214,53 @@ export const catalog = {
       accent: "cyan",
       icon: "TS",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course129_hybrid_iitp_ac_in/IgC377O2f2n2SI6uo-EJPeMMAZbBcmUQN6fmgL_JHX60GiA?e=yUCaLx",
-      status: "waiting",
-      statusLabel: "Recording inventory pending",
-      note: "The class schedule, Teams session, and recording folder are verified from the IIT Patna Moodle card. The oldest available recording will enter the shared review queue after the course directory is published.",
-      lectures: []
+      status: "active",
+      statusLabel: "3 lectures available",
+      note: "Lectures 1–3 are published in chronological order. The 21 August source is bounded to 00:46–01:15:34; the 26 August source to 00:03:16–01:20:45. Participant-only openings and idle tails were excluded after full timeline sweeps.",
+      lectures: [
+        {
+          id: "ecs-6401-2026-08-19-175559",
+          number: 1,
+          date: "2026-08-19",
+          sourceRecordedAt: "2026-08-19T17:55:59+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20260819_175559-Meeting Recording.mp4",
+          displayDate: "19 August 2026",
+          title: "Advanced time-series analysis: foundations and course roadmap",
+          duration: "1h 18m 41s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse129%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FAdvanced%20Time%20Series%20Analysis%2D20260819%5F175559%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Course roadmap and classical methods", "Time-series definition, dependence, and components", "Stationarity, forecasting, and sequential models"]
+        },
+        {
+          id: "ecs-6401-2026-08-21-180935",
+          number: 2,
+          date: "2026-08-21",
+          sourceRecordedAt: "2026-08-21T18:09:35+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20260821_180935-Meeting Recording.mp4",
+          displayDate: "21 August 2026",
+          title: "Time-series components, visualization, and decomposition in Python",
+          duration: "1h 14m 48s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course129%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FAdvanced%20Time%20Series%20Analysis%2D20260821%5F180935%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Trend, seasonality, cycles, and stationarity", "Line, seasonal, ACF/PACF, spectral, and decomposition diagnostics", "Reproducible Python/Jupyter synthetic series and moving averages"]
+        },
+        {
+          id: "ecs-6401-2026-08-26-180538",
+          number: 3,
+          date: "2026-08-26",
+          sourceRecordedAt: "2026-08-26T18:05:38+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20260826_180538-Meeting Recording.mp4",
+          displayDate: "26 August 2026",
+          title: "Descriptive statistics and preprocessing for time-series analysis",
+          duration: "1h 17m 29s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course129%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FAdvanced%20Time%20Series%20Analysis%2D20260826%5F180538%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Variables, distributions, and summary statistics", "Visual diagnostics, missing values, and outlier screening", "Stationarity, ADF testing, differencing, and log transformation"]
+        }
+      ]
     },
     {
       code: "ECC 6404",
@@ -213,10 +273,67 @@ export const catalog = {
       accent: "emerald",
       icon: "DW",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course76_hybrid_iitp_ac_in/IgAWWFJqFmpXRay8IkonggGRASO0x6czOy20BYDTjv8HHXI?e=5DXrhH",
-      status: "waiting",
-      statusLabel: "Recording inventory pending",
-      note: "The class schedule, Teams session, and recording folder are verified from the IIT Patna Moodle card. The oldest available recording will enter the shared review queue after the course directory is published.",
-      lectures: []
+      status: "active",
+      statusLabel: "4 lectures available",
+      note: "Lectures 1–4 are published in chronological order. The 19 August source is bounded to 01:04–01:22:43, the 24 August source to 00:30–01:17:26, and the 26 August source to 00:02:16–01:25:35; waiting-room and idle tails were excluded after full timeline sweeps.",
+      lectures: [
+        {
+          id: "ecc-6404-2026-08-17-193438",
+          number: 1,
+          date: "2026-08-17",
+          sourceRecordedAt: "2026-08-17T19:34:38+05:30",
+          sourceFilename: "Data Warehousing-20260817_193438-Meeting Recording.mp4",
+          displayDate: "17 August 2026",
+          title: "Data mining foundations: KDD, patterns, and responsible use",
+          duration: "59m 54s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse76%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FData%20Warehousing%2D20260817%5F193438%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["KDD pipeline and data preparation", "Mining functions and applications", "Class imbalance, privacy, and responsible use"]
+        },
+        {
+          id: "ecc-6404-2026-08-19-193245",
+          number: 2,
+          date: "2026-08-19",
+          sourceRecordedAt: "2026-08-19T19:32:45+05:30",
+          sourceFilename: "Data Warehousing-20260819_193245-Meeting Recording.mp4",
+          displayDate: "19 August 2026",
+          title: "Data types for mining: attributes and measurement scales",
+          duration: "1h 21m 39s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course76%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FData%20Warehousing%2D20260819%5F193245%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Data quality and preprocessing", "Nominal, ordinal, interval, and ratio scales", "Discrete, continuous, and asymmetric attributes"]
+        },
+        {
+          id: "ecc-6404-2026-08-24-193338",
+          number: 3,
+          date: "2026-08-24",
+          sourceRecordedAt: "2026-08-24T19:33:38+05:30",
+          sourceFilename: "Data Warehousing-20260824_193338-Meeting Recording.mp4",
+          displayDate: "24 August 2026",
+          title: "Data types, measurement scales, and data quality",
+          duration: "1h 16m 56s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse76%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FData%20Warehousing%2D20260824%5F193338%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Record, graph-based, and ordered data", "Measurement scales, transformations, and asymmetric attributes", "Data cleaning, measurement error, noise, and artifacts"]
+        },
+        {
+          id: "ecc-6404-2026-08-26-193241",
+          number: 4,
+          date: "2026-08-26",
+          sourceRecordedAt: "2026-08-26T19:32:41+05:30",
+          sourceFilename: "Data Warehousing-20260826_193241-Meeting Recording.mp4",
+          displayDate: "26 August 2026",
+          title: "Data quality, preprocessing, and representative sampling",
+          duration: "1h 23m 19s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course76%5Fhybrid_iitp%5Fac%5Fin%2FDocuments%2FRecordings%2FData%20Warehousing%2D20260826%5F193241%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Precision, bias, accuracy, outliers, and noise", "Missing, inconsistent, and duplicate data", "Preprocessing, aggregation, and representative sampling"]
+        }
+      ]
     },
     {
       code: "EBB 6402",
@@ -229,10 +346,53 @@ export const catalog = {
       accent: "orange",
       icon: "BP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course126_hybrid_iitp_ac_in/IgCHFNnPY4p5T6ER5i66wfU6ARez8raFCClh3yjgh9MvxQ4?e=BpEdrU",
-      status: "waiting",
-      statusLabel: "Recording inventory pending",
-      note: "The class schedule, Teams session, and recording folder are verified from the IIT Patna Moodle card. The oldest available recording will enter the shared review queue after the course directory is published.",
-      lectures: []
+      status: "active",
+      statusLabel: "3 lectures available",
+      note: "Lectures 1–3 are published from verified teaching intervals; participant-only openings, announced breaks, and idle tails were excluded after full timeline sweeps. View-only sources were captured at 2×.",
+      lectures: [
+        {
+          id: "ebb-6402-2026-08-18-180205",
+          number: 1,
+          date: "2026-08-18",
+          sourceRecordedAt: "2026-08-18T18:02:05+05:30",
+          sourceFilename: "Blockchain policy – Legal, Social and Economic Impact-20260818_180205-Meeting Recording.mp4",
+          displayDate: "18 August 2026",
+          title: "Blockchain policy: legal, social, and economic impact",
+          duration: "1h 25m 13s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course126_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse126%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FBlockchain%20policy%20%E2%80%93%20Legal%2C%20Social%20and%20Economic%20Impact%2D20260818%5F180205%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Policy and responsible blockchain adoption", "Privacy, security, interoperability, and compliance", "Consensus choices and layered governance"]
+        },
+        {
+          id: "ebb-6402-2026-08-20-180203",
+          number: 2,
+          date: "2026-08-20",
+          sourceRecordedAt: "2026-08-20T18:02:03+05:30",
+          sourceFilename: "Blockchain policy – Legal, Social and Economic Impact-20260820_180203-Meeting Recording.mp4",
+          displayDate: "20 August 2026",
+          title: "Blockchain governance frameworks: decisions, roles, and regulatory fit",
+          duration: "1h 21m 27s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course126_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course126%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FBlockchain%20policy%20%E2%80%93%20Legal%2C%20Social%20and%20Economic%20Impact%2D20260820%5F180203%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["When a shared ledger is warranted", "Proposal, voting, roles, and on/off-chain governance", "Upgrades, disputes, and regulatory alignment"]
+        },
+        {
+          id: "ebb-6402-2026-08-25-180424",
+          number: 3,
+          date: "2026-08-25",
+          sourceRecordedAt: "2026-08-25T18:04:24+05:30",
+          sourceFilename: "Blockchain policy – Legal, Social and Economic Impact-20260825_180424-Meeting Recording.mp4",
+          displayDate: "25 August 2026",
+          title: "Blockchain compliance, risk management, and distributed-ledger policy",
+          duration: "2h 14m 32s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course126_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course126%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FBlockchain%20policy%20%E2%80%93%20Legal%2C%20Social%20and%20Economic%20Impact%2D20260825%5F180424%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Compliance policy, risk management, and AML/KYC", "Privacy, data minimisation, hashes, and access control", "Interoperability, responsible adoption, DLT, and consensus"]
+        }
+      ]
     }
   ]
 };
