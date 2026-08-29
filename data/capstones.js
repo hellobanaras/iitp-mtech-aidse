@@ -503,4 +503,35 @@ export const capstones = Object.freeze({
       "success": "A learner can explain each component, reproduce every parameter choice, and justify a forecasting baseline without confusing visual artifacts for signal."
     }
   }
+  ,"eai-6402-2026-08-29": {
+    "en": {
+      "title": "VisionAudit: a low-data computer-vision evidence workbench",
+      "pitch": "Build a local-first studio that lets a learner document image/video provenance, compare expert and assisted labels, test rare-event and anomaly detectors, and stress-test a vision model with controlled perturbations.",
+      "problem": "Computer-vision systems can look accurate while hiding sampling gaps, noisy annotation, class imbalance, privacy constraints, or adversarial weaknesses. Teams need a reviewable evidence trail before deploying in medicine, agriculture, surveillance, or recommendation workflows.",
+      "learning": "You will connect annotation provenance, stratified evaluation, anomaly detection, multimodal evidence, synthetic augmentation, and adversarial robustness—the practical bridge from scarce data to meta-learning.",
+      "mvp": [
+        "Import a permitted image dataset plus metadata for source, labeler expertise, consent, subgroup, and confidence.",
+        "Compare majority, expert, and assisted labels with agreement, missingness, imbalance, and subgroup coverage reports.",
+        "Train a simple classifier and anomaly baseline; report precision, recall, false-positive/negative counts, and review queues.",
+        "Add a perturbation panel that applies small, documented changes and records whether predictions remain stable.",
+        "Export an evidence card with dataset limitations, model version, evaluation fixtures, and human-review decisions."
+      ],
+      "stretch": [
+        "Add active learning to request the most informative expert labels under a fixed budget.",
+        "Compare real versus synthetic augmentation and detect distribution shift with held-out domain data.",
+        "Add a graph view of human key points for simple activity recognition.",
+        "Provide privacy-preserving local processing and redaction for sensitive faces, plates, or medical imagery."
+      ],
+      "plan": [
+        "Week 1: define provenance schema, consent fields, annotation roles, and non-destructive import.",
+        "Week 2: implement label agreement, subgroup/imbalance diagnostics, and expert review queue.",
+        "Week 3: add classifier/anomaly baselines, cost-aware metrics, and synthetic-data comparison.",
+        "Week 4: implement perturbation tests, evidence export, responsible-use notes, and a case-study demo."
+      ],
+      "novelty": "The workbench treats data quality, expert accountability, and adversarial robustness as one inspectable evidence chain rather than separate afterthoughts.",
+      "stack": ["Python", "OpenCV", "scikit-learn", "PyTorch", "Streamlit"],
+      "milestones": ["Week 1: provenance and annotation audit", "Week 2: imbalance and review workflow", "Week 3: model and anomaly baselines", "Week 4: perturbation tests and evidence report"],
+      "success": "A reviewer can trace a prediction to its data source and label evidence, explain errors for rare groups, and reproduce the robustness checks without exposing private raw imagery."
+    }
+  }
 });

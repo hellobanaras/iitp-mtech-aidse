@@ -204,6 +204,9 @@ const processOne = (state, item) => {
   const date = item.nominalDate;
   const segment = String(item.segment || item.round || "01").padStart(2, "0");
   const processArgs = ["tools/process_lecture.py", resolve(item.input), "--course", item.course, "--date", date, "--segment", segment, "--classification", item.classification || "canonical", "--transcribe"];
+  // Permit a locally configured Whisper model so long recordings can be
+  // processed with the fastest installed model without changing public data.
+  if (process.env.LECTURE_WHISPER_MODEL) processArgs.push("--model", process.env.LECTURE_WHISPER_MODEL);
   if (item.sidecar) processArgs.push("--sidecar", resolve(item.sidecar));
   try {
     run("python3", processArgs);

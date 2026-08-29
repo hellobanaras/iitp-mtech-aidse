@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-08-28",
+  updated: "2026-08-29",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 18,
+  filesInventoried: 19,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -88,8 +88,8 @@ export const catalog = {
       icon: "ML",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course73_hybrid_iitp_ac_in/IgAf1eu3AHhfSrcxcaecYZMNASegocBzjTgbUeQ7OhS3a1k?e=Sbp7Pi",
       status: "active",
-      statusLabel: "1 lecture available",
-      note: "Lecture 1 is published with a verified instructional timeline, slide trail, explained quiz, and applied build.",
+      statusLabel: "2 lectures available",
+      note: "Lectures from 22 and 29 August are published in chronological order with verified teaching intervals, slide trails, explained quizzes, and applied builds.",
       lectures: [
         {
           id: "eai-6402-2026-08-22",
@@ -104,6 +104,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Why data matters", "Sampling and representation", "Rare events and data scarcity"]
+        },
+        {
+          id: "eai-6402-2026-08-29",
+          number: 2,
+          date: "2026-08-29",
+          sourceRecordedAt: "2026-08-29T10:04:19+05:30",
+          sourceFilename: "Meta Learning-20260829_100419-Meeting Recording.mp4",
+          displayDate: "29 August 2026",
+          title: "Meta-learning through computer vision: data scarcity, annotation, and applications",
+          duration: "2h 03m 30s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course73_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course73%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FMeta%20Learning%2D20260829%5F100419%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Data scarcity and meta-learning", "Expert annotation and computer-vision evidence", "GANs, applications, and adversarial robustness"]
         }
       ]
     },
