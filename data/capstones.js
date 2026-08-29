@@ -106,6 +106,31 @@ export const capstones = Object.freeze({
       ]
     }
   },
+  "eai-6403-2026-08-29": {
+    "en": {
+      "title": "ModelFit Studio — a transparent LLM selection lab",
+      "pitch": "Build a local-first workbench that compares candidate language models against real task prompts while recording license, privacy, quality, latency, and total-cost evidence.",
+      "problem": "Teams often choose a model from hype or a leaderboard without checking whether its license, deployment mode, accuracy, or operating cost fits their actual use case.",
+      "learning": "You will turn the lecture's four-step framework into a reproducible decision product: define constraints, build an evaluation set, compare outputs, and calculate total cost of ownership.",
+      "mvp": [
+        "Import a task brief with privacy, deployment, context-length, and customization requirements.",
+        "Run 50 representative prompts containing edge cases and common user mistakes against two or more permitted models.",
+        "Score outputs with semantic metrics plus a human review rubric for accuracy, helpfulness, and format.",
+        "Export a decision record with model versions, license notes, evaluation results, token costs, infrastructure assumptions, and a recommendation."
+      ],
+      "stretch": [
+        "Add a cost simulator for closed APIs, self-hosted GPU inference, and traffic spikes.",
+        "Add a privacy gate that blocks candidates incompatible with sensitive-data handling.",
+        "Track model revisions and rerun the benchmark when the landscape changes."
+      ],
+      "plan": [
+        "Week 1: define the task brief, candidate schema, license/privacy checklist, and prompt fixtures.",
+        "Week 2: implement model adapters, output capture, semantic scoring, and human rubric review.",
+        "Week 3: add token/infrastructure cost calculations and a comparison dashboard.",
+        "Week 4: package the reproducible report, document limitations, and test a model replacement scenario."
+      ]
+    }
+  },
   "eai-6401-2026-08-24": {
     "en": {
       "title": "RegretLab — an auditable adaptive-experiment studio",

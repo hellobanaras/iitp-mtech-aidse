@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-08-28",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 17,
+  filesInventoried: 18,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -119,8 +119,8 @@ export const catalog = {
       icon: "GA",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/people?emailId=course74%5Fhybrid%40iitp%2Eac%2Ein",
       status: "active",
-      statusLabel: "1 lecture available",
-      note: "Lecture 1 is published from the bounded 00:30–53:35 source interval with a verified transcript, slide trail, three student Q&As, further study, and 25 explained MCQs.",
+      statusLabel: "2 lectures available",
+      note: "Lectures from 23 and 29 August are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
       lectures: [
         {
           id: "eai-6403-2026-08-23",
@@ -135,6 +135,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Transformer architecture", "Tokens, embeddings, and attention", "Temperature, top-k, and top-p"]
+        },
+        {
+          id: "eai-6403-2026-08-29",
+          number: 2,
+          date: "2026-08-29",
+          sourceRecordedAt: "2026-08-29T15:36:43+05:30",
+          sourceFilename: "Selective Topics in Generative AI-20260829_153643-Meeting Recording.mp4",
+          displayDate: "29 August 2026",
+          title: "Modern Generative AI: Transformers, LLMs, and model selection",
+          duration: "49m 06s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course74_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course74%5Fhybrid_iitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSelective%20Topics%20in%20Generative%20AI%2D20260829%5F153643%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["2017 Transformer breakthrough", "Tokens, LLMs, and Generative AI applications", "Model-selection and evaluation framework"]
         }
       ]
     },

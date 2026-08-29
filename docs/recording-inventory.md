@@ -162,3 +162,12 @@ The requested coverage rotation is persisted in `.course-data/review-queue.json`
 Checkpoint evidence: `activeRecordingTabsOpened: 0`, `reviewedRecordingTabsLeftOpen: 0`, `captured: 11`, `rejected: 1`, `pending: 0`, `inProgress: 0`, and `failed: 0`; four accessible folders expose no pending source after the canonical ECC 6404, EBB 6402, ECS 6401 and EBB 6403 captures plus the rejected EBB 6403 source, and two courses are explicitly excluded for access denial. The queue is timestamp-sorted within each subject round in `.course-data/review-queue.json`; process one source at a time and revisit excluded courses only after their permissions change.
 
 The Moodle elective page was also rechecked after restoring the existing Microsoft session. Its schedules and Teams links remain unchanged. The deterministic recording queue has no pending eligible source after ECC 6404 on 26 August at 19:32:41 was captured and its recording tab closed; excluded folders remain blocked until permissions change.
+
+### Aug 29 round — queue-runner checkpoint
+
+| Course | Source | Size / duration | Access | Review state |
+| --- | --- | --- | --- | --- |
+| EAI 6403 | `Selective Topics in Generative AI-20260829_153643-Meeting Recording.mp4` | 56m 05s provider duration; 134 MB permitted visible-tab capture | view only; no Download action | `canonical`; capture verified through source 49:06; note authored and validated |
+| EAI 6402 | `Meta Learning-20260829_100419-Meeting Recording.mp4` | 431 MB listing; duration pending | view only | `pending`; next browser capture after EAI 6403 publication |
+
+The durable queue state is maintained in ignored `.course-data/recording-queue-state.json` and the source inventory in `.course-data/recording-sources.json`. The queue priority for this round is EAI 6403, then EAI 6402; subsequent sources are selected one oldest eligible recording per course per round. The EAI 6403 source was swept at distributed timeline positions, captured at 2× with the visible tab and audio, restored to source timestamps, and stopped at the final sustained teaching segment. The participant-only tail after approximately 49:06 was excluded. The first failed paused capture remains private invalid evidence and was not used for publication.
