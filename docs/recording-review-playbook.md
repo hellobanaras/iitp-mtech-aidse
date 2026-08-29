@@ -103,3 +103,30 @@ Record the original source timecode. Do not elevate illustrative examples or opt
 ## 7. English source and presentation pass
 
 Create one English record after the evidence review. Do not create or publish Hindi or duplicate language editions. Preserve technical terms such as `policy`, `value function`, `few-shot`, and `bandit` in their precise English form. Spot-check the title, lede, coverage, first and last MCQ, all non-empty academic signals, and the public capstone. Run the content validator before marking the English record published.
+
+## 8. Durable queue runner and recovery
+
+Use `tools/run_recording_queue.mjs` as the controller for a full-loop run. Keep
+the discovered source list in ignored `.course-data/recording-sources.json` so
+the repository never publishes private recording metadata. The runner merges
+that list into `.course-data/recording-queue-state.json`, assigns each source a
+stable identity, and orders work in rounds: the oldest eligible recording from
+each course, then the next oldest from each course. Completed, rejected, and
+blocked identities are skipped unless the inventory explicitly changes.
+
+The runner checkpoints `awaiting-browser`, `awaiting-capture`,
+`local-processing`, `awaiting-note`, `validation`, `publishing`, and
+`published` states atomically. A process lock prevents concurrent queue runs;
+stale locks are recoverable after a crash. `npm run queue:status` and
+`npm run queue:next` are safe read-only recovery commands. `npm run queue:run`
+advances until it reaches the next required browser gesture or note-authoring
+checkpoint, then can be rerun without repeating completed media work.
+
+Stream/Chrome capture remains an explicit user-gesture boundary. The runner
+must pause when an artifact is absent; it must never attempt hidden stream
+discovery or claim that a view-only recording was captured unattended. After a
+verified capture is placed in the inventory, `npm run queue:process -- <id>`
+performs local evidence extraction/transcription. Once the sole English note
+and resource refresh exist, `npm run queue:publish -- <id>` runs validation,
+build, a guarded commit, `origin/main` synchronization, and the GitHub Pages
+deployment. Cloudflare is never a target.

@@ -32,6 +32,22 @@ Important persistent lessons:
 - Keep raw videos, participant data, private transcripts, model files, and processing caches under `.course-data/`, which must remain untracked.
 - Publish original study notes rather than recordings or verbatim transcripts.
 
+## Durable full-loop processing
+
+When the user asks for a full-loop recording run, use
+`tools/run_recording_queue.mjs` and the ignored `.course-data/recording-sources.json`
+inventory. Run `npm run queue:status`/`npm run queue:next` before opening a
+source, then `npm run queue:run` to advance the oldest pending recording per
+course round. The runner persists stable identities and stage checkpoints,
+skips completed/rejected/blocked sources, enforces a single-process lock, and
+resumes safely after interruption. A missing capture pauses at
+`awaiting-browser`; a processed artifact pauses at `awaiting-note` until the
+sole English note and subject-resource refresh have been authored and
+validated. `npm run queue:publish -- <publication-id>` is the only queue
+publication path and performs the guarded source push followed by GitHub Pages
+deployment. Chrome/Stream capture still requires the permitted visible-tab user
+gesture; never bypass provider controls or claim unattended capture.
+
 ## Deployment and conflict prevention policy
 
 - Deployment is deterministic and split by target:
