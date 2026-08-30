@@ -11,7 +11,7 @@ if [ "$REMOTE_NAME" != "origin" ] && [ "$REMOTE_NAME" != "github-pages" ]; then
 fi
 
 PUSHED_BRANCH="main"
-while read -r _ _ _ remote_ref; do
+while read -r _ _ remote_ref _; do
   if [ -n "$remote_ref" ]; then
     PUSHED_BRANCH="${remote_ref#refs/heads/}"
     break
