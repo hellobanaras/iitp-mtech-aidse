@@ -281,6 +281,32 @@ export const openLearningResources = {
       description: "A practical guide to greedy, sampling, beam, and constrained decoding that makes temperature, top-k, and top-p choices testable.",
       descriptionHi: "Greedy, sampling, beam और constrained decoding का practical guide—temperature, top-k और top-p choices को test करने के लिए।",
       url: "https://huggingface.co/docs/transformers/main/en/generation_strategies"
+    },
+    {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Open research paper",
+      kindHi: "मुक्त research paper",
+      access: "Free full text",
+      accessHi: "मुफ़्त full text",
+      title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      titleHi: "BERT: bidirectional Transformer paper",
+      description: "The primary BERT paper for understanding bidirectional contextual representations and the link to search discussed in the lecture.",
+      descriptionHi: "Bidirectional contextual representations और search connection समझने के लिए primary BERT paper।",
+      url: "https://arxiv.org/abs/1810.04805"
+    },
+    {
+      provider: "Harvard NLP",
+      providerHi: "Harvard NLP",
+      kind: "Interactive HTML walkthrough",
+      kindHi: "Interactive HTML walkthrough",
+      access: "Free course material",
+      accessHi: "मुफ़्त course सामग्री",
+      title: "The Annotated Transformer",
+      titleHi: "The Annotated Transformer",
+      description: "A code-linked walkthrough of the original Transformer architecture, useful for turning the lecture's attention concepts into practice.",
+      descriptionHi: "Original Transformer architecture का code-linked walkthrough, lecture के attention concepts को practice करने के लिए useful।",
+      url: "https://nlp.seas.harvard.edu/annotated-transformer/"
     }
   ],
   "ecc-6404": [

@@ -533,5 +533,34 @@ export const capstones = Object.freeze({
       "milestones": ["Week 1: provenance and annotation audit", "Week 2: imbalance and review workflow", "Week 3: model and anomaly baselines", "Week 4: perturbation tests and evidence report"],
       "success": "A reviewer can trace a prediction to its data source and label evidence, explain errors for rare groups, and reproduce the robustness checks without exposing private raw imagery."
     }
+  },
+  "eai-6403-2026-08-30": {
+    "en": {
+      "title": "ContextLens — a self-attention and translation-debugging lab",
+      "pitch": "Build an interactive lab that highlights which tokens a model should use to resolve references and translate ambiguous sentences, then compares those explanations with the model's output.",
+      "problem": "A fluent NLP output can still be wrong when a pronoun, attachment, or word sense is linked to the wrong context. Learners need a compact way to see the dependency, inspect the failure, and build a targeted evaluation example.",
+      "learning": "You will turn the lecture's attention examples into a practical workflow: tokenize sentences, mark candidate antecedents, inspect attention or attribution signals, compare translation alternatives, and record an evidence-backed error analysis.",
+      "mvp": [
+        "Provide fixtures for pronoun resolution, long-range subject/predicate links, bank-style word-sense ambiguity, and short English-to-Hindi translation examples.",
+        "Show the target token, candidate context tokens, model output, and a learner-selected gold interpretation in one aligned view.",
+        "Run a permitted Transformer/BERT model locally or through an approved API and record model/version, prompt, output, and latency.",
+        "Export an evaluation card with the failure type, correct context link, output comparison, and a reproducible test sentence."
+      ],
+      "stretch": [
+        "Add a side-by-side attention heatmap and a warning when an explanation is not a faithful causal account.",
+        "Generate contrastive pairs that change one contextual phrase while keeping the target word fixed.",
+        "Track error rates by dependency distance, ambiguity type, and translation direction."
+      ],
+      "plan": [
+        "Week 1: define sentence fixtures, token/context schema, gold labels, and privacy-safe logging.",
+        "Week 2: implement inference, candidate highlighting, and a human annotation workflow.",
+        "Week 3: add contrastive tests, attention/attribution views, and aggregate error metrics.",
+        "Week 4: package the lab, export evidence cards, document model limitations, and publish a small case study."
+      ],
+      "novelty": "It turns an abstract self-attention explanation into a reproducible debugging record that connects context, output, and evaluation rather than presenting heatmaps as decoration.",
+      "stack": ["Python", "Transformers", "PyTorch", "Gradio or Streamlit"],
+      "milestones": ["Week 1: fixtures and labels", "Week 2: inference and annotation", "Week 3: contrastive diagnostics", "Week 4: evidence export and case study"],
+      "success": "A learner can show exactly which context resolves an ambiguity, reproduce the model output, and explain a translation or reference error without exposing private text."
+    }
   }
 });

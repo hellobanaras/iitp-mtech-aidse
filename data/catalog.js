@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-08-29",
+  updated: "2026-08-30",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 19,
+  filesInventoried: 20,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -133,8 +133,8 @@ export const catalog = {
       icon: "GA",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/people?emailId=course74%5Fhybrid%40iitp%2Eac%2Ein",
       status: "active",
-      statusLabel: "2 lectures available",
-      note: "Lectures from 23 and 29 August are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
+      statusLabel: "3 lectures available",
+      note: "Lectures from 23, 29, and 30 August are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
       lectures: [
         {
           id: "eai-6403-2026-08-23",
@@ -163,6 +163,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["2017 Transformer breakthrough", "Tokens, LLMs, and Generative AI applications", "Model-selection and evaluation framework"]
+        },
+        {
+          id: "eai-6403-2026-08-30",
+          number: 3,
+          date: "2026-08-30",
+          sourceRecordedAt: "2026-08-30T15:40:47+05:30",
+          sourceFilename: "Selective Topics in Generative AI-20260830_154047-Meeting Recording.mp4",
+          displayDate: "30 August 2026",
+          title: "Self-attention: the context engine behind modern AI",
+          duration: "46m 34s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course74_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course74%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSelective%20Topics%20in%20Generative%20AI%2D20260830%5F154047%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Context and pronoun resolution", "Translation and long-range dependencies", "Transformer and BERT foundations"]
         }
       ]
     },

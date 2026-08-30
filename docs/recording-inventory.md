@@ -1,6 +1,6 @@
 # Recording inventory
 
-Last checked: 28 August 2026 (America/Chicago)
+Last checked: 30 August 2026 (America/Chicago)
 
 This file records only technical metadata needed for study-note production. It intentionally omits participant names and private meeting details.
 
@@ -63,6 +63,10 @@ Microsoft Stream exposed no Download action for this view-only source. The permi
 The older supplied EAI 6403 link was also checked on 23 August 2026 and incorrectly resolved to the `course73` Meta Learning folder. It is retained only as historical configuration evidence and is no longer the active EAI 6403 source.
 
 The `course74` people listing was checked again on 24 August 2026 and still exposes only the completed 23 August recording.
+
+The `course74` people listing was checked on 30 August 2026 after the new source appeared. The stable identity is `EAI 6403` plus `Selective Topics in Generative AI-20260830_154047-Meeting Recording.mp4`; it is distinct from the 23 and 29 August sources and was placed after them in the subject archive. No visible Download action was available. The required pre-capture sweep found instructional material at the beginning, 10%, 25%, 50%, and 75% samples; the 90% and near-end samples showed participant-only idle content. Additional checks confirmed teaching through the `Soket AI` slide at approximately `46:53`, followed by participant-only content. The permitted visible-tab capture ran at 2× and saved a valid WebM plus sidecar under `/Users/ukumar/Downloads/lecture-atlas`; an endpoint-only test capture was rejected as an invalid static artifact and remains private.
+
+Local processing verified audio and video, restored source timecodes, sampled 51 frames with 32 slide candidates, and measured 7.74% silence inside the bounded artifact. The canonical teaching interval is `00:19–46:53` source time, with the idle tail to the 55:47 reported endpoint excluded. The capture sidecar records `captureStartSourceSeconds: 19.902311`, `captureEndSourceSeconds: 2813.761889`, `playbackRate: 2`, and `stopReason: marked-teaching-end`. The English-only note includes the self-attention, pronoun resolution, translation, Transformer/BERT, and modern-AI narrative; explicit empty assignment/homework/lab/project categories; timecoded references and student response; five further-study resources; and exactly 25 explained MCQs. The public capstone is `ContextLens`, a context and translation-debugging lab. The subject resource catalog was refreshed with BERT and The Annotated Transformer, and the publication was pushed to `origin/main` and deployed to the GitHub Pages mirror.
 
 ## EBB 6403 — Security and Privacy for Big Data
 

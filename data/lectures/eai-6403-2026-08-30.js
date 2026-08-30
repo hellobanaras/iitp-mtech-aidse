@@ -1,0 +1,100 @@
+// English-only publication unit for the verified 30 August 2026 recording.
+const quizSeed = [
+  ["What is the lecture's central idea?", ["Self-attention lets a model relate a token to relevant context", "A model should ignore earlier words", "Every sentence needs a database lookup", "Attention is only a classroom behaviour"], 0, "The lecture defines self-attention as connecting a word with the context needed to interpret it."],
+  ["Which paper is presented as the 2017 turning point?", ["Attention Is All You Need", "The Mythical Man-Month", "The C Programming Language", "ImageNet Classification"], 0, "The instructor names Google's 2017 Attention Is All You Need paper."],
+  ["In the example 'The animal did not cross the street because it was tired,' what does 'it' refer to?", ["The animal", "The street", "The word because", "The speaker's microphone"], 0, "The context makes it refer to the animal, not the street or a function word."],
+  ["Why is context needed for pronoun resolution?", ["The earlier words constrain the meaning of the later word", "Pronouns always have one dictionary meaning", "Context removes all ambiguity automatically", "The model must see only the last word"], 0, "Self-attention uses the preceding context to resolve what a pronoun refers to."],
+  ["What long-range dependency is illustrated by 'The student who submitted the assignment late was still allowed to register'?", ["Was allowed connects to the student across an intervening clause", "Register determines the student's age", "Assignment is a synonym for student", "Late is the grammatical subject"], 0, "The example asks the model to connect the predicate to the correct earlier subject."],
+  ["What translation problem does the lecture use to motivate attention?", ["A word's correct translation depends on surrounding context", "Translation requires no context", "Hindi and English have identical word order", "Only punctuation causes translation errors"], 0, "The book-on-the-table example shows that context is required for a reliable translation."],
+  ["What is the main failure mode when attention is not applied well?", ["The system can attach a word to the wrong context and produce an incorrect meaning", "The model always becomes faster", "The vocabulary becomes infinite", "The recording loses its audio"], 0, "The lecture links weak contextual alignment to incorrect references and translations."],
+  ["What did earlier NLP representations often miss?", ["Context-dependent meaning", "All numeric values", "The existence of words", "The need for a vocabulary"], 0, "The lecture contrasts fixed word vectors with contextual representations."],
+  ["Which pair demonstrates why a word needs context?", ["River bank and bank robber", "Blue sky and blue ink only as colours", "Two identical file names", "Two meeting dates"], 0, "Bank has different meanings in river bank and bank robber."],
+  ["What does the Transformer architecture provide for modern NLP?", ["A reusable attention-based architecture for contextual sequence processing", "A replacement for every dataset", "A rule that only works for images", "A hardware-only protocol"], 0, "The lecture presents the Transformer as the implementation that brought attention into modern NLP systems."],
+  ["Which historical model is mentioned as using bidirectional encoder representations?", ["BERT", "FTP", "SQL", "GAN"], 0, "BERT is expanded as Bidirectional Encoder Representations from Transformers."],
+  ["How did the lecture connect BERT to search?", ["Google used BERT to improve understanding of search queries", "BERT stores every web page as a spreadsheet", "BERT is a network cable", "BERT removes the need for ranking"], 0, "The instructor says BERT was introduced for improving Google's search engine."],
+  ["What is the purpose of an embedding in a Transformer pipeline?", ["Map a token into a numeric vector representation", "Delete all context", "Choose the final meeting time", "Translate a file name directly"], 0, "Embeddings turn discrete token units into vectors that neural layers can process."],
+  ["What does self-attention enable inside a sentence?", ["Each position can use relevant information from other positions", "Every position must use only itself", "The model can never compare words", "Only the first word is visible"], 0, "Attention weights let representations incorporate information from other positions."],
+  ["Why is the phrase 'attention is all you need' used in the lecture?", ["Human-like focus on relevant context is framed as the key mechanism for the model", "It claims no training data is required", "It says the model has no architecture", "It refers to a calendar reminder"], 0, "The phrase summarizes the lecture's analogy between human attention and contextual AI processing."],
+  ["What is the role of a language model in the described pipeline?", ["Model likely sequences of tokens and use them to generate or understand language", "Only store audio recordings", "Only sort students", "Only draw slide thumbnails"], 0, "The lecture places Transformer language models at the centre of modern NLP and generation."],
+  ["What changed after the Transformer according to the lecture?", ["Large Transformer-based language models became practical and widely used", "All older computing stopped working", "Datasets became unnecessary", "Search no longer needed queries"], 0, "The instructor describes the Transformer as the foundation for later LLMs and applications."],
+  ["What does 'bidirectional' emphasize in BERT?", ["Representations can use context from both directions during encoding", "The model reads only the next token", "The model translates only two languages", "The model runs two microphones"], 0, "BERT's name highlights bidirectional contextual encoding."],
+  ["Why can older fixed embeddings give the same vector to two uses of 'bank'?", ["They represent the word without enough sentence context", "They are always image embeddings", "They store only punctuation", "They are generated after translation"], 0, "A context-free representation cannot distinguish the river and financial senses."],
+  ["What practical lesson follows from the translation examples?", ["Correct output depends on resolving relationships before generating a translation", "A translator should always choose the first dictionary entry", "Context is harmful to translation", "Only pronunciation matters"], 0, "The lecture uses translation errors to show why contextual relationships must be modelled."],
+  ["Which statement best describes modern AI in the lecture?", ["Attention-based Transformer models help AI handle language in a more context-sensitive way", "Modern AI is only a collection of static rules", "Modern AI cannot use prior words", "Modern AI is independent of representations"], 0, "The lecture's narrative is the shift from earlier NLP methods to contextual Transformers."],
+  ["What is the correct relationship between an LLM and a Transformer here?", ["An LLM can use a Transformer architecture to model and generate token sequences", "An LLM is a slide deck", "A Transformer is only a database", "They are unrelated terms"], 0, "The lecture treats Transformer architecture as the technical foundation behind many LLMs."],
+  ["Which error should a self-attention system reduce?", ["Linking a pronoun or predicate to an irrelevant word", "Recognizing any context", "Representing a token as a vector", "Using a sentence's earlier words"], 0, "The examples are designed to show how attention reduces incorrect contextual links."],
+  ["What is the instructor's closing message about the 2017 paper?", ["It supplied an implementation path for using attention in AI", "It eliminated the need for evaluation", "It was a paper about calendar scheduling", "It replaced all language data with images"], 0, "The instructor closes by tying the paper to the Transformer implementation and modern NLP."],
+  ["Which use case is most directly supported by the lecture's contextual-attention idea?", ["Resolving an ambiguous reference before translating a sentence", "Selecting a random meeting tab", "Deleting all embeddings", "Ignoring the words around a target"], 0, "Resolving references and translating them correctly require the contextual relationship emphasized throughout the lecture."],
+];
+
+const quiz = quizSeed.map(([question, options, answer, explanation]) => ({
+  question,
+  options,
+  answer,
+  explanation,
+  optionNotes: options.map((option, index) => index === answer
+    ? `${option} is correct: it matches the lecture's explanation.`
+    : `${option} is not correct for this question: it conflicts with the lecture's definition or example.`),
+}));
+
+export const eai6403Lecture20260830 = {
+  en: {
+    title: "Self-attention: the context engine behind modern AI",
+    lede: "This lecture introduces self-attention through pronoun resolution, long-range dependencies, and translation examples, then connects the idea to the 2017 Transformer paper, BERT, and modern language models.",
+    instructionalInterval: "00:19–46:53 source time (visible-tab capture at 2×; participant-only tail excluded)",
+    reviewLevel: "Full-timeline triage at beginning/10%/25%/50%/75%/90%/near-end, 2× visible-tab capture, 51 frame samples, and source-time-restored transcript",
+    coverage: [
+      { title: "Attention as contextual focus", body: "Human attention and the Arjuna analogy motivate selecting the words that matter for a task." },
+      { title: "Long-range dependencies and translation", body: "Pronouns, predicates, and translation choices depend on earlier context rather than isolated words." },
+      { title: "From earlier NLP to Transformers and BERT", body: "The lecture contrasts fixed vectors and older sequence methods with contextual Transformer representations and BERT." },
+      { title: "Why the shift matters", body: "Self-attention is presented as the mechanism that made modern NLP and many LLM applications practical." },
+    ],
+    takeaway: "A model cannot reliably interpret or translate a token in isolation; it needs an attention mechanism that weighs the surrounding context.",
+    slideTrail: [
+      { time: "00:19", title: "A revolution in AI: self-attention", note: "The opening slide frames self-attention as the lecture's central concept." },
+      { time: "01:19", title: "Attention Is All You Need", note: "The Arjuna target analogy connects human focus with selecting task-relevant information." },
+      { time: "03:19", title: "Simple sentence example", note: "The animal/tired example asks what the pronoun refers to and why context is necessary." },
+      { time: "07:19", title: "Long-range dependency examples", note: "Student/assignment/register and similar clauses require a model to connect distant words." },
+      { time: "12:19", title: "Translation errors", note: "English-to-Hindi examples show that word-by-word translation can fail without context." },
+      { time: "21:19", title: "Language-modelling history", note: "The deck contrasts earlier fixed vectors, n-grams, RNN/LSTM approaches, and the contextual shift." },
+      { time: "31:19", title: "BERT and Transformer models", note: "BERT is introduced as a bidirectional Transformer representation used in search." },
+      { time: "44:19", title: "India's foundational AI model", note: "The closing slides situate current model development and the continuing importance of attention." },
+    ],
+    summary: [
+      { title: "1. Attention starts with selecting what matters", sourceRefs: ["00:19–03:19", "A revolution in AI: self-attention"], paragraphs: ["The instructor begins with the idea that attention is a familiar human capability: when solving a task, we focus on the relevant part of a scene or sentence. The Arjuna and target analogy illustrates this selective focus.", "The 2017 paper title Attention Is All You Need is used as a bridge from the human analogy to an AI mechanism. The point is not that models think like people in every respect, but that relevance-weighting is useful for contextual computation."] },
+      { title: "2. Pronouns expose the need for context", sourceRefs: ["03:19–07:19", "Simple sentence example"], paragraphs: ["In 'The animal did not cross the street because it was tired,' the word it is interpreted using the earlier sentence. The listener retains the context and links the pronoun to the animal rather than treating it as an isolated token.", "The same reasoning appears in the student's assignment/register example. A predicate such as was allowed must connect to the correct subject even when an intervening clause contains several nouns. These are long-range dependencies: the relevant word may be several positions away."] },
+      { title: "3. Translation is a contextual prediction problem", sourceRefs: ["12:19–20:19", "Translation errors"], paragraphs: ["The lecture uses the book-on-the-table example and other ambiguous sentences to show why direct word substitution is unreliable. A correct translation depends on syntax, reference, and the meaning contributed by neighbouring words.", "When attention links the target word to the right context, a model can choose a more defensible interpretation. When that link is wrong or absent, the output may be grammatical-looking but semantically incorrect."] },
+      { title: "4. Transformers changed the representation of language", sourceRefs: ["21:19–31:19", "Language-modelling history"], paragraphs: ["Earlier NLP pipelines used fixed word vectors, n-grams, and recurrent or LSTM sequence models. The lecture's bank example makes the limitation concrete: a context-free vector can represent river bank and bank robber too similarly.", "The Transformer introduced attention-based contextual representations. Embeddings provide numeric inputs, attention mixes relevant context, and the resulting representations can support modern language understanding and generation. The lecture presents this as the transition into modern AI."] },
+      { title: "5. BERT and LLMs operationalize the idea", sourceRefs: ["31:19–46:53", "BERT and Transformer models"], paragraphs: ["BERT—Bidirectional Encoder Representations from Transformers—is presented as a Google model that applied bidirectional contextual encoding to search. The model's importance in the lecture is that the same underlying architecture can improve how a system understands a query.", "The conclusion connects Transformer-based models to large language models and current AI systems. Attention is a foundation, not a guarantee: reliable applications still need appropriate data, evaluation, and careful interpretation of outputs."] },
+    ],
+    insights: [
+      "A useful debugging question for an NLP system is: which earlier tokens should this prediction attend to, and did it attend to the correct ones?",
+      "A fluent translation can still be wrong if the model resolves a pronoun, attachment, or sense using the wrong context; surface quality is not enough.",
+      "Contextual representations reduce ambiguity but do not remove it. Evaluation sets should include long-range references, attachment ambiguities, and domain-specific senses.",
+      "The Transformer is an enabling architecture. Product quality still depends on data, task design, evaluation, governance, and the way the model is integrated.",
+    ],
+    courseSignals: {
+      assignments: [],
+      homework: [],
+      labs: [],
+      projects: [],
+      references: [{ time: "01:19", title: "Attention Is All You Need", detail: "The instructor recommends the 2017 Transformer paper as the source behind the attention revolution; no deadline or graded deliverable is assigned." }, { time: "31:19", title: "BERT paper/model", detail: "BERT is recommended as a concrete example of bidirectional Transformer representations used in search." }],
+      studentQuestions: [{ time: "03:19", question: "Students answer what 'it' refers to in the animal sentence and discuss the student/register example.", response: "The instructor confirms that the answer depends on the preceding context and uses the examples to motivate self-attention." }],
+    },
+    resources: [
+      { kind: "read", title: "Attention Is All You Need", url: "https://arxiv.org/abs/1706.03762", detail: "Primary 2017 paper introduced in the lecture." },
+      { kind: "read", title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding", url: "https://arxiv.org/abs/1810.04805", detail: "Primary BERT paper for the bidirectional representation discussion." },
+      { kind: "read", title: "The Annotated Transformer", url: "https://nlp.seas.harvard.edu/annotated-transformer/", detail: "A freely available, code-linked walkthrough of the original Transformer architecture." },
+      { kind: "practice", title: "Hugging Face NLP course: Transformer models", url: "https://huggingface.co/learn/nlp-course/chapter1/4", detail: "Guided practice with tokenization, Transformer inference, and model use." },
+      { kind: "read", title: "Google Research: BERT", url: "https://research.google/pubs/bert-pre-training-of-deep-bidirectional-transformers-for-language-understanding/", detail: "Google's publication page for the BERT work referenced in the lecture." },
+    ],
+    keyTerms: [
+      { term: "Self-attention", definition: "A mechanism that lets each token representation weigh information from other positions in the same sequence." },
+      { term: "Context", definition: "The surrounding words or tokens that constrain the interpretation of a target token." },
+      { term: "Long-range dependency", definition: "A relationship between words that are separated by intervening tokens or clauses." },
+      { term: "Transformer", definition: "An attention-based neural architecture for contextual sequence processing." },
+      { term: "BERT", definition: "Bidirectional Encoder Representations from Transformers, a contextual encoder model introduced by Google." },
+    ],
+    quiz,
+  },
+};
