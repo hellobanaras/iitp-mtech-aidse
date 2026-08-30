@@ -485,10 +485,14 @@ function youtubeId(url) {
 function studyResource(item, hindi, text, readerCopy = hinglishCopy) {
   hindi ||= item;
   const videoId = youtubeId(item.url);
+  const kind = item.kind || item.type || "Resource";
+  const kindSecondary = hindi.kind || hindi.type || kind;
+  const creator = item.creator || hindi.creator || "";
+  const reason = item.why || item.detail || hindi.why || hindi.detail || "";
   if (videoId) {
-    return `<article class="video-resource"><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/${escapeHtml(videoId)}" title="${escapeHtml(item.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="video-resource__copy"><span>${text.watchHere}</span>${readerCopy(item.title, hindi.title, "h3")}${readerCopy(item.creator, hindi.creator, "p")}${readerCopy(item.why, hindi.why, "small")}<a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${text.openYouTube} ${icon("external")}</a></div></article>`;
+    return `<article class="video-resource"><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/${escapeHtml(videoId)}" title="${escapeHtml(item.title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="video-resource__copy"><span>${text.watchHere}</span>${readerCopy(item.title, hindi.title, "h3")}${creator ? readerCopy(creator, hindi.creator || creator, "p") : ""}${reason ? readerCopy(reason, hindi.why || hindi.detail || reason, "small") : ""}<a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${text.openYouTube} ${icon("external")}</a></div></article>`;
   }
-  return `<a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer"><span>${escapeHtml(item.type)} · ${escapeHtml(hindi.type)}</span><div>${readerCopy(item.title, hindi.title, "h3")}${readerCopy(item.creator, hindi.creator, "p")}${readerCopy(item.why, hindi.why, "small")}</div>${icon("external")}</a>`;
+  return `<a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer"><span class="resource-list__type">${escapeHtml(kind)}${kindSecondary !== kind ? ` · ${escapeHtml(kindSecondary)}` : ""}</span><div>${readerCopy(item.title, hindi.title, "h3")}${creator ? readerCopy(creator, hindi.creator || creator, "p") : ""}${reason ? readerCopy(reason, hindi.why || hindi.detail || reason, "small") : ""}</div>${icon("external")}</a>`;
 }
 
 function capstoneSection(id, text, readerCopy = hinglishCopy) {

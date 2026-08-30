@@ -825,13 +825,14 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 .insight-list h3 { margin: .65rem 0; font-size: 1.35rem; color: var(--ink); }
 .insight-list p { margin: 0; color: var(--ink-muted); }
 .resource-list { display: grid; gap: .8rem; }
-.resource-list > a { display: grid; grid-template-columns: 100px minmax(0, 1fr) auto; align-items: center; gap: 1rem; padding: 1.2rem 1.3rem; border: 1px solid var(--line); border-radius: 16px; background: var(--white); box-shadow: var(--shadow-sm); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.resource-list > a { display: grid; grid-template-columns: 112px minmax(0, 1fr) auto; align-items: center; gap: 1.2rem; padding: 1.2rem 1.3rem; border: 1px solid var(--line); border-radius: 16px; background: var(--white); box-shadow: var(--shadow-sm); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
 .resource-list > a:hover { transform: translateY(-2px); border-color: var(--teal); box-shadow: var(--shadow); }
-.resource-list > a > span { color: var(--teal-dark); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.resource-list > a > span { justify-self: start; padding: .36rem .55rem; border: 1px solid rgba(13, 148, 136, .2); border-radius: 999px; color: var(--teal-dark); background: rgba(13, 148, 136, .08); font-size: .64rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.resource-list > a > div { min-width: 0; }
 .resource-list h3, .resource-list p { margin: 0; }
 .resource-list h3 { font-size: 1rem; color: var(--ink); }
 .resource-list p { margin-top: .25rem; color: var(--ink-muted); font-size: .8rem; }
-.resource-list small { display: block; margin-top: .45rem; color: #475569; }
+.resource-list small { display: block; margin-top: .45rem; color: #475569; line-height: 1.45; }
 .resource-list > a > svg { width: 18px; color: var(--teal); }
 .video-resource { display: grid; grid-template-columns: minmax(260px, 1.25fr) minmax(0, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--white); box-shadow: var(--shadow-sm); }
 .video-frame { position: relative; min-height: 245px; background: var(--navy); }
