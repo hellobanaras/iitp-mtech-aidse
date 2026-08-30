@@ -68,10 +68,10 @@ export const eai6403Lecture20260830 = {
       { title: "5. BERT and LLMs operationalize the idea", sourceRefs: ["31:19–46:53", "BERT and Transformer models"], paragraphs: ["BERT—Bidirectional Encoder Representations from Transformers—is presented as a Google model that applied bidirectional contextual encoding to search. The model's importance in the lecture is that the same underlying architecture can improve how a system understands a query.", "The conclusion connects Transformer-based models to large language models and current AI systems. Attention is a foundation, not a guarantee: reliable applications still need appropriate data, evaluation, and careful interpretation of outputs."] },
     ],
     insights: [
-      "A useful debugging question for an NLP system is: which earlier tokens should this prediction attend to, and did it attend to the correct ones?",
-      "A fluent translation can still be wrong if the model resolves a pronoun, attachment, or sense using the wrong context; surface quality is not enough.",
-      "Contextual representations reduce ambiguity but do not remove it. Evaluation sets should include long-range references, attachment ambiguities, and domain-specific senses.",
-      "The Transformer is an enabling architecture. Product quality still depends on data, task design, evaluation, governance, and the way the model is integrated.",
+      { label: "Debugging", title: "Ask which context tokens matter", body: "A useful debugging question for an NLP system is: which earlier tokens should this prediction attend to, and did it attend to the correct ones?" },
+      { label: "Translation", title: "Fluency is not semantic correctness", body: "A fluent translation can still be wrong if the model resolves a pronoun, attachment, or sense using the wrong context; surface quality is not enough." },
+      { label: "Evaluation", title: "Context reduces ambiguity but does not remove it", body: "Contextual representations reduce ambiguity but do not remove it. Evaluation sets should include long-range references, attachment ambiguities, and domain-specific senses." },
+      { label: "Product", title: "Architecture needs data and governance", body: "The Transformer is an enabling architecture. Product quality still depends on data, task design, evaluation, governance, and the way the model is integrated." },
     ],
     courseSignals: {
       assignments: [],

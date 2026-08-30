@@ -66,10 +66,10 @@ export const eai6403Lecture20260829 = {
       { title: "5. Model selection is a four-step decision, not a leaderboard lookup", sourceRefs: ["00:39:20–00:48:57", "Four-step model-selection framework"], paragraphs: ["First identify license, legal, and privacy constraints. Sensitive data may require on-premise or specially governed deployment; a small team validating a product may start with a closed API. Second map the task, complexity, context, deployment mode, and customization needs.", "Third build a representative evaluation set with edge cases and mistakes, then combine semantic/lexical metrics, model judging where appropriate, and human review. Fourth calculate total cost of ownership, including token charges or GPU, engineering, maintenance, and operational overhead. The lecture closes by recommending agility as the model landscape changes."] },
     ],
     insights: [
-      "The architecture is a capability substrate; a product decision still requires data governance, task-specific evaluation, and operational controls.",
-      "‘Generative’ describes the model's ability to produce outputs, but it does not guarantee factuality, safety, or suitability for a business requirement.",
-      "A small custom test set with edge cases can reveal a better fit than a generic benchmark score, especially when context, privacy, or cost constraints dominate.",
-      "Cost comparisons should include people and operations; a low token price can still be expensive if integration, monitoring, or GPU management is substantial.",
+      { label: "Architecture", title: "A capability substrate still needs governance", body: "The architecture is a capability substrate; a product decision still requires data governance, task-specific evaluation, and operational controls." },
+      { label: "Reliability", title: "Generation does not guarantee factuality or safety", body: "‘Generative’ describes the model's ability to produce outputs, but it does not guarantee factuality, safety, or suitability for a business requirement." },
+      { label: "Evaluation", title: "Small edge-case suites can beat generic benchmarks", body: "A small custom test set with edge cases can reveal a better fit than a generic benchmark score, especially when context, privacy, or cost constraints dominate." },
+      { label: "Operations", title: "Total cost includes people and operations", body: "Cost comparisons should include people and operations; a low token price can still be expensive if integration, monitoring, or GPU management is substantial." },
     ],
     courseSignals: {
       assignments: [], homework: [], labs: [], projects: [],

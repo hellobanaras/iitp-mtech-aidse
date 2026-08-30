@@ -50,6 +50,12 @@ For student questions:
 
 Empty arrays are meaningful and render as “None mentioned in this lecture.” Never invent an item merely to fill a category.
 
+When a learner-facing enrichment is requested, the renderer may show an
+optional `suggestedPractice` layer for an empty transcript category. These are
+expert-designed study activities, clearly labelled “optional, not
+instructor-assigned”; they must never be inserted into the six
+transcript-derived arrays or represented as something the professor required.
+
 ## Bilingual parity
 
 The validator rejects a missing side of the bilingual pair, changed MCQ answer indexes, different section counts, missing Hindi academic-signal categories, or a missing/incomplete capstone pair. Technical terms may remain in English where that is clearer than a forced translation. The paired content requires a human-readable cross-column sample check before publication.

@@ -792,6 +792,13 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 .signal-card strong { display: block; font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); }
 .signal-card p { margin: .45rem 0 0; color: var(--ink-muted); font-size: .85rem; }
 .signal-card .signal-empty { margin: 0; font-style: italic; }
+.signal-suggested { margin: -.15rem -.35rem -.35rem; padding: .8rem .85rem .35rem; border: 1px solid rgba(13, 148, 136, .2); border-radius: 14px; background: linear-gradient(135deg, rgba(240, 253, 250, .92), rgba(239, 246, 255, .72)); }
+.signal-suggested__label { margin: 0 0 .15rem !important; color: var(--teal) !important; font-size: .68rem !important; font-style: normal !important; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.signal-suggested section { padding: .65rem 0; }
+.signal-suggested section:first-of-type { border-top: 1px solid rgba(13, 148, 136, .14); }
+.signal-suggested time { color: var(--teal); font-family: inherit; font-size: .68rem; letter-spacing: .03em; }
+.signal-suggested strong { font-size: .96rem; }
+.signal-suggested p:not(.signal-suggested__label) { font-size: .82rem; }
 
 .section-intro { margin: -1rem 0 2rem; color: var(--ink-muted); }
 .source-refs { display: flex; flex-wrap: wrap; gap: .45rem; margin: -.25rem 0 1.2rem; }

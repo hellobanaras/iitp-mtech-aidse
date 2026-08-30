@@ -7,6 +7,7 @@ import { capstones } from "../data/capstones.js";
 import { meetingsForCourse, semesterSchedule } from "../data/schedule.js";
 import { courseResources } from "../data/resources.js";
 import { programProfile } from "../data/program.js";
+import { suggestedPracticeForLecture } from "../data/suggested-practice.js";
 
 const errors = [];
 const assert = (condition, message) => {
@@ -115,6 +116,21 @@ for (const lecture of lectures) {
     });
   });
   assert(notes.insights?.length >= 3, `${lecture.id}: expected at least 3 added insights.`);
+  notes.insights?.forEach((insight, index) => {
+    const label = `${lecture.id}: insight ${index + 1}`;
+    assert(typeof insight === "object" && insight !== null, `${label} must be an object.`);
+    assert(insight?.label?.length > 0 && insight?.title?.length > 0 && insight?.body?.length > 0,
+      `${label} needs a label, title, and body so it renders visibly.`);
+  });
+  const suggestedPractice = suggestedPracticeForLecture(lecture, lecture.course);
+  for (const key of ["assignments", "homework", "labs", "projects"]) {
+    assert(Array.isArray(suggestedPractice[key]) && suggestedPractice[key].length > 0,
+      `${lecture.id}: suggested practice for ${key} is missing.`);
+    suggestedPractice[key]?.forEach((item, index) => {
+      assert(item.title?.length > 0 && item.detail?.length > 0,
+        `${lecture.id}: suggested practice ${key}[${index}] is incomplete.`);
+    });
+  }
   assert(notes.resources?.length >= 3, `${lecture.id}: expected at least 3 further-study resources.`);
   notes.resources?.forEach((resource, index) => {
     assert(/^https:\/\//.test(resource.url || ""), `${lecture.id}: resource ${index + 1} needs an HTTPS URL.`);

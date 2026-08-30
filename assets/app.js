@@ -8,7 +8,8 @@ const [
   { semesterSchedule, scheduleBySlug, meetingsForCourse },
   { courseResources },
   { openLearningResources },
-  { programProfile }
+  { programProfile },
+  { suggestedPracticeForLecture }
 ] = await Promise.all([
   import(`../data/catalog.js?v=${releaseVersion}`),
   import(`../data/catalog-hi.js?v=${releaseVersion}`),
@@ -18,7 +19,8 @@ const [
   import(`../data/schedule.js?v=${releaseVersion}`),
   import(`../data/resources.js?v=${releaseVersion}`),
   import(`../data/open-resources.js?v=${releaseVersion}`),
-  import(`../data/program.js?v=${releaseVersion}`)
+  import(`../data/program.js?v=${releaseVersion}`),
+  import(`../data/suggested-practice.js?v=${releaseVersion}`)
 ]);
 
 const main = document.querySelector("#main-content");
@@ -459,12 +461,13 @@ function signalCards(notes, text, readerCopy = hinglishCopy) {
   return signalLabels.map(([key, label]) => {
     const englishItems = notes.en.courseSignals[key];
     const hindiItems = notes.hi?.courseSignals?.[key] || englishItems;
+    const suggestedItems = notes.en.suggestedPractice?.[key] || [];
     return `<article class="signal-card"><h3>${label}</h3>${englishItems.length ? `<div>${englishItems.map((item, index) => {
       const hindi = hindiItems[index];
       return key === "studentQuestions"
         ? `<section><time>${escapeHtml(item.time)}</time>${readerCopy(item.question, hindi.question, "strong")}${readerCopy(item.response, hindi.response, "p")}</section>`
         : `<section><time>${escapeHtml(item.time)}</time>${readerCopy(item.title, hindi.title, "strong")}${readerCopy(item.detail, hindi.detail, "p")}</section>`;
-    }).join("")}</div>` : `<p class="signal-empty">${text.noneMentioned}</p>`}</article>`;
+    }).join("")}</div>` : suggestedItems.length ? `<div class="signal-suggested"><p class="signal-suggested__label">${text.suggestedPractice}</p>${suggestedItems.map((item) => `<section><time>${text.optionalPractice}</time><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.detail)}</p></section>`).join("")}</div>` : `<p class="signal-empty">${text.noneMentioned}</p>`}</article>`;
   }).join("");
 }
 
@@ -505,6 +508,26 @@ function capstoneSection(id, text, readerCopy = hinglishCopy) {
   return `<section id="project" class="notes-section project-brief"><p class="eyebrow">${text.capstoneLens}</p>${readerCopy(en.title, hi.title, "h2")}${readerCopy(en.pitch, hi.pitch, "div", "project-pitch")}<div class="project-grid"><div><h3>${text.problem}</h3>${readerCopy(en.problem, hi.problem, "p")}</div><div><h3>${text.learningValue}</h3>${readerCopy(en.learning, hi.learning, "p")}</div>${listBlock(text.mvp, en.mvp, hi.mvp)}${listBlock(text.stretchGoals, en.stretch, hi.stretch)}</div>${listBlock(text.buildPlan, en.plan, hi.plan, "ol")}${optionalGrid ? `<div class="project-grid project-grid--optional">${optionalGrid}</div>` : ""}</section>`;
 }
 
+// Older note records stored insight copy as plain strings. Normalize both
+// shapes at the renderer boundary so a valid insight can never silently
+// become an empty card when a record is opened in production.
+function normalizedInsight(item, index) {
+  if (typeof item === "string") {
+    const body = item.trim();
+    const firstSentence = body.split(/[.!?](?:\s|$)/)[0]?.trim();
+    return {
+      label: "Connection",
+      title: firstSentence?.length > 4 ? firstSentence : `Applied insight ${index + 1}`,
+      body,
+    };
+  }
+  return {
+    label: item?.label || "Insight",
+    title: item?.title || `Applied insight ${index + 1}`,
+    body: item?.body || "",
+  };
+}
+
 function renderLecture(id, ctx) {
   const { lang, text: chromeText, allLectures, notes: noteCollection } = ctx;
   // Notes use the canonical English UI labels; the rest of the site may retain
@@ -522,7 +545,8 @@ function renderLecture(id, ctx) {
   if (!found || !notes) return renderNotFound(ctx);
   const { en } = notes;
   const hi = en;
-  const renderNotes = { ...notes, hi: en };
+  const renderNotes = { ...notes, hi: en, en: { ...en, suggestedPractice: suggestedPracticeForLecture(found, found.course) } };
+  const insightItems = (en.insights || []).map(normalizedInsight);
   const navItems = [["coverage", text.coverage], ["slides", text.slideTrail], ["summary", text.fullSummary], ["signals", text.courseSignals], ["insights", text.insights], ["resources", text.furtherStudy], ["quiz", text.mcqs]];
   if (capstones[id]) navItems.push(["project", text.capstone]);
   main.innerHTML = `<header class="lecture-hero"><div class="lecture-hero__meta"><a class="back-link" href="${href(lang, coursePath(found.course))}">← ${escapeHtml(found.course.code)}</a><span>${text.lecture} ${String(found.number).padStart(2, "0")}</span><span>${escapeHtml(found.displayDate)}</span></div>${compactBilingualCopy(en.title, hi.title, "h1")}${bilingualCopy(en.lede, hi.lede, "div", "lecture-hero__lede")}<dl><div><dt>${text.recording}</dt><dd>${escapeHtml(found.duration)}</dd></div><div><dt>${text.instructionalInterval}</dt><dd>${escapeHtml(en.instructionalInterval)}</dd></div><div><dt>${text.reviewLevel}</dt><dd>${compactBilingualCopy(en.reviewLevel, hi.reviewLevel)}</dd></div></dl></header>
@@ -531,7 +555,7 @@ function renderLecture(id, ctx) {
       <section id="slides" class="notes-section"><p class="eyebrow">${text.lectureSourceTrail}</p><h2>${text.slidesTimecodes}</h2>${bilingualCopy(ui.en.slidesIntro, ui.hi.slidesIntro, "div", "section-intro")}<div class="slide-trail">${en.slideTrail.map((slide, index) => `<article><time>${escapeHtml(slide.time)}</time><div>${compactBilingualCopy(slide.title, hi.slideTrail[index].title, "h3")}${bilingualCopy(slide.note, hi.slideTrail[index].note, "p")}</div></article>`).join("")}</div></section>
       <section id="summary" class="notes-section"><p class="eyebrow">${text.completeSummary}</p><h2>${text.followArgument}</h2>${en.summary.map((section, index) => { const hindi = hi.summary[index]; return `<section class="summary-block">${compactBilingualCopy(section.title, hindi.title, "h3")}${section.sourceRefs?.length ? `<div class="source-refs">${section.sourceRefs.map((reference) => `<span>${escapeHtml(reference)}</span>`).join("")}</div>` : ""}${bilingualMarkup(`${section.paragraphs.map((paragraph) => `<p>${inlineMathText(paragraph)}</p>`).join("")}${section.points?.length ? `<ul>${section.points.map((point) => `<li>${inlineMathText(point)}</li>`).join("")}</ul>` : ""}`, `${hindi.paragraphs.map((paragraph) => `<p>${inlineMathText(paragraph)}</p>`).join("")}${hindi.points?.length ? `<ul>${hindi.points.map((point) => `<li>${inlineMathText(point)}</li>`).join("")}</ul>` : ""}`)}${section.formula ? formulaMarkup(section.formula) : ""}</section>`; }).join("")}${en.keyTerms?.length ? `<div class="key-terms"><h3>${text.keyTerms}</h3><dl>${en.keyTerms.map((term, index) => `<div>${compactBilingualCopy(term.term, hi.keyTerms[index].term, "dt")}${bilingualCopy(term.definition, hi.keyTerms[index].definition, "dd")}</div>`).join("")}</dl></div>` : ""}</section>
       <section id="signals" class="notes-section"><p class="eyebrow">${text.transcriptSignals}</p><h2>${text.signalsHeading}</h2>${bilingualCopy(ui.en.signalsIntro, ui.hi.signalsIntro, "div", "section-intro")}<div class="signal-grid">${signalCards(renderNotes, text, bilingualCopy)}</div></section>
-      <section id="insights" class="notes-section"><p class="eyebrow">${text.addedAnalysis}</p><h2>${text.insightsConnections}</h2><div class="insight-list">${en.insights.map((item, index) => `<article><span>${escapeHtml(item.label)} · ${escapeHtml(hi.insights[index].label)}</span>${compactBilingualCopy(item.title, hi.insights[index].title, "h3")}${bilingualCopy(item.body, hi.insights[index].body, "p")}</article>`).join("")}</div></section>
+      <section id="insights" class="notes-section"><p class="eyebrow">${text.addedAnalysis}</p><h2>${text.insightsConnections}</h2><div class="insight-list">${insightItems.map((item, index) => `<article><span>${escapeHtml(item.label)}</span>${compactBilingualCopy(item.title, item.title, "h3")}${bilingualCopy(item.body, item.body, "p")}</article>`).join("")}</div></section>
       <section id="resources" class="notes-section"><p class="eyebrow">${text.referencesStudy}</p><h2>${text.oneLayerDeeper}</h2><div class="resource-list">${en.resources.map((item, index) => studyResource(item, hi.resources[index], text, bilingualCopy)).join("")}</div></section>
       <section id="quiz" class="notes-section"><p class="eyebrow">${text.activeRecall}</p><h2>${text.explained25}</h2>${bilingualCopy(ui.en.quizIntro, ui.hi.quizIntro, "div", "section-intro")}<div class="quiz-list">${en.quiz.map((question, index) => { const hindi = hi.quiz[index]; return `<details class="quiz-item"><summary><span>${String(index + 1).padStart(2, "0")}</span>${bilingualCopy(question.question, hindi.question, "strong")}<i>${text.openAnswer}</i></summary><div class="quiz-body"><ol type="A">${question.options.map((option, optionIndex) => `<li class="${optionIndex === question.answer ? "correct" : ""}">${bilingualCopy(option, hindi.options[optionIndex])}</li>`).join("")}</ol><div class="answer"><strong>${text.correctAnswer}: ${String.fromCharCode(65 + question.answer)}</strong>${bilingualCopy(question.explanation, hindi.explanation, "p")}</div><div class="option-review">${question.optionNotes.map((note, optionIndex) => `<div><strong>${String.fromCharCode(65 + optionIndex)}.</strong>${bilingualCopy(note, hindi.optionNotes[optionIndex], "p")}</div>`).join("")}</div></div></details>`; }).join("")}</div></section>
       ${capstoneSection(id, text, bilingualCopy)}

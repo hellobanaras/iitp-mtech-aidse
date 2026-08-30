@@ -45,6 +45,10 @@ English when that is more precise.
    all six academic-signal categories, and exactly 25 explained MCQs. Preserve
    identical timecodes, formulas, URLs, array ordering, and answer indexes. Use an explicit empty category when no signal was
    mentioned; never invent an obligation.
+   If learner enrichment is requested and a category is empty, add a separate
+   `suggestedPractice` item that is clearly labelled optional and
+   not-instructor-assigned. Keep it out of the transcript-derived arrays and
+   never imply that the professor required it.
 5. **English pass** — write and review the single English edition. Spot-check the
    title, coverage, first/last MCQ, academic signals, capstone, formulas, and URLs
    before publication. The public renderer must show this English source directly.

@@ -224,10 +224,10 @@ export const ecs6401Lecture20260819 = {
     }
   ],
   "insights": [
-    "Use the scheduled sampling cadence as a data-quality check: missing or uneven timestamps can change the meaning of a lag and should be recorded before imputation.",
-    "Treat the first plot as a model-risk control. A high-accuracy model on a shuffled split may simply be learning future information.",
-    "Compare a seasonal-naive or ARIMA baseline before a deep sequence model; the added complexity is justified only when it improves an honest time-based evaluation.",
-    "Separate trend, seasonality, cycle, and noise conceptually, then test whether the distinction remains stable after a regime change or a variance transformation."
+    { "label": "Data quality", "title": "Sampling cadence is a model input", "body": "Use the scheduled sampling cadence as a data-quality check: missing or uneven timestamps can change the meaning of a lag and should be recorded before imputation." },
+    { "label": "Evaluation", "title": "The first plot is a leakage control", "body": "Treat the first plot as a model-risk control. A high-accuracy model on a shuffled split may simply be learning future information." },
+    { "label": "Baselines", "title": "Earn deep-model complexity with honest comparisons", "body": "Compare a seasonal-naive or ARIMA baseline before a deep sequence model; the added complexity is justified only when it improves an honest time-based evaluation." },
+    { "label": "Decomposition", "title": "Test whether components survive regime change", "body": "Separate trend, seasonality, cycle, and noise conceptually, then test whether the distinction remains stable after a regime change or a variance transformation." }
   ],
   "resources": [
     {

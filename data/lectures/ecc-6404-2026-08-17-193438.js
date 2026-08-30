@@ -215,10 +215,10 @@ export const ecc6404Lecture20260817 = {
     }
   ],
   "insights": [
-    "Treat provenance and collection design as part of the model: a polished algorithm cannot repair a free-text survey or an unrepresentative population.",
-    "For rare-event operations, choose metrics and review thresholds from the cost of errors; accuracy is a reporting number, not a safety argument.",
-    "Knowledge representation is a technical requirement. If a decision maker cannot understand a pattern, the KDD pipeline has not completed its last mile.",
-    "The lecture's absent-versus-missing idea is best operationalized as provenance search before imputation: check other trusted sources before treating a blank as a true missing value."
+    { "label": "Data provenance", "title": "Collection design is part of the model", "body": "Treat provenance and collection design as part of the model: a polished algorithm cannot repair a free-text survey or an unrepresentative population." },
+    { "label": "Evaluation", "title": "Set thresholds from the cost of errors", "body": "For rare-event operations, choose metrics and review thresholds from the cost of errors; accuracy is a reporting number, not a safety argument." },
+    { "label": "Communication", "title": "Knowledge representation completes the pipeline", "body": "Knowledge representation is a technical requirement. If a decision maker cannot understand a pattern, the KDD pipeline has not completed its last mile." },
+    { "label": "Missing data", "title": "Search provenance before imputing a blank", "body": "The lecture's absent-versus-missing idea is best operationalized as provenance search before imputation: check other trusted sources before treating a blank as a true missing value." }
   ],
   "resources": [
     {

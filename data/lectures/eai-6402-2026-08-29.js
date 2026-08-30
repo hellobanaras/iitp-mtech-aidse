@@ -72,11 +72,11 @@ export const eai6402Lecture20260829 = {
       { title: "7. Adversarial examples make robustness an ongoing process", sourceRefs: ["02:28:03–02:34:33", "Adversarial attacks and defense"], paragraphs: ["The lecture's panda example shows a small noise pattern changing a CNN's high-confidence prediction. A similar idea could target number-plate recognition with a tiny sticker or perturbation that is hard for a person to notice but effective for a model.", "Defensive research and attack testing must therefore evolve together. A robust system needs threat modelling, held-out perturbation tests, monitoring, human fallback, and careful communication of what the model can and cannot guarantee."] },
     ],
     insights: [
-      "A scarce dataset is often a governance problem: access, consent, label expertise, and representativeness matter before a meta-learning algorithm is selected.",
-      "Computer-vision systems should expose uncertainty and provenance because a visually plausible output can still violate physics, context, or a person's privacy.",
-      "In rare-event settings, optimize the decision and error costs—not the easiest aggregate metric.",
-      "Synthetic augmentation and adversarial testing belong in the same risk conversation: both change the data distribution seen by a model.",
-      "The most credible deployment pattern in medical, forensic, and agricultural examples is a human-assistive workflow with reviewable evidence.",
+      { label: "Governance", title: "Scarcity is often an access and consent problem", body: "A scarce dataset is often a governance problem: access, consent, label expertise, and representativeness matter before a meta-learning algorithm is selected." },
+      { label: "Reliability", title: "Plausible vision outputs still need evidence", body: "Computer-vision systems should expose uncertainty and provenance because a visually plausible output can still violate physics, context, or a person's privacy." },
+      { label: "Evaluation", title: "Optimize the decision, not the easiest metric", body: "In rare-event settings, optimize the decision and error costs—not the easiest aggregate metric." },
+      { label: "Robustness", title: "Augmentation and adversarial tests change the data distribution", body: "Synthetic augmentation and adversarial testing belong in the same risk conversation: both change the data distribution seen by a model." },
+      { label: "Deployment", title: "Human-assistive workflows make evidence reviewable", body: "The most credible deployment pattern in medical, forensic, and agricultural examples is a human-assistive workflow with reviewable evidence." },
     ],
     courseSignals: {
       assignments: [],
