@@ -8,6 +8,7 @@ import { meetingsForCourse, semesterSchedule } from "../data/schedule.js";
 import { courseResources } from "../data/resources.js";
 import { programProfile } from "../data/program.js";
 import { suggestedPracticeForLecture } from "../data/suggested-practice.js";
+import { lectureVisuals, visualForLecture } from "../data/lecture-visuals.js";
 
 const errors = [];
 const assert = (condition, message) => {
@@ -165,6 +166,17 @@ for (const id of Object.keys(lectureNotes)) {
 }
 
 const publishedIds = lectures.filter((lecture) => lecture.status === "published").map((lecture) => lecture.id);
+assert(Object.keys(lectureVisuals).length === publishedIds.length,
+  "Every published lecture must have exactly one visual study-aid mapping.");
+for (const id of publishedIds) {
+  const lecture = lectures.find((item) => item.id === id);
+  const visual = visualForLecture(id, lectureNotes[id]?.en);
+  assert(lectureVisuals[id] && visual?.title && visual?.steps?.length >= 3,
+    `${id}: visual study aid is missing or incomplete.`);
+}
+for (const id of Object.keys(lectureVisuals)) {
+  assert(publishedIds.includes(id), `${id}: visual mapping has no published lecture.`);
+}
 assert(Object.keys(capstones).length === publishedIds.length, "Every published lecture must have exactly one capstone.");
 for (const id of publishedIds) assert(Object.hasOwn(capstones, id), `${id}: capstone is missing.`);
 for (const id of Object.keys(capstones)) assert(publishedIds.includes(id), `${id}: capstone has no published lecture.`);

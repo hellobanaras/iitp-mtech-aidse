@@ -1,10 +1,10 @@
 # Public lecture-note content contract
 
-Every `data/lectures/*.js` module exports one original, publication-ready bilingual lecture object shaped as `{ en: lecture, hi: lecture }`. The catalog links it only after the pair passes validation.
+Every `data/lectures/*.js` module exports one original, publication-ready English lecture object shaped as `{ en: lecture }`. The catalog links it only after the note passes validation.
 
-English and Hindi live in the same module and are published together at one clean `#/lecture/<id>` URL. Substantive note sections render the reviewed pair together—side by side on desktop and sequentially on mobile—while source timecodes, formulas, URLs, section ordering, and MCQ answer indexes must match across both columns. There are no language-specific public routes. A course's canonical route uses its descriptive `routeSlug`, for example `#/course/eai-6403-selective-topics-in-generative-ai`; its shorter `slug` remains an internal data key.
+Notes are published at one clean `#/lecture/<id>` URL with no language-specific public routes. A course's canonical route uses its descriptive `routeSlug`, for example `#/course/eai-6403-selective-topics-in-generative-ai`; its shorter `slug` remains an internal data key.
 
-The renderer may collapse a compact bilingual label, chip, technical name, or metadata fragment to one clear version when the Hindi string is identical or adds only an isolated Hindi word/conjunction to otherwise English text. Substantive note content must remain visibly paired; it may not be reduced to an alternating or Hindi-only surface. Source objects retain both aligned values even when the presentation intentionally avoids a low-value compact-label duplicate.
+Compact site chrome may retain a selective bilingual label when it adds comprehension; substantive lecture notes remain English-only. The visual study aid is a single shared English diagram, not a duplicated language card.
 
 For navigation back to primary course material, each course catalog record requires its verified SharePoint `recordingUrl`. Every catalog lecture whose status is `published` also requires a stable, human-facing Microsoft Stream `recordingUrl`. Remove transient `referrer` and `referrerScenario` parameters; never store a hidden media manifest, signed CDN URL, cookie, token, DRM datum, or direct stream segment.
 
@@ -23,12 +23,13 @@ Required sections:
 1. `coverage` — high-level map of the lecture.
 2. `slideTrail` — original-recording timecodes plus visible slide/topic references.
 3. `summary` — complete chronological explanation with source references.
-4. `courseSignals` — six transcript-derived arrays: `assignments`, `homework`, `labs`, `projects`, `references`, and `studentQuestions`.
-5. `insights` — clearly added analysis, corrections, or connections.
-6. `resources` — reliable further reading or viewing with HTTPS links.
-7. `quiz` — exactly 25 four-option MCQs, a valid answer index, a correct-answer explanation, and a note for every option.
+4. `visual study aid` — at least one accessible concept map, process flow, feedback loop, timeline, or architecture sketch rendered by the shared HTML visual layer. It must be grounded in the coverage/slide trail and include a short explanatory caption.
+5. `courseSignals` — six transcript-derived arrays: `assignments`, `homework`, `labs`, `projects`, `references`, and `studentQuestions`.
+6. `insights` — clearly added analysis, corrections, or connections.
+7. `resources` — reliable further reading or viewing with HTTPS links.
+8. `quiz` — exactly 25 four-option MCQs, a valid answer index, a correct-answer explanation, and a note for every option.
 
-Public lecture objects keep the note and project concerns separate: lecture modules do not need a `project` property. One bilingual mini-capstone/startup idea per lecture is stored in tracked `data/capstones.js` with problem, learning value, MVP, optional stretch goals, optional stack/milestones, and build plan. The deployed site renders this educational guidance directly; it must contain no credentials, authentication controls, or private learner data.
+Public lecture objects keep the note and project concerns separate: lecture modules do not need a `project` property. One English mini-capstone/startup idea per lecture is stored in tracked `data/capstones.js` with problem, learning value, MVP, optional stretch goals, optional stack/milestones, and build plan. The deployed site renders this educational guidance directly; it must contain no credentials, authentication controls, or private learner data.
 
 ## Academic-signal item shapes
 
@@ -56,9 +57,9 @@ expert-designed study activities, clearly labelled “optional, not
 instructor-assigned”; they must never be inserted into the six
 transcript-derived arrays or represented as something the professor required.
 
-## Bilingual parity
+## English publication parity
 
-The validator rejects a missing side of the bilingual pair, changed MCQ answer indexes, different section counts, missing Hindi academic-signal categories, or a missing/incomplete capstone pair. Technical terms may remain in English where that is clearer than a forced translation. The paired content requires a human-readable cross-column sample check before publication.
+The validator rejects a missing English note, changed MCQ answer indexes, incomplete section counts, or a missing/incomplete capstone. Technical terms remain in English where that is clearer than a forced translation. Every published lecture must also resolve to one visual study-aid mapping with at least three connected steps.
 
 ## Public course resources
 
@@ -68,6 +69,5 @@ Curated external resources live in `data/open-resources.js`, grouped by the
 course's internal slug. After every verified lecture, review that subject's
 group and add or refine only stable reading, viewing, or practice links that
 reinforce a newly covered concept. Keep each item public, deduplicated by
-canonical URL, and described in the reader's aligned bilingual surface; retain aligned English
-and Hindi source values when present. If no new item is justified, record that
+canonical URL, and described in the reader's English surface. If no new item is justified, record that
 the existing curated trail was intentionally retained.

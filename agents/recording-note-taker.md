@@ -42,7 +42,8 @@ English when that is more precise.
 4. **Note synthesis** — write original prose, not a verbatim transcript. Include
    high-level coverage, a timecoded slide/whiteboard trail, a chronological full
    summary, clearly marked insights, reliable further reading/viewing/practice,
-   all six academic-signal categories, and exactly 25 explained MCQs. Preserve
+   all six academic-signal categories, at least one meaningful visual study aid,
+   and exactly 25 explained MCQs. Preserve
    identical timecodes, formulas, URLs, array ordering, and answer indexes. Use an explicit empty category when no signal was
    mentioned; never invent an obligation.
    If learner enrichment is requested and a category is empty, add a separate
@@ -52,7 +53,17 @@ English when that is more precise.
 5. **English pass** — write and review the single English edition. Spot-check the
    title, coverage, first/last MCQ, academic signals, capstone, formulas, and URLs
    before publication. The public renderer must show this English source directly.
-6. **Subject resource refresh (mandatory)** — after each lecture note is
+6. **Visual study-aid pass (mandatory)** — add at least one visual that makes
+   the lecture's reasoning easier to recall: a concept map, process flow,
+   feedback loop, architecture sketch, timeline, or other compact diagram.
+   Derive labels and relationships from the verified coverage, slide trail, and
+   summary; do not invent claims merely to decorate the page. Prefer the
+   repository's reusable responsive HTML visual renderer/data patterns so the
+   diagram remains accessible, printable, and readable at phone widths. Keep
+   the original slide/timecode references visible in the surrounding note, and
+   give the visual an accessible label and a short caption explaining that it
+   is a study aid.
+7. **Subject resource refresh (mandatory)** — after each lecture note is
    verified, review what the lecture newly teaches and update the matching
    subject's resource trail. Add only resources that materially help students
    understand, watch, or practise the lecture's ideas. Deduplicate by canonical
@@ -61,7 +72,7 @@ English when that is more precise.
    provider. Re-run the resource indexer for permitted local PDFs/PPT/PPTX files,
    and keep curated external links in `data/open-resources.js` rather than
    copying third-party material into `resources/`.
-7. **Validation and state** — run `npm run check`, inspect the local mobile and
+8. **Validation and state** — run `npm run check`, inspect the local mobile and
    desktop routes, and record the disposition, output id, resource changes, and
    any blocker in the inventory/processing manifest. Only then mark the source
    complete and advance to the next course round.

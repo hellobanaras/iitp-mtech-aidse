@@ -68,7 +68,7 @@ When the workflow improves, update the constitution only for enduring principles
 
 Every published lecture, schedule, course description, academic signal, MCQ explanation, and mini-capstone is published in clear English. Substantive lecture notes use one English source surface on desktop and mobile. Public routes are language-neutral (`#/lecture/<id>`, not `/en`, `/hi`, or `/bi`) and no language selector is offered.
 
-Each `data/lectures/<id>.js` file contains one `{ en }` publication unit, and the matching capstone in `data/capstones.js` contains English project guidance. Spot-check the title, coverage, first and last MCQ, academic signals, formulas, URLs, and capstone before publishing.
+Each `data/lectures/<id>.js` file contains one `{ en }` publication unit, and the matching capstone in `data/capstones.js` contains English project guidance. Every published note also resolves to at least one accessible, lecture-grounded visual study aid (concept map, process flow, feedback loop, timeline, or architecture sketch) through the shared responsive HTML visual layer. Spot-check the title, coverage, visual, first and last MCQ, academic signals, formulas, URLs, and capstone before publishing.
 
 English clarity is the content invariant. Do not mechanically translate technical material; retain established English terminology when it is the most precise and readable choice.
 
@@ -96,7 +96,7 @@ Each subject page exposes the verified SharePoint recording-folder link. Each pu
 
 ## 13. Readable canonical course routes
 
-The internal course `slug` is a stable data key, while `routeSlug` is the shareable public URL segment. Canonical public subject URLs include both the course code and a readable English name, for example `#/course/eai-6403-selective-topics-in-generative-ai`. Existing code-only course and resource links redirect to their descriptive equivalent so historical bookmarks continue to work. Public URLs remain language-neutral and do not transliterate the bilingual body content.
+The internal course `slug` is a stable data key, while `routeSlug` is the shareable public URL segment. Canonical public subject URLs include both the course code and a readable English name, for example `#/course/eai-6403-selective-topics-in-generative-ai`. Existing code-only course and resource links redirect to their descriptive equivalent so historical bookmarks continue to work. Public URLs remain language-neutral and do not transliterate the English-only note body.
 
 ## 14. Shared presentation primitives
 
