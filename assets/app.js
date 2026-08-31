@@ -313,6 +313,12 @@ function updateSeo(route, ctx, parts = []) {
         description: `Books, slides, videos, datasets, and open learning links curated for IIT Patna's ${course.title} subject.`,
         keywords: [course.code, course.title, "open resources", "books", "slides", "videos", "datasets"]
       };
+    } else if (parts[1] === programProfile.resourceGroup.slug) {
+      seo = {
+        title: `${programProfile.title.en} · Programme Resources`,
+        description: "The authoritative IIT Patna Executive M.Tech AI & Data Science curriculum, syllabus, credits, electives, and programme learning outcomes.",
+        keywords: [programProfile.code, programProfile.title.en, "IIT Patna syllabus", "M.Tech curriculum", "programme resources"]
+      };
     }
   } else if (route.startsWith("/lecture/")) {
     const lecture = allLectures.find((item) => item.id === parts[1]);
@@ -325,12 +331,17 @@ function updateSeo(route, ctx, parts = []) {
     }
   } else if (route.startsWith("/resource/")) {
     const course = courseFor(parts[1]);
-    const resource = course && courseResources.find((item) => item.course === course.slug && item.id === parts[2]);
-    if (resource) {
+    const resourceCourse = course || (parts[1] === programProfile.resourceGroup.slug ? {
+      slug: programProfile.resourceGroup.slug,
+      code: programProfile.code,
+      title: programProfile.resourceGroup.title.en
+    } : null);
+    const resource = resourceCourse && courseResources.find((item) => item.course === resourceCourse.slug && item.id === parts[2]);
+    if (resource && resourceCourse) {
       seo = {
-        title: `${resource.title} · ${course.title} Resources`,
-        description: resource.description || `Open ${resource.extension.toUpperCase()} learning resource for ${course.title}.`,
-        keywords: [course.code, course.title, resource.title, resource.extension, "study resource"]
+        title: `${resource.title} · ${resourceCourse.title} Resources`,
+        description: resource.description || `Open ${resource.extension.toUpperCase()} learning resource for ${resourceCourse.title}.`,
+        keywords: [resourceCourse.code, resourceCourse.title, resource.title, resource.extension, "study resource"]
       };
     }
   } else if (route !== "/") {
