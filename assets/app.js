@@ -232,6 +232,123 @@ function context() {
   };
 }
 
+// The site is a hash-routed SPA, so the document head must be updated after
+// every route change. Keeping this beside the router means page metadata uses
+// the same catalog and lecture records as the visible page instead of drifting
+// into a second set of hand-maintained SEO copy.
+const publicSiteUrl = "https://hellobanaras.github.io/iitp-mtech-aidse/";
+
+function setMeta(name, content) {
+  let element = document.head.querySelector(`meta[name="${name}"]`);
+  if (!element) {
+    element = document.createElement("meta");
+    element.name = name;
+    document.head.append(element);
+  }
+  element.content = content;
+}
+
+function setProperty(property, content) {
+  let element = document.head.querySelector(`meta[property="${property}"]`);
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute("property", property);
+    document.head.append(element);
+  }
+  element.content = content;
+}
+
+function setCanonical(url) {
+  let element = document.head.querySelector("link[rel=canonical]");
+  if (!element) {
+    element = document.createElement("link");
+    element.rel = "canonical";
+    document.head.append(element);
+  }
+  element.href = url;
+}
+
+function updateSeo(route, ctx, parts = []) {
+  const { catalog, allLectures } = ctx;
+  const published = allLectures.filter((lecture) => lecture.status === "published");
+  const defaults = {
+    title: "IIT Patna AI & Data Science Lecture Atlas",
+    description: `A practical study companion for IIT Patna's Executive M.Tech AI & Data Science programme: ${published.length} verified lecture notes, slide trails, review questions, and applied projects.`,
+    keywords: ["IIT Patna", "Executive M.Tech", "AI", "Data Science", "lecture notes", "study guide"]
+  };
+  let seo = defaults;
+  const courseFor = (segment) => courseFromRouteSegment(segment, catalog.courses);
+  if (route === "/courses") {
+    seo = {
+      title: "Subjects & Courses · IIT Patna AI & Data Science Lecture Atlas",
+      description: `Browse ${catalog.courses.length} IIT Patna AI & Data Science subjects with class schedules, recordings, resources, and chronological lecture notes.`,
+      keywords: ["IIT Patna subjects", "AI courses", "data science courses", ...catalog.courses.map((course) => course.title)]
+    };
+  } else if (route === "/schedule") {
+    seo = {
+      title: "Class Schedule · IIT Patna AI & Data Science Lecture Atlas",
+      description: "See the weekly IIT Patna AI & Data Science class schedule with daylight-saving-aware Chicago times, original IST times, meeting links, and past-class context.",
+      keywords: ["IIT Patna class schedule", "AI class timetable", "IST class time", "Chicago class time", "Teams meeting"]
+    };
+  } else if (route === "/resources") {
+    seo = {
+      title: "Learning Resources · IIT Patna AI & Data Science Lecture Atlas",
+      description: "Open textbooks, lecture slides, inline courses, notebooks, datasets, and official programme materials organised by IIT Patna AI & Data Science subject.",
+      keywords: ["AI learning resources", "data science textbooks", "open courseware", "IIT Patna resources", ...catalog.courses.map((course) => course.title)]
+    };
+  } else if (route.startsWith("/course/")) {
+    const course = courseFor(parts[1]);
+    if (course) {
+      seo = {
+        title: `${course.title} (${course.code}) · Course Notes & Schedule`,
+        description: `${course.title} for IIT Patna's Executive M.Tech AI & Data Science programme: class times, Teams join link, recordings, ${course.lectures.filter((lecture) => lecture.status === "published").length} lecture notes, and subject resources.`,
+        keywords: [course.code, course.title, "course notes", "lecture recordings", "class schedule", ...course.lectures.flatMap((lecture) => lecture.overview)]
+      };
+    }
+  } else if (route.startsWith("/resources/") && !route.startsWith("/resource/")) {
+    const course = courseFor(parts[1]);
+    if (course) {
+      seo = {
+        title: `${course.title} Resources (${course.code}) · IIT Patna Lecture Atlas`,
+        description: `Books, slides, videos, datasets, and open learning links curated for IIT Patna's ${course.title} subject.`,
+        keywords: [course.code, course.title, "open resources", "books", "slides", "videos", "datasets"]
+      };
+    }
+  } else if (route.startsWith("/lecture/")) {
+    const lecture = allLectures.find((item) => item.id === parts[1]);
+    if (lecture) {
+      seo = {
+        title: `${lecture.title} · ${lecture.course.title} · Lecture Notes`,
+        description: `English lecture notes for ${lecture.course.title} at IIT Patna, recorded ${lecture.displayDate}: high-level coverage, source slide trail, insights, references, practice signals, and 25 explained MCQs.`,
+        keywords: [lecture.course.code, lecture.course.title, lecture.title, "lecture notes", "slide references", "MCQs", ...lecture.overview]
+      };
+    }
+  } else if (route.startsWith("/resource/")) {
+    const course = courseFor(parts[1]);
+    const resource = course && courseResources.find((item) => item.course === course.slug && item.id === parts[2]);
+    if (resource) {
+      seo = {
+        title: `${resource.title} · ${course.title} Resources`,
+        description: resource.description || `Open ${resource.extension.toUpperCase()} learning resource for ${course.title}.`,
+        keywords: [course.code, course.title, resource.title, resource.extension, "study resource"]
+      };
+    }
+  } else if (route !== "/") {
+    seo = { title: "Page not found · IIT Patna AI & Data Science Lecture Atlas", description: "The requested Lecture Atlas page could not be found.", keywords: defaults.keywords };
+  }
+  const description = String(seo.description).replace(/\s+/g, " ").trim().slice(0, 160);
+  const keywords = [...new Set(seo.keywords.map((keyword) => String(keyword).trim()).filter(Boolean))].join(", ");
+  document.title = seo.title;
+  setMeta("description", description);
+  setMeta("keywords", keywords);
+  setProperty("og:title", seo.title);
+  setProperty("og:description", description);
+  setProperty("og:url", `${publicSiteUrl}#${route}`);
+  setMeta("twitter:title", seo.title);
+  setMeta("twitter:description", description);
+  setCanonical(`${publicSiteUrl}#${route}`);
+}
+
 function statusPill(course) {
   return `<span class="status status--${escapeHtml(course.status)}"><i></i>${escapeHtml(course.statusLabel)} · ${escapeHtml(course.hi.statusLabel)}</span>`;
 }
@@ -989,6 +1106,7 @@ function route() {
   }
   else if (parsed.route.startsWith("/lecture/")) renderLecture(parsed.parts[1], ctx);
   else renderNotFound(ctx);
+  updateSeo(parsed.route, ctx, parsed.parts);
   main.focus({ preventScroll: true });
   window.scrollTo({ top: 0, behavior: "instant" });
   if (window.MathJax?.typesetPromise) {

@@ -591,5 +591,34 @@ export const capstones = Object.freeze({
       "milestones": ["Week 1: fixtures and labels", "Week 2: inference and annotation", "Week 3: contrastive diagnostics", "Week 4: evidence export and case study"],
       "success": "A learner can show exactly which context resolves an ambiguity, reproduce the model output, and explain a translation or reference error without exposing private text."
     }
+  },
+  "ecc-6404-2026-08-31-193236": {
+    "en": {
+      "title": "FeatureForge — a leakage-safe feature-reduction workbench",
+      "pitch": "Build a local-first workbench that compares sampling, projection, subset selection, weighting, and domain-derived features on one dataset while making the information and validation trade-offs visible.",
+      "problem": "Feature engineering is often judged by a single score after many undocumented experiments. Learners need to see when a smaller representation improves cost or generalisation, when rare groups disappear, and when a feature was derived with valid domain reasoning.",
+      "learning": "You will implement representative sampling, PCA/SVD projections, filter and wrapper selection, model-based weighting, and a density-style constructed feature while practising leakage-safe validation and reproducible experiment records.",
+      "mvp": [
+        "Upload a tabular dataset and decision brief; profile dimensions, missingness, class balance, and candidate leakage columns.",
+        "Compare a full-feature baseline with PCA/SVD, filter ranking, sequential forward selection, and an embedded model selector.",
+        "Plot validation score, training time, feature count, subgroup coverage, and the selected feature set for each strategy.",
+        "Let a learner define a derived feature such as density = mass / volume and record the domain rationale and formula."
+      ],
+      "stretch": [
+        "Add nested cross-validation and a held-out test set so selection overfitting is visible.",
+        "Add progressive sampling and a rare-class preservation dashboard.",
+        "Export a model card describing representation choice, feature provenance, and limitations."
+      ],
+      "plan": [
+        "Week 1: implement ingestion, profiling, leakage checks, and a deterministic baseline.",
+        "Week 2: add sampling, PCA/SVD, filter ranking, and comparable evaluation plots.",
+        "Week 3: implement wrapper/embedded selection, weighting, and nested validation.",
+        "Week 4: add domain-derived features, experiment export, documentation, and a comparative report."
+      ],
+      "novelty": "It treats representation choice as an auditable decision: the learner sees both model performance and what evidence was removed, transformed, or constructed.",
+      "stack": ["Python", "pandas", "scikit-learn", "Plotly", "Streamlit"],
+      "milestones": ["Week 1: profiling and baseline", "Week 2: projection and filters", "Week 3: wrappers and validation", "Week 4: constructed features and report"],
+      "success": "A learner can explain why a selected representation was chosen, reproduce its validation result, and identify a case where reducing dimensions harmed an important subgroup."
+    }
   }
 });

@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-08-31",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 21,
+  filesInventoried: 22,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -330,8 +330,8 @@ export const catalog = {
       icon: "DW",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course76_hybrid_iitp_ac_in/IgAWWFJqFmpXRay8IkonggGRASO0x6czOy20BYDTjv8HHXI?e=5DXrhH",
       status: "active",
-      statusLabel: "4 lectures available",
-      note: "Lectures 1–4 are published in chronological order. The 19 August source is bounded to 01:04–01:22:43, the 24 August source to 00:30–01:17:26, and the 26 August source to 00:02:16–01:25:35; waiting-room and idle tails were excluded after full timeline sweeps.",
+      statusLabel: "5 lectures available",
+      note: "Lectures 1–5 are published in chronological order. The 19 August source is bounded to 01:04–01:22:43, the 24 August source to 00:30–01:17:26, the 26 August source to 00:02:16–01:25:35, and the 31 August source to 00:00:19–01:26:54; waiting-room and idle tails were excluded after full timeline sweeps.",
       lectures: [
         {
           id: "ecc-6404-2026-08-17-193438",
@@ -388,6 +388,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Precision, bias, accuracy, outliers, and noise", "Missing, inconsistent, and duplicate data", "Preprocessing, aggregation, and representative sampling"]
+        },
+        {
+          id: "ecc-6404-2026-08-31-193236",
+          number: 5,
+          date: "2026-08-31",
+          sourceRecordedAt: "2026-08-31T19:32:36+05:30",
+          sourceFilename: "New Data Warehousing-20260831_193236-Meeting Recording.mp4",
+          displayDate: "31 August 2026",
+          title: "Dimensionality reduction, feature selection, and feature creation",
+          duration: "1h 26m 35s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course76%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FData%20Warehousing%2D20260831%5F193236%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Curse of dimensionality and PCA/SVD", "Filter, wrapper, and embedded feature selection", "Feature weighting, extraction, and construction"]
         }
       ]
     },

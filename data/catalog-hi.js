@@ -158,8 +158,8 @@ export const catalogHi = {
       shortTitle: "डेटा वेयरहाउसिंग",
       cadence: "सोमवार और बुधवार",
       time: "शाम ७:३०–९:०० IST",
-      statusLabel: "४ व्याख्यान उपलब्ध",
-      note: "१७, १९, २४ और २६ अगस्त के व्याख्यान chronological order में प्रकाशित हैं; waiting-room openings और participant-only idle tails को full timeline sweep के बाद हटाया गया।",
+      statusLabel: "५ व्याख्यान उपलब्ध",
+      note: "१७, १९, २४, २६ और ३१ अगस्त के व्याख्यान chronological order में प्रकाशित हैं; waiting-room openings और participant-only idle tails को full timeline sweep के बाद हटाया गया।",
       lectures: {
         "ecc-6404-2026-08-17-193438": {
           title: "Data mining की नींव: KDD, patterns और जिम्मेदार उपयोग",
@@ -180,6 +180,12 @@ export const catalogHi = {
           title: "Data quality, preprocessing और representative sampling",
           statusLabel: "नोट्स प्रकाशित",
           overview: ["Data quality और cleaning", "Preprocessing और sampling", "Missingness, noise और representative data"]
+        },
+        "ecc-6404-2026-08-31-193236": {
+          displayDate: "३१ अगस्त २०२६",
+          title: "Dimensionality reduction, feature selection और feature creation",
+          statusLabel: "नोट्स प्रकाशित",
+          overview: ["Curse of dimensionality और PCA/SVD", "Filter, wrapper और embedded selection", "Feature weighting, extraction और construction"]
         }
       }
     },

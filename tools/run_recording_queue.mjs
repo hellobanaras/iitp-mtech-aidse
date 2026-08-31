@@ -235,8 +235,10 @@ const publishOne = (state, item) => {
   save(state);
   run("npm", ["run", "check"]);
   run("npm", ["run", "build"]);
-  // Commit only the explicit publication surfaces. Raw media and state stay ignored.
-  run("git", ["add", "data", "docs"]);
+  // Commit only explicit publication surfaces. Raw media and queue state stay
+  // ignored, while route-aware SEO and shared UI changes must travel with a
+  // lecture publication so production cannot lag the local shell.
+  run("git", ["add", "assets", "data", "docs", "index.html"]);
   const diff = execFileSync("git", ["diff", "--cached", "--name-only"], { cwd: ROOT, encoding: "utf8" }).trim();
   if (!diff) throw new Error("No staged publication changes found; refusing to create an empty deployment commit.");
   run("git", ["commit", "-m", `Publish lecture ${item.publicationId}`]);
