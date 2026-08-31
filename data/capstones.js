@@ -184,6 +184,35 @@ export const capstones = Object.freeze({
       ]
     }
   },
+  "eai-6401-2026-08-31": {
+    "en": {
+      "title": "ContextBandit Lab — an uncertainty-aware policy workbench",
+      "pitch": "Build an auditable simulator that compares UCB, gradient-bandit, epsilon-greedy, and context-specific policies on stationary, drifting, and contextual reward streams.",
+      "problem": "Exploration policies often look interchangeable until uncertainty, reward drift, or context changes the decision. Learners need to see which signal each policy uses and when a policy is over-exploring or under-exploring.",
+      "learning": "You will implement UCB bonuses, softmax preferences, baseline-centred updates, contextual policy tables, regret metrics, and reproducible visual diagnostics.",
+      "mvp": [
+        "Create seeded stationary and drifting k-armed environments with configurable contexts and action sets.",
+        "Implement UCB, epsilon-greedy, gradient bandit with and without a baseline, and a contextual policy baseline.",
+        "Plot reward, cumulative regret, optimal-action rate, uncertainty bonus, and preference probabilities on a shared timeline.",
+        "Export an evidence card that records the environment, c/alpha/epsilon settings, policy, seed, and observed failure mode."
+      ],
+      "stretch": [
+        "Add a logged contextual-bandit replay mode with propensity-aware off-policy estimates.",
+        "Add change-point detection that increases adaptation after credible reward drift.",
+        "Create short challenge scenarios that diagnose denominator, baseline, and context-definition mistakes."
+      ],
+      "plan": [
+        "Week 1: build environments, seeded policies, and unit tests for UCB and softmax updates.",
+        "Week 2: add baseline comparisons, regret metrics, and the action ledger.",
+        "Week 3: introduce contexts, drift scenarios, and interactive visual diagnostics.",
+        "Week 4: package reproducible evidence cards, stress-test assumptions, and publish a teaching demo."
+      ],
+      "novelty": "The lab makes the exploration signal itself inspectable: uncertainty, preference gradient, random branch, and context are shown as separate causes of action selection.",
+      "stack": ["Python", "NumPy", "pandas", "Plotly", "Streamlit"],
+      "milestones": ["Week 1: policy correctness", "Week 2: testbed metrics", "Week 3: contextual diagnostics", "Week 4: reproducible demo"],
+      "success": "A learner can explain why each action was selected, reproduce its reward and regret curves, and defend when a contextual or uncertainty-aware policy is appropriate."
+    }
+  },
   "ecc-6404-2026-08-17-193438": {
     "en": {
       "title": "KDD Provenance Lab — from messy sources to decision-ready evidence",

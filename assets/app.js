@@ -164,8 +164,13 @@ function compactBilingualCopy(english, hindi, tag = "span", className = "") {
   const latinTokens = hindiText.match(/[A-Za-z][A-Za-z0-9+.-]*/g) || [];
   const normalizedEnglish = String(english || "").trim().toLocaleLowerCase("en-US");
   const normalizedHindi = hindiText.toLocaleLowerCase("hi-IN");
-  const addsMeaningfulHindi = devanagariTokens.length > 0
-    && !(latinTokens.length >= 2 && devanagariTokens.length <= 1);
+  const tokenCount = devanagariTokens.length + latinTokens.length;
+  const hindiShare = tokenCount ? devanagariTokens.length / tokenCount : 0;
+  // Compact/non-note surfaces avoid a second line when the Hindi variant is
+  // mostly English with a connector or one translated word. Pair the copy
+  // only when Hindi carries more than 70% of the words and therefore adds
+  // meaningful comprehension rather than visual repetition.
+  const addsMeaningfulHindi = devanagariTokens.length > 0 && hindiShare > 0.7;
 
   if (!addsMeaningfulHindi || normalizedEnglish === normalizedHindi) {
     return `<${tag} class="single-copy${className ? ` ${className}` : ""}" lang="en">${escapeHtml(english)}</${tag}>`;
@@ -317,7 +322,7 @@ function lectureRow(lecture, lang, text) {
   const available = lecture.status === "published";
   return `<article class="lecture-row ${available ? "" : "lecture-row--pending"}">
     <div class="lecture-number">${String(lecture.number).padStart(2, "0")}</div>
-    <div class="lecture-row__body"><p class="eyebrow">${escapeHtml(lecture.displayDate)} · ${escapeHtml(lecture.hi.displayDate)} · ${escapeHtml(lecture.duration)}</p>${hinglishCopy(lecture.title, lecture.hi.title, "h3")}<ul class="topic-chips">${lecture.overview.map((item, index) => `<li>${hinglishCopy(item, lecture.hi.overview[index])}</li>`).join("")}</ul></div>
+    <div class="lecture-row__body"><p class="eyebrow">${escapeHtml(lecture.displayDate)} · ${escapeHtml(lecture.hi.displayDate)} · ${escapeHtml(lecture.duration)}</p>${compactBilingualCopy(lecture.title, lecture.hi.title, "h3")}<ul class="topic-chips">${lecture.overview.map((item, index) => `<li>${compactBilingualCopy(item, lecture.hi.overview[index])}</li>`).join("")}</ul></div>
     ${available ? `<div class="lecture-row__actions"><a class="card-link card-link--notes" href="${href(lang, `/lecture/${lecture.id}`)}">${text.readNotes} ${icon("arrow")}</a><a class="card-link card-link--recording" href="${escapeHtml(lecture.recordingUrl)}" target="_blank" rel="noreferrer">${text.watchRecording} ${icon("video")}</a></div>` : `<span class="status status--processing"><i></i>${escapeHtml(lecture.statusLabel)} · ${escapeHtml(lecture.hi.statusLabel)}</span>`}
   </article>`;
 }
@@ -363,14 +368,14 @@ function scheduleRibbon(course) {
       : `शिकागो · ${chicagoAbbreviation} · ${hindiWeekdayLabel(chicagoDays)} · ${hindiNumerals(chicagoRangeText)}`;
     return { english, hindi, referenceEnglish, referenceHindi };
   });
-  return `<span class="notes-accordion__schedule">${icon("calendar")}<span class="notes-accordion__schedule-copy">${primary.map((item) => `${hinglishCopy(item.english, item.hindi, "span")}${hinglishCopy(item.referenceEnglish, item.referenceHindi, "small", "notes-accordion__schedule-reference")}`).join(" · ")}</span></span>`;
+  return `<span class="notes-accordion__schedule">${icon("calendar")}<span class="notes-accordion__schedule-copy">${primary.map((item) => `${compactBilingualCopy(item.english, item.hindi, "span")}${compactBilingualCopy(item.referenceEnglish, item.referenceHindi, "small", "notes-accordion__schedule-reference")}`).join(" · ")}</span></span>`;
 }
 
 function notesAccordion(course, lang, text) {
   const published = course.lectures.filter((lecture) => lecture.status === "published");
   return `<details class="notes-accordion notes-accordion--${course.accent}">
-    <summary><span class="notes-accordion__marker">${escapeHtml(course.icon)}</span><span class="notes-accordion__title"><span class="eyebrow">${escapeHtml(course.code)}</span>${hinglishCopy(course.title, course.hi.title, "strong")}${scheduleRibbon(course)}</span><span class="notes-accordion__meta"><span>${published.length} ${text.notes}</span>${icon("arrow")}</span></summary>
-    <div class="notes-accordion__body">${hinglishCopy(course.note, course.hi.note, "p", "notes-accordion__description")}${lectureArchive(course, lang, text, false)}<a class="button button--quiet-light" href="${href(lang, coursePath(course))}">${text.openSubject} ${icon("arrow")}</a></div>
+    <summary><span class="notes-accordion__marker">${escapeHtml(course.icon)}</span><span class="notes-accordion__title"><span class="eyebrow">${escapeHtml(course.code)}</span>${compactBilingualCopy(course.title, course.hi.title, "strong")}${scheduleRibbon(course)}</span><span class="notes-accordion__meta"><span>${published.length} ${text.notes}</span>${icon("arrow")}</span></summary>
+    <div class="notes-accordion__body">${compactBilingualCopy(course.note, course.hi.note, "p", "notes-accordion__description")}${lectureArchive(course, lang, text, false)}<a class="button button--quiet-light" href="${href(lang, coursePath(course))}">${text.openSubject} ${icon("arrow")}</a></div>
   </details>`;
 }
 
@@ -388,7 +393,7 @@ function resourceCard(resource, lang, text, course = null) {
   const courseSegment = course?.routeSlug || resource.course;
   return `<article class="resource-card">
     <span class="resource-card__icon">${icon(resource.kind === "pdf" ? "file" : "video")}</span>
-    <div><p class="eyebrow">${escapeHtml(resource.extension.toUpperCase())}${resource.date ? ` · ${escapeHtml(resource.date)}` : ""}</p>${hinglishCopy(resource.title, titleHi, "h3")}${resource.description ? hinglishCopy(resource.description, descriptionHi, "p") : ""}</div>
+    <div><p class="eyebrow">${escapeHtml(resource.extension.toUpperCase())}${resource.date ? ` · ${escapeHtml(resource.date)}` : ""}</p>${compactBilingualCopy(resource.title, titleHi, "h3")}${resource.description ? compactBilingualCopy(resource.description, descriptionHi, "p") : ""}</div>
     <a class="card-link" href="${href(lang, `/resource/${courseSegment}/${resource.id}`)}">${text.openViewer} ${icon("arrow")}</a>
   </article>`;
 }
@@ -409,9 +414,9 @@ function openResourceCard(resource, text) {
   return `<article class="open-resource-card${resource.youtubeId ? " open-resource-card--video" : ""}">
     ${media}
     <div class="open-resource-card__body">
-      <div class="open-resource-card__meta">${hinglishCopy(resource.provider, resource.providerHi || resource.provider, "span", "open-resource-card__provider")}${hinglishCopy(resource.kind, resource.kindHi || resource.kind, "span", "open-resource-card__kind")}${hinglishCopy(resource.access, resource.accessHi || resource.access, "span", "open-resource-card__access")}</div>
-      ${hinglishCopy(resource.title, resource.titleHi || resource.title, "h3", "open-resource-card__title")}
-      ${hinglishCopy(resource.description, resource.descriptionHi || resource.description, "p", "open-resource-card__description")}
+      <div class="open-resource-card__meta">${compactBilingualCopy(resource.provider, resource.providerHi || resource.provider, "span", "open-resource-card__provider")}${compactBilingualCopy(resource.kind, resource.kindHi || resource.kind, "span", "open-resource-card__kind")}${compactBilingualCopy(resource.access, resource.accessHi || resource.access, "span", "open-resource-card__access")}</div>
+      ${compactBilingualCopy(resource.title, resource.titleHi || resource.title, "h3", "open-resource-card__title")}
+      ${compactBilingualCopy(resource.description, resource.descriptionHi || resource.description, "p", "open-resource-card__description")}
       <div class="open-resource-card__links">${resource.youtubeId ? `<span class="open-resource-card__watch">${text.watchHere}</span>` : ""}${openResourceLinks(resource, text)}</div>
     </div>
   </article>`;

@@ -72,6 +72,8 @@ Each `data/lectures/<id>.js` file contains one `{ en }` publication unit, and th
 
 English clarity is the content invariant. Do not mechanically translate technical material; retain established English terminology when it is the most precise and readable choice.
 
+Compact non-note bilingual rendering is thresholded: show the Hindi companion only when more than 70% of its word tokens are Devanagari. If the Hindi variant is mostly English or only adds a connector/isolated Hindi word, render the clear English label once. This keeps home, course, schedule, and resource surfaces readable without weakening the English-only substantive note surface.
+
 ## 11. Public capstones are part of the learning surface
 
 Each published lecture has one complete English mini-capstone/startup idea in tracked `data/capstones.js`, rendered directly below its notes. Capstones contain no credentials, authentication UI, participant details, or private learner data; ignored `.course-data/` files may be used as drafting evidence but are never required at runtime.

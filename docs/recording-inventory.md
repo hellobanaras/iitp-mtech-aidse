@@ -1,6 +1,6 @@
 # Recording inventory
 
-Last checked: 30 August 2026 (America/Chicago)
+Last checked: 31 August 2026 (America/Chicago)
 
 This file records only technical metadata needed for study-note production. It intentionally omits participant names and private meeting details.
 
@@ -19,6 +19,7 @@ The ignored local ledger at `.course-data/inventory/ledger.json` is the deduplic
 | 18 Aug 2026 | base recording | 236 MB | 2h 29m 44s | view only | `canonical`; verified instruction 0:00–1:11:43 and 1:13:08–1:21:39; notes published |
 | 24 Aug 2026 | base recording | 254 MB | 2h 43m 12s | view only | `canonical`; verified instruction 1:12–39:57 and 41:10–1:18:01; 1h25m11s idle/non-instructional material excluded; notes published |
 | 25 Aug 2026 | base recording | 244 MB | 4h 00m | view only | `canonical`; verified instruction 0:00–1:11:13; remaining 2h48m47s idle tail excluded; notes published |
+| 31 Aug 2026 | base recording | 255 MB | 2h 30m 37s | view only | `canonical`; verified instruction 0:08:40–1:47:26; participant-only tail excluded; notes published |
 
 All August 17 variants have now been sampled across their timelines: the base recording is canonical and all three numbered variants are `idle/error`. The bounded canonical capture, clean transcript, 26-candidate slide review, categorized academic signals, and public note are complete.
 
@@ -29,6 +30,10 @@ The August 18 base recording was swept before capture. Slides and worked example
 The August 24 base recording was the only new queue item. Its stable identity is `EAI 6401` plus the original filename `Reinforcement Learning-20260824_180948-Meeting Recording.mp4`. The pre-capture sweep found a participant grid at 0:00:33, instruction by 0:01:00, regret slides from 0:17:28, a short connection interruption around 0:39:58–0:41:10, worked examples through 1:18:01, and only participant/black idle states later. The bounded 2× visible-tab capture and source-time-restored transcript verified instructional intervals `01:12–39:57` and `41:10–1:18:01`. Processing retained 44 slide candidates from 83 sampled frames, measured only 3.03% silence inside the bounded capture, and recorded 77 distinct visual hashes with 23 meaningful transitions. The idle tail was excluded and the bilingual note with 25 explained MCQs was published.
 
 The August 25 base recording was processed as the only requested queue item. Its stable identity is `EAI 6401` plus `Reinforcement Learning-20260825_181536-Meeting Recording.mp4`. The full-timeline sweep found instruction at the beginning, 28:45, and 1:02:58; the share ended around 1:09:38, a short closing Q&A continued through 1:11:13, and participant-only idle states were verified at 2:01:29, 2:30:14, 2:59:30, 3:34:42, and 3:55:02. The permitted 2× visible-tab capture stopped at 1:11:42, and transcript review bounded instruction to `00:00–1:11:13`. Processing sampled 72 frames, found 49 distinct perceptual hashes and 6 meaningful transitions, retained 6 visually distinct candidates, and measured 1.12% silence. The 2h48m47s idle tail was excluded; the bilingual note includes the closing student question, the UCB preview, the pending-slide announcement, and exactly 25 explained MCQs.
+
+The August 31 source was opened only after the prior reviewed recording tab was closed. Its stable identity is `EAI 6401` plus `Reinforcement Learning-20260831_180423-Meeting Recording.mp4`; Stream reported 2h30m37s and exposed no Download action. The required full-timeline sweep found instructional UCB material around 16:37, Gradient Bandit material around 37:41, and Associative Search/Contextual Bandits around 1:15:23; samples at 1:53:04, 2:15:38, and 2:26:45 showed participant-only idle content. Boundary checks confirmed the first sustained teaching interval begins within the visible UCB section and the final sustained teaching segment ends at approximately `01:47:26`, after which the participant-only tail was excluded.
+
+The permitted visible-tab + audio capture ran at 2× from source `00:08:40` to `01:47:26`. A first endpoint-only test capture was rejected as an invalid static artifact and remains private in the learner's Downloads folder; it was not used for processing or publication. The corrected capture sidecar records `captureStartSourceSeconds: 520.991163`, `captureEndSourceSeconds: 6446.364752`, `playbackRate: 2`, and `stopReason: marked-teaching-end`. Local processing produced the private audio/video evidence and a Whisper transcript with source-time-aligned segments. The published English-only note covers UCB, gradient preferences and baselines, the softmax derivative, contextual bandits, four substantive student questions, the instructor's numerical exercise, five further-study resources, one visual study aid, a public capstone, and exactly 25 explained MCQs. The subject resource trail was refreshed with a contextual-bandit simulation guide.
 
 The folder was re-inventoried on 23 August 2026. It still contains exactly the five sources listed above; no filename, size, access mode, or visible source identity changed, so the deterministic review queue gained no EAI 6401 item.
 

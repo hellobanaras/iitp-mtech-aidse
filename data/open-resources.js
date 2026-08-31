@@ -99,6 +99,19 @@ export const openLearningResources = {
       description: "A public logged-bandit dataset with actions, propensities, and clicks for practising exploration, regret, and off-policy evaluation beyond toy testbeds.",
       descriptionHi: "Actions, propensities और clicks वाला public logged-bandit dataset—toy testbeds से आगे exploration, regret और off-policy evaluation practice करने के लिए।",
       url: "https://research.zozo.com/data.html"
+    },
+    {
+      provider: "Vowpal Wabbit",
+      providerHi: "Vowpal Wabbit",
+      kind: "Contextual-bandit practice",
+      kindHi: "Contextual-bandit practice",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Contextual Bandit Simulation",
+      titleHi: "Contextual Bandit Simulation · hands-on practice",
+      description: "A reproducible simulation guide for contexts, actions, propensities, and online policy evaluation—an applied extension of the associative-search discussion.",
+      descriptionHi: "Contexts, actions, propensities और online policy evaluation की reproducible simulation guide—associative-search discussion का applied extension।",
+      url: "https://vowpalwabbit.org/docs/vowpal_wabbit/python/latest/tutorials/cb_simulation.html"
     }
   ],
   "eai-6402": [

@@ -104,6 +104,12 @@ Record the original source timecode. Do not elevate illustrative examples or opt
 
 Create one English record after the evidence review. Do not create or publish Hindi or duplicate language editions. Preserve technical terms such as `policy`, `value function`, `few-shot`, and `bandit` in their precise English form. Spot-check the title, lede, coverage, first and last MCQ, all non-empty academic signals, and the public capstone. Run the content validator before marking the English record published.
 
+For compact non-note cards and archive rows, apply the shared presentation
+threshold: render the Hindi companion only when more than 70% of its word
+tokens are Devanagari. Mostly-English variants and one-word Hindi substitutions
+must remain a single English label so the interface does not visually repeat
+itself. Detailed lecture notes continue to use the English-only source surface.
+
 ## 8. Durable queue runner and recovery
 
 Use `tools/run_recording_queue.mjs` as the controller for a full-loop run. Keep

@@ -23,6 +23,12 @@ Use clear English for substantive resource titles, descriptions, and
 further-reading guidance. Keep technical names and established terminology in
 English when that is more precise.
 
+For compact non-note surfaces (home, course, schedule, and resource cards),
+use the shared 70% Hindi-word threshold: show a Hindi companion only when more
+than 70% of the Hindi variant's word tokens are Devanagari. Otherwise keep one
+clear English label and avoid a repetitive second line. This is a presentation
+rule only; it does not create Hindi lecture-note data.
+
 ## Required lifecycle
 
 1. **Queue and identity** — read the inventory first. Select the oldest

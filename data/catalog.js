@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-08-30",
+  updated: "2026-08-31",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 20,
+  filesInventoried: 21,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -15,8 +15,8 @@ export const catalog = {
       icon: "RL",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course72_hybrid_iitp_ac_in/IgAGzyBinTNjQ69x8TC7U-ZQAedbzLJLRwPOzm3drlcdWcc?e=fR761s",
       status: "active",
-      statusLabel: "4 lectures available",
-      note: "The August 17, 18, 24, and 25 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; long idle tails after the verified class intervals are excluded.",
+      statusLabel: "5 lectures available",
+      note: "The August 17, 18, 24, 25, and 31 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; long idle tails after the verified class intervals are excluded.",
       lectures: [
         {
           id: "eai-6401-2026-08-17",
@@ -73,6 +73,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Incremental action-value updates", "Recency weighting for drift", "Optimistic exploration"]
+        },
+        {
+          id: "eai-6401-2026-08-31",
+          number: 5,
+          date: "2026-08-31",
+          sourceRecordedAt: "2026-08-31T18:04:23+05:30",
+          sourceFilename: "Reinforcement Learning-20260831_180423-Meeting Recording.mp4",
+          displayDate: "31 August 2026",
+          title: "UCB, gradient bandits, and contextual search",
+          duration: "1h 38m 46s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course72_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course72%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FReinforcement%20Learning%2D20260831%5F180423%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["UCB uncertainty bonuses", "Gradient preferences and baselines", "Contextual bandits and policy mapping"]
         }
       ]
     },
