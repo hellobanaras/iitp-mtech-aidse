@@ -112,6 +112,33 @@ export const openLearningResources = {
       description: "A reproducible simulation guide for contexts, actions, propensities, and online policy evaluation—an applied extension of the associative-search discussion.",
       descriptionHi: "Contexts, actions, propensities और online policy evaluation की reproducible simulation guide—associative-search discussion का applied extension।",
       url: "https://vowpalwabbit.org/docs/vowpal_wabbit/python/latest/tutorials/cb_simulation.html"
+    },
+    {
+      provider: "Stanford University",
+      providerHi: "Stanford University",
+      kind: "MDP lecture",
+      kindHi: "MDP lecture",
+      access: "Free video",
+      accessHi: "मुफ़्त video",
+      title: "David Silver Lecture 2: Markov Decision Processes",
+      titleHi: "David Silver Lecture 2: Markov Decision Processes",
+      description: "A visual follow-up on states, actions, rewards, returns, and the Markov property from the finite-MDP lecture.",
+      descriptionHi: "Finite-MDP lecture के states, actions, rewards, returns और Markov property पर visual follow-up।",
+      url: "https://www.youtube.com/watch?v=lfHX2hHRMVQ",
+      youtubeId: "lfHX2hHRMVQ"
+    },
+    {
+      provider: "Farama Foundation",
+      providerHi: "Farama Foundation",
+      kind: "Environment practice",
+      kindHi: "Environment practice",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Gymnasium: Create a Custom Environment",
+      titleHi: "Gymnasium: Create a Custom Environment",
+      description: "Turn the recycling-robot state/action/reward table into a reproducible reset/step environment with validated transitions.",
+      descriptionHi: "Recycling-robot के state/action/reward table को validated reset/step environment में बदलने की practice।",
+      url: "https://gymnasium.farama.org/introduction/create_custom_env/"
     }
   ],
   "eai-6402": [

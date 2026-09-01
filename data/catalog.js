@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-08-31",
+  updated: "2026-09-01",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 22,
+  filesInventoried: 23,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -15,8 +15,8 @@ export const catalog = {
       icon: "RL",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course72_hybrid_iitp_ac_in/IgAGzyBinTNjQ69x8TC7U-ZQAedbzLJLRwPOzm3drlcdWcc?e=fR761s",
       status: "active",
-      statusLabel: "5 lectures available",
-      note: "The August 17, 18, 24, 25, and 31 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; long idle tails after the verified class intervals are excluded.",
+      statusLabel: "6 lectures available",
+      note: "The August 17, 18, 24, 25, 31, and September 1 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; long idle tails after the verified class intervals are excluded.",
       lectures: [
         {
           id: "eai-6401-2026-08-17",
@@ -87,6 +87,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["UCB uncertainty bonuses", "Gradient preferences and baselines", "Contextual bandits and policy mapping"]
+        },
+        {
+          id: "eai-6401-2026-09-01",
+          number: 6,
+          date: "2026-09-01",
+          sourceRecordedAt: "2026-09-01T18:05:26+05:30",
+          sourceFilename: "Reinforcement Learning-20260901_180526-Meeting Recording.mp4",
+          displayDate: "1 September 2026",
+          title: "Finite Markov decision processes: states, dynamics, and the agent–environment interface",
+          duration: "1h 23m 06s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course72_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course72%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FReinforcement%20Learning%2D20260901%5F180526%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Contextual bandit warm-up", "Finite MDP vocabulary and Markov property", "Agent–environment dynamics and recycling robot"]
         }
       ]
     },

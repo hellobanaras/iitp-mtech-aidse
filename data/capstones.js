@@ -620,5 +620,35 @@ export const capstones = Object.freeze({
       "milestones": ["Week 1: profiling and baseline", "Week 2: projection and filters", "Week 3: wrappers and validation", "Week 4: constructed features and report"],
       "success": "A learner can explain why a selected representation was chosen, reproduce its validation result, and identify a case where reducing dimensions harmed an important subgroup."
     }
+  },
+  "eai-6401-2026-09-01": {
+    "en": {
+      "title": "MDP Sketchbook: a state-and-reward audit lab",
+      "pitch": "Build a small interactive workbench where a learner specifies states, legal actions, reward outcomes, and transition probabilities for a recycling robot, then simulates trajectories and checks whether the state is Markov and the reward communicates the intended goal.",
+      "problem": "RL projects often jump to an algorithm before checking whether the state omits relevant history, the action set is legal, or the reward encourages a shortcut. A transparent audit makes those modelling choices visible.",
+      "learning": "You will formalize the agent–environment interface, implement finite MDP dynamics, marginalise next-state probabilities, compare immediate and delayed outcomes, and reason about reward design and context-conditioned actions.",
+      "mvp": [
+        "Create a form for high/low battery states, search/wait/recharge actions, reward values, and alpha/beta transition probabilities.",
+        "Render the model as a transition table and an accessible state graph.",
+        "Simulate random and hand-written policies and show trajectories, rewards, and next-state frequencies.",
+        "Flag illegal actions, probabilities that do not sum to one, and state variables that the learner says are relevant but did not include."
+      ],
+      "stretch": [
+        "Add a contextual-bandit mode that reveals a case indicator and compares hidden versus observed-context policies.",
+        "Add delayed-return and discount-factor controls with a side-by-side explanation of credit assignment.",
+        "Export a Gymnasium environment skeleton and a reproducible modelling card.",
+        "Add counterexamples showing reward hacking when a proxy reward is easier to optimise than the stated goal."
+      ],
+      "plan": [
+        "Week 1: define the state/action/reward schema, validators, and deterministic trajectory format.",
+        "Week 2: implement the transition table, graph, simulator, and probability checks.",
+        "Week 3: add Markov-sufficiency prompts, contextual-bandit comparison, and delayed-return visualisations.",
+        "Week 4: package the accessible audit report, tests, export format, and a recycling-robot case study."
+      ],
+      "novelty": "The lab makes MDP formulation itself inspectable: it tests state sufficiency, reward intent, and transition consistency before an RL algorithm is selected.",
+      "stack": ["Python", "Gymnasium", "NetworkX", "Plotly", "Streamlit"],
+      "milestones": ["Week 1: schema and validators", "Week 2: table, graph, and simulation", "Week 3: Markov/context/delay checks", "Week 4: export and case study"],
+      "success": "A learner can explain every state, action, reward, and probability in the model, reproduce a trajectory, and identify one formulation that fails because its state or reward is inadequate."
+    }
   }
 });
