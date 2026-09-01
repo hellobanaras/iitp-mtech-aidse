@@ -12,8 +12,13 @@ const publicEntries = [
   "index.html",
   "assets",
   "calendar",
+  "courses",
+  "course",
   "data",
-  "resources"
+  "lecture",
+  "resource",
+  "resources",
+  "schedule"
 ];
 
 rmSync(outputDirectory, { recursive: true, force: true });

@@ -724,6 +724,7 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 .lecture-hero__meta { display: flex; flex-wrap: wrap; gap: .75rem 1.4rem; color: #94a3b8; font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .lecture-hero h1 { max-width: 960px; margin: 2.5rem 0 1.4rem; font-size: clamp(2.5rem, 4.5vw, 4.6rem); font-weight: 700; line-height: 1.1; }
 .lecture-hero__lede { max-width: 1100px; color: #cbd5e1; font-size: 1.1rem; line-height: 1.65; }
+.lecture-hero__actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
 .lecture-hero dl { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 780px; margin: 3rem 0 0; border-top: 1px solid rgba(255, 255, 255, 0.15); }
 .lecture-hero dl div { padding: 1.2rem 1.2rem 0 0; }
 .lecture-hero dt { color: #94a3b8; font-size: .7rem; text-transform: uppercase; font-weight: 700; }
@@ -1135,6 +1136,7 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
   .lecture-row h3 { font-size: 1.2rem; }
   .site-footer { flex-direction: column; padding-inline: 1.25rem; }
   .lecture-hero { padding-inline: 1.25rem; }
+  .lecture-hero__actions .button { width: 100%; }
   .lecture-hero dl { grid-template-columns: 1fr; }
   .notes-layout { grid-template-columns: 1fr; }
   .notes-toc { display: none; }

@@ -24,6 +24,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, renameSync, statSync, unlinkSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { catalog } from "../data/catalog.js";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const PRIVATE = resolve(ROOT, ".course-data");
@@ -234,11 +235,13 @@ const publishOne = (state, item) => {
   item.updatedAt = now();
   save(state);
   run("npm", ["run", "check"]);
+  run("npm", ["run", "generate:share-pages"]);
   run("npm", ["run", "build"]);
   // Commit only explicit publication surfaces. Raw media and queue state stay
   // ignored, while route-aware SEO and shared UI changes must travel with a
   // lecture publication so production cannot lag the local shell.
-  run("git", ["add", "assets", "data", "docs", "index.html"]);
+  const shareResourcePages = ["resources/index.html", ...catalog.courses.map((course) => `resources/${course.routeSlug}/index.html`)];
+  run("git", ["add", "assets", "data", "docs", "index.html", "lecture", "courses", "course", "resource", ...shareResourcePages]);
   const diff = execFileSync("git", ["diff", "--cached", "--name-only"], { cwd: ROOT, encoding: "utf8" }).trim();
   if (!diff) throw new Error("No staged publication changes found; refusing to create an empty deployment commit.");
   run("git", ["commit", "-m", `Publish lecture ${item.publicationId}`]);

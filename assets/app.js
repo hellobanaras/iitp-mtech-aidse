@@ -237,6 +237,7 @@ function context() {
 // the same catalog and lecture records as the visible page instead of drifting
 // into a second set of hand-maintained SEO copy.
 const publicSiteUrl = "https://hellobanaras.github.io/iitp-mtech-aidse/";
+const lectureShareUrl = (id) => `${publicSiteUrl}lecture/${id}/`;
 
 function setMeta(name, content) {
   let element = document.head.querySelector(`meta[name="${name}"]`);
@@ -354,10 +355,11 @@ function updateSeo(route, ctx, parts = []) {
   setMeta("keywords", keywords);
   setProperty("og:title", seo.title);
   setProperty("og:description", description);
-  setProperty("og:url", `${publicSiteUrl}#${route}`);
+  const shareUrl = route.startsWith("/lecture/") && parts[1] ? lectureShareUrl(parts[1]) : `${publicSiteUrl}#${route}`;
+  setProperty("og:url", shareUrl);
   setMeta("twitter:title", seo.title);
   setMeta("twitter:description", description);
-  setCanonical(`${publicSiteUrl}#${route}`);
+  setCanonical(shareUrl);
 }
 
 function statusPill(course) {
@@ -695,7 +697,7 @@ function renderLecture(id, ctx) {
   const visual = visualForLecture(id, en);
   const navItems = [["coverage", text.coverage], ["visuals", text.visualStudyAid], ["slides", text.slideTrail], ["summary", text.fullSummary], ["signals", text.courseSignals], ["insights", text.insights], ["resources", text.furtherStudy], ["quiz", text.mcqs]];
   if (capstones[id]) navItems.push(["project", text.capstone]);
-  main.innerHTML = `<header class="lecture-hero"><div class="lecture-hero__meta"><a class="back-link" href="${href(lang, coursePath(found.course))}">← ${escapeHtml(found.course.code)}</a><span>${text.lecture} ${String(found.number).padStart(2, "0")}</span><span>${escapeHtml(found.displayDate)}</span></div>${compactBilingualCopy(en.title, hi.title, "h1")}${bilingualCopy(en.lede, hi.lede, "div", "lecture-hero__lede")}<dl><div><dt>${text.recording}</dt><dd>${escapeHtml(found.duration)}</dd></div><div><dt>${text.instructionalInterval}</dt><dd>${escapeHtml(en.instructionalInterval)}</dd></div><div><dt>${text.reviewLevel}</dt><dd>${compactBilingualCopy(en.reviewLevel, hi.reviewLevel)}</dd></div></dl></header>
+  main.innerHTML = `<header class="lecture-hero"><div class="lecture-hero__meta"><a class="back-link" href="${href(lang, coursePath(found.course))}">← ${escapeHtml(found.course.code)}</a><span>${text.lecture} ${String(found.number).padStart(2, "0")}</span><span>${escapeHtml(found.displayDate)}</span></div>${compactBilingualCopy(en.title, hi.title, "h1")}${bilingualCopy(en.lede, hi.lede, "div", "lecture-hero__lede")}<div class="lecture-hero__actions"><button class="button button--quiet" type="button" data-share-note="${escapeHtml(found.id)}">Share note ${icon("external")}</button></div><dl><div><dt>${text.recording}</dt><dd>${escapeHtml(found.duration)}</dd></div><div><dt>${text.instructionalInterval}</dt><dd>${escapeHtml(en.instructionalInterval)}</dd></div><div><dt>${text.reviewLevel}</dt><dd>${compactBilingualCopy(en.reviewLevel, hi.reviewLevel)}</dd></div></dl></header>
     <div class="notes-layout"><aside class="notes-toc" id="notes-toc"><button class="notes-toc__toggle" type="button" aria-expanded="true" aria-controls="notes-toc-panel"><span class="notes-toc__toggle-label">${text.onThisPage}</span><span class="notes-toc__toggle-icon" aria-hidden="true">☰</span></button><div class="notes-toc__panel" id="notes-toc-panel"><nav>${navItems.map(([anchor, label]) => `<a href="#${anchor}" data-scroll="${anchor}">${label}</a>`).join("")}</nav></div></aside><article class="notes-article">
       <section id="coverage" class="notes-section"><p class="eyebrow">${text.highLevelCoverage}</p><h2>${text.lectureAtGlance}</h2><div class="coverage-grid">${en.coverage.map((item, index) => `<div><span>${String(index + 1).padStart(2, "0")}</span>${compactBilingualCopy(item.title, hi.coverage[index].title, "h3")}${bilingualCopy(item.body, hi.coverage[index].body, "p")}</div>`).join("")}</div><div class="takeaway"><strong>${text.oneSentence}</strong>${bilingualCopy(en.takeaway, hi.takeaway, "p")}</div></section>
       ${visualStudyAid(visual, text)}
@@ -1145,6 +1147,36 @@ function closeSearch() {
   searchResults.innerHTML = "";
 }
 
+async function shareLectureNote(id, button) {
+  const lecture = context("").allLectures.find((item) => item.id === id);
+  if (!lecture) return;
+  const url = lectureShareUrl(id);
+  const shareData = {
+    title: `${lecture.title} · ${lecture.course.title} · Lecture Notes`,
+    text: `${lecture.title} — IIT Patna lecture notes`,
+    url
+  };
+  try {
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        return;
+      } catch (error) {
+        if (error?.name === "AbortError") return;
+        // Fall through to clipboard when a desktop browser exposes the API
+        // but cannot open its native share sheet.
+      }
+    }
+    await navigator.clipboard.writeText(url);
+    button.textContent = "Link copied";
+    window.setTimeout(() => { button.innerHTML = `Share note ${icon("external")}`; }, 1800);
+  } catch (error) {
+    // A dismissed native share sheet is not an error. Clipboard may also be
+    // unavailable on an insecure local origin, so leave the button untouched.
+    if (error?.name !== "AbortError") button.title = "Copy the share URL from the address bar";
+  }
+}
+
 function search(query) {
   const parsed = parseRoute();
   const ctx = context(parsed.lang);
@@ -1200,6 +1232,11 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 window.addEventListener("resize", () => updateScrollFab());
 document.addEventListener("click", (event) => {
+  const shareButton = event.target.closest("[data-share-note]");
+  if (shareButton) {
+    void shareLectureNote(shareButton.dataset.shareNote, shareButton);
+    return;
+  }
   const notesTocToggle = event.target.closest(".notes-toc__toggle");
   if (notesTocToggle) {
     const layout = document.querySelector(".notes-layout");

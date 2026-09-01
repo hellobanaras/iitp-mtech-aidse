@@ -18,7 +18,7 @@ python3 -m http.server 4173
 
 Then open `http://localhost:4173`.
 
-The source record is bilingual, and substantive lecture notes render as one aligned English/Hindi surface—side by side on desktop and sequentially on mobile. Compact page chrome remains selective where a second copy adds no value. Share clean routes such as `#/`, `#/course/eai-6401`, and `#/lecture/eai-6401-2026-08-17`; there is no language selector or separate language page. Older `/en`, `/hi`, or `/bi` links redirect to the matching clean route.
+The source record is bilingual, and substantive lecture notes render as one aligned English/Hindi surface—side by side on desktop and sequentially on mobile. Compact page chrome remains selective where a second copy adds no value. Share clean routes such as `#/`, `#/course/eai-6401`, and `#/lecture/eai-6401-2026-08-17`; there is no language selector or separate language page. Older `/en`, `/hi`, or `/bi` links redirect to the matching clean route. For WhatsApp and other link previews, use the generated crawlable aliases such as `courses/`, `schedule/`, `resources/`, `course/<routeSlug>/`, or `lecture/<id>/`; preview crawlers cannot see URL fragments, so these aliases carry context-specific titles, descriptions, and the social image before redirecting readers to the hash routes.
 
 ## Content workflow
 
