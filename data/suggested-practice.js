@@ -26,6 +26,12 @@ const courseTemplates = {
     labs: [{ title: "Time-series diagnostics lab", detail: "Build a notebook with cadence validation, line and rolling plots, ACF/PACF or decomposition, and a documented treatment for missing or anomalous timestamps." }],
     projects: [{ title: "Auditable forecasting studio", detail: "Build a small dashboard that preserves raw data, parameters, temporal splits, baseline results, and a plain-language explanation of uncertainty." }],
   },
+  "ecs-6402": {
+    assignments: [{ title: "Communication-chain audit", detail: "Draw a source–transmitter–channel–receiver–destination chain for one wireless application. Label payload, control information, interface assumptions, and synchronization requirements." }],
+    homework: [{ title: "Signals and sharing practice", detail: "Work short examples that distinguish sampling from quantisation, calculate payload efficiency, and choose an appropriate time, frequency, code, or space-sharing strategy." }],
+    labs: [{ title: "Signal and packet evidence lab", detail: "Generate a sampled and quantised waveform in Python, then inspect a permitted Wireshark trace to compare physical representation with packet payload and protocol overhead." }],
+    projects: [{ title: "Wireless link teaching workbench", detail: "Build an interactive visual that follows data from source encoding through modulation, a configurable channel, demodulation, multiplexing, and receiver timing, with reproducible parameters and error diagnostics." }],
+  },
   "ecc-6404": {
     assignments: [{ title: "Mining pipeline design", detail: "Translate the lecture into a KDD or warehousing pipeline diagram, naming the data source, cleaning assumptions, representation, mining task, validation, and decision consumer." }],
     homework: [{ title: "Measurement and pattern exercise", detail: "Classify five attributes by measurement scale, choose a defensible similarity or aggregation, and explain one operation that would change the question being answered." }],

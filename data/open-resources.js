@@ -546,6 +546,38 @@ export const openLearningResources = {
   ],
   "ecs-6402": [
     {
+      provider: "MIT OpenCourseWare",
+      kind: "Open lecture",
+      access: "Free video and notes",
+      title: "Signals and Systems — Sampling",
+      description: "A rigorous visual treatment of continuous-time sampling, reconstruction, and aliasing that extends the lecture's Ts discussion.",
+      url: "https://ocw.mit.edu/courses/res-6-007-signals-and-systems-spring-2011/resources/lecture-16-sampling/"
+    },
+    {
+      provider: "MIT OpenCourseWare",
+      kind: "Open course",
+      access: "Free course materials",
+      title: "Introduction to Communication, Control, and Signal Processing",
+      description: "Open material connecting continuous/discrete signals, transforms, stochastic processes, detection, and communication systems.",
+      url: "https://ocw.mit.edu/courses/6-011-introduction-to-communication-control-and-signal-processing-spring-2010/"
+    },
+    {
+      provider: "Kurose and Ross",
+      kind: "Open networking lessons",
+      access: "Free videos, notes, checks, and problems",
+      title: "Computer Networks and the Internet",
+      description: "Author-published learning material on network edge, physical media, packet switching, delay, loss, throughput, and protocol layers.",
+      url: "https://gaia.cs.umass.edu/kurose_ross/videos/1/"
+    },
+    {
+      provider: "Kurose and Ross",
+      kind: "Practice lab",
+      access: "Free lab material",
+      title: "Wireshark labs",
+      description: "Observe message exchange, protocol control fields, timing, and payload in real packet traces.",
+      url: "https://gaia.cs.umass.edu/kurose_ross/wireshark.php"
+    },
+    {
       provider: "Stanford University",
       providerHi: "Stanford University",
       kind: "Open course",

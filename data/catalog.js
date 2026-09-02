@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-01",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 24,
+  filesInventoried: 25,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -220,9 +220,24 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "active",
-      statusLabel: "3 recordings pending review",
-      note: "Microsoft 365 recording access was restored on 1 September 2026. Three recordings are inventoried and queued for one-at-a-time review; no lecture note is published yet.",
-      lectures: []
+      statusLabel: "1 lecture available",
+      note: "Lecture 1 is published from the verified 00:15–01:16:40 teaching interval; the participant/chat closure after teaching was excluded. Two later recordings remain queued for one-at-a-time review.",
+      lectures: [
+        {
+          id: "ecs-6402-2026-08-21-204351",
+          number: 1,
+          date: "2026-08-21",
+          sourceRecordedAt: "2026-08-21T20:43:51+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20260821_204351-Meeting Recording.mp4",
+          displayDate: "21 August 2026",
+          title: "From communication to networks: signals, sharing, and synchronization",
+          duration: "1h 16m 25s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse75%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSelected%20Topics%20in%20Wireless%20Networks%2D20260821%5F204351%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Communication versus end-to-end networks", "Sampling, quantisation, encoding, and modulation", "Multiplexing, congestion, interfaces, and synchronization"]
+        }
+      ]
     },
     {
       code: "EBB 6401",

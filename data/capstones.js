@@ -651,6 +651,36 @@ export const capstones = Object.freeze({
       "success": "A learner can trace every state transition to an agreed condition, demonstrate valid and rejected execution paths, and identify at least one trust dependency that the blockchain does not remove."
     }
   },
+  "ecs-6402-2026-08-21-204351": {
+    "en": {
+      "title": "LinkScope: an explainable wireless communication-chain simulator",
+      "pitch": "Build a browser workbench that lets learners follow a message from source data through sampling, quantisation, encoding, modulation, a shared channel, demodulation, and receiver synchronization while seeing payload efficiency and failure modes.",
+      "problem": "Communication concepts are often taught as separate formulas, so learners can calculate a sample or name a multiple-access scheme without seeing how one design choice affects the complete end-to-end chain.",
+      "learning": "You will implement the simplified communication model, digital representation, carrier modulation, payload/overhead accounting, resource sharing, channel impairment, receiver timing, and evidence-based diagnostics.",
+      "mvp": [
+        "Provide selectable voice-like and synthetic source waveforms with configurable sampling rate and quantisation levels.",
+        "Display sampled values, quantisation error, binary codewords, and a simple amplitude- or frequency-modulated carrier.",
+        "Simulate noise, delay, and timing offset, then recover the signal and show reconstruction error and symbol mistakes.",
+        "Add payload and header lengths plus TDMA/FDMA channel-sharing controls, reporting throughput, efficiency, and congestion events."
+      ],
+      "stretch": [
+        "Add a Wireshark-inspired packet view linking waveform timing to frames, headers, and payload.",
+        "Add adaptive modulation or coding that reacts to measured signal quality.",
+        "Compare wired and wireless channel profiles with latency, loss, and mobility scenarios.",
+        "Export a reproducible experiment card containing every signal, channel, sharing, and timing parameter."
+      ],
+      "plan": [
+        "Week 1: implement source waveforms, sampling, quantisation, encoding, and correctness tests.",
+        "Week 2: add carrier modulation, channel noise, receiver recovery, and synchronized plots.",
+        "Week 3: add payload/overhead metrics, TDMA/FDMA sharing, congestion, and failure explanations.",
+        "Week 4: package the mobile-first visual lab, experiment export, accessibility pass, and one Wi-Fi-style case study."
+      ],
+      "novelty": "The workbench makes representation, propagation, sharing, and timing one inspectable chain, so every observed error can be traced to a specific block instead of being labelled generically as a network problem.",
+      "stack": ["TypeScript", "Web Audio API", "D3 or Plotly", "Web Workers", "Vitest"],
+      "milestones": ["Week 1: digital representation", "Week 2: modulation and channel", "Week 3: sharing and diagnosis", "Week 4: reproducible teaching product"],
+      "success": "A learner can predict and demonstrate how sampling rate, quantisation levels, overhead, sharing, noise, and clock offset change the received data and end-to-end performance."
+    }
+  },
   "eai-6401-2026-09-01": {
     "en": {
       "title": "MDP Sketchbook: a state-and-reward audit lab",

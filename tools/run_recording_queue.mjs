@@ -107,6 +107,7 @@ const load = () => {
     schemaVersion: 1,
     updatedAt: previous.updatedAt || now(),
     coursePriority: inventory.coursePriority || previous.coursePriority || [],
+    lastCompletedCourse: previous.lastCompletedCourse || null,
     items,
   };
 };
@@ -136,10 +137,19 @@ const orderedPending = (state) => {
     const index = priority.findIndex((entry) => aliases.includes(String(entry).toLowerCase().replace(/[\s-]+/g, "")));
     return index < 0 ? Number.MAX_SAFE_INTEGER : index;
   };
-  const courses = [...grouped.keys()].sort((left, right) =>
+  let courses = [...grouped.keys()].sort((left, right) =>
     rank(left) - rank(right) ||
     sortSources(courseItem(left), courseItem(right)) ||
     left.localeCompare(right));
+  if (state.lastCompletedCourse && courses.length > 1) {
+    const normalize = (value) => String(value || "").toLowerCase().replace(/[\s-]+/g, "");
+    const cursor = courses.findIndex((course) => {
+      const item = courseItem(course);
+      return [course, item?.course, item?.courseCode].some((value) =>
+        normalize(value) === normalize(state.lastCompletedCourse));
+    });
+    if (cursor >= 0) courses = [...courses.slice(cursor + 1), ...courses.slice(0, cursor + 1)];
+  }
   const result = [];
   let remaining = true;
   while (remaining) {
@@ -258,6 +268,7 @@ const publishOne = (state, item) => {
   item.stage = "published";
   item.publishedAt = now();
   item.updatedAt = now();
+  state.lastCompletedCourse = item.courseCode || item.course;
   save(state);
   console.log(`✅ Published and deployed ${item.publicationId} to GitHub Pages.`);
 };
