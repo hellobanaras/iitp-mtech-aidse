@@ -707,6 +707,36 @@ export const capstones = Object.freeze({
       "success": "A learner can predict and demonstrate how sampling rate, quantisation levels, overhead, sharing, noise, and clock offset change the received data and end-to-end performance."
     }
   },
+  "ecs-6401-2026-08-28-180221": {
+    "en": {
+      "title": "ForecastPrep: an auditable time-series transformation lab",
+      "pitch": "Build a local-first workbench that lets a learner compare missing-value treatments, outlier policies, scaling, power transformations, moving averages, and exponential-smoothing forecasts without overwriting the raw series.",
+      "problem": "Forecast pipelines often hide data repairs and transformations inside notebooks. This makes leakage, erased shocks, and mismatched smoothing assumptions difficult to detect or reproduce.",
+      "learning": "Practise temporal imputation, outlier triage, stationarity diagnostics, leakage-safe scaling, Box–Cox selection, moving-average lag, and level/trend/seasonal exponential smoothing.",
+      "mvp": [
+        "Upload a timestamped CSV and preserve an immutable raw view beside every derived series.",
+        "Compare forward/backward fill, interpolation, and seasonal imputation while marking each synthetic value.",
+        "Apply min–max, z-score, log, square-root, and Box–Cox transformations using training-window parameters only.",
+        "Fit simple, weighted, and centred moving averages plus simple/Holt/Holt–Winters forecasts, then report rolling-origin error."
+      ],
+      "stretch": [
+        "Add an event register that protects known shocks from automatic outlier removal.",
+        "Detect leakage when a transform or imputer is fitted outside the training window.",
+        "Recommend additive versus multiplicative seasonality from level-amplitude diagnostics but require user confirmation.",
+        "Export a reproducible transformation card with parameters, source hashes, plots, and validation metrics."
+      ],
+      "plan": [
+        "Week 1: immutable series store, profiling, gaps, and outlier review.",
+        "Week 2: leakage-safe transformations and stationarity comparison.",
+        "Week 3: moving-average and exponential-smoothing model gallery.",
+        "Week 4: rolling validation, evidence export, accessibility, and demo."
+      ],
+      "novelty": "The product treats every preprocessing and smoothing decision as inspectable evidence, keeping raw observations, fitted parameters, and forecast impact connected.",
+      "stack": ["Python", "pandas", "scikit-learn", "statsmodels", "Plotly", "Streamlit"],
+      "milestones": ["Week 1: data evidence", "Week 2: transformation audit", "Week 3: forecasting gallery", "Week 4: validation and export"],
+      "success": "A reviewer can reproduce every derived value, verify that no future data informed preprocessing, and explain why the selected model includes level, trend, or seasonality."
+    }
+  },
   "eai-6401-2026-09-01": {
     "en": {
       "title": "MDP Sketchbook: a state-and-reward audit lab",

@@ -542,6 +542,22 @@ export const openLearningResources = {
       description: "A chronological cross-validation splitter for testing forecasts without letting future observations leak into earlier folds.",
       descriptionHi: "Chronological cross-validation splitter जो forecasts test करते समय future observations को earlier folds में leak नहीं होने देता।",
       url: "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html"
+    },
+    {
+      provider: "statsmodels",
+      kind: "Forecasting API",
+      access: "Free documentation",
+      title: "Holt–Winters Exponential Smoothing",
+      description: "Official API for fitting level, trend, and additive or multiplicative seasonal states discussed in the latest lecture.",
+      url: "https://www.statsmodels.org/stable/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html"
+    },
+    {
+      provider: "pandas",
+      kind: "Data preparation API",
+      access: "Free documentation",
+      title: "Time-aware interpolation",
+      description: "Official interpolation options for filling numeric gaps while preserving a time-indexed workflow and explicit method choice.",
+      url: "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.interpolate.html"
     }
   ],
   "ecs-6402": [

@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-01",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 26,
+  filesInventoried: 27,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -327,8 +327,8 @@ export const catalog = {
       icon: "TS",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course129_hybrid_iitp_ac_in/IgC377O2f2n2SI6uo-EJPeMMAZbBcmUQN6fmgL_JHX60GiA?e=yUCaLx",
       status: "active",
-      statusLabel: "3 lectures available",
-      note: "Lectures 1–3 are published in chronological order. The 21 August source is bounded to 00:46–01:15:34; the 26 August source to 00:03:16–01:20:45. Participant-only openings and idle tails were excluded after full timeline sweeps.",
+      statusLabel: "4 lectures available",
+      note: "Lectures 1–4 are published in chronological order. The 21 August source is bounded to 00:46–01:15:34, the 26 August source to 00:03:16–01:20:45, and the 28 August source to 00:05:32–00:51:43. Participant-only openings and idle tails were excluded after full timeline sweeps.",
       lectures: [
         {
           id: "ecs-6401-2026-08-19-175559",
@@ -371,6 +371,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Variables, distributions, and summary statistics", "Visual diagnostics, missing values, and outlier screening", "Stationarity, ADF testing, differencing, and log transformation"]
+        },
+        {
+          id: "ecs-6401-2026-08-28-180221",
+          number: 4,
+          date: "2026-08-28",
+          sourceRecordedAt: "2026-08-28T18:02:21+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20260828_180221-Meeting Recording.mp4",
+          displayDate: "28 August 2026",
+          title: "Preprocessing, variance stabilisation, and classical time-series smoothing",
+          duration: "46m 11s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse129%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FAdvanced%20Time%20Series%20Analysis%2D20260828%5F180221%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Missing values, outliers, stationarity, and scaling", "Log, square-root, Box–Cox, and seasonal differencing", "Moving averages, exponential smoothing, Holt, and Holt–Winters"]
         }
       ]
     },

@@ -91,6 +91,7 @@ The 07:59:34 source was opened only after the rejected recording tab was closed.
 | 19 Aug 2026 | `Advanced Time Series Analysis-20260819_175559-Meeting Recording.mp4` | 354 MB | 1h 30m 42s | view only | `canonical`; verified capture 00:06:39–01:25:20; participant-only tail excluded; notes published |
 | 21 Aug 2026 | `Advanced Time Series Analysis-20260821_180935-Meeting Recording.mp4` | 297 MB | 1h 16m 21s | view only | `canonical`; verified capture 00:00:46–01:15:34; participant-only opening and 46s idle camera tail excluded; notes published |
 | 26 Aug 2026 | `Advanced Time Series Analysis-20260826_180538-Meeting Recording.mp4` | 202 MB | 1h 22m 09s reported | view only | `canonical`; verified teaching 00:03:16–01:20:45; participant-only idle tail excluded; notes published |
+| 28 Aug 2026 | `Advanced Time Series Analysis-20260828_180221-Meeting Recording.mp4` | 155 MB | 1h 02m 45s reported | view only | `canonical`; verified teaching 00:05:32–00:51:43; participant-only opening and 11m 02s idle tail excluded; notes published |
 
 The 19 August source was opened alone and swept at the beginning, 10%, 25%, 50%, 75%, 90%, and near-end. Participants and the waiting-room view were present at the beginning; sustained instruction was visible by approximately 00:06:02. The instructor covered the course roadmap, visualization, stationarity, autoregression, VAR, cointegration, volatility, financial forecasting, RNN/LSTM/transformers, and the definition/components of time series. The final teaching slide was visible at 01:25:20, followed by participant-only idle content through the 01:30:42 nominal end.
 
@@ -99,6 +100,8 @@ The permitted visible-tab + audio capture ran at 2×. The saved artifact begins 
 The 21 August source was opened only after the 19 August recording tab was closed. Its full sweep found a participant-only opening, sustained components/stationarity and visualization teaching, a Python/Jupyter demonstration, synthetic trend/seasonality and additive decomposition, stationarity diagnostics, and moving-average examples. Instruction was verified from source `00:00:46` through `01:15:34`; the final camera-only tail to the `01:16:21` nominal endpoint was excluded. The permitted visible-tab + audio capture ran at 2×, was trimmed to the verified interval, and was processed with source-time restoration. Local processing verified both streams, sampled 78 frames and 44 slide candidates, and produced the bilingual note with exactly 25 explained MCQs. The transcript contains no assignment, homework, lab, project, or substantive student question; the closing study-material/code announcement is recorded under references.
 
 The 26 August source was opened only after the 21 August recording tab was closed. The required distributed sweep found instructor/slide instruction at 00:00:42, 00:08:07, 00:20:37, 00:40:57, 01:01:37, 01:13:47, 01:15:27 and 01:20:27; the endpoint sample at 01:20:57 was participant-only. The permitted visible-tab + audio capture ran at 2× from source `00:03:16` to `01:20:45`. Local processing verified audio/video, restored source-time transcript timestamps, sampled 77 frames with 76 unique perceptual hashes and 48 meaningful transitions, and produced the bilingual note with exactly 25 explained MCQs. The transcript contains no assignment, homework, lab, project, instructor-recommended reference, or substantive student question, so every signal category is explicitly empty. The participant-only tail to the 01:22:09 source endpoint was excluded.
+
+The 28 August source was opened alone after its stable identity was checked against the inventory. The mandatory sweep found participant-only waiting at 00:12, sustained preprocessing instruction by 05:32, scaling and normalisation at 16:03, moving averages at 31:31, Holt–Winters at 46:57, and the autoregressive-model roadmap through 51:43. Participant-only samples at 52:04, 56:16 and 01:01:39 confirmed an idle tail. The permitted visible-tab + audio capture ran at 2× from `00:05:32` to `00:51:43` and stopped automatically at the marked endpoint. Local processing verified audio/video, restored original source timestamps from the capture sidecar, sampled 47 frames with 45 unique perceptual hashes and 27 meaningful transitions, and produced the English-only note with exactly 25 explained MCQs. No assignment, homework, lab, project, or instructor-recommended reference was stated; one student request to repeat Box–Cox was captured with the instructor response.
 
 ## EBB 6402 — Blockchain Policy
 
@@ -145,7 +148,7 @@ The six folders below were verified from the signed-in IIT Patna Moodle “Lectu
 | ECS 6402 — Selected Topics in Wireless Networks | `course75` SharePoint folder | excluded from note processing (access denied) |
 | EBB 6401 — Smart Contracts and Solidity Programming | `course77` SharePoint folder | excluded from note processing (access denied) |
 | EBB 6403 — Security and Privacy for Big Data | `course78` SharePoint folder | 2 visible sources inventoried; oldest rejected as `idle/error`, 07:59:34 canonical note published; separate Friday and Saturday sessions/Teams links recorded |
-| ECS 6401 / ESD 6301 — Advanced Time Series Analysis | `course129` SharePoint folder | 3 visible sources inventoried; 19, 21, and 26 Aug canonical notes published |
+| ECS 6401 / ESD 6301 — Advanced Time Series Analysis | `course129` SharePoint folder | 4 visible sources inventoried; 19, 21, 26, and 28 Aug canonical notes published |
 | ECC 6404 — Data Warehousing | `course76` SharePoint folder | 5 visible sources inventoried; 17, 19, 24, 26, and 31 Aug canonical notes published |
 | EBB 6402 — Blockchain Policy — Legal, Social and Economic Impact | `course126` SharePoint folder | 3 visible sources inventoried; 18, 20, and 25 Aug canonical notes published; Tuesday and Thursday share one Teams link |
 
@@ -156,7 +159,7 @@ The first folder-access check (`course75`, ECS 6402) on 27 August 2026 reached M
 Visible source rows from the four accessible folders (all `view-only`; the listing did not expose duration) are:
 
 - **EBB 6403 / course78:** `Security and Privacy for Big Data-20260821_074805-Meeting Recording.mp4` (29.3 MB; rejected `idle/error` after triage); `Security and Privacy for Big Data-20260821_075934-Meeting Recording.mp4` (108 MB; 48m 00s; canonical note published).
-- **ECS 6401 / ESD 6301 / course129:** `Advanced Time Series Analysis-20260819_175559-Meeting Recording.mp4` (354 MB; canonical); `Advanced Time Series Analysis-20260821_180935-Meeting Recording.mp4` (297 MB; canonical); `Advanced Time Series Analysis-20260826_180538-Meeting Recording.mp4` (202 MB; canonical; 00:03:16–01:20:45 teaching).
+- **ECS 6401 / ESD 6301 / course129:** `Advanced Time Series Analysis-20260819_175559-Meeting Recording.mp4` (354 MB; canonical); `Advanced Time Series Analysis-20260821_180935-Meeting Recording.mp4` (297 MB; canonical); `Advanced Time Series Analysis-20260826_180538-Meeting Recording.mp4` (202 MB; canonical; 00:03:16–01:20:45 teaching); `Advanced Time Series Analysis-20260828_180221-Meeting Recording.mp4` (155 MB; canonical; 00:05:32–00:51:43 teaching).
 - **ECC 6404 / course76:** `Data Warehousing-20260817_193438-Meeting Recording.mp4` (276 MB; canonical); `Data Warehousing-20260819_193245-Meeting Recording.mp4` (299 MB; canonical); `Data Warehousing-20260824_193338-Meeting Recording.mp4` (319 MB full capture / 315 MB trimmed; canonical); `Data Warehousing-20260826_193241-Meeting Recording.mp4` (418 MB provider listing / 435 MB capture; canonical; teaching 00:02:16–01:25:35); `New Data Warehousing-20260831_193236-Meeting Recording.mp4` (346 MB provider listing / 512 MB bounded capture; canonical; teaching 00:00:19–01:26:54).
 - **EBB 6402 / course126:** `Blockchain policy – Legal, Social and Economic Impact-20260818_180205-Meeting Recording.mp4` (154 MB; canonical); `Blockchain policy – Legal, Social and Economic Impact-20260820_180203-Meeting Recording.mp4` (121 MB; canonical); `Blockchain policy – Legal, Social and Economic Impact-20260825_180424-Meeting Recording.mp4` (229 MB; canonical, 00:04:52–02:19:24 teaching interval).
 
@@ -169,7 +172,7 @@ The requested coverage rotation is persisted in `.course-data/review-queue.json`
 | ECS 6402 — Selected Topics in Wireless Networks | `excluded` (inventory blocked) | `course75` opened; Microsoft 365 access denied; excluded until the institute account has access |
 | EBB 6401 — Smart Contracts and Solidity Programming | `excluded` (inventory blocked) | `course77` opened; the same access-denied page; excluded until the institute account has access |
 | EBB 6403 — Security and Privacy for Big Data | `active` (1 published, 1 rejected) | 07:48:05 source rejected as `idle/error`; 07:59:34 source captured and published with verified security/privacy timeline |
-| ECS 6401 / ESD 6301 — Advanced Time Series Analysis | `active` (3 published) | 19, 21, and 26 Aug sources captured and published |
+| ECS 6401 / ESD 6301 — Advanced Time Series Analysis | `active` (4 published) | 19, 21, 26, and 28 Aug sources captured and published |
 | ECC 6404 — Data Warehousing | `active` (5 published) | 17, 19, 24, 26, and 31 Aug sources captured and published |
 | EBB 6402 — Blockchain Policy — Legal, Social and Economic Impact | `active` (3 published) | 18, 20, and 25 Aug sources captured and published; next round continues with ECS 6401 / ESD 6301 |
 
@@ -209,7 +212,7 @@ The signed-in folder check restored recording access for ECS 6402 and EBB 6401 a
 | EBB 6401 — Smart Contracts and Solidity Programming | 6 | 17 Aug 18:09:21 canonical note published; remaining five pending deterministic review |
 | ECS 6402 — Selected Topics in Wireless Networks | 3 | 21 Aug source canonical and note-ready; 27 and 28 Aug pending deterministic review |
 | EBB 6403 — Security and Privacy for Big Data | 2 | 28 Aug source canonical and note-ready; 29 Aug source pending deterministic review |
-| ECS 6401 / ESD 6301 — Advanced Time Series Analysis | 1 | 28 Aug source pending deterministic review |
+| ECS 6401 / ESD 6301 — Advanced Time Series Analysis | 1 | 28 Aug source processed and published; no pending source remains from this inventory pass |
 | EBB 6402 — Blockchain Policy | 1 | 1 Sep source pending deterministic review |
 | ECC 6404 — Data Warehousing | 0 | no new source beyond the published 31 Aug lecture |
 
