@@ -737,6 +737,36 @@ export const capstones = Object.freeze({
       "success": "A learner can predict and demonstrate how sampling rate, quantisation levels, overhead, sharing, noise, and clock offset change the received data and end-to-end performance."
     }
   },
+  "ecs-6402-2026-08-27-203455": {
+    "en": {
+      "title": "LinkSteward: an explainable reliable-transfer policy lab",
+      "pitch": "Build a browser simulator that sends framed data across noisy links and lets a learner tune duplex mode, checksum, retransmission, flow-control window, route, compression, and medium while observing goodput, delay, errors, and cost.",
+      "problem": "Networking learners often study reliability, rate control, routing, and physical signals in isolation. This hides how a decision that improves one metric can overload a receiver, increase latency, expose data, or waste scarce bandwidth.",
+      "learning": "You will implement exchange management, simplex/duplex modes, framing, error detection, retransmission, receiver flow control, addressing, path metrics, line coding, noisy-channel detection, SNR, multiplexing, and evidence-based trade-offs.",
+      "mvp": [
+        "Generate addressed frames from text, encode them as a simple NRZ waveform, and pass them through a configurable noisy channel.",
+        "Implement a 16-bit checksum plus discard/retransmit, showing which corruptions are detected and how retries affect goodput.",
+        "Model a finite receiver buffer and compare stop-and-wait with a configurable sliding window under several sender and processor rates.",
+        "Offer wired, fibre, and wireless profiles plus route choices, then report latency, loss, SNR, capacity use, and cost for every run."
+      ],
+      "stretch": [
+        "Add CRC variants and compare undetected-error probability with checksum overhead.",
+        "Add a matched-filter detector and plot empirical bit-error rate against SNR.",
+        "Introduce compression and multiple users, measuring fairness and head-of-line blocking.",
+        "Export a signed experiment card that records every medium, route, buffer, coding, and recovery assumption."
+      ],
+      "plan": [
+        "Week 1: frames, addresses, duplex modes, waveform display, and channel noise.",
+        "Week 2: checksum, retransmission, receiver buffering, and flow-control policies.",
+        "Week 3: routing metrics, medium profiles, compression, multiplexing, and security flags.",
+        "Week 4: mobile-first visualisation, experiment export, accessibility, tests, and one end-to-end case study."
+      ],
+      "novelty": "The lab makes control-plane rules and physical-layer evidence visible in one trace, so a learner can identify whether failure came from corruption, overload, route choice, signal quality, or an incompatible exchange rule.",
+      "stack": ["TypeScript", "D3 or Plotly", "Web Workers", "Vitest", "IndexedDB"],
+      "milestones": ["Week 1: signal path", "Week 2: reliable transfer", "Week 3: policy trade-offs", "Week 4: evidence-driven teaching product"],
+      "success": "A learner can reproduce a transfer, distinguish error control from flow control, explain the selected route and medium, and demonstrate how SNR, buffer size, window, compression, and retransmission change goodput and delay."
+    }
+  },
   "ecs-6401-2026-08-28-180221": {
     "en": {
       "title": "ForecastPrep: an auditable time-series transformation lab",

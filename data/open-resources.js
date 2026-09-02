@@ -562,6 +562,30 @@ export const openLearningResources = {
   ],
   "ecs-6402": [
     {
+      provider: "RFC Editor",
+      kind: "Primary technical reference",
+      access: "Free HTML and text",
+      title: "RFC 1071 — Computing the Internet Checksum",
+      description: "Implement the 16-bit one's-complement checksum discussed in the reliable-transfer lecture and examine its arithmetic properties.",
+      url: "https://www.rfc-editor.org/info/rfc1071/"
+    },
+    {
+      provider: "GNU Radio",
+      kind: "Open practice tutorials",
+      access: "Free documentation and software",
+      title: "GNU Radio Tutorials",
+      description: "Build signal flowgraphs for line coding, modulation, channel noise, filtering, and receiver experiments.",
+      url: "https://wiki.gnuradio.org/index.php/Tutorials"
+    },
+    {
+      provider: "MIT OpenCourseWare",
+      kind: "Open lecture notes",
+      access: "Free course material",
+      title: "Communication Systems — Modulation and detection",
+      description: "Connect baseband/passband signals, modulation, noisy-channel detection, and receiver design to the lecture's end-to-end model.",
+      url: "https://ocw.mit.edu/courses/16-36-communication-systems-engineering-spring-2009/resources/mit16_36s09_lec06/"
+    },
+    {
       provider: "MIT OpenCourseWare",
       kind: "Open lecture",
       access: "Free video and notes",

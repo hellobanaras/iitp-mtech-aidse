@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-09-01",
+  updated: "2026-09-02",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 28,
+  filesInventoried: 29,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -220,8 +220,8 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "active",
-      statusLabel: "1 lecture available",
-      note: "Lecture 1 is published from the verified 00:15–01:16:40 teaching interval; the participant/chat closure after teaching was excluded. Two later recordings remain queued for one-at-a-time review.",
+      statusLabel: "2 lectures available",
+      note: "The August 21 and 27 lectures are published in chronological order. The August 21 participant/chat closure after teaching was excluded; the August 27 source taught continuously to its natural end. One later recording remains queued for one-at-a-time review.",
       lectures: [
         {
           id: "ecs-6402-2026-08-21-204351",
@@ -236,6 +236,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Communication versus end-to-end networks", "Sampling, quantisation, encoding, and modulation", "Multiplexing, congestion, interfaces, and synchronization"]
+        },
+        {
+          id: "ecs-6402-2026-08-27-203455",
+          number: 2,
+          date: "2026-08-27",
+          sourceRecordedAt: "2026-08-27T20:34:55+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20260827_203455-Meeting Recording.mp4",
+          displayDate: "27 August 2026",
+          title: "Exchange management, reliable transfer, and signal recovery",
+          duration: "1h 18m 46s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse75%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSelected%20Topics%20in%20Wireless%20Networks%2D20260827%5F203455%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Exchange modes and management", "Error, flow, addressing, routing, and security", "Line coding, noise, SNR, media, and efficiency"]
         }
       ]
     },
