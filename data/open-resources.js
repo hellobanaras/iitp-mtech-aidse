@@ -563,6 +563,46 @@ export const openLearningResources = {
   "ecs-6402": [
     {
       provider: "RFC Editor",
+      kind: "Primary historical measurement",
+      access: "Free HTML and text",
+      title: "RFC 619 — Mean Round-Trip Times in the ARPANET",
+      description: "Connect the lecture's ARPANET history and four-delay model to an early primary measurement document covering queueing, transmission, propagation, retransmission, and buffers.",
+      url: "https://www.rfc-editor.org/rfc/rfc619.html"
+    },
+    {
+      provider: "RFC Editor",
+      kind: "Internet measurement standard",
+      access: "Free HTML and text",
+      title: "RFC 2681 — A Round-trip Delay Metric for IPPM",
+      description: "Study rigorous delay measurement, minimum path delay, congestion-related variation, and the limitations of round-trip observations.",
+      url: "https://www.rfc-editor.org/info/rfc2681/"
+    },
+    {
+      provider: "RFC Editor",
+      kind: "Technical definitions",
+      access: "Free HTML and text",
+      title: "RFC 4377 — Propagation, transmission, processing, and node latency",
+      description: "Use precise standards terminology to separate the latency components introduced through the lecture's bus analogy.",
+      url: "https://www.rfc-editor.org/rfc/rfc4377.html"
+    },
+    {
+      provider: "ITU-T",
+      kind: "Primary standard",
+      access: "Free recommendation page",
+      title: "ITU-T X.25 — Packet-mode terminal access",
+      description: "Primary specification context for X.25 physical, data-link, and packet-layer procedures and reliable packet service.",
+      url: "https://www.itu.int/rec/T-REC-X.25"
+    },
+    {
+      provider: "ITU-T",
+      kind: "Standards overview",
+      access: "Free web article",
+      title: "Frame Relay recommendations and services",
+      description: "ITU background on permanent and switched virtual circuits, transfer delay, frame loss, multicast, compression, and network interworking.",
+      url: "https://www.itu.int/ITU-T/news/sg7-frame.html"
+    },
+    {
+      provider: "RFC Editor",
       kind: "Primary technical reference",
       access: "Free HTML and text",
       title: "RFC 1071 — Computing the Internet Checksum",

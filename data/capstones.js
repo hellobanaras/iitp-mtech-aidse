@@ -797,6 +797,36 @@ export const capstones = Object.freeze({
       "success": "A learner can reproduce a transfer, distinguish error control from flow control, explain the selected route and medium, and demonstrate how SNR, buffer size, window, compression, and retransmission change goodput and delay."
     }
   },
+  "ecs-6402-2026-08-28-203443": {
+    "en": {
+      "title": "PathScope: an explainable network-delay and protocol trade-off lab",
+      "pitch": "Build a browser workbench that models hosts, switches, routers, links, packetisation, queues, and protocol overhead, then explains why a selected path achieves its measured latency and goodput.",
+      "problem": "Network tools commonly report one latency or throughput number without showing whether processing, queueing, serialisation, propagation, packet size, or reliability overhead caused the result.",
+      "learning": "You will implement packet and circuit switching, LAN/WAN topology, routing, the four nodal delays, message segmentation, control overhead, X.25-style hop reliability, and Frame-Relay-style reduced overhead.",
+      "mvp": [
+        "Let learners draw endpoints, switches, routers, and links with configurable rate, distance, propagation speed, processing time, and queue policy.",
+        "Split a message into packets and animate receive-decide-forward behaviour across one or more candidate paths.",
+        "Calculate processing, queueing, transmission, propagation, total delay, payload efficiency, and goodput for every hop and packet.",
+        "Compare circuit setup, datagram forwarding, heavy per-hop reliability, and reduced-overhead frame service using the same traffic trace."
+      ],
+      "stretch": [
+        "Replay a privacy-scrubbed packet trace and fit model parameters to observed timing.",
+        "Add route changes and demonstrate reordering when packets traverse paths with unequal delay.",
+        "Simulate burst traffic and compare FIFO, priority, and fair queueing.",
+        "Export a reproducible evidence card containing topology, formulas, assumptions, events, and results."
+      ],
+      "plan": [
+        "Week 1: topology editor, packet model, route selection, and deterministic unit tests.",
+        "Week 2: four-delay engine, queues, animation, and per-hop evidence panels.",
+        "Week 3: switching modes, reliability overhead, loss/retry, and goodput comparison.",
+        "Week 4: trace import, accessibility, mobile polish, experiment export, and case studies."
+      ],
+      "novelty": "PathScope treats every latency observation as an explainable sum of mechanisms and allows old and modern reliability assumptions to be compared on an identical topology.",
+      "stack": ["TypeScript", "SVG or D3", "Web Workers", "Vitest", "IndexedDB"],
+      "milestones": ["Week 1: network model", "Week 2: delay evidence", "Week 3: protocol trade-offs", "Week 4: reproducible learning product"],
+      "success": "A learner can predict total delay, identify its dominant component, explain a route decision, and show when reliability overhead raises or lowers delivered goodput."
+    }
+  },
   "ecs-6401-2026-08-28-180221": {
     "en": {
       "title": "ForecastPrep: an auditable time-series transformation lab",

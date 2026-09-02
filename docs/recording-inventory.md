@@ -282,3 +282,27 @@ The remaining verified pending queue is:
 | EBB 6401 | 24 Aug 2026 | `Smart contracts and solidity programming-20260824_180004-Meeting Recording.mp4` | `awaiting-browser` |
 | ECS 6402 | 28 Aug 2026 | `Selected Topics in Wireless Networks-20260828_203443-Meeting Recording.mp4` | `awaiting-browser` |
 | EBB 6402 | 1 Sep 2026 | `Blockchain policy – Legal, Social and Economic Impact-20260901_180239-Meeting Recording.mp4` | `awaiting-browser` |
+
+### 2 September 2026 — Wednesday scheduled-course check
+
+The Wednesday schedule identifies EBB 6401 Smart Contracts, ECS 6401/ESD 6301
+Advanced Time Series Analysis, and ECC 6404 Data Warehousing. Their SharePoint
+folders were inspected sequentially in the signed-in Chrome session. Each folder
+contains one new 2 September recording:
+
+| Course | Source | Size | Access | Inventory state |
+| --- | --- | ---: | --- | --- |
+| EBB 6401 | `Smart contracts and solidity programming-20260902_180427-Meeting Recording.mp4` | 168 MB | view only | pending |
+| ECS 6401/ESD 6301 | `Advanced Time Series Analysis-20260902_180510-Meeting Recording.mp4` | 353 MB | view only | pending |
+| ECC 6404 | `Data Warehousing-20260902_193120-Meeting Recording.mp4` | 338 MB | view only | pending |
+
+No recording player was opened during this inventory pass. The three new
+identities were appended behind the older pending sources so the queue's
+one-at-a-time, oldest-first course rotation remains intact. The private folder
+snapshot is `.course-data/inventory/2026-09-02-wednesday.json`.
+
+#### ECS 6402 — 28 August 2026, 20:34:43 source
+
+`Selected Topics in Wireless Networks-20260828_203443-Meeting Recording.mp4` is a 193 MB, 1h 19m 52s view-only source with no visible provider Download action. Its stable identity was checked before opening it alone. The required full-timeline sweep found sustained OneNote teaching at the beginning, 10%, 25%, 50%, 75%, 90%, and near-end positions: course/network framing at 00:31, internetwork communication at 07:55, switch/router topology at 20:06, switching behaviour at 39:52, shared-medium examples at 59:38 and 01:11:29, variable-length frames at 01:18:28, and instructor closure at 01:19:24. There was no material waiting-room interval or idle tail, so the source is `canonical`.
+
+The permitted visible-tab capture ran alone at 2× from source 00:00 until the natural endpoint. Its 200 MB VP9/Opus artifact and timing sidecar were saved under ignored `.course-data/`, and the recording tab was closed before processing. Local processing verified English audio and video, restored source-time transcript timestamps, sampled 81 frames, retained the whiteboard evidence trail, and classified the source `canonical`. The English-only note `ecs-6402-2026-08-28-203443` covers Internet/intranet, ARPANET, OSI/TCP-IP, circuit and packet switching, LAN/WAN structure, routing, the four network-delay components, X.25 reliability overhead, and Frame Relay. It includes 23 source-time visual references, seven summary sections, six expert insights, two timecoded student-question exchanges, three instructor references, clearly separated optional practice, six primary/practical resources, an accessible wireless-system visual, the public `PathScope` capstone, and exactly 25 explained MCQs. The subject resource trail was refreshed with RFC 619, RFC 2681, RFC 4377, ITU-T X.25, and ITU's Frame Relay overview.
