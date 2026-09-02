@@ -128,6 +128,14 @@ stale locks are recoverable after a crash. `npm run queue:status` and
 advances until it reaches the next required browser gesture or note-authoring
 checkpoint, then can be rerun without repeating completed media work.
 
+“Full loop” always covers all verified pending identities unless the user says
+`date-only` (or equivalent) and the runner is invoked with `--date YYYY-MM-DD`.
+A newly discovered date is not an implicit scope boundary. Once one identity
+leaves plain `pending`, its capture, processing, note, validation, source push,
+and GitHub Pages deployment form one transaction. Resume that active identity
+before selecting another course; never batch several captures ahead of their
+individual publication steps.
+
 Stream/Chrome capture remains an explicit user-gesture boundary. The runner
 must pause when an artifact is absent; it must never attempt hidden stream
 discovery or claim that a view-only recording was captured unattended. After a

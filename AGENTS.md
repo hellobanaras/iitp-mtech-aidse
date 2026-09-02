@@ -7,6 +7,7 @@ The dedicated recording and note-taker profile is [`agents/recording-note-taker.
 Important persistent lessons:
 
 - Maintain one deterministic queue sorted by original lecture date/time from oldest to newest. For identical timestamps, sort by course code and then source filename. Never skip ahead merely because a newer recording looks easier.
+- “Full loop” has one durable meaning: process every verified pending identity in course-round order. Each identity is an indivisible publication transaction—capture or reject, process, author, validate, commit, push `origin/main`, deploy GitHub Pages, persist `published`, and only then select the next identity. Mentioning the date on which new files were discovered does not narrow the queue. Use `--date YYYY-MM-DD` only when the user explicitly asks for a date-only run.
 - Enforce the single-recording invariant: open only the next recording in the queue; triage it; capture/process it or reject it; persist the disposition and evidence; close its tab; only then open the next recording. Do not leave previously reviewed recording tabs open.
 - Before starting a recording, check the inventory/manifest for the stable source identity `(course, lecture date, source filename or source URL hash)`. A completed `canonical`, `unique-fragment`, `duplicate`, or `idle/error` disposition prevents accidental repeat watching unless new evidence requires an explicit re-review.
 - Before starting a real-time capture, perform a full-timeline triage sweep. Seek to several distributed positions (at minimum: beginning, 10%, 25%, 50%, 75%, 90%, and near the end), inspect the visible content, and listen briefly where practical. If the samples remain silent and visually static or show only participant avatars/placeholders, classify the upload as `idle/error` and do not capture it in full.
@@ -51,7 +52,9 @@ resumes safely after interruption. A missing capture pauses at
 sole English note and subject-resource refresh have been authored and
 validated. `npm run queue:publish -- <publication-id>` is the only queue
 publication path and performs the guarded source push followed by GitHub Pages
-deployment. Chrome/Stream capture still requires the permitted visible-tab user
+deployment. The runner prioritizes any non-terminal active checkpoint above all
+plain pending items, so a lecture cannot be abandoned midway while course
+rotation selects another source. Chrome/Stream capture still requires the permitted visible-tab user
 gesture; never bypass provider controls or claim unattended capture.
 
 ## Deployment and conflict prevention policy

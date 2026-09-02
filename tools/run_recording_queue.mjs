@@ -41,6 +41,7 @@ const has = (name) => args.includes(name);
 const mode = has("--status") ? "status" : has("--next") ? "next" : has("--process") ? "process" : has("--publish") ? "publish" : "run";
 const sourcesPath = resolve(value("--sources", DEFAULT_SOURCES));
 const statePath = resolve(value("--state", DEFAULT_STATE));
+const scopeDate = value("--date");
 const requestedId = value(mode === "process" ? "--process" : mode === "publish" ? "--publish" : "--id");
 
 const die = (message) => {
@@ -119,9 +120,21 @@ const save = (state) => {
 
 // Round-robin ordering: one oldest eligible item per course in each round.
 const orderedPending = (state) => {
-  const pending = Object.values(state.items).filter((item) => !["complete", "rejected", "blocked"].includes(item.status));
+  const pending = Object.values(state.items).filter((item) =>
+    !["complete", "rejected", "blocked"].includes(item.status) &&
+    (!scopeDate || item.nominalDate === scopeDate));
+  // A full-loop publication is one transaction. Once any item has advanced
+  // beyond plain pending/awaiting-browser, it must be resumed and published
+  // before course rotation may select another source.
+  const active = pending.filter((item) =>
+    item.status !== "pending" || item.stage !== "awaiting-browser");
+  if (active.length > 1) {
+    throw new Error(`Queue invariant violated: ${active.length} active items exist. Reconcile before continuing.`);
+  }
+  const activeItem = active[0];
+  const eligible = activeItem ? pending.filter((item) => item !== activeItem) : pending;
   const grouped = new Map();
-  for (const item of pending) {
+  for (const item of eligible) {
     const code = item.courseCode || item.course;
     if (!grouped.has(code)) grouped.set(code, []);
     grouped.get(code).push(item);
@@ -162,7 +175,7 @@ const orderedPending = (state) => {
       }
     }
   }
-  return result;
+  return activeItem ? [activeItem, ...result] : result;
 };
 
 const acquireLock = () => {
@@ -188,6 +201,9 @@ const run = (command, commandArgs, options = {}) => {
 const itemById = (state, id) => {
   const item = Object.values(state.items).find((candidate) => candidate.publicationId === id || candidate.stableIdentity === id);
   if (!item) throw new Error(`No queue item matches ${id}`);
+  if (scopeDate && item.nominalDate !== scopeDate) {
+    throw new Error(`Queue item ${id} is outside the active --date ${scopeDate} scope.`);
+  }
   return item;
 };
 
@@ -201,7 +217,7 @@ const printItem = (item, index = undefined) => {
 const status = (state) => {
   const counts = {};
   for (const item of Object.values(state.items)) counts[item.status] = (counts[item.status] || 0) + 1;
-  console.log(JSON.stringify({ updatedAt: state.updatedAt, counts, next: orderedPending(state).slice(0, 8).map((item) => ({ id: item.publicationId, course: item.courseCode || item.course, date: item.nominalDate, stage: item.stage })) }, null, 2));
+  console.log(JSON.stringify({ scope: scopeDate ? { date: scopeDate } : "all", updatedAt: state.updatedAt, counts, next: orderedPending(state).slice(0, 8).map((item) => ({ id: item.publicationId, course: item.courseCode || item.course, date: item.nominalDate, stage: item.stage })) }, null, 2));
 };
 
 const processOne = (state, item) => {
@@ -271,6 +287,13 @@ const publishOne = (state, item) => {
   state.lastCompletedCourse = item.courseCode || item.course;
   save(state);
   console.log(`✅ Published and deployed ${item.publicationId} to GitHub Pages.`);
+  const next = orderedPending(state)[0];
+  if (next) {
+    console.log("➡️ Full loop may now advance to the next pending recording:");
+    printItem(next);
+  } else {
+    console.log("✅ No eligible recordings remain in the active queue scope.");
+  }
 };
 
 const main = () => {
