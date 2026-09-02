@@ -136,7 +136,13 @@ and GitHub Pages deployment form one transaction. Resume that active identity
 before selecting another course; never batch several captures ahead of their
 individual publication steps.
 
-Stream/Chrome capture remains an explicit user-gesture boundary. The runner
+Stream/Chrome capture remains an explicit visible-UI gesture boundary. It does
+not mean the owner must personally click the companion. When personal local
+capture is already authorized for the active run, the agent must operate the
+installed companion through Chrome/Computer Use, mark the verified boundaries,
+and start/stop capture without seeking repeat confirmation. Ask the owner to
+intervene only if browser control is unavailable, an unapproved permission
+prompt appears, or the UI presents a genuinely human-only action. The runner
 must pause when an artifact is absent; it must never attempt hidden stream
 discovery or claim that a view-only recording was captured unattended. After a
 verified capture is placed in the inventory, `npm run queue:process -- <id>`

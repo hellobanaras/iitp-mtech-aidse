@@ -3,7 +3,9 @@
 /**
  * Durable, restart-safe controller for the recording-note workflow.
  *
- * Browser capture remains an explicit user-gesture boundary. The runner owns
+ * Browser capture remains an explicit visible-UI gesture boundary. With owner
+ * authorization, the agent operates the companion rather than waiting for the
+ * owner to click. The runner owns
  * deterministic queueing, local processing, checkpoints, validation, and (when
  * requested) the two-remote GitHub deployment. It never discovers manifests,
  * signed URLs, cookies, DRM data, or hidden media streams.
@@ -389,7 +391,7 @@ const main = () => {
         delete next.error;
         next.updatedAt = now();
         save(state);
-        console.log("⏸️ Browser gesture required. Capture/download this one source, close its tab, add the artifact path to the inventory, then resume.");
+        console.log("⏸️ Visible browser gesture required. If this run is already authorized, operate the companion directly; ask the owner only for a genuinely human-only or unapproved permission step. Capture/download this one source, close its tab, add the artifact path to the inventory, then resume.");
         break;
       }
       processOne(state, next);

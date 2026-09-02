@@ -55,8 +55,14 @@ validated. `npm run queue:publish -- <publication-id>` is the only queue
 publication path and performs the guarded source push followed by GitHub Pages
 deployment. The runner prioritizes any non-terminal active checkpoint above all
 plain pending items, so a lecture cannot be abandoned midway while course
-rotation selects another source. Chrome/Stream capture still requires the permitted visible-tab user
-gesture; never bypass provider controls or claim unattended capture.
+rotation selects another source. Chrome/Stream capture still requires a
+permitted visible-tab gesture, but this is an interaction constraint—not a
+request for the owner to click. When personal local capture is already
+authorized for the active run, the agent must operate the visible Lecture Atlas
+Companion controls itself and continue without asking again. Pause for the owner
+only when browser/extension control is unavailable, an unexpected permission is
+outside the granted scope, or the UI presents a genuinely human-only action.
+Never bypass provider controls or claim unattended capture.
 
 ## Deployment and conflict prevention policy
 
