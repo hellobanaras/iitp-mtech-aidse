@@ -136,3 +136,13 @@ performs local evidence extraction/transcription. Once the sole English note
 and resource refresh exist, `npm run queue:publish -- <id>` runs validation,
 build, a guarded commit, `origin/main` synchronization, and the GitHub Pages
 deployment. Cloudflare is never a target.
+
+Before resuming after another agent or an interrupted run, execute `npm run
+queue:reconcile`. It compares the public catalog, private source list, queue
+state, durable ledger, and local capture sidecars. A catalog-backed note is
+authoritative evidence that its source reached `published`; a sidecar is matched
+by its cleaned Stream source URL, not by the date prefix in its local filename.
+The companion may name a file with the local capture date even when the source
+recording is older. Resolve course aliases to the catalog's primary code so one
+lecture cannot appear twice under labels such as `ECS 6401` and `ECS 6401/ESD
+6301`.

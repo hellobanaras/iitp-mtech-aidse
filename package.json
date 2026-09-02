@@ -9,6 +9,7 @@
     "check": "node --check assets/app.js && node --check assets/analytics.js && node --check data/catalog.js && node --check data/i18n.js && node --check data/capstones.js && node --check data/open-resources.js && node --check data/lecture-visuals.js && node tools/validate_content.mjs && node tools/validate_repo_discovery.mjs",
     "update-discovery": "node tools/validate_repo_discovery.mjs --update",
     "queue:status": "node tools/run_recording_queue.mjs --status",
+    "queue:reconcile": "node tools/reconcile_recording_inventory.mjs",
     "queue:next": "node tools/run_recording_queue.mjs --next",
     "queue:run": "node tools/run_recording_queue.mjs --loop",
     "queue:process": "node tools/run_recording_queue.mjs --process",

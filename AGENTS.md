@@ -37,8 +37,13 @@ Important persistent lessons:
 
 When the user asks for a full-loop recording run, use
 `tools/run_recording_queue.mjs` and the ignored `.course-data/recording-sources.json`
-inventory. Run `npm run queue:status`/`npm run queue:next` before opening a
-source, then `npm run queue:run` to advance the oldest pending recording per
+inventory. Run `npm run queue:reconcile` before `npm run queue:status`/`npm run
+queue:next` when local captures, the public catalog, and queue state may have
+been changed by separate runs. Reconciliation canonicalizes course-code aliases,
+marks catalog-backed notes as published, and matches capture sidecars by their
+Stream source URL. Never infer a lecture date from a local capture filename,
+because its prefix may be the capture date rather than the source-recording
+date. Then run `npm run queue:run`; it advances the oldest pending recording per
 course round. The runner persists stable identities and stage checkpoints,
 skips completed/rejected/blocked sources, enforces a single-process lock, and
 resumes safely after interruption. A missing capture pauses at

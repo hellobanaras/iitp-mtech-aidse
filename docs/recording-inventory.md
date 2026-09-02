@@ -261,3 +261,24 @@ The permitted 2× visible-tab capture retained source 00:23–58:59, after which
 `Security and Privacy for Big Data-20260829_053554-Meeting Recording.mp4` is a 234 MB, 1h 44m 03s view-only source with no visible provider Download action. The required beginning/10%/25%/50%/75%/90%/near-end sweep found only the cover/title state at 00:22 and the Teams waiting card at 11:11, followed by sustained cryptography teaching from the Introduction slide at 11:17. The lecture progresses through the formal cryptosystem tuple, shift/substitution/transposition ciphers, frequency analysis, block and stream ciphers, the one-time pad, attack models, one-way security, and Shannon perfect secrecy. The RC4/next-class roadmap contains the final teaching around 1:40:47; participant-only views from 1:40:57 through 1:44:03 were excluded.
 
 The permitted visible-tab capture ran alone at 2× from source 11:17 to 1:40:47. Its 287 MB VP9/Opus artifact and timing sidecar were saved, verified, losslessly remuxed to restore duration metadata, and the recording tab was closed before local processing. Processing verified English audio and video, restored source timestamps, sampled 89 frames, and classified the source `canonical`. The English-only note `ebb-6403-2026-08-29-053554` includes a 25-point slide trail, eight-part summary, six expert insights, explicit empty instructor assignment/homework/lab/project/reference/question categories, the timecoded next-class announcement, optional expert practice, six standards/practice resources, the accessible security-control visual, the public `CipherLens` capstone, and exactly 25 MCQs with every option explained. The subject resource trail was refreshed with the NIST cryptography hub, NIST block-cipher modes, RFC 7465 on RC4, and CrypTool.
+
+### 2 September 2026 — catalog and private-ledger reconciliation
+
+`npm run queue:reconcile` compared the 31 catalog-published lecture notes with
+the ignored source list, queue state, durable ledger, and all local companion
+sidecars. Every public lecture now resolves to exactly one completed queue
+identity, every queue publication resolves back to the catalog, and the
+`ECS 6401` / `ECS 6401/ESD 6301` alias collision has been collapsed to the
+catalog's primary course code. The reconciled private inventory contains 45
+stable source identities: 31 published, 11 rejected, and 3 pending. All 15
+local capture sidecars match known source URLs; none represents an untracked
+lecture. In particular, several files prefixed `2026-09-02` are captures made
+on that date for older August recordings, not new 2 September lectures.
+
+The remaining verified pending queue is:
+
+| Course | Nominal session | Source | Stage |
+| --- | --- | --- | --- |
+| EBB 6401 | 24 Aug 2026 | `Smart contracts and solidity programming-20260824_180004-Meeting Recording.mp4` | `awaiting-browser` |
+| ECS 6402 | 28 Aug 2026 | `Selected Topics in Wireless Networks-20260828_203443-Meeting Recording.mp4` | `awaiting-browser` |
+| EBB 6402 | 1 Sep 2026 | `Blockchain policy – Legal, Social and Economic Impact-20260901_180239-Meeting Recording.mp4` | `awaiting-browser` |
