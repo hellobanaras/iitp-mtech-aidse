@@ -692,6 +692,32 @@ export const openLearningResources = {
     {
       provider: "Ethereum",
       providerHi: "Ethereum",
+      kind: "Developer guide",
+      kindHi: "Developer guide",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Blockchain oracles",
+      titleHi: "Blockchain oracles",
+      description: "First-party guide to input and output oracles, off-chain data, correctness, availability, and incentive-compatible reporting.",
+      descriptionHi: "First-party guide to input and output oracles, off-chain data, correctness, availability, and incentive-compatible reporting.",
+      url: "https://ethereum.org/developers/docs/oracles/"
+    },
+    {
+      provider: "Ethereum",
+      providerHi: "Ethereum",
+      kind: "Data-structure guide",
+      kindHi: "Data-structure guide",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Merkle Patricia trie",
+      titleHi: "Merkle Patricia trie",
+      description: "Technical guide to the deterministic, cryptographically verifiable trie that commits to Ethereum state.",
+      descriptionHi: "Technical guide to the deterministic, cryptographically verifiable trie that commits to Ethereum state.",
+      url: "https://ethereum.org/developers/docs/data-structures-and-encoding/patricia-merkle-trie/"
+    },
+    {
+      provider: "Ethereum",
+      providerHi: "Ethereum",
       kind: "Concept guide",
       kindHi: "अवधारणा मार्गदर्शिका",
       access: "Free documentation",

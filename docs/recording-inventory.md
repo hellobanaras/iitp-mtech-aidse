@@ -209,7 +209,7 @@ The signed-in folder check restored recording access for ECS 6402 and EBB 6401 a
 
 | Course | Newly inventoried sources | Current disposition |
 | --- | ---: | --- |
-| EBB 6401 — Smart Contracts and Solidity Programming | 6 | Two 17 Aug sources published (18:09 canonical; 18:48 unique continuation); remaining four pending deterministic review |
+| EBB 6401 — Smart Contracts and Solidity Programming | 6 | Two 17 Aug sources published (18:09 canonical; 18:48 unique continuation); 19 Aug 17:59:55 source rejected as `idle/error`; remaining three pending deterministic review |
 | ECS 6402 — Selected Topics in Wireless Networks | 3 | 21 and 27 Aug sources canonical and published; 28 Aug pending deterministic review |
 | EBB 6403 — Security and Privacy for Big Data | 2 | 28 Aug source canonical and note-ready; 29 Aug source pending deterministic review |
 | ECS 6401 / ESD 6301 — Advanced Time Series Analysis | 1 | 28 Aug source processed and published; no pending source remains from this inventory pass |
@@ -227,6 +227,16 @@ Local processing verified audio and video, restored source timestamps, sampled 2
 `Smart contracts and solidity programming-20260817_184812-Meeting Recording.mp4` is a 60.3 MB, 43m 35s view-only source with no visible provider Download action. A full beginning/10%/25%/50%/75%/90%/near-end sweep found sustained whiteboard teaching throughout: digital trust and keys at 00:17, signatures and authorization at 04:41, peer transaction propagation at 11:09, the proof-of-work network at 21:52, Byzantine agreement at 32:41, and the house-transfer settlement example through 43:09. Although the opening briefly recaps the earlier lecture, the source contains substantial new material and is classified `unique-fragment`, not duplicate.
 
 The permitted visible-tab capture ran alone at 2× from source 00:13 to the marked teaching end at 43:09 and produced a video-plus-audio artifact with timing sidecar. The tab was closed before local processing. Local processing restored source timestamps, verified English audio and 43 unique visual samples, retained 26 slide/whiteboard candidates, and generated segment-02 artifacts without colliding with the earlier same-day lecture. The English-only note `ebb-6401-2026-08-17-184812` includes a 20-point visual trail, seven-part summary, six expert insights, one timecoded student question with the instructor's consensus refresher, explicit empty instructor-obligation categories, optional expert practice, six primary/practical resources, the shared smart-contract visual, the public `TitleFlow` capstone, and exactly 25 MCQs with every option explained. The subject resource trail was refreshed with Ethereum's transaction guide and the Bitcoin whitepaper.
+
+#### EBB 6401 — 19 August 2026, 17:59:55 source
+
+`Smart contracts and solidity programming-20260819_175955-Meeting Recording.mp4` is a 447 KB, 2m 05s view-only upload. The required beginning, 10%, 25%, 50%, 75%, 90%, and near-end sweep showed the same black participant/avatar view labelled `Hybrid Course77` at every sampled position, with no slide, whiteboard, teaching segment, or meaningful audiovisual change. It is classified `idle/error`, rejected without full capture, and permanently excluded from note publication unless new evidence requires an explicit re-review. The recording tab was closed before advancing the queue.
+
+#### EBB 6401 — 19 August 2026, 18:02:24 source
+
+`Smart contracts and solidity programming-20260819_180224-Meeting Recording.mp4` is a 130 MB, 1h 31m 07s view-only source with no visible provider Download action. The required beginning/10%/25%/50%/75%/90%/near-end sweep found the Teams waiting state at 00:12, a lecture title immediately before sustained teaching at 09:47, contract-state instruction at 23:00 and 45:38, contract characteristics at 01:08:20, blockchain value at 01:21:51, and the application-scenario map at 01:29:27. Teaching continued to the natural source endpoint at 01:31:07, so only the opening wait was excluded.
+
+The permitted visible-tab video-plus-audio capture ran alone at 2× from approximately source 10:01 through the natural end, and the recording tab was closed before processing. Local processing verified audio/video, restored source timestamps, sampled 81 frames with 33 visual candidates, and merged a 501-segment chunked transcript. The English-only note `ebb-6401-2026-08-19-180224` covers Merkle commitments, account types, state transitions, hybrid storage, smart-contract families, oracle architecture, and blockchain suitability. It includes a 15-point visual trail, seven-part summary, six expert insights, explicit empty instructor-signal categories, optional expert practice, six primary/practical resources, the accessible agreement-to-execution visual, the public `RainSure Lab` capstone, and exactly 25 MCQs with every option explained. The subject resource trail was refreshed with Ethereum's oracle and Merkle Patricia trie guides.
 
 #### ECS 6402 — 21 August 2026, 20:43:51 source
 

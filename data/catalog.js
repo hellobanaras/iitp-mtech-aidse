@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-02",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 30,
+  filesInventoried: 31,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -265,8 +265,8 @@ export const catalog = {
       icon: "SC",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course77_hybrid_iitp_ac_in/IgCEBeWWlU_wQLE9fUZWW9fTAYhpk32mpJi8Lbo6Iba_Cy8?e=5wSELF",
       status: "active",
-      statusLabel: "2 lectures available",
-      note: "Two verified 17 August lectures are published. The 18:48 recording is a distinct continuation covering transactions, consensus, Byzantine voting, and property settlement.",
+      statusLabel: "3 lectures available",
+      note: "Three verified lectures are published. The 19 August session connects contract state and storage to oracle design and blockchain suitability.",
       lectures: [
         {
           id: "ebb-6401-2026-08-17-180921",
@@ -295,6 +295,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Authentication, authorization, wallets, and signatures", "PoW, PoS, DPoS, and Byzantine agreement", "Property-transfer clearing and settlement"]
+        },
+        {
+          id: "ebb-6401-2026-08-19-180224",
+          number: 3,
+          date: "2026-08-19",
+          sourceRecordedAt: "2026-08-19T18:02:24+05:30",
+          sourceFilename: "Smart contracts and solidity programming-20260819_180224-Meeting Recording.mp4",
+          displayDate: "19 August 2026",
+          title: "Smart-contract architecture: state, storage, oracles, and blockchain fit",
+          duration: "1h 21m 06s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course77_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse77%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSmart%20contracts%20and%20solidity%20programming%2D20260819%5F180224%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Merkle roots and account types", "State transitions and hybrid storage", "Oracle trust and blockchain fit"]
         }
       ]
     },

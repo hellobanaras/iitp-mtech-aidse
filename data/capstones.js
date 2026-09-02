@@ -707,6 +707,36 @@ export const capstones = Object.freeze({
       "success": "A learner can trace a transfer from signed intent to legal-state update, explain the selected quorum and fault model, and demonstrate safe handling of a false title claim or compromised signer."
     }
   },
+  "ebb-6401-2026-08-19-180224": {
+    "en": {
+      "title": "RainSure Lab: an oracle-resilient parametric insurance simulator",
+      "pitch": "Build a local-first crop-insurance workbench that combines an encoded rainfall policy, multiple simulated weather oracles, explicit freshness and quorum rules, automatic settlement, and a human-readable dispute trail.",
+      "problem": "Parametric insurance demos often show only a threshold and payout. They hide sensor failure, stale data, reporter manipulation, insufficient contract funding, ambiguous policy wording, and what should happen when external evidence is disputed.",
+      "learning": "You will model contract accounts and state transitions, hybrid on-chain/off-chain evidence, oracle aggregation and incentives, automated value transfer, circuit breakers, and the decision criteria that justify blockchain over a conventional database.",
+      "mvp": [
+        "Create policy states for quoted, funded, active, awaiting evidence, settled, refunded, disputed, paused, and closed.",
+        "Simulate three rainfall reporters with configurable bias, delay, outage, signature, and reputation.",
+        "Implement median/quorum aggregation, freshness checks, a rainfall threshold, payout limits, and an emergency pause.",
+        "Show an evidence trail linking each oracle report, condition evaluation, state transition, payment, and refund to its source and timestamp."
+      ],
+      "stretch": [
+        "Commit large weather evidence off-chain and verify its digest against an on-chain-style hash record.",
+        "Compare a centralized signed database implementation with the ledger design using cost, correction, trust, and auditability criteria.",
+        "Add staking or reputation experiments and measure the manipulation cost under reporter collusion.",
+        "Export a policy, threat model, test report, and dispute packet without including personal farmer data."
+      ],
+      "plan": [
+        "Week 1: define policy language, states, actors, funding rules, and deterministic transition tests.",
+        "Week 2: implement oracle reporters, aggregation, freshness, signatures, and failure scenarios.",
+        "Week 3: add settlement, refunds, pause/dispute paths, evidence commitments, and monitoring.",
+        "Week 4: compare architectures, polish the accessible visual interface, and publish a reproducible evaluation."
+      ],
+      "novelty": "The simulator treats oracle uncertainty and failure handling as first-class contract states, making the boundary between deterministic code and uncertain real-world evidence visible.",
+      "stack": ["TypeScript", "Solidity-style state machine", "Vitest", "IndexedDB", "Accessible HTML visualizations"],
+      "milestones": ["Week 1: policy and state model", "Week 2: oracle network", "Week 3: settlement and recovery", "Week 4: architecture comparison"],
+      "success": "A learner can demonstrate normal payout, stale-data rejection, oracle disagreement, underfunding, pause, refund, and dispute outcomes and explain whether a blockchain is justified."
+    }
+  },
   "ecs-6402-2026-08-21-204351": {
     "en": {
       "title": "LinkScope: an explainable wireless communication-chain simulator",
