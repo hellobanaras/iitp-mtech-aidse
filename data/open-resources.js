@@ -1078,6 +1078,38 @@ export const openLearningResources = {
       description: "Implementation-focused TLS guidance that extends the lecture's network-security protocol map.",
       descriptionHi: "Implementation-focused TLS guidance that extends the lecture's network-security protocol map.",
       url: "https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html"
+    },
+    {
+      provider: "NIST",
+      kind: "Cryptography standards hub",
+      access: "Free public standards",
+      title: "Cryptographic Standards and Guidelines",
+      description: "Primary index for approved symmetric primitives, block-cipher techniques, key management, random-bit generation, validation, and algorithm transitions.",
+      url: "https://csrc.nist.gov/Projects/cryptographic-standards-and-guidelines"
+    },
+    {
+      provider: "NIST",
+      kind: "Block-cipher standard",
+      access: "Free public standard",
+      title: "SP 800-38A: Block Cipher Modes of Operation",
+      description: "Connects the lecture's fixed-size block-cipher model to standardized methods for processing longer messages.",
+      url: "https://csrc.nist.gov/pubs/sp/800/38/a/final"
+    },
+    {
+      provider: "IETF",
+      kind: "Internet standard",
+      access: "Free public RFC",
+      title: "RFC 7465: Prohibiting RC4 Cipher Suites",
+      description: "Explains why RC4 is useful only as historical study material and must not be negotiated by modern TLS clients or servers.",
+      url: "https://www.rfc-editor.org/info/rfc7465/"
+    },
+    {
+      provider: "CrypTool",
+      kind: "Interactive learning tools",
+      access: "Free educational software",
+      title: "CrypTool Portal",
+      description: "Hands-on visual tools for testing classical ciphers, frequency analysis, and modern cryptographic concepts safely.",
+      url: "https://www.cryptool.org/en/"
     }
   ]
 };

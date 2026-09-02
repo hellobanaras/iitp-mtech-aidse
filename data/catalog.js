@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-02",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 29,
+  filesInventoried: 30,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -310,8 +310,8 @@ export const catalog = {
       icon: "SP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course78_hybrid_iitp_ac_in/IgCwVcRuGq_lR6u1S5D-yQeRAb5jOjVzObdfYRB-vn1qvBQ?e=wtwqhi",
       status: "active",
-      statusLabel: "2 lectures available",
-      note: "Two verified lectures are published. The 28 August note excludes the participant-only idle tail after 58:59 from the 1h33m source.",
+      statusLabel: "3 lectures available",
+      note: "Three verified lectures are published. The 29 August cryptography note excludes the opening wait before 11:17 and the participant-only tail after 1:40:47.",
       lectures: [
         {
           id: "ebb-6403-2026-08-21-075934",
@@ -340,6 +340,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Differential privacy and privacy budgets", "k-anonymity, l-diversity, and t-closeness", "TLS, Kerberos, IDS/IPS, and layered defense"]
+        },
+        {
+          id: "ebb-6403-2026-08-29-053554",
+          number: 3,
+          date: "2026-08-29",
+          sourceRecordedAt: "2026-08-29T05:35:54+05:30",
+          sourceFilename: "Security and Privacy for Big Data-20260829_053554-Meeting Recording.mp4",
+          displayDate: "29 August 2026",
+          title: "From classical ciphers to perfect secrecy: foundations of symmetric cryptography",
+          duration: "1h 29m 30s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course78_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse78%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSecurity%20and%20Privacy%20for%20Big%20Data%2D20260829%5F053554%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Cryptosystems and classical ciphers", "Block, stream, and one-time-pad encryption", "Attack models, one-wayness, and perfect secrecy"]
         }
       ]
     },

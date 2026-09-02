@@ -826,5 +826,35 @@ export const capstones = Object.freeze({
       "milestones": ["Week 1: schema and validators", "Week 2: table, graph, and simulation", "Week 3: Markov/context/delay checks", "Week 4: export and case study"],
       "success": "A learner can explain every state, action, reward, and probability in the model, reproduce a trajectory, and identify one formulation that fails because its state or reward is inadequate."
     }
+  },
+  "ebb-6403-2026-08-29-053554": {
+    "en": {
+      "title": "CipherLens: an adversary-aware cryptography learning lab",
+      "pitch": "Build a local-first visual workbench that encrypts the same message with shift, substitution, transposition, one-time-pad, and modern authenticated-encryption examples, then lets a learner attack each construction under explicit threat models.",
+      "problem": "Learners often mistake unreadable ciphertext or a large nominal key space for security. They need a safe environment that reveals statistical leakage, key-reuse failures, partial-message inference, and the difference between correctness, computational security, and perfect secrecy.",
+      "learning": "You will implement reversible cipher rules, visualize key spaces and frequency distributions, model ciphertext-only/known-plaintext/chosen-input attackers, demonstrate one-time-pad reuse, and connect Shannon secrecy to posterior belief.",
+      "mvp": [
+        "Provide educational shift, substitution, and transposition implementations with step-by-step inverse operations.",
+        "Plot plaintext and ciphertext frequencies, repeated patterns, and attack candidates without uploading learner text.",
+        "Implement binary one-time-pad encryption and a controlled pad-reuse demonstration that exposes XOR relationships.",
+        "Represent each experiment with a stated attack model, protected asset, attacker knowledge, success criterion, and result."
+      ],
+      "stretch": [
+        "Add a Bayesian panel showing how ciphertext changes posterior odds for a two-message domain.",
+        "Compare historical stream-cipher bias with a current authenticated-encryption API while clearly prohibiting obsolete algorithms in production.",
+        "Add property tests for D_k(E_k(x)) = x, nonce uniqueness, tamper detection, and key destruction.",
+        "Export an accessible lab report with formulas, plots, threat-model assumptions, and standards references."
+      ],
+      "plan": [
+        "Week 1: implement classical ciphers, inverse rules, fixtures, and correctness tests.",
+        "Week 2: add frequency analysis, key-space exploration, and pattern visualizations.",
+        "Week 3: build one-time-pad, reuse, attack-model, and posterior-belief experiments.",
+        "Week 4: add a modern authenticated-encryption comparison, accessibility, evidence export, and security review."
+      ],
+      "novelty": "The lab evaluates what an attacker can infer rather than celebrating ciphertext appearance, linking classical attacks, partial leakage, and formal secrecy in one inspectable experiment record.",
+      "stack": ["TypeScript", "Web Crypto API", "D3 or Plotly", "Vitest", "IndexedDB"],
+      "milestones": ["Week 1: correctness", "Week 2: statistical attacks", "Week 3: secrecy experiments", "Week 4: modern comparison and evidence"],
+      "success": "A learner can explain why each historical cipher fails, demonstrate the operational conditions of a one-time pad, state an attack model precisely, and distinguish computational difficulty from perfect secrecy."
+    }
   }
 });
