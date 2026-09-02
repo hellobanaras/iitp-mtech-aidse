@@ -618,6 +618,32 @@ export const openLearningResources = {
   ],
   "ebb-6401": [
     {
+      provider: "Ethereum",
+      providerHi: "Ethereum",
+      kind: "Concept guide",
+      kindHi: "अवधारणा मार्गदर्शिका",
+      access: "Free documentation",
+      accessHi: "निःशुल्क दस्तावेज़",
+      title: "Introduction to smart contracts",
+      titleHi: "स्मार्ट कॉन्ट्रैक्ट का परिचय",
+      description: "A first-party explanation of contract code, state, transactions, automatic execution, composability, and important limitations.",
+      descriptionHi: "कॉन्ट्रैक्ट कोड, स्थिति, लेन-देन, स्वचालित निष्पादन, संयोजन और सीमाओं की आधिकारिक व्याख्या।",
+      url: "https://ethereum.org/developers/docs/smart-contracts/"
+    },
+    {
+      provider: "Ethereum Foundation",
+      providerHi: "Ethereum Foundation",
+      kind: "Browser practice lab",
+      kindHi: "ब्राउज़र अभ्यास प्रयोगशाला",
+      access: "Free web IDE",
+      accessHi: "निःशुल्क वेब आईडीई",
+      title: "Remix IDE",
+      titleHi: "रिमिक्स आईडीई अभ्यास",
+      description: "Compile, test, and deploy a small Solidity contract in a local virtual machine before using a public network.",
+      descriptionHi: "सार्वजनिक नेटवर्क से पहले स्थानीय वर्चुअल मशीन में छोटा सॉलिडिटी कॉन्ट्रैक्ट संकलित, परीक्षित और तैनात करें।",
+      url: "https://remix.ethereum.org/"
+    },
+    {
       provider: "Solidity Foundation",
       providerHi: "Solidity Foundation",
       kind: "HTML documentation",

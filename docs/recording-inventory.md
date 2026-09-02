@@ -199,3 +199,22 @@ The source was opened alone from the signed-in `course72` SharePoint folder. The
 An initial endpoint-only capture was rejected because capture began while the player was parked at the teaching end; its sidecar recorded a zero-length source interval and it was not used for processing. After closing that tab, stale sign-out tabs were removed from the capture workspace, and a corrected visible-tab + audio capture ran at 2× from approximately source 00:00:39 to 01:23:46. The recording tab was then closed before local processing. The accepted artifact is `/Users/ukumar/Downloads/lecture-atlas/2026-09-01-Reinforcement Learning-video (1).webm`; its processed manifest records source-time restoration, 88 frames, and the bounded source end `5026.0` seconds.
 
 Local processing verified audio and video, detected English, restored source-time transcript timestamps, sampled 88 frames with the Exercise, finite-MDP, Agent–Environment Interface, and Recycling Robot visuals, and produced the English-only note `eai-6401-2026-09-01` with exactly 25 explained MCQs, four insights, and explicit signal categories. The public capstone is `MDP Sketchbook`, a state-and-reward audit lab. The durable queue records the accepted source as `canonical`, the first attempt as rejected evidence, and the item at `note-ready` pending the separately authorized GitHub publication step.
+
+### 1 September inventory refresh — six non-EAI subjects
+
+The signed-in folder check restored recording access for ECS 6402 and EBB 6401 and found 13 unprocessed sources across five subjects. ECC 6404 had no source newer than its already-published 31 August lecture. The durable round-robin queue now rotates one oldest pending source per subject in this order: EBB 6401, ECS 6402, EBB 6403, ECS 6401/ESD 6301, and EBB 6402. The fresh private inventory is `.course-data/inventory/2026-09-01-other-subjects.json`.
+
+| Course | Newly inventoried sources | Current disposition |
+| --- | ---: | --- |
+| EBB 6401 — Smart Contracts and Solidity Programming | 6 | 17 Aug 18:09:21 canonical note published; remaining five pending deterministic review |
+| ECS 6402 — Selected Topics in Wireless Networks | 3 | access restored; all three pending deterministic review |
+| EBB 6403 — Security and Privacy for Big Data | 2 | 28 and 29 Aug sources pending deterministic review |
+| ECS 6401 / ESD 6301 — Advanced Time Series Analysis | 1 | 28 Aug source pending deterministic review |
+| EBB 6402 — Blockchain Policy | 1 | 1 Sep source pending deterministic review |
+| ECC 6404 — Data Warehousing | 0 | no new source beyond the published 31 Aug lecture |
+
+#### EBB 6401 — 17 August 2026, 18:09:21 source
+
+`Smart contracts and solidity programming-20260817_180921-Meeting Recording.mp4` is a 62.6 MB, 38m 02s view-only source with no visible provider Download action. The required sweep found participant/avatar-only content at the beginning, sustained whiteboard teaching from approximately 03:59, smart-contract definition and cryptographic-box material through the middle, public/private keys plus signing/verification near the end, and participant-only idle content after approximately 32:44. The visible-tab capture ran at 2× from the verified start to source end; the retained processing artifact was deterministically trimmed to 03:59–32:44 before transcription.
+
+Local processing verified audio and video, restored source timestamps, sampled 29 regular frames, and classified the source `canonical`. The English-only note `ebb-6401-2026-08-17-180921` includes the timecoded whiteboard trail, six-part summary, five expert insights, explicit transcript-derived signal arrays, an optional Smart Contracts practice layer, five first-party/practical resources, an accessible agreement-to-execution visual, the public `ClauseCraft` capstone, and exactly 25 MCQs with every option explained. The Smart Contracts resource trail was refreshed with Ethereum's smart-contract introduction and the Remix local practice environment.

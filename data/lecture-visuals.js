@@ -28,6 +28,12 @@ const templates = {
     steps: ["Requirements", "Channel model", "Protocol / algorithm", "Measured performance"],
     detail: "The stages make the trade-offs discussed in the lecture explicit."
   },
+  smartcontract: {
+    title: "From agreement to verified execution",
+    description: "A smart contract works only when human intent is translated into testable conditions, authorised cryptographically, and executed by the blockchain runtime.",
+    steps: ["Reach agreement", "Formalise rules", "Sign and verify", "Execute and record"],
+    detail: "The flow separates intent, code, authorization, and runtime enforcement so each responsibility can be tested."
+  },
   timeseries: {
     title: "From observations to a forecast",
     description: "Time-series analysis separates signal from noise before validating a forecast against future observations.",
@@ -65,6 +71,7 @@ const visualTemplates = {
   "eai-6402-2026-08-22": "meta", "eai-6402-2026-08-29": "meta",
   "eai-6403-2026-08-23": "genai", "eai-6403-2026-08-29": "genai", "eai-6403-2026-08-30": "genai",
   "ecs-6401-2026-08-19-175559": "wireless", "ecs-6401-2026-08-21-180935": "wireless", "ecs-6401-2026-08-26-180538": "wireless",
+  "ebb-6401-2026-08-17-180921": "smartcontract",
   "ecc-6404-2026-08-17-193438": "warehouse", "ecc-6404-2026-08-19-193245": "warehouse", "ecc-6404-2026-08-24-193338": "warehouse", "ecc-6404-2026-08-26-193241": "warehouse", "ecc-6404-2026-08-31-193236": "warehouse",
   "ebb-6402-2026-08-18-180205": "blockchain", "ebb-6402-2026-08-20-180203": "blockchain", "ebb-6402-2026-08-25-180424": "blockchain",
   "ebb-6403-2026-08-21-075934": "security"

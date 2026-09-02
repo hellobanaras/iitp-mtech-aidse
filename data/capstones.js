@@ -621,6 +621,36 @@ export const capstones = Object.freeze({
       "success": "A learner can explain why a selected representation was chosen, reproduce its validation result, and identify a case where reducing dimensions harmed an important subgroup."
     }
   },
+  "ebb-6401-2026-08-17-180921": {
+    "en": {
+      "title": "ClauseCraft: an agreement-to-Solidity specification auditor",
+      "pitch": "Build a visual workbench that turns a plain-language conditional agreement into an executable state machine, Solidity-style pseudocode, tests, and a cryptographic authorization map before any public deployment.",
+      "problem": "Smart-contract failures often begin before coding: parties leave a condition ambiguous, developers encode a different interpretation, or authorization and exception paths are never tested. Learners need a reviewable bridge between intent and enforcement.",
+      "learning": "You will separate reaching, formalising, and enforcing an agreement; model contract state and guards; map public/private-key authorization; estimate execution cost; and test normal, rejected, and adversarial paths.",
+      "mvp": [
+        "Provide a structured editor for parties, assets, rights, obligations, conditions, deadlines, and exceptional outcomes.",
+        "Generate an accessible state-flow diagram showing which conditions unlock each transition.",
+        "Produce Solidity-style pseudocode plus unit-test cases for success, failure, replay, and unauthorised-call paths.",
+        "Create a signature and role map that distinguishes message authenticity from business-rule permission."
+      ],
+      "stretch": [
+        "Add a Remix-compatible Solidity export with a local-only deployment guide.",
+        "Estimate gas-sensitive operations and compare administrative cost with protocol execution cost.",
+        "Add oracle and governance trust-boundary prompts for externally supplied facts.",
+        "Export an audit packet linking every code guard to its source clause and test evidence."
+      ],
+      "plan": [
+        "Week 1: define the agreement schema and build the clause-to-state-machine editor.",
+        "Week 2: generate pseudocode, authorization rules, and deterministic transition tests.",
+        "Week 3: add adversarial cases, oracle/governance prompts, and cost estimates.",
+        "Week 4: package the Remix export, evidence report, accessibility pass, and one escrow case study."
+      ],
+      "novelty": "It treats contract development as traceable specification engineering: every executable guard is connected to an agreed clause, authorization rule, and test rather than being presented as code alone.",
+      "stack": ["TypeScript", "Solidity", "Remix", "Mermaid or accessible HTML flow", "Vitest"],
+      "milestones": ["Week 1: schema and flow", "Week 2: code and tests", "Week 3: trust and cost audit", "Week 4: export and case study"],
+      "success": "A learner can trace every state transition to an agreed condition, demonstrate valid and rejected execution paths, and identify at least one trust dependency that the blockchain does not remove."
+    }
+  },
   "eai-6401-2026-09-01": {
     "en": {
       "title": "MDP Sketchbook: a state-and-reward audit lab",

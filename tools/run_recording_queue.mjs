@@ -92,6 +92,7 @@ const load = () => {
     const key = sourceKey(raw);
     const existing = items[key] || {};
     items[key] = {
+      ...existing,
       ...raw,
       sourceUrl: cleanSourceUrl(raw.sourceUrl),
       stableIdentity: key,
@@ -99,7 +100,6 @@ const load = () => {
       stage: existing.stage || "awaiting-browser",
       attempts: existing.attempts || 0,
       evidence: existing.evidence || [],
-      ...existing,
       updatedAt: existing.updatedAt || now(),
     };
   }
@@ -127,13 +127,19 @@ const orderedPending = (state) => {
   }
   for (const group of grouped.values()) group.sort(sortSources);
   const priority = Array.isArray(state.coursePriority) ? state.coursePriority : [];
+  const courseItem = (course) => grouped.get(course)?.[0];
   const rank = (course) => {
-    const normalized = course.toLowerCase().replace(/[\s-]+/g, "");
-    const index = priority.findIndex((entry) => String(entry).toLowerCase().replace(/[\s-]+/g, "") === normalized);
+    const item = courseItem(course);
+    const aliases = [course, item?.course, item?.courseCode]
+      .filter(Boolean)
+      .map((entry) => String(entry).toLowerCase().replace(/[\s-]+/g, ""));
+    const index = priority.findIndex((entry) => aliases.includes(String(entry).toLowerCase().replace(/[\s-]+/g, "")));
     return index < 0 ? Number.MAX_SAFE_INTEGER : index;
   };
   const courses = [...grouped.keys()].sort((left, right) =>
-    rank(left.toLowerCase()) - rank(right.toLowerCase()) || left.localeCompare(right));
+    rank(left) - rank(right) ||
+    sortSources(courseItem(left), courseItem(right)) ||
+    left.localeCompare(right));
   const result = [];
   let remaining = true;
   while (remaining) {

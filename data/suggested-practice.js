@@ -32,6 +32,12 @@ const courseTemplates = {
     labs: [{ title: "Data-quality and mining lab", detail: "Profile a permitted public dataset, document provenance and missingness, run one pattern or outlier method, and compare results under two justified preprocessing choices." }],
     projects: [{ title: "Evidence-aware data workbench", detail: "Build a small tool that links schema meaning, provenance, data-quality checks, mining output, and a human-readable decision report." }],
   },
+  "ebb-6401": {
+    assignments: [{ title: "Agreement-to-code trace", detail: "Write a one-page conditional agreement and map each right, obligation, guard, and exceptional outcome to a named contract state transition." }],
+    homework: [{ title: "Trust-boundary review", detail: "For escrow, insurance, or supply delivery, identify what the contract can verify directly, what needs an oracle, who can upgrade the rules, and how disputes or lost keys are handled." }],
+    labs: [{ title: "Local Solidity contract lab", detail: "Implement a minimal conditional-value contract in Remix's local VM. Test valid execution, unmet conditions, unauthorised calls, replay attempts, and one emergency-stop path." }],
+    projects: [{ title: "ClauseCraft specification auditor", detail: "Build a small tool that links plain-language clauses to state transitions, Solidity-style guards, authorization rules, tests, gas-sensitive operations, and an exportable review report." }],
+  },
   "ebb-6402": {
     assignments: [{ title: "Policy-to-protocol map", detail: "Map one blockchain use case to actors, legal duties, data sensitivity, consensus assumptions, governance authority, and an incident or upgrade path." }],
     homework: [{ title: "Governance trade-off memo", detail: "Compare a public, consortium, and private design for one scenario. Discuss privacy, accountability, interoperability, incentives, cost, and failure recovery." }],

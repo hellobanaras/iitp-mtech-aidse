@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-01",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 23,
+  filesInventoried: 24,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -219,10 +219,9 @@ export const catalog = {
       accent: "violet",
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
-      status: "waiting",
-      statusLabel: "Recording access blocked",
-      note: "The class schedule and folder link are verified from the IIT Patna Moodle card, but Microsoft 365 currently denies access to the recording folder. This course is excluded from note processing until institute access is restored.",
-      excludedFromNoteProcessing: true,
+      status: "active",
+      statusLabel: "3 recordings pending review",
+      note: "Microsoft 365 recording access was restored on 1 September 2026. Three recordings are inventoried and queued for one-at-a-time review; no lecture note is published yet.",
       lectures: []
     },
     {
@@ -236,11 +235,25 @@ export const catalog = {
       accent: "rose",
       icon: "SC",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course77_hybrid_iitp_ac_in/IgCEBeWWlU_wQLE9fUZWW9fTAYhpk32mpJi8Lbo6Iba_Cy8?e=5wSELF",
-      status: "waiting",
-      statusLabel: "Recording access blocked",
-      note: "The class schedule and folder link are verified from the IIT Patna Moodle card, but Microsoft 365 currently denies access to the recording folder. This course is excluded from note processing until institute access is restored.",
-      excludedFromNoteProcessing: true,
-      lectures: []
+      status: "active",
+      statusLabel: "1 lecture available",
+      note: "Lecture 1 is published from the verified 03:59–32:44 teaching interval; the participant-only waiting opening and idle tail through 38:02 were excluded.",
+      lectures: [
+        {
+          id: "ebb-6401-2026-08-17-180921",
+          number: 1,
+          date: "2026-08-17",
+          sourceRecordedAt: "2026-08-17T18:09:21+05:30",
+          sourceFilename: "Smart contracts and solidity programming-20260817_180921-Meeting Recording.mp4",
+          displayDate: "17 August 2026",
+          title: "Smart contracts: executable agreements, lifecycle, and cryptographic trust",
+          duration: "28m 45s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course77_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse77%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSmart%20contracts%20and%20solidity%20programming%2D20260817%5F180921%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Executable rules and conditional value", "Agreement definition, formalisation, and enforcement", "Public/private keys, signatures, and the Solidity roadmap"]
+        }
+      ]
     },
     {
       code: "EBB 6403",
