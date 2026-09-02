@@ -74,6 +74,43 @@ const cleanSourceUrl = (raw) => {
   }
 };
 
+const REQUIRED_SWEEP_POSITIONS = ["beginning", "10%", "25%", "50%", "75%", "90%", "near-end"];
+
+const validateTriage = (item) => {
+  if (!item.reviewManifest) return { valid: false, reason: "reviewManifest is missing" };
+  const manifestPath = resolve(ROOT, item.reviewManifest);
+  if (!existsSync(manifestPath)) return { valid: false, reason: `reviewManifest does not exist: ${manifestPath}` };
+  const review = readJson(manifestPath, null);
+  if (!review) return { valid: false, reason: "reviewManifest is unreadable" };
+  const reviewFilename = review.sourceFilename || review.filename;
+  if (item.filename && reviewFilename !== item.filename) {
+    return { valid: false, reason: "reviewManifest source filename does not match the queue identity" };
+  }
+  if (item.sourceUrl && review.sourceUrl && cleanSourceUrl(review.sourceUrl) !== cleanSourceUrl(item.sourceUrl)) {
+    return { valid: false, reason: "reviewManifest source URL does not match the queue identity" };
+  }
+  const sweep = Array.isArray(review.sweep) ? review.sweep : [];
+  const positions = new Set(sweep.map((sample) => sample.position));
+  const missing = REQUIRED_SWEEP_POSITIONS.filter((position) => !positions.has(position));
+  if (missing.length) return { valid: false, reason: `reviewManifest sweep is missing: ${missing.join(", ")}` };
+  if (sweep.some((sample) => !sample.sourceTime || !String(sample.observation || "").trim())) {
+    return { valid: false, reason: "every sweep sample needs sourceTime and an observation" };
+  }
+  const start = Number(review.teachingInterval?.startSourceSeconds ?? review.actualTeachingStartSeconds);
+  const end = Number(review.teachingInterval?.endSourceSeconds ?? review.actualTeachingEndSeconds);
+  if (!Number.isFinite(start) || !Number.isFinite(end) || start < 0 || end <= start) {
+    return { valid: false, reason: "reviewManifest needs a valid bounded teaching interval" };
+  }
+  const boundary = review.boundaryEvidence || {};
+  if (!String(boundary.leadIn || "").trim() || !String(boundary.end || "").trim()) {
+    return { valid: false, reason: "reviewManifest needs lead-in and final-instruction boundary evidence" };
+  }
+  if (typeof boundary.idleTailExcluded !== "boolean" || !String(boundary.internalBreaks || "").trim()) {
+    return { valid: false, reason: "reviewManifest must record idle-tail and internal-break decisions" };
+  }
+  return { valid: true, manifestPath, review, start, end };
+};
+
 const sourceKey = (source) => [source.courseCode || source.course, source.nominalDate, source.filename || cleanSourceUrl(source.sourceUrl)].join("|");
 const sourceTime = (source) => source.sourceRecordedAt || `${source.nominalDate}T00:00:00Z`;
 const sortSources = (left, right) =>
@@ -222,6 +259,15 @@ const status = (state) => {
 
 const processOne = (state, item) => {
   if (["complete", "rejected", "blocked"].includes(item.status)) throw new Error(`Item is already ${item.status}; re-review requires an explicit inventory change.`);
+  const triage = validateTriage(item);
+  if (!triage.valid) {
+    item.status = "awaiting-triage";
+    item.stage = "timeline-triage";
+    item.error = triage.reason;
+    item.updatedAt = now();
+    save(state);
+    throw new Error(`Timeline triage gate failed: ${triage.reason}. Complete the seven-point sweep, identify sustained teaching boundaries, export/save the review manifest, and link it in the source inventory.`);
+  }
   if (!item.input || !existsSync(resolve(item.input))) {
     item.status = "awaiting-capture";
     item.stage = "awaiting-browser";
@@ -328,8 +374,19 @@ const main = () => {
         break;
       }
       if (!next.input || !existsSync(resolve(next.input))) {
+        const triage = validateTriage(next);
+        if (!triage.valid) {
+          next.status = "awaiting-triage";
+          next.stage = "timeline-triage";
+          next.error = triage.reason;
+          next.updatedAt = now();
+          save(state);
+          console.log(`⏸️ Timeline triage required: ${triage.reason}. Complete beginning/10%/25%/50%/75%/90%/near-end checks, find first and final sustained instruction, save the review manifest, then resume.`);
+          break;
+        }
         next.status = "awaiting-capture";
         next.stage = "awaiting-browser";
+        delete next.error;
         next.updatedAt = now();
         save(state);
         console.log("⏸️ Browser gesture required. Capture/download this one source, close its tab, add the artifact path to the inventory, then resume.");

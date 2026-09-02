@@ -145,6 +145,15 @@ and resource refresh exist, `npm run queue:publish -- <id>` runs validation,
 build, a guarded commit, `origin/main` synchronization, and the GitHub Pages
 deployment. Cloudflare is never a target.
 
+The runner also enforces a pre-capture `awaiting-triage` gate. Link a local
+`reviewManifest` from the source inventory. It must match the stable filename
+and cleaned Stream URL; contain beginning, 10%, 25%, 50%, 75%, 90%, and
+near-end observations; identify a valid teaching interval; and explain the
+lead-in, final sustained instruction, idle-tail decision, and internal breaks.
+Do not treat a title card or participant grid as sustained teaching. Use the
+Lecture Atlas Companion's visible review controls to mark the verified start
+and end, export the review evidence, and capture only that bounded interval.
+
 Before resuming after another agent or an interrupted run, execute `npm run
 queue:reconcile`. It compares the public catalog, private source list, queue
 state, durable ledger, and local capture sidecars. A catalog-backed note is
