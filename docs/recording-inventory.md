@@ -1,6 +1,6 @@
 # Recording inventory
 
-Last checked: 31 August 2026 (America/Chicago)
+Last checked: 1 September 2026 (America/Chicago)
 
 This file records only technical metadata needed for study-note production. It intentionally omits participant names and private meeting details.
 
@@ -208,7 +208,7 @@ The signed-in folder check restored recording access for ECS 6402 and EBB 6401 a
 | --- | ---: | --- |
 | EBB 6401 — Smart Contracts and Solidity Programming | 6 | 17 Aug 18:09:21 canonical note published; remaining five pending deterministic review |
 | ECS 6402 — Selected Topics in Wireless Networks | 3 | 21 Aug source canonical and note-ready; 27 and 28 Aug pending deterministic review |
-| EBB 6403 — Security and Privacy for Big Data | 2 | 28 and 29 Aug sources pending deterministic review |
+| EBB 6403 — Security and Privacy for Big Data | 2 | 28 Aug source canonical and note-ready; 29 Aug source pending deterministic review |
 | ECS 6401 / ESD 6301 — Advanced Time Series Analysis | 1 | 28 Aug source pending deterministic review |
 | EBB 6402 — Blockchain Policy | 1 | 1 Sep source pending deterministic review |
 | ECC 6404 — Data Warehousing | 0 | no new source beyond the published 31 Aug lecture |
@@ -224,3 +224,9 @@ Local processing verified audio and video, restored source timestamps, sampled 2
 `Selected Topics in Wireless Networks-20260821_204351-Meeting Recording.mp4` is a 221 MB, 1h 19m 29s view-only source with no visible provider Download action. The required beginning/10%/25%/50%/75%/90%/near-end sweep found sustained OneNote whiteboard instruction from the opening reading list and communication-versus-network distinction through the communication model, payload/overhead, analog and digital representation, sampling, quantisation, encoding, modulation, multiplexing, congestion, interfaces, signal propagation, and synchronization. Active writing continued at approximately 1:16:34; participant-gallery and closing acknowledgements began around 1:16:46.
 
 The permitted visible-tab capture ran at 2× from source 00:15 and was stopped at the closing transition. Its retained artifact was deterministically trimmed to the verified 00:15–01:16:40 teaching interval before processing. Local processing verified audio and video, restored source-time transcript timestamps, sampled 76 frames, and classified the source `canonical`. The English-only note `ecs-6402-2026-08-21-204351` includes a 16-point whiteboard trail, seven-part summary, five expert insights, the instructor's reading-list and whiteboard-PDF references, three substantive student questions with responses, an optional Wireless Networks practice layer, five reliable learning resources, an accessible wireless-system visual, the public `LinkScope` capstone, and exactly 25 MCQs with every option explained. No assignment, homework, lab, or project was assigned by the instructor in this lecture; those transcript-derived categories remain explicitly empty and optional expert practice is rendered separately.
+
+#### EBB 6403 — 28 August 2026, 07:44:45 source
+
+`Security and Privacy for Big Data-20260828_074445-Meeting Recording.mp4` is a 1h 33m 31s view-only source with no visible provider Download action. The required beginning/10%/25%/50%/75%/90%/near-end sweep found sustained teaching from 00:23 through the final best-practices and next-class slides at 58:59. Samples at 1:00:19, 1:10:59, 1:24:05, and near the end showed participant-only idle content, so the remaining 34m 32s tail was excluded.
+
+The permitted 2× visible-tab capture retained source 00:23–58:59, after which the recording tab was closed before processing. Local processing verified audio and video, restored source-time transcript timestamps, sampled 59 frames, retained 32 slide candidates, and classified the source `canonical`. The English-only note `ebb-6403-2026-08-28-074445` covers formal differential privacy, Laplace/Gaussian noise, shuffling, k-anonymity, l-diversity, t-closeness, TLS/IPsec/VPN/Kerberos, IDS/IPS, and layered operations. It includes an 18-point slide trail, seven-part summary, five expert insights, explicit empty instructor-obligation categories, optional expert practice, official NIST/OWASP resources, the accessible security-control visual, the public `PrivacyLab` capstone, and exactly 25 MCQs with every option explained.

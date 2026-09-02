@@ -343,6 +343,32 @@ export const capstones = Object.freeze({
       ]
     }
   },
+  "ebb-6403-2026-08-28-074445": {
+    "en": {
+      "title": "PrivacyLab: re-identification and differential-privacy risk workbench",
+      "pitch": "Build a local-first laboratory that transforms a synthetic sensitive dataset, tests linkage attacks, calibrates differential-privacy mechanisms, and reports the privacy–utility trade-off alongside network and monitoring controls.",
+      "problem": "Teams often remove names and label a dataset anonymous without testing quasi-identifier linkage, homogeneous sensitive groups, repeated-query privacy loss, or the security of the service releasing results.",
+      "learning": "You will implement identifier classification, generalization and suppression, k-anonymity, l-diversity, t-closeness, Laplace/Gaussian noise, privacy-budget accounting, TLS-aware architecture review, and explainable anomaly evidence.",
+      "mvp": [
+        "Generate a seeded synthetic hospital dataset and classify direct identifiers, quasi-identifiers, and sensitive attributes.",
+        "Apply generalization, suppression, k-anonymity, l-diversity, and t-closeness; show which records remain linkable and why.",
+        "Release count and mean queries with configurable epsilon/delta, calibrated noise, repeated-query accounting, and utility error plots.",
+        "Export a review pack covering data transformations, attack assumptions, privacy budget, network boundaries, authorization, monitoring, and residual risk."
+      ],
+      "stretch": [
+        "Compare basic and advanced composition across a query workload and flag budget exhaustion before release.",
+        "Add a shuffled local-randomization experiment and compare its empirical leakage with central differential privacy.",
+        "Model TLS, Kerberos, Ranger-style policy, segmentation, and IDS sensors as an interactive trust-boundary graph.",
+        "Add an explainable behavioral detector with baseline drift, false-positive review, and incident-response evidence."
+      ],
+      "plan": [
+        "Week 1: define the synthetic schema, threat model, identifier taxonomy, and linkage-test fixtures.",
+        "Week 2: implement anonymization transforms and k/l/t release checks with utility metrics.",
+        "Week 3: add Laplace/Gaussian mechanisms, sensitivity, composition, and privacy-budget visualizations.",
+        "Week 4: add network/control mapping, anomaly evidence, exports, tests, and a concise risk evaluation."
+      ]
+    }
+  },
   "ecs-6401-2026-08-21-180935": {
     "en": {
       "title": "SeasonalSignal Lab: explainable time-series decomposition workbench",

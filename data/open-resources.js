@@ -973,6 +973,45 @@ export const openLearningResources = {
       description: "Protocol documentation for tickets, principals, and trusted authentication services, extending the lecture's distributed-authentication section.",
       descriptionHi: "Tickets, principals और trusted authentication services का protocol documentation—lecture के distributed-authentication section को आगे बढ़ाने के लिए।",
       url: "https://web.mit.edu/kerberos/"
+    },
+    {
+      provider: "NIST",
+      providerHi: "NIST",
+      kind: "Differential privacy guidance",
+      kindHi: "Differential privacy guidance",
+      access: "Free public standard",
+      accessHi: "Free public standard",
+      title: "NIST SP 800-226: Evaluating Differential Privacy Guarantees",
+      titleHi: "NIST SP 800-226: Evaluating Differential Privacy Guarantees",
+      description: "Primary guidance for interpreting epsilon/delta guarantees, composition, implementation claims, and privacy risk after the 28 August lecture.",
+      descriptionHi: "Primary guidance for interpreting epsilon/delta guarantees, composition, implementation claims, and privacy risk after the 28 August lecture.",
+      url: "https://csrc.nist.gov/pubs/sp/800/226/final"
+    },
+    {
+      provider: "NIST",
+      providerHi: "NIST",
+      kind: "De-identification guidance",
+      kindHi: "De-identification guidance",
+      access: "Free public report",
+      accessHi: "Free public report",
+      title: "NIST IR 8053: De-Identification of Personal Information",
+      titleHi: "NIST IR 8053: De-Identification of Personal Information",
+      description: "A practical companion for quasi-identifiers, release models, re-identification risk, and governance of de-identified data.",
+      descriptionHi: "A practical companion for quasi-identifiers, release models, re-identification risk, and governance of de-identified data.",
+      url: "https://csrc.nist.gov/pubs/ir/8053/final"
+    },
+    {
+      provider: "OWASP",
+      providerHi: "OWASP",
+      kind: "Transport security guide",
+      kindHi: "Transport security guide",
+      access: "Free public guidance",
+      accessHi: "Free public guidance",
+      title: "Transport Layer Security Cheat Sheet",
+      titleHi: "Transport Layer Security Cheat Sheet",
+      description: "Implementation-focused TLS guidance that extends the lecture's network-security protocol map.",
+      descriptionHi: "Implementation-focused TLS guidance that extends the lecture's network-security protocol map.",
+      url: "https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html"
     }
   ]
 };

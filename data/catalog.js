@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-01",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 25,
+  filesInventoried: 26,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -282,8 +282,8 @@ export const catalog = {
       icon: "SP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course78_hybrid_iitp_ac_in/IgCwVcRuGq_lR6u1S5D-yQeRAb5jOjVzObdfYRB-vn1qvBQ?e=wtwqhi",
       status: "active",
-      statusLabel: "1 lecture available",
-      note: "Lecture 1 is published from the verified 01:24–48:00 source interval; the title opening was excluded and no idle tail was observed after the final teaching slide.",
+      statusLabel: "2 lectures available",
+      note: "Two verified lectures are published. The 28 August note excludes the participant-only idle tail after 58:59 from the 1h33m source.",
       lectures: [
         {
           id: "ebb-6403-2026-08-21-075934",
@@ -298,6 +298,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Big-data lifecycle and security controls", "STRIDE threat modelling", "RBAC/ABAC/PBAC, MFA, SSO, and Kerberos"]
+        },
+        {
+          id: "ebb-6403-2026-08-28-074445",
+          number: 2,
+          date: "2026-08-28",
+          sourceRecordedAt: "2026-08-28T07:44:45+05:30",
+          sourceFilename: "Security and Privacy for Big Data-20260828_074445-Meeting Recording.mp4",
+          displayDate: "28 August 2026",
+          title: "Privacy-preserving big data: differential privacy, anonymization, and network defense",
+          duration: "58m 36s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course78_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse78%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSecurity%20and%20Privacy%20for%20Big%20Data%2D20260828%5F074445%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Differential privacy and privacy budgets", "k-anonymity, l-diversity, and t-closeness", "TLS, Kerberos, IDS/IPS, and layered defense"]
         }
       ]
     },

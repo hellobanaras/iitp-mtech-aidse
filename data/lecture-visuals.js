@@ -75,7 +75,7 @@ const visualTemplates = {
   "ebb-6401-2026-08-17-180921": "smartcontract",
   "ecc-6404-2026-08-17-193438": "warehouse", "ecc-6404-2026-08-19-193245": "warehouse", "ecc-6404-2026-08-24-193338": "warehouse", "ecc-6404-2026-08-26-193241": "warehouse", "ecc-6404-2026-08-31-193236": "warehouse",
   "ebb-6402-2026-08-18-180205": "blockchain", "ebb-6402-2026-08-20-180203": "blockchain", "ebb-6402-2026-08-25-180424": "blockchain",
-  "ebb-6403-2026-08-21-075934": "security"
+  "ebb-6403-2026-08-21-075934": "security", "ebb-6403-2026-08-28-074445": "security"
 };
 
 export const lectureVisuals = Object.fromEntries(Object.entries(visualTemplates).map(([id, template]) => [id, { template }]));

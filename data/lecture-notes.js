@@ -24,7 +24,8 @@ const [
   { ebb6402Lecture20260818 },
   { ebb6402Lecture20260820 },
   { ebb6402Lecture20260825 },
-  { ebb6403Lecture20260821 }
+  { ebb6403Lecture20260821 },
+  { ebb6403Lecture20260828 }
 ] = await Promise.all([
   import(`./lectures/eai-6401-2026-08-17.js?v=${releaseVersion}`),
   import(`./lectures/eai-6401-2026-08-18.js?v=${releaseVersion}`),
@@ -50,7 +51,8 @@ const [
   import(`./lectures/ebb-6402-2026-08-18-180205.js?v=${releaseVersion}`),
   import(`./lectures/ebb-6402-2026-08-20-180203.js?v=${releaseVersion}`),
   import(`./lectures/ebb-6402-2026-08-25-180424.js?v=${releaseVersion}`),
-  import(`./lectures/ebb-6403-2026-08-21-075934.js?v=${releaseVersion}`)
+  import(`./lectures/ebb-6403-2026-08-21-075934.js?v=${releaseVersion}`),
+  import(`./lectures/ebb-6403-2026-08-28-074445.js?v=${releaseVersion}`)
 ]);
 
 // Each lecture is a single English-only publication unit.
@@ -79,5 +81,6 @@ export const lectureNotes = {
   "ebb-6402-2026-08-18-180205": ebb6402Lecture20260818,
   "ebb-6402-2026-08-20-180203": ebb6402Lecture20260820,
   "ebb-6402-2026-08-25-180424": ebb6402Lecture20260825,
-  "ebb-6403-2026-08-21-075934": ebb6403Lecture20260821
+  "ebb-6403-2026-08-21-075934": ebb6403Lecture20260821,
+  "ebb-6403-2026-08-28-074445": ebb6403Lecture20260828
 };
