@@ -677,6 +677,36 @@ export const capstones = Object.freeze({
       "success": "A learner can trace every state transition to an agreed condition, demonstrate valid and rejected execution paths, and identify at least one trust dependency that the blockchain does not remove."
     }
   },
+  "ebb-6401-2026-08-17-184812": {
+    "en": {
+      "title": "TitleFlow: a governed property-settlement simulator",
+      "pitch": "Build a local-first simulator that connects signed buyer/seller instructions, a permissioned title oracle, configurable consensus, escrow conditions, and a human dispute path into one inspectable property-transfer workflow.",
+      "problem": "Property-transfer demos often show only an automatic payment call and ignore key custody, authoritative title data, quorum assumptions, legal registration, disputes, and recovery. Learners need to see where cryptographic trust ends and institutional trust begins.",
+      "learning": "You will model authentication and authorization, transaction signatures, peer validation, PoW/PoS/BFT-style consensus abstractions, contract guards, oracle provenance, clearing, settlement, and exception governance.",
+      "mvp": [
+        "Create buyer, seller, registrar, verifier, and dispute-reviewer roles with separate signing and authorization policies.",
+        "Simulate a signed transaction moving through broadcast, peer checks, candidate-block selection, quorum decision, and final settlement.",
+        "Represent property, payment, title verification, deadlines, cancellation, and dispute states in an accessible state diagram.",
+        "Expose an evidence panel showing which cryptographic, consensus, contractual, and institutional claim enabled each transition."
+      ],
+      "stretch": [
+        "Compare simplified PoW, stake-weighted, delegated, and 3f+1 BFT scenarios under offline and malicious nodes.",
+        "Add transaction simulation and human-readable signing warnings for key-compromise and phishing cases.",
+        "Model registry correction, court order, key recovery, and failed-payment compensation without pretending all state is irreversible.",
+        "Export a governance and threat-model report linking every oracle fact and quorum assumption to an accountable owner."
+      ],
+      "plan": [
+        "Week 1: roles, keys, transaction schema, and signed-message verification.",
+        "Week 2: peer propagation, consensus scenarios, quorum evidence, and attack tests.",
+        "Week 3: escrow/title state machine, oracle provenance, and dispute/recovery paths.",
+        "Week 4: mobile-first visualisation, accessibility, audit export, and a complete property-transfer case study."
+      ],
+      "novelty": "It treats property settlement as a dual on-chain/institutional workflow and makes every trust assumption visible instead of presenting automatic execution as automatic truth.",
+      "stack": ["TypeScript", "Solidity or executable pseudocode", "Mermaid or accessible HTML flow", "Vitest", "IndexedDB"],
+      "milestones": ["Week 1: identity and signatures", "Week 2: consensus lab", "Week 3: settlement and governance", "Week 4: evidence-driven demo"],
+      "success": "A learner can trace a transfer from signed intent to legal-state update, explain the selected quorum and fault model, and demonstrate safe handling of a false title claim or compromised signer."
+    }
+  },
   "ecs-6402-2026-08-21-204351": {
     "en": {
       "title": "LinkScope: an explainable wireless communication-chain simulator",

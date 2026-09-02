@@ -718,6 +718,32 @@ export const openLearningResources = {
       url: "https://ethereum.org/en/developers/docs/"
     },
     {
+      provider: "Ethereum",
+      providerHi: "इथेरियम",
+      kind: "Transaction guide",
+      kindHi: "लेन-देन मार्गदर्शिका",
+      access: "Free documentation",
+      accessHi: "निःशुल्क दस्तावेज़",
+      title: "Ethereum transactions",
+      titleHi: "इथेरियम लेन-देन",
+      description: "First-party guide to signed instructions, nonces, transaction broadcast, validation, fees, and state changes.",
+      descriptionHi: "हस्ताक्षरित निर्देश, क्रमांक, प्रसारण, सत्यापन, शुल्क और स्थिति परिवर्तन की आधिकारिक मार्गदर्शिका।",
+      url: "https://ethereum.org/developers/docs/transactions/"
+    },
+    {
+      provider: "Bitcoin.org",
+      providerHi: "बिटकॉइन",
+      kind: "Primary paper",
+      kindHi: "मूल शोध-पत्र",
+      access: "Free PDF",
+      accessHi: "निःशुल्क पीडीएफ",
+      title: "Bitcoin: A Peer-to-Peer Electronic Cash System",
+      titleHi: "बिटकॉइन का मूल श्वेत-पत्र",
+      description: "The original description of peer-to-peer transaction broadcast, proof of work, block validation, and accumulated-work chain selection.",
+      descriptionHi: "सहकर्मी लेन-देन प्रसारण, कार्य-प्रमाण, ब्लॉक सत्यापन और संचित कार्य पर आधारित श्रृंखला चयन का मूल विवरण।",
+      url: "https://bitcoin.org/bitcoin.pdf"
+    },
+    {
       provider: "OpenZeppelin",
       providerHi: "OpenZeppelin",
       kind: "Security docs",

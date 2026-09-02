@@ -209,7 +209,7 @@ The signed-in folder check restored recording access for ECS 6402 and EBB 6401 a
 
 | Course | Newly inventoried sources | Current disposition |
 | --- | ---: | --- |
-| EBB 6401 — Smart Contracts and Solidity Programming | 6 | 17 Aug 18:09:21 canonical note published; remaining five pending deterministic review |
+| EBB 6401 — Smart Contracts and Solidity Programming | 6 | Two 17 Aug sources published (18:09 canonical; 18:48 unique continuation); remaining four pending deterministic review |
 | ECS 6402 — Selected Topics in Wireless Networks | 3 | 21 Aug source canonical and note-ready; 27 and 28 Aug pending deterministic review |
 | EBB 6403 — Security and Privacy for Big Data | 2 | 28 Aug source canonical and note-ready; 29 Aug source pending deterministic review |
 | ECS 6401 / ESD 6301 — Advanced Time Series Analysis | 1 | 28 Aug source processed and published; no pending source remains from this inventory pass |
@@ -221,6 +221,12 @@ The signed-in folder check restored recording access for ECS 6402 and EBB 6401 a
 `Smart contracts and solidity programming-20260817_180921-Meeting Recording.mp4` is a 62.6 MB, 38m 02s view-only source with no visible provider Download action. The required sweep found participant/avatar-only content at the beginning, sustained whiteboard teaching from approximately 03:59, smart-contract definition and cryptographic-box material through the middle, public/private keys plus signing/verification near the end, and participant-only idle content after approximately 32:44. The visible-tab capture ran at 2× from the verified start to source end; the retained processing artifact was deterministically trimmed to 03:59–32:44 before transcription.
 
 Local processing verified audio and video, restored source timestamps, sampled 29 regular frames, and classified the source `canonical`. The English-only note `ebb-6401-2026-08-17-180921` includes the timecoded whiteboard trail, six-part summary, five expert insights, explicit transcript-derived signal arrays, an optional Smart Contracts practice layer, five first-party/practical resources, an accessible agreement-to-execution visual, the public `ClauseCraft` capstone, and exactly 25 MCQs with every option explained. The Smart Contracts resource trail was refreshed with Ethereum's smart-contract introduction and the Remix local practice environment.
+
+#### EBB 6401 — 17 August 2026, 18:48:12 continuation
+
+`Smart contracts and solidity programming-20260817_184812-Meeting Recording.mp4` is a 60.3 MB, 43m 35s view-only source with no visible provider Download action. A full beginning/10%/25%/50%/75%/90%/near-end sweep found sustained whiteboard teaching throughout: digital trust and keys at 00:17, signatures and authorization at 04:41, peer transaction propagation at 11:09, the proof-of-work network at 21:52, Byzantine agreement at 32:41, and the house-transfer settlement example through 43:09. Although the opening briefly recaps the earlier lecture, the source contains substantial new material and is classified `unique-fragment`, not duplicate.
+
+The permitted visible-tab capture ran alone at 2× from source 00:13 to the marked teaching end at 43:09 and produced a video-plus-audio artifact with timing sidecar. The tab was closed before local processing. Local processing restored source timestamps, verified English audio and 43 unique visual samples, retained 26 slide/whiteboard candidates, and generated segment-02 artifacts without colliding with the earlier same-day lecture. The English-only note `ebb-6401-2026-08-17-184812` includes a 20-point visual trail, seven-part summary, six expert insights, one timecoded student question with the instructor's consensus refresher, explicit empty instructor-obligation categories, optional expert practice, six primary/practical resources, the shared smart-contract visual, the public `TitleFlow` capstone, and exactly 25 MCQs with every option explained. The subject resource trail was refreshed with Ethereum's transaction guide and the Bitcoin whitepaper.
 
 #### ECS 6402 — 21 August 2026, 20:43:51 source
 

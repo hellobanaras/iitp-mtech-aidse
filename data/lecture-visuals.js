@@ -72,7 +72,7 @@ const visualTemplates = {
   "eai-6403-2026-08-23": "genai", "eai-6403-2026-08-29": "genai", "eai-6403-2026-08-30": "genai",
   "ecs-6401-2026-08-19-175559": "timeseries", "ecs-6401-2026-08-21-180935": "timeseries", "ecs-6401-2026-08-26-180538": "timeseries", "ecs-6401-2026-08-28-180221": "timeseries",
   "ecs-6402-2026-08-21-204351": "wireless",
-  "ebb-6401-2026-08-17-180921": "smartcontract",
+  "ebb-6401-2026-08-17-180921": "smartcontract", "ebb-6401-2026-08-17-184812": "smartcontract",
   "ecc-6404-2026-08-17-193438": "warehouse", "ecc-6404-2026-08-19-193245": "warehouse", "ecc-6404-2026-08-24-193338": "warehouse", "ecc-6404-2026-08-26-193241": "warehouse", "ecc-6404-2026-08-31-193236": "warehouse",
   "ebb-6402-2026-08-18-180205": "blockchain", "ebb-6402-2026-08-20-180203": "blockchain", "ebb-6402-2026-08-25-180424": "blockchain",
   "ebb-6403-2026-08-21-075934": "security", "ebb-6403-2026-08-28-074445": "security"
