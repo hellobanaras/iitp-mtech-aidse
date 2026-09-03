@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 34,
+  filesInventoried: 35,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -279,8 +279,8 @@ export const catalog = {
       icon: "SC",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course77_hybrid_iitp_ac_in/IgCEBeWWlU_wQLE9fUZWW9fTAYhpk32mpJi8Lbo6Iba_Cy8?e=5wSELF",
       status: "active",
-      statusLabel: "4 lectures available",
-      note: "Four verified lectures are published. The 24 August session applies smart-contract concepts to banking, supply chains, healthcare, and account models.",
+      statusLabel: "5 lectures available",
+      note: "Five verified lectures are published. The 2 September session covers the Solidity lifecycle and an Ethereum certificate-verification architecture.",
       lectures: [
         {
           id: "ebb-6401-2026-08-17-180921",
@@ -337,6 +337,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Industry workflows and financial settlement", "Bitcoin UTXO versus Ethereum account models", "Oracle, governance, and exception-path limits"]
+        },
+        {
+          id: "ebb-6401-2026-09-02-180427",
+          number: 5,
+          date: "2026-09-02",
+          sourceRecordedAt: "2026-09-02T18:04:27+05:30",
+          sourceFilename: "Smart contracts and solidity programming-20260902_180427-Meeting Recording.mp4",
+          displayDate: "2 September 2026",
+          title: "Smart-contract lifecycle, Solidity planning, and Ethereum certificate verification",
+          duration: "1h 24m 53s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course77_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course77_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSmart%20contracts%20and%20solidity%20programming%2D20260902_180427%2DMeeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Lifecycle phases and Solidity building blocks", "Certificate verification across user, frontend, and contract layers", "Hybrid IPFS storage, testing, monitoring, and governance"]
         }
       ]
     },

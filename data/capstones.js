@@ -946,6 +946,35 @@ export const capstones = Object.freeze({
       "success": "A reviewer can follow every settlement and failure path, verify that only authorized accounts can invoke actions, see how external evidence is trusted, and understand why the chosen architecture fits the case."
     }
   },
+  "ebb-6401-2026-09-02-180427": {
+    "en": {
+      "title": "CertiChain: an auditable certificate-verification workflow",
+      "pitch": "Build a local-first certificate system that makes issuer authorization, hash commitments, IPFS retrieval, verification, revocation, and failure states visible end to end.",
+      "problem": "Certificate demos often show only a successful lookup. Learners need to reason about mismatched documents, revoked credentials, unavailable storage, stale interfaces, and the difference between a valid signature and a trustworthy institutional process.",
+      "learning": "You will translate a certificate workflow into a state machine, implement Solidity issue/verify/revoke paths, connect a wallet-backed interface, and compare on-chain commitments with off-chain document storage.",
+      "mvp": [
+        "Model issuer, requester, verifier, certificate metadata, and explicit valid, mismatched, revoked, missing, and unavailable states.",
+        "Implement a small Solidity contract with role checks, issue/verify/revoke functions, events, and tests for unauthorized and replayed calls.",
+        "Store a sample certificate payload in a local content-addressed store, record only its identifier and hash on-chain, and demonstrate an integrity check.",
+        "Render an accessible dashboard that shows the wallet action, contract response, retrieved payload, and a clear explanation when verification fails."
+      ],
+      "stretch": [
+        "Add key rotation, issuer suspension, replacement certificates, and a governance-controlled emergency pause with an audit trail.",
+        "Compare IPFS pinning and a conventional object store on availability, privacy, correction, cost, and retention requirements.",
+        "Export a reproducible verification report containing source hash, contract address, block reference, retrieval result, revocation state, and test evidence."
+      ],
+      "plan": [
+        "Week 1: interview the certificate workflow, define roles and states, and write threat and privacy assumptions.",
+        "Week 2: implement the contract, events, access-control checks, and unit tests in Remix or a local toolchain.",
+        "Week 3: connect the dashboard and content-addressed storage, then test mismatch, missing, revoked, and unavailable-document paths.",
+        "Week 4: evaluate blockchain fit against a signed database alternative, add accessibility and evidence export, and present the trade-off decision."
+      ],
+      "novelty": "The project evaluates certificate integrity, availability, authorization, and institutional governance together instead of treating a matching hash as proof of truth.",
+      "stack": ["Solidity", "Remix", "JavaScript", "IPFS or a local content-addressed store", "Mermaid or SVG", "Vitest"],
+      "milestones": ["Week 1: workflow and threat model", "Week 2: contract and tests", "Week 3: dashboard and failure states", "Week 4: fit comparison and evidence report"],
+      "success": "A reviewer can issue, verify, revoke, and replace a sample certificate; distinguish authorization from integrity and availability; inspect every failure state; and justify whether the blockchain architecture is appropriate."
+    }
+  },
   "ecs-6401-2026-09-02-180510": {
     "en": {
       "title": "Stationarity Studio: an explainable forecast-diagnostics lab",

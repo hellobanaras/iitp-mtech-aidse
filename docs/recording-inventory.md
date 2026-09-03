@@ -209,7 +209,7 @@ The signed-in folder check restored recording access for ECS 6402 and EBB 6401 a
 
 | Course | Newly inventoried sources | Current disposition |
 | --- | ---: | --- |
-| EBB 6401 — Smart Contracts and Solidity Programming | 6 | Two 17 Aug sources published (18:09 canonical; 18:48 unique continuation); 19 Aug 17:59:55 source rejected as `idle/error`; remaining three pending deterministic review |
+| EBB 6401 — Smart Contracts and Solidity Programming | 6 | Five sources published (17 Aug 18:09 canonical; 17 Aug 18:48 unique continuation; 19 Aug 18:02; 24 Aug; 2 Sep); 19 Aug 17:59:55 source rejected as `idle/error` |
 | ECS 6402 — Selected Topics in Wireless Networks | 3 | 21 and 27 Aug sources canonical and published; 28 Aug pending deterministic review |
 | EBB 6403 — Security and Privacy for Big Data | 2 | 28 Aug source canonical and note-ready; 29 Aug source pending deterministic review |
 | ECS 6401 / ESD 6301 — Advanced Time Series Analysis | 1 | 28 Aug source processed and published; no pending source remains from this inventory pass |
@@ -256,6 +256,12 @@ The permitted visible-tab capture ran alone at 2× from source 00:37.8 until the
 
 The permitted visible-tab + audio capture ran alone at 2× from source `00:00:16` to `02:38:56`. Its 274 MB VP9/Opus artifact and timing sidecar were saved under ignored `.course-data/`, and the recording tab was closed before local processing. Processing verified audio/video, restored source-time timestamps, sampled 159 regular frames, and produced an English-only note with a ten-point source trail, seven-part summary, five expert insights, explicit empty instructor-signal categories, optional suggested practice, six further-study resources, the accessible smart-contract visual, the public `LedgerFlow` capstone, and exactly 25 explained MCQs. The subject resource trail was refreshed with Hyperledger Fabric documentation for permissioned enterprise workflows. The queue disposition is canonical and the English note is published.
 
+#### EBB 6401 — 2 September 2026, 18:04:27 source
+
+`Smart contracts and solidity programming-20260902_180427-Meeting Recording.mp4` is a 168 MB, 1h 26m 06s view-only source with no visible provider Download action. The required seven-point sweep found participant setup at the opening, sustained lifecycle, Solidity, certificate-verification, wallet/dashboard, and IPFS teaching through the final certificate-state diagram at 01:24:53. Participant-only content after that point was excluded, so the verified teaching interval is 00:04:18–01:24:53 and the source is `canonical`.
+
+The permitted visible-tab video-plus-audio capture ran alone at 2× from the verified start; the recording tab was closed before local processing. The accepted artifact was saved under ignored `.course-data/captures/ebb-6401/2026-09-02/`; processing verified audio/video, restored source-time transcript timestamps, and sampled 82 frames. The English-only note `ebb-6401-2026-09-02-180427` includes the lifecycle and Solidity trail, certificate architecture and hybrid-storage insights, explicit empty transcript-derived obligation categories, optional expert practice, six reliable resources, the accessible smart-contract visual, the public `CertiChain` capstone, and exactly 25 explained MCQs. The subject resource trail was refreshed with Hyperledger Fabric documentation and OpenZeppelin access-control guidance.
+
 #### EBB 6403 — 28 August 2026, 07:44:45 source
 
 `Security and Privacy for Big Data-20260828_074445-Meeting Recording.mp4` is a 1h 33m 31s view-only source with no visible provider Download action. The required beginning/10%/25%/50%/75%/90%/near-end sweep found sustained teaching from 00:23 through the final best-practices and next-class slides at 58:59. Samples at 1:00:19, 1:10:59, 1:24:05, and near the end showed participant-only idle content, so the remaining 34m 32s tail was excluded.
@@ -270,13 +276,13 @@ The permitted visible-tab capture ran alone at 2× from source 11:17 to 1:40:47.
 
 ### 2 September 2026 — catalog and private-ledger reconciliation
 
-`npm run queue:reconcile` compared the 33 catalog-published lecture notes with
+`npm run queue:reconcile` compared the 34 catalog-published lecture notes with
 the ignored source list, queue state, durable ledger, and all local companion
 sidecars. Every public lecture now resolves to exactly one completed queue
 identity, every queue publication resolves back to the catalog, and the
 `ECS 6401` / `ECS 6401/ESD 6301` alias collision has been collapsed to the
 catalog's primary course code. The reconciled private inventory contains 48
-stable source identities: 33 published, 11 rejected, and 4 pending. All 16
+stable source identities: 34 published, 11 rejected, and 3 pending. All 17
 local capture sidecars match known source URLs; none represents an untracked
 lecture. In particular, several files prefixed `2026-09-02` are captures made
 on that date for older August recordings, not new 2 September lectures.
