@@ -1004,6 +1004,34 @@ export const capstones = Object.freeze({
       "success": "A learner can explain why a series is or is not stationary, justify a transformation and AR order with evidence, reproduce the coefficients, and evaluate the forecast without temporal leakage."
     }
   },
+  "ecc-6404-2026-09-02-193120": {
+    "en": {
+      "title": "PrepLens: a task-aware data preprocessing workbench",
+      "pitch": "Build a local-first lab that lets a learner compare discretization, binary encodings, category reduction, scaling, and similarity measures on one transparent dataset.",
+      "problem": "Preprocessing choices can silently change the geometry and meaning of a dataset. A small evidence-driven workbench makes those trade-offs visible before a mining algorithm is trusted.",
+      "learning": "You will implement interval binning, ordinal and one-hot encodings, rare-category grouping, normalization, and distance comparisons while documenting task and domain assumptions.",
+      "mvp": [
+        "Create a reproducible mixed-type dataset with numeric, ordinal, nominal, and asymmetric binary attributes.",
+        "Render side-by-side discretization and binary encodings, including interval boundaries, category mappings, and a warning about spurious bit relationships.",
+        "Compare raw and normalized distances for nearest-neighbour and anomaly examples, with an accessible explanation of which feature dominates and why.",
+        "Export a transformation trail containing parameters, rationale, sample rows, and before/after similarity results."
+      ],
+      "stretch": [
+        "Add stratified evaluation to show how rare categories can disappear when categories are reduced or sampling is careless.",
+        "Add a reversible pipeline and a reviewer checklist that tests semantic validity, leakage, and reproducibility."
+      ],
+      "plan": [
+        "Week 1: define the dataset, task questions, attribute types, and reproducible fixtures.",
+        "Week 2: implement discretization, ordinal coding, one-hot encoding, and rare-category grouping.",
+        "Week 3: add transformations, mixed-type distances, nearest-neighbour and anomaly demonstrations.",
+        "Week 4: add visual evidence export, accessibility, evaluation, and a written preprocessing decision record."
+      ],
+      "novelty": "The workbench treats preprocessing as an inspectable modelling decision: each representation is paired with its semantic assumptions and its effect on downstream proximity.",
+      "stack": ["Python", "pandas", "scikit-learn", "Jupyter", "Mermaid or SVG"],
+      "milestones": ["Week 1: data and task design", "Week 2: encodings", "Week 3: transformations and distances", "Week 4: evidence export and review"],
+      "success": "A reviewer can reproduce every transformation, explain why the encoding fits the task, see how scale changes neighbours, and identify when a compact representation would mislead a mining algorithm."
+    }
+  },
   "ebb-6402-2026-09-01-180239": {
     "en": {
       "title": "AML GraphLens — an evidence-aware financial-crime triage lab",

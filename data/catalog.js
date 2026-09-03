@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 36,
+  filesInventoried: 37,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -512,8 +512,8 @@ export const catalog = {
       icon: "DW",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course76_hybrid_iitp_ac_in/IgAWWFJqFmpXRay8IkonggGRASO0x6czOy20BYDTjv8HHXI?e=5DXrhH",
       status: "active",
-      statusLabel: "5 lectures available",
-      note: "Lectures 1–5 are published in chronological order. The 19 August source is bounded to 01:04–01:22:43, the 24 August source to 00:30–01:17:26, the 26 August source to 00:02:16–01:25:35, and the 31 August source to 00:00:19–01:26:54; waiting-room and idle tails were excluded after full timeline sweeps.",
+      statusLabel: "6 lectures available",
+      note: "Lectures 1–6 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; the 2 September source is bounded to 00:00:41–01:27:40 and captured at 2× through the visible-tab companion.",
       lectures: [
         {
           id: "ecc-6404-2026-08-17-193438",
@@ -584,6 +584,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Curse of dimensionality and PCA/SVD", "Filter, wrapper, and embedded feature selection", "Feature weighting, extraction, and construction"]
+        },
+        {
+          id: "ecc-6404-2026-09-02-193120",
+          number: 6,
+          date: "2026-09-02",
+          sourceRecordedAt: "2026-09-02T19:31:20+05:30",
+          sourceFilename: "Data Warehousing-20260902_193120-Meeting Recording.mp4",
+          displayDate: "2 September 2026",
+          title: "Discretization, binarization, transformations, and similarity measures",
+          duration: "1h 26m 59s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course76_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FData+Warehousing%2D20260902_193120%2DMeeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Feature construction and task-aware discretization", "Binary encodings, one-hot attributes, and category reduction", "Variable transformations and similarity/dissimilarity measures"]
         }
       ]
     },

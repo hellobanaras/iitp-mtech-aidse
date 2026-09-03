@@ -73,7 +73,7 @@ const visualTemplates = {
   "ecs-6401-2026-08-19-175559": "timeseries", "ecs-6401-2026-08-21-180935": "timeseries", "ecs-6401-2026-08-26-180538": "timeseries", "ecs-6401-2026-08-28-180221": "timeseries", "ecs-6401-2026-09-02-180510": "timeseries",
   "ecs-6402-2026-08-21-204351": "wireless", "ecs-6402-2026-08-27-203455": "wireless", "ecs-6402-2026-08-28-203443": "wireless",
   "ebb-6401-2026-08-17-180921": "smartcontract", "ebb-6401-2026-08-17-184812": "smartcontract", "ebb-6401-2026-08-19-180224": "smartcontract", "ebb-6401-2026-08-24-180004": "smartcontract", "ebb-6401-2026-09-02-180427": "smartcontract",
-  "ecc-6404-2026-08-17-193438": "warehouse", "ecc-6404-2026-08-19-193245": "warehouse", "ecc-6404-2026-08-24-193338": "warehouse", "ecc-6404-2026-08-26-193241": "warehouse", "ecc-6404-2026-08-31-193236": "warehouse",
+  "ecc-6404-2026-08-17-193438": "warehouse", "ecc-6404-2026-08-19-193245": "warehouse", "ecc-6404-2026-08-24-193338": "warehouse", "ecc-6404-2026-08-26-193241": "warehouse", "ecc-6404-2026-08-31-193236": "warehouse", "ecc-6404-2026-09-02-193120": "warehouse",
   "ebb-6402-2026-08-18-180205": "blockchain", "ebb-6402-2026-08-20-180203": "blockchain", "ebb-6402-2026-08-25-180424": "blockchain", "ebb-6402-2026-09-01-180239": "blockchain",
   "ebb-6403-2026-08-21-075934": "security", "ebb-6403-2026-08-28-074445": "security", "ebb-6403-2026-08-29-053554": "security"
 };
