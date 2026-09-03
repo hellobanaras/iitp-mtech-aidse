@@ -558,6 +558,22 @@ export const openLearningResources = {
       title: "Time-aware interpolation",
       description: "Official interpolation options for filling numeric gaps while preserving a time-indexed workflow and explicit method choice.",
       url: "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.interpolate.html"
+    },
+    {
+      provider: "statsmodels",
+      kind: "Autoregression API",
+      access: "Free documentation",
+      title: "AutoReg and Yule–Walker tools",
+      description: "Reference implementations for fitting autoregressive models and comparing lag-based coefficients with the lecture's Yule–Walker derivation.",
+      url: "https://www.statsmodels.org/stable/generated/statsmodels.tsa.ar_model.AutoReg.html"
+    },
+    {
+      provider: "NIST",
+      kind: "Time-series handbook",
+      access: "Free reference",
+      title: "NIST Trend and Stationarity Diagnostics",
+      description: "Practical guidance for checking trends, autocorrelation, transformations, and residual behaviour before forecasting.",
+      url: "https://www.itl.nist.gov/div898/handbook/pmc/pmc.htm"
     }
   ],
   "ecs-6402": [

@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 33,
+  filesInventoried: 34,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -411,8 +411,8 @@ export const catalog = {
       icon: "TS",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course129_hybrid_iitp_ac_in/IgC377O2f2n2SI6uo-EJPeMMAZbBcmUQN6fmgL_JHX60GiA?e=yUCaLx",
       status: "active",
-      statusLabel: "4 lectures available",
-      note: "Lectures 1–4 are published in chronological order. The 21 August source is bounded to 00:46–01:15:34, the 26 August source to 00:03:16–01:20:45, and the 28 August source to 00:05:32–00:51:43. Participant-only openings and idle tails were excluded after full timeline sweeps.",
+      statusLabel: "5 lectures available",
+      note: "Lectures 1–5 are published in chronological order. The 21 August source is bounded to 00:46–01:15:34, the 26 August source to 00:03:16–01:20:45, the 28 August source to 00:05:32–00:51:43, and the 2 September source to 00:04:50–01:21:14. Participant-only openings, an internal participant/chat interval, and idle tails were excluded after full timeline sweeps.",
       lectures: [
         {
           id: "ecs-6401-2026-08-19-175559",
@@ -469,6 +469,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Missing values, outliers, stationarity, and scaling", "Log, square-root, Box–Cox, and seasonal differencing", "Moving averages, exponential smoothing, Holt, and Holt–Winters"]
+        },
+        {
+          id: "ecs-6401-2026-09-02-180510",
+          number: 5,
+          date: "2026-09-02",
+          sourceRecordedAt: "2026-09-02T18:05:10+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20260902_180510-Meeting Recording.mp4",
+          displayDate: "2 September 2026",
+          title: "Stationarity, differencing, seasonal adjustment, and autoregressive models",
+          duration: "1h 21m 14s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course129_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FAdvanced%20Time%20Series%20Analysis%2D20260902_180510%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Stationarity and ADF unit-root testing", "Differencing, seasonal adjustment, and decomposition", "Moving averages, AR models, ACF/PACF, and Yule–Walker equations"]
         }
       ]
     },

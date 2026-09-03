@@ -270,13 +270,13 @@ The permitted visible-tab capture ran alone at 2× from source 11:17 to 1:40:47.
 
 ### 2 September 2026 — catalog and private-ledger reconciliation
 
-`npm run queue:reconcile` compared the 31 catalog-published lecture notes with
+`npm run queue:reconcile` compared the 33 catalog-published lecture notes with
 the ignored source list, queue state, durable ledger, and all local companion
 sidecars. Every public lecture now resolves to exactly one completed queue
 identity, every queue publication resolves back to the catalog, and the
 `ECS 6401` / `ECS 6401/ESD 6301` alias collision has been collapsed to the
-catalog's primary course code. The reconciled private inventory contains 45
-stable source identities: 31 published, 11 rejected, and 3 pending. All 15
+catalog's primary course code. The reconciled private inventory contains 48
+stable source identities: 33 published, 11 rejected, and 4 pending. All 16
 local capture sidecars match known source URLs; none represents an untracked
 lecture. In particular, several files prefixed `2026-09-02` are captures made
 on that date for older August recordings, not new 2 September lectures.
@@ -312,3 +312,9 @@ snapshot is `.course-data/inventory/2026-09-02-wednesday.json`.
 `Selected Topics in Wireless Networks-20260828_203443-Meeting Recording.mp4` is a 193 MB, 1h 19m 52s view-only source with no visible provider Download action. Its stable identity was checked before opening it alone. The required full-timeline sweep found sustained OneNote teaching at the beginning, 10%, 25%, 50%, 75%, 90%, and near-end positions: course/network framing at 00:31, internetwork communication at 07:55, switch/router topology at 20:06, switching behaviour at 39:52, shared-medium examples at 59:38 and 01:11:29, variable-length frames at 01:18:28, and instructor closure at 01:19:24. There was no material waiting-room interval or idle tail, so the source is `canonical`.
 
 The permitted visible-tab capture ran alone at 2× from source 00:00 until the natural endpoint. Its 200 MB VP9/Opus artifact and timing sidecar were saved under ignored `.course-data/`, and the recording tab was closed before processing. Local processing verified English audio and video, restored source-time transcript timestamps, sampled 81 frames, retained the whiteboard evidence trail, and classified the source `canonical`. The English-only note `ecs-6402-2026-08-28-203443` covers Internet/intranet, ARPANET, OSI/TCP-IP, circuit and packet switching, LAN/WAN structure, routing, the four network-delay components, X.25 reliability overhead, and Frame Relay. It includes 23 source-time visual references, seven summary sections, six expert insights, two timecoded student-question exchanges, three instructor references, clearly separated optional practice, six primary/practical resources, an accessible wireless-system visual, the public `PathScope` capstone, and exactly 25 explained MCQs. The subject resource trail was refreshed with RFC 619, RFC 2681, RFC 4377, ITU-T X.25, and ITU's Frame Relay overview.
+
+#### ECS 6401 — 2 September 2026, 18:05:10 source
+
+`Advanced Time Series Analysis-20260902_180510-Meeting Recording.mp4` is a 353 MB, 1h 25m 22s view-only source with no visible provider Download action. The seven-point sweep found participant-only setup at 00:34, sustained Stationary/non-stationary slide teaching at 08:24 and 10:14, a participant/chat interruption at 42:45, handwritten Markov and autoregressive derivations at 01:04:22 and 01:17:28, and participant-only content at 01:23:09. Teaching was bounded to source 00:04:50–01:21:14; the internal interruption and idle tail were excluded. The structured evidence is saved in `.course-data/review/ecs-6401-2026-09-02-180510-review.json` and linked from the private inventory.
+
+The permitted visible-tab video-plus-audio capture ran alone at 2× from source 00:04:50 through the natural endpoint, after which the recording tab was closed. The retained artifact and sidecar are under ignored `.course-data/captures/ecs-6401/2026-09-02/`; local processing uses the verified teaching interval to bound frames and restored transcript timecodes. The English-only note `ecs-6401-2026-09-02-180510` covers stationarity and ADF, differencing, seasonal adjustment, additive/multiplicative decomposition, moving averages, AR models, ACF/PACF, and Yule–Walker equations. It includes the 10-point slide/whiteboard trail, seven-part summary, four expert insights, explicit transcript-derived signal categories, optional stationarity and AR practice, four reliable resources, the shared time-series visual, the public `Stationarity Studio` capstone, and exactly 25 explained MCQs. The queue disposition is canonical and awaits note validation/publication.

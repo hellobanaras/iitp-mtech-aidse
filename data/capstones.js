@@ -945,5 +945,34 @@ export const capstones = Object.freeze({
       "milestones": ["Week 1: workflow and threat model", "Week 2: state machine and authorization", "Week 3: oracle and exception tests", "Week 4: fit comparison and demo"],
       "success": "A reviewer can follow every settlement and failure path, verify that only authorized accounts can invoke actions, see how external evidence is trusted, and understand why the chosen architecture fits the case."
     }
+  },
+  "ecs-6401-2026-09-02-180510": {
+    "en": {
+      "title": "Stationarity Studio: an explainable forecast-diagnostics lab",
+      "pitch": "Build a local-first notebook-to-dashboard tool that lets a learner generate, diagnose, transform, and forecast a time series while preserving every plot, test decision, and assumption.",
+      "problem": "Forecasting failures are often caused by non-stationarity, seasonal effects, leakage, or an unjustified AR order rather than by an exotic algorithm. Learners need to see those failure modes before trusting a forecast.",
+      "learning": "You will implement rolling statistics, ADF checks, first and seasonal differencing, additive versus multiplicative decomposition, moving averages, ACF/PACF diagnostics, and a small Yule–Walker solver.",
+      "mvp": [
+        "Generate trend, seasonal, and noise components with a fixed random seed and show the raw series.",
+        "Plot rolling mean/variance, run ADF, and let the learner compare original, first-differenced, and seasonal-differenced data.",
+        "Provide additive and multiplicative decomposition with an explanation of the amplitude assumption.",
+        "Fit AR(1) and AR(2), display ACF/PACF, solve an AR(2) Yule–Walker example, and evaluate chronologically."
+      ],
+      "stretch": [
+        "Add structural-break and changing-variance scenarios with warnings when ADF and plots disagree.",
+        "Compare moving-average windows and quantify smoothing lag around turning points.",
+        "Export an accessible experiment card containing source time range, transformations, diagnostics, coefficients, and future-test metrics."
+      ],
+      "plan": [
+        "Week 1: implement deterministic series generation, plots, rolling statistics, and data-quality checks.",
+        "Week 2: add ADF, differencing, seasonal adjustment, and decomposition comparisons.",
+        "Week 3: implement ACF/PACF, AR(1)/AR(2), and Yule–Walker matrix solving with tests.",
+        "Week 4: add chronological evaluation, accessibility, export, and a report on one deliberately non-stationary case."
+      ],
+      "novelty": "The lab treats diagnostics and modelling assumptions as first-class, inspectable outputs instead of hiding them behind one forecast line.",
+      "stack": ["Python", "pandas", "statsmodels", "matplotlib", "Jupyter or Streamlit"],
+      "milestones": ["Week 1: reproducible series and plots", "Week 2: transformations", "Week 3: AR/Yule–Walker", "Week 4: evaluation and evidence export"],
+      "success": "A learner can explain why a series is or is not stationary, justify a transformation and AR order with evidence, reproduce the coefficients, and evaluate the forecast without temporal leakage."
+    }
   }
 });
