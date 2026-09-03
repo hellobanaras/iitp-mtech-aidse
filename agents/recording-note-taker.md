@@ -44,9 +44,9 @@ rule only; it does not create Hindi lecture-note data.
    available. Otherwise review the visible recording at the fastest intelligible
    speed (currently 2×) with the companion workflow and a visible-UI gesture
    when required. If the owner has authorized capture for the active run,
-   perform that gesture yourself through Chrome/Computer Use; do not stop merely
-   to ask the owner to click the extension. Preserve source-time mappings,
-   audio/video checks, slide candidates,
+   the agent performs that gesture through Chrome/Computer Use; do not stop
+   for a repeat owner click handoff. Preserve source-time mappings, audio/video
+   checks, slide candidates,
    and the verified instructional interval under ignored `.course-data/`.
 4. **Note synthesis** — write original prose, not a verbatim transcript. Include
    high-level coverage, a timecoded slide/whiteboard trail, a chronological full

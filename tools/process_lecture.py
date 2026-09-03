@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -218,7 +219,7 @@ def main() -> None:
     observed_end = start + effective_capture_duration * rate
     end = min(float(marked_end), observed_end) if marked_end is not None else observed_end
     audio_path = recording_dir / f"{args.date}-segment-{args.segment}-audio.wav"
-    audio_command = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(media_copy),
+    audio_command = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-t", f"{duration:.6f}", "-i", str(media_copy),
                      "-vn"]
     tempo = atempo_filter(rate)
     audio_filters = []
@@ -237,8 +238,15 @@ def main() -> None:
     scene_dir.mkdir(exist_ok=True)
     for old_frame in [*regular_dir.glob("frame-*.jpg"), *scene_dir.glob("scene-*.jpg")]:
         old_frame.unlink()
-    video_lead_filter = f"trim=start={lead_in:.6f},setpts=PTS-STARTPTS," if lead_in else ""
-    run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(media_copy),
+    video_lead_filter = (
+        f"trim=start={lead_in:.6f}:duration={effective_capture_duration:.6f},setpts=PTS-STARTPTS,"
+        if lead_in else f"trim=duration={effective_capture_duration:.6f},setpts=PTS-STARTPTS,"
+    )
+    # Chrome WebM captures often omit container duration metadata. Bound every
+    # extraction to the verified teaching interval so VFR streams cannot make
+    # ffmpeg decode an unbounded tail while generating frames.
+    capture_limit = max(0.0, effective_capture_duration)
+    run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-t", f"{duration:.6f}", "-i", str(media_copy),
          "-vf", f"{video_lead_filter}fps=1/{args.frame_interval},scale=1600:-2:force_original_aspect_ratio=decrease,format=yuvj420p",
          "-threads", "1", "-q:v", "3", str(regular_dir / "frame-%05d.jpg")])
 
@@ -257,17 +265,23 @@ def main() -> None:
     if args.classification != "auto":
         classification = args.classification
 
-    if classification != "idle/error":
+    # Scene detection is optional for long Chrome captures. Regular frames
+    # already provide the visual study trail; operators can opt into the more
+    # expensive pass when needed with LECTURE_ATLAS_SCENE_PASS=1.
+    if classification != "idle/error" and os.environ.get("LECTURE_ATLAS_SCENE_PASS") == "1":
         scene_filter = (
             f"{video_lead_filter}fps=2,scale=1600:-2:force_original_aspect_ratio=decrease,"
             f"select='gt(scene,{args.scene_threshold})',format=yuvj420p,"
             f"metadata=print:file={scene_metadata}"
         )
-        run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(media_copy),
+        run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-t", f"{duration:.6f}", "-i", str(media_copy),
              "-vf", scene_filter, "-fps_mode", "vfr", "-threads", "1", "-q:v", "3",
              str(scene_dir / "scene-%05d.jpg")])
     else:
-        scene_metadata.write_text("Skipped: digital silence plus no meaningful visual transitions.\n", encoding="utf-8")
+        scene_metadata.write_text(
+            "Skipped optional scene pass; regular sampled frames provide the visual evidence.\n",
+            encoding="utf-8",
+        )
 
     frame_map: list[dict] = []
     for index, frame in enumerate(sorted(regular_dir.glob("frame-*.jpg"))):

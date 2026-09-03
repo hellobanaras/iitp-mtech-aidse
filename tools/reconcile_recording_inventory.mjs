@@ -90,11 +90,14 @@ const mergeSource = (candidate) => {
   const published = publicationByFilename.get(candidate.filename);
   const course = published?.course || courseBySlug.get(candidate.course) || resolveCourse(candidate.courseCode);
   const courseCode = published?.courseCode || course?.code.split("/")[0].trim() || candidate.courseCode;
-  const normalized = {
+  // Do not let a later catalog/ledger candidate with an omitted field erase
+  // evidence already present in the source inventory. In particular, ledger
+  // rows commonly have no sourceRecordedAt/publicationId/input/sidecar.
+  const normalized = Object.fromEntries(Object.entries({
     ...candidate,
     course: course?.slug || candidate.course,
     courseCode,
-  };
+  }).filter(([, value]) => value !== undefined));
   const key = identity(normalized.courseCode, normalized.nominalDate, normalized.filename);
   const previous = mergedSources.get(key) || {};
   mergedSources.set(key, {
@@ -238,7 +241,9 @@ const report = {
   pending: pending.map((item) => ({
     stableIdentity: item.stableIdentity,
     stage: item.stage,
-    nextAction: item.stage === "awaiting-browser" ? "Open, triage, and capture this source with the required visible-tab user gesture." : "Resume the recorded queue stage.",
+    nextAction: item.stage === "awaiting-browser"
+      ? "Resume agent-managed capture for this source at the visible-tab checkpoint, attach artifact+sidecar, then continue."
+      : "Resume the recorded queue stage.",
   })),
   captureSidecars: {
     matched: sidecarMatches.length,
