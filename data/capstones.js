@@ -1003,5 +1003,35 @@ export const capstones = Object.freeze({
       "milestones": ["Week 1: reproducible series and plots", "Week 2: transformations", "Week 3: AR/Yule–Walker", "Week 4: evaluation and evidence export"],
       "success": "A learner can explain why a series is or is not stationary, justify a transformation and AR order with evidence, reproduce the coefficients, and evaluate the forecast without temporal leakage."
     }
+  },
+  "ebb-6402-2026-09-01-180239": {
+    "en": {
+      "title": "AML GraphLens — an evidence-aware financial-crime triage lab",
+      "pitch": "Build a synthetic transaction-graph workbench that teaches learners to connect placement, layering, and integration signals with FATF-aligned controls, model scores, and accountable human review.",
+      "problem": "AML/CFT teams must connect transactions, identities, counterparties, time, and jurisdiction without treating an alert or model score as proof of wrongdoing. A small transparent lab can expose how weak evidence, privacy leakage, and cross-border gaps distort triage.",
+      "learning": "You will model laundering stages, terrorism-financing patterns, graph evidence, risk-based controls, data preparation, classifier-assisted prioritisation, and the governance needed to interpret alerts responsibly.",
+      "mvp": [
+        "Generate synthetic accounts, merchants, charities, brokers, transfers, deposits, and asset purchases with reproducible seeds.",
+        "Render a graph and timeline that lets a learner trace placement, layering, and integration hypotheses without exposing real customer data.",
+        "Compare rule-based alerts with a simple random-forest or gradient-boosting baseline using precision, recall, and false-positive review queues.",
+        "Show FATF-inspired risk controls, data lineage, privacy minimisation, analyst notes, escalation, and an appeal or correction path."
+      ],
+      "stretch": [
+        "Add cross-border entities, informal value-transfer brokers, and synthetic crowdfunding or non-profit channels.",
+        "Add drift and label-delay scenarios that demonstrate why model monitoring and human accountability matter.",
+        "Export an evidence card containing graph features, model version, decision rationale, retained fields, and reviewer sign-off.",
+        "Compare a permissioned-ledger evidence trail with a conventional controlled database on privacy, correction, cost, and governance."
+      ],
+      "plan": [
+        "Week 1: define synthetic entities, laundering-stage states, risk assumptions, and privacy boundaries.",
+        "Week 2: implement the transaction graph, timeline view, rule alerts, and reproducible evidence fixtures.",
+        "Week 3: add a baseline classifier, review queue, precision/recall analysis, and drift or missing-label tests.",
+        "Week 4: map controls to FATF themes, compare storage architectures, document limitations, and present a responsible triage demo."
+      ],
+      "novelty": "The lab keeps policy, graph evidence, model assistance, privacy, and human accountability visible in one workflow instead of presenting AML/CFT as either a ledger problem or a classifier problem.",
+      "stack": ["Python", "pandas", "NetworkX", "scikit-learn", "Plotly or SVG"],
+      "milestones": ["Week 1: synthetic risk model", "Week 2: graph and rules", "Week 3: model-assisted triage", "Week 4: governance comparison and demo"],
+      "success": "A learner can trace a synthetic case through all three laundering stages, explain why an alert is only evidence for review, quantify false positives, and defend a privacy-preserving governance design."
+    }
   }
 });

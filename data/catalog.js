@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 35,
+  filesInventoried: 36,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -599,8 +599,8 @@ export const catalog = {
       icon: "BP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course126_hybrid_iitp_ac_in/IgCHFNnPY4p5T6ER5i66wfU6ARez8raFCClh3yjgh9MvxQ4?e=BpEdrU",
       status: "active",
-      statusLabel: "3 lectures available",
-      note: "Lectures 1–3 are published from verified teaching intervals; participant-only openings, announced breaks, and idle tails were excluded after full timeline sweeps. View-only sources were captured at 2×.",
+      statusLabel: "4 lectures available",
+      note: "Lectures 1–4 are published from verified teaching intervals; participant-only openings, announced breaks, and idle tails were excluded after full timeline sweeps. View-only sources were captured at 2×.",
       lectures: [
         {
           id: "ebb-6402-2026-08-18-180205",
@@ -643,6 +643,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Compliance policy, risk management, and AML/KYC", "Privacy, data minimisation, hashes, and access control", "Interoperability, responsible adoption, DLT, and consensus"]
+        },
+        {
+          id: "ebb-6402-2026-09-01-180239",
+          number: 4,
+          date: "2026-09-01",
+          sourceRecordedAt: "2026-09-01T18:02:39+05:30",
+          sourceFilename: "Blockchain policy – Legal, Social and Economic Impact-20260901_180239-Meeting Recording.mp4",
+          displayDate: "1 September 2026",
+          title: "Blockchain applications, money laundering stages, and international AML/CFT policy",
+          duration: "1h 27m 45s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course126_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course126%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FBlockchain%20policy%20%E2%80%93%20Legal%2C%20Social%20and%20Economic%20Impact%2D20260901%5F180239%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Blockchain applications and practical limitations", "Placement, layering, and integration in money laundering", "Terrorism financing, FATF, and data-supported AML/CFT analysis"]
         }
       ]
     }
