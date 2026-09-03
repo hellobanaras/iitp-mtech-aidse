@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 37,
+  filesInventoried: 38,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -613,8 +613,8 @@ export const catalog = {
       icon: "BP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course126_hybrid_iitp_ac_in/IgCHFNnPY4p5T6ER5i66wfU6ARez8raFCClh3yjgh9MvxQ4?e=BpEdrU",
       status: "active",
-      statusLabel: "4 lectures available",
-      note: "Lectures 1–4 are published from verified teaching intervals; participant-only openings, announced breaks, and idle tails were excluded after full timeline sweeps. View-only sources were captured at 2×.",
+      statusLabel: "5 lectures available",
+      note: "Lectures 1–5 are published from verified teaching intervals; participant-only openings, announced breaks, and idle tails were excluded after full timeline sweeps. View-only sources were captured at 2×.",
       lectures: [
         {
           id: "ebb-6402-2026-08-18-180205",
@@ -671,6 +671,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Blockchain applications and practical limitations", "Placement, layering, and integration in money laundering", "Terrorism financing, FATF, and data-supported AML/CFT analysis"]
+        },
+        {
+          id: "ebb-6402-2026-09-03-180128",
+          number: 5,
+          date: "2026-09-03",
+          sourceRecordedAt: "2026-09-03T18:01:28+05:30",
+          sourceFilename: "Blockchain policy – Legal, Social and Economic Impact-20260903_180128-Meeting Recording.mp4",
+          displayDate: "3 September 2026",
+          title: "KYC, risk-based AML/CFT supervision, and stablecoin policy",
+          duration: "1h 30m 37s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course126_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course126_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FBlockchain%20policy%20%E2%80%93%20Legal%2C%20Social%20and%20Economic%20Impact-20260903_180128-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["KYC, beneficial ownership, and enhanced due diligence", "Risk-based monitoring, SAR/STR reporting, FIU analysis, and AML governance", "Stablecoin design, value stability, backing, liquidity, and policy risk"]
         }
       ]
     }

@@ -1061,5 +1061,34 @@ export const capstones = Object.freeze({
       "milestones": ["Week 1: synthetic risk model", "Week 2: graph and rules", "Week 3: model-assisted triage", "Week 4: governance comparison and demo"],
       "success": "A learner can trace a synthetic case through all three laundering stages, explain why an alert is only evidence for review, quantify false positives, and defend a privacy-preserving governance design."
     }
+  },
+  "ebb-6402-2026-09-03-180128": {
+    "en": {
+      "title": "StableGuard: an evidence-aware AML/CFT and stablecoin policy lab",
+      "pitch": "Build a local-first teaching workbench that connects KYC, risk-based monitoring, SAR/STR reporting, FIU hand-offs, and stablecoin risk without using real customer data.",
+      "problem": "Learners often see KYC, machine-learning alerts, and stablecoin policy as separate topics. A synthetic end-to-end lab makes ownership, evidence, proportionality, and residual risk visible in one workflow.",
+      "learning": "You will model customer risk, beneficial ownership, transaction deviations, reporting pathways, FIU analysis, and stablecoin backing while documenting privacy and governance decisions.",
+      "mvp": [
+        "Generate synthetic customers, beneficial owners, transactions, institutions, and stablecoin reserve events with a reproducible seed.",
+        "Render a KYC and risk-classification view that escalates high-risk cases to enhanced due diligence and records the evidence requested.",
+        "Compare profile-based rules with a transparent classifier for unusual movement, showing false positives and analyst review rather than a verdict.",
+        "Trace SAR/STR reports through an AML system and FIU-style analysis, then add a stablecoin panel for peg, reserve, liquidity, and regulatory signals."
+      ],
+      "stretch": [
+        "Add cross-border institutions, informal value-transfer brokers, and delayed or missing labels to test monitoring resilience.",
+        "Add a privacy budget and retention policy that shows which fields are retained, hashed, or kept in controlled storage.",
+        "Export an auditable evidence card containing model version, thresholds, reviewer decision, escalation reason, and stablecoin assumptions."
+      ],
+      "plan": [
+        "Week 1: define synthetic entities, KYC fields, risk tiers, and privacy boundaries.",
+        "Week 2: implement transaction deviations, rule alerts, SAR/STR flow, and FIU hand-off views.",
+        "Week 3: add a small baseline classifier, precision/recall, false-positive review, and feedback capture.",
+        "Week 4: model stablecoin backing and policy scenarios, export evidence, and write a responsible-governance review."
+      ],
+      "novelty": "The lab treats compliance, detection, institutional hand-offs, and stablecoin design as one inspectable policy loop instead of presenting technology as a substitute for governance.",
+      "stack": ["Python", "pandas", "NetworkX", "scikit-learn", "Plotly or SVG"],
+      "milestones": ["Week 1: synthetic KYC and risk model", "Week 2: monitoring and reporting", "Week 3: model-assisted review", "Week 4: stablecoin policy and evidence export"],
+      "success": "A learner can explain why a case was escalated, trace its evidence to an FIU hand-off, quantify review trade-offs, and defend a stablecoin policy position from backing, liquidity, governance, and regulatory assumptions."
+    }
   }
 });
