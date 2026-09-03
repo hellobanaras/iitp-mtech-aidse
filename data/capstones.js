@@ -916,5 +916,34 @@ export const capstones = Object.freeze({
       "milestones": ["Week 1: correctness", "Week 2: statistical attacks", "Week 3: secrecy experiments", "Week 4: modern comparison and evidence"],
       "success": "A learner can explain why each historical cipher fails, demonstrate the operational conditions of a one-time pad, state an attack model precisely, and distinguish computational difficulty from perfect secrecy."
     }
+  },
+  "ebb-6401-2026-08-24-180004": {
+    "en": {
+      "title": "LedgerFlow: an industry smart-contract settlement lab",
+      "pitch": "Build a local-first simulator for a syndicated loan or delivery-payment workflow that makes parties, conditions, oracle evidence, account authorization, settlement, timeout, dispute, and refund states visible.",
+      "problem": "Teams often demonstrate a successful transaction while hiding the harder questions: who can act, which external facts are trusted, what happens when evidence is late or wrong, and whether a blockchain is actually simpler than a signed database.",
+      "learning": "You will translate industry requirements into a state machine, compare UTXO-style value flow with account-based invocation, model EOA signatures and contract execution, and test oracle and governance failure paths.",
+      "mvp": [
+        "Define participants, terms, evidence, roles, timeouts, and settlement outcomes for one financial or supply-chain case.",
+        "Render an accessible state graph covering draft, approved, evidence-pending, settled, disputed, refunded, and failed states.",
+        "Implement a mock oracle and signed EOA requests, then validate role checks, replay protection, stale data, and amount limits.",
+        "Compare the simulated blockchain workflow with a conventional database plus audit log using cost, trust, privacy, and correction criteria."
+      ],
+      "stretch": [
+        "Add multiple oracle reporters, aggregation, freshness windows, and an emergency pause controlled by explicit governance.",
+        "Export a reproducible experiment card with state transitions, test evidence, assumptions, and a decision on blockchain fit.",
+        "Add a hybrid-storage path that keeps sensitive documents off-chain and verifies them with content commitments."
+      ],
+      "plan": [
+        "Week 1: choose the case, interview the workflow, and specify actors, conditions, evidence, and exception states.",
+        "Week 2: implement the state machine, account/role model, signed requests, and deterministic settlement tests.",
+        "Week 3: add oracle failure, stale evidence, timeout, dispute, refund, and privacy scenarios with an accessible visualisation.",
+        "Week 4: benchmark the blockchain and database alternatives, document assumptions, and present the evidence-backed recommendation."
+      ],
+      "novelty": "The project treats blockchain selection and smart-contract design as one auditable socio-technical decision instead of equating a successful transaction with a successful system.",
+      "stack": ["Solidity", "Remix", "JavaScript", "Mermaid or SVG", "Vitest"],
+      "milestones": ["Week 1: workflow and threat model", "Week 2: state machine and authorization", "Week 3: oracle and exception tests", "Week 4: fit comparison and demo"],
+      "success": "A reviewer can follow every settlement and failure path, verify that only authorized accounts can invoke actions, see how external evidence is trusted, and understand why the chosen architecture fits the case."
+    }
   }
 });

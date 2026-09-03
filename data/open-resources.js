@@ -872,6 +872,19 @@ export const openLearningResources = {
       descriptionHi: "Solidity और blockchain application fundamentals का long-form build-along course।",
       url: "https://www.youtube.com/watch?v=M576WGiDBdQ",
       youtubeId: "M576WGiDBdQ"
+    },
+    {
+      provider: "Hyperledger Foundation",
+      providerHi: "Hyperledger Foundation",
+      kind: "Enterprise blockchain guide",
+      kindHi: "Enterprise blockchain guide",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Hyperledger Fabric documentation",
+      titleHi: "Hyperledger Fabric documentation",
+      description: "Open documentation for permissioned networks, channels, chaincode, identities, and enterprise workflow governance.",
+      descriptionHi: "Permissioned networks, channels, chaincode, identities और enterprise workflow governance की open documentation।",
+      url: "https://hyperledger-fabric.readthedocs.io/en/latest/"
     }
   ],
   "ebb-6402": [
