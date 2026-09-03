@@ -1090,5 +1090,34 @@ export const capstones = Object.freeze({
       "milestones": ["Week 1: synthetic KYC and risk model", "Week 2: monitoring and reporting", "Week 3: model-assisted review", "Week 4: stablecoin policy and evidence export"],
       "success": "A learner can explain why a case was escalated, trace its evidence to an FIU hand-off, quantify review trade-offs, and defend a stablecoin policy position from backing, liquidity, governance, and regulatory assumptions."
     }
+  },
+  "ecs-6402-2026-09-03-203415": {
+    "en": {
+      "title": "LayerLens: an ATM and OSI protocol-stack visualizer",
+      "pitch": "Build a browser-based simulator that sends voice, video, and bursty data through virtual channels while revealing ATM cell overhead and OSI encapsulation.",
+      "problem": "Students often memorise layer names without seeing how an application message becomes headers, cells, frames, and bits. A small visual simulator can make service boundaries and trade-offs observable.",
+      "learning": "You will model fixed 53-byte ATM cells, variable-length Frame Relay frames, virtual-circuit identifiers, QoS choices, and sender/receiver layer interactions.",
+      "mvp": [
+        "Create synthetic voice, video, and data messages and show sampling/compression before ATM adaptation.",
+        "Split payloads into 53-byte cells with a 5-byte header and 48-byte payload, then visualise virtual-channel identifiers.",
+        "Animate encapsulation down a seven-layer stack and decapsulation back to the application at the destination.",
+        "Expose a comparison panel for Frame Relay versus ATM overhead, unit size, QoS, and error-control placement."
+      ],
+      "stretch": [
+        "Add queueing and loss to compare fixed-cell switching with variable-length frames under different traffic mixes.",
+        "Add a protocol-rule inspector for syntax, semantics, timing, addressing, and flow control.",
+        "Export an accessible evidence view that explains each visual transition in text for keyboard and screen-reader users."
+      ],
+      "plan": [
+        "Week 1: define message, cell, frame, layer, and virtual-channel data structures.",
+        "Week 2: implement ATM adaptation, cellisation, and Frame Relay comparison views.",
+        "Week 3: add OSI encapsulation/decapsulation animation and peer-layer annotations.",
+        "Week 4: test mixed traffic, accessibility, and protocol trade-off explanations."
+      ],
+      "novelty": "The project keeps transport units, logical paths, QoS, and layer contracts visible in one learner-controlled animation instead of treating them as isolated definitions.",
+      "stack": ["JavaScript", "HTML/CSS", "SVG", "Web Audio API (optional)"],
+      "milestones": ["Week 1: data model", "Week 2: ATM/Frame Relay views", "Week 3: OSI stack animation", "Week 4: accessibility and evaluation"],
+      "success": "A learner can trace one message through adaptation, cellisation, encapsulation, virtual-channel forwarding, and decapsulation, then explain which design choice changes overhead or QoS."
+    }
   }
 });

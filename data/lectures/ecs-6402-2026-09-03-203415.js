@@ -1,0 +1,118 @@
+// English-only publication unit for the verified 3 September 2026 recording.
+const quizSeed = [
+  ["What is the purpose of a virtual circuit?", ["A logical connection over a packet-switched network", "A permanently dedicated physical cable", "A codec for video", "A replacement for addressing"], 0],
+  ["Why does Frame Relay reduce overhead?", ["To improve useful throughput on relatively reliable links", "To remove all addressing", "To force fixed-size cells", "To eliminate endpoint responsibility"], 0],
+  ["What does ATM stand for?", ["Asynchronous Transfer Mode", "Automatic Transmission Map", "Advanced Transport Media", "Address Translation Method"], 0],
+  ["What is the key packet-size contrast in the lecture?", ["Frame Relay uses variable-length frames while ATM uses fixed-length cells", "Both use only fixed-length cells", "ATM uses variable frames and Frame Relay uses no packets", "Neither carries payload"], 0],
+  ["How large is an ATM cell in the lecture's example?", ["53 bytes", "48 bytes total", "1500 bytes exactly", "5 bits"], 0],
+  ["How are the 53 ATM-cell bytes divided?", ["5 bytes of header and 48 bytes of payload", "48 bytes of header and 5 bytes of payload", "53 bytes of payload and no header", "26 bytes each plus one parity bit"], 0],
+  ["Why is ATM called asynchronous?", ["Cells are sent when there is information to carry rather than continuously", "Every device shares one permanent clock", "It never transfers data", "It uses only analog signals"], 0],
+  ["What does the ATM user plane handle?", ["User-data transfer, including flow control and recovery", "Only administrative billing", "Only route discovery", "Only encryption keys"], 0],
+  ["What is the control plane responsible for?", ["Signalling to set up, manage, and release connections", "Compressing every payload", "Drawing OSI diagrams", "Storing the lecture recording"], 0],
+  ["What does management coordinate in ATM?", ["Network resources and coordination of the other planes", "Only one user's payload", "The classroom timetable", "The physical distance between routers"], 0],
+  ["What is the first step in the video example?", ["Convert an analog signal to digital samples", "Route a finished packet to the destination", "Delete the payload", "Reserve a circuit forever"], 0],
+  ["Why is compression applied to video frames?", ["To reduce the amount of data that must be carried", "To add redundant headers", "To make a cell variable length", "To remove synchronization"], 0],
+  ["What does the ATM adaptation layer do in the illustrated flow?", ["Adapts incoming information before fixed-size cells are formed", "Selects a legal policy", "Replaces the physical layer", "Stores passwords"], 0],
+  ["What does QoS mean?", ["Quality of service", "Queue overflow state", "Quantised optical signal", "Query operation syntax"], 0],
+  ["Why can ATM support voice, data, and video?", ["Its switched channels and QoS attributes can serve different traffic needs", "It transmits only text", "It forbids virtual channels", "It has no control information"], 0],
+  ["What identifier does each ATM cell carry?", ["An identifier for its virtual circuit", "The lecturer's name", "Only a file extension", "No identifier"], 0],
+  ["Where is the virtual-circuit identifier carried?", ["In the cell header", "Only in the payload's last byte", "In the classroom schedule", "It is never carried"], 0],
+  ["What is the OSI model described as?", ["A theoretical reference model", "A physical cable specification", "A compression format", "A database schema"], 0],
+  ["What does OSI expand to?", ["Open Systems Interconnection", "Optical Signal Integration", "Ordered Service Interface", "Open Switching Internet"], 0],
+  ["Why is layering useful?", ["A complex communication task is divided into coordinated, replaceable subtasks", "It forces every layer to duplicate all work", "It removes the need for protocols", "It prevents different systems from communicating"], 0],
+  ["What is encapsulation?", ["Adding control information such as headers to data at successive layers", "Deleting all headers at the sender", "Converting every packet to audio", "Skipping the network layer"], 0],
+  ["What happens at the receiver?", ["Headers are removed in reverse order and the payload is reassembled", "More headers are added forever", "Packets are never reassembled", "The physical layer chooses the application"], 0],
+  ["What does the network layer decide?", ["A route using source and destination addressing", "The presentation language only", "The lecture timetable", "The screen brightness"], 0],
+  ["What does a peer layer mean?", ["The corresponding layer in the communicating system at the other end", "Any two random layers in one host", "A physical cable pair", "A backup transcript"], 0],
+  ["Which three protocol properties are named?", ["Syntax, semantics, and timing", "Colour, cost, and height", "Payload, codec, and browser", "Storage, billing, and login"], 0],
+];
+
+const quiz = quizSeed.map(([question, options, answer]) => ({
+  question,
+  options,
+  answer,
+  explanation: `The lecture supports ${options[answer].toLowerCase()}.`,
+  optionNotes: options.map((option, index) => index === answer
+    ? `Correct: ${option}.`
+    : `Incorrect: ${option} does not match the lecture's networking explanation.`),
+}));
+
+export const ecs6402Lecture20260903 = {
+  en: {
+    title: "ATM, Frame Relay, and the OSI layering model",
+    lede: "This lecture connects reduced-overhead relaying with ATM cells, then uses the OSI model to explain how layered protocols encapsulate data, coordinate peer layers, and divide a complex communication task into manageable functions.",
+    instructionalInterval: "00:00:31–01:19:52 source time (title/setup excluded; teaching continues to the source endpoint)",
+    reviewLevel: "Full seven-point visible Stream sweep, brief audio check, 2× visible-tab capture, source-time-restored processing manifest, and natural endpoint verified.",
+    coverage: [
+      { title: "Virtual circuits and Frame Relay", body: "Logical connections, LAN/WAN interconnection, variable-length frames, lower overhead, and the trade-off between local error control and endpoint responsibility are introduced." },
+      { title: "ATM cells and asynchronous transfer", body: "ATM uses fixed 53-byte cells, a 5-byte header and 48-byte payload, virtual-channel identifiers, switched operation, and QoS for mixed traffic." },
+      { title: "ATM planes and adaptation", body: "User, control, and management planes separate data transfer, signalling, resource coordination, and adaptation of voice/video/data inputs." },
+      { title: "OSI as an open reference model", body: "OSI is a theoretical model for interoperability across different hardware and software; TCP/IP is contrasted as the practical Internet suite." },
+      { title: "Layering, encapsulation, and peer communication", body: "Each layer performs a related subset of functions, relies on the next lower layer, adds control information, and communicates through corresponding peer layers." },
+      { title: "Protocol features and end-to-end flow", body: "Syntax, semantics, timing, addressing, error/flow control, and the sender-to-receiver sequence make communication rules precise and interoperable." },
+    ],
+    takeaway: "The lecture's common design principle is deliberate structure: ATM fixes cell size and separates planes for predictable switching, while OSI layers communication into coordinated contracts so each function can evolve without rewriting every other layer.",
+    slideTrail: [
+      { time: "00:00:31", title: "Virtual circuits and Frame Relay", note: "Logical connections join LANs and WANs while variable-length packets and reduced overhead are reviewed." },
+      { time: "00:07:59", title: "Error and flow-control trade-off", note: "Reduced overhead shifts some protection and rate coordination to other layers or endpoints." },
+      { time: "00:12:38", title: "ATM and fixed-size cells", note: "ATM's asynchronous transfer and fixed cell format are contrasted with Frame Relay frames." },
+      { time: "00:22:30", title: "ATM adaptation and multimedia", note: "Analog-to-digital conversion, video frames, compression, adaptation, and multiple channels illustrate mixed traffic." },
+      { time: "00:27:10", title: "53-byte cell structure", note: "The 5-byte header and 48-byte payload carry control information and user data." },
+      { time: "00:32:40", title: "ATM planes", note: "User, control, and management planes divide transfer, signalling, and coordination responsibilities." },
+      { time: "00:40:20", title: "OSI open systems", note: "The theoretical model addresses interoperability independent of vendor hardware or software." },
+      { time: "00:50:30", title: "Why layering", note: "A complex task is divided into smaller coordinated subtasks with stable interfaces." },
+      { time: "01:03:10", title: "Encapsulation and decapsulation", note: "Headers and trailers are added at the sender and removed in reverse order at the receiver." },
+      { time: "01:11:54", title: "Peer layers and protocol properties", note: "Corresponding layers coordinate through syntax, semantics, timing, addressing, and control rules." },
+    ],
+    summary: [
+      { title: "1. Virtual circuits provide a logical path without a dedicated physical link", sourceRefs: ["00:00:31–00:11:30", "Virtual circuits and Frame Relay"], paragraphs: ["A virtual circuit is a logical connection established across a packet-switched network. It can connect multiple nodes and networks without requiring a separate physical point-to-point link for every pair.", "Frame Relay is revisited as a variable-length frame service with reduced overhead. The saved capacity is useful on relatively reliable links, but error and flow-control responsibilities must be placed deliberately elsewhere."], formula: "logical path != dedicated physical link" },
+      { title: "2. ATM fixes cell size and sends cells when information exists", sourceRefs: ["00:12:38–00:31:30", "ATM and fixed-size cells"], paragraphs: ["ATM means Asynchronous Transfer Mode. Unlike Frame Relay's variable-length frames, ATM uses fixed-length cells. The fixed format simplifies switching and keeps overhead predictable.", "The lecture explains asynchronous operation as sending cells when information is available rather than continuously synchronising a stream. ATM is connection-oriented: cells carry a virtual-circuit identifier in the header and follow an established logical path."], formula: "ATM cell = 53 bytes = 5 header + 48 payload" },
+      { title: "3. ATM supports mixed traffic through adaptation, switching, and QoS", sourceRefs: ["00:22:30–00:39:30", "ATM adaptation and multimedia"], paragraphs: ["Voice can be sampled and converted from analog to digital form; video can be split into frames and compressed before adaptation into fixed cells. Multiple virtual channels can carry different traffic types.", "Switched operation and quality-of-service attributes make the design suitable for voice, data, and video. The adaptation layer bridges variable application data and the cell format rather than requiring every source to produce cells directly."], formula: "source data -> adaptation -> fixed cells" },
+      { title: "4. The three ATM planes separate responsibilities", sourceRefs: ["00:32:40–00:39:30", "ATM planes"], paragraphs: ["The user plane transfers user data and includes flow control and recovery. The control plane performs signalling to set up, manage, and release connections. Management coordinates network resources and the other planes.", "Separating planes makes the control surface explicit: payload movement, connection lifecycle, and coordination are related but not the same operation."], formula: "ATM = user plane + control plane + management plane" },
+      { title: "5. OSI makes interoperability a layered contract", sourceRefs: ["00:40:20–00:58:30", "OSI open systems and why layering"], paragraphs: ["The OSI model is presented as a theoretical reference model for open systems. Its goal is communication across different hardware and software architectures, avoiding dependence on one vendor's implementation.", "Layering divides a complex communication task into subtasks. Each layer performs a related subset of functions, relies on the next lower layer, and exposes a service to the next higher layer. This lets one layer change without forcing every other layer to change."], formula: "layer n -> service to layer (n+1)" },
+      { title: "6. Encapsulation carries control context down the stack", sourceRefs: ["00:58:30–01:08:30", "Encapsulation and decapsulation"], paragraphs: ["At the sender, each layer adds its own header or trailer. The resulting protocol data unit becomes the input to the next lower layer; this addition of control information is encapsulation.", "At the receiver, layers remove their corresponding headers in reverse order. Transport reassembles segmented data, the network layer routes using source and destination addresses, and lower layers deliver the bits over wired or wireless media."], formula: "data -> (encapsulation) headers + payload -> (decapsulation) data" },
+      { title: "7. Peer layers need precise protocol rules", sourceRefs: ["01:08:30–01:19:52", "Peer layers and protocol properties"], paragraphs: ["A peer layer is the corresponding layer in the other communicating system. The two peer entities coordinate conceptually even though the actual data travels down one stack, across the medium, and up the destination stack.", "The lecture names syntax (data format), semantics (control information and error handling), and timing (synchronisation, speed matching, and sequencing). Together with addressing, flow control, and security, these rules make peer communication unambiguous."], formula: "protocol = syntax + semantics + timing" },
+    ],
+    courseSignals: {
+      assignments: [], homework: [], labs: [], projects: [],
+      references: [
+        { time: "00:39:05", title: "Instructor's forthcoming OSI/TCP-IP discussion", detail: "The instructor previewed a detailed OSI and TCP/IP treatment for the following classes; no external reading assignment was stated." },
+        { time: "00:39:05", title: "Course overview topics", detail: "ATM, Frame Relay, LAN/WAN, circuit and packet switching, wireless media, and communication models were named as the semester's topic trail." },
+      ],
+      studentQuestions: [
+        { time: "00:37:10", question: "Do devices need a common clock in an asynchronous wireless network?", response: "The instructor confirmed that devices can transmit at different times without sharing a common clock; cells are sent when information is available." },
+        { time: "01:18:40", question: "What features belong to a protocol rule set?", response: "The instructor highlighted precise syntax/data format, semantics/control information, timing, addressing, error handling, flow control, and security." },
+      ],
+    },
+    suggestedPractice: {
+      assignments: [{ title: "Optional cell-and-layer worksheet", detail: "For a voice and a video source, trace sampling, compression, ATM adaptation, 5-byte headers, 48-byte payloads, and decapsulation. This is learner practice, not an instructor assignment." }],
+      homework: [{ title: "Optional switching comparison", detail: "Compare Frame Relay, ATM, datagram packet switching, and virtual circuits by unit size, setup, overhead, identifiers, QoS, and error-control placement." }],
+      labs: [{ title: "Optional protocol-stack visual lab", detail: "Use a packet-capture tool or a synthetic trace to annotate encapsulation and decapsulation, then map each field to syntax, semantics, or timing." }],
+      projects: [{ title: "Optional layered traffic demonstrator", detail: "Build a small visual simulator that routes mixed voice/video/data flows through virtual channels and exposes cell overhead, QoS choices, and layer contracts." }],
+    },
+    insights: [
+      { label: "Design", title: "Fixed cells trade payload efficiency for predictable switching", body: "ATM's 53-byte unit can waste space for small payloads, but its stable format simplifies hardware paths and makes timing and queue behaviour easier to reason about." },
+      { label: "Reliability", title: "Removing duplicated control is an architectural decision", body: "Frame Relay's lower overhead is valuable only when the link and higher layers provide enough protection. Reliability is a placement question, not a field-count contest." },
+      { label: "Layering", title: "A layer is useful when its contract is testable", body: "Syntax, semantics, timing, and addressing turn an abstract layer into an interface that can be validated independently of internal implementation." },
+      { label: "Operations", title: "Peer communication is logical, not a second wire", body: "Transport entities appear to communicate with their peer, but the message actually traverses the full stack. Keeping that distinction visible prevents misleading network diagrams." },
+      { label: "Multimedia", title: "Adaptation is where heterogeneous sources become one transport unit", body: "Sampling, compression, and adaptation let voice, video, and bursty data share a cell network without forcing their original formats to match." },
+    ],
+    resources: [
+      { kind: "read", title: "ITU-T Recommendation I.361 — B-ISDN ATM layer specification", url: "https://www.itu.int/rec/T-REC-I.361", detail: "Primary specification for ATM layer functions and the fixed-cell abstraction discussed in the lecture." },
+      { kind: "read", title: "RFC 3031 — Multiprotocol Label Switching Architecture", url: "https://www.rfc-editor.org/rfc/rfc3031.html", detail: "A standards-based comparison point for forwarding along logical paths and separating control from data forwarding." },
+      { kind: "read", title: "ISO/IEC 7498-1 OSI Basic Reference Model", url: "https://www.iso.org/standard/20269.html", detail: "The authoritative reference-model context for layers, peer entities, and service boundaries." },
+      { kind: "read", title: "RFC 1122 — Requirements for Internet Hosts", url: "https://www.rfc-editor.org/rfc/rfc1122.html", detail: "Connects the OSI discussion to practical TCP/IP host-layer responsibilities and interoperability requirements." },
+      { kind: "practice", title: "Wireshark sample captures", url: "https://wiki.wireshark.org/SampleCaptures", detail: "Use public traces to identify headers, payload boundaries, encapsulation, and protocol-layer evidence." },
+      { kind: "watch", title: "Computer Networks — Kurose and Ross companion material", url: "https://gaia.cs.umass.edu/kurose_ross/", detail: "Open lecture and lab material for visualising packet switching, layering, and protocol behaviour." },
+    ],
+    keyTerms: [
+      { term: "Virtual circuit", definition: "A logical connection over a packet-switched network." },
+      { term: "ATM cell", definition: "A fixed 53-byte unit with a 5-byte header and 48-byte payload." },
+      { term: "QoS", definition: "Quality-of-service attributes used to serve different traffic requirements." },
+      { term: "OSI", definition: "Open Systems Interconnection theoretical reference model." },
+      { term: "Encapsulation", definition: "Adding layer-specific control information to data." },
+      { term: "Peer layer", definition: "The corresponding layer in the communicating destination system." },
+    ],
+    quiz,
+  },
+};

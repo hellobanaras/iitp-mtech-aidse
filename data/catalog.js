@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 38,
+  filesInventoried: 39,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -220,8 +220,8 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "active",
-      statusLabel: "3 lectures available",
-      note: "The August 21, 27, and 28 lectures are published in chronological order. The latest lecture establishes Internet foundations, switching models, the four network delays, X.25, and Frame Relay.",
+      statusLabel: "4 lectures available",
+      note: "The September 3 lecture extends the wireless-network foundations with ATM, Frame Relay, and the OSI layering model after a full timeline sweep and bounded visible-tab capture.",
       lectures: [
         {
           id: "ecs-6402-2026-08-21-204351",
@@ -264,6 +264,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Internet, ARPANET, OSI, TCP/IP, and protocols", "Circuit and packet switching with routers, switches, LANs, and WANs", "Processing, queueing, transmission, propagation, X.25, and Frame Relay"]
+        },
+        {
+          id: "ecs-6402-2026-09-03-203415",
+          number: 4,
+          date: "2026-09-03",
+          sourceRecordedAt: "2026-09-03T20:34:15+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20260903_203415-Meeting Recording.mp4",
+          displayDate: "3 September 2026",
+          title: "ATM, Frame Relay, and the OSI layering model",
+          duration: "1h 19m 52s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course75_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSelected%20Topics%20in%20Wireless%20Networks-20260903_203415-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Virtual circuits, Frame Relay, and reduced overhead", "ATM fixed cells, adaptation, virtual channels, and QoS", "OSI layers, encapsulation, peer layers, and protocol properties"]
         }
       ]
     },

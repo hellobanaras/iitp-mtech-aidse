@@ -360,3 +360,27 @@ The permitted visible-tab capture ran alone at 2× from source 00:00 until the n
 `Advanced Time Series Analysis-20260902_180510-Meeting Recording.mp4` is a 353 MB, 1h 25m 22s view-only source with no visible provider Download action. The seven-point sweep found participant-only setup at 00:34, sustained Stationary/non-stationary slide teaching at 08:24 and 10:14, a participant/chat interruption at 42:45, handwritten Markov and autoregressive derivations at 01:04:22 and 01:17:28, and participant-only content at 01:23:09. Teaching was bounded to source 00:04:50–01:21:14; the internal interruption and idle tail were excluded. The structured evidence is saved in `.course-data/review/ecs-6401-2026-09-02-180510-review.json` and linked from the private inventory.
 
 The permitted visible-tab video-plus-audio capture ran alone at 2× from source 00:04:50 through the natural endpoint, after which the recording tab was closed. The retained artifact and sidecar are under ignored `.course-data/captures/ecs-6401/2026-09-02/`; local processing uses the verified teaching interval to bound frames and restored transcript timecodes. The English-only note `ecs-6401-2026-09-02-180510` covers stationarity and ADF, differencing, seasonal adjustment, additive/multiplicative decomposition, moving averages, AR models, ACF/PACF, and Yule–Walker equations. It includes the 10-point slide/whiteboard trail, seven-part summary, four expert insights, explicit transcript-derived signal categories, optional stationarity and AR practice, four reliable resources, the shared time-series visual, the public `Stationarity Studio` capstone, and exactly 25 explained MCQs. The queue disposition is canonical and awaits note validation/publication.
+ 
+#### ECS 6402 — 3 September 2026, 20:34:15 source
+
+`Selected Topics in Wireless Networks-20260903_203415-Meeting Recording.mp4` is
+a 217 MB, 1h 19m 52s view-only source with no visible provider Download action.
+The seven-point visible Stream/Companion sweep found the Week 3 Lecture 1 CDA
+setup at 00:00:14, ATM and overhead at 00:07:59, video framing and compression
+at 00:19:58, an OSI peer-layer diagram at 00:39:56, layered functions at
+00:59:54 and 01:11:54, and an instructional layering frame at 01:19:48. The
+teaching interval is bounded to 00:00:31–01:19:52 with no idle tail; the
+structured evidence is `.course-data/review/ecs-6402-2026-09-03-203415-review.json`.
+
+The permitted visible-tab video-plus-audio capture ran alone at 2× from source
+00:00:29.9 through the natural endpoint, then the recording tab was closed. The
+223 MB WebM and timing sidecar are retained under ignored
+`.course-data/captures/ecs-6402/2026-09-03/`. Local processing verified audio
+and video, restored source-time transcript timestamps, and sampled 79 frames.
+The English-only note `ecs-6402-2026-09-03-203415` covers virtual circuits,
+Frame Relay, ATM cells and planes, OSI layering, encapsulation, peer layers, and
+protocol properties. It includes ten source-time visual references, seven
+summary sections, five expert insights, explicit transcript-derived signal
+categories, clearly optional practice, six reliable resources, the accessible
+LayerLens visual, the public LayerLens capstone, and exactly 25 explained MCQs.
+The queue transaction is ready for validation and guarded publication.
