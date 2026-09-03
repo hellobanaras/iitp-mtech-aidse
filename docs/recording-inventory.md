@@ -149,7 +149,7 @@ The six folders below were verified from the signed-in IIT Patna Moodle “Lectu
 | EBB 6401 — Smart Contracts and Solidity Programming | `course77` SharePoint folder | excluded from note processing (access denied) |
 | EBB 6403 — Security and Privacy for Big Data | `course78` SharePoint folder | 2 visible sources inventoried; oldest rejected as `idle/error`, 07:59:34 canonical note published; separate Friday and Saturday sessions/Teams links recorded |
 | ECS 6401 / ESD 6301 — Advanced Time Series Analysis | `course129` SharePoint folder | 4 visible sources inventoried; 19, 21, 26, and 28 Aug canonical notes published |
-| ECC 6404 — Data Warehousing | `course76` SharePoint folder | 5 visible sources inventoried; 17, 19, 24, 26, and 31 Aug canonical notes published |
+| ECC 6404 — Data Warehousing | `course76` SharePoint folder | 6 visible sources inventoried; 17, 19, 24, 26, 31 Aug, and 2 Sep canonical notes published |
 | EBB 6402 — Blockchain Policy — Legal, Social and Economic Impact | `course126` SharePoint folder | 4 visible sources inventoried; 18, 20, 25 Aug and 1 Sep canonical notes published; Tuesday and Thursday share one Teams link |
 
 The next review pass will inspect these folders without opening multiple recordings, create a stable source queue ordered by original recording timestamp, and—where sources are contemporaneous—rotate one oldest eligible lecture per subject before revisiting any subject. The existing global oldest-first ordering remains authoritative. ECC 6404 order 1, EBB 6402 order 2, and ECS 6401 / ESD 6301 order 3 are complete; EBB 6403 order 4 is rejected as `idle/error`; ECC 6404 order 5 (19 August), EBB 6402 order 6 (20 August), EBB 6403 order 7 (21 August at 07:59:34), and ECS 6401 / ESD 6301 order 8 (21 August at 18:09:35) are complete. ECC 6404 order 9 (24 August at 19:33:38), EBB 6402 order 10 (25 August at 18:04:24), ECS 6401 / ESD 6301 order 11 (26 August at 18:05:38), and ECC 6404 order 12 (26 August at 19:32:41) are now complete; no eligible queue item remains.
@@ -173,7 +173,7 @@ The requested coverage rotation is persisted in `.course-data/review-queue.json`
 | EBB 6401 — Smart Contracts and Solidity Programming | `excluded` (inventory blocked) | `course77` opened; the same access-denied page; excluded until the institute account has access |
 | EBB 6403 — Security and Privacy for Big Data | `active` (1 published, 1 rejected) | 07:48:05 source rejected as `idle/error`; 07:59:34 source captured and published with verified security/privacy timeline |
 | ECS 6401 / ESD 6301 — Advanced Time Series Analysis | `active` (4 published) | 19, 21, 26, and 28 Aug sources captured and published |
-| ECC 6404 — Data Warehousing | `active` (5 published) | 17, 19, 24, 26, and 31 Aug sources captured and published |
+| ECC 6404 — Data Warehousing | `active` (6 published) | 17, 19, 24, 26, 31 Aug, and 2 Sep sources captured and published |
 | EBB 6402 — Blockchain Policy — Legal, Social and Economic Impact | `active` (4 published) | 18, 20, 25 Aug, and 1 Sep sources captured and published; next round continues with ECC 6404 |
 
 Checkpoint evidence: `activeRecordingTabsOpened: 0`, `reviewedRecordingTabsLeftOpen: 0`, `captured: 11`, `rejected: 1`, `pending: 0`, `inProgress: 0`, and `failed: 0`; four accessible folders expose no pending source after the canonical ECC 6404, EBB 6402, ECS 6401 and EBB 6403 captures plus the rejected EBB 6403 source, and two courses are explicitly excluded for access denial. The queue is timestamp-sorted within each subject round in `.course-data/review-queue.json`; process one source at a time and revisit excluded courses only after their permissions change.
@@ -280,25 +280,25 @@ The permitted 2× visible-tab capture retained source 00:23–58:59, after which
 
 The permitted visible-tab capture ran alone at 2× from source 11:17 to 1:40:47. Its 287 MB VP9/Opus artifact and timing sidecar were saved, verified, losslessly remuxed to restore duration metadata, and the recording tab was closed before local processing. Processing verified English audio and video, restored source timestamps, sampled 89 frames, and classified the source `canonical`. The English-only note `ebb-6403-2026-08-29-053554` includes a 25-point slide trail, eight-part summary, six expert insights, explicit empty instructor assignment/homework/lab/project/reference/question categories, the timecoded next-class announcement, optional expert practice, six standards/practice resources, the accessible security-control visual, the public `CipherLens` capstone, and exactly 25 MCQs with every option explained. The subject resource trail was refreshed with the NIST cryptography hub, NIST block-cipher modes, RFC 7465 on RC4, and CrypTool.
 
-### 2 September 2026 — catalog and private-ledger reconciliation
+### 3 September 2026 — catalog and private-ledger reconciliation
 
-`npm run queue:reconcile` compared the 36 catalog-published lecture notes with
+`npm run queue:reconcile` compared the 37 catalog-published lecture notes with
 the ignored source list, queue state, durable ledger, and all local companion
 sidecars. Every public lecture now resolves to exactly one completed queue
 identity, every queue publication resolves back to the catalog, and the
 `ECS 6401` / `ECS 6401/ESD 6301` alias collision has been collapsed to the
 catalog's primary course code. The reconciled private inventory contains 48
-stable source identities: 36 published, 11 rejected, and 1 pending. All 18
+stable source identities: 37 published, 11 rejected, and no pending eligible source. All 19
 local capture sidecars match known source URLs; none represents an untracked
 lecture. In particular, several files prefixed `2026-09-02` are captures made
 on that date for older August recordings, not new 2 September lectures.
 
-The remaining verified pending queue is:
+The previously pending queue is now fully published:
 
 | Course | Nominal session | Source | Stage |
 | --- | --- | --- | --- |
 | EBB 6401 | 24 Aug 2026 | `Smart contracts and solidity programming-20260824_180004-Meeting Recording.mp4` | `published` |
-| ECS 6402 | 28 Aug 2026 | `Selected Topics in Wireless Networks-20260828_203443-Meeting Recording.mp4` | `awaiting-browser` |
+| ECS 6402 | 28 Aug 2026 | `Selected Topics in Wireless Networks-20260828_203443-Meeting Recording.mp4` | `published` |
 | EBB 6402 | 1 Sep 2026 | `Blockchain policy – Legal, Social and Economic Impact-20260901_180239-Meeting Recording.mp4` | `published` |
 
 ### 2 September 2026 — Wednesday scheduled-course check
@@ -312,12 +312,36 @@ contains one new 2 September recording:
 | --- | --- | ---: | --- | --- |
 | EBB 6401 | `Smart contracts and solidity programming-20260902_180427-Meeting Recording.mp4` | 168 MB | view only | pending |
 | ECS 6401/ESD 6301 | `Advanced Time Series Analysis-20260902_180510-Meeting Recording.mp4` | 353 MB | view only | pending |
-| ECC 6404 | `Data Warehousing-20260902_193120-Meeting Recording.mp4` | 338 MB | view only | pending |
+| ECC 6404 | `Data Warehousing-20260902_193120-Meeting Recording.mp4` | 338 MB | view only | published |
 
-No recording player was opened during this inventory pass. The three new
-identities were appended behind the older pending sources so the queue's
-one-at-a-time, oldest-first course rotation remains intact. The private folder
-snapshot is `.course-data/inventory/2026-09-02-wednesday.json`.
+No recording player was opened during the initial inventory pass. The three
+identities were then triaged and processed one at a time; the private folder
+snapshot remains `.course-data/inventory/2026-09-02-wednesday.json`.
+
+#### ECC 6404 — 2 September 2026, 19:31:20 source
+
+`Data Warehousing-20260902_193120-Meeting Recording.mp4` is a 338 MB, 1h 28m 27s
+view-only source with no visible provider Download action. The seven-point sweep
+found a participant-only lead-in at 00:00:26, sustained feature-construction
+instruction by 00:00:41, discretization and binarization at 00:09:04 and
+00:22:17, supervised discretization at 00:44:11, variable transformation at
+01:06:07, and similarity/dissimilarity measures through 01:27:40. A desktop
+transition and participant grid after 01:27:49 were excluded; the structured
+manifest is `.course-data/review/ecc-6404-2026-09-02-193120-review.json`.
+
+The permitted visible-tab video-plus-audio capture ran alone at 2× from source
+00:00:41 through the verified teaching endpoint, after which the recording tab
+was closed. The retained artifact and timing sidecar are under ignored
+`.course-data/captures/ecc-6404/2026-09-02/`; processing verified audio/video,
+restored source-time transcript timestamps, and sampled 87 frames. The
+English-only note `ecc-6404-2026-09-02-193120` covers feature construction,
+discretization, binary encodings, category reduction, transformations, and
+similarity measures. It includes nine source-time visual references, six
+summary sections, four expert insights, explicit empty transcript-derived
+signal categories, optional task-aware practice, five reliable resources, the
+accessible warehouse visual, the public `PrepLens` capstone, and exactly 25
+explained MCQs. The queue transaction was committed, pushed to `origin/main`,
+deployed to the `github-pages` remote, and persisted as `published`.
 
 #### ECS 6402 — 28 August 2026, 20:34:43 source
 
