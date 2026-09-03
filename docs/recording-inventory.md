@@ -150,7 +150,7 @@ The six folders below were verified from the signed-in IIT Patna Moodle “Lectu
 | EBB 6403 — Security and Privacy for Big Data | `course78` SharePoint folder | 2 visible sources inventoried; oldest rejected as `idle/error`, 07:59:34 canonical note published; separate Friday and Saturday sessions/Teams links recorded |
 | ECS 6401 / ESD 6301 — Advanced Time Series Analysis | `course129` SharePoint folder | 4 visible sources inventoried; 19, 21, 26, and 28 Aug canonical notes published |
 | ECC 6404 — Data Warehousing | `course76` SharePoint folder | 5 visible sources inventoried; 17, 19, 24, 26, and 31 Aug canonical notes published |
-| EBB 6402 — Blockchain Policy — Legal, Social and Economic Impact | `course126` SharePoint folder | 3 visible sources inventoried; 18, 20, and 25 Aug canonical notes published; Tuesday and Thursday share one Teams link |
+| EBB 6402 — Blockchain Policy — Legal, Social and Economic Impact | `course126` SharePoint folder | 4 visible sources inventoried; 18, 20, 25 Aug and 1 Sep canonical notes published; Tuesday and Thursday share one Teams link |
 
 The next review pass will inspect these folders without opening multiple recordings, create a stable source queue ordered by original recording timestamp, and—where sources are contemporaneous—rotate one oldest eligible lecture per subject before revisiting any subject. The existing global oldest-first ordering remains authoritative. ECC 6404 order 1, EBB 6402 order 2, and ECS 6401 / ESD 6301 order 3 are complete; EBB 6403 order 4 is rejected as `idle/error`; ECC 6404 order 5 (19 August), EBB 6402 order 6 (20 August), EBB 6403 order 7 (21 August at 07:59:34), and ECS 6401 / ESD 6301 order 8 (21 August at 18:09:35) are complete. ECC 6404 order 9 (24 August at 19:33:38), EBB 6402 order 10 (25 August at 18:04:24), ECS 6401 / ESD 6301 order 11 (26 August at 18:05:38), and ECC 6404 order 12 (26 August at 19:32:41) are now complete; no eligible queue item remains.
 
@@ -161,7 +161,7 @@ Visible source rows from the four accessible folders (all `view-only`; the listi
 - **EBB 6403 / course78:** `Security and Privacy for Big Data-20260821_074805-Meeting Recording.mp4` (29.3 MB; rejected `idle/error` after triage); `Security and Privacy for Big Data-20260821_075934-Meeting Recording.mp4` (108 MB; 48m 00s; canonical note published).
 - **ECS 6401 / ESD 6301 / course129:** `Advanced Time Series Analysis-20260819_175559-Meeting Recording.mp4` (354 MB; canonical); `Advanced Time Series Analysis-20260821_180935-Meeting Recording.mp4` (297 MB; canonical); `Advanced Time Series Analysis-20260826_180538-Meeting Recording.mp4` (202 MB; canonical; 00:03:16–01:20:45 teaching); `Advanced Time Series Analysis-20260828_180221-Meeting Recording.mp4` (155 MB; canonical; 00:05:32–00:51:43 teaching).
 - **ECC 6404 / course76:** `Data Warehousing-20260817_193438-Meeting Recording.mp4` (276 MB; canonical); `Data Warehousing-20260819_193245-Meeting Recording.mp4` (299 MB; canonical); `Data Warehousing-20260824_193338-Meeting Recording.mp4` (319 MB full capture / 315 MB trimmed; canonical); `Data Warehousing-20260826_193241-Meeting Recording.mp4` (418 MB provider listing / 435 MB capture; canonical; teaching 00:02:16–01:25:35); `New Data Warehousing-20260831_193236-Meeting Recording.mp4` (346 MB provider listing / 512 MB bounded capture; canonical; teaching 00:00:19–01:26:54).
-- **EBB 6402 / course126:** `Blockchain policy – Legal, Social and Economic Impact-20260818_180205-Meeting Recording.mp4` (154 MB; canonical); `Blockchain policy – Legal, Social and Economic Impact-20260820_180203-Meeting Recording.mp4` (121 MB; canonical); `Blockchain policy – Legal, Social and Economic Impact-20260825_180424-Meeting Recording.mp4` (229 MB; canonical, 00:04:52–02:19:24 teaching interval).
+- **EBB 6402 / course126:** `Blockchain policy – Legal, Social and Economic Impact-20260818_180205-Meeting Recording.mp4` (154 MB; canonical); `Blockchain policy – Legal, Social and Economic Impact-20260820_180203-Meeting Recording.mp4` (121 MB; canonical); `Blockchain policy – Legal, Social and Economic Impact-20260825_180424-Meeting Recording.mp4` (229 MB; canonical, 00:04:52–02:19:24 teaching interval); `Blockchain policy – Legal, Social and Economic Impact-20260901_180239-Meeting Recording.mp4` (128 MB; canonical, 00:04:17–01:32:02 teaching interval; English note and capstone published).
 
 ### Six-course review queue checkpoint — 28 August 2026
 
@@ -174,7 +174,7 @@ The requested coverage rotation is persisted in `.course-data/review-queue.json`
 | EBB 6403 — Security and Privacy for Big Data | `active` (1 published, 1 rejected) | 07:48:05 source rejected as `idle/error`; 07:59:34 source captured and published with verified security/privacy timeline |
 | ECS 6401 / ESD 6301 — Advanced Time Series Analysis | `active` (4 published) | 19, 21, 26, and 28 Aug sources captured and published |
 | ECC 6404 — Data Warehousing | `active` (5 published) | 17, 19, 24, 26, and 31 Aug sources captured and published |
-| EBB 6402 — Blockchain Policy — Legal, Social and Economic Impact | `active` (3 published) | 18, 20, and 25 Aug sources captured and published; next round continues with ECS 6401 / ESD 6301 |
+| EBB 6402 — Blockchain Policy — Legal, Social and Economic Impact | `active` (4 published) | 18, 20, 25 Aug, and 1 Sep sources captured and published; next round continues with ECC 6404 |
 
 Checkpoint evidence: `activeRecordingTabsOpened: 0`, `reviewedRecordingTabsLeftOpen: 0`, `captured: 11`, `rejected: 1`, `pending: 0`, `inProgress: 0`, and `failed: 0`; four accessible folders expose no pending source after the canonical ECC 6404, EBB 6402, ECS 6401 and EBB 6403 captures plus the rejected EBB 6403 source, and two courses are explicitly excluded for access denial. The queue is timestamp-sorted within each subject round in `.course-data/review-queue.json`; process one source at a time and revisit excluded courses only after their permissions change.
 
@@ -262,6 +262,12 @@ The permitted visible-tab + audio capture ran alone at 2× from source `00:00:16
 
 The permitted visible-tab video-plus-audio capture ran alone at 2× from the verified start; the recording tab was closed before local processing. The accepted artifact was saved under ignored `.course-data/captures/ebb-6401/2026-09-02/`; processing verified audio/video, restored source-time transcript timestamps, and sampled 82 frames. The English-only note `ebb-6401-2026-09-02-180427` includes the lifecycle and Solidity trail, certificate architecture and hybrid-storage insights, explicit empty transcript-derived obligation categories, optional expert practice, six reliable resources, the accessible smart-contract visual, the public `CertiChain` capstone, and exactly 25 explained MCQs. The subject resource trail was refreshed with Hyperledger Fabric documentation and OpenZeppelin access-control guidance.
 
+#### EBB 6402 — 1 September 2026, 18:02:39 source
+
+`Blockchain policy – Legal, Social and Economic Impact-20260901_180239-Meeting Recording.mp4` is a 128 MB, 1h 32m 02s view-only source with no visible provider Download action. The required seven-point sweep found participant-only waiting at the beginning, sustained blockchain-application and limitation teaching by 04:17, money-laundering stages at 23:05, terrorism-financing methods at 45:52, Hawala and international AML/CFT architecture at 01:08:39, financial-data workflow at 01:22:18, and a final laundering recap at 01:31:42. Teaching continues to the natural endpoint, so no idle tail was excluded after the final instruction.
+
+The permitted visible-tab video-plus-audio capture ran alone at 2× from source 04:43 through the natural endpoint, after which the recording tab was closed before local processing. The accepted artifact and timing sidecar are under ignored `.course-data/captures/ebb-6402/2026-09-01/`; processing verified audio/video, restored source timestamps, and sampled 87 frames. The English-only note `ebb-6402-2026-09-01-180239` includes the blockchain-policy, laundering, terrorism-financing, FATF, and data-modelling trail, five expert insights, explicit empty transcript-derived obligation categories, optional practice, six reliable resources, the shared blockchain visual, the public `AML GraphLens` capstone, and exactly 25 explained MCQs. The EBB 6402 subject resource trail was reviewed and retained with its FATF, UNODC, standards, graph-practice, and open-book catalogue links. The queue transaction was committed, pushed to `origin/main`, deployed to the `github-pages` remote, and persisted as `published`.
+
 #### EBB 6403 — 28 August 2026, 07:44:45 source
 
 `Security and Privacy for Big Data-20260828_074445-Meeting Recording.mp4` is a 1h 33m 31s view-only source with no visible provider Download action. The required beginning/10%/25%/50%/75%/90%/near-end sweep found sustained teaching from 00:23 through the final best-practices and next-class slides at 58:59. Samples at 1:00:19, 1:10:59, 1:24:05, and near the end showed participant-only idle content, so the remaining 34m 32s tail was excluded.
@@ -276,13 +282,13 @@ The permitted visible-tab capture ran alone at 2× from source 11:17 to 1:40:47.
 
 ### 2 September 2026 — catalog and private-ledger reconciliation
 
-`npm run queue:reconcile` compared the 34 catalog-published lecture notes with
+`npm run queue:reconcile` compared the 36 catalog-published lecture notes with
 the ignored source list, queue state, durable ledger, and all local companion
 sidecars. Every public lecture now resolves to exactly one completed queue
 identity, every queue publication resolves back to the catalog, and the
 `ECS 6401` / `ECS 6401/ESD 6301` alias collision has been collapsed to the
 catalog's primary course code. The reconciled private inventory contains 48
-stable source identities: 34 published, 11 rejected, and 3 pending. All 17
+stable source identities: 36 published, 11 rejected, and 1 pending. All 18
 local capture sidecars match known source URLs; none represents an untracked
 lecture. In particular, several files prefixed `2026-09-02` are captures made
 on that date for older August recordings, not new 2 September lectures.
@@ -293,7 +299,7 @@ The remaining verified pending queue is:
 | --- | --- | --- | --- |
 | EBB 6401 | 24 Aug 2026 | `Smart contracts and solidity programming-20260824_180004-Meeting Recording.mp4` | `published` |
 | ECS 6402 | 28 Aug 2026 | `Selected Topics in Wireless Networks-20260828_203443-Meeting Recording.mp4` | `awaiting-browser` |
-| EBB 6402 | 1 Sep 2026 | `Blockchain policy – Legal, Social and Economic Impact-20260901_180239-Meeting Recording.mp4` | `awaiting-browser` |
+| EBB 6402 | 1 Sep 2026 | `Blockchain policy – Legal, Social and Economic Impact-20260901_180239-Meeting Recording.mp4` | `published` |
 
 ### 2 September 2026 — Wednesday scheduled-course check
 
