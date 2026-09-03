@@ -254,7 +254,7 @@ The permitted visible-tab capture ran alone at 2× from source 00:37.8 until the
 
 `Smart contracts and solidity programming-20260824_180004-Meeting Recording.mp4` is a 293 MB, 2h 40m 00s view-only source with no visible provider Download action. The required full-timeline sweep found waiting-room/participant content at the opening, sustained industry teaching by source 00:00:16, financial-services and syndicated-loan material around 00:04:10–00:42:00, healthcare/supply-chain/logistics examples around 00:42:00–01:01:30, Bitcoin UTXO and Ethereum account-model teaching around 01:03:10–01:26:00, condition-to-settlement and oracle/governance analysis through 02:27:00, and a Solidity/gas/deployment roadmap through the final sustained instruction at 02:38:56. Participant-only and idle content after the marked endpoint was excluded.
 
-The permitted visible-tab + audio capture ran alone at 2× from source `00:00:16` to `02:38:56`. Its 274 MB VP9/Opus artifact and timing sidecar were saved under ignored `.course-data/`, and the recording tab was closed before local processing. Processing verified audio/video, restored source-time timestamps, sampled 159 regular frames, and produced an English-only note with a ten-point source trail, seven-part summary, five expert insights, explicit empty instructor-signal categories, optional suggested practice, six further-study resources, the accessible smart-contract visual, the public `LedgerFlow` capstone, and exactly 25 explained MCQs. The subject resource trail was refreshed with Hyperledger Fabric documentation for permissioned enterprise workflows. The queue disposition is canonical and is awaiting final note publication.
+The permitted visible-tab + audio capture ran alone at 2× from source `00:00:16` to `02:38:56`. Its 274 MB VP9/Opus artifact and timing sidecar were saved under ignored `.course-data/`, and the recording tab was closed before local processing. Processing verified audio/video, restored source-time timestamps, sampled 159 regular frames, and produced an English-only note with a ten-point source trail, seven-part summary, five expert insights, explicit empty instructor-signal categories, optional suggested practice, six further-study resources, the accessible smart-contract visual, the public `LedgerFlow` capstone, and exactly 25 explained MCQs. The subject resource trail was refreshed with Hyperledger Fabric documentation for permissioned enterprise workflows. The queue disposition is canonical and the English note is published.
 
 #### EBB 6403 — 28 August 2026, 07:44:45 source
 
@@ -285,7 +285,7 @@ The remaining verified pending queue is:
 
 | Course | Nominal session | Source | Stage |
 | --- | --- | --- | --- |
-| EBB 6401 | 24 Aug 2026 | `Smart contracts and solidity programming-20260824_180004-Meeting Recording.mp4` | `awaiting-note` |
+| EBB 6401 | 24 Aug 2026 | `Smart contracts and solidity programming-20260824_180004-Meeting Recording.mp4` | `published` |
 | ECS 6402 | 28 Aug 2026 | `Selected Topics in Wireless Networks-20260828_203443-Meeting Recording.mp4` | `awaiting-browser` |
 | EBB 6402 | 1 Sep 2026 | `Blockchain policy – Legal, Social and Economic Impact-20260901_180239-Meeting Recording.mp4` | `awaiting-browser` |
 
