@@ -1,6 +1,6 @@
 # Recording inventory
 
-Last checked: 1 September 2026 (America/Chicago)
+Last checked: 3 September 2026 (America/Chicago)
 
 This file records only technical metadata needed for study-note production. It intentionally omits participant names and private meeting details.
 
