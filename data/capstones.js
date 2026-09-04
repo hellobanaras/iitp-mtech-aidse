@@ -1148,5 +1148,34 @@ export const capstones = Object.freeze({
       "milestones": ["Week 1: LFSR trace", "Week 2: RC4 state view", "Week 3: attack demonstrations", "Week 4: modern comparison and review"],
       "success": "A learner can trace each state update, reproduce a reconstruction or reuse failure on synthetic inputs, quantify an early-byte bias, and justify a modern authenticated-encryption choice."
     }
+  },
+  "ecs-6401-2026-09-04-180115": {
+    "en": {
+      "title": "Stationarity Studio: an ACF/PACF and ARIMA diagnostics lab",
+      "pitch": "Build a local-first notebook that computes centered ACF values, solves Yule–Walker AR(3) systems, compares ACF/PACF order hints, and tests unit-root scenarios.",
+      "problem": "Forecasting learners often copy an ARIMA order without seeing how centered correlations, PACF, differencing, and ADF evidence fit together.",
+      "learning": "You will implement ACF(1–3), PACF, Yule–Walker solving, AR/MA order diagnostics, differencing, and ADF interpretation with reproducible data.",
+      "mvp": [
+        "Generate the lecture's ten-observation series, compute its mean and centered values, and show each ACF numerator term.",
+        "Solve an AR(3) Yule–Walker system and compare coefficients with PACF calculations.",
+        "Contrast AR, MA, ARMA, and ARIMA order hints using ACF/PACF plots.",
+        "Add stationary and unit-root cases, run ADF, and explain why p-values require visual and domain checks."
+      ],
+      "stretch": [
+        "Add seasonal differencing and SARIMA order experiments with chronological evaluation.",
+        "Export an accessible calculation card containing centered values, lag pairs, matrices, coefficients, p-values, and assumptions.",
+        "Add disagreement warnings when ADF and rolling-plot evidence point in different directions."
+      ],
+      "plan": [
+        "Week 1: implement deterministic data, centering, lag tables, and ACF calculations.",
+        "Week 2: add PACF and Yule–Walker AR(2)/AR(3) matrix solving with tests.",
+        "Week 3: compare AR/MA/ARIMA diagnostics and differencing choices.",
+        "Week 4: add ADF scenarios, accessibility, chronological evaluation, and evidence export."
+      ],
+      "novelty": "The lab exposes every calculation and modelling assumption instead of reducing order selection to a single opaque library call.",
+      "stack": ["Python", "pandas", "statsmodels", "matplotlib", "Jupyter or Streamlit"],
+      "milestones": ["Week 1: centered ACF worksheet", "Week 2: PACF/Yule–Walker", "Week 3: ARIMA diagnostics", "Week 4: ADF evidence and evaluation"],
+      "success": "A learner can reproduce the ACF/PACF and AR(3) calculations, justify an order and differencing choice, and explain what the ADF evidence does and does not establish."
+    }
   }
 });

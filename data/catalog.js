@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 40,
+  filesInventoried: 41,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -525,6 +525,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Stationarity and ADF unit-root testing", "Differencing, seasonal adjustment, and decomposition", "Moving averages, AR models, ACF/PACF, and Yule–Walker equations"]
+        },
+        {
+          id: "ecs-6401-2026-09-04-180115",
+          number: 6,
+          date: "2026-09-04",
+          sourceRecordedAt: "2026-09-04T18:01:15+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20260904_180115-Meeting Recording.mp4",
+          displayDate: "4 September 2026",
+          title: "ACF, PACF, AR(3), moving-average models, and unit-root diagnostics",
+          duration: "1h 24m 55s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course129_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FAdvanced%20Time%20Series%20Analysis-20260904_180115-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Centered observations and ACF calculations", "Yule–Walker AR(3) coefficients and PACF", "AR/MA/ARIMA order diagnostics and ADF unit roots"]
         }
       ]
     },
