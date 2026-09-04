@@ -1119,5 +1119,34 @@ export const capstones = Object.freeze({
       "milestones": ["Week 1: data model", "Week 2: ATM/Frame Relay views", "Week 3: OSI stack animation", "Week 4: accessibility and evaluation"],
       "success": "A learner can trace one message through adaptation, cellisation, encapsulation, virtual-channel forwarding, and decapsulation, then explain which design choice changes overhead or QoS."
     }
+  },
+  "ebb-6403-2026-09-04-074036": {
+    "en": {
+      "title": "KeystreamLab — an auditable stream-cipher safety workbench",
+      "pitch": "Build a local-first lab that visualizes LFSR feedback and RC4-style state updates, then demonstrates reconstruction, bias, and keystream-reuse failures on synthetic messages.",
+      "problem": "Students can implement XOR encryption without seeing why linear state, biased prefixes, or reused streams break confidentiality. A controlled simulator makes the attack surface measurable without handling real secrets.",
+      "learning": "You will connect one-time pads, pseudorandom generation, LFSR recurrence, RC4 KSA/PRGA state transitions, byte-wise XOR, statistical bias, and modern authenticated-encryption guidance.",
+      "mvp": [
+        "Implement a configurable n-bit LFSR with visible taps, seed, emitted bits, and a reconstruction-equation panel.",
+        "Implement an educational RC4 KSA/PRGA simulator with step-by-step S, i, j, and output-byte views.",
+        "Demonstrate keystream reuse by XORing two synthetic ciphertexts and exposing the plaintext relationship.",
+        "Measure early-byte frequency bias over repeated seeded runs and explain why RC4 is unsuitable for modern TLS."
+      ],
+      "stretch": [
+        "Add a modern ChaCha20-Poly1305 comparison with nonce-uniqueness checks and authentication-failure handling.",
+        "Export an experiment card containing parameters, seed, generated stream statistics, and reproducible plots.",
+        "Add accessible text descriptions for every state transition and chart."
+      ],
+      "plan": [
+        "Week 1: implement LFSR state, tap configuration, period checks, and deterministic trace export.",
+        "Week 2: add reconstruction experiments and the RC4 KSA/PRGA state visualizer.",
+        "Week 3: implement reuse and bias demonstrations with synthetic data and statistical tests.",
+        "Week 4: add modern authenticated encryption comparison, accessibility, documentation, and a security review."
+      ],
+      "novelty": "The workbench links implementation state to attack evidence, helping learners see why historical stream-cipher simplicity is not a deployment guarantee.",
+      "stack": ["JavaScript", "HTML/CSS", "SVG", "Python (optional analysis)"],
+      "milestones": ["Week 1: LFSR trace", "Week 2: RC4 state view", "Week 3: attack demonstrations", "Week 4: modern comparison and review"],
+      "success": "A learner can trace each state update, reproduce a reconstruction or reuse failure on synthetic inputs, quantify an early-byte bias, and justify a modern authenticated-encryption choice."
+    }
   }
 });

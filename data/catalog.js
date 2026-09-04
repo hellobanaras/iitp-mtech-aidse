@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 39,
+  filesInventoried: 40,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -424,6 +424,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Cryptosystems and classical ciphers", "Block, stream, and one-time-pad encryption", "Attack models, one-wayness, and perfect secrecy"]
+        },
+        {
+          id: "ebb-6403-2026-09-04-074036",
+          number: 4,
+          date: "2026-09-04",
+          sourceRecordedAt: "2026-09-04T07:40:36+05:30",
+          sourceFilename: "Security and Privacy for Big Data-20260904_074036-Meeting Recording.mp4",
+          displayDate: "4 September 2026",
+          title: "LFSR stream ciphers and RC4: key scheduling, keystream generation, and bias",
+          duration: "56m 46s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course78_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course78_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSecurity+and+Privacy+for+Big+Data-20260904_074036-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Pseudorandom streams and LFSR feedback", "RC4 state initialization and keystream generation", "Biases, reuse risks, and modern deployment guidance"]
         }
       ]
     },
