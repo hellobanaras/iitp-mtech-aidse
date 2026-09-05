@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 42,
+  filesInventoried: 43,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -146,6 +146,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Data scarcity and meta-learning", "Expert annotation and computer-vision evidence", "GANs, applications, and adversarial robustness"]
+        },
+        {
+          id: "eai-6402-2026-09-05-101246",
+          number: 3,
+          date: "2026-09-05",
+          sourceRecordedAt: "2026-09-05T10:12:46+05:30",
+          sourceFilename: "Meta Learning-20260905_101246-Meeting Recording.mp4",
+          displayDate: "5 September 2026",
+          title: "Generative AI, language models, and responsible assessment",
+          duration: "1h 21m 47s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course73_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course73%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FMeta%20Learning%2D20260905%5F101246%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Generative AI and education", "NLP layers and LLM capabilities", "Responsible assessment and governance"]
         }
       ]
     },

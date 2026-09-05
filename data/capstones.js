@@ -1178,6 +1178,21 @@ export const capstones = Object.freeze({
       "success": "A learner can reproduce the ACF/PACF and AR(3) calculations, justify an order and differencing choice, and explain what the ADF evidence does and does not establish."
     }
   },
+  "eai-6402-2026-09-05-101246": {
+    "en": {
+      "title": "Auditable AI-assisted assignment",
+      "pitch": "Design a course task where a learner may use a language model but must show sources, prompts, verification, and revision decisions.",
+      "problem": "Polished generated text can hide whether a learner understands the material or checked the model's claims.",
+      "learning": "You will turn the lecture's ideas about NLP, provenance, and assessment governance into a transparent learning workflow.",
+      "mvp": ["Define one concept-based assignment and a clear rubric.", "Require a source-and-verification log for any AI-assisted output.", "Add a disclosure and privacy rule that keeps learner data minimised.", "Include a short reflection explaining revisions and remaining uncertainty."],
+      "stretch": ["Compare unaided, retrieval-grounded, and model-generated drafts.", "Add an instructor review checklist for unsupported claims.", "Measure whether the rubric rewards reasoning rather than surface fluency."],
+      "plan": ["Week 1: define task, rubric, and disclosure policy.", "Week 2: prototype the verification log.", "Week 3: pilot with two example submissions.", "Week 4: revise for accessibility, privacy, and fairness."],
+      "novelty": "The capstone makes AI assistance auditable: the artifact includes not only an answer but also the evidence and judgment behind it.",
+      "stack": ["Markdown", "JSON evidence log", "Accessible HTML rubric", "Optional small language-model API"],
+      "milestones": ["Task and rubric", "Verification log", "Pilot review", "Fairness and privacy revision"],
+      "success": "A reviewer can distinguish learner reasoning from generated text, trace important claims to sources, and see how uncertainty was handled."
+    }
+  },
   "ecs-6402-2026-09-04-203546": {
     "en": {
       "title": "StackScope: an explainable packet journey and integrity lab",

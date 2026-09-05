@@ -1,0 +1,77 @@
+// English-only publication unit for the verified 5 September 2026 Meta Learning recording.
+const quizSeed = [
+  ["What does the opening AI-confession example illustrate?", ["Students already use AI in coursework", "AI cannot write text", "Only hardware matters", "Labels are unnecessary"], 0],
+  ["Why is a title card not teaching-start evidence?", ["It is setup rather than sustained explanation", "It always contains a quiz", "It is a transcript", "It proves the final topic"], 0],
+  ["What is pragmatics concerned with in NLP?", ["Meaning in context", "GPU voltage", "Image resolution", "Database indexing"], 0],
+  ["What does parsing analyze?", ["Grammatical structure", "Only file size", "Speaker identity", "Network latency"], 0],
+  ["What is a language model trained to estimate?", ["Probabilities of token sequences", "Room temperature", "Camera focus", "Attendance alone"], 0],
+  ["Why are large language models called large?", ["They use very many learned parameters and data", "They require a large monitor", "They have no vocabulary", "They only process images"], 0],
+  ["What is a reasoning model intended to improve?", ["Multi-step problem solving", "Video compression", "Keyboard layout", "File naming"], 0],
+  ["What does summarisation do?", ["Condenses source content while preserving key meaning", "Deletes all context", "Encrypts a document", "Labels every pixel"], 0],
+  ["Why should AI-generated claims be checked?", ["Plausible text can still be unsupported or wrong", "Models never produce text", "Checking reduces vocabulary", "Only images can be false"], 0],
+  ["What is multimodal AI?", ["A system combining modalities such as text, image, audio, or video", "A single-token model", "A database backup", "A network cable"], 0],
+  ["Which is an NLP layer discussed in the lecture?", ["Semantics", "Radiology", "Routing", "Filesystem"], 0],
+  ["What does semantics study?", ["Meaning", "CPU fan speed", "Screen brightness", "File permissions"], 0],
+  ["What is chunking used for?", ["Grouping words into meaningful phrases", "Splitting a hard disk", "Reducing voltage", "Removing labels"], 0],
+  ["What is morphology concerned with?", ["Word structure", "Video frame rate", "Network topology", "Cloud billing"], 0],
+  ["Why can context change an interpretation?", ["The same words may carry different intent in different situations", "Context is always ignored", "Grammar never matters", "Only punctuation changes"], 0],
+  ["What is a prompt?", ["An instruction or input given to a model", "A GPU driver", "A slide timestamp", "A checksum"], 0],
+  ["What is hallucination in a language model?", ["Confidently generated but unsupported content", "A display failure", "A silent microphone", "A correct citation"], 0],
+  ["What makes an assessment fair?", ["Clear criteria, accessible evidence, and consistent evaluation", "Hidden criteria", "One unreviewed score", "No feedback"], 0],
+  ["How can AI support assessment?", ["By giving feedback or helping generate practice questions", "By removing all instructor responsibility", "By guaranteeing grades", "By hiding rubrics"], 0],
+  ["What is a risk of automated grading?", ["It may reproduce bias or misunderstand valid answers", "It cannot read any text", "It always improves validity", "It eliminates data"], 0],
+  ["Why should students disclose substantial AI assistance?", ["It supports academic integrity and makes authorship clearer", "Disclosure is irrelevant", "It changes the course topic", "It prevents learning"], 0],
+  ["What is retrieval-augmented generation intended to add?", ["Grounding from retrieved source material", "Randomness only", "A new keyboard", "Participant identities"], 0],
+  ["Why is source provenance useful?", ["It lets readers trace and verify a claim", "It guarantees every claim", "It replaces reasoning", "It hides uncertainty"], 0],
+  ["What is a policy question raised by generative AI?", ["How institutions should govern responsible use", "How to remove all evidence", "How to disable reading", "How to avoid evaluation"], 0],
+  ["What is the safest stance toward an AI answer?", ["Treat it as a draft requiring verification", "Treat it as automatically authoritative", "Never inspect sources", "Publish private data"], 0],
+];
+const quiz = quizSeed.map(([question, options, answer]) => ({ question, options, answer, explanation: "The first option is correct because it matches the lecture's concept; the other choices describe unrelated or unsafe interpretations.", optionNotes: options.map((option, index) => index === answer ? `${option} is correct for this concept.` : `${option} is not supported by the lecture's definition.`) }));
+
+export const eai6402Lecture20260905101246 = { en: {
+  title: "Generative AI, language models, and responsible assessment",
+  lede: "This lecture surveys everyday generative-AI use, NLP layers, large language-model capabilities, multimodal systems, and the governance questions raised when AI enters learning and assessment.",
+  instructionalInterval: "00:01:56–01:23:43",
+  reviewLevel: "Visible provider recording with seven-point timeline sweep, bounded setup lead-in, 164 extracted frames, and English transcription",
+  coverage: [
+    { title: "Why generative AI matters in education", body: "The opening examples connect student writing, teaching practice, and the need to distinguish assistance from authorship." },
+    { title: "NLP layers and meaning", body: "Pragmatics, semantics, parsing, chunking, and morphology show how language systems move from words to structure and context." },
+    { title: "LLM capabilities and limits", body: "The lecture compares reasoning, summarisation, translation, code, multimodal input, and the risk of unsupported output." },
+    { title: "Assessment and institutional policy", body: "AI can support feedback and practice, but fairness, provenance, disclosure, privacy, and human accountability remain essential." },
+  ],
+  takeaway: "Generative AI is most useful when its outputs are grounded, checked, and governed within a transparent human learning process.",
+  slideTrail: [
+    { time: "00:01:56", title: "The AI Confession – Our New Reality", note: "Student use of AI motivates the lecture's responsible-use framing." },
+    { time: "00:20:56", title: "AI and higher education examples", note: "Examples connect language models with changing academic workflows." },
+    { time: "00:41:51", title: "NLP Layers", note: "Pragmatics, semantics, parsing, chunking, and morphology organize language analysis." },
+    { time: "01:02:47", title: "Major LLMs in 2025: Reasoning Models", note: "A timeline places reasoning-oriented systems in the recent LLM landscape." },
+    { time: "01:15:21", title: "What LLMs can do?", note: "Capabilities include summarisation, reasoning, coding, and multimodal tasks." },
+    { time: "01:23:20", title: "Innovations in Assessment", note: "Assessment examples close with policy, disclosure, and institutional responsibility." },
+  ],
+  summary: [
+    { title: "1. AI use changes the learning contract", sourceRefs: ["00:01:56–00:20:56", "The AI Confession – Our New Reality"], paragraphs: ["The opening treats student AI use as an observable change in how writing and coursework are produced. The educational question is not simply whether a tool exists, but whether learners can explain, verify, and take responsibility for the work they submit.", "A useful distinction is between assistance that supports learning and substitution that hides understanding. That distinction should be made explicit in course policy and assessment design."] },
+    { title: "2. Language understanding is layered", sourceRefs: ["00:41:51", "NLP Layers"], paragraphs: ["The NLP slide separates word structure, grammatical parsing, literal meaning, phrase grouping, and context. These layers explain why fluent text generation does not automatically imply reliable understanding.", "When a system fails, the layer that failed matters: a morphology error differs from a pragmatic misunderstanding, and each calls for different tests or data."] },
+    { title: "3. Capability is broader than reliability", sourceRefs: ["01:02:47–01:15:21", "Major LLMs in 2025: Reasoning Models", "What LLMs can do?"], paragraphs: ["Large models can summarise, reason through steps, write code, translate, and combine text with images or other modalities. The capability timeline is therefore a map of opportunities, not a guarantee of correctness.", "Students and professionals should treat generated answers as drafts. Retrieval, citations, test cases, and human review convert a plausible response into evidence that can be trusted."] },
+    { title: "4. Assessment requires accountable design", sourceRefs: ["01:23:20", "Innovations in Assessment"], paragraphs: ["AI-assisted assessment can provide practice prompts, formative feedback, and new project formats. However, automated decisions may encode bias, misread valid reasoning, or expose sensitive learner data.", "Transparent rubrics, disclosure expectations, privacy safeguards, and instructor review keep the assessment process educational rather than merely automated."] },
+  ],
+  insights: [
+    { label: "Pedagogy", title: "Require explanation, not only an answer", body: "When AI can produce polished prose, assessment should also ask learners to show reasoning, sources, and revision choices." },
+    { label: "Reliability", title: "Grounding is a workflow", body: "Retrieval and citation help, but verification remains a human workflow rather than a single model feature." },
+    { label: "Governance", title: "Policy should distinguish support from substitution", body: "A clear policy can permit learning-support uses while preserving authorship, privacy, and accountability." },
+  ],
+  courseSignals: { assignments: [], homework: [], labs: [], projects: [], references: [{ time: "01:23:20", title: "Generative-AI policy examples", detail: "The lecture discusses policy and assessment examples but assigns no graded deliverable or deadline." }], studentQuestions: [] },
+  resources: [
+    { kind: "read", title: "Attention Is All You Need", url: "https://arxiv.org/abs/1706.03762", detail: "Primary Transformer paper for the architecture behind modern language models." },
+    { kind: "read", title: "NIST AI Risk Management Framework", url: "https://www.nist.gov/itl/ai-risk-management-framework", detail: "Practical governance vocabulary for trustworthy AI use." },
+    { kind: "practice", title: "Hugging Face NLP course", url: "https://huggingface.co/learn/nlp-course", detail: "Hands-on tokenisation, Transformers, datasets, and evaluation." },
+  ],
+  keyTerms: [
+    { term: "Pragmatics", definition: "How language meaning depends on context, speaker intent, and situation." },
+    { term: "Large language model", definition: "A neural language model trained with large data and parameter capacity to estimate and generate token sequences." },
+    { term: "Multimodal model", definition: "A model that processes or connects more than one modality, such as text and images." },
+    { term: "Provenance", definition: "Evidence of where a claim, datum, or generated answer came from." },
+    { term: "Hallucination", definition: "Unsupported or fabricated model output presented with unwarranted confidence." },
+  ],
+  quiz,
+  capstone: { title: "Auditable AI-assisted assignment", prompt: "Design a small course assignment in which a learner may use a language model, but must submit the prompt, source links, verification notes, and a short reflection showing what they changed and why.", deliverables: ["one task and rubric", "source-and-verification log", "privacy and disclosure rule"], successCriteria: ["tests reasoning rather than polished wording alone", "makes AI assistance auditable", "keeps instructor review and learner responsibility explicit"] }
+} };
