@@ -1177,5 +1177,34 @@ export const capstones = Object.freeze({
       "milestones": ["Week 1: centered ACF worksheet", "Week 2: PACF/Yule–Walker", "Week 3: ARIMA diagnostics", "Week 4: ADF evidence and evaluation"],
       "success": "A learner can reproduce the ACF/PACF and AR(3) calculations, justify an order and differencing choice, and explain what the ADF evidence does and does not establish."
     }
+  },
+  "ecs-6402-2026-09-04-203546": {
+    "en": {
+      "title": "StackScope: an explainable packet journey and integrity lab",
+      "pitch": "Build an accessible visualiser that moves a message through media, link framing, IP routing, TCP segmentation, encapsulation, and checksum verification.",
+      "problem": "Layer diagrams often hide where an address, header, port, or integrity check is introduced, making network failures difficult to localise.",
+      "learning": "You will model physical media, link-local versus end-to-end checks, IP forwarding, ports, TCP segments, protocol overhead, and one's-complement verification.",
+      "mvp": [
+        "Let a learner enter a short message and choose a medium, route, transport protocol, and port.",
+        "Animate the message becoming a TCP segment, IP packet, link frame, and transmitted waveform.",
+        "Show each header and label its scope as local-hop or end-to-end.",
+        "Compute a checksum, flip one bit, and explain why the receiver rejects the corrupted message."
+      ],
+      "stretch": [
+        "Add a CRC comparison and visualise the polynomial remainder.",
+        "Support multiple routers and show how only the link wrapper changes at each hop.",
+        "Export an accessible evidence card with source timecodes, fields, assumptions, and verification results."
+      ],
+      "plan": [
+        "Week 1: implement message, payload, headers, ports, and line-coding views.",
+        "Week 2: add router hops, IP addressing, TCP sequence numbers, and decapsulation.",
+        "Week 3: implement one's-complement checksum and bit-error scenarios.",
+        "Week 4: add CRC, keyboard accessibility, explanatory tests, and export."
+      ],
+      "novelty": "The tool makes protocol scope visible: learners can see why a local link check and an end-to-end transport check are complementary rather than redundant.",
+      "stack": ["TypeScript", "SVG or Canvas", "Web Audio-free deterministic simulator", "Vitest"],
+      "milestones": ["Week 1: stack and media diagram", "Week 2: routing and encapsulation", "Week 3: checksum verification", "Week 4: CRC and accessibility"],
+      "success": "A learner can trace one message across two networks, identify every header and owner, and diagnose a deliberate bit error from the verification result."
+    }
   }
 });

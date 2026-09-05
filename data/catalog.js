@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 41,
+  filesInventoried: 42,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -220,8 +220,8 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "active",
-      statusLabel: "4 lectures available",
-      note: "The September 3 lecture extends the wireless-network foundations with ATM, Frame Relay, and the OSI layering model after a full timeline sweep and bounded visible-tab capture.",
+      statusLabel: "5 lectures available",
+      note: "The September 4 lecture applies the OSI stack to physical media, IP routing, TCP segmentation, encapsulation, and checksum/CRC integrity checks after a full timeline sweep and bounded visible-tab capture.",
       lectures: [
         {
           id: "ecs-6402-2026-08-21-204351",
@@ -278,6 +278,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Virtual circuits, Frame Relay, and reduced overhead", "ATM fixed cells, adaptation, virtual channels, and QoS", "OSI layers, encapsulation, peer layers, and protocol properties"]
+        },
+        {
+          id: "ecs-6402-2026-09-04-203546",
+          number: 5,
+          date: "2026-09-04",
+          sourceRecordedAt: "2026-09-04T20:35:46+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20260904_203546-Meeting Recording.mp4",
+          displayDate: "4 September 2026",
+          title: "OSI layers in practice: media, routing, TCP segments, and integrity checks",
+          duration: "1h 20m 30s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course75_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSelected%20Topics%20in%20Wireless%20Networks%2D20260904%5F203546%2DMeeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Physical media, line coding, and link-level integrity", "IP routing, TCP/UDP, ports, and reliable segmentation", "Encapsulation, checksum verification, and CRC"]
         }
       ]
     },
