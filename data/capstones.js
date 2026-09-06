@@ -1221,5 +1221,20 @@ export const capstones = Object.freeze({
       "milestones": ["Week 1: stack and media diagram", "Week 2: routing and encapsulation", "Week 3: checksum verification", "Week 4: CRC and accessibility"],
       "success": "A learner can trace one message across two networks, identify every header and owner, and diagnose a deliberate bit error from the verification result."
     }
+  },
+  "eai-6403-2026-09-05-154129": {
+    "en": {
+      "title": "Attention map explainer",
+      "pitch": "Build an accessible visual explainer that traces how a Transformer turns token embeddings into contextual representations.",
+      "problem": "Learners often see attention diagrams without understanding how queries, keys, values, and heads combine.",
+      "learning": "Model embeddings, scaled dot-product attention, multi-head concatenation, positional encoding, and encoder-decoder flow.",
+      "mvp": ["Let users enter a short sentence and inspect token embeddings.", "Visualise query-key scores and softmax weights for one head.", "Compare one head with a multi-head aggregate and explain the difference.", "Show how masking changes decoder visibility."],
+      "stretch": ["Add BERT bidirectional versus decoder causal-mask comparison.", "Export a keyboard-accessible evidence card with formulas and source timecodes."],
+      "plan": ["Week 1: token and embedding view.", "Week 2: attention score and mask visualisation.", "Week 3: multi-head and encoder-decoder comparison.", "Week 4: accessibility tests and export."],
+      "novelty": "The explainer makes the same architecture usable as a concrete, inspectable learning object rather than a static diagram.",
+      "stack": ["TypeScript", "SVG", "Vitest"],
+      "milestones": ["Embeddings", "Attention weights", "Multi-head view", "Accessible export"],
+      "success": "A learner can identify the role of Q, K, V, masking, and heads from the interactive trace."
+    }
   }
 });
