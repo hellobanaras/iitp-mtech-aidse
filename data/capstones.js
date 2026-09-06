@@ -1149,6 +1149,21 @@ export const capstones = Object.freeze({
       "success": "A learner can trace each state update, reproduce a reconstruction or reuse failure on synthetic inputs, quantify an early-byte bias, and justify a modern authenticated-encryption choice."
     }
   },
+  "ebb-6403-2026-09-05-055030": {
+    "en": {
+      "title": "Trapdoor Lab — a public-key arithmetic and security workbench",
+      "pitch": "Build an accessible simulator for modular exponentiation, Fermat arithmetic, key-pair generation, and trapdoor one-wayness.",
+      "problem": "Public-key security can feel like magic until learners compare easy forward computation with hard inversion and test the security properties explicitly.",
+      "learning": "You will connect public/private keys, modular arithmetic, factoring intuition, confidentiality, authentication, and computational infeasibility.",
+      "mvp": ["Implement modular exponentiation and Fermat checks with traceable intermediate values.", "Visualize sender encryption with a receiver public key and decryption with the private key.", "Demonstrate a toy trapdoor function and compare forward versus reverse work.", "Add a checklist for confidentiality, authentication, and one-wayness properties."],
+      "stretch": ["Add RSA-style toy parameter generation with warnings about insecure toy sizes.", "Provide accessible text alternatives for every arithmetic trace and diagram."],
+      "plan": ["Week 1: modular arithmetic and trace UI", "Week 2: public/private key message flow", "Week 3: trapdoor and attack experiments", "Week 4: security-property review and accessibility"],
+      "novelty": "The lab turns the lecture's arithmetic examples and security-property checklist into an inspectable experiment rather than a black-box cipher demo.",
+      "stack": ["JavaScript", "HTML/CSS", "SVG"],
+      "milestones": ["Arithmetic trace", "Key-pair flow", "Trapdoor experiment", "Security review"],
+      "success": "A learner can trace modular exponentiation, explain which key each party uses, and justify why forward computation can be easy while inversion remains infeasible."
+    }
+  },
   "ecs-6401-2026-09-04-180115": {
     "en": {
       "title": "Stationarity Studio: an ACF/PACF and ARIMA diagnostics lab",

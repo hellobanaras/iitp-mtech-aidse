@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 44,
+  filesInventoried: 45,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -480,6 +480,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Pseudorandom streams and LFSR feedback", "RC4 state initialization and keystream generation", "Biases, reuse risks, and modern deployment guidance"]
+        },
+        {
+          id: "ebb-6403-2026-09-05-055030",
+          number: 5,
+          date: "2026-09-05",
+          sourceRecordedAt: "2026-09-05T05:50:30+05:30",
+          sourceFilename: "Security and Privacy for Big Data-20260905_055030-Meeting Recording.mp4",
+          displayDate: "5 September 2026",
+          title: "Public-key cryptography foundations: modular arithmetic, trapdoor functions, and security properties",
+          duration: "1h 16m 09s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course78_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course78_hybrid_iitp_ac_in%2FDocuments/Recordings/Security%20and%20Privacy%20for%20Big%20Data-20260905_055030-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Public/private key pairs and confidentiality", "Modular and Fermat arithmetic", "Trapdoor one-wayness and public-key security properties"]
         }
       ]
     },
