@@ -887,6 +887,32 @@ export const capstones = Object.freeze({
       "success": "A learner can explain every state, action, reward, and probability in the model, reproduce a trajectory, and identify one formulation that fails because its state or reward is inadequate."
     }
   },
+  "eai-6401-2026-09-07-180458": {
+    "en": {
+      "title": "ReturnLab: an episodic-to-continuing value explorer",
+      "pitch": "Build an interactive RL laboratory that lets learners define reward streams, compare episodic and continuing returns, and inspect how policies and Bellman backups turn immediate outcomes into value estimates.",
+      "problem": "Students can memorise return and value equations without seeing why terminal boundaries, discounting, transition probabilities, and reward design change the policy a learner should prefer.",
+      "learning": "You will implement discounted and undiscounted returns, state/action values, policy-weighted expectations, recycling-robot transitions, and Bellman-style one-step backups.",
+      "mvp": [
+        "Provide editors for reward streams, terminal conditions, discount factor, states, actions, and transition probabilities.",
+        "Render episodic and continuing return calculations with a clear time-indexed trace.",
+        "Simulate the high/low-battery recycling robot and compare policies using expected return.",
+        "Show each Bellman backup as immediate reward plus discounted successor value, with accessible text explanations."
+      ],
+      "stretch": [
+        "Add reward-hacking counterexamples and a reward-audit checklist.",
+        "Compare policy evaluation under deterministic and stochastic transitions.",
+        "Export a Gymnasium environment and a reproducible experiment card.",
+        "Add a student mode that asks learners to predict the best action before revealing the backup."
+      ],
+      "plan": [
+        "Week 1: implement reward streams, terminal boundaries, return formulas, and unit tests.",
+        "Week 2: add states, actions, transition probabilities, and the recycling-robot simulator.",
+        "Week 3: implement policy/value displays and animated Bellman backups.",
+        "Week 4: add accessibility, export, reward-audit scenarios, and a concise evaluation report."
+      ]
+    }
+  },
   "ebb-6403-2026-08-29-053554": {
     "en": {
       "title": "CipherLens: an adversary-aware cryptography learning lab",
