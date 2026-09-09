@@ -913,6 +913,17 @@ export const capstones = Object.freeze({
       ]
     }
   },
+  "eai-6401-2026-09-08-180828": {
+    "en": {
+      "title": "BellmanBoard: an optimal-policy visualizer",
+      "pitch": "Build an accessible gridworld and recycling-robot simulator that lets learners compare policy evaluation, Bellman expectation, and Bellman optimality backups step by step.",
+      "problem": "Value-function equations are easy to manipulate mechanically but hard to connect to concrete transitions, rewards, and action choices.",
+      "learning": "Implement state/action values, policy-weighted expectations, optimal actions, transition probabilities, and recursive backups with source-linked explanations.",
+      "mvp": ["Define a small gridworld with rewards and terminal states.", "Render vπ(s), qπ(s,a), and optimal values for a selected policy.", "Animate Bellman backups and expose each reward, probability, and successor value.", "Add a high/low-battery recycling-robot scenario with legal-action checks."],
+      "stretch": ["Compare deterministic and stochastic transitions.", "Add discount-factor and reward-hacking experiments.", "Export a Gymnasium-compatible environment and experiment card."],
+      "plan": ["Week 1: state/action schema and gridworld.", "Week 2: policy evaluation and Bellman expectation.", "Week 3: optimality backups and recycling robot.", "Week 4: accessibility, export, tests, and case study."]
+    }
+  },
   "ebb-6403-2026-08-29-053554": {
     "en": {
       "title": "CipherLens: an adversary-aware cryptography learning lab",
