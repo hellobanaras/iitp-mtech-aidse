@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 47,
+  filesInventoried: 48,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -739,8 +739,8 @@ export const catalog = {
       icon: "BP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course126_hybrid_iitp_ac_in/IgCHFNnPY4p5T6ER5i66wfU6ARez8raFCClh3yjgh9MvxQ4?e=BpEdrU",
       status: "active",
-      statusLabel: "5 lectures available",
-      note: "Lectures 1–5 are published from verified teaching intervals; participant-only openings, announced breaks, and idle tails were excluded after full timeline sweeps. View-only sources were captured at 2×.",
+      statusLabel: "6 lectures available",
+      note: "Lectures 1–6 are published from verified teaching intervals; participant-only openings, announced breaks, and idle tails were excluded after full timeline sweeps. View-only sources were captured at 2×.",
       lectures: [
         {
           id: "ebb-6402-2026-08-18-180205",
@@ -811,6 +811,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["KYC, beneficial ownership, and enhanced due diligence", "Risk-based monitoring, SAR/STR reporting, FIU analysis, and AML governance", "Stablecoin design, value stability, backing, liquidity, and policy risk"]
+        },
+        {
+          id: "ebb-6402-2026-09-08-180225",
+          number: 6,
+          date: "2026-09-08",
+          sourceRecordedAt: "2026-09-08T18:02:25+05:30",
+          sourceFilename: "Blockchain policy – Legal, Social and Economic Impact-20260908_180225-Meeting Recording 1.mp4",
+          displayDate: "8 September 2026",
+          title: "Stablecoins: bridging traditional and digital finance",
+          duration: "1h 13m 47s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course126_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course126%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FBlockchain%20policy%20%E2%80%93%20Legal%2C%20Social%20and%20Economic%20Impact%2D20260908%5F180225%2DMeeting%20Recording%201.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Stablecoin purpose, lower nominal volatility, and predictable value", "Bridging fiat and digital finance through on-chain settlement", "Backing, peg, liquidity, governance, and policy risk"]
         }
       ]
     }

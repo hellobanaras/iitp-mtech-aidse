@@ -1128,6 +1128,21 @@ export const capstones = Object.freeze({
       "success": "A learner can explain why a case was escalated, trace its evidence to an FIU hand-off, quantify review trade-offs, and defend a stablecoin policy position from backing, liquidity, governance, and regulatory assumptions."
     }
   },
+  "ebb-6402-2026-09-08-180225": {
+    "en": {
+      "title": "StableBridge: a transparent stablecoin policy lab",
+      "pitch": "Build a synthetic dashboard that compares stablecoin models and makes peg, reserve, liquidity, redemption, governance, and policy assumptions explicit.",
+      "problem": "Stablecoin stability is often treated as a label rather than an operational claim. A small policy lab lets learners test how backing and market conditions affect confidence in a reference value.",
+      "learning": "You will model a stablecoin bridge between fiat and digital assets, compare backing mechanisms, and explain residual risk using evidence rather than branding.",
+      "mvp": ["Generate synthetic reserve, issuance, redemption, and market-price events.", "Plot the target peg against observed price and liquidity under normal and stressed conditions.", "Compare two stablecoin models and annotate governance and regulatory assumptions.", "Export an evidence card explaining why the model appears stable or where it can fail."],
+      "stretch": ["Add cross-border settlement and redemption queues.", "Add scenario sliders for reserve haircuts and liquidity shocks.", "Add a privacy-preserving audit trail for policy decisions."],
+      "plan": ["Week 1: define synthetic assets, reserves, and peg assumptions.", "Week 2: implement issuance, redemption, and liquidity simulation.", "Week 3: compare models under stress and visualise deviations.", "Week 4: document governance, regulation, and policy conclusions."],
+      "novelty": "The lab connects classroom stablecoin concepts to observable reserve and redemption evidence without using real financial data.",
+      "stack": ["Python", "pandas", "Plotly or SVG"],
+      "milestones": ["Week 1: synthetic model", "Week 2: peg and liquidity", "Week 3: stress comparison", "Week 4: policy evidence"],
+      "success": "A learner can explain how a stablecoin bridges fiat and digital finance and defend a policy judgement from peg, reserves, liquidity, governance, and regulatory evidence."
+    }
+  },
   "ecs-6402-2026-09-03-203415": {
     "en": {
       "title": "LayerLens: an ATM and OSI protocol-stack visualizer",
