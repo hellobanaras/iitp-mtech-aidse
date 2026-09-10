@@ -1230,6 +1230,21 @@ export const capstones = Object.freeze({
       "success": "A learner can explain how a stablecoin bridges fiat and digital finance and defend a policy judgement from peg, reserves, liquidity, governance, and regulatory evidence."
     }
   },
+  "ebb-6402-2026-09-10-180236": {
+    "en": {
+      "title": "TreasuryBridge — a stablecoin policy and settlement lab",
+      "pitch": "Build a synthetic workbench that compares bank-issued stablecoins and tokenized deposits, then traces enterprise treasury, cross-border, and merchant settlement flows with explicit controls.",
+      "problem": "A wallet transfer can look simple while hiding reserve, redemption, authority, reconciliation, and regulatory assumptions. TreasuryBridge makes those assumptions visible without using real financial data.",
+      "learning": "You will model issuers, reserves, deposit ledgers, corporate and subsidiary wallets, payment participants, policy domains, and smart-contract automation while documenting residual legal and economic risk.",
+      "mvp": ["Create synthetic bank-issued and tokenized-deposit flows linking accounts, reserves, ledgers, issuers, and wallets.", "Simulate headquarters, subsidiary, merchant, payroll, and cross-border wallet transfers with source and destination reconciliation.", "Compare traditional bank settlement with stablecoin settlement for speed, participants, conversion, custody, and evidence.", "Export a policy pack covering backing, governance, risk-based licensing, smart-securities automation, and unresolved legal questions."],
+      "stretch": ["Add stress scenarios for reserve haircuts, redemption queues, liquidity shocks, and delayed correspondent banking.", "Add a policy-domain matrix spanning finance, identity, supply chain, healthcare, and national security.", "Add an audit trail that separates on-chain proof from external claims and records reviewer ownership."],
+      "plan": ["Week 1: define synthetic entities, ledgers, wallets, reserve assumptions, and settlement events.", "Week 2: implement tokenized-deposit and enterprise treasury flows with reconciliation checks.", "Week 3: compare cross-border and payment-network paths under timing, liquidity, and governance scenarios.", "Week 4: add policy and smart-securities review, export evidence, and document limitations."],
+      "novelty": "The lab unifies stablecoin architecture, corporate treasury operations, settlement topology, and policy accountability in one inspectable model.",
+      "stack": ["Python", "pandas", "NetworkX", "Plotly or SVG"],
+      "milestones": ["Week 1: issuer and deposit model", "Week 2: treasury and wallet flows", "Week 3: settlement comparison", "Week 4: policy evidence pack"],
+      "success": "A learner can explain which claims are backed by reserves or ledgers, trace a payment across participants, compare settlement paths, and defend a policy recommendation with explicit residual risks."
+    }
+  },
   "ecs-6402-2026-09-03-203415": {
     "en": {
       "title": "LayerLens: an ATM and OSI protocol-stack visualizer",

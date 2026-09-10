@@ -48,6 +48,7 @@ const [
   { ebb6402Lecture20260901 },
   { ebb6402Lecture20260903 },
   { ebb6402Lecture20260908 },
+  { ebb6402Lecture20260910180236 },
   { ebb6403Lecture20260821 },
   { ebb6403Lecture20260828 },
   { ebb6403Lecture20260829 }
@@ -102,6 +103,7 @@ const [
   import(`./lectures/ebb-6402-2026-09-01-180239.js?v=${releaseVersion}`),
   import(`./lectures/ebb-6402-2026-09-03-180128.js?v=${releaseVersion}`),
   import(`./lectures/ebb-6402-2026-09-08-180225.js?v=${releaseVersion}`),
+  import(`./lectures/ebb-6402-2026-09-10-180236.js?v=${releaseVersion}`),
   import(`./lectures/ebb-6403-2026-08-21-075934.js?v=${releaseVersion}`),
   import(`./lectures/ebb-6403-2026-08-28-074445.js?v=${releaseVersion}`),
   import(`./lectures/ebb-6403-2026-08-29-053554.js?v=${releaseVersion}`),
@@ -159,6 +161,7 @@ export const lectureNotes = {
   "ebb-6402-2026-09-01-180239": ebb6402Lecture20260901,
   "ebb-6402-2026-09-03-180128": ebb6402Lecture20260903,
   "ebb-6402-2026-09-08-180225": ebb6402Lecture20260908,
+  "ebb-6402-2026-09-10-180236": ebb6402Lecture20260910180236,
   "ebb-6403-2026-08-21-075934": ebb6403Lecture20260821,
   "ebb-6403-2026-08-28-074445": ebb6403Lecture20260828,
   "ebb-6403-2026-08-29-053554": ebb6403Lecture20260829,

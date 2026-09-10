@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-10",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 53,
+  filesInventoried: 54,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -895,6 +895,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Stablecoin purpose, lower nominal volatility, and predictable value", "Bridging fiat and digital finance through on-chain settlement", "Backing, peg, liquidity, governance, and policy risk"]
+        },
+        {
+          id: "ebb-6402-2026-09-10-180236",
+          number: 7,
+          date: "2026-09-10",
+          sourceRecordedAt: "2026-09-10T18:02:36+05:30",
+          sourceFilename: "Blockchain policy – Legal, Social and Economic Impact-20260910_180236-Meeting Recording.mp4",
+          displayDate: "10 September 2026",
+          title: "Stablecoin models, enterprise treasury, and blockchain policy",
+          duration: "1h 29m 53s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course126_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course126_hybrid_iitp_ac_in%2FDocuments/Recordings/Blockchain%20policy%20%E2%80%93%20Legal%2C%20Social%20and%20Economic%20Impact-20260910_180236-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Bank-issued native stablecoins and tokenized deposits", "Enterprise treasury, cross-border transfer, and payment settlement", "Blockchain policy resources, regulation, and smart securities"]
         }
       ]
     }

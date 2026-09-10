@@ -1,0 +1,103 @@
+// English-only publication unit for the verified 10 September 2026 recording.
+const quizSeed = [
+  ["What is the bank-issued native stablecoin model intended to represent?", ["A bank-backed digital representation linked to customer funds", "A participant-only video mode", "A mining algorithm with no issuer", "A password vault"], 0],
+  ["In the bank-issued model, what connects the issuer to users?", ["Digital wallets", "A paper-only ledger", "A camera feed", "A regulator's password"], 0],
+  ["What backs the bank-issued stablecoin in the lecturer's diagram?", ["Bank reserves and related fiat assets", "Unverified memes", "Only transaction fees", "A title card"], 0],
+  ["What does a tokenized-deposit model put on chain?", ["Bank money represented as tokens", "A participant attendance list", "A private key in plain text", "A video transcript only"], 0],
+  ["Where can tokenized deposits be held?", ["Wallets across nodes of a distributed network", "Only a lecturer's desktop", "Only a regulator's inbox", "Nowhere after issuance"], 0],
+  ["What is the purpose of an enterprise stablecoin treasury?", ["To organize corporate capital and payments through digital wallets", "To remove all accounting controls", "To replace every bank employee", "To prevent any cross-border activity"], 0],
+  ["What is capital reallocation in the enterprise example?", ["Moving treasury value among headquarters and subsidiary wallets", "Deleting the treasury record", "Converting every asset to cash immediately", "Disabling settlement"], 0],
+  ["Which payment is explicitly named in the treasury example?", ["Merchant invoice payment", "A lecture registration fee", "A mining reward only", "A browser download"], 0],
+  ["Which other enterprise payment is named?", ["Payroll payment", "A wallet password payment", "A title-card payment", "A validator's fine"], 0],
+  ["What can tokenized bonds represent in the enterprise flow?", ["On-chain capital deployment", "A participant grid", "A deleted reserve", "An audio codec"], 0],
+  ["What is the key contrast in the cross-border example?", ["Traditional bank transfers versus wallet-to-wallet stablecoin transfer", "Video versus audio capture", "Public versus private slides", "Mining versus grading"], 0],
+  ["Why can a wallet-to-wallet transfer be faster in the example?", ["The wallets connect directly through a blockchain network", "It waits for a paper cheque", "It removes the recipient", "It uses no settlement record"], 0],
+  ["What conversion is mentioned for traditional cross-border banking?", ["Dollars converted to rupees", "Tokens converted to slides", "Euros converted to passwords", "Audio converted to reserves"], 0],
+  ["What does payment-network settlement connect?", ["Customer, issuer, acquirer, and merchant", "Only four video tabs", "A title card and a transcript", "A wallet to no participant"], 0],
+  ["What is the stablecoin settlement path in the card example?", ["A digital wallet transfers value to the merchant's wallet", "A bank destroys the merchant account", "A miner approves a lecture", "A customer mails a private key"], 0],
+  ["What is one policy domain affected by blockchain listed in the lecture?", ["Finance", "Video compression", "Browser bookmarks", "Screen brightness"], 0],
+  ["Which additional policy domain is listed?", ["Healthcare", "Audio codecs", "Keyboard shortcuts", "Participant avatars"], 0],
+  ["Why do policymakers need interdisciplinary resources?", ["Blockchain affects legal, technical, economic, and social decisions", "One institution controls every fact", "Only miners write policy", "Regulation is unrelated to technology"], 0],
+  ["What should policy resources help policymakers do?", ["Regulate risk and enable responsible innovation", "Guarantee profit", "Hide all transactions", "Remove accountability"], 0],
+  ["Which term belongs to the blockchain ecosystem list?", ["Consensus mechanism", "Payroll password", "Meeting thumbnail", "Browser extension"], 0],
+  ["What does a smart contract do in the policy discussion?", ["It can encode and execute agreed rules", "It automatically makes every law valid", "It replaces every regulator", "It removes all economic risk"], 0],
+  ["What is the relationship between national regulation and global guidance?", ["National governments can translate global guidance into binding legal frameworks", "They are always identical", "Global guidance makes national law unnecessary", "Neither affects digital assets"], 0],
+  ["What challenge is caused by rapid technological change?", ["Policy and expertise can lag new systems and risks", "All systems become automatically compliant", "No new products appear", "Decentralization disappears"], 0],
+  ["What does tokenized securities automation include?", ["Issuance, ownership transfer, compliance, and settlement", "Only video playback", "Only password storage", "No business rule"], 0],
+  ["What is the central caution about smart contracts and derivatives?", ["Automation changes operational risk but does not remove economic or legal risk", "Automation guarantees safety", "Smart contracts eliminate governance", "Derivatives cannot be regulated"], 0],
+];
+
+const quiz = quizSeed.map(([question, options, answer]) => ({
+  question, options, answer,
+  explanation: `The lecture supports ${options[answer].toLowerCase()}.`,
+  optionNotes: options.map((option, index) => index === answer
+    ? `Correct: ${option}. This matches the lecture's diagram and policy explanation.`
+    : `Incorrect: ${option} is not the relationship or control described in this lecture.`),
+}));
+
+export const ebb6402Lecture20260910180236 = {
+  en: {
+    title: "Stablecoin models, enterprise treasury, and blockchain policy",
+    lede: "This lecture compares bank-issued native stablecoins with tokenized deposits, traces enterprise treasury and cross-border settlement flows, and closes with blockchain policy resources, regulatory frameworks, and smart securities.",
+    instructionalInterval: "00:04:21–01:29:25 source time (opening participant setup and final idle tail excluded)",
+    reviewLevel: "Full seven-point visible Stream sweep, 2× visible-tab capture, source-time-restored processing, and explicit idle-tail exclusion verified",
+    coverage: [
+      { title: "Bank-issued native stablecoins", body: "A bank can issue a digital stablecoin connected to customer accounts, reserves, trusted custodians, and user wallets." },
+      { title: "Tokenized deposits", body: "Bank money can be represented as tokens and distributed to wallets across nodes while remaining connected to the deposit layer." },
+      { title: "Enterprise treasury and cross-border transfer", body: "Corporate treasury wallets support capital deployment, subsidiary reallocation, merchant invoices, payroll, and direct wallet settlement." },
+      { title: "Payment-network settlement", body: "The customer–issuer–acquirer–merchant chain can settle through conventional accounts or stablecoin wallet transfers." },
+      { title: "Policy resources and ecosystem terms", body: "Finance, governance, identity, supply chain, healthcare, and national security require interdisciplinary policy resources and shared terminology." },
+      { title: "Regulation and smart securities", body: "National frameworks translate global guidance into binding rules, while smart contracts automate parts of issuance, ownership, compliance, and settlement without eliminating risk." },
+    ],
+    takeaway: "Stablecoin utility depends on the backing, wallet and settlement architecture, treasury controls, and legal context; automation can streamline transfer and securities operations but does not replace governance, accountability, or risk analysis.",
+    slideTrail: [
+      { time: "00:04:21", title: "Bank-issued native stablecoin model", note: "The lecturer draws the bank, customer account, issuer, reserves, custodial bank, and wallets A/B/C." },
+      { time: "00:16:40", title: "Tokenized deposit model", note: "Bank money is represented on chain and distributed to wallets through a deposit layer and distributed nodes." },
+      { time: "00:27:10", title: "Enterprise treasury management", note: "Corporate treasury wallets allocate capital to headquarters, subsidiaries, merchants, and payroll." },
+      { time: "00:44:20", title: "Cross-border transfer", note: "Traditional bank conversion is contrasted with direct wallet-to-wallet stablecoin transfer." },
+      { time: "00:55:50", title: "Payment network settlement", note: "Customer, issuer, acquirer, and merchant settlement paths are compared." },
+      { time: "01:05:20", title: "Blockchain policy resources", note: "The lecture lists policy domains, ecosystem terms, risk regulation, and innovation trade-offs." },
+      { time: "01:18:10", title: "Smart securities and derivatives", note: "Digitized securities can automate issuance, ownership transfer, compliance, and settlement through smart contracts." },
+    ],
+    summary: [
+      { title: "1. Bank-issued native stablecoins", sourceRefs: ["00:04:21–00:16:40", "Bank-issued native stablecoin model"], paragraphs: ["The opening diagram places a bank account and customer funds beside a stablecoin issuer. The issuer connects fiat-backed value to wallets so users can hold and transfer a digital representation.", "The model also introduces reserves, interest income, transaction flows, and a trusted custodial banking system. The important claim is architectural: stability is tied to the issuer and reserve relationship, not merely to the token label."], formula: "digital stablecoin = issuer + reserve + wallet access" },
+      { title: "2. Tokenized deposits put bank money on chain", sourceRefs: ["00:16:40–00:27:10", "Tokenized deposit model"], paragraphs: ["A tokenized-deposit model represents bank money as tokens while retaining a connection to the bank issuer, customer deposit, and core banking or deposit ledger.", "The tokens can be held in wallets across network nodes. This differs from an unconnected crypto asset because the deposit layer and the on-chain representation remain part of the described control flow."], formula: "tokenized deposit = bank deposit \leftrightarrow on-chain token" },
+      { title: "3. Enterprise treasury wallets coordinate capital", sourceRefs: ["00:27:10–00:44:20", "Enterprise treasury management"], paragraphs: ["The enterprise example uses a corporate bank account to generate stablecoins and corporate digital wallets. Headquarters and subsidiary wallets receive allocated capital, which can be deployed into tokenized bonds or other on-chain instruments.", "The same structure supports merchant invoice payments and payroll. A treasury wallet therefore becomes an auditable allocation boundary rather than a single undifferentiated balance."], formula: "treasury control = allocation + wallet roles + payment purpose" },
+      { title: "4. Cross-border and payment settlement", sourceRefs: ["00:44:20–01:05:20", "Cross-border transfer", "Payment network settlement"], paragraphs: ["Traditional cross-border banking may move dollars through correspondent accounts and convert them to rupees before reaching an Indian recipient. The lecture contrasts this with direct wallet-to-wallet stablecoin movement over a blockchain network.", "The payment-network diagram names the customer, issuer, acquirer, and merchant. Conventional card or bank settlement and stablecoin settlement are alternative paths that still require clear participants, records, and reconciliation."], formula: "settlement choice = bank rails\ |\ wallet rails + controls" },
+      { title: "5. Policy resources connect technology to institutions", sourceRefs: ["01:05:20–01:18:10", "Blockchain policy resources"], paragraphs: ["Blockchain policy affects finance, governance, identity, supply chains, healthcare, and national security. Policymakers need current interdisciplinary resources to regulate risk, support consumers, enable innovation, coordinate across borders, and balance decentralization with accountability.", "The ecosystem vocabulary includes blocks, hashes, consensus mechanisms, smart contracts, miners, keys, tokens, networks, and previous-block references. Shared terms make legal, technical, and operational discussions more precise."], formula: "policy quality = technical evidence + legal authority + social accountability" },
+      { title: "6. Regulation and smart securities", sourceRefs: ["01:18:10–01:29:25", "National and regional regulatory frameworks", "Smart securities and derivatives"], paragraphs: ["The lecture frames national governments as translating global guidance into binding legal frameworks, with examples including European crypto-asset markets, securities regulators, and risk-based licensing. Challenges include rapid change, limited technical expertise, and tension between control and decentralization.", "Digitized stocks, bonds, and funds can use smart contracts for issuance, ownership transfer, compliance, and settlement. The final caution is that automation changes operational risk but does not remove economic, legal, governance, or regulatory risk."], formula: "automation\ benefit \neq risk\ elimination" },
+    ],
+    insights: [
+      { label: "Architecture", title: "Backing is a control boundary", body: "A stablecoin model should make the issuer, reserves, redemption path, custodial relationships, and wallet permissions explicit before claims of stability are accepted." },
+      { label: "Treasury", title: "Wallet topology encodes responsibility", body: "Separating headquarters, subsidiary, merchant, and payroll wallets can make allocation and reconciliation visible, but only if roles and approvals are governed." },
+      { label: "Settlement", title: "Faster transfer still needs reconciliation", body: "Direct wallet settlement may reduce intermediaries and conversion steps; it does not remove the need to identify counterparties, record purpose, and reconcile balances." },
+      { label: "Policy", title: "Interdisciplinary resources are operational tools", body: "Policy references matter because technical design, legal duties, social impact, and economic incentives interact in the same deployment decision." },
+      { label: "Automation", title: "Code cannot settle legal ambiguity", body: "Smart-contract execution can automate a defined rule, while ownership, liability, disputes, and regulatory interpretation remain socio-technical responsibilities." },
+    ],
+    courseSignals: {
+      assignments: [{ time: "01:29:25", title: "None mentioned in this lecture", detail: "No instructor-assigned assessment was stated in the transcript." }],
+      homework: [{ time: "01:29:25", title: "None mentioned in this lecture", detail: "No homework task was stated in the transcript." }],
+      labs: [{ time: "01:29:25", title: "None mentioned in this lecture", detail: "No lab or practical was stated in the transcript." }],
+      projects: [{ time: "01:29:25", title: "None mentioned in this lecture", detail: "No instructor-assigned project was stated in the transcript." }],
+      references: [{ time: "01:09:40", title: "Blockchain policy resources", detail: "The lecturer discussed policy resources and interdisciplinary documentation; no single required reading was assigned." }],
+      studentQuestions: [{ time: "01:29:25", question: "None mentioned in this lecture", response: "The transcript contains no substantive student question and response." }],
+    },
+    resources: [
+      { kind: "read", title: "FATF Recommendations", url: "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html", detail: "Authoritative global AML/CFT standards for policy context." },
+      { kind: "read", title: "BIS: stablecoins", url: "https://www.bis.org/topics/fintech/stablecoins.htm", detail: "Central-bank research on stablecoin design and policy." },
+      { kind: "read", title: "BIS: tokenisation", url: "https://www.bis.org/topics/tokenisation.htm", detail: "Primary research on tokenized money, assets, and settlement." },
+      { kind: "read", title: "European Commission: Markets in Crypto-assets", url: "https://finance.ec.europa.eu/regulation-and-supervision/financial-services-legislation/markets-crypto-assets-regulation-mica_en", detail: "Official European regulatory framework for crypto-assets." },
+      { kind: "read", title: "SEC investor resources", url: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins", detail: "Primary investor education and risk notices for digital assets and securities." },
+      { kind: "practice", title: "NetworkX documentation", url: "https://networkx.org/documentation/stable/", detail: "Model wallet, issuer, merchant, and settlement relationships with synthetic data." },
+    ],
+    keyTerms: [
+      { term: "Bank-issued stablecoin", definition: "A digital stablecoin model connected to a bank issuer, customer funds, reserves, and wallets." },
+      { term: "Tokenized deposit", definition: "Bank money represented as an on-chain token while linked to a deposit ledger." },
+      { term: "Corporate treasury wallet", definition: "A digital wallet used to allocate and deploy enterprise capital or make controlled payments." },
+      { term: "Payment-network settlement", definition: "The clearing and settlement relationship among customer, issuer, acquirer, and merchant." },
+      { term: "Smart securities", definition: "Digitized stocks, bonds, or funds whose lifecycle rules can be automated by smart contracts." },
+      { term: "Risk-based licensing", definition: "A regulatory approach that calibrates authorization and controls to assessed service-provider risk." },
+    ],
+    quiz,
+  },
+};
