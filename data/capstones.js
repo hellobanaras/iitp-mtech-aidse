@@ -1012,6 +1012,35 @@ export const capstones = Object.freeze({
       "success": "A reviewer can issue, verify, revoke, and replace a sample certificate; distinguish authorization from integrity and availability; inspect every failure state; and justify whether the blockchain architecture is appropriate."
     }
   },
+  "ebb-6401-2026-09-07-183334": {
+    "en": {
+      "title": "Lifecycle Ledger: an auditable contract workflow",
+      "pitch": "Build a small local-first dashboard that makes every smart-contract lifecycle transition, actor, evidence item, and retention decision visible.",
+      "problem": "A successful transaction does not explain who approved it, what was executed, how the record can be retrieved, or why a contract was renewed or disposed.",
+      "learning": "You will model request, construction, approval, execution, records management, search, audit, renewal, and disposal as explicit states with safe failure paths.",
+      "mvp": [
+        "Implement a state machine with role checks, request identifiers, timestamps, and idempotent transitions.",
+        "Emit events for construction, approval, execution, retrieval, audit, renewal, and disposal.",
+        "Render an accessible timeline showing the actor, evidence, policy check, and reason for every transition.",
+        "Demonstrate missing-field, unauthorized-approval, duplicate-request, and premature-disposal failures."
+      ],
+      "stretch": [
+        "Add retention-policy evaluation, legal hold, renewal versions, and a governance-controlled correction path.",
+        "Export a signed audit report that links each state transition to its source evidence.",
+        "Compare the workflow with a conventional database and explain when blockchain adds value."
+      ],
+      "plan": [
+        "Week 1: define actors, states, evidence, identifiers, and retention assumptions.",
+        "Week 2: implement transitions, events, authorization checks, and negative tests.",
+        "Week 3: build the search and audit dashboard with keyboard and screen-reader support.",
+        "Week 4: add renewal/disposal policy checks, export evidence, and present the architecture trade-offs."
+      ],
+      "novelty": "The capstone treats records, retrieval, and policy-driven closure as first-class parts of smart-contract engineering.",
+      "stack": ["Solidity", "Remix", "JavaScript", "Mermaid or SVG", "Vitest"],
+      "milestones": ["Week 1: lifecycle model", "Week 2: contract and tests", "Week 3: evidence dashboard", "Week 4: governance and fit report"],
+      "success": "A reviewer can trace a request from construction through approval and execution, locate its evidence, observe safe failures, and justify renewal or disposal decisions."
+    }
+  },
   "ecs-6401-2026-09-02-180510": {
     "en": {
       "title": "Stationarity Studio: an explainable forecast-diagnostics lab",
