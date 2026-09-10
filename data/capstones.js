@@ -1099,6 +1099,35 @@ export const capstones = Object.freeze({
       "success": "A learner can explain why a series is or is not stationary, justify a transformation and AR order with evidence, reproduce the coefficients, and evaluate the forecast without temporal leakage."
     }
   },
+  "ecc-6404-2026-09-07-193559": {
+    "en": {
+      "title": "MetricLab: a proximity-measure comparison studio",
+      "pitch": "Build an accessible experiment tool that lets learners compare distance and similarity measures on nominal, ordinal, numeric, binary, text, and mixed data.",
+      "problem": "A single default metric can make sparse, mixed, scaled, or correlated objects appear deceptively close or far apart.",
+      "learning": "You will implement min–max transformations, Minkowski distances, SMC, Jaccard, cosine, correlation, Mahalanobis distance, and weighted heterogeneous aggregation.",
+      "mvp": [
+        "Generate small fixtures for nominal, ordinal, numeric, binary, and sparse document data.",
+        "Render side-by-side formulas, pairwise matrices, and an explanation of what each metric treats as evidence.",
+        "Add missing-value and asymmetric-attribute indicators plus adjustable weights for mixed objects.",
+        "Test symmetry, zero self-distance, scale sensitivity, and the effect of shared zeros."
+      ],
+      "stretch": [
+        "Add correlated features and compare Euclidean with Mahalanobis distance after covariance estimation.",
+        "Provide an accessible nearest-neighbour ranking with a rationale for every score.",
+        "Export a reproducible metric-selection report containing data types, transformations, weights, and caveats."
+      ],
+      "plan": [
+        "Week 1: define data fixtures, semantics, and evaluation questions.",
+        "Week 2: implement numeric, binary, cosine, correlation, and ordinal measures.",
+        "Week 3: add mixed-attribute indicators, weights, visual comparison, and accessibility.",
+        "Week 4: evaluate rankings, document trade-offs, and export the report."
+      ],
+      "novelty": "The project treats metric choice as an explicit, inspectable modelling decision rather than a hidden library default.",
+      "stack": ["JavaScript", "SciPy or scikit-learn reference checks", "SVG", "Vitest"],
+      "milestones": ["Week 1: fixtures and semantics", "Week 2: core metrics", "Week 3: mixed data and UI", "Week 4: evaluation report"],
+      "success": "A reviewer can explain why two objects rank differently under SMC, Jaccard, cosine, Euclidean, and correlation, and can reproduce a weighted mixed-attribute result."
+    }
+  },
   "ecc-6404-2026-09-02-193120": {
     "en": {
       "title": "PrepLens: a task-aware data preprocessing workbench",

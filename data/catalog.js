@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 50,
+  filesInventoried: 51,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -666,8 +666,8 @@ export const catalog = {
       icon: "DW",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course76_hybrid_iitp_ac_in/IgAWWFJqFmpXRay8IkonggGRASO0x6czOy20BYDTjv8HHXI?e=5DXrhH",
       status: "active",
-      statusLabel: "6 lectures available",
-      note: "Lectures 1–6 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; the 2 September source is bounded to 00:00:41–01:27:40 and captured at 2× through the visible-tab companion.",
+      statusLabel: "7 lectures available",
+      note: "Lectures 1–7 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; the 7 September proximity lecture is bounded to the sustained teaching interval.",
       lectures: [
         {
           id: "ecc-6404-2026-08-17-193438",
@@ -752,6 +752,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Feature construction and task-aware discretization", "Binary encodings, one-hot attributes, and category reduction", "Variable transformations and similarity/dissimilarity measures"]
+        },
+        {
+          id: "ecc-6404-2026-09-07-193559",
+          number: 7,
+          date: "2026-09-07",
+          sourceRecordedAt: "2026-09-07T19:35:59+05:30",
+          sourceFilename: "Data Warehousing-20260907_193559-Meeting Recording.mp4",
+          displayDate: "7 September 2026",
+          title: "Proximity measures: similarity, distance, binary data, and mixed attributes",
+          duration: "1h 19m 37s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course76_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FData%20Warehousing%2D20260907%5F193559%2DMeeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Similarity, dissimilarity, and range transformations", "Nominal, ordinal, numeric, binary, cosine, and correlation measures", "Mahalanobis distance and weighted heterogeneous attributes"]
         }
       ]
     },
