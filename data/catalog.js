@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 51,
+  filesInventoried: 52,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -666,8 +666,8 @@ export const catalog = {
       icon: "DW",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course76_hybrid_iitp_ac_in/IgAWWFJqFmpXRay8IkonggGRASO0x6czOy20BYDTjv8HHXI?e=5DXrhH",
       status: "active",
-      statusLabel: "7 lectures available",
-      note: "Lectures 1–7 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; the 7 September proximity lecture is bounded to the sustained teaching interval.",
+      statusLabel: "8 lectures available",
+      note: "Lectures 1–8 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; the 9 September statistical-descriptions lecture is bounded to the sustained teaching interval.",
       lectures: [
         {
           id: "ecc-6404-2026-08-17-193438",
@@ -766,6 +766,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Similarity, dissimilarity, and range transformations", "Nominal, ordinal, numeric, binary, cosine, and correlation measures", "Mahalanobis distance and weighted heterogeneous attributes"]
+        },
+        {
+          id: "ecc-6404-2026-09-09-193233",
+          number: 8,
+          date: "2026-09-09",
+          sourceRecordedAt: "2026-09-09T19:32:33+05:30",
+          sourceFilename: "Data Warehousing-20260909_193233-Meeting Recording.mp4",
+          displayDate: "9 September 2026",
+          title: "Statistical descriptions: central tendency, quantiles, dispersion, and plots",
+          duration: "1h 24m 47s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course76_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FData%20Warehousing%2D20260909%5F193233%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Mean, weighted and trimmed mean, median, mode, and mid-range", "Quantiles, quartiles, percentiles, IQR, and five-number summaries", "Box plots, 1.5-IQR outliers, standard deviation, and quantile plots"]
         }
       ]
     },

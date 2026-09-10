@@ -1390,5 +1390,34 @@ export const capstones = Object.freeze({
       "milestones": ["Embeddings", "Attention weights", "Multi-head view", "Accessible export"],
       "success": "A learner can identify the role of Q, K, V, masking, and heads from the interactive trace."
     }
+  },
+  "ecc-6404-2026-09-09-193233": {
+    "en": {
+      "title": "Distribution Lens: an accessible descriptive-statistics explorer",
+      "pitch": "Build a small, accessible dashboard that lets learners compare mean, trimmed mean, median, quartiles, IQR, standard deviation, and a quantile plot for the same data set.",
+      "problem": "A single average can conceal skew, outliers, or multimodality, leaving learners unable to justify a preprocessing decision.",
+      "learning": "You will implement the lecture's central-tendency measures, five-number summary, 1.5-IQR fences, standard deviation, and cumulative quantile view.",
+      "mvp": [
+        "Accept a pasted numeric data set and show sorted values plus minimum, Q1, median, Q3, and maximum.",
+        "Let the learner toggle mean, trimmed mean, median, mode, mid-range, IQR, and standard deviation.",
+        "Render a box plot with whiskers and individually marked suspected outliers.",
+        "Plot each ordered observation against fi=(i−0.5)/n and explain why a chosen center is appropriate."
+      ],
+      "stretch": [
+        "Add ordinal and categorical examples where median or mode is valid but arithmetic mean is not.",
+        "Compare two data sets side by side and export an accessible five-number-summary report.",
+        "Add keyboard-first explanations of how changing the trim fraction changes information loss."
+      ],
+      "plan": [
+        "Week 1: implement parsing, ordering, mean, median, mode, and mid-range tests.",
+        "Week 2: add quartiles, IQR, five-number summary, and 1.5-IQR outlier fences.",
+        "Week 3: implement box and quantile plots with text alternatives.",
+        "Week 4: add comparison mode, accessibility checks, and an evidence export."
+      ],
+      "novelty": "The explorer makes the choice of statistic inspectable: learners can see exactly how skew and extreme values alter each summary.",
+      "stack": ["TypeScript", "SVG", "Accessible HTML table", "Vitest"],
+      "milestones": ["Descriptive measures", "Quartiles and fences", "Box/quantile plots", "Accessible comparison report"],
+      "success": "A learner can justify a center and spread measure for a data set, identify suspected outliers, and cite the visual evidence behind the decision."
+    }
   }
 });
