@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-03",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 49,
+  filesInventoried: 50,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -363,8 +363,8 @@ export const catalog = {
       icon: "SC",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course77_hybrid_iitp_ac_in/IgCEBeWWlU_wQLE9fUZWW9fTAYhpk32mpJi8Lbo6Iba_Cy8?e=5wSELF",
       status: "active",
-      statusLabel: "6 lectures available",
-      note: "Six verified lectures are published. The 7 September session maps request construction, approval, execution, records, audit, renewal, and disposal.",
+      statusLabel: "7 lectures available",
+      note: "Seven verified lectures are published. The 9 September session explains wallets, keys, explorers, Ethereum accounts, and world-state fields.",
       lectures: [
         {
           id: "ebb-6401-2026-08-17-180921",
@@ -449,6 +449,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Nine-stage contract lifecycle", "Validation, approval, execution, and durable evidence", "Search, audited reports, renewal, retention, and disposal"]
+        },
+        {
+          id: "ebb-6401-2026-09-09-180136",
+          number: 7,
+          date: "2026-09-09",
+          sourceRecordedAt: "2026-09-09T18:01:36+05:30",
+          sourceFilename: "Smart contracts and solidity programming-20260909_180136-Meeting Recording.mp4",
+          displayDate: "9 September 2026",
+          title: "Blockchain wallets, Ethereum accounts, and the world state",
+          duration: "1h 29m 29s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course77_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course77_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSmart%20contracts%20and%20solidity%20programming%2D20260909%5F180136%2DMeeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Wallets, keys, addresses, and hot/cold storage", "Signed transaction flow and explorer evidence", "EOA and contract accounts in Ethereum world state"]
         }
       ]
     },

@@ -1012,6 +1012,35 @@ export const capstones = Object.freeze({
       "success": "A reviewer can issue, verify, revoke, and replace a sample certificate; distinguish authorization from integrity and availability; inspect every failure state; and justify whether the blockchain architecture is appropriate."
     }
   },
+  "ebb-6401-2026-09-09-180136": {
+    "en": {
+      "title": "StateScope: an Ethereum account-state explorer",
+      "pitch": "Build an accessible local-first explorer that explains how a wallet signature becomes an Ethereum account-state transition.",
+      "problem": "Learners often confuse wallets, addresses, public keys, private keys, and on-chain assets, making it difficult to reason about what an explorer actually proves.",
+      "learning": "You will model hot/cold wallet risk, signed transactions, EOAs, contract accounts, and the nonce, balance, storage-root, and code-hash fields of world state.",
+      "mvp": [
+        "Create a mock EOA and contract account with clearly labelled address, nonce, balance, storage root, and code hash fields.",
+        "Render a transaction flow from intent and signature through validation, block inclusion, and updated state.",
+        "Add explorer-style lookup by address, transaction hash, block, and contract with a clear evidence boundary.",
+        "Demonstrate rejection for an invalid signature, stale nonce, failed policy condition, and unavailable off-chain payload."
+      ],
+      "stretch": [
+        "Add a cold-chain delivery rule whose payment transition depends on a signed temperature observation.",
+        "Compare a public explorer record with a conventional database record and document what each can and cannot prove.",
+        "Export an accessible state-diff report showing before/after fields, source time, and validation outcome."
+      ],
+      "plan": [
+        "Week 1: define account schemas, key boundaries, threat assumptions, and evidence claims.",
+        "Week 2: implement mock signing, nonce checks, account transitions, and negative tests.",
+        "Week 3: build the explorer views and keyboard/screen-reader labels.",
+        "Week 4: add the policy rule, state-diff export, and integrity-versus-availability comparison."
+      ],
+      "novelty": "The capstone makes the wallet/network boundary and the limits of explorer evidence visible instead of treating a wallet as a coin container.",
+      "stack": ["JavaScript", "Web Crypto API or test doubles", "Mermaid or SVG", "Vitest"],
+      "milestones": ["Week 1: account and threat model", "Week 2: state transitions", "Week 3: explorer and accessibility", "Week 4: policy and evidence report"],
+      "success": "A reviewer can trace a signed action into updated account fields, distinguish EOA from contract control, inspect rejected transitions, and explain why a matching hash does not guarantee availability or truth."
+    }
+  },
   "ebb-6401-2026-09-07-183334": {
     "en": {
       "title": "Lifecycle Ledger: an auditable contract workflow",
