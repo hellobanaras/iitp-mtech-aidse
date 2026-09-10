@@ -1419,5 +1419,20 @@ export const capstones = Object.freeze({
       "milestones": ["Descriptive measures", "Quartiles and fences", "Box/quantile plots", "Accessible comparison report"],
       "success": "A learner can justify a center and spread measure for a data set, identify suspected outliers, and cite the visual evidence behind the decision."
     }
+  },
+  "ecs-6401-2026-09-09-180431": {
+    "en": {
+      "title": "Impulse and seasonality lab",
+      "pitch": "Build an accessible notebook that compares AR, MA, ARIMA, and SARIMA responses to the same synthetic time series.",
+      "problem": "Learners often confuse persistence from lagged values with persistence from lagged shocks and apply differencing without checking the result.",
+      "learning": "Implement MA(2), AR(1), first differencing, seasonal differencing, root checks, and an ADF report with plain-language explanations.",
+      "mvp": ["Generate a series with one known shock and plot its MA(2) and AR(1) impulse responses.", "Let the learner choose d and seasonal period m, then show the transformed series.", "Display AR characteristic roots relative to the unit circle and report the ADF null and p-value interpretation.", "Provide a keyboard-accessible table of every transformation and source-time concept."],
+      "stretch": ["Add ARIMA forecasting with chronological holdout evaluation.", "Compare ordinary and seasonal differencing side by side.", "Export an accessible model-selection evidence card."],
+      "plan": ["Week 1: simulate AR/MA shocks and test impulse plots.", "Week 2: add first and seasonal differencing.", "Week 3: implement roots and ADF diagnostics.", "Week 4: accessibility, evaluation, and export."],
+      "novelty": "The lab makes model memory and stationarity decisions visible as inspectable transformations rather than opaque library calls.",
+      "stack": ["TypeScript", "SVG", "Accessible HTML table", "Vitest"],
+      "milestones": ["Impulse comparison", "Differencing controls", "Root/ADF diagnostics", "Accessible evidence export"],
+      "success": "A learner can explain whether persistence comes from lagged values or shocks, justify a differencing choice, and support stationarity claims with root and ADF evidence."
+    }
   }
 });

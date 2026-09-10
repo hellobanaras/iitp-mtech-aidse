@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-09-03",
+  updated: "2026-09-10",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 52,
+  filesInventoried: 53,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -276,7 +276,7 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "active",
-      statusLabel: "5 lectures available",
+      statusLabel: "7 lectures available",
       note: "The September 4 lecture applies the OSI stack to physical media, IP routing, TCP segmentation, encapsulation, and checksum/CRC integrity checks after a full timeline sweep and bounded visible-tab capture.",
       lectures: [
         {
@@ -651,6 +651,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Centered observations and ACF calculations", "Yule–Walker AR(3) coefficients and PACF", "AR/MA/ARIMA order diagnostics and ADF unit roots"]
+        },
+        {
+          id: "ecs-6401-2026-09-09-180431",
+          number: 7,
+          date: "2026-09-09",
+          sourceRecordedAt: "2026-09-09T18:04:31+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20260909_180431-Meeting Recording.mp4",
+          displayDate: "9 September 2026",
+          title: "Moving-average, ARIMA, SARIMA, and stationarity through worked models",
+          duration: "1h 16m 11s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course129_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FAdvanced%20Time%20Series%20Analysis%2D20260909%5F180431%2DMeeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Finite MA and recursive AR shock memory", "ARIMA/SARIMA differencing and seasonal structure", "Characteristic roots, OLS lag estimation, and ADF unit-root diagnostics"]
         }
       ]
     },
