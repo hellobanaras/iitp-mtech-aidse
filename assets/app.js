@@ -946,11 +946,11 @@ function historyMeeting(meeting) {
 function renderSemesterHistory(ctx) {
   main.innerHTML = `<section class="page-intro"><p class="kicker"><span></span>Semester 1 → Semester 4</p><h1>Four semesters, one class history</h1><div class="page-intro__copy"><p>Subject pages, lecture and lab schedules, and recording folders. India time (IST) is the base; Central Time (CT) is calculated for America/Chicago, including daylight saving and previous-day changes.</p><p>Moodle links checked 12 September 2026. Semester 4 also includes all nine subjects from the existing schedule. Institutional sign-in may be required for source links.</p></div><a class="button button--quiet" href="#/schedule">Current weekly schedule →</a></section>
     <nav class="history-nav section-shell" aria-label="Jump to semester">${semesterHistory.map(semester => `<a class="button button--quiet-light" href="#semester-${semester.semester}" data-scroll="semester-${semester.semester}">Semester ${semester.semester}</a>`).join("")}</nav>
-    <div class="section-shell history-sections">${semesterHistory.map(semester => `<section class="history-semester" id="semester-${semester.semester}"><div class="section-heading"><div><p class="eyebrow">${semester.period}</p><h2>Semester ${semester.semester}</h2></div><span>${semester.courses.length} subjects</span></div><div class="history-grid">${[...semester.courses].sort(compareHistoryCourses).map(course => {
+    <div class="section-shell history-sections">${semesterHistory.map(semester => `<details class="history-semester history-semester--${semester.semester}" id="semester-${semester.semester}"><summary class="history-semester__summary"><span class="history-semester__marker">S${semester.semester}</span><span class="history-semester__title"><span class="eyebrow">${semester.period}</span><h2>Semester ${semester.semester}</h2><span class="history-semester__description">Subjects, recordings & class schedules · IST + CT</span></span><span class="history-semester__meta"><span>${semester.courses.length} subjects</span>${icon("arrow")}</span></summary><div class="history-grid">${[...semester.courses].sort(compareHistoryCourses).map(course => {
       const existing = catalogBase.courses.find(item => item.slug === course.slug);
       const recordings = course.recordingUrl || existing?.recordingUrl;
       return `<article class="history-course"><p class="eyebrow">${escapeHtml(course.code)}</p><h3>${escapeHtml(course.title)}</h3><div class="history-links">${course.moodleUrl ? `<a href="${escapeHtml(course.moodleUrl)}" target="_blank" rel="noreferrer">Moodle subject ↗</a>` : ""}${existing ? `<a href="${href(ctx.lang, coursePath(existing))}">Subject & notes →</a>` : ""}${recordings ? `<a href="${escapeHtml(recordings)}" target="_blank" rel="noreferrer">Recordings ↗</a>` : '<span>Recordings not listed</span>'}</div>${course.note ? `<p class="history-note">${escapeHtml(course.note)}</p>` : ""}${course.meetings.map(historyMeeting).join("")}</article>`;
-    }).join("")}</div></section>`).join("")}</div>`;
+    }).join("")}</div></details>`).join("")}</div>`;
 }
 
 function renderSchedule(ctx) {
@@ -1312,7 +1312,9 @@ document.addEventListener("click", (event) => {
   const scrollLink = event.target.closest("[data-scroll]");
   if (scrollLink) {
     event.preventDefault();
-    document.getElementById(scrollLink.dataset.scroll)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const target = document.getElementById(scrollLink.dataset.scroll);
+    if (target?.matches("details.history-semester")) target.open = true;
+    target?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
   const week = event.target.closest("[data-week]");
   if (week) {

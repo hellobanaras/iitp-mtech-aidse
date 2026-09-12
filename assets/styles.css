@@ -1220,3 +1220,49 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 .history-dates li { padding: .7rem 0; border-bottom: 1px solid #e2e7ed; display: grid; gap: .3rem; }
 .history-date--past { color: #667180; }
 @media (max-width: 760px) { .history-grid { grid-template-columns: 1fr; } .history-course { padding: 1.15rem; } }
+
+.history-sections { gap: 1rem; }
+.history-semester {
+  --semester-accent: var(--cobalt);
+  --semester-tint: #edf2ff;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--semester-accent);
+  border-radius: var(--radius);
+  background: var(--semester-tint);
+  box-shadow: var(--shadow-sm);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.history-semester--2 { --semester-accent: var(--teal); --semester-tint: #e7f8f3; }
+.history-semester--3 { --semester-accent: #b56b00; --semester-tint: #fff5db; }
+.history-semester--4 { --semester-accent: var(--violet); --semester-tint: #f2ebff; }
+.history-semester::before { content: ""; position: absolute; width: 200px; height: 200px; right: -100px; top: -100px; border: 1px solid var(--semester-accent); opacity: .18; border-radius: 50%; pointer-events: none; }
+.history-semester::after { content: ""; position: absolute; inset: 0 0 auto; height: 4px; background: linear-gradient(90deg, var(--semester-accent), transparent); pointer-events: none; }
+.history-semester:hover { border-color: var(--semester-accent); box-shadow: var(--shadow); }
+.history-semester__summary { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; align-items: center; gap: 1.2rem; padding: 1.5rem; cursor: pointer; list-style: none; }
+.history-semester__summary::-webkit-details-marker { display: none; }
+.history-semester__summary:focus-visible { outline: 3px solid var(--semester-accent); outline-offset: -5px; border-radius: inherit; }
+.history-semester__marker { display: grid; place-items: center; width: 56px; height: 56px; background: #ffffffb8; border: 1px solid color-mix(in srgb, var(--semester-accent) 25%, transparent); border-radius: 16px; color: var(--semester-accent); font: 800 1.15rem 'Outfit', sans-serif; }
+.history-semester__title { min-width: 0; }
+.history-semester__title .eyebrow { color: var(--semester-accent); }
+.history-semester__title h2 { margin: .25rem 0; font-size: 1.5rem; }
+.history-semester__description { color: var(--ink-muted); font-size: .85rem; }
+.history-semester__meta { display: flex; align-items: center; gap: 1rem; color: var(--ink-muted); font-size: .8rem; font-weight: 700; }
+.history-semester__meta svg { width: 20px; color: var(--semester-accent); transition: transform .2s ease; }
+.history-semester[open] > summary .history-semester__meta svg { transform: rotate(90deg); }
+.history-semester > .history-grid { padding: 1.25rem; border-top: 1px solid color-mix(in srgb, var(--semester-accent) 20%, transparent); }
+.history-semester .history-course { border-top: 3px solid var(--semester-accent); box-shadow: var(--shadow-sm); }
+.history-semester .history-course > .eyebrow { color: var(--semester-accent); }
+.site-footer { flex-wrap: wrap; align-items: center; }
+.site-footer__history { color: var(--cobalt); text-decoration: underline; text-underline-offset: .2em; }
+.site-footer__history:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 5px; }
+@media (max-width: 600px) {
+  .history-semester__summary { grid-template-columns: 44px minmax(0, 1fr) 20px; gap: .75rem; padding: 1.1rem .9rem; }
+  .history-semester__marker { width: 44px; height: 44px; border-radius: 12px; }
+  .history-semester__title h2 { font-size: 1.3rem; }
+  .history-semester__meta { display: contents; }
+  .history-semester__meta > span { grid-column: 2; grid-row: 2; }
+  .history-semester__meta svg { grid-column: 3; grid-row: 1; }
+  .history-semester > .history-grid { padding: .7rem; }
+}
