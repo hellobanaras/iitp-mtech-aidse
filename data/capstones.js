@@ -1449,5 +1449,20 @@ export const capstones = Object.freeze({
       "milestones": ["Impulse comparison", "Differencing controls", "Root/ADF diagnostics", "Accessible evidence export"],
       "success": "A learner can explain whether persistence comes from lagged values or shocks, justify a differencing choice, and support stationarity claims with root and ADF evidence."
     }
+  },
+  "ecs-6401-2026-09-11-180457": {
+    "en": {
+      "title": "Seasonal model explainer",
+      "pitch": "Build an accessible time-series notebook that expands ARIMA and SARIMA equations into plain-language lag relationships.",
+      "problem": "Learners often lose track of which terms represent autoregression, differencing, moving-average errors, or seasonal lags.",
+      "learning": "Implement first and seasonal differencing, identify p-d-q and seasonal orders, and explain each lag in a fitted equation.",
+      "mvp": ["Let learners enter a period m and display yₜ−yₜ₋ₘ beside first differences.", "Render an annotated ARIMA/SARIMA equation with every AR, difference, MA, and seasonal term labelled.", "Show a source-time concept table linking each transformation to its modelling purpose."],
+      "stretch": ["Add ACF/PACF evidence to suggest candidate orders.", "Compare forecasts before and after seasonal differencing."],
+      "plan": ["Week 1: implement differencing controls.", "Week 2: build equation annotations.", "Week 3: add seasonal examples and diagnostics.", "Week 4: accessibility and export."],
+      "novelty": "The explainer makes the shift-operator algebra inspectable instead of hiding seasonal structure inside a library call.",
+      "stack": ["TypeScript", "SVG", "Accessible HTML table", "Vitest"],
+      "milestones": ["Differencing controls", "Equation annotations", "Seasonal examples", "Accessible evidence export"],
+      "success": "A learner can decode an ARIMA or SARIMA equation, justify its orders, and explain how seasonal differencing changes the series."
+    }
   }
 });

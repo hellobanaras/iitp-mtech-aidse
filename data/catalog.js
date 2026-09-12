@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-09-10",
+  updated: "2026-09-11",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 54,
+  filesInventoried: 55,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -665,6 +665,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Finite MA and recursive AR shock memory", "ARIMA/SARIMA differencing and seasonal structure", "Characteristic roots, OLS lag estimation, and ADF unit-root diagnostics"]
+        },
+        {
+          id: "ecs-6401-2026-09-11-180457",
+          number: 8,
+          date: "2026-09-11",
+          sourceRecordedAt: "2026-09-11T18:04:57+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20260911_180457-Meeting Recording.mp4",
+          displayDate: "11 September 2026",
+          title: "SARIMA seasonal differencing and lag-operator equations",
+          duration: "1h 16m 13s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course129_hybrid_iitp_ac_in%2FDocuments/Recordings/Advanced%20Time%20Series%20Analysis%2D20260911%5F180457%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["AR versus MA lag terms", "Ordinary and seasonal differencing", "Reading and expanding SARIMA equations"]
         }
       ]
     },
