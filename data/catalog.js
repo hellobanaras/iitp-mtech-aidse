@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-09-11",
+  updated: "2026-09-12",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 55,
+  filesInventoried: 56,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -348,6 +348,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Physical media, line coding, and link-level integrity", "IP routing, TCP/UDP, ports, and reliable segmentation", "Encapsulation, checksum verification, and CRC"]
+        },
+        {
+          id: "ecs-6402-2026-09-10-203424",
+          number: 6,
+          date: "2026-09-10",
+          sourceRecordedAt: "2026-09-10T20:34:24+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20260910_203424-Meeting Recording.mp4",
+          displayDate: "10 September 2026",
+          title: "TCP/IP layering, reliable transport, and the IPv4 header",
+          duration: "1h 21m 09s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course75_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSelected%20Topics%20in%20Wireless%20Networks%2D20260910%5F203424%2DMeeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["OSI and TCP/IP model mapping with encapsulation", "TCP/UDP, ports, sequencing, flow control, and retransmission", "IPv4 addressing, fragmentation, TTL, protocol, and header fields"]
         }
       ]
     },

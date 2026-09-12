@@ -1391,6 +1391,35 @@ export const capstones = Object.freeze({
       "success": "A learner can trace one message across two networks, identify every header and owner, and diagnose a deliberate bit error from the verification result."
     }
   },
+  "ecs-6402-2026-09-10-203424": {
+    "en": {
+      "title": "HeaderScope — an accessible TCP/IP packet journey lab",
+      "pitch": "Build a browser visualiser that follows a message through TCP segmentation, IP forwarding, local delivery, decapsulation, and IPv4 header interpretation.",
+      "problem": "Layer diagrams can hide why several addresses, headers, and control functions are needed for one end-to-end exchange.",
+      "learning": "You will model TCP and UDP process delivery, ports, sequence and acknowledgement state, flow and error control, IP addressing modes, IPv4 fragmentation fields, TTL, protocol identification, and header alignment.",
+      "mvp": [
+        "Let a learner enter a short message and choose TCP or UDP, a source/destination, a port, and a route with one or more routers.",
+        "Animate segmentation, encapsulation, forwarding, local delivery, and decapsulation while labelling payload, header, and owner.",
+        "Show stop-and-wait or sliding-window flow control, checksum failure, timeout, and retransmission with a visible event log.",
+        "Render an IPv4 header inspector with version, IHL, service, total length, identification, flags, fragment offset, TTL, protocol, checksum, and address fields."
+      ],
+      "stretch": [
+        "Compare unicast, multicast, anycast, and broadcast destination sets on the same topology.",
+        "Simulate a packet that exceeds a link's maximum size and show fragment offsets, more-fragments state, and reassembly.",
+        "Export a keyboard-accessible evidence card with source-grounded explanations and a no-private-data test trace."
+      ],
+      "plan": [
+        "Week 1: message, process, port, address, protocol-unit, and header data structures.",
+        "Week 2: TCP sequencing, acknowledgements, flow control, timeout, checksum, and retransmission.",
+        "Week 3: IP routing, delivery modes, IPv4 header fields, fragmentation, TTL, and decapsulation.",
+        "Week 4: accessible visualisation, event explanations, deterministic tests, and export."
+      ],
+      "novelty": "The lab makes protocol scope explicit: the learner can see which identity or control field is needed at each hop and why transport reliability is different from router forwarding.",
+      "stack": ["TypeScript", "SVG", "Accessible HTML tables", "Vitest"],
+      "milestones": ["Protocol stack and identities", "Reliable transport controls", "IPv4 header and routing", "Accessible evidence export"],
+      "success": "A learner can trace a message across two networks, explain every visible IPv4 field and transport control, and diagnose whether a failure came from routing, receiver overload, corruption, or missing acknowledgement."
+    }
+  },
   "eai-6403-2026-09-05-154129": {
     "en": {
       "title": "Attention map explainer",

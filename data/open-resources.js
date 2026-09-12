@@ -626,6 +626,30 @@ export const openLearningResources = {
       url: "https://www.rfc-editor.org/info/rfc1071/"
     },
     {
+      provider: "RFC Editor",
+      kind: "Primary IPv4 specification",
+      access: "Free HTML and text",
+      title: "RFC 791 — Internet Protocol",
+      description: "Read the primary IPv4 specification for datagram format, addressing, fragmentation, TTL, protocol identification, and header length.",
+      url: "https://www.rfc-editor.org/rfc/rfc791.html"
+    },
+    {
+      provider: "RFC Editor",
+      kind: "Current transport specification",
+      access: "Free HTML and text",
+      title: "RFC 9293 — Transmission Control Protocol",
+      description: "Connect the lecture's sequencing, acknowledgement, connection, flow-control, and retransmission discussion to the current TCP specification.",
+      url: "https://www.rfc-editor.org/rfc/rfc9293.html"
+    },
+    {
+      provider: "RFC Editor",
+      kind: "Primary UDP specification",
+      access: "Free HTML and text",
+      title: "RFC 768 — User Datagram Protocol",
+      description: "Compare UDP's lightweight datagram service with the connection-oriented TCP behaviour discussed in the lecture.",
+      url: "https://www.rfc-editor.org/rfc/rfc768.html"
+    },
+    {
       provider: "GNU Radio",
       kind: "Open practice tutorials",
       access: "Free documentation and software",
