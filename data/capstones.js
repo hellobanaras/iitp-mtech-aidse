@@ -1493,5 +1493,20 @@ export const capstones = Object.freeze({
       "milestones": ["Differencing controls", "Equation annotations", "Seasonal examples", "Accessible evidence export"],
       "success": "A learner can decode an ARIMA or SARIMA equation, justify its orders, and explain how seasonal differencing changes the series."
     }
+  },
+  "ebb-6403-2026-09-12-054641": {
+    "en": {
+      "title": "Trapdoor Notebook: an auditable public-key arithmetic lab",
+      "pitch": "Build a local-first teaching notebook that compares a superincreasing knapsack, Merkle–Hellman transformation, and RSA while exposing every intermediate value and security assumption.",
+      "problem": "Public-key formulas are easy to copy without understanding which structure is hidden, which value is the trapdoor, or why toy parameters are insecure. Learners need an inspectable path from arithmetic to threat model.",
+      "learning": "Implement subset-sum recovery, modular inverses, RSA key generation, square-and-multiply, and a plain-language security review that distinguishes classroom arithmetic from production cryptography.",
+      "mvp": ["Let a learner define a superincreasing private sequence and target bits, then show greedy recovery.", "Generate a Merkle–Hellman-style public sequence with clearly labelled parameters and warn that it is historical material.", "Generate toy RSA keys, encrypt/decrypt encoded small messages, and display every modular step.", "Export an accessible evidence report containing parameters, formulas, source-time links, and explicit toy-parameter warnings."],
+      "stretch": ["Add an interactive modular-inverse and extended-Euclidean visualizer.", "Compare square-and-multiply with naive exponentiation on progressively larger safe demonstration values.", "Add signature verification as a separate workflow and explain why confidentiality and authentication are different goals.", "Create a standards checklist linking the classroom model to padding, randomness, key sizes, and key lifecycle controls."],
+      "plan": ["Week 1: implement exact arithmetic, subset-sum recovery, modular inverse, and deterministic tests.", "Week 2: add Merkle–Hellman and RSA toy workflows with annotated intermediate values.", "Week 3: implement square-and-multiply traces, accessibility, and security-assumption warnings.", "Week 4: package the evidence export, compare historical and standardized designs, and write a limitations report."],
+      "novelty": "The lab makes the trapdoor, arithmetic shortcut, and deployment boundary visible in one reproducible learning object.",
+      "stack": ["TypeScript", "SVG", "Accessible HTML tables", "Vitest"],
+      "milestones": ["Subset-sum recovery", "Modular transformations", "RSA trace", "Accessible security report"],
+      "success": "A learner can trace a toy public-key computation, identify its secret trapdoor, and explain why production cryptography requires standardized protections beyond the lecture formulas."
+    }
   }
 });

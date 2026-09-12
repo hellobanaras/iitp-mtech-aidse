@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-12",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 56,
+  filesInventoried: 57,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -492,8 +492,8 @@ export const catalog = {
       icon: "SP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course78_hybrid_iitp_ac_in/IgCwVcRuGq_lR6u1S5D-yQeRAb5jOjVzObdfYRB-vn1qvBQ?e=wtwqhi",
       status: "active",
-      statusLabel: "3 lectures available",
-      note: "Three verified lectures are published. The 29 August cryptography note excludes the opening wait before 11:17 and the participant-only tail after 1:40:47.",
+      statusLabel: "6 lectures available",
+      note: "Six verified lectures are published. View-only sources were captured at 2× with setup and idle tails excluded after full timeline sweeps.",
       lectures: [
         {
           id: "ebb-6403-2026-08-21-075934",
@@ -564,6 +564,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Public/private key pairs and confidentiality", "Modular and Fermat arithmetic", "Trapdoor one-wayness and public-key security properties"]
+        },
+        {
+          id: "ebb-6403-2026-09-12-054641",
+          number: 6,
+          date: "2026-09-12",
+          sourceRecordedAt: "2026-09-12T05:46:41+05:30",
+          sourceFilename: "Security and Privacy for Big Data-20260912_054641-Meeting Recording.mp4",
+          displayDate: "12 September 2026",
+          title: "Public-key cryptography: knapsack trapdoors, Merkle–Hellman, and RSA",
+          duration: "1h 38m 09s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course78_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course78_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSecurity+and+Privacy+for+Big+Data-20260912_054641-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Public-key purposes, authentication, and trapdoor one-wayness", "Knapsack and Merkle–Hellman subset-sum construction", "RSA key generation, modular exponentiation, encryption, and decryption"]
         }
       ]
     },

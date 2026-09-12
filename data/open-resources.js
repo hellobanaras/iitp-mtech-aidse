@@ -1229,6 +1229,22 @@ export const openLearningResources = {
       title: "CrypTool Portal",
       description: "Hands-on visual tools for testing classical ciphers, frequency analysis, and modern cryptographic concepts safely.",
       url: "https://www.cryptool.org/en/"
+    },
+    {
+      provider: "IETF",
+      kind: "Public-key cryptography standard",
+      access: "Free public RFC",
+      title: "RFC 8017: PKCS #1 v2.2",
+      description: "Primary specification for RSA encryption, signatures, encoding, and key-related scheme details.",
+      url: "https://www.rfc-editor.org/rfc/rfc8017.html"
+    },
+    {
+      provider: "NIST",
+      kind: "Key-management guidance",
+      access: "Free public standard",
+      title: "SP 800-57 Part 1 Revision 5",
+      description: "Guidance for protecting, rotating, and retiring cryptographic keys in deployed systems.",
+      url: "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
     }
   ]
 };
