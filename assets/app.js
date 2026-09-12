@@ -956,7 +956,7 @@ function renderSemesterHistory(ctx) {
         <p class="eyebrow">${escapeHtml(course.code)}</p><h3>${escapeHtml(course.title)}</h3>
         ${course.note ? `<p class="course-note">${escapeHtml(course.note)}</p>` : ""}
         <div class="history-meetings">${course.meetings.map(historyMeeting).join("")}</div>
-        <div class="card-actions">${recordings ? `<a class="button button--quiet-light" href="${escapeHtml(recordings)}" target="_blank" rel="noreferrer">All subject recordings ${icon("video")}</a>` : ""}${course.moodleUrl ? `<a class="button button--quiet-light" href="${escapeHtml(course.moodleUrl)}" target="_blank" rel="noreferrer">Moodle subject ${icon("external")}</a>` : ""}${existing ? `<a class="button button--quiet-light" href="${href(ctx.lang, coursePath(existing))}">Open subject & notes ${icon("arrow")}</a>` : ""}</div>
+        <div class="card-actions">${recordings ? `<a class="button button--quiet-light button--recordings" href="${escapeHtml(recordings)}" target="_blank" rel="noreferrer">All subject recordings ${icon("video")}</a>` : ""}${course.moodleUrl ? `<a class="button button--quiet-light button--moodle" href="${escapeHtml(course.moodleUrl)}" target="_blank" rel="noreferrer">Moodle subject ${icon("external")}</a>` : ""}${existing ? `<a class="button button--quiet-light button--subject-notes" href="${href(ctx.lang, coursePath(existing))}">Open subject & notes ${icon("arrow")}</a>` : ""}</div>
       </article>`;
     }).join("")}</div></details>`).join("")}</div>`;
 }

@@ -1293,3 +1293,17 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
   border-bottom-color: var(--semester-accent);
   outline-color: var(--semester-accent);
 }
+
+/* Color variants retain the shared button geometry and interaction behavior. */
+.button--recordings { --link-color: #087568; --link-bg: #def7ee; --link-border: #80cdb8; }
+.button--moodle { --link-color: #934b00; --link-bg: #fff0cd; --link-border: #efc16d; }
+.button--subject-notes { --link-color: #5e32a8; --link-bg: #eee5ff; --link-border: #bca0e8; }
+.button--recordings, .button--moodle, .button--subject-notes {
+  color: var(--link-color); background: var(--link-bg); border-color: var(--link-border);
+}
+.button--recordings:hover, .button--moodle:hover, .button--subject-notes:hover {
+  color: var(--link-color); background: color-mix(in srgb, var(--link-bg) 85%, var(--link-border)); border-color: var(--link-color);
+}
+.button--recordings:focus-visible, .button--moodle:focus-visible, .button--subject-notes:focus-visible {
+  outline: 3px solid var(--link-color); outline-offset: 3px;
+}
