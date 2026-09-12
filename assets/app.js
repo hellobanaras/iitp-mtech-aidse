@@ -5,7 +5,7 @@ const [
   { lectureNotes },
   { capstones },
   { ui },
-  { semesterSchedule, scheduleBySlug, meetingsForCourse },
+  { semesterSchedule, scheduleBySlug, meetingsForCourse, semesterHistory, compareHistoryCourses },
   { courseResources },
   { openLearningResources },
   { programProfile },
@@ -285,6 +285,8 @@ function updateSeo(route, ctx, parts = []) {
       description: `Browse ${catalog.courses.length} IIT Patna AI & Data Science subjects with class schedules, recordings, resources, and chronological lecture notes.`,
       keywords: ["IIT Patna subjects", "AI courses", "data science courses", ...catalog.courses.map((course) => course.title)]
     };
+  } else if (route === "/schedule/history") {
+    seo = { ...defaults, title: "Four-semester class history · IIT Patna Lecture Atlas", description: "Semester 1–4 subjects, recordings, and historical class schedules in IST and daylight-saving-aware Central Time." };
   } else if (route === "/schedule") {
     seo = {
       title: "Class Schedule · IIT Patna AI & Data Science Lecture Atlas",
@@ -906,6 +908,51 @@ function timeZonePresentation(course, variant = "standard", occurrence = null, m
   </section>`;
 }
 
+
+function historyDates(meeting) {
+  // Undated legacy schedules get timezone examples only, never class occurrences.
+  return dateRange(meeting.startsOn || "2025-01-01", meeting.endsOn || "2025-12-31")
+    .filter(key => meeting.weekdays.includes(new Date(`${key}T12:00:00Z`).getUTCDay()));
+}
+
+function historyTime(dateKey, meeting, zone, includeDate = false) {
+  const start = indiaDateToUtc(dateKey, meeting.start);
+  const end = indiaDateToUtc(dateKey, meeting.end);
+  const date = value => new Intl.DateTimeFormat("en-US", { timeZone: zone, weekday: "short", ...(includeDate ? {year: "numeric", month: "short", day: "numeric"} : {}) }).format(value);
+  const crosses = zonedDateKey(start, zone) !== zonedDateKey(end, zone);
+  const startZone = zone === "Asia/Kolkata" ? "IST" : zoneName(start, zone);
+  const endZone = zone === "Asia/Kolkata" ? "IST" : zoneName(end, zone);
+  return `${date(start)} · ${zoneClock(start, zone)}${startZone !== endZone ? ` ${startZone}` : ""} – ${crosses ? `${date(end)} · ` : ""}${zoneClock(end, zone)} ${endZone}`;
+}
+
+function historyMeeting(meeting) {
+  const dated = Boolean(meeting.startsOn && meeting.endsOn);
+  const dates = historyDates(meeting);
+  const variants = new Map();
+  dates.forEach(date => {
+    const text = historyTime(date, meeting, "America/Chicago");
+    const group = variants.get(text) || {first: date, last: date};
+    group.last = date;
+    variants.set(text, group);
+  });
+  const days = meeting.weekdays.map(day => ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][day]).join(" & ");
+  const range = dated ? `${meeting.startsOn} → ${meeting.endsOn}` : "Original timetable · dates not specified";
+  return `<div class="history-meeting"><strong>${escapeHtml(meeting.label || "Lecture")}</strong><p class="history-ist">${days} · ${formatWallClock(meeting.start)} – ${formatWallClock(meeting.end)} IST</p><small>${range}</small><div class="history-ct"><span class="eyebrow">Central Time · America/Chicago</span>${[...variants].map(([text, group]) => `<p>${escapeHtml(text)}${dated ? `<small>IST dates ${group.first} – ${group.last}</small>` : ""}</p>`).join("")}</div>${dated ? `<details class="history-dates"><summary>View ${dates.length} scheduled dates in IST and CT</summary><p>Calculated from the published recurrence; cancellations and attendance are not recorded here.</p><ol>${dates.map(date => {
+    const past = indiaDateToUtc(date, meeting.end) <= new Date();
+    return `<li class="${past ? "history-date--past" : ""}"><span>${historyTime(date, meeting, "Asia/Kolkata", true)}</span><span>${historyTime(date, meeting, "America/Chicago", true)}</span>${past ? '<small>Past class</small>' : meeting.joinUrl ? `<a href="${escapeHtml(meeting.joinUrl)}" target="_blank" rel="noreferrer">Join session ↗</a>` : ""}</li>`;
+  }).join("")}</ol></details>` : '<p class="history-note">CST/CDT examples only: the timetable has no start or end dates. The CT weekday can be the previous day.</p>'}</div>`;
+}
+
+function renderSemesterHistory(ctx) {
+  main.innerHTML = `<section class="page-intro"><p class="kicker"><span></span>Semester 1 → Semester 4</p><h1>Four semesters, one class history</h1><div class="page-intro__copy"><p>Subject pages, lecture and lab schedules, and recording folders. India time (IST) is the base; Central Time (CT) is calculated for America/Chicago, including daylight saving and previous-day changes.</p><p>Moodle links checked 12 September 2026. Semester 4 also includes all nine subjects from the existing schedule. Institutional sign-in may be required for source links.</p></div><a class="button button--quiet" href="#/schedule">Current weekly schedule →</a></section>
+    <nav class="history-nav section-shell" aria-label="Jump to semester">${semesterHistory.map(semester => `<a class="button button--quiet-light" href="#semester-${semester.semester}" data-scroll="semester-${semester.semester}">Semester ${semester.semester}</a>`).join("")}</nav>
+    <div class="section-shell history-sections">${semesterHistory.map(semester => `<section class="history-semester" id="semester-${semester.semester}"><div class="section-heading"><div><p class="eyebrow">${semester.period}</p><h2>Semester ${semester.semester}</h2></div><span>${semester.courses.length} subjects</span></div><div class="history-grid">${[...semester.courses].sort(compareHistoryCourses).map(course => {
+      const existing = catalogBase.courses.find(item => item.slug === course.slug);
+      const recordings = course.recordingUrl || existing?.recordingUrl;
+      return `<article class="history-course"><p class="eyebrow">${escapeHtml(course.code)}</p><h3>${escapeHtml(course.title)}</h3><div class="history-links">${course.moodleUrl ? `<a href="${escapeHtml(course.moodleUrl)}" target="_blank" rel="noreferrer">Moodle subject ↗</a>` : ""}${existing ? `<a href="${href(ctx.lang, coursePath(existing))}">Subject & notes →</a>` : ""}${recordings ? `<a href="${escapeHtml(recordings)}" target="_blank" rel="noreferrer">Recordings ↗</a>` : '<span>Recordings not listed</span>'}</div>${course.note ? `<p class="history-note">${escapeHtml(course.note)}</p>` : ""}${course.meetings.map(historyMeeting).join("")}</article>`;
+    }).join("")}</div></section>`).join("")}</div>`;
+}
+
 function renderSchedule(ctx) {
   const { lang, text, locale } = ctx;
   const now = new Date();
@@ -918,6 +965,7 @@ function renderSchedule(ctx) {
   const weekKey = scheduleWeeks[scheduleWeekIndex];
   const days = Array.from({ length: 7 }, (_, index) => addDays(weekKey, index));
   main.innerHTML = `<section class="page-intro page-intro--schedule"><p class="kicker"><span></span>${text.schedule}</p>${bilingualCopy(ui.en.weeklySchedule, ui.hi.weeklySchedule, "h1")}${bilingualCopy(ui.en.scheduleIntro, ui.hi.scheduleIntro, "div", "page-intro__copy")}</section>
+    <div class="section-shell"><a class="button button--quiet-light" href="#/schedule/history">Semester 1–4 history · subjects, schedules & recordings →</a></div>
     <section class="section-shell schedule-shell">
       <div class="schedule-toolbar"><button type="button" class="button button--quiet-light" data-week="-1" ${scheduleWeekIndex === 0 ? "disabled" : ""}>← ${text.previousWeek}</button><div><span>${text.weekOf}</span>${bilingualCopy(formatPlainDate(weekKey, "en-US", { month: "long", day: "numeric", year: "numeric" }), formatPlainDate(weekKey, hindiDateLocale, { month: "long", day: "numeric", year: "numeric" }), "strong", "schedule-toolbar__date")}</div><button type="button" class="button button--quiet-light" data-week="1" ${scheduleWeekIndex === scheduleWeeks.length - 1 ? "disabled" : ""}>${text.nextWeek} →</button></div>
       <div class="week-calendar">${days.map((dayKey) => {
@@ -1098,6 +1146,7 @@ function route() {
   setChrome(ctx, parsed.route);
   if (parsed.route === "/") renderHome(ctx);
   else if (parsed.route === "/courses") renderCourses(ctx);
+  else if (parsed.route === "/schedule/history") renderSemesterHistory(ctx);
   else if (parsed.route === "/schedule") renderSchedule(ctx);
   else if (parsed.route === "/resources") renderResources(ctx);
   else if (parsed.route.startsWith("/resources/")) {

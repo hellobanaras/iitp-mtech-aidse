@@ -76,6 +76,7 @@ const publishedLectures = catalog.courses.flatMap((course) =>
 );
 
 const pages = [
+  { segments: ["schedule", "history"], title: "Four-semester class history · IIT Patna Lecture Atlas", description: "Semester 1–4 subject links, recordings, lecture and lab schedules in IST and daylight-saving-aware Central Time.", keywords: ["IIT Patna", "semester schedule", "class history", "IST", "Central Time"] },
   {
     segments: ["courses"],
     title: "Subjects & Courses · IIT Patna AI & Data Science Lecture Atlas",
