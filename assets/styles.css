@@ -1203,12 +1203,8 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 .history-nav { display: flex; flex-wrap: wrap; gap: .7rem; padding-top: 1.5rem; padding-bottom: 1.5rem; }
 .history-sections { display: grid; gap: 3rem; padding-top: 1.5rem; padding-bottom: 3rem; }
 .history-semester { scroll-margin-top: 7rem; }
-.history-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; align-items: start; }
-.history-course { background: #fff; border: 1px solid #dce3e9; border-radius: 18px; padding: 1.5rem; min-width: 0; }
-.history-course h3 { margin: .4rem 0 1rem; font-size: 1.35rem; line-height: 1.35; }
-.history-links { display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; margin-bottom: 1rem; font-weight: 600; }
-.history-links a { color: #2054a0; text-decoration: underline; text-underline-offset: 3px; }
-.history-meeting { padding-top: 1rem; margin-top: 1rem; border-top: 1px solid #e2e7ed; }
+.history-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.2rem; align-items: start; }
+.history-meeting { align-content: start; margin: 0; }
 .history-ist { font-weight: 650; margin: .4rem 0; }
 .history-ct { background: #f1f5fa; padding: .8rem 1rem; border-radius: 10px; margin-top: .8rem; }
 .history-ct p { margin: .45rem 0; }
@@ -1219,7 +1215,7 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 .history-dates ol { list-style: none; padding: 0; max-height: 24rem; overflow: auto; }
 .history-dates li { padding: .7rem 0; border-bottom: 1px solid #e2e7ed; display: grid; gap: .3rem; }
 .history-date--past { color: #667180; }
-@media (max-width: 760px) { .history-grid { grid-template-columns: 1fr; } .history-course { padding: 1.15rem; } }
+
 
 .history-sections { gap: 1rem; }
 .history-semester {
@@ -1252,8 +1248,6 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 .history-semester__meta svg { width: 20px; color: var(--semester-accent); transition: transform .2s ease; }
 .history-semester[open] > summary .history-semester__meta svg { transform: rotate(90deg); }
 .history-semester > .history-grid { padding: 1.25rem; border-top: 1px solid color-mix(in srgb, var(--semester-accent) 20%, transparent); }
-.history-semester .history-course { border-top: 3px solid var(--semester-accent); box-shadow: var(--shadow-sm); }
-.history-semester .history-course > .eyebrow { color: var(--semester-accent); }
 .site-footer { flex-wrap: wrap; align-items: center; }
 .site-footer__history { color: var(--cobalt); text-decoration: underline; text-underline-offset: .2em; }
 .site-footer__history:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 5px; }
@@ -1266,3 +1260,18 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
   .history-semester__meta svg { grid-column: 3; grid-row: 1; }
   .history-semester > .history-grid { padding: .7rem; }
 }
+
+/* History only adapts layout; subject appearance comes from course-card,
+   course-monogram, status, card-actions and time-zone-panel above. */
+.history-course { min-height: 0; }
+.history-meetings { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; margin: .5rem 0 1.6rem; }
+.history-meetings:empty { display: none; }
+.history-nav { gap: 0; }
+.history-nav__item { flex: 1; display: flex; align-items: center; justify-content: center; gap: .6rem; padding: 1rem .6rem; border-bottom: 2px solid var(--line); color: var(--ink-muted); font-weight: 700; font-size: .85rem; transition: color .2s, border-color .2s; }
+.history-nav__item > span { color: var(--cobalt); font: 800 .75rem 'Outfit', sans-serif; }
+.history-nav__item > svg { width: 15px; }
+.history-nav__item:hover, .history-nav__item:focus-visible { color: var(--cobalt); border-bottom-color: var(--cobalt); background: #eef2ff; }
+.history-nav__item:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 2px; }
+@media (min-width: 700px) { .history-meetings { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .history-meetings { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } }
+@media (max-width: 480px) { .history-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } }
