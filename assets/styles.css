@@ -1275,3 +1275,21 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 @media (min-width: 700px) { .history-meetings { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1100px) { .history-meetings { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } }
 @media (max-width: 480px) { .history-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.history-nav__item {
+  --semester-accent: var(--cobalt);
+  --semester-tint: #edf2ff;
+  background: var(--semester-tint);
+  color: var(--semester-accent);
+  border-bottom-color: color-mix(in srgb, var(--semester-accent) 45%, transparent);
+}
+.history-nav__item.history-semester--2 { --semester-accent: var(--teal); --semester-tint: #e7f8f3; }
+.history-nav__item.history-semester--3 { --semester-accent: #b56b00; --semester-tint: #fff5db; }
+.history-nav__item.history-semester--4 { --semester-accent: var(--violet); --semester-tint: #f2ebff; }
+.history-nav__item > span { color: inherit; }
+.history-nav__item:hover, .history-nav__item:focus-visible {
+  color: var(--semester-accent);
+  background: color-mix(in srgb, var(--semester-tint) 88%, var(--semester-accent));
+  border-bottom-color: var(--semester-accent);
+  outline-color: var(--semester-accent);
+}
