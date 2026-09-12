@@ -14,3 +14,5 @@ Known source qualifications:
 - Calculated recurrence dates are scheduled occurrences, not evidence of attendance or of a recording. Cancellations are not known.
 
 IST is always first on this history page. CT uses America/Chicago for each scheduled date, including previous-day dates and different start/end abbreviations during a DST transition. Past occurrences have no Join action. `tools/test_schedule_history.mjs`, included in `npm run check`, covers those boundaries and course classification.
+
+Semester 1 month label: January–May 2025, verified against the official Spring AY 2024–2025 calendar linked from Moodle resource 2503: https://cetpgex.iitp.ac.in/images/pdf/Academic%20Calendar/198.pdf. First instruction: 18 January 2025; last instruction: 2 May 2025; end-semester exams run through 31 May 2025.

@@ -164,7 +164,7 @@ const historicalCourse = (code, title, moodleId, recordingPath, meetings, note =
   meetings, note
 });
 export const semesterHistory = [
-  { semester: 1, period: "Spring 2025", courses: [
+  { semester: 1, period: "January–May 2025", courses: [
     historicalCourse("EAI 6103", "Advanced Machine Learning", 260, "eais1e3_iitp_ac_in/ElVmbcgat8lPlRMbn7ksxAMB_PC-yMcEYSaKWK16kio9GQ?e=jOPSz7", [historicalMeeting([0], "15:00", "16:30"), historicalMeeting([0], "19:30", "21:00")]),
     historicalCourse("EMC 5103", "Probability and Statistics", 256, "emc5103_iitp_ac_in/EqOZpJjcCHVHvp8HHwYufPkBFx21NStsrsVzf0ONGkBupw?e=faE4aY", [historicalMeeting([6,0], "11:30", "13:00"), historicalMeeting([6], "17:00", "19:00", null, null, "Lab")], "The course heading uses EMC 5103; the timetable and recording resource label use ECS 5103."),
     historicalCourse("EHS 5104", "Technical Writing and Soft Skills", 257, "ehs5104_iitp_ac_in/EoTbXazmKlBPtP0mH0zzaxMBrjDCF9MAtNe0P0lR4qF7gA?e=pdT41B", [historicalMeeting([4,5], "19:30", "21:00"), historicalMeeting([0], "17:00", "19:00", null, null, "Lab")]),
