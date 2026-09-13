@@ -1,0 +1,102 @@
+// English-only publication unit for the verified 11 September 2026 recording.
+const quizSeed = [
+  ["How long is an IPv4 address?", ["32 bits", "48 bits", "64 bits", "128 bits"], 0, "The lecture contrasts the 32-bit IPv4 address with the 128-bit IPv6 address."],
+  ["How long is an IPv6 address?", ["128 bits", "32 bits", "16 bits", "48 bits"], 0, "IPv6 is introduced as a 128-bit address space."],
+  ["What two parts are used when explaining a classful IPv4 address?", ["Network bits and host bits", "Port bits and checksum bits", "Payload bits and video bits", "Login bits and session bits"], 0, "The lecture divides the address into a network component and a host component."],
+  ["What is the broad class A trade-off?", ["Few networks with many hosts per network", "Many networks with few hosts per network", "Only multicast delivery", "No host bits"], 0, "Class A reserves fewer bits for networks and more for hosts."],
+  ["What is the broad class C trade-off?", ["Many networks with few hosts per network", "Few networks with many hosts per network", "Only broadcast delivery", "No network bits"], 0, "Class C uses more network bits and leaves fewer host bits."],
+  ["What is the first-octet range discussed for class A?", ["0 to 127", "128 to 191", "192 to 223", "224 to 255"], 0, "The fixed leading zero makes the class A first octet range 0–127."],
+  ["What is the first-octet range discussed for class B?", ["128 to 191", "0 to 127", "192 to 223", "224 to 239"], 0, "The class B prefix begins with 10, producing the 128–191 range."],
+  ["What is the first-octet range discussed for class C?", ["192 to 223", "0 to 127", "128 to 191", "224 to 255"], 0, "The class C prefix begins with 110, producing the 192–223 range."],
+  ["What does a subnet mask identify?", ["The network portion while masking the host portion", "The microphone volume", "The application password", "The physical screen"], 0, "The lecture uses ones for the network bits and zeros for the host bits."],
+  ["What subnet mask is shown for a class A address?", ["255.0.0.0", "255.255.0.0", "255.255.255.0", "0.0.0.0"], 0, "One network octet followed by three host octets gives 255.0.0.0."],
+  ["Why are two host values commonly unavailable in the classful explanation?", ["One identifies the network and one is the broadcast address", "They are reserved for TCP ports", "They carry the IPv6 header", "They are used for video frames"], 0, "The lecture excludes the network address and the final broadcast address from usable hosts."],
+  ["Why is IPv6 needed in the lecture's motivation?", ["IPv4's 32-bit space is too small for the growth of connected devices", "IPv6 removes all routing", "IPv6 is only for analogue voice", "IPv6 replaces every MAC address"], 0, "The lecture compares the 4.3-billion-scale IPv4 space with much larger device projections."],
+  ["What is the purpose of the IPv6 hop limit?", ["To prevent a packet from circulating indefinitely", "To select a phone model", "To increase the payload length", "To assign a MAC address"], 0, "Each router decrements the hop limit and discards the packet when it reaches zero."],
+  ["What does the IPv6 flow label help express?", ["A packet-flow identity used for priority or handling decisions", "The host's screen size", "The class A prefix", "The checksum complement"], 0, "The lecture connects flow identification with deciding which traffic factor has priority."],
+  ["What does the OSI presentation layer provide in the recap?", ["Data-format and syntax independence for applications", "Physical antenna placement", "Router queue length", "A broadcast address"], 0, "Presentation responsibilities include bringing differing representations into a common format."],
+  ["What is a network-layer responsibility in the OSI recap?", ["Selecting a route among interconnected nodes", "Assigning a keyboard shortcut", "Changing a video frame rate", "Writing a password"], 0, "The network layer is described as establishing, maintaining, and terminating routing paths."],
+  ["What homework topic did the instructor explicitly suggest?", ["Explore the components and differences of TCP and UDP", "Submit a private credential", "Upload a recording to SharePoint", "Redraw every lecture slide"], 0, "The instructor explicitly framed TCP and UDP components as homework exploration."],
+  ["What makes cellular wireless communication different from a landline in the lecture?", ["The mobile endpoint can move while remaining connected through the network", "It has no network layer", "It uses only broadcast addresses", "It cannot carry data"], 0, "Mobility and convenient access are used to motivate cellular wireless communication."],
+  ["What was the primary 1G service in the overview?", ["Analogue voice communication", "High-capacity cloud applications", "Immersive extended reality", "Massive machine connectivity"], 0, "The lecture characterises 1G as analogue and focused on voice."],
+  ["What did 2G add in the generation overview?", ["Digital voice and messaging", "IPv6 header fields", "Only fibre transmission", "Autonomous surgery"], 0, "2G is described as digital voice and messaging with basic security."],
+  ["What major capability is associated with 3G?", ["Mobile Internet and multimedia data", "Only analogue voice", "No packet data", "Only local Ethernet"], 0, "The overview connects 3G with packet data, Internet browsing, video calls, and multimedia."],
+  ["What is 4G associated with in the lecture?", ["Mobile broadband and higher spectral efficiency", "Analogue-only calling", "No mobility", "Only subnet-mask calculation"], 0, "4G is presented as mobile broadband with high spectral efficiency and lower latency."],
+  ["What does eMBB stand for?", ["Enhanced Mobile Broadband", "Encoded MAC Broadcast", "Extended Medium Bit Buffer", "End-to-end Mobile Backbone"], 0, "The lecture expands eMBB as Enhanced Mobile Broadband."],
+  ["What does URLLC stand for?", ["Ultra-Reliable Low-Latency Communication", "User Routing Link Layer Control", "Universal Radio Login and Call", "Updated Relay Link Load Calculation"], 0, "URLLC is named as a key 5G service category for reliability and low latency."],
+  ["Which technology combination is mentioned for later-generation wireless systems?", ["LTE/LTE-Advanced, OFDM, MIMO, and beamforming", "Only twisted-pair and CRC", "Only IPv4 broadcast", "Only analogue AMPS"], 0, "The closing technology overview mentions LTE, LTE-Advanced, OFDM, MIMO, many antennas, and beamforming."],
+];
+
+const quiz = quizSeed.map(([question, options, answer, explanation]) => ({
+  question, options, answer, explanation,
+  optionNotes: options.map((option, index) => index === answer
+    ? `Correct: ${option}. ${explanation}`
+    : `Incorrect: ${option} does not match the lecture's explanation.`),
+}));
+
+export const ecs6402Lecture20260911203535 = {
+  en: {
+    title: "IPv4 classes and subnet masks, IPv6 headers, and cellular generations",
+    lede: "This lecture classifies IPv4 network and host bits, derives address ranges and subnet masks, motivates IPv6, and then surveys cellular wireless generations from 1G through emerging 6G capabilities.",
+    instructionalInterval: "00:01:40–01:27:53 source time (lead-in, internal participant/chat break, and idle tail excluded)",
+    reviewLevel: "Full seven-point visible Stream sweep, audio-enabled 2× visible-tab capture, source-time-bounded processing, timestamped transcript, internal-break record, and idle-tail decision verified.",
+    coverage: [
+      { title: "Classful IPv4 addressing", body: "The lecture uses network bits, host bits, fixed prefixes, octets, and class A/B/C trade-offs to explain address ranges." },
+      { title: "Subnet masks and IPv6 motivation", body: "Binary AND and subnet masks isolate the network portion, while IPv6's 128-bit space addresses the growth of connected devices." },
+      { title: "IPv6 header concepts", body: "Hop limit, flow identification, payload length, next-header context, and differentiated services are connected to packet handling." },
+      { title: "OSI recap and TCP/UDP practice", body: "The OSI presentation, session, transport, network, and physical responsibilities are revisited, with TCP/UDP components suggested for homework exploration." },
+      { title: "Cellular wireless evolution", body: "1G through 6G are compared by voice, messaging, mobile Internet, broadband, latency, reliability, massive connectivity, sensing, and emerging radio technologies." },
+    ],
+    takeaway: "A prefix determines how an IPv4 address divides network from host; IPv6 expands the address space and adds flow and hop-handling concepts; cellular generations then show how wireless systems evolve from mobility and voice toward broadband, low latency, massive IoT, sensing, and immersive applications.",
+    slideTrail: [
+      { time: "00:01:47", title: "IPv4 and IPv6 address sizes", note: "The opening whiteboard contrasts 32-bit IPv4 and 128-bit IPv6 and introduces network-versus-host bit allocation." },
+      { time: "00:10:55", title: "Class A, B, and C prefixes", note: "Fixed leading bits, four octets, and the changing network/host trade-off are worked through." },
+      { time: "00:22:07", title: "Classful IPv4 ranges", note: "Binary prefixes are converted into first-octet ranges for classes A, B, and C." },
+      { time: "00:28:52", title: "Subnet mask and binary AND", note: "All-one network bits and all-zero host bits produce a mask such as 255.0.0.0." },
+      { time: "00:40:26", title: "IPv6 address-space motivation", note: "The lecture uses projected device growth to explain why 128-bit addressing is useful." },
+      { time: "00:45:31", title: "IPv6 header fields", note: "Hop limit, flow identification, payload length, next header, and differentiated service are revisited." },
+      { time: "00:51:06", title: "TCP/UDP homework prompt", note: "The instructor suggests exploring TCP and UDP components as homework." },
+      { time: "01:04:00", title: "Cellular wireless communication", note: "Mobility and ubiquitous phone connectivity introduce the cellular-network section." },
+      { time: "01:21:30", title: "4G, 5G, and 6G service categories", note: "Mobile broadband, eMBB, URLLC, massive machine-type communication, sensing, LTE, MIMO, and beamforming are surveyed." },
+    ],
+    summary: [
+      { title: "1. IPv4 classful addressing allocates a fixed prefix and a variable host field", sourceRefs: ["00:01:47–00:16:31", "Class A, B, and C prefixes"], paragraphs: ["An IPv4 address has 32 bits arranged as four octets. The lecture explains that the address is split between a network part and a host part, and that the split changes across class A, B, and C.", "Class A begins with a fixed 0 and leaves many host bits; class B begins with 10 and balances the two fields; class C begins with 110 and leaves many network identifiers but fewer hosts per network."], formula: "IPv4 = network bits + host bits; 32 bits = 4 × 8-bit octets" },
+      { title: "2. Binary prefixes produce ranges and subnet masks", sourceRefs: ["00:22:07–00:35:02", "Classful IPv4 ranges", "Subnet mask and binary AND"], paragraphs: ["The first-octet ranges follow from the fixed prefixes: class A is 0–127, class B is 128–191, and class C is 192–223 in the classful explanation. The lecture also notes that network and broadcast values are not ordinary host assignments.", "A subnet mask places ones over network bits and zeros over host bits. A binary AND between an address and the mask preserves the network portion while clearing the host portion; a class A example yields 255.0.0.0."], formula: "network = address AND subnet mask; class A mask = 255.0.0.0" },
+      { title: "3. IPv6 expands the address space and adds packet-handling context", sourceRefs: ["00:40:26–00:50:37", "IPv6 address-space motivation", "IPv6 header fields"], paragraphs: ["The lecture motivates IPv6 by comparing IPv4's 2^32 address space with the much larger number of connected devices expected in IoT and other systems. IPv6 uses 128-bit addresses, making unique addressing far more abundant.", "The IPv6 header recap highlights hop limit, which is decremented at each router to prevent loops, and flow identification, which can help express priority or handling for a packet sequence. Payload length, next-header context, and differentiated service are also named."], formula: "IPv4: 2^32 addresses; IPv6: 2^128 addresses; hop limit → decrement per hop" },
+      { title: "4. The OSI recap links representations, sessions, transport, routing, and media", sourceRefs: ["00:55:00–01:03:55", "OSI layer responsibilities"], paragraphs: ["The presentation layer is revisited as the place where differing data formats and syntax can be brought into a common representation. The session layer establishes, maintains, and terminates an interaction, while transport handles end-to-end recovery and flow control.", "The network layer selects among paths, and the physical layer carries the bit stream across a medium while handling mechanical, electrical, functional, and procedural concerns. The instructor explicitly suggests exploring TCP and UDP components as homework."], formula: "representation → session → transport → routing → physical medium" },
+      { title: "5. Cellular generations move from voice to broadband and machine connectivity", sourceRefs: ["01:04:00–01:21:34", "Cellular wireless communication", "1G–6G overview"], paragraphs: ["Cellular wireless communication is introduced through mobility and the convenience of a network that supports phone calls and Internet access without a fixed landline. The generation overview describes 1G as analogue voice, 2G as digital voice and messaging, and 3G as packet-based mobile Internet and multimedia.", "4G is associated with mobile broadband and high spectral efficiency. 5G adds faster, higher-capacity services and categories such as eMBB, URLLC, and massive machine-type communication; 6G is presented as an active research direction."], formula: "1G voice → 2G digital voice/SMS → 3G mobile Internet → 4G broadband → 5G low-latency/massive connectivity → 6G research" },
+      { title: "6. Radio technologies support the later-generation service goals", sourceRefs: ["01:24:20–01:27:53", "4G, 5G, and 6G service categories"], paragraphs: ["The closing overview links mobile broadband, cloud applications, massive IoT, mission-critical automation, and immersive extended reality to later-generation wireless systems. It also names integrated sensing and communication and more precise positioning as emerging capabilities.", "LTE and LTE-Advanced are connected with OFDM-style transmission, MIMO, massive MIMO, many antennas, and beamforming. These mechanisms provide the engineering foundation for higher capacity, spectral efficiency, reliability, and spatially directed transmission."], formula: "many antennas + MIMO + beamforming → capacity, efficiency, and spatial control" },
+    ],
+    courseSignals: {
+      assignments: [],
+      homework: [{ time: "00:51:06", title: "Explore TCP and UDP components", detail: "The instructor explicitly suggested exploring the different components of TCP and UDP as homework." }],
+      labs: [],
+      projects: [],
+      references: [{ time: "01:07:29", title: "Wireless communication and network reference", detail: "The instructor pointed learners toward a wireless communication and network reference while introducing the cellular-network section; no author or edition was clearly stated." }],
+      studentQuestions: [],
+    },
+    insights: [
+      { label: "Addressing", title: "A prefix is a routing boundary", body: "The network/host split is not just notation: it determines which part can identify a shared network and which part can identify a device within it." },
+      { label: "Scale", title: "IPv6 changes the design assumption", body: "The move from 32 to 128 bits makes abundant unique addressing a first-class design possibility for large device populations." },
+      { label: "Safety", title: "Hop limits bound forwarding mistakes", body: "Decrementing a hop limit turns a routing loop from an indefinitely circulating packet into a packet that is eventually discarded." },
+      { label: "Wireless", title: "Generations combine service goals and radio techniques", body: "Labels such as eMBB and URLLC describe service goals, while MIMO, beamforming, and related radio techniques describe ways to pursue them." },
+    ],
+    resources: [
+      { kind: "read", title: "RFC 791 — Internet Protocol", url: "https://www.rfc-editor.org/rfc/rfc791.html", detail: "Primary IPv4 reference for address fields, datagrams, fragmentation, TTL, and protocol handling." },
+      { kind: "read", title: "RFC 8200 — Internet Protocol, Version 6 (IPv6) Specification", url: "https://www.rfc-editor.org/rfc/rfc8200.html", detail: "Primary IPv6 reference for the 128-bit header, hop limit, flow label, payload length, and next-header fields." },
+      { kind: "read", title: "RFC 4291 — IPv6 Addressing Architecture", url: "https://www.rfc-editor.org/rfc/rfc4291.html", detail: "Reference for IPv6 address architecture and address types." },
+      { kind: "read", title: "ITU-R M.2083 — IMT Vision", url: "https://www.itu.int/rec/R-REC-M.2083", detail: "Standards context for mobile broadband, massive machine-type communication, and ultra-reliable low-latency communication." },
+      { kind: "read", title: "3GPP — 5G System Overview", url: "https://www.3gpp.org/technologies/5g-system-overview", detail: "Public standards overview for 5G service capabilities and system evolution." },
+    ],
+    keyTerms: [
+      { term: "Network bits", definition: "The address bits used to identify the network portion in the classful explanation." },
+      { term: "Host bits", definition: "The address bits used to identify a device or host within the network portion." },
+      { term: "Subnet mask", definition: "A bit pattern of ones and zeros used to isolate network bits from host bits." },
+      { term: "Hop limit", definition: "The IPv6 field decremented by routers to bound a packet's lifetime in the network." },
+      { term: "eMBB", definition: "Enhanced Mobile Broadband, a high-speed and high-capacity 5G service category." },
+      { term: "URLLC", definition: "Ultra-Reliable Low-Latency Communication, a 5G service category for demanding response and reliability needs." },
+      { term: "MIMO", definition: "Multiple-input multiple-output transmission using multiple antennas at transmission and/or reception." },
+    ],
+    quiz,
+  },
+};

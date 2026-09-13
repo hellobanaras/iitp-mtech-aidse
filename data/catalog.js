@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-12",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 57,
+  filesInventoried: 58,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -362,6 +362,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["OSI and TCP/IP model mapping with encapsulation", "TCP/UDP, ports, sequencing, flow control, and retransmission", "IPv4 addressing, fragmentation, TTL, protocol, and header fields"]
+        },
+        {
+          id: "ecs-6402-2026-09-11-203535",
+          number: 7,
+          date: "2026-09-11",
+          sourceRecordedAt: "2026-09-11T20:35:35+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20260911_203535-Meeting Recording.mp4",
+          displayDate: "11 September 2026",
+          title: "IPv4 classes, IPv6 headers, and cellular wireless generations",
+          duration: "1h 27m 53s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course75%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSelected%20Topics%20in%20Wireless%20Networks%2D20260911%5F203535%2DMeeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["IPv4 classes, address ranges, and subnet masks", "IPv6 address space, hop limit, and flow identification", "1G–6G cellular evolution, eMBB, URLLC, massive IoT, MIMO, and beamforming"]
         }
       ]
     },

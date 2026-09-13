@@ -1420,6 +1420,34 @@ export const capstones = Object.freeze({
       "success": "A learner can trace a message across two networks, explain every visible IPv4 field and transport control, and diagnose whether a failure came from routing, receiver overload, corruption, or missing acknowledgement."
     }
   },
+  "ecs-6402-2026-09-11-203535": {
+    "en": {
+      "title": "CellScope — an accessible address-and-wireless evolution explorer",
+      "pitch": "Build a browser visualiser that connects IPv4 network/host allocation and IPv6 packet fields to the service goals and radio techniques of cellular generations.",
+      "problem": "Learners can memorise address classes or 1G–6G labels without seeing how addressing scale, packet handling, service requirements, and radio techniques fit together.",
+      "learning": "You will model classful IPv4 prefixes and masks, IPv6 address-space and hop-limit reasoning, TCP/UDP exploration prompts, cellular service categories, and MIMO/beamforming trade-offs.",
+      "mvp": [
+        "Let a learner enter an IPv4 address and select a class to show fixed prefix bits, network bits, host bits, range, and subnet mask.",
+        "Show an IPv6 packet moving across routers while decrementing hop limit and displaying flow, payload, and next-header context.",
+        "Compare 1G through 5G and an emerging 6G concept by voice, messaging, mobile broadband, latency, reliability, massive connectivity, and sensing goals.",
+        "Animate how multiple antennas, MIMO, and beamforming can support capacity and spatial control, with a plain-language explanation and accessible table."
+      ],
+      "stretch": [
+        "Add a TCP-versus-UDP worksheet that records components, reliability expectations, and the learner's evidence-backed choice.",
+        "Export a keyboard-accessible study card containing formulas, assumptions, source timecodes, and no private or credential data."
+      ],
+      "plan": [
+        "Week 1: IPv4 prefix, range, host-count, and subnet-mask model.",
+        "Week 2: IPv6 header and hop-limit animation with accessible text equivalents.",
+        "Week 3: cellular-generation and service-category comparison.",
+        "Week 4: MIMO/beamforming view, tests, accessibility review, and evidence export."
+      ],
+      "novelty": "The explorer makes addressing scale and wireless-system evolution visible in one learning object while keeping packet fields, service goals, and radio techniques distinct.",
+      "stack": ["TypeScript", "SVG", "Accessible HTML tables", "Vitest"],
+      "milestones": ["IPv4 and subnet masks", "IPv6 packet handling", "Cellular service comparison", "Accessible radio-technique explainer"],
+      "success": "A learner can derive an IPv4 network boundary, explain why IPv6 scales the address space, compare cellular-generation goals, and relate MIMO or beamforming to a stated service requirement."
+    }
+  },
   "eai-6403-2026-09-05-154129": {
     "en": {
       "title": "Attention map explainer",

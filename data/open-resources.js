@@ -650,6 +650,22 @@ export const openLearningResources = {
       url: "https://www.rfc-editor.org/rfc/rfc768.html"
     },
     {
+      provider: "RFC Editor",
+      kind: "Primary IPv6 specification",
+      access: "Free HTML and text",
+      title: "RFC 8200 — Internet Protocol, Version 6 (IPv6) Specification",
+      description: "Study the IPv6 header, 128-bit addresses, hop limit, flow label, payload length, and next-header fields introduced in the lecture.",
+      url: "https://www.rfc-editor.org/rfc/rfc8200.html"
+    },
+    {
+      provider: "ITU-R",
+      kind: "Mobile systems vision",
+      access: "Free recommendation page",
+      title: "ITU-R M.2083 — IMT Vision",
+      description: "Connect mobile broadband, massive machine-type communication, and ultra-reliable low-latency communication to the cellular-generation overview.",
+      url: "https://www.itu.int/rec/R-REC-M.2083"
+    },
+    {
       provider: "GNU Radio",
       kind: "Open practice tutorials",
       access: "Free documentation and software",
