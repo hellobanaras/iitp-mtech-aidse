@@ -1362,6 +1362,35 @@ export const capstones = Object.freeze({
       "success": "A reviewer can distinguish learner reasoning from generated text, trace important claims to sources, and see how uncertainty was handled."
     }
   },
+  "eai-6402-2026-09-12-100922": {
+    "en": {
+      "title": "SplitSense: an auditable regression evaluation explorer",
+      "pitch": "Build an accessible app that makes representative train/validation/test splits, cross-validation, linear regression, and normal-equation limits visible.",
+      "problem": "A strong training score can hide distribution bias, leakage, or a computation that will not scale to a large feature space.",
+      "learning": "You will document features and responses, protect the test set, compare validation strategies, inspect residuals, and explain why exact normal equations are not always scalable.",
+      "mvp": [
+        "Load a labelled dataset and document its features, response, and expected deployment distribution.",
+        "Show a 700/200/100 train/validation/test split and a five-fold cross-validation view.",
+        "Fit linear regression, display residuals, and report validation and test results separately from training performance.",
+        "Compare a normal-equation solution with an iterative baseline and record the feature-count limitation."
+      ],
+      "stretch": [
+        "Add a deliberately biased cat/dog-style feature and show its effect under distribution shift.",
+        "Compare several cross-validation fold counts with uncertainty summaries.",
+        "Export an accessible evaluation card with split provenance, formulas, and leakage checks."
+      ],
+      "plan": [
+        "Week 1: define dataset, features, response, split policy, and accessibility structure.",
+        "Week 2: implement linear regression, residuals, and normal-equation calculations.",
+        "Week 3: add cross-validation, hyperparameter notes, and validation/test reporting.",
+        "Week 4: simulate distribution shift, document scalability, test keyboard access, and export evidence."
+      ],
+      "novelty": "The explorer treats evaluation as an auditable data workflow: learners can see how representation, leakage, fold choice, residuals, and feature count affect the result.",
+      "stack": ["TypeScript", "Accessible HTML tables", "SVG charts", "Deterministic regression test fixtures"],
+      "milestones": ["Data and split card", "Regression and residual view", "Cross-validation report", "Bias and scalability evidence"],
+      "success": "A learner can justify a data split, distinguish validation from test performance, reproduce a least-squares result, and explain when the normal-equation computation should be replaced."
+    }
+  },
   "ecs-6402-2026-09-04-203546": {
     "en": {
       "title": "StackScope: an explainable packet journey and integrity lab",

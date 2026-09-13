@@ -223,6 +223,32 @@ export const openLearningResources = {
       description: "Practical estimators and evaluation notes for separating outliers from novel observations—the rare-event and anomaly bridge from the lecture.",
       descriptionHi: "Outliers और novel observations अलग करने वाले practical estimators और evaluation notes—lecture के rare-event और anomaly concepts के लिए direct practice।",
       url: "https://scikit-learn.org/stable/modules/outlier_detection.html"
+    },
+    {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
+      kind: "Model evaluation guide",
+      kindHi: "model evaluation guide",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Cross-validation: evaluating estimator performance",
+      titleHi: "Cross-validation: evaluating estimator performance · practice",
+      description: "Official guidance for train/test splits, cross-validation, and avoiding evaluation leakage while tuning models.",
+      descriptionHi: "Train/test splits, cross-validation और model tuning में evaluation leakage से बचने के लिए official guidance।",
+      url: "https://scikit-learn.org/stable/modules/cross_validation.html"
+    },
+    {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
+      kind: "Linear regression guide",
+      kindHi: "linear regression guide",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Linear Models",
+      titleHi: "Linear Models · regression practice",
+      description: "Official documentation for linear regression, least-squares fitting, and related estimators.",
+      descriptionHi: "Linear regression, least-squares fitting और related estimators की official documentation।",
+      url: "https://scikit-learn.org/stable/modules/linear_model.html"
     }
   ],
   "eai-6403": [
