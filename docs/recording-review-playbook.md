@@ -151,6 +151,18 @@ and resource refresh exist, `npm run queue:publish -- <id>` runs validation,
 build, a guarded commit, `origin/main` synchronization, and the GitHub Pages
 deployment. Cloudflare is never a target.
 
+If SharePoint redirects to Microsoft sign-in, do not classify the source as
+blocked immediately. First inspect the visible login form for the saved IITP
+account and click its visible `Sign in` control once, wait for the redirect,
+and verify that the course folder or source table actually loads. Never type,
+expose, or retrieve credentials, and never bypass MFA, CAPTCHA, or a provider
+security challenge. Treat the saved-account card as an actionable recovery
+state; treat a password prompt after that click as a user handoff, a loaded
+folder/source row as authoritative access, and a repeated provider error as a
+real blocker. Keep the queue at `awaiting-browser` until the folder or source
+row is visibly confirmed. This recovery check must occur before reporting a
+SharePoint session-expiry blocker on every future run.
+
 The runner also enforces a pre-capture `awaiting-triage` gate. Link a local
 `reviewManifest` from the source inventory. It must match the stable filename
 and cleaned Stream URL; contain beginning, 10%, 25%, 50%, 75%, 90%, and

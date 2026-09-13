@@ -253,6 +253,19 @@ export const openLearningResources = {
   ],
   "eai-6403": [
     {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Research paper",
+      kindHi: "Research paper",
+      access: "Free public paper",
+      accessHi: "मुफ़्त public paper",
+      title: "Robust Speech Recognition via Large-Scale Weak Supervision",
+      titleHi: "Robust Speech Recognition via Large-Scale Weak Supervision",
+      description: "The public Whisper paper cited in the 12 September lecture, useful for connecting Transformer ideas to speech recognition.",
+      descriptionHi: "12 September lecture में cited public Whisper paper, जो Transformer ideas को speech recognition से जोड़ता है।",
+      url: "https://arxiv.org/abs/2212.04356"
+    },
+    {
       provider: "Stanford University",
       providerHi: "Stanford University",
       kind: "Open course",

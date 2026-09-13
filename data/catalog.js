@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-13",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 59,
+  filesInventoried: 60,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -217,8 +217,8 @@ export const catalog = {
       icon: "GA",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/people?emailId=course74%5Fhybrid%40iitp%2Eac%2Ein",
       status: "active",
-      statusLabel: "3 lectures available",
-      note: "Lectures from 23, 29, and 30 August are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
+      statusLabel: "5 lectures available",
+      note: "Lectures from 23 August through 12 September are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
       lectures: [
         {
           id: "eai-6403-2026-08-23",
@@ -275,6 +275,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Transformer encoder-decoder architecture", "Self-attention and multi-head attention", "BERT and large language models"]
+        },
+        {
+          id: "eai-6403-2026-09-12-153203",
+          number: 5,
+          date: "2026-09-12",
+          sourceRecordedAt: "2026-09-12T15:32:03+05:30",
+          sourceFilename: "Selective Topics in Generative AI-20260912_153203-Meeting Recording.mp4",
+          displayDate: "12 September 2026",
+          title: "Transformer architectures and task-specific model families",
+          duration: "41m 42s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course74_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course74_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSelective+Topics+in+Generative+AI-20260912_153203-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["BERT, GPT, and BART/T5 task families", "Speech and vision Transformer applications", "Task-specific heads and modality representations"]
         }
       ]
     },

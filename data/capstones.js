@@ -1566,4 +1566,34 @@ export const capstones = Object.freeze({
       "success": "A learner can trace a toy public-key computation, identify its secret trapdoor, and explain why production cryptography requires standardized protections beyond the lecture formulas."
     }
   }
+  ,"eai-6403-2026-09-12-153203": {
+    "en": {
+      "title": "ModalityMap: an auditable Transformer task router",
+      "pitch": "Build an accessible local-first study tool that routes text, speech, or image examples to an appropriate encoder-only, decoder-only, or encoder-decoder model family and explains the representation, attention constraint, task head, and output format behind each choice.",
+      "problem": "Learners often compare model names without checking whether the information flow, input representation, or output head fits the task. A transparent router can make those architectural assumptions testable.",
+      "learning": "You will connect bidirectional encoding, causal decoding, sequence-to-sequence generation, task-specific heads, text tokens, speech features, and image patches in one inspectable learning product.",
+      "mvp": [
+        "Create a task card for classification, generation, translation, speech recognition, object detection, segmentation, and depth estimation.",
+        "Map each task to its input representation, model family, attention constraint, head, and output type.",
+        "Run small permitted public-model or synthetic demonstrations and record accuracy, latency, and failure cases.",
+        "Export an accessible architecture report with source links and clear limits on what each demonstration proves."
+      ],
+      "stretch": [
+        "Add side-by-side attention-flow diagrams for BERT, GPT, and encoder-decoder models.",
+        "Add patch, subword, and speech-feature inspection views without retaining private user data.",
+        "Compare a shared backbone with task-specific heads on a controlled evaluation set.",
+        "Add a model-card checklist for licensing, modality coverage, privacy, and deployment constraints."
+      ],
+      "plan": [
+        "Week 1: define the task, modality, architecture, and head schema with validation tests.",
+        "Week 2: implement text and image demonstrations plus the information-flow visualisation.",
+        "Week 3: add speech recognition, evaluation cards, and failure explanations.",
+        "Week 4: complete accessibility review, public-source citations, and a reproducible comparison report."
+      ],
+      "novelty": "The router makes the architecture-to-task decision explicit instead of presenting Transformer models as interchangeable names.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Task schema", "Text/image routes", "Speech route", "Accessible evidence report"],
+      "success": "A learner can defend a model-family choice by pointing to its input representation, information flow, task head, and measured limitations."
+    }
+  }
 });
