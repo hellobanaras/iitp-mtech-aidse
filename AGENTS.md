@@ -64,6 +64,14 @@ only when browser/extension control is unavailable, an unexpected permission is
 outside the granted scope, or the UI presents a genuinely human-only action.
 Never bypass provider controls or claim unattended capture.
 
+If an expired SharePoint session shows a Microsoft sign-in form, first use the
+visible saved IITP account's `Sign in` control once, wait for the redirect, and
+verify the course folder/source row before declaring a blocker. Never type or
+expose credentials and never bypass MFA/CAPTCHA. A password prompt after the
+saved-account click requires owner handoff; a loaded folder is authoritative
+access; repeated provider errors are blockers. Keep `awaiting-browser` until
+the folder/source row is visibly confirmed.
+
 ## Deployment and conflict prevention policy
 
 - Deployment is deterministic and split by target:
