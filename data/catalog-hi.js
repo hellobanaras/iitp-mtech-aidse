@@ -105,8 +105,8 @@ export const catalogHi = {
       shortTitle: "स्मार्ट कॉन्ट्रैक्ट्स",
       cadence: "सोमवार और बुधवार",
       time: "शाम ६:००–७:३० IST",
-      statusLabel: "रिकॉर्डिंग पहुँच अवरुद्ध",
-      note: "कक्षा कार्यक्रम और folder link IIT Patna Moodle card से सत्यापित हैं, लेकिन Microsoft 365 अभी recording folder की पहुँच रोक रहा है। institute access बहाल होने तक यह course note processing से बाहर है।",
+      statusLabel: "८ व्याख्यान उपलब्ध",
+      note: "१७ अगस्त से १४ सितंबर तक के आठ सत्यापित व्याख्यान क्रम में प्रकाशित हैं। १४ सितंबर का सत्र Ethereum nonce, account state, gas, EVM execution और transaction finality पर है।",
       lectures: {}
     },
     "ebb-6403": {
