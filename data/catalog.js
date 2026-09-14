@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-13",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 62,
+  filesInventoried: 63,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -447,8 +447,8 @@ export const catalog = {
       icon: "SC",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course77_hybrid_iitp_ac_in/IgCEBeWWlU_wQLE9fUZWW9fTAYhpk32mpJi8Lbo6Iba_Cy8?e=5wSELF",
       status: "active",
-      statusLabel: "7 lectures available",
-      note: "Seven verified lectures are published. The 9 September session explains wallets, keys, explorers, Ethereum accounts, and world-state fields.",
+      statusLabel: "8 lectures available",
+      note: "Eight verified lectures are published. The 14 September session explains Ethereum nonces, account state, gas, EVM execution, and transaction finality.",
       lectures: [
         {
           id: "ebb-6401-2026-08-17-180921",
@@ -547,6 +547,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Wallets, keys, addresses, and hot/cold storage", "Signed transaction flow and explorer evidence", "EOA and contract accounts in Ethereum world state"]
+        },
+        {
+          id: "ebb-6401-2026-09-14-180946",
+          number: 8,
+          date: "2026-09-14",
+          sourceRecordedAt: "2026-09-14T18:09:46+05:30",
+          sourceFilename: "Smart contracts and solidity programming-20260914_180946-Meeting Recording.mp4",
+          displayDate: "14 September 2026",
+          title: "Ethereum nonces, account state, gas, and transaction finality",
+          duration: "37m 22s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course77_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course77%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSmart%20contracts%20and%20solidity%20programming%2D20260914%5F180946%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Nonce order, uniqueness, signatures, and replay protection", "Consensus, finality, EVM execution, and state transitions", "Gas complexity and Ethereum account-state fields"]
         }
       ]
     },

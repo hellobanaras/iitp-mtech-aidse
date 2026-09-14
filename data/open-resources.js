@@ -1045,6 +1045,32 @@ export const openLearningResources = {
       description: "Open documentation for permissioned networks, channels, chaincode, identities, and enterprise workflow governance.",
       descriptionHi: "Permissioned networks, channels, chaincode, identities और enterprise workflow governance की open documentation।",
       url: "https://hyperledger-fabric.readthedocs.io/en/latest/"
+    },
+    {
+      provider: "Ethereum",
+      providerHi: "Ethereum",
+      kind: "EVM reference",
+      kindHi: "EVM reference",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Ethereum Virtual Machine documentation",
+      titleHi: "Ethereum Virtual Machine documentation",
+      description: "First-party reference for EVM execution, state transitions, and smart-contract runtime behaviour.",
+      descriptionHi: "EVM execution, state transitions और smart-contract runtime behaviour की first-party reference।",
+      url: "https://ethereum.org/developers/docs/evm/"
+    },
+    {
+      provider: "Ethereum",
+      providerHi: "Ethereum",
+      kind: "Gas guide",
+      kindHi: "Gas guide",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Ethereum gas and fees",
+      titleHi: "Ethereum gas and fees",
+      description: "Explains gas as the computation resource behind simple transfers and more expensive contract interactions.",
+      descriptionHi: "Simple transfers और complex contract interactions के computation resource gas की व्याख्या।",
+      url: "https://ethereum.org/developers/docs/gas/"
     }
   ],
   "ebb-6402": [

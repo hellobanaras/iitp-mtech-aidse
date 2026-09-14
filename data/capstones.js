@@ -1070,6 +1070,35 @@ export const capstones = Object.freeze({
       "success": "A reviewer can trace a signed action into updated account fields, distinguish EOA from contract control, inspect rejected transitions, and explain why a matching hash does not guarantee availability or truth."
     }
   },
+  "ebb-6401-2026-09-14-180946": {
+    "en": {
+      "title": "NonceGuard: an explainable Ethereum transaction-state simulator",
+      "pitch": "Build a local-first simulator that shows how an account nonce, signature, gas outcome, and EVM execution determine whether a transaction changes world state.",
+      "problem": "Learners often treat a signed transaction as automatically valid and confuse nonce order, replay protection, reverted state, and gas consumption.",
+      "learning": "You will model EOA and contract-account state, signed transaction fields, nonce sequencing, replay rejection, gas accounting, EVM outcomes, and finality evidence.",
+      "mvp": [
+        "Create mock EOA and contract accounts with nonce, balance, storage-root, and code-hash fields.",
+        "Simulate a valid transaction, a reused-nonce replay, and a transaction whose signed field was modified.",
+        "Show successful state updates beside failed state reverts, while keeping consumed gas visible.",
+        "Render an accessible before/after state timeline that separates consensus acceptance from finality assurance."
+      ],
+      "stretch": [
+        "Add a small contract rule that can fail on invalid input or a business-rule violation.",
+        "Compare simple Ether transfer cost with a computationally heavier contract interaction.",
+        "Export a reproducible transaction-evidence report with nonce, signature result, gas, state diff, and finality status."
+      ],
+      "plan": [
+        "Week 1: define account fields, transaction schema, nonce rules, and failure states.",
+        "Week 2: implement signature checks, replay rejection, state updates, reverts, and gas accounting.",
+        "Week 3: build the EOA/contract state explorer with keyboard and screen-reader support.",
+        "Week 4: add finality evidence, complexity comparison, tests, and a short architecture report."
+      ],
+      "novelty": "The project makes the boundaries between authorization, transaction ordering, execution, gas, state change, and finality visible in one small teaching artifact.",
+      "stack": ["JavaScript", "Web Crypto API or test doubles", "Mermaid or SVG", "Vitest"],
+      "milestones": ["Week 1: account and transaction model", "Week 2: validation and state transitions", "Week 3: accessible explorer", "Week 4: evidence and fit report"],
+      "success": "A reviewer can distinguish a valid transaction from a replay or modified-signature copy, trace success and failure state outcomes, account for gas, and explain what finality adds after consensus."
+    }
+  },
   "ebb-6401-2026-09-07-183334": {
     "en": {
       "title": "Lifecycle Ledger: an auditable contract workflow",
