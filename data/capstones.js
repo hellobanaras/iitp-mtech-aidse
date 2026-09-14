@@ -1684,4 +1684,33 @@ export const capstones = Object.freeze({
       "success": "A learner can defend a reasoning-budget choice using task evidence, distinguish a final answer from a verified process, and report quality, latency, and cost together without retaining private data."
     }
   }
+  ,"eai-6403-2026-09-06-154745": {
+    "en": {
+      "title": "BERT TaskHead Lab",
+      "pitch": "Build an accessible local-first study tool that maps synthetic sentence, sentence-pair, question-context, and token-tagging examples to their BERT-style input representation and task-specific output head.",
+      "problem": "BERT supports several NLP tasks, but each task reads a different representation and predicts at a different granularity. Learners need to make that architecture-to-task mapping explicit.",
+      "learning": "You will connect [CLS] and [SEP] tokens, token/segment/position embeddings, masked and sentence-pair pretraining, sentence labels, answer spans, and token tags.",
+      "mvp": [
+        "Create an input visualiser for [CLS], [SEP], token, segment, and position embeddings.",
+        "Implement four synthetic downstream-task cards for sentence classification, sentence-pair classification, QA spans, and NER/POS tagging.",
+        "Show which representation and task-specific head produces each output.",
+        "Export an accessible comparison report linked to the public BERT and Transformer papers."
+      ],
+      "stretch": [
+        "Add a masked-language and next-sentence pretraining sandbox with transparent labels.",
+        "Compare sentence-level, span-level, and token-level error cases on a controlled synthetic set.",
+        "Add a model-card checklist for context, sequence length, evaluation, and privacy assumptions."
+      ],
+      "plan": [
+        "Week 1: define the input, representation, prediction-unit, and head schema with validation tests.",
+        "Week 2: implement the embedding and special-token visualiser plus classification tasks.",
+        "Week 3: add QA span extraction and NER/POS tagging with source-linked examples.",
+        "Week 4: complete accessibility review, error analysis, and a reproducible architecture report."
+      ],
+      "novelty": "The lab makes task granularity visible: the same contextual encoder can support different outputs only when its input format and prediction head match the task.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Embedding visualiser", "Classification routes", "QA and token tagging", "Accessible evidence report"],
+      "success": "A learner can explain how BERT combines token, segment, and position information and can defend the choice of classification, span-prediction, or token-level head for a downstream task using only synthetic or permitted public examples."
+    }
+  }
 });

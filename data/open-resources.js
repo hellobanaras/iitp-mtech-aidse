@@ -451,6 +451,32 @@ export const openLearningResources = {
       description: "Primary research on process supervision and checking intermediate reasoning steps.",
       descriptionHi: "Intermediate reasoning steps की process supervision और checking पर primary research।",
       url: "https://arxiv.org/abs/2305.20050"
+    },
+    {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Research paper",
+      kindHi: "Research paper",
+      access: "Free public paper",
+      accessHi: "मुफ़्त public paper",
+      title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      titleHi: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      description: "Primary paper for the BERT encoder, masked language modelling, next sentence prediction, and downstream fine-tuning discussed in the Sep 6 lecture.",
+      descriptionHi: "Sep 6 lecture में discussed BERT encoder, masked language modelling, next sentence prediction और downstream fine-tuning का primary paper।",
+      url: "https://arxiv.org/abs/1810.04805"
+    },
+    {
+      provider: "Hugging Face",
+      providerHi: "Hugging Face",
+      kind: "Model documentation",
+      kindHi: "Model documentation",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "BERT model documentation",
+      titleHi: "BERT model documentation",
+      description: "Public implementation reference for BERT inputs, special tokens, hidden states, and task-specific outputs.",
+      descriptionHi: "BERT inputs, special tokens, hidden states और task-specific outputs का public implementation reference।",
+      url: "https://huggingface.co/docs/transformers/model_doc/bert"
     }
   ],
   "ecc-6404": [

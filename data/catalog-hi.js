@@ -68,8 +68,8 @@ export const catalogHi = {
       shortTitle: "जनरेटिव एआई",
       cadence: "शनिवार और रविवार",
       time: "दोपहर ३:३०–५:०० IST",
-      statusLabel: "३ व्याख्यान उपलब्ध",
-      note: "२३, २९ और ३० अगस्त के व्याख्यान सत्यापित transcript, slide trail, student Q&A, further study और 25 व्याख्यायुक्त MCQs के साथ प्रकाशित हैं।",
+      statusLabel: "७ व्याख्यान उपलब्ध",
+      note: "२३ अगस्त से १३ सितंबर तक के सात व्याख्यान सत्यापित source intervals, slide trails, further study और 25 व्याख्यायुक्त MCQs के साथ प्रकाशित हैं।",
       lectures: {
         "eai-6403-2026-08-23": {
           displayDate: "२३ अगस्त २०२६",
@@ -88,6 +88,12 @@ export const catalogHi = {
           title: "Self-attention: modern AI का context engine",
           statusLabel: "नोट्स प्रकाशित",
           overview: ["Context और pronoun resolution", "Translation और long-range dependencies", "Transformer और BERT foundations"]
+        },
+        "eai-6403-2026-09-06-154745": {
+          displayDate: "६ सितंबर २०२६",
+          title: "BERT pretraining और downstream task heads",
+          statusLabel: "नोट्स प्रकाशित",
+          overview: ["BERT और Transformer families", "Masked language modelling और next sentence prediction", "Classification, QA और NER/POS heads"]
         }
       }
     },
