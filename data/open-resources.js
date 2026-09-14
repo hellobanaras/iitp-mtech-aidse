@@ -139,6 +139,32 @@ export const openLearningResources = {
       description: "Turn the recycling-robot state/action/reward table into a reproducible reset/step environment with validated transitions.",
       descriptionHi: "Recycling-robot के state/action/reward table को validated reset/step environment में बदलने की practice।",
       url: "https://gymnasium.farama.org/introduction/create_custom_env/"
+    },
+    {
+      provider: "David Silver",
+      providerHi: "David Silver",
+      kind: "Dynamic-programming lecture",
+      kindHi: "Dynamic-programming lecture",
+      access: "Free course materials",
+      accessHi: "मुफ़्त course सामग्री",
+      title: "David Silver Lecture 3: Planning by Dynamic Programming",
+      titleHi: "David Silver Lecture 3: Planning by Dynamic Programming",
+      description: "A direct companion for Bellman optimality, policy evaluation, policy improvement, and value iteration.",
+      descriptionHi: "Bellman optimality, policy evaluation, policy improvement और value iteration का direct companion।",
+      url: "https://www.davidsilver.uk/teaching/"
+    },
+    {
+      provider: "Sutton & Barto",
+      providerHi: "Sutton & Barto",
+      kind: "HTML book chapter",
+      kindHi: "HTML पुस्तक chapter",
+      access: "Author-provided reading",
+      accessHi: "लेखक द्वारा उपलब्ध reading",
+      title: "Dynamic Programming chapter",
+      titleHi: "Dynamic Programming chapter",
+      description: "The authors' chapter on policy evaluation, policy improvement, and optimal control in finite MDPs.",
+      descriptionHi: "Finite MDPs में policy evaluation, policy improvement और optimal control पर authors' chapter।",
+      url: "https://incompleteideas.net/book/the-book-2nd.html"
     }
   ],
   "eai-6402": [
@@ -386,6 +412,45 @@ export const openLearningResources = {
       description: "A code-linked walkthrough of the original Transformer architecture, useful for turning the lecture's attention concepts into practice.",
       descriptionHi: "Original Transformer architecture का code-linked walkthrough, lecture के attention concepts को practice करने के लिए useful।",
       url: "https://nlp.seas.harvard.edu/annotated-transformer/"
+    },
+    {
+      provider: "DeepSeek",
+      providerHi: "DeepSeek",
+      kind: "Research paper",
+      kindHi: "Research paper",
+      access: "Free public paper",
+      accessHi: "मुफ़्त public paper",
+      title: "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+      titleHi: "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+      description: "Primary paper aligned with the lecture's reinforcement-learning, reasoning-trace, and distillation discussion.",
+      descriptionHi: "Lecture के reinforcement learning, reasoning traces और distillation discussion से aligned primary paper।",
+      url: "https://arxiv.org/abs/2501.12948"
+    },
+    {
+      provider: "OpenAI",
+      providerHi: "OpenAI",
+      kind: "Technical article",
+      kindHi: "Technical article",
+      access: "Free public article",
+      accessHi: "मुफ़्त public article",
+      title: "Learning to reason with LLMs",
+      titleHi: "Learning to reason with LLMs",
+      description: "Public explanation of training models to reason before answering.",
+      descriptionHi: "उत्तर देने से पहले reasoning करने वाले models पर public explanation।",
+      url: "https://openai.com/index/learning-to-reason-with-llms/"
+    },
+    {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Research paper",
+      kindHi: "Research paper",
+      access: "Free public paper",
+      accessHi: "मुफ़्त public paper",
+      title: "Let's Verify Step by Step",
+      titleHi: "Let's Verify Step by Step",
+      description: "Primary research on process supervision and checking intermediate reasoning steps.",
+      descriptionHi: "Intermediate reasoning steps की process supervision और checking पर primary research।",
+      url: "https://arxiv.org/abs/2305.20050"
     }
   ],
   "ecc-6404": [

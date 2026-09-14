@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-13",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 60,
+  filesInventoried: 62,
   courses: [
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
@@ -15,8 +15,8 @@ export const catalog = {
       icon: "RL",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course72_hybrid_iitp_ac_in/IgAGzyBinTNjQ69x8TC7U-ZQAedbzLJLRwPOzm3drlcdWcc?e=fR761s",
       status: "active",
-      statusLabel: "8 lectures available",
-      note: "The August 17, 18, 24, 25, 31, September 1, 7, and 8 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; long idle tails after the verified class intervals are excluded.",
+      statusLabel: "9 lectures available",
+      note: "The August 17, 18, 24, 25, 31, September 1, 7, 8, and 14 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; long idle tails after the verified class intervals are excluded.",
       lectures: [
         {
           id: "eai-6401-2026-08-17",
@@ -129,6 +129,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Bellman expectation equations", "State/action values and policy evaluation", "Optimal policies, gridworld, and recycling-robot examples"]
+        },
+        {
+          id: "eai-6401-2026-09-14-180423",
+          number: 9,
+          date: "2026-09-14",
+          sourceRecordedAt: "2026-09-14T18:04:23+05:30",
+          sourceFilename: "Reinforcement Learning-20260914_180423-Meeting Recording.mp4",
+          displayDate: "14 September 2026",
+          title: "Bellman optimality, approximation, and dynamic programming",
+          duration: "1h 25m 24s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course72_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course72%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FReinforcement%20Learning%2D20260914%5F180423%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Recycling-robot policy comparison", "Bellman optimality and special gridworlds", "Approximate policy evaluation and theta stopping"]
         }
       ]
     },
@@ -217,8 +231,8 @@ export const catalog = {
       icon: "GA",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/people?emailId=course74%5Fhybrid%40iitp%2Eac%2Ein",
       status: "active",
-      statusLabel: "5 lectures available",
-      note: "Lectures from 23 August through 12 September are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
+      statusLabel: "6 lectures available",
+      note: "Lectures from 23 August through 13 September are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
       lectures: [
         {
           id: "eai-6403-2026-08-23",
@@ -289,6 +303,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["BERT, GPT, and BART/T5 task families", "Speech and vision Transformer applications", "Task-specific heads and modality representations"]
+        },
+        {
+          id: "eai-6403-2026-09-13-153353",
+          number: 6,
+          date: "2026-09-13",
+          sourceRecordedAt: "2026-09-13T15:33:53+05:30",
+          sourceFilename: "Selective Topics in Generative AI-20260913_153353-Meeting Recording.mp4",
+          displayDate: "13 September 2026",
+          title: "Large Reasoning Models: the future of thinking AI",
+          duration: "35m 00s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course74_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course74%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSelective%20Topics%20in%20Generative%20AI%2D20260913%5F153353%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Regular LLMs versus Large Reasoning Models", "Inference-time planning, verification, and staged training", "Accuracy, latency, cost, licensing, and task-fit evaluation"]
         }
       ]
     },

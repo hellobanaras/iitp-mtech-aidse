@@ -924,6 +924,35 @@ export const capstones = Object.freeze({
       "plan": ["Week 1: state/action schema and gridworld.", "Week 2: policy evaluation and Bellman expectation.", "Week 3: optimality backups and recycling robot.", "Week 4: accessibility, export, tests, and case study."]
     }
   },
+  "eai-6401-2026-09-14-180423": {
+    "en": {
+      "title": "BackupBench: a transparent dynamic-programming lab",
+      "pitch": "Build an accessible local-first gridworld and recycling-robot lab that lets learners compare Bellman optimality, policy evaluation, policy improvement, and approximation under explicit resource limits.",
+      "problem": "Bellman equations are often memorised as symbols without showing how discounting, transition cycles, update order, and stopping thresholds change the resulting policy.",
+      "learning": "You will implement legal actions, stochastic transitions, immediate rewards, discounted backups, fixed-policy evaluation, greedy improvement, and coverage-aware error checks for a small finite MDP.",
+      "mvp": [
+        "Create a 4×4 gridworld with terminal cells, reward −1 transitions, and a configurable random policy.",
+        "Implement two-array and in-place policy evaluation with a visible theta stopping criterion.",
+        "Add a recycling-robot mode with high/low battery states, search/wait/recharge actions, alpha/beta transitions, and policy comparison across gamma values.",
+        "Render each backup as an accessible explanation of state, action, reward, probability, successor value, and selected maximum."
+      ],
+      "stretch": [
+        "Compare exact and approximate policies on frequently visited versus rare safety-critical states.",
+        "Add a five-step periodic reward state and verify V*(A)=10/(1−gamma^5) against simulated returns.",
+        "Export a reproducible experiment card containing the MDP, gamma, theta, update mode, sweep count, and error summary."
+      ],
+      "plan": [
+        "Week 1: define the MDP schema, terminal rules, reward table, and transition tests.",
+        "Week 2: implement policy evaluation, in-place/two-array modes, theta stopping, and value-table visualisation.",
+        "Week 3: add Bellman optimality, greedy policy improvement, recycling-robot scenarios, and gamma comparisons.",
+        "Week 4: add approximation coverage analysis, accessibility, experiment export, and validation fixtures."
+      ],
+      "novelty": "The lab makes both the mathematics and the computational budget inspectable: a learner can see exactly which backup changed a value and which states were covered by an approximation.",
+      "stack": ["TypeScript", "HTML Canvas or SVG", "Vitest", "Gymnasium-compatible JSON experiment format"],
+      "milestones": ["Week 1: valid finite MDP", "Week 2: policy evaluation", "Week 3: optimality and recycling robot", "Week 4: approximation and accessible export"],
+      "success": "A learner can explain why gamma changes policy choice, reproduce the gridworld value sweep, distinguish evaluation from improvement, and report approximation limits with explicit evidence."
+    }
+  },
   "ebb-6403-2026-08-29-053554": {
     "en": {
       "title": "CipherLens: an adversary-aware cryptography learning lab",
@@ -1594,6 +1623,36 @@ export const capstones = Object.freeze({
       "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
       "milestones": ["Task schema", "Text/image routes", "Speech route", "Accessible evidence report"],
       "success": "A learner can defend a model-family choice by pointing to its input representation, information flow, task head, and measured limitations."
+    }
+  }
+  ,"eai-6403-2026-09-13-153353": {
+    "en": {
+      "title": "ReasonRoute: an evidence-based reasoning budget router",
+      "pitch": "Build an accessible local-first evaluation tool that routes synthetic or permitted public tasks to a direct-answer baseline or a reasoning workflow, then records task type, verification method, accuracy, latency, cost proxy, and failure case.",
+      "problem": "A reasoning model may improve difficult tasks while adding latency and cost. Learners need evidence for when its extra inference-time computation is justified.",
+      "learning": "You will connect direct generation, inference-time planning, process verification, staged training, and model-selection constraints in one inspectable evaluation product.",
+      "mvp": [
+        "Create a task taxonomy separating simple, creative, coding, mathematical, logical, and tool-assisted work.",
+        "Implement a baseline-versus-reasoning comparison with a visible plan-and-verify workflow.",
+        "Evaluate at least 50 representative prompts and record accuracy, latency, cost proxy, and failure cases.",
+        "Export an accessible model-selection card explaining privacy, licensing, cost, latency, and deployment assumptions."
+      ],
+      "stretch": [
+        "Add configurable reasoning budgets and a policy that routes only difficult tasks to the slower path.",
+        "Compare final-answer supervision with process-step checks on a controlled synthetic set.",
+        "Add tool-use experiments with deterministic mock databases and explicit verification logs.",
+        "Publish a model-card style report describing reward misspecification, benchmark limits, and distribution shift."
+      ],
+      "plan": [
+        "Week 1: define the task, evidence, verification, and privacy-safe evaluation schema.",
+        "Week 2: implement direct and reasoning paths with deterministic synthetic fixtures.",
+        "Week 3: add metrics, error analysis, and accessible reasoning-flow diagrams.",
+        "Week 4: complete the routing policy, cost-latency report, and reproducibility review."
+      ],
+      "novelty": "The capstone treats reasoning effort as a measurable routing decision rather than a marketing label.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Task taxonomy", "Baseline and reasoning paths", "Evaluation report", "Accessible routing policy"],
+      "success": "A learner can defend a reasoning-budget choice using task evidence, distinguish a final answer from a verified process, and report quality, latency, and cost together without retaining private data."
     }
   }
 });
