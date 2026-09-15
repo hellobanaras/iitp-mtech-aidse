@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-09-14",
+  updated: "2026-09-15",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 66,
+  filesInventoried: 67,
   courses: [
     {
       code: "EAI 6103",
@@ -16,8 +16,8 @@ export const catalog = {
       icon: "AM",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/eais1e3_iitp_ac_in/ElVmbcgat8lPlRMbn7ksxAMB_PC-yMcEYSaKWK16kio9GQ?e=jOPSz7",
       status: "active",
-      statusLabel: "2 lectures available",
-      note: "The 18 and 22 August 2026 recordings are published from the Semester 1 subject folder. Later rows remain in the deterministic review queue until each source is triaged and processed.",
+      statusLabel: "3 lectures available",
+      note: "The 18, 22, and 25 August 2026 recordings are published from the Semester 1 subject folder. Later rows remain in the deterministic review queue until each source is triaged and processed.",
       lectures: [
         {
           id: "eai-6103-2026-08-18-193045",
@@ -46,6 +46,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Python characteristics and ML workflow", "NumPy, pandas, visualisation, and scikit-learn", "Jupyter, Anaconda, Colab, deep learning, and NLP roadmap"]
+        },
+        {
+          id: "eai-6103-2026-08-25-183026",
+          number: 3,
+          date: "2026-08-25",
+          sourceRecordedAt: "2026-08-25T18:30:26+05:30",
+          sourceFilename: "Advance Machine Learning-20260825_183026-Meeting Recording.mp4",
+          displayDate: "25 August 2026",
+          title: "Supervised and unsupervised learning: targets, training, and testing",
+          duration: "1h 32m 42s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/eais1e3_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Feais1e3%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FAdvance%20Machine%20Learning%2D20260825%5F183026%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Targets, labels, and features", "Supervised versus unsupervised learning", "Training feedback and held-out testing"]
         }
       ]
     },

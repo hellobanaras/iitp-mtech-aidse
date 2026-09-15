@@ -6,8 +6,8 @@ export const catalogHi = {
       shortTitle: "एडवांस्ड मशीन लर्निंग",
       cadence: "ऐतिहासिक सेमेस्टर १ archive",
       time: "Semester 1 history में मूल schedule सुरक्षित",
-      statusLabel: "२ व्याख्यान उपलब्ध",
-      note: "१८ और २२ अगस्त २०२६ के recordings प्रकाशित हैं। आगे की rows deterministic review queue में हैं और प्रत्येक source को triage तथा process किया जाएगा।",
+      statusLabel: "३ व्याख्यान उपलब्ध",
+      note: "१८, २२ और २५ अगस्त २०२६ के recordings प्रकाशित हैं। आगे की rows deterministic review queue में हैं और प्रत्येक source को triage तथा process किया जाएगा।",
       lectures: {
         "eai-6103-2026-08-18-193045": {
           displayDate: "१८ अगस्त २०२६",
@@ -20,6 +20,12 @@ export const catalogHi = {
           title: "Machine learning के लिए Python foundations: libraries, notebooks और practice",
           statusLabel: "नोट्स प्रकाशित",
           overview: ["Python characteristics और ML workflow", "NumPy, pandas, visualisation और scikit-learn", "Jupyter, Anaconda, Colab, deep learning और NLP roadmap"]
+        },
+        "eai-6103-2026-08-25-183026": {
+          displayDate: "२५ अगस्त २०२६",
+          title: "Supervised और unsupervised learning: targets, training और testing",
+          statusLabel: "नोट्स प्रकाशित",
+          overview: ["Targets, labels और features", "Supervised बनाम unsupervised learning", "Training feedback और held-out testing"]
         }
       }
     },

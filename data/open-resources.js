@@ -31,6 +31,19 @@ export const openLearningResources = {
       url: "https://scikit-learn.org/stable/supervised_learning.html"
     },
     {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
+      kind: "Official documentation",
+      kindHi: "Official documentation",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Model selection and evaluation",
+      titleHi: "Model selection and evaluation",
+      description: "Official reference for train/test splitting, cross-validation, and evaluation of predictions on held-out data.",
+      descriptionHi: "Train/test split, cross-validation और held-out data पर predictions evaluate करने का official reference।",
+      url: "https://scikit-learn.org/stable/model_selection.html"
+    },
+    {
       provider: "pandas",
       providerHi: "pandas",
       kind: "Official documentation",

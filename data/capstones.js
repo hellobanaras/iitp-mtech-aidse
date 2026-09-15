@@ -25,6 +25,36 @@ export const capstones = Object.freeze({
       ]
     }
   },
+  "eai-6103-2026-08-25-183026": {
+    "en": {
+      "title": "LabelFlow: an auditable target-and-test workbench",
+      "pitch": "Build an accessible local-first study tool that turns a task and a tabular dataset into explicit feature/target definitions, a supervised or unsupervised classification, a repeatable training loop, and a leakage-safe evaluation report.",
+      "problem": "Learners often choose an algorithm before deciding what the target means or how testing will remain independent. An inspectable workbench makes problem framing, feedback, and held-out evaluation visible.",
+      "learning": "You will connect task formulation, features, labels, ground truth, classification, regression, clustering, iterative training, train/test splitting, and evaluation without updating on test data.",
+      "mvp": [
+        "Let a learner load a small permitted public CSV or use a synthetic dataset and define the prediction task, target column, feature columns, and data dictionary.",
+        "Classify the task as supervised or unsupervised and, when labelled, as classification or regression with a visible explanation.",
+        "Implement a baseline training loop and a held-out test flow that keeps targets separate, records predictions, and reports a confusion matrix or numerical error.",
+        "Export an accessible experiment card containing dataset provenance, split rule, model choice, metrics, representative errors, and limitations."
+      ],
+      "stretch": [
+        "Compare two suitable candidate algorithms and explain why performance alone is not the complete selection criterion.",
+        "Add a leakage audit that flags target-derived features, duplicate rows across splits, and accidental test-set updates.",
+        "Add an unsupervised clustering view with a clearly labelled absence of ground truth and a separate interpretation workflow.",
+        "Replay the training loop step by step with synthetic predictions, errors, parameter updates, and source-linked explanations."
+      ],
+      "plan": [
+        "Week 1: define task, target, feature, label, and dataset schemas with deterministic fixtures.",
+        "Week 2: implement supervised classification/regression baselines and the train/test split report.",
+        "Week 3: add the unsupervised path, leakage checks, metrics, and error inspection.",
+        "Week 4: complete accessibility review, rerun from a clean environment, and package the limitations report."
+      ],
+      "novelty": "The workbench treats target selection and evaluation boundaries as first-class learning objects instead of hiding them behind an algorithm button.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Task and schema", "Supervised baseline", "Held-out evaluation", "Unsupervised and leakage audit"],
+      "success": "A learner can defend the target and algorithm category for a task, trace one supervised update, and show that held-out targets were used for evaluation rather than training."
+    }
+  },
   "eai-6103-2026-08-18-193045": {
     "en": {
       "title": "MailLens: an explainable email-validation lab",
