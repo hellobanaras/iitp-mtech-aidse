@@ -1,5 +1,30 @@
 // Public English-only mini-capstone ideas.
 export const capstones = Object.freeze({
+  "eai-6103-2026-08-22-092455": {
+    "en": {
+      "title": "NotebookStarter: a reproducible Python data-practice lab",
+      "pitch": "Build a local-first notebook workspace that takes a small tabular dataset from loading and inspection through plots and a baseline model, while recording the environment and assumptions.",
+      "problem": "Beginners often learn Python syntax without learning how data, visual diagnostics, libraries, and model evidence fit together. A short reproducible workflow makes the bridge visible.",
+      "learning": "You will practise Python modules, NumPy arrays, pandas tables, Matplotlib/Seaborn plots, a scikit-learn baseline, notebook structure, and an honest limits section.",
+      "mvp": [
+        "Choose a small public CSV and write a notebook that records its source, columns, target, missing values, and split rule.",
+        "Implement one NumPy calculation and one pandas transformation with assertions for their expected shapes and types.",
+        "Create two labelled plots and one scikit-learn baseline with a held-out metric and at least three inspected errors.",
+        "Export a run card containing Python/package versions, dataset hash, parameters, plots, metric, and limitations."
+      ],
+      "stretch": [
+        "Add a Colab-compatible setup cell and compare local versus hosted runtime assumptions.",
+        "Compare a classical model with a neural-network baseline only after establishing the simple baseline.",
+        "Add a small NLP extension using NLTK and document why its preprocessing choices may change the result."
+      ],
+      "plan": [
+        "Week 1: select the dataset, define the question, and build deterministic loading/validation cells.",
+        "Week 2: add array/table transformations, visual checks, and a data-quality note.",
+        "Week 3: fit and evaluate a baseline, inspect errors, and record the environment.",
+        "Week 4: package the notebook, rerun it from a clean environment, and write the limits and next-step roadmap."
+      ]
+    }
+  },
   "eai-6103-2026-08-18-193045": {
     "en": {
       "title": "MailLens: an explainable email-validation lab",

@@ -451,19 +451,22 @@ function renderHome(ctx) {
     </section>`;
 }
 
-function lectureRow(lecture, lang, text) {
+function lectureRow(lecture, lang, text, course, homeListing = false) {
   const available = lecture.status === "published";
+  const archiveMeta = homeListing
+    ? `Semester ${semesterForCatalogCourse(course)} · ${lecture.displayDate} · ${lecture.hi.displayDate}`
+    : `${lecture.displayDate} · ${lecture.hi.displayDate} · ${lecture.duration}`;
   return `<article class="lecture-row ${available ? "" : "lecture-row--pending"}">
     <div class="lecture-number">${String(lecture.number).padStart(2, "0")}</div>
-    <div class="lecture-row__body"><p class="eyebrow">${escapeHtml(lecture.displayDate)} · ${escapeHtml(lecture.hi.displayDate)} · ${escapeHtml(lecture.duration)}</p>${compactBilingualCopy(lecture.title, lecture.hi.title, "h3")}<ul class="topic-chips">${lecture.overview.map((item, index) => `<li>${compactBilingualCopy(item, lecture.hi.overview[index])}</li>`).join("")}</ul></div>
+    <div class="lecture-row__body"><p class="eyebrow">${escapeHtml(archiveMeta)}</p>${compactBilingualCopy(lecture.title, lecture.hi.title, "h3")}<ul class="topic-chips">${lecture.overview.map((item, index) => `<li>${compactBilingualCopy(item, lecture.hi.overview[index])}</li>`).join("")}</ul></div>
     ${available ? `<div class="lecture-row__actions"><a class="card-link card-link--notes" href="${href(lang, `/lecture/${lecture.id}`)}">${text.readNotes} ${icon("arrow")}</a><a class="card-link card-link--recording" href="${escapeHtml(lecture.recordingUrl)}" target="_blank" rel="noreferrer">${text.watchRecording} ${icon("video")}</a></div>` : `<span class="status status--processing"><i></i>${escapeHtml(lecture.statusLabel)} · ${escapeHtml(lecture.hi.statusLabel)}</span>`}
   </article>`;
 }
 
-function lectureArchive(course, lang, text, includePending = true) {
+function lectureArchive(course, lang, text, includePending = true, homeListing = false) {
   const lectures = includePending ? course.lectures : course.lectures.filter((lecture) => lecture.status === "published");
   return lectures.length
-    ? `<div class="lecture-list">${lectures.map((lecture) => lectureRow(lecture, lang, text)).join("")}</div>`
+    ? `<div class="lecture-list">${lectures.map((lecture) => lectureRow(lecture, lang, text, course, homeListing)).join("")}</div>`
     : `<div class="empty-state empty-state--compact"><span>${escapeHtml(course.icon)}</span><h3>${text.noNotes}</h3>${bilingualCopy(course.note, course.hi.note, "p")}</div>`;
 }
 
@@ -508,7 +511,7 @@ function notesAccordion(course, lang, text) {
   const published = course.lectures.filter((lecture) => lecture.status === "published");
   return `<details class="notes-accordion notes-accordion--${course.accent}">
     <summary><span class="notes-accordion__marker">${escapeHtml(course.icon)}</span><span class="notes-accordion__title"><span class="eyebrow">${escapeHtml(course.code)}</span>${compactBilingualCopy(course.title, course.hi.title, "strong")}${scheduleRibbon(course)}</span><span class="notes-accordion__meta"><span>${published.length} ${text.notes}</span>${icon("arrow")}</span></summary>
-    <div class="notes-accordion__body">${compactBilingualCopy(course.note, course.hi.note, "p", "notes-accordion__description")}${lectureArchive(course, lang, text, false)}<a class="button button--quiet-light" href="${href(lang, coursePath(course))}">${text.openSubject} ${icon("arrow")}</a></div>
+    <div class="notes-accordion__body">${compactBilingualCopy(course.note, course.hi.note, "p", "notes-accordion__description")}${lectureArchive(course, lang, text, false, true)}<a class="button button--quiet-light" href="${href(lang, coursePath(course))}">${text.openSubject} ${icon("arrow")}</a></div>
   </details>`;
 }
 

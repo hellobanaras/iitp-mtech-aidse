@@ -6,14 +6,20 @@ export const catalogHi = {
       shortTitle: "एडवांस्ड मशीन लर्निंग",
       cadence: "ऐतिहासिक सेमेस्टर १ archive",
       time: "Semester 1 history में मूल schedule सुरक्षित",
-      statusLabel: "१ व्याख्यान उपलब्ध",
-      note: "१८ अगस्त २०२६ का recording प्रकाशित है। आगे की rows deterministic review queue में हैं और प्रत्येक source को triage तथा process किया जाएगा।",
+      statusLabel: "२ व्याख्यान उपलब्ध",
+      note: "१८ और २२ अगस्त २०२६ के recordings प्रकाशित हैं। आगे की rows deterministic review queue में हैं और प्रत्येक source को triage तथा process किया जाएगा।",
       lectures: {
         "eai-6103-2026-08-18-193045": {
           displayDate: "१८ अगस्त २०२६",
           title: "Machine learning क्या है? foundations, course roadmap और email validation",
           statusLabel: "नोट्स प्रकाशित",
           overview: ["Machine-learning definition और course roadmap", "Conventional rules बनाम data-driven learning", "Email-validation dataset, labels, training और prediction"]
+        },
+        "eai-6103-2026-08-22-092455": {
+          displayDate: "२२ अगस्त २०२६",
+          title: "Machine learning के लिए Python foundations: libraries, notebooks और practice",
+          statusLabel: "नोट्स प्रकाशित",
+          overview: ["Python characteristics और ML workflow", "NumPy, pandas, visualisation और scikit-learn", "Jupyter, Anaconda, Colab, deep learning और NLP roadmap"]
         }
       }
     },

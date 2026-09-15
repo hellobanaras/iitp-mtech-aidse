@@ -28,6 +28,12 @@ const templates = {
     steps: ["Problem and examples", "Features + labels", "Train a model", "Predict / evaluate"],
     detail: "The email-validation example makes the data-to-prediction transformation explicit."
   },
+  python: {
+    title: "From Python basics to an executable ML workflow",
+    description: "Python becomes useful for ML when language fundamentals connect to numerical data, tables, visualisation, and model libraries.",
+    steps: ["Python syntax", "Arrays and tables", "Plots and models", "Notebook practice"],
+    detail: "The tutorial's library and environment roadmap turns a language introduction into a reproducible data-science workflow."
+  },
   wireless: {
     title: "A wireless system design path",
     description: "A wireless design moves from requirements to channel-aware decisions, implementation, and measured performance.",
@@ -74,6 +80,7 @@ const templates = {
 
 const visualTemplates = {
   "eai-6103-2026-08-18-193045": "ml",
+  "eai-6103-2026-08-22-092455": "python",
   "eai-6401-2026-08-17": "rl", "eai-6401-2026-08-18": "rl", "eai-6401-2026-08-24": "rl", "eai-6401-2026-08-25": "rl", "eai-6401-2026-08-31": "rl", "eai-6401-2026-09-01": "rl", "eai-6401-2026-09-07-180458": "rl", "eai-6401-2026-09-08-180828": "rl", "eai-6401-2026-09-14-180423": "rl",
   "eai-6402-2026-08-22": "meta", "eai-6402-2026-08-29": "meta", "eai-6402-2026-09-05-101246": "genai", "eai-6402-2026-09-12-100922": "meta",
   "eai-6403-2026-08-23": "genai", "eai-6403-2026-08-29": "genai", "eai-6403-2026-08-30": "genai", "eai-6403-2026-09-05-154129": "genai", "eai-6403-2026-09-06-154745": "genai", "eai-6403-2026-09-12-153203": "genai", "eai-6403-2026-09-13-153353": "genai",

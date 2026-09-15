@@ -55,6 +55,32 @@ export const openLearningResources = {
       description: "A public tabular dataset for practising feature/label inspection, classification, and error analysis on email-like data.",
       descriptionHi: "Email-जैसे data पर feature/label inspection, classification और error analysis practice करने के लिए public tabular dataset।",
       url: "https://archive.ics.uci.edu/dataset/94/spambase"
+    },
+    {
+      provider: "Python",
+      providerHi: "Python",
+      kind: "Official documentation",
+      kindHi: "Official documentation",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Python Tutorial",
+      titleHi: "Python Tutorial",
+      description: "The official tutorial for syntax, data structures, functions, modules, and exceptions used in the lecture's Python foundation.",
+      descriptionHi: "Lecture की Python foundation के syntax, data structures, functions, modules और exceptions के लिए official tutorial।",
+      url: "https://docs.python.org/3/tutorial/"
+    },
+    {
+      provider: "Project Jupyter",
+      providerHi: "Project Jupyter",
+      kind: "Official documentation",
+      kindHi: "Official documentation",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Jupyter documentation",
+      titleHi: "Jupyter documentation",
+      description: "Documentation for the notebook environment recommended for combining code, output, and explanation in ML practice.",
+      descriptionHi: "ML practice में code, output और explanation को साथ रखने वाले notebook environment का documentation।",
+      url: "https://docs.jupyter.org/en/latest/"
     }
   ],
   "eai-6401": [

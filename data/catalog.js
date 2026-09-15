@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-14",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 65,
+  filesInventoried: 66,
   courses: [
     {
       code: "EAI 6103",
@@ -16,8 +16,8 @@ export const catalog = {
       icon: "AM",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/eais1e3_iitp_ac_in/ElVmbcgat8lPlRMbn7ksxAMB_PC-yMcEYSaKWK16kio9GQ?e=jOPSz7",
       status: "active",
-      statusLabel: "1 lecture available",
-      note: "The 18 August 2026 recording is published from the Semester 1 subject folder. Later rows remain in the deterministic review queue until each source is triaged and processed.",
+      statusLabel: "2 lectures available",
+      note: "The 18 and 22 August 2026 recordings are published from the Semester 1 subject folder. Later rows remain in the deterministic review queue until each source is triaged and processed.",
       lectures: [
         {
           id: "eai-6103-2026-08-18-193045",
@@ -32,6 +32,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Machine-learning definition and course roadmap", "Conventional rules versus data-driven learning", "Email-validation dataset, labels, training, and prediction"]
+        },
+        {
+          id: "eai-6103-2026-08-22-092455",
+          number: 2,
+          date: "2026-08-22",
+          sourceRecordedAt: "2026-08-22T09:24:55+05:30",
+          sourceFilename: "Advance Machine Learning-20260822_092455-Meeting Recording.mp4",
+          displayDate: "22 August 2026",
+          title: "Python foundations for machine learning: libraries, notebooks, and practice",
+          duration: "1h 20m 18s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/eais1e3_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Feais1e3%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FAdvance%20Machine%20Learning%2D20260822%5F092455%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Python characteristics and ML workflow", "NumPy, pandas, visualisation, and scikit-learn", "Jupyter, Anaconda, Colab, deep learning, and NLP roadmap"]
         }
       ]
     },
