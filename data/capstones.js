@@ -1,5 +1,30 @@
 // Public English-only mini-capstone ideas.
 export const capstones = Object.freeze({
+  "eai-6103-2026-08-18-193045": {
+    "en": {
+      "title": "MailLens: an explainable email-validation lab",
+      "pitch": "Build a small local-first workbench that compares hand-written email rules with a labelled-data classifier and makes every feature, label, prediction, and error inspectable.",
+      "problem": "A rule list can be explicit but brittle, while a learned model can generalise from examples but hide its assumptions. Learners need to see the difference on the same email-like inputs.",
+      "learning": "You will connect problem formulation, tabular features, binary labels, training data, held-out evaluation, false positives, and the boundary between a model and an operational decision.",
+      "mvp": [
+        "Create a synthetic dataset of valid and invalid email-like strings with documented feature definitions and binary labels.",
+        "Implement a transparent rule baseline and one permitted scikit-learn classifier behind the same prediction interface.",
+        "Show train/test separation, confusion matrix, representative errors, and confidence or score where available.",
+        "Add an explanation panel that distinguishes learned correlations from rules explicitly written by the developer."
+      ],
+      "stretch": [
+        "Add drifted examples and compare how the rule baseline and learned model degrade.",
+        "Support a review queue for uncertain predictions and measure how human review changes error rates.",
+        "Export an experiment card containing dataset provenance, feature definitions, model version, split, metrics, and limitations."
+      ],
+      "plan": [
+        "Week 1: define the feature schema, labels, synthetic generator, and deterministic test cases.",
+        "Week 2: implement the rule baseline and labelled-data training pipeline with a chronological or fixed split.",
+        "Week 3: add metrics, error inspection, drift cases, and accessible visual explanations.",
+        "Week 4: package the local workbench, export evidence, and write a short comparison of explicit rules versus learned patterns."
+      ]
+    }
+  },
   "eai-6401-2026-08-17": {
     "en": {
       "title": "RewardSketch: an RL problem-design and reward-audit workbench",

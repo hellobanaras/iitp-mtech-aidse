@@ -424,6 +424,7 @@ function courseCard(course, lang, text, featured = false) {
 function renderHome(ctx) {
   const { lang, text, catalog, allLectures } = ctx;
   const notesReady = allLectures.filter((lecture) => lecture.status === "published").length;
+  const semesterGroups = homeNotesBySemester(catalog.courses);
   main.innerHTML = `<section class="hero">
       <div class="hero-copy">
         <p class="kicker"><span></span>${text.homeKicker}</p>
@@ -446,7 +447,7 @@ function renderHome(ctx) {
     <section class="section-shell home-notes">
       <div class="section-heading"><div><p class="eyebrow">${text.currentSemester}</p>${bilingualCopy(ui.en.notesHomeHeading, ui.hi.notesHomeHeading, "h2")}</div><a href="${href(lang, "/courses")}">${text.viewAllSubjects} ${icon("arrow")}</a></div>
       ${bilingualCopy(ui.en.notesHomeIntro, ui.hi.notesHomeIntro, "p", "home-notes__intro")}
-      <div class="notes-accordion-list">${catalog.courses.map((course) => notesAccordion(course, lang, text)).join("")}</div>
+      <div class="home-notes__semester-groups">${semesterGroups.map((group) => `<section class="home-notes__semester-group" aria-labelledby="home-semester-${group.semester}"><div class="home-notes__semester-heading"><p class="eyebrow">${escapeHtml(group.period)}</p><h3 id="home-semester-${group.semester}">Semester ${group.semester || "catalogue"}</h3></div><div class="notes-accordion-list">${group.courses.map((course) => notesAccordion(course, lang, text)).join("")}</div></section>`).join("")}</div>
     </section>`;
 }
 
@@ -509,6 +510,28 @@ function notesAccordion(course, lang, text) {
     <summary><span class="notes-accordion__marker">${escapeHtml(course.icon)}</span><span class="notes-accordion__title"><span class="eyebrow">${escapeHtml(course.code)}</span>${compactBilingualCopy(course.title, course.hi.title, "strong")}${scheduleRibbon(course)}</span><span class="notes-accordion__meta"><span>${published.length} ${text.notes}</span>${icon("arrow")}</span></summary>
     <div class="notes-accordion__body">${compactBilingualCopy(course.note, course.hi.note, "p", "notes-accordion__description")}${lectureArchive(course, lang, text, false)}<a class="button button--quiet-light" href="${href(lang, coursePath(course))}">${text.openSubject} ${icon("arrow")}</a></div>
   </details>`;
+}
+
+function semesterForCatalogCourse(course) {
+  if (course.semester) return course.semester;
+  const courseCodes = course.code.split(/\s*\/\s*/).map((code) => code.trim());
+  const semester = semesterHistory.find((entry) => entry.courses.some((historyCourse) => historyCourse.code.split(/\s*\/\s*/).some((code) => courseCodes.includes(code.trim()))));
+  return semester?.semester || null;
+}
+
+function homeNotesBySemester(courses) {
+  const grouped = new Map();
+  courses.forEach((course) => {
+    const semester = semesterForCatalogCourse(course);
+    const key = semester || 0;
+    if (!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push(course);
+  });
+  return [...grouped.entries()].sort(([a], [b]) => a - b).map(([semester, groupedCourses]) => ({
+    semester,
+    period: semesterHistory.find((entry) => entry.semester === semester)?.period || "Current catalogue",
+    courses: groupedCourses
+  }));
 }
 
 function resourcesForCourse(slug) {

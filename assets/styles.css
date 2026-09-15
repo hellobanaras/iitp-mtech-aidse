@@ -423,6 +423,11 @@ h1, h2, h3 { margin-top: 0; font-family: 'Outfit', sans-serif; line-height: 1.15
 
 .home-notes { padding-top: clamp(3rem, 5vw, 5rem); padding-bottom: clamp(3.5rem, 6vw, 5.5rem); }
 .home-notes__intro { max-width: 760px; margin: -1rem 0 1.8rem; color: var(--ink-muted); font-size: 1rem; line-height: 1.65; }
+.home-notes__semester-groups { display: grid; gap: 2.4rem; }
+.home-notes__semester-group { display: grid; gap: .85rem; }
+.home-notes__semester-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-bottom: .45rem; border-bottom: 1px solid var(--line); }
+.home-notes__semester-heading .eyebrow { margin: 0; color: var(--cobalt); }
+.home-notes__semester-heading h3 { margin: 0; color: var(--ink); font: 700 1.35rem/1.2 'Outfit', sans-serif; }
 .notes-accordion-list { display: grid; gap: .8rem; }
 .notes-accordion {
   --notes-accent: var(--cobalt);

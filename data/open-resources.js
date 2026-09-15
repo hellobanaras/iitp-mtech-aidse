@@ -3,6 +3,60 @@
 // Catalogue links are labelled as catalogues; they are not presented as free
 // copies of copyrighted books.
 export const openLearningResources = {
+  "eai-6103": [
+    {
+      provider: "Google",
+      providerHi: "Google",
+      kind: "Open course",
+      kindHi: "मुक्त course",
+      access: "Free course materials",
+      accessHi: "मुफ़्त course सामग्री",
+      title: "Machine Learning Crash Course",
+      titleHi: "Machine Learning Crash Course · मुक्त course",
+      description: "Interactive explanations and exercises for supervised learning, data preparation, model evaluation, and practical ML foundations.",
+      descriptionHi: "Supervised learning, data preparation, model evaluation और practical ML foundations के लिए interactive explanations और exercises।",
+      url: "https://developers.google.com/machine-learning/crash-course"
+    },
+    {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
+      kind: "Official documentation",
+      kindHi: "Official documentation",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Supervised learning user guide",
+      titleHi: "Supervised learning user guide",
+      description: "Reference material for fitting models from labelled examples and evaluating predictions on held-out data.",
+      descriptionHi: "Labelled examples से models fit करने और held-out data पर predictions evaluate करने का reference।",
+      url: "https://scikit-learn.org/stable/supervised_learning.html"
+    },
+    {
+      provider: "pandas",
+      providerHi: "pandas",
+      kind: "Official documentation",
+      kindHi: "Official documentation",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "pandas User Guide",
+      titleHi: "pandas User Guide",
+      description: "Practical reference for loading, inspecting, cleaning, and transforming tabular data such as the lecture's CSV example.",
+      descriptionHi: "Lecture के CSV example जैसे tabular data को load, inspect, clean और transform करने का practical reference।",
+      url: "https://pandas.pydata.org/docs/user_guide/index.html"
+    },
+    {
+      provider: "UCI Machine Learning Repository",
+      providerHi: "UCI Machine Learning Repository",
+      kind: "Open dataset",
+      kindHi: "मुक्त dataset",
+      access: "Free research data",
+      accessHi: "मुफ़्त research data",
+      title: "Spambase dataset",
+      titleHi: "Spambase dataset · email classification practice",
+      description: "A public tabular dataset for practising feature/label inspection, classification, and error analysis on email-like data.",
+      descriptionHi: "Email-जैसे data पर feature/label inspection, classification और error analysis practice करने के लिए public tabular dataset।",
+      url: "https://archive.ics.uci.edu/dataset/94/spambase"
+    }
+  ],
   "eai-6401": [
     {
       provider: "Stanford University",

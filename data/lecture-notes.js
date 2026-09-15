@@ -1,5 +1,6 @@
 const releaseVersion = new URL(import.meta.url).searchParams.get("v") || "dev";
 const [
+  { eai6103Lecture20260818193045 },
   { eai6401Lecture20260817 },
   { eai6401Lecture20260818 },
   { eai6401Lecture20260824 },
@@ -65,6 +66,7 @@ const [
   ,{ ebb6403Lecture20260905055030 }
   ,{ ebb6403Lecture20260912054641 }
 ] = await Promise.all([
+  import(`./lectures/eai-6103-2026-08-18-193045.js?v=${releaseVersion}`),
   import(`./lectures/eai-6401-2026-08-17.js?v=${releaseVersion}`),
   import(`./lectures/eai-6401-2026-08-18.js?v=${releaseVersion}`),
   import(`./lectures/eai-6401-2026-08-24.js?v=${releaseVersion}`),
@@ -133,6 +135,7 @@ const [
 
 // Each lecture is a single English-only publication unit.
 export const lectureNotes = {
+  "eai-6103-2026-08-18-193045": eai6103Lecture20260818193045,
   "eai-6401-2026-08-17": eai6401Lecture20260817,
   "eai-6401-2026-08-18": eai6401Lecture20260818,
   "eai-6401-2026-08-24": eai6401Lecture20260824,

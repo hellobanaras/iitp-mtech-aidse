@@ -1,8 +1,40 @@
 export const catalog = {
   updated: "2026-09-14",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 64,
+  filesInventoried: 65,
   courses: [
+    {
+      code: "EAI 6103",
+      slug: "eai-6103",
+      routeSlug: "eai-6103-advanced-machine-learning",
+      title: "Advanced Machine Learning",
+      shortTitle: "Advanced Machine Learning",
+      semester: 1,
+      cadence: "Historical Semester 1 archive",
+      time: "Source schedule preserved in Semester 1 history",
+      accent: "cobalt",
+      icon: "AM",
+      recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/eais1e3_iitp_ac_in/ElVmbcgat8lPlRMbn7ksxAMB_PC-yMcEYSaKWK16kio9GQ?e=jOPSz7",
+      status: "active",
+      statusLabel: "1 lecture available",
+      note: "The 18 August 2026 recording is published from the Semester 1 subject folder. Later rows remain in the deterministic review queue until each source is triaged and processed.",
+      lectures: [
+        {
+          id: "eai-6103-2026-08-18-193045",
+          number: 1,
+          date: "2026-08-18",
+          sourceRecordedAt: "2026-08-18T19:30:45+05:30",
+          sourceFilename: "Advance Machine Learning-20260818_193045-Meeting Recording.mp4",
+          displayDate: "18 August 2026",
+          title: "What is machine learning? Foundations, course roadmap, and email validation",
+          duration: "1h 33m 37s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/eais1e3_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Feais1e3%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FAdvance%20Machine%20Learning%2D20260818%5F193045%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Machine-learning definition and course roadmap", "Conventional rules versus data-driven learning", "Email-validation dataset, labels, training, and prediction"]
+        }
+      ]
+    },
     {
       code: "EAI 6401/ECS 6404/ECC 6403",
       slug: "eai-6401",
