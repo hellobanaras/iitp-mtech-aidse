@@ -184,8 +184,9 @@ for (const id of Object.keys(capstones)) assert(publishedIds.includes(id), `${id
 assert(semesterSchedule.endsOn === "2026-11-30", "Schedule must run through 30 November 2026.");
 assert(semesterSchedule.displayTimeZone === "America/Chicago", "Schedule display timezone must be America/Chicago.");
 const scheduledSlugs = semesterSchedule.courses.map((course) => course.slug);
-assert(new Set(scheduledSlugs).size === catalog.courses.length, "Each course needs exactly one schedule entry.");
-for (const course of catalog.courses) {
+const currentCatalogCourses = catalog.courses.filter((course) => course.semester === undefined || course.semester === 4);
+assert(new Set(scheduledSlugs).size === currentCatalogCourses.length, "Each current catalogue course needs exactly one schedule entry.");
+for (const course of currentCatalogCourses) {
   const schedule = semesterSchedule.courses.find((item) => item.slug === course.slug);
   assert(Boolean(schedule), `${course.code}: schedule is missing.`);
   if (!schedule) continue;

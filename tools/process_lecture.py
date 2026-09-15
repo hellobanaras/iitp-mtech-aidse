@@ -147,7 +147,7 @@ def main() -> None:
         "--course",
         required=True,
         choices=[
-            "eai-6401", "eai-6402", "eai-6403",
+            "eai-6103", "eai-6401", "eai-6402", "eai-6403",
             "ecs-6402", "ebb-6401", "ebb-6403",
             "ecs-6401", "ecc-6404", "ebb-6402",
         ],
