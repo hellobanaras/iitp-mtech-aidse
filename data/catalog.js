@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-09-15",
+  updated: "2026-09-16",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 70,
+  filesInventoried: 71,
   courses: [
     {
       code: "EAI 6103",
@@ -879,6 +879,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["AR versus MA lag terms", "Ordinary and seasonal differencing", "Reading and expanding SARIMA equations"]
+        },
+        {
+          id: "ecs-6401-2026-09-16-180603",
+          number: 9,
+          date: "2026-09-16",
+          sourceRecordedAt: "2026-09-16T18:06:03+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20260916_180603-Meeting Recording.mp4",
+          displayDate: "16 September 2026",
+          title: "AIC, BIC, residual diagnostics, and ARIMA model selection",
+          duration: "1h 14m 49s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course129_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FAdvanced+Time+Series+Analysis-20260916_180603-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["ADF context and ACF/PACF order hints", "AIC, BIC, AICc, HQIC, and complexity penalties", "RMSE, residual diagnostics, and monthly SARIMA forecasting"]
         }
       ]
     },

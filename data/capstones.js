@@ -1775,6 +1775,36 @@ export const capstones = Object.freeze({
       "success": "A learner can decode an ARIMA or SARIMA equation, justify its orders, and explain how seasonal differencing changes the series."
     }
   },
+  "ecs-6401-2026-09-16-180603": {
+    "en": {
+      "title": "Forecast Audit Lab: transparent ARIMA model selection",
+      "pitch": "Build an accessible local-first notebook that compares ARIMA and SARIMA candidates through information criteria, chronological forecast error, and residual evidence.",
+      "problem": "A lowest AIC or BIC can look like a final answer even when a model forecasts poorly or leaves autocorrelation in its residuals. Learners need one evidence trail that keeps fit, complexity, chronology, and diagnostics together.",
+      "learning": "Implement ADF context checks, ACF/PACF order hints, AIC/AICc/BIC/HQIC calculations, chronological train/test evaluation, RMSE, residual ACF/PACF, and monthly forecast horizons.",
+      "mvp": [
+        "Load a public or synthetic monthly series, plot its level and transformed forms, and record the ADF null and p-value interpretation.",
+        "Fit at least three ARIMA/SARIMA candidates and display likelihood, parameter count, AIC, AICc, BIC, and HQIC in an accessible table.",
+        "Hold out the latest observations in time order, calculate RMSE, and plot actual versus predicted values without future leakage.",
+        "Run residual plots and residual ACF/PACF checks, then export a plain-language model-selection report with source-time evidence."
+      ],
+      "stretch": [
+        "Add a sensitivity view showing how the preferred model changes when the sample size, seasonal period, or differencing choice changes.",
+        "Compare a model selected by AIC with one selected by BIC and explain the complexity/forecast trade-off.",
+        "Add confidence intervals and a 24-period monthly forecast with an explicit coverage and uncertainty note.",
+        "Export an accessible audit card containing every candidate, metric, residual decision, and reproducibility assumption."
+      ],
+      "plan": [
+        "Week 1: implement series plots, transformation controls, ADF interpretation, and chronological data splits.",
+        "Week 2: fit candidate ARIMA/SARIMA models and calculate information criteria with tested parameter counts.",
+        "Week 3: add RMSE, residual ACF/PACF, confidence bands, and model-comparison explanations.",
+        "Week 4: finish accessibility, source-time evidence, 24-period forecasting, and audit export tests."
+      ],
+      "novelty": "The lab makes model selection an inspectable chain of evidence rather than a single library call returning one preferred order.",
+      "stack": ["Python", "pandas", "statsmodels", "matplotlib", "Accessible HTML table", "Vitest"],
+      "milestones": ["Stationarity context", "Information-criteria table", "Chronological evaluation", "Residual audit export"],
+      "success": "A learner can justify an ARIMA/SARIMA choice using fit, complexity, forecast error, residual structure, and explicit limits on what each metric proves."
+    }
+  },
   "ebb-6403-2026-09-12-054641": {
     "en": {
       "title": "Trapdoor Notebook: an auditable public-key arithmetic lab",
