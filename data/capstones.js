@@ -1033,6 +1033,35 @@ export const capstones = Object.freeze({
       "success": "A learner can explain why gamma changes policy choice, reproduce the gridworld value sweep, distinguish evaluation from improvement, and report approximation limits with explicit evidence."
     }
   },
+  "eai-6401-2026-09-15-180436": {
+    "en": {
+      "title": "SafePolicy Lab — an auditable policy-iteration workbench",
+      "pitch": "Build an accessible local-first simulator that compares policy evaluation, greedy improvement, policy iteration, and model-free learning while exposing reward and constraint assumptions.",
+      "problem": "RL demos often show a final policy without revealing how value updates, action alternatives, stopping thresholds, or unintended reward-seeking behaviours shaped it.",
+      "learning": "You will implement Bellman expectation backups, q-values, theta stopping, greedy improvement, policy stability, terminal handling, wall collisions, and a transparent model-free comparison.",
+      "mvp": [
+        "Create a small gridworld with terminal states, wall collisions, configurable rewards, gamma, and random or deterministic policies.",
+        "Render each policy-evaluation sweep with V(s), action probabilities, successor values, delta, and the theta stopping decision.",
+        "Implement q_pi(s,a), greedy policy improvement, and a policy-stable flag with tests for equivalent and improved policies.",
+        "Add a synthetic model-free mode and a constraint panel that records what the agent may not do even when a reward signal is exploitable."
+      ],
+      "stretch": [
+        "Compare in-place and two-array evaluation and plot convergence under different theta values.",
+        "Add a reward-hacking scenario and show how objective and constraint changes alter the learned behaviour.",
+        "Export an accessible experiment card with source timecodes, transition rules, policy versions, and coverage limits."
+      ],
+      "plan": [
+        "Week 1: define state, action, transition, reward, terminal, and constraint schemas.",
+        "Week 2: implement Bellman evaluation, wall/terminal tests, delta, and theta stopping.",
+        "Week 3: add q-values, greedy improvement, policy iteration, and convergence views.",
+        "Week 4: add model-free comparison, reward-hacking safeguards, accessibility, and evidence export."
+      ],
+      "novelty": "The workbench makes the full reasoning loop inspectable and places objective constraints beside value updates, so learners can distinguish optimality under a model from acceptable behaviour in a deployment.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Week 1: MDP and constraint schema", "Week 2: policy evaluation", "Week 3: improvement and iteration", "Week 4: model-free comparison and audit export"],
+      "success": "A learner can reproduce one value sweep, explain a greedy action with q_pi(s,a), identify why policy iteration stopped, and state one limitation of the reward or model assumptions."
+    }
+  },
   "ebb-6403-2026-08-29-053554": {
     "en": {
       "title": "CipherLens: an adversary-aware cryptography learning lab",

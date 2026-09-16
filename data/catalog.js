@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-15",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 69,
+  filesInventoried: 70,
   courses: [
     {
       code: "EAI 6103",
@@ -75,7 +75,7 @@ export const catalog = {
       icon: "RL",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course72_hybrid_iitp_ac_in/IgAGzyBinTNjQ69x8TC7U-ZQAedbzLJLRwPOzm3drlcdWcc?e=fR761s",
       status: "active",
-      statusLabel: "9 lectures available",
+      statusLabel: "10 lectures available",
       note: "The August 17, 18, 24, 25, 31, September 1, 7, 8, and 14 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; long idle tails after the verified class intervals are excluded.",
       lectures: [
         {
@@ -203,6 +203,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Recycling-robot policy comparison", "Bellman optimality and special gridworlds", "Approximate policy evaluation and theta stopping"]
+        },
+        {
+          id: "eai-6401-2026-09-15-180436",
+          number: 10,
+          date: "2026-09-15",
+          sourceRecordedAt: "2026-09-15T18:04:36+05:30",
+          sourceFilename: "Reinforcement Learning-20260915_180436-Meeting Recording.mp4",
+          displayDate: "15 September 2026",
+          title: "Iterative policy evaluation, policy improvement, and policy iteration",
+          duration: "1h 30m 40s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course72_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course72_hybrid_iitp_ac_in%2FDocuments/Recordings/Reinforcement+Learning-20260915_180436-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Iterative policy evaluation and gridworld backups", "q-values, greedy policy improvement, and policy stability", "Policy iteration and model-free RL constraints"]
         }
       ]
     },
