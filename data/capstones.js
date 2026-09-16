@@ -1659,6 +1659,34 @@ export const capstones = Object.freeze({
       "success": "A learner can justify a center and spread measure for a data set, identify suspected outliers, and cite the visual evidence behind the decision."
     }
   },
+  "ecc-6404-2026-09-14-193017": {
+    "en": {
+      "title": "TreePath Auditor: an accessible classifier explainer",
+      "pitch": "Build a small educational explorer that lets a learner trace attribute questions from a decision-tree root to a predicted class and inspect the corresponding confusion-matrix evidence.",
+      "problem": "A classifier can look like a single accuracy score even though learners need to understand both the attribute path that produced a prediction and which classes are being confused.",
+      "learning": "You will implement categorical tree traversal, pure-leaf stopping, binary confusion-matrix metrics, and an accessible explanation of greedy recursive induction.",
+      "mvp": [
+        "Accept a small labelled table and display the current node's attribute test and every branch outcome.",
+        "Let a learner enter an unlabeled record and highlight its root-to-leaf path with the final class.",
+        "Render actual-versus-predicted counts with accuracy and error-rate formulas and plain-language descriptions.",
+        "Show why a pure subset becomes a leaf and why a mixed subset needs another recursive split."
+      ],
+      "stretch": [
+        "Compare two greedy trees and show where different local root choices change the paths and test metrics.",
+        "Export a keyboard-accessible audit card containing the chosen split, prediction path, confusion counts, and source timecodes."
+      ],
+      "plan": [
+        "Week 1: implement records, categorical tests, branches, and leaf traversal.",
+        "Week 2: add recursive pure-node stopping and a small greedy split heuristic.",
+        "Week 3: implement confusion-matrix counts, accuracy, error rate, and comparison views.",
+        "Week 4: add accessible explanations, source-time evidence, and export tests."
+      ],
+      "novelty": "The project connects model structure and model evaluation: every predicted label remains linked to the questions asked and the error counts that justify trust.",
+      "stack": ["TypeScript", "SVG", "Accessible HTML table", "Vitest"],
+      "milestones": ["Tree traversal", "Recursive induction", "Confusion metrics", "Accessible audit export"],
+      "success": "A learner can explain a prediction as a root-to-leaf path, calculate its model's accuracy and error rate, and identify the trade-off behind a greedy split."
+    }
+  },
   "ecs-6401-2026-09-09-180431": {
     "en": {
       "title": "Impulse and seasonality lab",

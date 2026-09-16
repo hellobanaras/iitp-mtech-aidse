@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-15",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 67,
+  filesInventoried: 68,
   courses: [
     {
       code: "EAI 6103",
@@ -880,8 +880,8 @@ export const catalog = {
       icon: "DW",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course76_hybrid_iitp_ac_in/IgAWWFJqFmpXRay8IkonggGRASO0x6czOy20BYDTjv8HHXI?e=5DXrhH",
       status: "active",
-      statusLabel: "8 lectures available",
-      note: "Lectures 1–8 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; the 9 September statistical-descriptions lecture is bounded to the sustained teaching interval.",
+      statusLabel: "9 lectures available",
+      note: "Lectures 1–9 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; the 14 September classification and decision-tree lecture is bounded to the sustained teaching interval.",
       lectures: [
         {
           id: "ecc-6404-2026-08-17-193438",
@@ -994,6 +994,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Mean, weighted and trimmed mean, median, mode, and mid-range", "Quantiles, quartiles, percentiles, IQR, and five-number summaries", "Box plots, 1.5-IQR outliers, standard deviation, and quantile plots"]
+        },
+        {
+          id: "ecc-6404-2026-09-14-193017",
+          number: 9,
+          date: "2026-09-14",
+          sourceRecordedAt: "2026-09-14T19:30:17+05:30",
+          sourceFilename: "Data Warehousing-20260914_193017-Meeting Recording.mp4",
+          displayDate: "14 September 2026",
+          title: "Classification evaluation and decision-tree induction",
+          duration: "1h 24m 18s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course76_hybrid_iitp_ac_in%2FDocuments/Recordings/Data%20Warehousing%2D20260914%5F193017%2DMeeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Classification as supervised mapping from attributes to discrete labels", "Training/test separation, confusion matrices, accuracy, and error rate", "Decision-tree nodes, greedy search, and recursive partitioning"]
         }
       ]
     },
