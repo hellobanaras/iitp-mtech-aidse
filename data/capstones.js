@@ -1383,6 +1383,35 @@ export const capstones = Object.freeze({
       "success": "A learner can explain which claims are backed by reserves or ledgers, trace a payment across participants, compare settlement paths, and defend a policy recommendation with explicit residual risks."
     }
   },
+  "ebb-6402-2026-09-15-180515": {
+    "en": {
+      "title": "TraceLedger Atlas — an auditable blockchain stakeholder map",
+      "pitch": "Build an accessible explorer that traces a synthetic product or identity claim from issuer through smart-contract-backed records to the end user while exposing stakeholder rights, duties, and unresolved risks.",
+      "problem": "Blockchain diagrams can hide who owns a decision, who verifies a claim, and who bears liability when a record or physical-world input is wrong. TraceLedger Atlas makes the path and responsibility explicit.",
+      "learning": "You will connect asset tokenization, fractional ownership, governance, signed claims, supply-chain traceability, smart-contract controls, and the limits of ledger evidence.",
+      "mvp": [
+        "Create an accessible graph of issuer, holder, verifier, farmer, processor, distributor, retailer, and customer using synthetic records.",
+        "Add a timeline showing tokenization, verification, transfer, and hand-off events with an owner and evidence note for each event.",
+        "Implement a signed-claim verification view covering valid, altered, expired, and revoked synthetic claims.",
+        "Add a risk and control panel for key custody, governance participation, physical-world data, scalability, performance, and ROI assumptions."
+      ],
+      "stretch": [
+        "Compare an intermediary-led path with a blockchain path and show where authority and reconciliation duties move.",
+        "Export an accessible audit card that links each design choice to the lecture's source timecode and a public reference.",
+        "Add a small scenario runner for fractional ownership, secondary transfer, and supply-chain exceptions."
+      ],
+      "plan": [
+        "Week 1: define synthetic actors, claims, token units, hand-offs, and evidence schemas.",
+        "Week 2: implement the graph, event timeline, and stakeholder responsibility matrix.",
+        "Week 3: add signed-claim verification, smart-contract conditions, and exception states.",
+        "Week 4: test accessibility, compare governance paths, export the audit card, and document limitations."
+      ],
+      "novelty": "The project connects governance, identity evidence, tokenized ownership, and enterprise traceability in one inspectable learner workflow instead of treating them as separate blockchain examples.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Week 1: synthetic evidence model", "Week 2: stakeholder and traceability views", "Week 3: claim verification and controls", "Week 4: accessibility and audit export"],
+      "success": "A learner can trace one synthetic asset or claim end to end, identify who controls each step, explain one benefit and one residual risk, and support the explanation with an auditable evidence card."
+    }
+  },
   "ecs-6402-2026-09-03-203415": {
     "en": {
       "title": "LayerLens: an ATM and OSI protocol-stack visualizer",

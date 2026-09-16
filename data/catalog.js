@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-15",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 68,
+  filesInventoried: 69,
   courses: [
     {
       code: "EAI 6103",
@@ -650,7 +650,7 @@ export const catalog = {
       icon: "SP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course78_hybrid_iitp_ac_in/IgCwVcRuGq_lR6u1S5D-yQeRAb5jOjVzObdfYRB-vn1qvBQ?e=wtwqhi",
       status: "active",
-      statusLabel: "6 lectures available",
+      statusLabel: "8 lectures available",
       note: "Six verified lectures are published. View-only sources were captured at 2× with setup and idle tails excluded after full timeline sweeps.",
       lectures: [
         {
@@ -1123,6 +1123,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Bank-issued native stablecoins and tokenized deposits", "Enterprise treasury, cross-border transfer, and payment settlement", "Blockchain policy resources, regulation, and smart securities"]
+        },
+        {
+          id: "ebb-6402-2026-09-15-180515",
+          number: 8,
+          date: "2026-09-15",
+          sourceRecordedAt: "2026-09-15T18:05:15+05:30",
+          sourceFilename: "Blockchain policy – Legal, Social and Economic Impact-20260915_180515-Meeting Recording.mp4",
+          displayDate: "15 September 2026",
+          title: "Blockchain stakeholder impact, governance, and enterprise traceability",
+          duration: "1h 27m 20s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course126_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course126_hybrid_iitp_ac_in%2FDocuments/Recordings/Blockchain+policy+%E2%80%93+Legal%2C+Social+and+Economic+Impact-20260915_180515-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Asset tokenization, fractional ownership, and liquidity", "Stakeholder incentives, governance trends, and redistributed responsibility", "Signed identity claims, supply-chain traceability, and enterprise limits"]
         }
       ]
     }
