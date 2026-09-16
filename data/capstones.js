@@ -1745,6 +1745,35 @@ export const capstones = Object.freeze({
       "success": "A learner can explain a prediction as a root-to-leaf path, calculate its model's accuracy and error rate, and identify the trade-off behind a greedy split."
     }
   },
+  "ecc-6404-2026-09-16-193307": {
+    "en": {
+      "title": "Impurity-Aware Decision Tree Lab",
+      "pitch": "Build a small explorer that compares candidate attribute splits and shows how child-class distributions change the selected decision-tree criterion.",
+      "problem": "A split can look intuitively useful while still creating impure or overly fragmented children; learners need to inspect the evidence behind the choice.",
+      "learning": "Implement binary and multiway partitions, class-count summaries, Gini impurity, entropy, classification error, and a transparent split-selection report.",
+      "mvp": [
+        "Accept a small labelled table and show the child class distribution for each candidate nominal or threshold split.",
+        "Calculate weighted Gini, entropy, and classification error for every candidate and highlight the lowest-impurity option.",
+        "Let the learner compare binary and multiway versions of the same attribute and explain the branch-count trade-off.",
+        "Provide a keyboard-accessible evidence table linking each result to the lecture's source timecodes."
+      ],
+      "stretch": [
+        "Add information-gain and gain-ratio comparisons with a warning about high-cardinality attributes.",
+        "Export a plain-language split audit containing the chosen test, child counts, criterion values, and fallback policy."
+      ],
+      "plan": [
+        "Week 1: implement table parsing, class counts, and candidate partitions.",
+        "Week 2: add Gini, entropy, classification error, and weighted aggregation.",
+        "Week 3: compare binary, multiway, and discretized continuous splits.",
+        "Week 4: add accessible evidence export and source-time explanations."
+      ],
+      "novelty": "The lab makes a tree's local greedy choice inspectable by displaying the competing partitions and their impurity evidence side by side.",
+      "stack": ["TypeScript", "SVG", "Accessible HTML table", "Vitest"],
+      "milestones": ["Candidate splits", "Impurity criteria", "Binary/multiway comparison", "Accessible audit export"],
+      "success": "A learner can justify a split using class distributions and impurity calculations, explain binary versus multiway trade-offs, and identify an appropriate fallback for unseen combinations.",
+      "guardrails": ["Use synthetic or public toy data only.", "Do not include credentials or private learner data."]
+    }
+  },
   "ecs-6401-2026-09-09-180431": {
     "en": {
       "title": "Impulse and seasonality lab",

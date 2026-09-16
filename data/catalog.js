@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-16",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 71,
+  filesInventoried: 72,
   courses: [
     {
       code: "EAI 6103",
@@ -1036,6 +1036,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Classification as supervised mapping from attributes to discrete labels", "Training/test separation, confusion matrices, accuracy, and error rate", "Decision-tree nodes, greedy search, and recursive partitioning"]
+        },
+        {
+          id: "ecc-6404-2026-09-16-193307",
+          number: 10,
+          date: "2026-09-16",
+          sourceRecordedAt: "2026-09-16T19:33:07+05:30",
+          sourceFilename: "Data Warehousing-20260916_193307-Meeting Recording.mp4",
+          displayDate: "16 September 2026",
+          title: "Decision-tree induction, split types, and impurity measures",
+          duration: "1h 23m 51s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course76_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FData%20Warehousing%2D20260916%5F193307%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Hunt's recursive partitioning algorithm and fallback cases", "Binary, multiway, nominal, ordinal, continuous, and discretized splits", "Gini index, entropy, classification error, and information gain"]
         }
       ]
     },
