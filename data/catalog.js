@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-17",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 74,
+  filesInventoried: 75,
   courses: [
     {
       code: "EAI 6103",
@@ -420,8 +420,8 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "active",
-      statusLabel: "7 lectures available",
-      note: "The September 4 lecture applies the OSI stack to physical media, IP routing, TCP segmentation, encapsulation, and checksum/CRC integrity checks after a full timeline sweep and bounded visible-tab capture.",
+      statusLabel: "8 lectures available",
+      note: "The September 17 lecture develops cellular reuse from low-power base stations and hexagonal cells through cluster geometry, capacity arithmetic, and the capacity–interference trade-off.",
       lectures: [
         {
           id: "ecs-6402-2026-08-21-204351",
@@ -520,6 +520,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["IPv4 classes, address ranges, and subnet masks", "IPv6 address space, hop limit, and flow identification", "1G–6G cellular evolution, eMBB, URLLC, massive IoT, MIMO, and beamforming"]
+        },
+        {
+          id: "ecs-6402-2026-09-17-203648",
+          number: 8,
+          date: "2026-09-17",
+          sourceRecordedAt: "2026-09-17T20:36:48+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20260917_203648-Meeting Recording.mp4",
+          displayDate: "17 September 2026",
+          title: "Cellular reuse, cluster geometry, and capacity–interference trade-offs",
+          duration: "1h 22m 42s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course75_hybrid_iitp_ac_in/Documents/Recordings/Selected%20Topics%20in%20Wireless%20Networks-20260917_203648-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Low-power base stations, antennas, and hexagonal cell coverage", "Co-channel reuse distance, cluster size N, and D/R = √(3N)", "Seven-cell capacity arithmetic and the interference/SIR trade-off"]
         }
       ]
     },

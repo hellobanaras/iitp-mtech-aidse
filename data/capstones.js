@@ -1702,6 +1702,34 @@ export const capstones = Object.freeze({
       "success": "A learner can derive an IPv4 network boundary, explain why IPv6 scales the address space, compare cellular-generation goals, and relate MIMO or beamforming to a stated service requirement."
     }
   },
+  "ecs-6402-2026-09-17-203648": {
+    "en": {
+      "title": "ReuseMap — an accessible cellular capacity and interference explorer",
+      "pitch": "Build an interactive cellular-planning lab that lets learners change cluster size, cell radius, and channel allocation while seeing reuse distance, capacity, and co-channel interference move together.",
+      "problem": "Frequency reuse formulas are easy to memorise but difficult to connect to the geometric and quality trade-offs behind a real cellular layout.",
+      "learning": "You will model hexagonal cells, base stations, R, d, D, cluster size N, D/R = √(3N), reuse factor 1/N, channel capacity, and SIR as a design decision.",
+      "mvp": [
+        "Render a keyboard-accessible hexagonal cell map with a selected serving cell, base stations, and highlighted co-channel cells.",
+        "Let a learner change N and R, then update D = √(3N)R, reuse factor, and the visible co-channel separation.",
+        "Provide the lecture's 140 km², 40-channel, 30%, seven-cell scenario as a reproducible worked example that yields 20 km² per cell and 84 aggregate channels.",
+        "Show a plain-language SIR panel that separates desired signal power from aggregate co-channel interference and explains the capacity-versus-quality trade-off."
+      ],
+      "stretch": [
+        "Add i–j shift controls for N = 4 and N = 7 and validate whether the selected reuse pattern avoids adjacent same-band cells.",
+        "Export an accessible study card with formulas, assumptions, source timecodes, and no private or credential data."
+      ],
+      "plan": [
+        "Week 1: hexagonal map, base stations, R, d, D, and co-channel highlighting.",
+        "Week 2: cluster-size controls, i–j shifts, reuse factor, and geometry validation.",
+        "Week 3: capacity arithmetic, SIR explanation, and interference scenarios.",
+        "Week 4: keyboard accessibility, tests, source-time evidence, and export."
+      ],
+      "novelty": "The lab makes the lecture's central trade-off visible: the same spectrum can support more users through reuse, but only by accepting a geometry-dependent interference cost.",
+      "stack": ["TypeScript", "SVG", "Accessible HTML tables", "Vitest"],
+      "milestones": ["Cell and base-station map", "Reuse geometry", "Capacity and SIR", "Accessible evidence export"],
+      "success": "A learner can choose a cluster size, derive the resulting reuse distance and reuse factor, reproduce the seven-cell channel example, and explain why capacity and signal quality move in opposite directions."
+    }
+  },
   "eai-6403-2026-09-05-154129": {
     "en": {
       "title": "Attention map explainer",
