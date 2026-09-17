@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-09-16",
+  updated: "2026-09-17",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 73,
+  filesInventoried: 74,
   courses: [
     {
       code: "EAI 6103",
@@ -1079,8 +1079,8 @@ export const catalog = {
       icon: "BP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course126_hybrid_iitp_ac_in/IgCHFNnPY4p5T6ER5i66wfU6ARez8raFCClh3yjgh9MvxQ4?e=BpEdrU",
       status: "active",
-      statusLabel: "6 lectures available",
-      note: "Lectures 1–6 are published from verified teaching intervals; participant-only openings, announced breaks, and idle tails were excluded after full timeline sweeps. View-only sources were captured at 2×.",
+      statusLabel: "9 lectures available",
+      note: "Lectures 1–9 are published from verified teaching intervals; participant-only openings, announced breaks, and idle tails were excluded after full timeline sweeps. View-only sources were captured at 2×.",
       lectures: [
         {
           id: "ebb-6402-2026-08-18-180205",
@@ -1193,6 +1193,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Asset tokenization, fractional ownership, and liquidity", "Stakeholder incentives, governance trends, and redistributed responsibility", "Signed identity claims, supply-chain traceability, and enterprise limits"]
+        },
+        {
+          id: "ebb-6402-2026-09-17-180630",
+          number: 9,
+          date: "2026-09-17",
+          sourceRecordedAt: "2026-09-17T18:06:30+05:30",
+          sourceFilename: "Blockchain policy – Legal, Social and Economic Impact-20260917_180630-Meeting Recording.mp4",
+          displayDate: "17 September 2026",
+          title: "Blockchain policy impact, tokenized physical assets, and security-token architecture",
+          duration: "1h 21m 18s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course126_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course126_hybrid_iitp_ac_in/Documents/Recordings/Blockchain%20policy%20%E2%80%93%20Legal%2C%20Social%20and%20Economic%20Impact-20260917_180630-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Governance, regulation, social, and ethical blockchain impact", "Tokenized physical assets, fractional real-estate ownership, and transaction benefits", "Issuer, wallet, custodian, exchange, AML, and permissioned-network architecture"]
         }
       ]
     }

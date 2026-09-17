@@ -1441,6 +1441,35 @@ export const capstones = Object.freeze({
       "success": "A learner can trace one synthetic asset or claim end to end, identify who controls each step, explain one benefit and one residual risk, and support the explanation with an auditable evidence card."
     }
   },
+  "ebb-6402-2026-09-17-180630": {
+    "en": {
+      "title": "TokenRights Atlas — an auditable physical-asset tokenization lab",
+      "pitch": "Build a synthetic, accessible workbench that maps a physical asset to tokenized rights, investors, custody, exchange, supervision, and the off-chain evidence needed to support each claim.",
+      "problem": "A token can look precise while hiding the underlying property, valuation, ownership, custody, regulatory, and transfer assumptions. TokenRights Atlas makes those assumptions inspectable.",
+      "learning": "You will model governance rules, fractional ownership, issuer and revocation events, wallets, custodians, exchanges, AML controls, smart-contract conditions, and the limits of on-chain proof.",
+      "mvp": [
+        "Create a synthetic commercial property with valuation, ownership, income, and evidence records.",
+        "Represent proportional ownership and income rights as token units, with transfer and revocation states.",
+        "Map issuer, investor, asset owner, wallet, custodian, tokenization provider, exchange, and supervisor responsibilities.",
+        "Add a policy panel covering privacy, cybersecurity, interoperability, consumer protection, AML, and physical-world evidence."
+      ],
+      "stretch": [
+        "Compare permissioned and public network designs for participation, transparency, privacy, and regulatory control.",
+        "Simulate a land-registry update that succeeds only when synthetic identity, authority, and document conditions are satisfied.",
+        "Export an evidence card linking each design choice to a lecture timecode and a public policy reference."
+      ],
+      "plan": [
+        "Week 1: define synthetic assets, rights, actors, evidence, and policy assumptions.",
+        "Week 2: implement token units, ownership and income views, wallets, custody, and transfer rules.",
+        "Week 3: add issuer/revocation, exchange supervision, AML controls, and permissioned/public comparison.",
+        "Week 4: test failure cases, audit off-chain claims, document limitations, and export the accessible study artifact."
+      ],
+      "novelty": "The lab treats tokenization as a governed chain of rights and evidence instead of a token-generation demo.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Evidence and asset model", "Token and custody workflow", "Supervision and policy controls", "Audit export and limitations"],
+      "success": "A learner can trace one synthetic asset from physical claim to token, explain who controls every transition, identify one benefit and one residual risk, and support the explanation with evidence."
+    }
+  },
   "ecs-6402-2026-09-03-203415": {
     "en": {
       "title": "LayerLens: an ATM and OSI protocol-stack visualizer",
