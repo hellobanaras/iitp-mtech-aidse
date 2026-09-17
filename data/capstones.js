@@ -1937,5 +1937,34 @@ export const capstones = Object.freeze({
       "milestones": ["Embedding visualiser", "Classification routes", "QA and token tagging", "Accessible evidence report"],
       "success": "A learner can explain how BERT combines token, segment, and position information and can defend the choice of classification, span-prediction, or token-level head for a downstream task using only synthetic or permitted public examples."
     }
+  },
+  "ebb-6401-2026-09-16-180450": {
+    "en": {
+      "title": "ChainLens: a fork, oracle, and DApp provenance explorer",
+      "pitch": "Build a local-first study tool that traces a transaction from Solidity source and deployment through fork choice, double-spend checks, oracle input, and DApp presentation.",
+      "problem": "Learners often treat canonical-chain selection, transaction validation, off-chain data, and DApp display as one opaque blockchain operation. A provenance view makes each boundary testable.",
+      "learning": "You will model forked histories, canonical and orphaned branches, Solidity-to-bytecode deployment, signatures, balance and nonce validation, oracle mediation, and node/indexer/API data paths.",
+      "mvp": [
+        "Render two competing branches and let a deterministic fork-choice rule identify the canonical history and orphaned branch.",
+        "Simulate a Solidity source artifact, compiled bytecode, signed deployment, validator checks, and contract address.",
+        "Test valid, stale-nonce, insufficient-balance, and conflicting double-spend transactions with visible state diffs.",
+        "Show the provenance of a DApp value as node state, indexed history, external API data, or oracle-mediated input."
+      ],
+      "stretch": [
+        "Add freshness, quorum, and source-reputation metadata to oracle inputs.",
+        "Compare a short reorg before finality with a finalized checkpoint and explain the different user-facing assurances.",
+        "Export an accessible evidence report linking every displayed value to its source and validation rule."
+      ],
+      "plan": [
+        "Week 1: define branch, transaction, account, oracle, and provenance schemas.",
+        "Week 2: implement fork choice, deployment, signature, balance, and nonce checks.",
+        "Week 3: build the oracle and DApp source-path visualiser with accessible state transitions.",
+        "Week 4: add reorg/finality comparison, negative tests, source citations, and an architecture report."
+      ],
+      "novelty": "The project makes the boundary between consensus history, transaction validity, external information, and application display visible in one traceable artifact.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Branch and transaction model", "Validation and deployment flow", "Oracle and DApp provenance UI", "Evidence and accessibility review"],
+      "success": "A reviewer can follow one value from source and validation through canonical state and DApp display, distinguish a reorg from a finalized history, and explain why an oracle is a trust boundary."
+    }
   }
 });

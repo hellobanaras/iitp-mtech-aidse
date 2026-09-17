@@ -153,12 +153,14 @@ deployment. Cloudflare is never a target.
 
 If SharePoint redirects to Microsoft sign-in, do not classify the source as
 blocked immediately. First inspect the visible login form for the saved IITP
-account and click its visible `Sign in` control once, wait for the redirect,
-and verify that the course folder or source table actually loads. Never type,
-expose, or retrieve credentials, and never bypass MFA, CAPTCHA, or a provider
-security challenge. Treat the saved-account card as an actionable recovery
-state; treat a password prompt after that click as a user handoff, a loaded
-folder/source row as authoritative access, and a repeated provider error as a
+account or username and click its visible `Sign in` control once. If Microsoft
+advances to a password screen and the browser has autofilled the saved
+password, clicking the visible `Sign in` control is allowed; never type,
+copy, reveal, or otherwise handle the credential value. Wait for the redirect
+and verify that the course folder or source table actually loads. Hand off only
+when the password is not autofilled and manual entry is required, or when MFA,
+CAPTCHA, or another provider security challenge appears. Treat the loaded
+folder/source row as authoritative access and a repeated provider error as a
 real blocker. Keep the queue at `awaiting-browser` until the folder or source
 row is visibly confirmed. This recovery check must occur before reporting a
 SharePoint session-expiry blocker on every future run.

@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-16",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 72,
+  filesInventoried: 73,
   courses: [
     {
       code: "EAI 6103",
@@ -535,8 +535,8 @@ export const catalog = {
       icon: "SC",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course77_hybrid_iitp_ac_in/IgCEBeWWlU_wQLE9fUZWW9fTAYhpk32mpJi8Lbo6Iba_Cy8?e=5wSELF",
       status: "active",
-      statusLabel: "8 lectures available",
-      note: "Eight verified lectures are published. The 14 September session explains Ethereum nonces, account state, gas, EVM execution, and transaction finality.",
+      statusLabel: "9 lectures available",
+      note: "Nine verified lectures are published. The 16 September session explains blockchain reorganization, Solidity deployment, double-spend prevention, oracles, and DApp data sources.",
       lectures: [
         {
           id: "ebb-6401-2026-08-17-180921",
@@ -649,6 +649,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Nonce order, uniqueness, signatures, and replay protection", "Consensus, finality, EVM execution, and state transitions", "Gas complexity and Ethereum account-state fields"]
+        },
+        {
+          id: "ebb-6401-2026-09-16-180450",
+          number: 9,
+          date: "2026-09-16",
+          sourceRecordedAt: "2026-09-16T18:04:50+05:30",
+          sourceFilename: "Smart contracts and solidity programming-20260916_180450-Meeting Recording.mp4",
+          displayDate: "16 September 2026",
+          title: "Blockchain reorganization, double-spend prevention, Solidity deployment, and oracles",
+          duration: "1h 25m 23s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course77_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course77_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSmart%20contracts%20and%20solidity%20programming-20260916_180450-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Canonical chains, forks, orphaned branches, and reorganization", "Solidity source, EVM bytecode, deployment validation, and contract addresses", "Double-spend controls, oracles, and DApp data sources"]
         }
       ]
     },
