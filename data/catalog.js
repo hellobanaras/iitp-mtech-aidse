@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-19",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 78,
+  filesInventoried: 79,
   courses: [
     {
       code: "EAI 6103",
@@ -232,8 +232,8 @@ export const catalog = {
       icon: "ML",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course73_hybrid_iitp_ac_in/IgAf1eu3AHhfSrcxcaecYZMNASegocBzjTgbUeQ7OhS3a1k?e=Sbp7Pi",
       status: "active",
-      statusLabel: "4 lectures available",
-      note: "Lectures from 22 August through 12 September are published in chronological order with verified teaching intervals, slide trails, explained quizzes, and applied builds.",
+      statusLabel: "5 lectures available",
+      note: "Lectures from 22 August through 19 September are published in chronological order with verified teaching intervals, slide trails, explained quizzes, and applied builds.",
       lectures: [
         {
           id: "eai-6402-2026-08-22",
@@ -290,6 +290,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Representative training data and distribution bias", "Validation, test sets, and cross-validation", "Least squares and normal-equation scalability"]
+        },
+        {
+          id: "eai-6402-2026-09-19-102556",
+          number: 5,
+          date: "2026-09-19",
+          sourceRecordedAt: "2026-09-19T10:25:56+05:30",
+          sourceFilename: "Meta Learning-20260919_102556-Meeting Recording.mp4",
+          displayDate: "19 September 2026",
+          title: "Metrics, logistic regression, and multiclass decision rules",
+          duration: "1h 47m 20s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course73_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course73_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FMeta+Learning-20260919_102556-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Metric spaces, norms, and distance choices", "Loss, cost, gradient descent, and sigmoid classification", "Log loss and one-versus-rest multiclass prediction"]
         }
       ]
     },

@@ -1616,6 +1616,35 @@ export const capstones = Object.freeze({
       "success": "A learner can justify a data split, distinguish validation from test performance, reproduce a least-squares result, and explain when the normal-equation computation should be replaced."
     }
   },
+  "eai-6402-2026-09-19-102556": {
+    "en": {
+      "title": "MetricMap: an auditable classification-boundary lab",
+      "pitch": "Build an accessible lab that compares distance choices, sigmoid decision boundaries, classification losses, and one-versus-rest prediction.",
+      "problem": "A classifier can look mathematically precise while hiding the geometry, threshold, loss shape, and class-selection rule that produced its prediction.",
+      "learning": "You will compare metric axioms and norms, separate per-sample loss from aggregate cost, visualise sigmoid thresholds, and explain how binary classifiers combine into multiclass decisions.",
+      "mvp": [
+        "Implement L1, L2, Chebyshev, and cosine comparisons for a small feature dataset.",
+        "Show a sigmoid score, threshold, and decision boundary for a labelled binary problem.",
+        "Plot squared loss and binary cross-entropy for representative predictions.",
+        "Train one-versus-rest toy classifiers and display both the maximum score and argmax class index."
+      ],
+      "stretch": [
+        "Add polynomial features and demonstrate a circular nonlinear boundary.",
+        "Compare learning rates and show slow convergence, overshooting, and a stable update.",
+        "Export an accessible evidence card with formulas, assumptions, and source timecodes."
+      ],
+      "plan": [
+        "Week 1: implement metric checks, norm calculations, and an accessible data table.",
+        "Week 2: add sigmoid scores, thresholds, linear boundaries, and feature transforms.",
+        "Week 3: compare loss curves and implement one-versus-rest prediction.",
+        "Week 4: test keyboard access, hold out evaluation data, document limits, and export evidence."
+      ],
+      "novelty": "The lab makes the hidden chain from geometry to objective to decision rule inspectable rather than presenting classification as a single black-box score.",
+      "stack": ["TypeScript", "Accessible HTML tables", "SVG plots", "Deterministic toy datasets"],
+      "milestones": ["Metric and norm card", "Sigmoid boundary view", "Loss comparison", "Multiclass evidence report"],
+      "success": "A learner can justify a metric, derive a thresholded boundary, explain why log loss is useful, and identify a multiclass prediction from its argmax evidence."
+    }
+  },
   "ecs-6402-2026-09-04-203546": {
     "en": {
       "title": "StackScope: an explainable packet journey and integrity lab",
