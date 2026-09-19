@@ -2039,5 +2039,34 @@ export const capstones = Object.freeze({
       "milestones": ["Branch and transaction model", "Validation and deployment flow", "Oracle and DApp provenance UI", "Evidence and accessibility review"],
       "success": "A reviewer can follow one value from source and validation through canonical state and DApp display, distinguish a reorg from a finalized history, and explain why an oracle is a trust boundary."
     }
+  },
+  "ebb-6403-2026-09-18-073357": {
+    "en": {
+      "title": "CryptoGuard: parameter and oracle abuse lab",
+      "pitch": "Build an accessible local-first cryptography lab that demonstrates how RSA parameter choices, decryption-oracle behavior, ElGamal randomness, and elliptic-curve scalar multiplication affect confidentiality and attack surface.",
+      "problem": "Students can manipulate public-key formulas without seeing how small parameters, unsafe interfaces, or missing protocol checks turn correct algebra into a practical vulnerability.",
+      "learning": "You will connect square-and-multiply, Miller–Rabin witnesses, textbook-RSA failures, multiplicative ciphertext tampering, ElGamal's randomized pair, and elliptic-curve point operations.",
+      "mvp": [
+        "Implement toy RSA with a visible parameter card and compare safe-sized versus small-exponent message behavior.",
+        "Simulate a decryption oracle and show the recovered message in the lecture's C·k^e attack only for toy values.",
+        "Render ElGamal y1/y2 components and demonstrate why reusing or exposing randomness changes the security story.",
+        "Draw a small non-singular elliptic curve, add points, and show repeated addition without claiming toy parameters are secure."
+      ],
+      "stretch": [
+        "Add Miller–Rabin witness traces for composite and probable-prime candidates.",
+        "Compare RSA/OAEP and signature verification flows using standards-linked, non-secret test vectors.",
+        "Add an audit report covering randomness, padding, oracle behavior, key lifecycle, and parameter provenance."
+      ],
+      "plan": [
+        "Week 1: define toy-safe schemas for RSA, ElGamal, curve points, witnesses, and attack traces.",
+        "Week 2: implement modular arithmetic, square-and-multiply, and visible RSA parameter checks.",
+        "Week 3: add the oracle, ElGamal randomness, and elliptic-curve group visualisations.",
+        "Week 4: complete accessibility review, standards links, negative tests, and an honest limitations report."
+      ],
+      "novelty": "The lab connects algorithm arithmetic to protocol behavior so learners can see why parameters, randomness, and service interfaces are part of cryptographic security.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["RSA parameter lab", "Oracle and ElGamal traces", "Elliptic-curve visualiser", "Security and accessibility report"],
+      "success": "A learner can explain the source of each toy result, identify the parameter or interface weakness it illustrates, and distinguish educational arithmetic from a production cryptographic deployment."
+    }
   }
 });

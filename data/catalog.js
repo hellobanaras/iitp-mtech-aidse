@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-18",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 76,
+  filesInventoried: 77,
   courses: [
     {
       code: "EAI 6103",
@@ -692,8 +692,8 @@ export const catalog = {
       icon: "SP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course78_hybrid_iitp_ac_in/IgCwVcRuGq_lR6u1S5D-yQeRAb5jOjVzObdfYRB-vn1qvBQ?e=wtwqhi",
       status: "active",
-      statusLabel: "8 lectures available",
-      note: "Six verified lectures are published. View-only sources were captured at 2× with setup and idle tails excluded after full timeline sweeps.",
+      statusLabel: "7 lectures available",
+      note: "Seven verified lectures are published. View-only sources were captured at 2× with setup and idle tails excluded after full timeline sweeps.",
       lectures: [
         {
           id: "ebb-6403-2026-08-21-075934",
@@ -778,6 +778,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Public-key purposes, authentication, and trapdoor one-wayness", "Knapsack and Merkle–Hellman subset-sum construction", "RSA key generation, modular exponentiation, encryption, and decryption"]
+        },
+        {
+          id: "ebb-6403-2026-09-18-073357",
+          number: 7,
+          date: "2026-09-18",
+          sourceRecordedAt: "2026-09-18T07:33:57+05:30",
+          sourceFilename: "Security and Privacy for Big Data-20260918_073357-Meeting Recording.mp4",
+          displayDate: "18 September 2026",
+          title: "RSA efficiency and attacks, ElGamal, and elliptic-curve foundations",
+          duration: "1h 04m 00s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course78_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course78_hybrid_iitp_ac_in/Documents/Recordings/Security%20and%20Privacy%20for%20Big%20Data-20260918_073357-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Square-and-multiply and Miller–Rabin primality testing", "Small-exponent and man-in-the-middle RSA attacks", "ElGamal ciphertext pairs and elliptic-curve group foundations"]
         }
       ]
     },
