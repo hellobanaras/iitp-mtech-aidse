@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-09-17",
+  updated: "2026-09-18",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 75,
+  filesInventoried: 76,
   courses: [
     {
       code: "EAI 6103",
@@ -793,8 +793,8 @@ export const catalog = {
       icon: "TS",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course129_hybrid_iitp_ac_in/IgC377O2f2n2SI6uo-EJPeMMAZbBcmUQN6fmgL_JHX60GiA?e=yUCaLx",
       status: "active",
-      statusLabel: "5 lectures available",
-      note: "Lectures 1–5 are published in chronological order. The 21 August source is bounded to 00:46–01:15:34, the 26 August source to 00:03:16–01:20:45, the 28 August source to 00:05:32–00:51:43, and the 2 September source to 00:04:50–01:21:14. Participant-only openings, an internal participant/chat interval, and idle tails were excluded after full timeline sweeps.",
+      statusLabel: "10 lectures available",
+      note: "Lectures 1–10 are published in chronological order. The Sep 18 source covers univariate stationarity and Granger causality, bounded to 00:04:19–01:21:00 after a full timeline sweep; participant-only lead-in and idle tail were excluded.",
       lectures: [
         {
           id: "ecs-6401-2026-08-19-175559",
@@ -921,6 +921,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["ADF context and ACF/PACF order hints", "AIC, BIC, AICc, HQIC, and complexity penalties", "RMSE, residual diagnostics, and monthly SARIMA forecasting"]
+        },
+        {
+          id: "ecs-6401-2026-09-18-180406",
+          number: 10,
+          date: "2026-09-18",
+          sourceRecordedAt: "2026-09-18T18:04:06+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20260918_180406-Meeting Recording.mp4",
+          displayDate: "18 September 2026",
+          title: "Univariate stationarity and Granger causality",
+          duration: "1h 16m 41s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course129%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FAdvanced%20Time%20Series%20Analysis-20260918_180406-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Strict/strong and weak/covariance stationarity", "Restricted and unrestricted Granger-causality models", "F-test, p-value, lag choice, assumptions, and directional outcomes"]
         }
       ]
     },

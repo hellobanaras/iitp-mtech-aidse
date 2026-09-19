@@ -1891,6 +1891,22 @@ export const capstones = Object.freeze({
       "success": "A learner can justify an ARIMA/SARIMA choice using fit, complexity, forecast error, residual structure, and explicit limits on what each metric proves."
     }
   },
+  "ecs-6401-2026-09-18-180406": {
+    "en": {
+      "title": "Directional Granger Audit Lab",
+      "pitch": "Build an accessible notebook that tests whether one stationary time series adds predictive information for another, in both directions, while exposing every modelling assumption.",
+      "problem": "A low p-value can be misreported as proof of physical causation, and an unexamined lag or non-stationary input can make the conclusion unreliable.",
+      "learning": "Implement stationarity checks, aligned lag construction, restricted and unrestricted regressions, RSS/F-statistic and p-value decisions, and cautious uni- versus bidirectional reporting.",
+      "mvp": ["Load two public or synthetic time series, align their timestamps, and record the stationarity representation used.", "Choose a lag order with AIC, BIC, or HQIC and show the resulting observations, parameters, and restrictions.", "Fit restricted and unrestricted models in both directions and display RSS, F, p-value, null, alternative, and decision in an accessible table.", "Generate a plain-language report that distinguishes predictive evidence from structural causation and links each decision to lecture timecodes."],
+      "stretch": ["Add a VECM pathway warning when the series are non-stationary but plausibly cointegrated.", "Compare conclusions across lag orders and explain sensitivity rather than hiding it.", "Export a reproducibility bundle containing data alignment, transformations, model equations, diagnostics, and limitations."],
+      "plan": ["Week 1: implement alignment, stationarity context, and lag construction.", "Week 2: add restricted/unrestricted regressions and RSS/F calculations.", "Week 3: add both directional tests, p-value decisions, and assumptions audit.", "Week 4: accessibility, sensitivity comparison, and evidence export."],
+      "novelty": "The lab turns a directional predictive claim into a transparent chain from data assumptions to nested models and two separate hypothesis decisions.",
+      "stack": ["Python", "pandas", "statsmodels", "Accessible HTML table", "Vitest"],
+      "milestones": ["Stationarity and alignment", "Nested models", "Directional decisions", "Audit export"],
+      "success": "A learner can reproduce both directional tests, justify the lag and stationarity choices, interpret RSS/F/p-value evidence, and state exactly what the result does and does not prove.",
+      "guardrails": ["Use public or synthetic time series only.", "Do not present Granger evidence as proof of structural or physical causation.", "Do not include credentials, private learner data, or hidden provider URLs."]
+    }
+  },
   "ebb-6403-2026-09-12-054641": {
     "en": {
       "title": "Trapdoor Notebook: an auditable public-key arithmetic lab",
