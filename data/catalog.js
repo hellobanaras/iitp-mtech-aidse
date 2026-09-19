@@ -299,7 +299,7 @@ export const catalog = {
           sourceFilename: "Meta Learning-20260919_102556-Meeting Recording.mp4",
           displayDate: "19 September 2026",
           title: "Metrics, logistic regression, and multiclass decision rules",
-          duration: "1h 47m 20s",
+          duration: "1h 48m 15s",
           recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course73_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course73_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FMeta+Learning-20260919_102556-Meeting+Recording.mp4",
           status: "published",
           statusLabel: "Notes published",
