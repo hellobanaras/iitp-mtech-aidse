@@ -1005,6 +1005,32 @@ export const openLearningResources = {
         { label: "Open Library", url: "https://openlibrary.org/search?q=wireless+networks" }
       ],
       url: "https://books.google.com/books?q=wireless+networks+book"
+    },
+    {
+      provider: "3GPP",
+      providerHi: "3GPP",
+      kind: "Cellular standards overview",
+      kindHi: "Cellular standards overview",
+      access: "Free public overview",
+      accessHi: "Free public overview",
+      title: "3GPP — 5G System Overview",
+      titleHi: "3GPP — 5G System Overview",
+      description: "Connect the lecture's reuse, sectoring, mobility, and capacity foundations to the standardisation path of modern cellular systems.",
+      descriptionHi: "Lecture के reuse, sectoring, mobility और capacity foundations को modern cellular systems की standardisation path से जोड़ें।",
+      url: "https://www.3gpp.org/technologies/5g-system-overview"
+    },
+    {
+      provider: "FCC",
+      providerHi: "FCC",
+      kind: "Spectrum context",
+      kindHi: "Spectrum context",
+      access: "Free public information",
+      accessHi: "Free public information",
+      title: "FCC — Wireless Telecommunications",
+      titleHi: "FCC — Wireless Telecommunications",
+      description: "Review public regulatory context for spectrum, wireless services, and deployment constraints that sit above the lecture's cellular geometry.",
+      descriptionHi: "Spectrum, wireless services और deployment constraints का public regulatory context देखें।",
+      url: "https://www.fcc.gov/wireless-telecommunications"
     }
   ],
   "ebb-6401": [

@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-09-18",
+  updated: "2026-09-19",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 77,
+  filesInventoried: 78,
   courses: [
     {
       code: "EAI 6103",
@@ -420,8 +420,8 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "active",
-      statusLabel: "8 lectures available",
-      note: "The September 17 lecture develops cellular reuse from low-power base stations and hexagonal cells through cluster geometry, capacity arithmetic, and the capacity–interference trade-off.",
+      statusLabel: "9 lectures available",
+      note: "The September 18 lecture extends cellular reuse into SIR, capacity growth, cell splitting, handoff, sectoring, multipath delay spread, and a 32-cell channel-capacity example.",
       lectures: [
         {
           id: "ecs-6402-2026-08-21-204351",
@@ -534,6 +534,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Low-power base stations, antennas, and hexagonal cell coverage", "Co-channel reuse distance, cluster size N, and D/R = √(3N)", "Seven-cell capacity arithmetic and the interference/SIR trade-off"]
+        },
+        {
+          id: "ecs-6402-2026-09-18-203429",
+          number: 9,
+          date: "2026-09-18",
+          sourceRecordedAt: "2026-09-18T20:34:29+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20260918_203429-Meeting Recording.mp4",
+          displayDate: "18 September 2026",
+          title: "Frequency reuse, SIR, capacity, and cellular scaling",
+          duration: "1h 26m 47s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course75_hybrid_iitp_ac_in/Documents/Recordings/Selected%20Topics%20in%20Wireless%20Networks-20260918_203429-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Co-channel interference, SIR, and reuse distance", "Capacity growth through borrowing, splitting, and sectoring", "Handoff, multipath delay spread, and the 32-cell/336-channel example"]
         }
       ]
     },

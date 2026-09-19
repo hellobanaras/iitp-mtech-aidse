@@ -1,0 +1,101 @@
+// English-only publication unit for the verified 18 September 2026 recording.
+const quizSeed = [
+  ["What does frequency reuse allow a cellular system to do?", ["Use the same band again in sufficiently separated cells", "Give every adjacent cell the same band", "Remove all base stations", "Make every cell use maximum power"], 0, "Frequency reuse repeats a band in separated co-channel cells while adjacent-cell interference is controlled."],
+  ["What is a cluster in the lecture's cellular model?", ["A repeated group of cells that forms one reuse pattern", "A single handset antenna", "A packet header", "A group of only adjacent co-channel cells"], 0, "The cluster is the group of cells over which the available channels are assigned once before the pattern repeats."],
+  ["What is the frequency-reuse factor for cluster size N?", ["1/N", "N", "N + 1", "N²"], 0, "The lecture defines the simplified reuse factor as one over the cluster size."],
+  ["What does capital D denote?", ["The center-to-center distance between co-channel cells", "The radius of one cell", "The number of traffic channels", "The delay spread"], 0, "D is the reuse distance between cells using the same frequency band."],
+  ["What does R denote in the cellular geometry?", ["The cell radius", "The co-channel count", "The received interference", "The cluster repetition count"], 0, "R is the radius of the cell or its circular coverage approximation."],
+  ["Which relation connects reuse distance, radius, and cluster size?", ["D/R = √(3N)", "D/R = 1/N", "D/R = N/3", "D/R = √(N/3)"], 0, "The lecture uses D = √(3N)R, hence D/R = √(3N)."],
+  ["What does S represent in SIR?", ["Desired signal power from the serving base station", "The number of sectors", "The radius of the cell", "The available bandwidth"], 0, "S is the wanted received signal power."],
+  ["What does I represent in SIR?", ["Aggregate interference from co-channel base stations", "The cell radius", "The cluster size", "The handoff count"], 0, "I denotes the unwanted co-channel interference power."],
+  ["Why does a smaller cluster size usually increase capacity?", ["The reuse pattern can be repeated more often", "It removes all co-channel cells", "It makes each base station higher power", "It increases the cell radius"], 0, "Smaller N reduces reuse distance and permits more spatial reuse, subject to an interference cost."],
+  ["What is the main cost of reducing N?", ["Co-channel cells become closer and interference rises", "The spectrum can no longer be reused", "The cell radius becomes infinite", "All traffic channels disappear"], 0, "Because D/R grows with √N, lowering N reduces separation and can lower SIR."],
+  ["In the lecture's worked SIR example, what cluster size is selected after solving the equation?", ["N = 7", "N = 2", "N = 6.5 cells", "N = 18"], 0, "The calculation gives about 6.5, so the practical integer cluster size is seven cells."],
+  ["Why is 6.5 not used as the final cluster size?", ["A cluster size is an integer number of cells", "It would create no interference", "It is larger than the cell radius", "It is a frequency, not a count"], 0, "The number of cells in a cluster cannot be fractional, so the example chooses N = 7."],
+  ["What is frequency borrowing?", ["A congested cell dynamically borrows channels from an adjacent cell", "A handset stores a second SIM", "A base station duplicates every channel permanently", "A cell discards unused channels"], 0, "The lecture describes dynamic borrowing from neighbouring cells when demand is uneven."],
+  ["What is cell splitting?", ["Replacing a larger macro cell with several smaller cells", "Combining all cells into one transmitter", "Changing a hexagon into a packet", "Removing the cell boundary"], 0, "Cell splitting uses smaller cells in high-traffic areas to increase capacity."],
+  ["What happens to required coverage power when a cell is split into smaller cells?", ["The required radiated power decreases", "It must always increase fourfold", "It becomes unrelated to radius", "It becomes zero"], 0, "The shorter coverage distance allows lower base-station power and reduces spill-over interference."],
+  ["If the cell radius is halved, what happens to the area of an idealised cell?", ["It becomes one quarter", "It doubles", "It becomes one half", "It remains exactly the same"], 0, "Area scales with the square of radius, so (R/2)² is one quarter of R²."],
+  ["What is a handoff?", ["Transfer of an active call from one base transceiver to another as the mobile moves", "A frequency-reuse formula", "A way to reduce the number of cells", "A packet checksum"], 0, "Handoff preserves the call while the mobile changes serving cells."],
+  ["Why can smaller cells increase handoff frequency?", ["A moving mobile crosses cell boundaries more often", "Smaller cells have no base stations", "The mobile cannot measure signal power", "Every smaller cell uses one shared channel"], 0, "Shorter cell dimensions mean more boundary crossings along the same route."],
+  ["What distinguishes sectoring from cell splitting?", ["Sectoring keeps the cell radius but divides coverage into directional wedges", "Sectoring always quarters the radius", "Sectoring removes antennas", "Sectoring uses no channel assignment"], 0, "Sectoring divides one cell into angular sectors without changing its radius."],
+  ["Which antenna type is used to focus on one sector?", ["A directional antenna", "An omni-directional antenna only", "A loopback antenna", "A satellite dish for every handset"], 0, "Directional antennas concentrate coverage in the selected wedge."],
+  ["How are channels handled in sectoring?", ["Each sector receives its own subset of the cell's channels", "Every sector receives every channel at full power", "Channels are removed from the cell", "Only the centre sector receives channels"], 0, "The lecture assigns a separate channel subset to each directional sector."],
+  ["What is a multipath delay spread?", ["The time difference between the earliest and latest arriving copies of a signal", "The number of channels in a cluster", "The distance between co-channel cells", "The radius of a macro cell"], 0, "Reflections, refractions, and scattering create copies that arrive at different times."],
+  ["What happens to the total traffic-channel count in the final example?", ["336 channels are divided by N = 7 to get 48 channels per cell", "Seven channels are divided by 336", "The count becomes 32 channels per cell", "The count is independent of N"], 0, "The example computes 336/7 = 48 traffic channels per cell."],
+  ["What is the aggregate concurrent-call capacity in the final 32-cell example?", ["32 × 48 = 1536 channels", "32 + 48 = 80 channels", "336/32 = 10.5 channels", "7 × 32 = 224 channels"], 0, "The lecture multiplies 32 cells by 48 channels per cell to obtain 1536 concurrent channels."],
+  ["What design trade-off is central to this lecture?", ["Capacity and reuse must be balanced against interference and signal quality", "Capacity always rises without any interference", "Sectoring and splitting are identical", "A larger N always gives the most capacity"], 0, "Cellular planning trades spatial reuse and capacity against separation, interference, power, and handoff behaviour."],
+];
+
+const quiz = quizSeed.map(([question, options, answer, explanation]) => ({
+  question, options, answer, explanation,
+  optionNotes: options.map((option, index) => index === answer
+    ? `Correct: ${option}. ${explanation}`
+    : `Incorrect: ${option} does not match the lecture's cellular-network analysis.`),
+}));
+
+export const ecs6402Lecture20260918203429 = {
+  en: {
+    title: "Frequency reuse, SIR, capacity, and cellular scaling",
+    lede: "This lecture extends cellular-network planning from co-channel geometry and signal-to-interference ratio to capacity growth through frequency borrowing, cell splitting, sectoring, handoff, multipath delay spread, and channel-capacity arithmetic.",
+    instructionalInterval: "00:00:22–01:26:47 source time (final presenter-only tail excluded)",
+    reviewLevel: "Full seven-point visible Stream sweep, direct-download check, audio-enabled 2× visible-tab capture, source-time-bounded processing, timestamped transcript, and idle-tail decision verified.",
+    coverage: [
+      { title: "Frequency reuse and SIR", body: "Co-channel cells reuse a band at a planned separation, and SIR compares desired serving-cell power with aggregate co-channel interference." },
+      { title: "Capacity growth", body: "Adding reserve channels, borrowing from adjacent cells, and splitting high-traffic macro cells are presented as capacity strategies." },
+      { title: "Cell splitting and handoff", body: "Smaller cells lower required power but increase base-station count and handoff frequency as mobile users cross boundaries." },
+      { title: "Sectoring", body: "Directional antennas divide one cell into wedge-shaped sectors, each with its own subset of channels while retaining the original radius." },
+      { title: "Multipath delay spread", body: "Reflected, refracted, and scattered copies of a signal arrive at different times, producing a spread between earliest and latest arrivals." },
+      { title: "Worked capacity example", body: "The final 32-cell example uses a 336-channel system with N = 7, yielding 48 channels per cell and 1536 aggregate concurrent channels." },
+    ],
+    takeaway: "Cellular capacity is increased by reusing spectrum spatially and adapting cell size, channel allocation, and antenna direction—but every gain must be checked against co-channel interference, SIR, power, and handoff cost.",
+    slideTrail: [
+      { time: "00:00:22", title: "Week 5 lecture page and cellular reuse setup", note: "The dated OneNote page introduces the second lecture's continuation of cellular frequency reuse." },
+      { time: "00:09:33", title: "Six closest co-channel cells", note: "The board uses the nearest co-channel interferers to motivate the SIR denominator." },
+      { time: "00:22:25", title: "S/I and cellular reuse geometry", note: "The instructor connects signal-to-interference ratio with the reuse distance and cell radius." },
+      { time: "00:43:53", title: "Macro-cell spacing and cluster planning", note: "Cell spacing and cluster geometry are used to reason about capacity and interference." },
+      { time: "01:05:21", title: "Sectoring with directional antennas", note: "The cell is divided into wedge-shaped sectors with separate channel subsets." },
+      { time: "01:18:13", title: "Traffic-channel reuse factor", note: "The lecture applies a reuse factor of N = 7 to a 336-channel system." },
+      { time: "01:26:47", title: "32-cell capacity example close", note: "The final numerical example computes area, channels per cell, and aggregate concurrent-call capacity before the presenter-only tail." },
+    ],
+    summary: [
+      { title: "1. Co-channel reuse turns geometry into an interference problem", sourceRefs: ["00:00:22–00:22:25", "Frequency reuse and SIR", "Six closest co-channel cells"], paragraphs: ["The lecture continues the hexagonal cellular model by grouping cells into a repeated cluster. A cluster assigns available bands across its cells once, after which the pattern repeats. Cells using the same band are co-channel cells and must be sufficiently separated.", "Signal-to-interference ratio is defined as desired received power divided by the sum of interfering co-channel powers. The six closest co-channel cells are treated as the dominant first-tier interferers in the simplified analysis."], formula: "SIR = S / ΣIᵢ" },
+      { title: "2. Reuse distance controls SIR", sourceRefs: ["00:22:25–00:43:53", "S/I and cellular reuse geometry", "Macro-cell spacing and cluster planning"], paragraphs: ["With received power decreasing approximately as distance to a path-loss exponent, the mobile at the cell boundary receives the weakest desired signal in the simplified case. The interference terms are evaluated at the distances to co-channel base stations.", "The lecture uses D/R = √(3N), where D is co-channel reuse distance, R is cell radius, and N is cluster size. Increasing N increases separation and improves interference conditions, but it also reduces how often the pattern can be reused."], formula: "D/R = √(3N); reuse factor = 1/N" },
+      { title: "3. Capacity can grow through allocation and cell splitting", sourceRefs: ["00:43:53–01:01:00", "Macro-cell spacing and cluster planning"], paragraphs: ["The lecture names three capacity responses: reserve channels can be added as demand grows; a congested cell can borrow channels dynamically from an adjacent cell; and a macro cell can be split into smaller micro cells in high-usage areas.", "Halving a cell radius quarters the idealised cell area, so more base stations are needed. The smaller coverage radius permits lower transmit power and can improve local propagation, but the system pays in infrastructure and more frequent boundary crossings."], formula: "area ∝ R²; R → R/2 gives area → area/4" },
+      { title: "4. Handoff keeps a moving call connected", sourceRefs: ["01:01:00–01:05:21", "Cell splitting and handoff"], paragraphs: ["When a mobile moves out of the serving cell, the network transfers the call from one base transceiver to another. A base transceiver combines transmitter and receiver functions, and the control system coordinates the transfer.", "Smaller cells shorten the distance a mobile can travel before crossing a boundary, so handoffs become more frequent. Cell planning therefore has to balance power, capacity, mobility, and handoff overhead."], formula: "mobile crosses boundary → serving transceiver changes → call continues" },
+      { title: "5. Sectoring reduces interference without shrinking the radius", sourceRefs: ["01:05:21–01:14:19", "Sectoring with directional antennas"], paragraphs: ["Sectoring divides one cell into angular wedges, such as three or six sectors, while keeping the original cell radius. Directional antennas focus radiated energy into a selected sector instead of covering all directions equally.", "Each sector receives its own subset of the cell's channels. The approach can reduce the set of visible interferers in a direction, but it does not eliminate the need for careful channel and antenna planning."], formula: "one cell → directional sectors × channel subsets; R unchanged" },
+      { title: "6. Multipath creates a delay spread", sourceRefs: ["01:14:19–01:18:13", "Traffic-channel reuse factor"], paragraphs: ["The instructor explains that a wireless signal can arrive through direct, reflected, refracted, or scattered paths. Each path has a different length, so copies of the same transmission arrive at different times.", "Multipath delay spread is the difference between the latest and earliest significant arrival. The lecture contrasts this with a simple wired path and notes that smaller cells can reduce the relevant propagation delay scale."], formula: "delay spread = latest significant arrival − earliest significant arrival" },
+      { title: "7. The channel-capacity example makes reuse concrete", sourceRefs: ["01:18:13–01:26:47", "Traffic-channel reuse factor", "32-cell capacity example close"], paragraphs: ["The final example uses 32 cells, a cell radius of 1.6 km, 336 traffic channels, and reuse factor N = 7. The lecture works through the cell geometry and estimates total covered area at roughly 212.83 km².", "Dividing 336 traffic channels by seven gives 48 channels per cell. Multiplying 32 cells by 48 gives 1536 aggregate concurrent channels. The example is a capacity calculation, not a claim that all traffic is uniformly distributed in a real network."], formula: "channels/cell = 336/7 = 48; aggregate = 32 × 48 = 1536" },
+    ],
+    courseSignals: {
+      assignments: [],
+      homework: [],
+      labs: [],
+      projects: [],
+      references: [],
+      studentQuestions: [],
+    },
+    insights: [
+      { label: "Reuse", title: "Spectrum is reused through planned separation", body: "The same band can serve multiple cells only when co-channel geometry keeps interference within the target quality range." },
+      { label: "Capacity", title: "Cell size is a capacity lever", body: "Smaller cells and more frequent reuse increase spatial capacity, but they also increase infrastructure and handoff demands." },
+      { label: "Sectoring", title: "Direction changes the interference picture", body: "Directional antennas can limit the energy and channel view of a sector without changing the cell radius." },
+      { label: "Mobility", title: "Coverage planning includes call continuity", body: "A network must plan handoff behaviour alongside SIR and traffic capacity because users move across cell boundaries." },
+    ],
+    resources: [
+      { kind: "read", title: "3GPP — 5G System Overview", url: "https://www.3gpp.org/technologies/5g-system-overview", detail: "Standards context for how cellular radio systems evolve beyond the reuse, sectoring, and capacity fundamentals in this lecture." },
+      { kind: "read", title: "FCC — Wireless Telecommunications", url: "https://www.fcc.gov/wireless-telecommunications", detail: "Public regulatory context for wireless services, spectrum, and radio-system deployment." },
+      { kind: "read", title: "ITU-R M.2083 — IMT Vision", url: "https://www.itu.int/rec/R-REC-M.2083", detail: "A public mobile-systems vision that connects capacity, mobility, and service requirements to cellular evolution." },
+      { kind: "practice", title: "GNU Radio Tutorials", url: "https://wiki.gnuradio.org/index.php/Tutorials", detail: "Open flowgraph practice for observing signal power, channels, noise, and propagation effects." },
+    ],
+    keyTerms: [
+      { term: "Co-channel cell", definition: "A cell that reuses the same frequency band as another cell at a planned separation." },
+      { term: "Cluster size N", definition: "The number of cells in one repeated frequency-reuse pattern." },
+      { term: "SIR", definition: "The ratio of desired signal power to aggregate co-channel interference power." },
+      { term: "Cell splitting", definition: "Replacing a larger coverage cell with smaller cells to increase local spatial capacity." },
+      { term: "Sectoring", definition: "Dividing one cell into directional wedges with separate channel subsets while retaining the cell radius." },
+      { term: "Handoff", definition: "Transfer of an active mobile connection from one serving transceiver to another." },
+      { term: "Delay spread", definition: "The time difference between the earliest and latest significant multipath arrivals." },
+    ],
+    quiz,
+  },
+};

@@ -130,8 +130,8 @@ export const catalogHi = {
       shortTitle: "वायरलेस नेटवर्क",
       cadence: "गुरुवार और शुक्रवार",
       time: "रात ८:३०–१०:०० IST",
-      statusLabel: "रिकॉर्डिंग पहुँच अवरुद्ध",
-      note: "कक्षा कार्यक्रम और folder link IIT Patna Moodle card से सत्यापित हैं, लेकिन Microsoft 365 अभी recording folder की पहुँच रोक रहा है। institute access बहाल होने तक यह course note processing से बाहर है।",
+      statusLabel: "९ व्याख्यान उपलब्ध",
+      note: "२१ अगस्त से १८ सितंबर तक के नौ सत्यापित व्याख्यान क्रम में प्रकाशित हैं। नवीनतम सत्र frequency reuse, SIR, capacity, cell splitting, sectoring और handoff पर है।",
       lectures: {}
     },
     "ebb-6401": {

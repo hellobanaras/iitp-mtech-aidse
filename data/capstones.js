@@ -1730,6 +1730,35 @@ export const capstones = Object.freeze({
       "success": "A learner can choose a cluster size, derive the resulting reuse distance and reuse factor, reproduce the seven-cell channel example, and explain why capacity and signal quality move in opposite directions."
     }
   },
+  "ecs-6402-2026-09-18-203429": {
+    "en": {
+      "title": "SectorScope — a cellular scaling and mobility planner",
+      "pitch": "Build an accessible cellular-planning simulator that compares frequency reuse, cell splitting, sectoring, handoff load, multipath delay spread, and aggregate channel capacity.",
+      "problem": "Cellular capacity decisions are often taught as isolated formulas, even though radius, antenna direction, interference, mobility, and channel allocation change together.",
+      "learning": "You will model co-channel cells, SIR, cluster size N, cell radius, directional sectors, handoff frequency, delay spread, and the 32-cell/336-channel capacity example.",
+      "mvp": [
+        "Render a keyboard-accessible hexagonal map with serving cell, co-channel interferers, reuse distance D, radius R, and SIR assumptions.",
+        "Compare macro-cell, half-radius micro-cell, and three- or six-sector configurations with visible power, base-station, channel-subset, and handoff changes.",
+        "Simulate direct and multipath arrivals and report earliest arrival, latest arrival, and delay spread for a selected path set.",
+        "Reproduce the lecture's 336-channel, N = 7, 32-cell example and show 48 channels per cell and 1536 aggregate concurrent channels with explicit assumptions."
+      ],
+      "stretch": [
+        "Add a mobile route that crosses cell and sector boundaries and logs each handoff event.",
+        "Add a channel-borrowing scenario in which a congested cell takes a bounded subset from an adjacent cell and reports the changed interference assumptions.",
+        "Export an accessible study card with formulas, scenario inputs, source timecodes, and a capacity-versus-quality explanation."
+      ],
+      "plan": [
+        "Week 1: hexagonal layout, co-channel highlighting, R, D, N, reuse factor, and SIR panel.",
+        "Week 2: cell splitting, sectoring, directional coverage, channel subsets, and handoff route.",
+        "Week 3: multipath delay-spread model and final channel-capacity arithmetic.",
+        "Week 4: keyboard accessibility, tests, scenario export, and source-time evidence review."
+      ],
+      "novelty": "The simulator keeps geometry, radio direction, mobility, propagation timing, and capacity in one inspectable model so learners can see why a local capacity gain can create a system-level cost.",
+      "stack": ["TypeScript", "SVG", "Accessible HTML tables", "Vitest"],
+      "milestones": ["Reuse and SIR map", "Splitting and sectoring", "Mobility and delay spread", "Capacity scenario and accessible export"],
+      "success": "A learner can change one cellular design choice, explain its effect on reuse distance, interference, power, handoff, delay, and channel capacity, and reproduce the lecture's numerical example without treating the simplified assumptions as a production network guarantee."
+    }
+  },
   "eai-6403-2026-09-05-154129": {
     "en": {
       "title": "Attention map explainer",
