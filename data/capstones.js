@@ -2126,5 +2126,33 @@ export const capstones = Object.freeze({
       "milestones": ["RSA parameter lab", "Oracle and ElGamal traces", "Elliptic-curve visualiser", "Security and accessibility report"],
       "success": "A learner can explain the source of each toy result, identify the parameter or interface weakness it illustrates, and distinguish educational arithmetic from a production cryptographic deployment."
     }
+  },
+  "ebb-6403-2026-09-19-054724": {
+    "en": {
+      "title": "IntegrityLens: a cryptographic integrity and leakage lab",
+      "pitch": "Build an accessible local-first lab that contrasts ECC point encryption, RSA square-and-multiply leakage, unkeyed digests, and keyed message authentication codes.",
+      "problem": "Learners often treat encryption, authentication, integrity, and implementation security as one feature, so they need a small experiment that makes each trust property observable and distinct.",
+      "learning": "You will encode a toy message as a curve point, trace ECC masking and unmasking, visualize how RSA operation branches can leak timing, and compare digest-only verification with HMAC-style verification.",
+      "mvp": [
+        "Render a toy elliptic curve and animate y1=kα and y2=X+kβ without presenting toy parameters as secure.",
+        "Show a square-and-multiply trace with deliberately labelled simulated cost for one and zero exponent bits, then explain why production code needs leakage-resistant techniques.",
+        "Compare unkeyed digest verification with keyed MAC verification for an 'attack at dawn' message changed to 'attack at dusk'.",
+        "Add an avalanche experiment that changes one input character and displays the resulting digest difference using a standard library hash."
+      ],
+      "stretch": [
+        "Add collision-search demonstrations using deliberately tiny toy digests and clearly label why they do not model SHA-3 security.",
+        "Add a standards panel linking HMAC, SHA-3, and digital-signature guidance to the corresponding experiment."
+      ],
+      "plan": [
+        "Week 1: define the message, point, digest, MAC, and leakage-trace data models.",
+        "Week 2: implement toy curve arithmetic, ECC masking, and inverse-point visualisation.",
+        "Week 3: implement digest/MAC comparisons, avalanche output, and simulated side-channel traces.",
+        "Week 4: add accessibility checks, standards citations, negative tests, and a limitations report."
+      ],
+      "novelty": "The lab places mathematical cryptography, protocol trust, and implementation leakage in one traceable study aid without implying that toy parameters are production cryptography.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Web Crypto API", "Vitest"],
+      "milestones": ["ECC point-encryption trace", "RSA leakage visualiser", "Digest versus MAC flow", "Avalanche and standards report"],
+      "success": "A learner can identify which property each mechanism provides, reproduce the toy arithmetic, explain why timing leakage is an implementation issue, and cite the relevant public standard for a production design."
+    }
   }
 });

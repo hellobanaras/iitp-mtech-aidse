@@ -1536,6 +1536,30 @@ export const openLearningResources = {
       title: "SP 800-57 Part 1 Revision 5",
       description: "Guidance for protecting, rotating, and retiring cryptographic keys in deployed systems.",
       url: "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+    },
+    {
+      provider: "NIST",
+      kind: "Hash standard",
+      access: "Free public standard",
+      title: "FIPS 202: SHA-3 Standard",
+      description: "Primary specification for SHA-3 and Keccak-based hash and extendable-output functions, reinforcing the lecture's one-wayness and avalanche discussion.",
+      url: "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf"
+    },
+    {
+      provider: "IETF",
+      kind: "Message-authentication standard",
+      access: "Free public RFC",
+      title: "RFC 2104: HMAC",
+      description: "Foundational keyed-hash construction for message authentication and integrity, extending the lecture's keyed-hash/MAC flow.",
+      url: "https://www.rfc-editor.org/rfc/rfc2104.html"
+    },
+    {
+      provider: "NIST",
+      kind: "Implementation-security lecture",
+      access: "Free public guidance",
+      title: "Side-Channel Attacks: Defences and Evaluation Schemes",
+      description: "NIST material extending the lecture's timing and implementation-leakage discussion with practical side-channel threat and defence context.",
+      url: "https://csrc.nist.gov/presentations/2021/side-channels-attacks-defences-and-evaluation-sche"
     }
   ]
 };

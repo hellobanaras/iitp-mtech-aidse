@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-19",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 79,
+  filesInventoried: 80,
   courses: [
     {
       code: "EAI 6103",
@@ -720,8 +720,8 @@ export const catalog = {
       icon: "SP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course78_hybrid_iitp_ac_in/IgCwVcRuGq_lR6u1S5D-yQeRAb5jOjVzObdfYRB-vn1qvBQ?e=wtwqhi",
       status: "active",
-      statusLabel: "7 lectures available",
-      note: "Seven verified lectures are published. View-only sources were captured at 2× with setup and idle tails excluded after full timeline sweeps.",
+      statusLabel: "8 lectures available",
+      note: "Eight verified lectures are published. View-only sources were captured at 2× with setup and idle tails excluded after full timeline sweeps.",
       lectures: [
         {
           id: "ebb-6403-2026-08-21-075934",
@@ -820,6 +820,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Square-and-multiply and Miller–Rabin primality testing", "Small-exponent and man-in-the-middle RSA attacks", "ElGamal ciphertext pairs and elliptic-curve group foundations"]
+        },
+        {
+          id: "ebb-6403-2026-09-19-054724",
+          number: 8,
+          date: "2026-09-19",
+          sourceRecordedAt: "2026-09-19T05:47:24+05:30",
+          sourceFilename: "Security and Privacy for Big Data-20260919_054724-Meeting Recording 1.mp4",
+          displayDate: "19 September 2026",
+          title: "Elliptic-curve encryption, RSA timing attacks, and cryptographic hashes",
+          duration: "50m 22s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course78_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course78_hybrid_iitp_ac_in/Documents/Recordings/Security+and+Privacy+for+Big+Data-20260919_054724-Meeting+Recording+1.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Elliptic-curve point encryption and decryption", "RSA timing and side-channel leakage", "Unkeyed hashes, keyed MACs, collisions, and avalanche effect"]
         }
       ]
     },
