@@ -1062,6 +1062,35 @@ export const capstones = Object.freeze({
       "success": "A learner can reproduce one value sweep, explain a greedy action with q_pi(s,a), identify why policy iteration stopped, and state one limitation of the reward or model assumptions."
     }
   },
+  "eai-6401-2026-09-21-180808": {
+    "en": {
+      "title": "PolicyLoop Audit — a transparent policy-iteration and model-free comparison lab",
+      "pitch": "Build an accessible local-first lab that lets learners inspect policy evaluation, q-value comparisons, greedy improvement, policy stability, and a model-free baseline under explicit constraints.",
+      "problem": "Learners can memorise policy-iteration pseudocode without seeing which value estimate caused an action change or how model assumptions and reward constraints affect the result.",
+      "learning": "You will implement Bellman expectation backups, q_pi(s,a), theta stopping, greedy improvement, policy-stable termination, and a clearly separated model-free experiment path.",
+      "mvp": [
+        "Define a small finite MDP with states, legal actions, transitions, rewards, terminal states, gamma, theta, and explicit safety constraints.",
+        "Render each policy-evaluation sweep with immediate reward, successor value, action probability, delta, and the stopping decision.",
+        "Implement q_pi(s,a), greedy improvement, and a policy-stable flag with tests for improved and equal-valued alternatives.",
+        "Add a model-free baseline that learns from step experience without receiving the transition table, while keeping the environment contract visible."
+      ],
+      "stretch": [
+        "Compare in-place and two-array evaluation under several theta values and export convergence evidence.",
+        "Add a reward-hacking scenario where the dashboard separates a high reward from an acceptable constrained outcome.",
+        "Export an accessible experiment card with policy versions, source-linked explanations, and coverage limits."
+      ],
+      "plan": [
+        "Week 1: define the MDP, constraints, fixtures, and transition tests.",
+        "Week 2: implement policy evaluation, delta, theta, terminal handling, and visual backups.",
+        "Week 3: add q-values, greedy improvement, stability checks, and policy comparisons.",
+        "Week 4: add the model-free baseline, constraint audit, accessibility review, and reproducible export."
+      ],
+      "novelty": "The lab places algorithmic optimality and deployment constraints beside each other so learners can inspect not only what policy iteration improves, but also what the environment forbids.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Week 1: finite MDP", "Week 2: evaluation", "Week 3: improvement and stability", "Week 4: model-free comparison and audit"],
+      "success": "A learner can reproduce one Bellman sweep, justify a greedy action with q_pi(s,a), explain why the stability check stopped, and name one limitation of the reward or model assumptions."
+    }
+  },
   "ebb-6403-2026-08-29-053554": {
     "en": {
       "title": "CipherLens: an adversary-aware cryptography learning lab",
