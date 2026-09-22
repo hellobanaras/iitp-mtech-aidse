@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-21",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 81,
+  filesInventoried: 82,
   courses: [
     {
       code: "EAI 6103",
@@ -231,6 +231,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Policy evaluation and Bellman backups", "q-values and greedy policy improvement", "Policy iteration, model-free learning, and constraints"]
+        },
+        {
+          id: "eai-6401-2026-09-22-180000",
+          number: 12,
+          date: "2026-09-22",
+          sourceRecordedAt: "2026-09-22T18:04:55+05:30",
+          sourceFilename: "Reinforcement Learning-20260922_180455-Meeting Recording.mp4",
+          displayDate: "22 September 2026",
+          title: "Monte Carlo prediction: episodic returns, first visit, and every visit",
+          duration: "1h 06m 08s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course72_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course72_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FReinforcement+Learning-20260922_180455-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Episodic returns and sample-average prediction", "First-visit and every-visit Monte Carlo", "Blackjack coverage and Monte Carlo versus dynamic programming"]
         }
       ]
     },

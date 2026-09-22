@@ -1091,6 +1091,35 @@ export const capstones = Object.freeze({
       "success": "A learner can reproduce one Bellman sweep, justify a greedy action with q_pi(s,a), explain why the stability check stopped, and name one limitation of the reward or model assumptions."
     }
   },
+  "eai-6401-2026-09-22-180000": {
+    "en": {
+      "title": "ReturnLens: a first-visit and every-visit Monte Carlo lab",
+      "pitch": "Build an accessible local-first simulator that lets learners generate episodic trajectories, inspect discounted returns, compare first-visit and every-visit estimates, and contrast sampled Monte Carlo targets with one-step dynamic-programming backups.",
+      "problem": "Monte Carlo prediction is easy to reduce to a formula but hard to understand when repeated states, terminal outcomes, sampling coverage, and model assumptions are hidden. Learners need to see exactly which return contributes to which state estimate.",
+      "learning": "You will implement episodic trajectory generation, backward return accumulation, state-specific sample lists, first-visit and every-visit estimators, Blackjack-like coverage views, and an explicit model-based comparison.",
+      "mvp": [
+        "Define a small episodic environment with states, actions, rewards, terminal outcomes, gamma, and reproducible episode seeds.",
+        "Render each trajectory as a state/reward timeline and show G_t computed backward from the terminal outcome.",
+        "Implement first-visit and every-visit return lists with tests for repeated states and state-action pairs.",
+        "Compare Monte Carlo state estimates with a one-step dynamic-programming backup and expose visit counts and sampling limitations."
+      ],
+      "stretch": [
+        "Add usable-ace and non-usable-ace Blackjack-style state views with confidence bands over episode count.",
+        "Compare gamma values, policy choices, and coverage gaps without mixing returns from different states.",
+        "Export an accessible study card containing the trajectory, source formula, visit rule, estimate, and uncertainty notes."
+      ],
+      "plan": [
+        "Week 1: define the episodic state, action, reward, terminal, and seed schemas.",
+        "Week 2: implement backward returns, first-visit/every-visit lists, and repeated-state tests.",
+        "Week 3: add coverage plots, Blackjack-like states, gamma controls, and Monte Carlo versus dynamic-programming comparison.",
+        "Week 4: complete accessibility, evidence export, uncertainty notes, and a reproducible learner walkthrough."
+      ],
+      "novelty": "The lab makes the estimator's counting rule visible next to the trajectory and distinguishes an observed sampled return from a model-based prediction, so learners can reason about both accuracy and information requirements.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Week 1: episodic schema", "Week 2: return estimators", "Week 3: coverage and comparison", "Week 4: accessible evidence export"],
+      "success": "A learner can calculate one discounted return, explain why first-visit and every-visit differ on a repeated state, identify a coverage limitation, and distinguish a full-episode Monte Carlo target from a one-step model backup."
+    }
+  },
   "ebb-6403-2026-08-29-053554": {
     "en": {
       "title": "CipherLens: an adversary-aware cryptography learning lab",

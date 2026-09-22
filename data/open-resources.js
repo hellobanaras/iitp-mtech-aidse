@@ -258,6 +258,19 @@ export const openLearningResources = {
       description: "The authors' chapter on policy evaluation, policy improvement, and optimal control in finite MDPs.",
       descriptionHi: "Finite MDPs में policy evaluation, policy improvement और optimal control पर authors' chapter।",
       url: "https://incompleteideas.net/book/the-book-2nd.html"
+    },
+    {
+      provider: "Sutton & Barto",
+      providerHi: "Sutton & Barto",
+      kind: "HTML book chapter",
+      kindHi: "HTML पुस्तक chapter",
+      access: "Author-provided reading",
+      accessHi: "लेखक द्वारा उपलब्ध reading",
+      title: "Monte Carlo Methods chapter",
+      titleHi: "Monte Carlo Methods chapter",
+      description: "The authors' treatment of episodic returns, first-visit and every-visit estimates, and model-free value prediction.",
+      descriptionHi: "Episodic returns, first-visit और every-visit estimates तथा model-free value prediction पर authors' treatment।",
+      url: "https://incompleteideas.net/book/the-book-2nd.html"
     }
   ],
   "eai-6402": [
