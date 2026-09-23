@@ -1947,6 +1947,36 @@ export const capstones = Object.freeze({
       "guardrails": ["Use synthetic or public toy data only.", "Do not include credentials or private learner data."]
     }
   },
+  "ecc-6404-2026-09-21-193834": {
+    "en": {
+      "title": "SplitWise: an auditable decision-tree threshold lab",
+      "pitch": "Build a small learner-facing workbench that makes continuous split search, high-cardinality bias, gain ratio, recursive growth, and pruning inspectable on a public or synthetic labelled table.",
+      "problem": "A decision tree can achieve low training impurity by scanning every threshold, fragmenting records, or memorising identifiers. Learners need to see both the optimization and the generalization cost behind a chosen split.",
+      "learning": "Implement sorted midpoint candidates, incremental class counts, Gini and entropy, split information, gain ratio, stopping thresholds, and a simple pre/post-pruning comparison.",
+      "mvp": [
+        "Load a small labelled table and show the brute-force and sorted candidate-threshold sets for one numeric attribute.",
+        "Animate the boundary movement, class-count updates, weighted Gini values, and the selected threshold.",
+        "Compare a meaningful feature with a unique identifier and report why training purity alone is insufficient.",
+        "Render a recursive tree with stopping and pruning controls plus an accessible evidence table linking outputs to lecture timecodes."
+      ],
+      "stretch": [
+        "Add gain-ratio scoring and a binary-only CART mode beside multiway nominal splitting.",
+        "Evaluate the same tree on a held-out public or synthetic set and show how branch count affects coverage and error.",
+        "Export a plain-language split audit containing candidate thresholds, impurity, split information, depth, and validation results."
+      ],
+      "plan": [
+        "Week 1: implement labelled-table loading, sorting, midpoint candidates, and class counts.",
+        "Week 2: add Gini, entropy, gain ratio, and high-cardinality comparison.",
+        "Week 3: add recursive growth, minimum-record stopping, and pre/post-pruning views.",
+        "Week 4: add held-out validation, accessible visual evidence, and reproducible export."
+      ],
+      "novelty": "The lab connects algorithmic efficiency with model reliability by displaying the same split through its candidate search, impurity score, outcome count, and unseen-data behavior.",
+      "stack": ["TypeScript", "SVG", "Accessible HTML table", "Vitest"],
+      "milestones": ["Incremental threshold search", "Criterion and branch-count comparison", "Recursive tree and pruning", "Accessible validation report"],
+      "success": "A learner can justify a threshold or nominal split, explain why an identifier is misleading, reproduce gain-ratio logic, and show how stopping/pruning changes an unseen-data result.",
+      "guardrails": ["Use synthetic or public toy data only.", "Do not include credentials or private learner data."]
+    }
+  },
   "ecs-6401-2026-09-09-180431": {
     "en": {
       "title": "Impulse and seasonality lab",

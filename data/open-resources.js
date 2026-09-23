@@ -680,6 +680,19 @@ export const openLearningResources = {
       description: "Clear examples for scaling, robust transforms, encoding, and leakage-safe pipelines—the implementation companion to the data-quality lectures.",
       descriptionHi: "Scaling, robust transforms, encoding और leakage-safe pipelines के clear examples—data-quality lectures का implementation companion।",
       url: "https://scikit-learn.org/stable/modules/preprocessing.html"
+    },
+    {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
+      kind: "Decision-tree guide",
+      kindHi: "decision-tree guide",
+      access: "Free documentation and examples",
+      accessHi: "मुफ़्त documentation और examples",
+      title: "Decision trees and cost-complexity pruning",
+      titleHi: "Decision trees और cost-complexity pruning",
+      description: "Official implementation guidance for impurity criteria, tree structure, threshold tests, and pruning—the practical companion to the 21 September split-search lecture.",
+      descriptionHi: "Impurity criteria, tree structure, threshold tests और pruning पर official implementation guidance—21 September split-search lecture का practical companion।",
+      url: "https://scikit-learn.org/stable/modules/tree.html"
     }
   ],
   "ecs-6401": [

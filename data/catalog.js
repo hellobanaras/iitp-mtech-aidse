@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-09-21",
+  updated: "2026-09-23",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 82,
+  filesInventoried: 83,
   courses: [
     {
       code: "EAI 6103",
@@ -1034,8 +1034,8 @@ export const catalog = {
       icon: "DW",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course76_hybrid_iitp_ac_in/IgAWWFJqFmpXRay8IkonggGRASO0x6czOy20BYDTjv8HHXI?e=5DXrhH",
       status: "active",
-      statusLabel: "9 lectures available",
-      note: "Lectures 1–9 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; the 14 September classification and decision-tree lecture is bounded to the sustained teaching interval.",
+      statusLabel: "11 lectures available",
+      note: "Lectures 1–11 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; the 21 September optimized split-search lecture is bounded to 00:01:10–01:20:30.",
       lectures: [
         {
           id: "ecc-6404-2026-08-17-193438",
@@ -1176,6 +1176,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Hunt's recursive partitioning algorithm and fallback cases", "Binary, multiway, nominal, ordinal, continuous, and discretized splits", "Gini index, entropy, classification error, and information gain"]
+        },
+        {
+          id: "ecc-6404-2026-09-21-193834",
+          number: 11,
+          date: "2026-09-21",
+          sourceRecordedAt: "2026-09-21T19:38:34+05:30",
+          sourceFilename: "Data Warehousing-20260921_193834-Meeting Recording.mp4",
+          displayDate: "21 September 2026",
+          title: "Optimized split search, gain ratio, and decision-tree growth",
+          duration: "1h 20m 55s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course76%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FData%20Warehousing%2D20260921%5F193834%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Sorted midpoint and class-change threshold search", "High-cardinality bias, CART binary tests, and C4.5 gain ratio", "Recursive growth, stopping rules, pruning, and generalization"]
         }
       ]
     },
