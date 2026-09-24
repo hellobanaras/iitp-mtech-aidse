@@ -1,5 +1,34 @@
 // Public English-only mini-capstone ideas.
 export const capstones = Object.freeze({
+  "ebb-6401-2026-09-23-190135": {
+    "en": {
+      "title": "SolidityGuard: an auditable contract-safety lab",
+      "pitch": "Build a small local-first Solidity workbench that makes state, validation, access control, gas choices, and emitted events inspectable before a contract is deployed.",
+      "problem": "A contract can compile while still exposing unsafe state changes, weak validation, unclear permissions, or costly execution. Learners need a compact workflow that turns those risks into visible checks.",
+      "learning": "You will practise Solidity types and storage, require/assert/revert, modifiers, function mutability, constructors, gas awareness, and event-driven observability.",
+      "mvp": [
+        "Create a small contract with typed state, a constructor, and functions for reading and updating one bounded value.",
+        "Add validation with require, an invariant checked by assert, and a deliberate revert path with clear error messages.",
+        "Protect updates with an onlyOwner-style modifier and label functions as pure, view, or payable where appropriate.",
+        "Deploy in Remix on a test network, record gas estimates, and expose emitted events in an accessible audit report."
+      ],
+      "stretch": [
+        "Add a property-based test suite that checks the invariant across randomized updates.",
+        "Compare two storage designs and explain the gas and auditability trade-offs.",
+        "Add a small front end that displays event history without exposing private keys or credentials."
+      ],
+      "plan": [
+        "Week 1: define the state model, constructor inputs, invariants, and permitted actions.",
+        "Week 2: implement validation, modifiers, mutability labels, and focused tests.",
+        "Week 3: deploy on a test network, compare gas estimates, and inspect event logs.",
+        "Week 4: package the audit report, accessibility checks, limitations, and reproducible deployment steps."
+      ],
+      "novelty": "The lab treats readability, validation evidence, and event traces as part of the contract artifact rather than as after-the-fact documentation.",
+      "stack": ["Solidity", "Remix", "TypeScript", "Accessible HTML"],
+      "milestones": ["Contract schema", "Validation and modifiers", "Gas and events", "Audit report"],
+      "success": "A learner can explain why each state change is allowed, show the validation and modifier paths, compare gas costs, and trace a change through its emitted event."
+    }
+  },
   "eai-6103-2026-08-22-092455": {
     "en": {
       "title": "NotebookStarter: a reproducible Python data-practice lab",

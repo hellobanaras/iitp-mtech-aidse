@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-23",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 83,
+  filesInventoried: 84,
   courses: [
     {
       code: "EAI 6103",
@@ -605,8 +605,8 @@ export const catalog = {
       icon: "SC",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course77_hybrid_iitp_ac_in/IgCEBeWWlU_wQLE9fUZWW9fTAYhpk32mpJi8Lbo6Iba_Cy8?e=5wSELF",
       status: "active",
-      statusLabel: "9 lectures available",
-      note: "Nine verified lectures are published. The 16 September session explains blockchain reorganization, Solidity deployment, double-spend prevention, oracles, and DApp data sources.",
+      statusLabel: "10 lectures available",
+      note: "Ten verified lectures are published. The 23 September session covers Solidity contract structure, types, state, modifiers, gas, constructors, and events.",
       lectures: [
         {
           id: "ebb-6401-2026-08-17-180921",
@@ -733,6 +733,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Canonical chains, forks, orphaned branches, and reorganization", "Solidity source, EVM bytecode, deployment validation, and contract addresses", "Double-spend controls, oracles, and DApp data sources"]
+        },
+        {
+          id: "ebb-6401-2026-09-23-190135",
+          number: 10,
+          date: "2026-09-23",
+          sourceRecordedAt: "2026-09-23T19:01:35+05:30",
+          sourceFilename: "Smart contracts and solidity programming-20260923_190135-Meeting Recording.mp4",
+          displayDate: "23 September 2026",
+          title: "Solidity foundations: contract structure, state, modifiers, gas, and events",
+          duration: "1h 20m 02s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course77_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course77_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSmart+contracts+and+solidity+programming-20260923_190135-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Solidity contract structure, compiler context, and Ethereum-specific types", "State/local/global variables, visibility, validation, and access modifiers", "Function mutability, Ether units, gas, constructors, and events"]
         }
       ]
     },
