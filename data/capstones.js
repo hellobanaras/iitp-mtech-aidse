@@ -2082,6 +2082,22 @@ export const capstones = Object.freeze({
       "guardrails": ["Use public or synthetic time series only.", "Do not present Granger evidence as proof of structural or physical causation.", "Do not include credentials, private learner data, or hidden provider URLs."]
     }
   },
+  "ecs-6401-2026-09-23-180413": {
+    "en": {
+      "title": "VAR Matrix Audit Lab",
+      "pitch": "Build an accessible notebook that constructs, estimates, and audits a two-variable VAR(2) model from aligned public or synthetic time series.",
+      "problem": "Vector autoregression is easy to write as a compact formula but difficult to audit when lag matrices, dimensions, stability, and cross-variable effects are hidden.",
+      "learning": "Implement lag-vector construction, coefficient-matrix estimation with ordinary least squares, eigenvalue stability checks, and cautious interpretation of cross-variable lag effects.",
+      "mvp": ["Load or generate two aligned time series and document the time frequency and stationarity representation.", "Construct current, lag-one, and lag-two matrices with visible row and column labels.", "Estimate the 4×2 coefficient matrix with (XᵀX)⁻¹XᵀY and show dimension checks.", "Compute the coefficient-matrix eigenvalues and export a plain-language stability and interpretation report with lecture timecodes."],
+      "stretch": ["Compare VAR(1), VAR(2), and one higher lag order with an information criterion.", "Add forecast evaluation on a chronological holdout and show how instability affects the forecast.", "Run both directional Granger tests as a separate evidence layer rather than conflating coefficients with causation.", "Add an accessible matrix explorer that highlights each lagged variable's contribution to each equation."],
+      "plan": ["Week 1: alignment, stationarity context, and lag-vector construction.", "Week 2: OLS matrix products, coefficient display, and dimension tests.", "Week 3: eigenvalue stability, forecast holdout, and sensitivity to lag order.", "Week 4: accessibility, interpretation guardrails, and reproducible evidence export."],
+      "novelty": "The lab makes a VAR's vectors, matrices, dimensions, stability condition, and interpretation boundary inspectable in one learning object.",
+      "stack": ["Python", "pandas", "statsmodels", "Accessible HTML tables", "Vitest"],
+      "milestones": ["Lag construction", "OLS coefficient matrix", "Eigenvalue audit", "Forecast and evidence export"],
+      "success": "A learner can reproduce a two-variable VAR(2), verify its matrix dimensions and eigenvalue stability, and explain exactly what a cross-variable coefficient does and does not establish.",
+      "guardrails": ["Use public or synthetic time series only.", "Do not present a VAR coefficient as proof of structural causation.", "Do not include credentials, private learner data, or hidden provider URLs."]
+    }
+  },
   "ebb-6403-2026-09-12-054641": {
     "en": {
       "title": "Trapdoor Notebook: an auditable public-key arithmetic lab",

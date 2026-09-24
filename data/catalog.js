@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-09-23",
+  updated: "2026-09-24",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 84,
+  filesInventoried: 85,
   courses: [
     {
       code: "EAI 6103",
@@ -891,8 +891,8 @@ export const catalog = {
       icon: "TS",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course129_hybrid_iitp_ac_in/IgC377O2f2n2SI6uo-EJPeMMAZbBcmUQN6fmgL_JHX60GiA?e=yUCaLx",
       status: "active",
-      statusLabel: "10 lectures available",
-      note: "Lectures 1–10 are published in chronological order. The Sep 18 source covers univariate stationarity and Granger causality, bounded to 00:04:19–01:21:00 after a full timeline sweep; participant-only lead-in and idle tail were excluded.",
+      statusLabel: "11 lectures available",
+      note: "Lectures 1–11 are published in chronological order. The Sep 23 source develops VAR vectors, coefficient matrices, eigenvalue stability, and a two-variable VAR(2) OLS example, bounded to 00:03:04–01:09:27 after a full timeline sweep; participant-only lead-in and idle tail were excluded.",
       lectures: [
         {
           id: "ecs-6401-2026-08-19-175559",
@@ -1033,6 +1033,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Strict/strong and weak/covariance stationarity", "Restricted and unrestricted Granger-causality models", "F-test, p-value, lag choice, assumptions, and directional outcomes"]
+        },
+        {
+          id: "ecs-6401-2026-09-23-180413",
+          number: 11,
+          date: "2026-09-23",
+          sourceRecordedAt: "2026-09-23T18:04:13+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20260923_180413-Meeting Recording.mp4",
+          displayDate: "23 September 2026",
+          title: "Vector autoregression: matrices, stationarity, and OLS",
+          duration: "1h 09m 27s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course129_hybrid_iitp_ac_in%2FDocuments/Recordings/Advanced%20Time%20Series%20Analysis%2D20260923_180413%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Granger-causality bridge and predictive interpretation", "VAR(1), VAR(2), and coefficient-matrix notation", "Eigenvalue stationarity and two-variable OLS matrix construction"]
         }
       ]
     },
