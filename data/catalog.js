@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-24",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 85,
+  filesInventoried: 86,
   courses: [
     {
       code: "EAI 6103",
@@ -462,8 +462,8 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "active",
-      statusLabel: "9 lectures available",
-      note: "The September 18 lecture extends cellular reuse into SIR, capacity growth, cell splitting, handoff, sectoring, multipath delay spread, and a 32-cell channel-capacity example.",
+      statusLabel: "10 lectures available",
+      note: "The September 24 lecture covers cellular call setup, paging, handoff, blocking, call drops, remote MTSO routing, RSSI, interference, and the Friis model.",
       lectures: [
         {
           id: "ecs-6402-2026-08-21-204351",
@@ -590,6 +590,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Co-channel interference, SIR, and reuse distance", "Capacity growth through borrowing, splitting, and sectoring", "Handoff, multipath delay spread, and the 32-cell/336-channel example"]
+        },
+        {
+          id: "ecs-6402-2026-09-24-203744",
+          number: 10,
+          date: "2026-09-24",
+          sourceRecordedAt: "2026-09-24T20:37:44+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20260924_203744-Meeting Recording.mp4",
+          displayDate: "24 September 2026",
+          title: "Cellular-system operation: channels, call setup, handoff, and radio constraints",
+          duration: "1h 16m 55s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course75_hybrid_iitp_ac_in/Documents/Recordings/Selected%20Topics%20in%20Wireless%20Networks-20260924_203744-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["BTS, MTSO/MSC, PSTN, and control-versus-traffic channels", "Mobile initialization, paging, circuit setup, ongoing calls, handoff, and termination", "Call blocking, RSSI and interference limits, remote MTSOs, and the Friis equation"]
         }
       ]
     },

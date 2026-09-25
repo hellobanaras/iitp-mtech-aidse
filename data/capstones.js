@@ -1875,6 +1875,35 @@ export const capstones = Object.freeze({
       "success": "A learner can change one cellular design choice, explain its effect on reuse distance, interference, power, handoff, delay, and channel capacity, and reproduce the lecture's numerical example without treating the simplified assumptions as a production network guarantee."
     }
   },
+  "ecs-6402-2026-09-24-203744": {
+    "en": {
+      "title": "CellCall Lab — an accessible cellular call-state and handoff simulator",
+      "pitch": "Build an accessible simulator that walks a learner through mobile initialization, paging, circuit setup, ongoing traffic, handoff, termination, blocking, and call-drop conditions.",
+      "problem": "Cellular call setup is often presented as disconnected terminology, making it difficult to see how control channels, traffic channels, base stations, and the MTSO cooperate over time.",
+      "learning": "You will model BTS, MTSO/MSC, PSTN, control and traffic channels, forward and reverse directions, RSSI thresholds, handoff, retries, and Friis-style received-power assumptions.",
+      "mvp": [
+        "Render a keyboard-accessible state machine for initialization, mobile-originated call, paging, acceptance, ongoing call, handoff, and termination.",
+        "Show the control-channel and traffic-channel messages exchanged by mobile units, BTSs, and the MTSO at each state.",
+        "Let a learner move a mobile across cell boundaries and observe the new BTS, traffic channel, and transparent handoff event.",
+        "Add call-blocking and call-drop scenarios driven by busy traffic channels, RSSI threshold, interference, and bounded retries."
+      ],
+      "stretch": [
+        "Add PSTN and remote-MTSO routing for a fixed subscriber or distant mobile subscriber.",
+        "Plot received power against distance with the Friis equation and mark a configurable reliability threshold.",
+        "Export an accessible study card with formulas, source timecodes, and no private learner data."
+      ],
+      "plan": [
+        "Week 1: cellular entities, channels, and the call-state machine.",
+        "Week 2: paging, traffic assignment, ongoing calls, and handoff.",
+        "Week 3: blocking, drops, RSSI, interference, and Friis power plot.",
+        "Week 4: keyboard accessibility, tests, source-time evidence, and export."
+      ],
+      "novelty": "The lab turns the lecture's call lifecycle into an inspectable sequence so learners can see that a seamless call depends on many coordinated control transitions.",
+      "stack": ["TypeScript", "SVG", "Accessible HTML tables", "Vitest"],
+      "milestones": ["Call-state map", "Channels and paging", "Handoff and mobility", "Radio reliability and accessible export"],
+      "success": "A learner can trace a call from registration to release, explain which channel carries each message, reproduce a handoff, and diagnose blocking or dropping from the visible radio assumptions."
+    }
+  },
   "eai-6403-2026-09-05-154129": {
     "en": {
       "title": "Attention map explainer",
