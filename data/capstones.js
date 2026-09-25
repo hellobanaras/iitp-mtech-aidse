@@ -1,5 +1,35 @@
 // Public English-only mini-capstone ideas.
 export const capstones = Object.freeze({
+  "ecs-6401-2026-09-25-180502": {
+    en: {
+      title: "EquilibriumLab: see a shared trend and its correction",
+      pitch: "Build a small reproducible teaching notebook that contrasts independent random walks with two series linked by a stationary equilibrium error.",
+      problem: "Two trending series can look related even when their regression is misleading. Learners need to see why a stationary gap, rather than visual similarity alone, supports an error-correction interpretation.",
+      learning: "Practise I(0)/I(1) reasoning, long-run regression, residual-based cointegration testing, and the sign and speed of an error-correction term.",
+      mvp: [
+        "Generate one independent-random-walk pair and one cointegrated pair using a fixed random seed; document how each was generated.",
+        "Plot the levels, first differences, and estimated equilibrium gap side by side, with aligned dates and readable axes.",
+        "Estimate a long-run relation with an intercept and run an appropriate Engle–Granger test; report assumptions, lag choices, null hypothesis, and uncertainty.",
+        "Fit a simple error-correction regression using the lagged gap and short-run differences. Show how a positive or negative gap changes the predicted adjustment.",
+        "Compare different adjustment coefficients in a controlled simulation without presenting the simulation as empirical proof of causation."
+      ],
+      stretch: [
+        "Introduce a structural break and show how an apparently stable historical relation can fail on later observations.",
+        "Extend the single-equation model to a VECM and explain which variables adjust toward the common equilibrium.",
+        "Add chronological holdout evaluation and compare with a differences-only baseline."
+      ],
+      plan: [
+        "Define the two data-generating processes and document the intended integration orders.",
+        "Implement plots, the long-run regression, and a residual-based cointegration test with reproducible settings.",
+        "Fit and explain the adjustment equation, checking the sign convention of the equilibrium error.",
+        "Package a short report with assumptions, limitations, failure cases, and links back to the lecture timecodes."
+      ],
+      novelty: "An explainable contrast between spurious co-movement and equilibrium correction makes the model's assumptions visible before any forecasting claim.",
+      stack: ["Python", "NumPy", "pandas", "statsmodels", "Matplotlib", "Jupyter"],
+      milestones: ["Synthetic controls", "Equilibrium-gap plots", "Cointegration test", "Error-correction explanation"],
+      success: "A reader can distinguish shared trends from a stationary equilibrium gap, interpret the adjustment sign under a stated normalization, and reproduce the result without private data. This is optional study practice, not an instructor-assigned task."
+    }
+  },
   "ebb-6401-2026-09-23-190135": {
     "en": {
       "title": "SolidityGuard: an auditable contract-safety lab",

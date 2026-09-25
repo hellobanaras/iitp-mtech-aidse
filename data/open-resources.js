@@ -697,6 +697,30 @@ export const openLearningResources = {
   ],
   "ecs-6401": [
     {
+      provider: "Nobel Prize",
+      kind: "Watch and read",
+      access: "Free lecture and reading",
+      title: "Granger: Time Series Analysis, Cointegration, and Applications",
+      description: "The original researcher's prize lecture provides historical and conceptual context for shared stochastic trends and long-run relationships, complementing the September 25 equilibrium-error discussion.",
+      url: "https://www.nobelprize.org/prizes/economic-sciences/2003/granger/lecture/"
+    },
+    {
+      provider: "statsmodels",
+      kind: "Practice documentation",
+      access: "Free documentation",
+      title: "Engle–Granger cointegration test",
+      description: "Practise the September 25 lecture's long-run-equilibrium idea with a two-step test whose null is no cointegration; check the I(1) assumptions and deterministic terms before interpreting results.",
+      url: "https://www.statsmodels.org/stable/generated/statsmodels.tsa.stattools.coint.html"
+    },
+    {
+      provider: "statsmodels",
+      kind: "Reading and practice",
+      access: "Free documentation",
+      title: "Vector error-correction model",
+      description: "Extend the lecture's single-equation error-correction intuition to a system that separates long-run cointegration from short-run lag dynamics.",
+      url: "https://www.statsmodels.org/stable/generated/statsmodels.tsa.vector_ar.vecm.VECM.html"
+    },
+    {
       provider: "OTexts",
       providerHi: "OTexts",
       kind: "HTML book",

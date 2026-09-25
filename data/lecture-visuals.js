@@ -4,6 +4,12 @@
 // Mermaid markup across twenty note modules.
 
 const templates = {
+  cointegration: {
+    title: "From a shared trend to error correction",
+    description: "Two individually nonstationary series can share a stationary equilibrium gap. The error-correction model links that gap to the next change.",
+    steps: ["I(1) series", "Long-run relation", "Stationary gap", "Short-run correction"],
+    detail: "Follow the original source timecodes to connect the equilibrium equation with its adjustment mechanism."
+  },
   rl: {
     title: "The reinforcement-learning feedback loop",
     description: "A learner improves by acting, observing the outcome, and feeding the experience back into its next decision.",
@@ -85,6 +91,7 @@ const templates = {
 };
 
 const visualTemplates = {
+  "ecs-6401-2026-09-25-180502": "cointegration",
   "eai-6103-2026-08-18-193045": "ml",
   "eai-6103-2026-08-22-092455": "python",
   "eai-6103-2026-08-25-183026": "ml",

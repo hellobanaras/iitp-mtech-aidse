@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-09-24",
+  updated: "2026-09-25",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 86,
+  filesInventoried: 87,
   courses: [
     {
       code: "EAI 6103",
@@ -905,8 +905,8 @@ export const catalog = {
       icon: "TS",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course129_hybrid_iitp_ac_in/IgC377O2f2n2SI6uo-EJPeMMAZbBcmUQN6fmgL_JHX60GiA?e=yUCaLx",
       status: "active",
-      statusLabel: "11 lectures available",
-      note: "Lectures 1–11 are published in chronological order. The Sep 23 source develops VAR vectors, coefficient matrices, eigenvalue stability, and a two-variable VAR(2) OLS example, bounded to 00:03:04–01:09:27 after a full timeline sweep; participant-only lead-in and idle tail were excluded.",
+      statusLabel: "12 lectures available",
+      note: "Lectures 1–12 are published in chronological order. The Sep 25 source develops cointegration, the equilibrium residual, error-correction dynamics, spurious regression, and an introduction to levels-OLS estimation. Opening and closing instructional audio are retained; the internal break is excluded from the teaching summary.",
       lectures: [
         {
           id: "ecs-6401-2026-08-19-175559",
@@ -1061,6 +1061,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Granger-causality bridge and predictive interpretation", "VAR(1), VAR(2), and coefficient-matrix notation", "Eigenvalue stationarity and two-variable OLS matrix construction"]
+        },
+        {
+          id: "ecs-6401-2026-09-25-180502",
+          number: 12,
+          date: "2026-09-25",
+          sourceRecordedAt: "2026-09-25T18:05:02+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20260925_180502-Meeting Recording.mp4",
+          displayDate: "25 September 2026",
+          title: "Cointegration, equilibrium errors, and error-correction models",
+          duration: "1h 24m 34s source; internal break excluded from notes",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse129%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FAdvanced%20Time%20Series%20Analysis%2D20260925%5F180502%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["I(1) levels and a stationary long-run equilibrium gap", "ECM components, adjustment signs, and a worked numerical example", "Spurious regression, estimation, testing roadmap, and student questions"]
         }
       ]
     },

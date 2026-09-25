@@ -384,3 +384,36 @@ summary sections, five expert insights, explicit transcript-derived signal
 categories, clearly optional practice, six reliable resources, the accessible
 LayerLens visual, the public LayerLens capstone, and exactly 25 explained MCQs.
 The queue transaction is ready for validation and guarded publication.
+
+## 25 September 2026 — schedule-aware discovery since 23 September
+
+Authenticated Moodle and all nine current-semester recording folders were
+checked against the schedule and stable-source inventory. One new identity was
+found: `Advanced Time Series Analysis-20260925_180502-Meeting Recording.mp4`
+(ECS 6401, 263 MB, 18:05:02 IST). The other visible sources were already handled.
+The Sep 23 ECC 6404 source remains rejected for effectively silent audio, not
+silently represented as a published note. The Sep 25 ECS 6402 class was still
+inside its scheduled window during discovery; no upload was visible then.
+
+The ECS 6401 source is view-only, with no visible permitted Download action.
+Seven distributed timeline samples and source-matched opening/closing audio
+established instruction across 00:00:03–01:24:34. Camera-only opening and closing
+segments contain relevant speech and were retained. The internal pause around
+01:07:10–01:12:08 is omitted from the teaching summary, not mistaken for an idle
+tail. The recording was reviewed alone at 2× and its tab closed after export.
+
+Finalization was confirmed with a 300,862,980-byte video/audio WebM, matching
+timing sidecar, and review JSON. Private media remain ignored. The processor
+verified VP9/Opus streams, usable audio (about 7.1% silence), 85 sampled frames,
+and a timestamped transcript. Mixed-language Q&A was separately checked with a
+larger cached multilingual model. Source player clocks govern slide timecodes;
+the regular contact-sheet labels are approximate and were not blindly copied.
+
+The English publication unit `ecs-6401-2026-09-25-180502` includes cointegration,
+stationary residuals, the full ECM numerical example, spurious regression,
+levels-OLS estimation, source-timed Q&A, explicit empty obligation categories,
+25 individually explained MCQs, a responsive visual, and the EquilibriumLab
+mini-capstone. Verified Granger/Nobel and statsmodels watch/read/practice links
+refresh the subject resources. Desktop and 390-pixel mobile checks cover page
+rendering, overflow, the visual, and an expanded worked-example MCQ. Publication
+uses the guarded queue transaction to source main and GitHub Pages only.
