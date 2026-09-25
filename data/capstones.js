@@ -1934,6 +1934,35 @@ export const capstones = Object.freeze({
       "success": "A learner can trace a call from registration to release, explain which channel carries each message, reproduce a handoff, and diagnose blocking or dropping from the visible radio assumptions."
     }
   },
+  "ecs-6402-2026-09-25-203453": {
+    "en": {
+      "title": "PathLab — a path-loss and multipath learning sandbox",
+      "pitch": "Build an accessible browser lab that separates average radio loss from interference between received paths, then demonstrates why two antennas can reduce deep-fade risk.",
+      "problem": "Learners often mix watts with dBm, add powers when they should combine signal amplitudes and phases, or assume a visible transmitter guarantees a fade-free link.",
+      "learning": "Implement the Friis equation, reference-aware dBW/dBm conversions, a two-path phasor sum, distance-dependent mean power, and a simple two-branch selection-diversity comparison.",
+      "mvp": [
+        "Reproduce the lecture's 50 W, 900 MHz, unity-gain, 100 m example with a calculation trail: approximately 3.52 microW and -24.54 dBm received power.",
+        "Provide keyboard-accessible controls for distance, frequency, transmit power and antenna gains, with an equivalent numerical table beside every plot.",
+        "Add a direct and a reflected path; vary relative amplitude and phase and compute power only after summing the complex amplitudes.",
+        "Compare one receiver branch with selection of the stronger of two differently faded branches; label correlation assumptions and avoid claiming that diversity eliminates every outage."
+      ],
+      "stretch": [
+        "Animate slow distance-dependent loss separately from short-distance multipath fluctuations and moving-scatterer changes.",
+        "Add delayed pulse copies to illustrate time dispersion without confusing delay spread with Doppler shift.",
+        "Export a local study report with assumptions, units, test results and lecture timecodes; collect no accounts or private learner data."
+      ],
+      "plan": [
+        "Milestone 1: implement unit conversions and Friis calculations; test that dBm equals dBW plus 30 and doubling distance adds about 6.02 dB loss.",
+        "Milestone 2: add two-path superposition; verify equal-amplitude in-phase and opposite-phase cases and the nonzero minimum for unequal amplitudes.",
+        "Milestone 3: implement the second branch and selection rule; compare correlated and independently varied phases with an explicitly chosen outage threshold.",
+        "Milestone 4: add text alternatives, keyboard operation, responsive layouts, reproducible presets and a limitations panel."
+      ],
+      "novelty": "The same experiment exposes a unit error, a phase-cancellation effect and a receiver-design response, while keeping each model's assumptions visible.",
+      "stack": ["TypeScript", "Responsive HTML and SVG", "Accessible data tables", "Vitest"],
+      "milestones": ["Units and Friis baseline", "Two-path phase sum", "Selection diversity", "Accessible evidence report"],
+      "success": "A learner can reproduce the lecture example, explain why LOS can coexist with multipath, distinguish mean coverage from local fades, and show a diversity benefit without treating a simplified sandbox as a real-world coverage guarantee."
+    }
+  },
   "eai-6403-2026-09-05-154129": {
     "en": {
       "title": "Attention map explainer",

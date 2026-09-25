@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-25",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 87,
+  filesInventoried: 88,
   courses: [
     {
       code: "EAI 6103",
@@ -462,8 +462,8 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "active",
-      statusLabel: "10 lectures available",
-      note: "The September 24 lecture covers cellular call setup, paging, handoff, blocking, call drops, remote MTSO routing, RSSI, interference, and the Friis model.",
+      statusLabel: "11 lectures available",
+      note: "The September 25 lecture develops path loss, a complete dBm/dBW link-budget example, reflection, diffraction, scattering, multipath fading, Doppler, echoes, and antenna diversity.",
       lectures: [
         {
           id: "ecs-6402-2026-08-21-204351",
@@ -604,6 +604,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["BTS, MTSO/MSC, PSTN, and control-versus-traffic channels", "Mobile initialization, paging, circuit setup, ongoing calls, handoff, and termination", "Call blocking, RSSI and interference limits, remote MTSOs, and the Friis equation"]
+        },
+        {
+          id: "ecs-6402-2026-09-25-203453",
+          number: 11,
+          date: "2026-09-25",
+          sourceRecordedAt: "2026-09-25T20:34:53+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20260925_203453-Meeting Recording.mp4",
+          displayDate: "25 September 2026",
+          title: "Radio propagation: path loss, multipath fading, and antenna diversity",
+          duration: "1h 21m 05s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse75%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSelected%20Topics%20in%20Wireless%20Networks%2D20260925%5F203453%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Friis, reference-distance path loss, and the 50 W / 900 MHz worked example", "Reflection, diffraction, scattering, and constructive/destructive multipath interference", "Large- and small-scale models, Doppler, echoes, stationary-receiver questions, and space diversity"]
         }
       ]
     },

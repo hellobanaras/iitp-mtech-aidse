@@ -851,6 +851,55 @@ export const openLearningResources = {
   ],
   "ecs-6402": [
     {
+      provider: "Tse and Viswanath / Stanford University",
+      kind: "Author-hosted textbook chapters",
+      access: "Free online reading; copyrighted text",
+      title: "Fundamentals of Wireless Communication — channel models and diversity",
+      description: "Read Chapters 2 and 3 to develop the September 25 lecture's physical multipath model, fading assumptions, and diversity reasoning. Link only; the copyrighted book is not redistributed.",
+      url: "https://stanford.edu/~dntse/wireless_book.html"
+    },
+    {
+      provider: "NPTEL IIT Kharagpur",
+      kind: "Video lecture",
+      access: "Free video",
+      title: "Channel models for performance evaluation (Part I)",
+      description: "A visual follow-up on path loss, shadowing, small-scale fading, reflection, diffraction and scattering, directly tied to the propagation lecture.",
+      url: "https://www.youtube.com/watch?v=GkqxiJlKSLs",
+      youtubeId: "GkqxiJlKSLs"
+    },
+    {
+      provider: "MathWorks",
+      kind: "Formula and practice reference",
+      access: "Free documentation; MATLAB execution requires a license",
+      title: "fspl — Free-space path loss",
+      description: "Check wavelength and distance units, reproduce a path-loss calculation, and inspect the far-field limitation. The public formula also supports an independent spreadsheet or JavaScript exercise.",
+      url: "https://www.mathworks.com/help/comm/ref/fspl.html"
+    },
+    {
+      provider: "ITU-R",
+      kind: "Primary propagation reference",
+      access: "Public recommendation page",
+      title: "P.526 — Propagation by diffraction",
+      description: "Go beyond the lecture's sharp-edge sketch with an authoritative diffraction-model reference; this is optional further reading, not a course assignment.",
+      url: "https://www.itu.int/rec/R-REC-P.526/en"
+    },
+    {
+      provider: "Pearson / InformIT",
+      kind: "Instructor-mentioned book",
+      access: "Public catalog and sample information; not free full text",
+      title: "William Stallings — Wireless Communications and Networks",
+      description: "The instructor names this text at 00:35:25 in the September 25 lecture. The publisher page verifies its antennas and propagation coverage; the listed first edition is out of print.",
+      url: "https://www.informit.com/store/wireless-communications-and-networks-9780130408648"
+    },
+    {
+      provider: "Pearson / InformIT",
+      kind: "Instructor-mentioned book",
+      access: "Public catalog and sample information; not free full text",
+      title: "Theodore S. Rappaport — Wireless Communications: Principles and Practice",
+      description: "The second book named in the propagation lecture. This publisher page identifies the second edition, while the recording itself does not specify which edition to use.",
+      url: "https://www.informit.com/store/wireless-communications-principles-and-practice-9780130422323"
+    },
+    {
       provider: "RFC Editor",
       kind: "Primary historical measurement",
       access: "Free HTML and text",

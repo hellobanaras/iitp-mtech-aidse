@@ -417,3 +417,42 @@ mini-capstone. Verified Granger/Nobel and statsmodels watch/read/practice links
 refresh the subject resources. Desktop and 390-pixel mobile checks cover page
 rendering, overflow, the visual, and an expanded worked-example MCQ. Publication
 uses the guarded queue transaction to source main and GitHub Pages only.
+
+## 25 September 2026 — schedule-aware discovery since 24 September
+
+All nine current-semester recording folders were checked against the calendar
+and stable-source inventory. One new identity was found: ECS 6402,
+`Selected Topics in Wireless Networks-20260925_203453-Meeting Recording.mp4`
+(183 MB, 20:34:53 IST). The Sep 24 ECS 6402 and Sep 25 ECS 6401 lectures were
+already published. No Sep 24 EBB 6402 or Sep 25 EBB 6403 upload was visible;
+this is an upload-availability observation, not evidence of cancellation.
+Authenticated access worked without a login challenge.
+
+The new Wireless Networks source is view-only, with no permitted Download
+action. Seven distributed samples plus opening/closing audio established the
+bounded interval 00:00:08–01:20:40 within an 01:21:05 recording. The approximately
+25-second silent tail was excluded. The 01:05:14–01:06:06 screen-sharing
+interruption remains in the continuous capture but is omitted from the teaching
+summary. Source-matched triage and finalization evidence are retained under
+ignored `.course-data/reviews/`.
+
+Visible-tab capture at 2× finalized a 203,974,926-byte VP9/Opus WebM, matching
+timing sidecar, and review export. The recording tab was closed after export.
+Processing restored source-time audio, produced a complete timestamped
+transcript and 81 sampled frames, and measured approximately 10.5% silence.
+Raw media and transcripts remain private and untracked.
+
+The English publication unit `ecs-6402-2026-09-25-203453` contains nine summary
+sections, 18 source-time visual references, six further-study links, all six
+academic-signal categories, exactly 25 individually explained MCQs, a responsive
+propagation visual, and the PathLab mini-capstone. Independent arithmetic
+verified the 50 W / 900 MHz / 100 m example as approximately 3.52 microW or
+−24.54 dBm. Phase cancellation, logarithmic references, propagation-model limits,
+and diversity are carefully distinguished from simplified board shorthand.
+Six verified primary-source watch/read/practice links refresh subject resources.
+
+Repository validation passed for 88 published-note entries. Desktop and
+390-pixel mobile checks found no horizontal overflow; the resource cards and
+privacy-enhanced video embed rendered, and the worked-example MCQ expanded with
+its explanations in the DOM. Publication uses the guarded per-identity queue
+transaction to source main and GitHub Pages only.

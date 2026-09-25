@@ -4,6 +4,12 @@
 // Mermaid markup across twenty note modules.
 
 const templates = {
+  radioPropagation: {
+    title: "From propagation paths to a reliable receiver",
+    description: "Begin with average distance-dependent loss, account for the paths created by the environment, then distinguish local fading from coverage and diversity decisions.",
+    steps: ["Free-space baseline", "Propagation paths", "Multipath variation", "Model scale and diversity"],
+    detail: "An original study map of the lecture's path-loss, multipath, and antenna-diversity argument."
+  },
   cointegration: {
     title: "From a shared trend to error correction",
     description: "Two individually nonstationary series can share a stationary equilibrium gap. The error-correction model links that gap to the next change.",
@@ -91,6 +97,7 @@ const templates = {
 };
 
 const visualTemplates = {
+  "ecs-6402-2026-09-25-203453": "radioPropagation",
   "ecs-6401-2026-09-25-180502": "cointegration",
   "eai-6103-2026-08-18-193045": "ml",
   "eai-6103-2026-08-22-092455": "python",
