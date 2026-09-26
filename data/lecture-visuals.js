@@ -4,6 +4,12 @@
 // Mermaid markup across twenty note modules.
 
 const templates = {
+  edaImputation: {
+    title: "From a data audit to an evaluated model",
+    description: "An original study map of the Colab practical. Each decision should leave evidence; predictive evaluation must fit preparation on training data only.",
+    steps: ["Inspect and visualize", "Handle missingness", "Compare feature sets", "Audit evaluation"],
+    detail: "Connect the lecture's data-quality checks, replacement choices and regression comparison without treating correlation as causation."
+  },
   radioPropagation: {
     title: "From propagation paths to a reliable receiver",
     description: "Begin with average distance-dependent loss, account for the paths created by the environment, then distinguish local fading from coverage and diversity decisions.",
@@ -98,6 +104,7 @@ const templates = {
 
 const visualTemplates = {
   "ecs-6402-2026-09-25-203453": "radioPropagation",
+  "eai-6402-2026-09-26": "edaImputation",
   "ecs-6401-2026-09-25-180502": "cointegration",
   "eai-6103-2026-08-18-193045": "ml",
   "eai-6103-2026-08-22-092455": "python",

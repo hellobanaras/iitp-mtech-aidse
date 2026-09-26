@@ -10,7 +10,8 @@ const [
   { openLearningResources },
   { programProfile },
   { suggestedPracticeForLecture },
-  { visualForLecture }
+  { visualForLecture },
+  { hasVerifiedLiveCapture }
 ] = await Promise.all([
   import(`../data/catalog.js?v=${releaseVersion}`),
   import(`../data/catalog-hi.js?v=${releaseVersion}`),
@@ -22,7 +23,8 @@ const [
   import(`../data/open-resources.js?v=${releaseVersion}`),
   import(`../data/program.js?v=${releaseVersion}`),
   import(`../data/suggested-practice.js?v=${releaseVersion}`),
-  import(`../data/lecture-visuals.js?v=${releaseVersion}`)
+  import(`../data/lecture-visuals.js?v=${releaseVersion}`),
+  import(`../data/recording-provenance.js?v=${releaseVersion}`)
 ]);
 
 const main = document.querySelector("#main-content");
@@ -453,13 +455,16 @@ function renderHome(ctx) {
 
 function lectureRow(lecture, lang, text, course, homeListing = false) {
   const available = lecture.status === "published";
+  const sourceAction = hasVerifiedLiveCapture(lecture)
+    ? `<span class="status">Live-capture notes · recording link pending</span><a class="card-link" href="${escapeHtml(course.recordingUrl)}" target="_blank" rel="noreferrer">Recording folder ${icon("external")}</a>`
+    : `<a class="card-link card-link--recording" href="${escapeHtml(lecture.recordingUrl)}" target="_blank" rel="noreferrer">${text.watchRecording} ${icon("video")}</a>`;
   const archiveMeta = homeListing
     ? `Semester ${semesterForCatalogCourse(course)} · ${lecture.displayDate} · ${lecture.hi.displayDate}`
     : `${lecture.displayDate} · ${lecture.hi.displayDate} · ${lecture.duration}`;
   return `<article class="lecture-row ${available ? "" : "lecture-row--pending"}">
     <div class="lecture-number">${String(lecture.number).padStart(2, "0")}</div>
     <div class="lecture-row__body"><p class="eyebrow">${escapeHtml(archiveMeta)}</p>${compactBilingualCopy(lecture.title, lecture.hi.title, "h3")}<ul class="topic-chips">${lecture.overview.map((item, index) => `<li>${compactBilingualCopy(item, lecture.hi.overview[index])}</li>`).join("")}</ul></div>
-    ${available ? `<div class="lecture-row__actions"><a class="card-link card-link--notes" href="${href(lang, `/lecture/${lecture.id}`)}">${text.readNotes} ${icon("arrow")}</a><a class="card-link card-link--recording" href="${escapeHtml(lecture.recordingUrl)}" target="_blank" rel="noreferrer">${text.watchRecording} ${icon("video")}</a></div>` : `<span class="status status--processing"><i></i>${escapeHtml(lecture.statusLabel)} · ${escapeHtml(lecture.hi.statusLabel)}</span>`}
+    ${available ? `<div class="lecture-row__actions"><a class="card-link card-link--notes" href="${href(lang, `/lecture/${lecture.id}`)}">${text.readNotes} ${icon("arrow")}</a>${sourceAction}</div>` : `<span class="status status--processing"><i></i>${escapeHtml(lecture.statusLabel)} · ${escapeHtml(lecture.hi.statusLabel)}</span>`}
   </article>`;
 }
 
@@ -632,7 +637,7 @@ function signalCards(notes, text, readerCopy = hinglishCopy) {
       return key === "studentQuestions"
         ? `<section><time>${escapeHtml(item.time)}</time>${readerCopy(item.question, hindi.question, "strong")}${readerCopy(item.response, hindi.response, "p")}</section>`
         : `<section><time>${escapeHtml(item.time)}</time>${readerCopy(item.title, hindi.title, "strong")}${readerCopy(item.detail, hindi.detail, "p")}</section>`;
-    }).join("")}</div>` : suggestedItems.length ? `<div class="signal-suggested"><p class="signal-suggested__label">${text.suggestedPractice}</p>${suggestedItems.map((item) => `<section><time>${text.optionalPractice}</time><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.detail)}</p></section>`).join("")}</div>` : `<p class="signal-empty">${text.noneMentioned}</p>`}</article>`;
+    }).join("")}</div>` : `<p class="signal-empty">${text.noneMentioned}</p>${suggestedItems.length ? `<div class="signal-suggested"><p class="signal-suggested__label">${text.suggestedPractice}</p>${suggestedItems.map((item) => `<section><time>${text.optionalPractice}</time><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.detail)}</p></section>`).join("")}</div>` : ""}`}</article>`;
   }).join("");
 }
 

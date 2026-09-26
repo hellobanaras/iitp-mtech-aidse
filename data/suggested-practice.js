@@ -66,6 +66,12 @@ const fallback = {
 };
 
 export function suggestedPracticeForLecture(lecture, course) {
+  if (lecture?.id === "eai-6402-2026-09-26") return {
+    assignments: [{ title: "Data-audit worksheet", detail: "Optionally inspect a public table's types, missing counts and distributions; explain the unit of each row and the prediction target." }],
+    homework: [{ title: "Missingness trade-offs", detail: "Optionally compare the rows retained by complete-case deletion and missing-target-only deletion; explain why the difference matters." }],
+    labs: [{ title: "Leakage-safe imputation lab", detail: "Optionally compare global and groupwise filling with training-only fitted statistics, consistent feature columns and held-out error metrics." }],
+    projects: [{ title: "MissingnessLab extension", detail: "Optionally build the accompanying capstone and compare a random split with grouped or temporal validation appropriate to the task." }]
+  };
   const template = courseTemplates[course?.slug] || fallback;
   const focus = lecture?.title ? ` Focus it on “${lecture.title}”.` : "";
   return Object.fromEntries(Object.entries(template).map(([key, items]) => [key,

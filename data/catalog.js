@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-09-25",
+  updated: "2026-09-26",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 88,
+  filesInventoried: 89,
   courses: [
     {
       code: "EAI 6103",
@@ -332,6 +332,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Metric spaces, norms, and distance choices", "Loss, cost, gradient descent, and sigmoid classification", "Log loss and one-versus-rest multiclass prediction"]
+        },
+        {
+          id: "eai-6402-2026-09-26",
+          number: 6,
+          date: "2026-09-26",
+          sourceRecordedAt: "2026-09-26T10:21:02+05:30",
+          sourceFilename: "EAI-6402-Meta-Learning-live-20260926T045102Z.webm",
+          sourceEvidence: { kind: "live-capture", captureFinalized: true, reviewComplete: true, recordingLinkStatus: "pending", timebase: "local-capture" },
+          displayDate: "26 September 2026",
+          title: "From exploratory analysis to imputation and regression",
+          duration: "Approximately 2h 17m teaching; break excluded",
+          status: "published",
+          statusLabel: "Live-capture notes",
+          overview: ["Housing, wine and life-expectancy data exploration", "Global and groupwise missing-value imputation", "Feature selection, regression and evaluation safeguards"]
         }
       ]
     },

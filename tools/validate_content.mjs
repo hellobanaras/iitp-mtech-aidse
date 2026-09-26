@@ -9,6 +9,7 @@ import { courseResources } from "../data/resources.js";
 import { programProfile } from "../data/program.js";
 import { suggestedPracticeForLecture } from "../data/suggested-practice.js";
 import { lectureVisuals, visualForLecture } from "../data/lecture-visuals.js";
+import { hasVerifiedLiveCapture, hasStreamRecording } from "../data/recording-provenance.js";
 
 const errors = [];
 const assert = (condition, message) => {
@@ -80,7 +81,7 @@ for (const lecture of lectures) {
     `${lecture.id}: source filename is missing.`);
   if (lecture.status !== "published") continue;
 
-  assert(/^https:\/\/cciitpatna-my\.sharepoint\.com\/personal\/.*\/stream\.aspx\?id=/.test(lecture.recordingUrl || ""),
+  assert(hasStreamRecording(lecture) || hasVerifiedLiveCapture(lecture),
     `${lecture.id}: canonical lecture recording URL is missing or invalid.`);
   assert(!/[?&](?:referrer|referrerScenario)=/.test(lecture.recordingUrl || ""),
     `${lecture.id}: recording URL contains transient referrer parameters.`);

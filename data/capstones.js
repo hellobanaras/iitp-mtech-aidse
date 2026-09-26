@@ -1,5 +1,16 @@
 // Public English-only mini-capstone ideas.
 export const capstones = Object.freeze({
+  "eai-6402-2026-09-26": {
+    en: {
+      title: "MissingnessLab: an auditable regression experiment",
+      pitch: "Build a small reproducible notebook or dashboard that explains how missing-data choices affect a regression result.",
+      problem: "A clean-looking table and a high test score can conceal row loss, imputation artifacts and leakage. Learners need a visible audit trail linking each preparation choice to its evaluation.",
+      learning: "Practise data inspection, global and groupwise filling, feature-set comparison, and training-only fitted preprocessing. This is optional study practice, not an instructor-assigned project.",
+      mvp: ["Profile a public or synthetic table: dimensions, types, missing counts and retained rows.", "Compare complete-case, global median/mean and justified groupwise filling using training-only statistics.", "Fit simple and multiple linear regressions on consistent validation splits and report MAE, RMSE and R-squared.", "Display original versus imputed distributions with accurate replacement-method labels and a provenance table."],
+      stretch: ["Compare random-row evaluation with grouped or temporal splits appropriate to the task.", "Test missingness indicators and document the effect of unseen groups with a training-derived fallback."],
+      plan: ["Define the prediction unit, target, data license and evaluation split before fitting anything.", "Implement the preparation variants and tests for index alignment, no target leakage, consistent predictor columns and remaining nulls.", "Run the same folds for each variant, inspect errors and publish a concise limitations report with reproducible configuration."]
+    }
+  },
   "ecs-6401-2026-09-25-180502": {
     en: {
       title: "EquilibriumLab: see a shared trend and its correction",

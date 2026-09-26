@@ -275,6 +275,30 @@ export const openLearningResources = {
   ],
   "eai-6402": [
     {
+      provider: "scikit-learn", providerHi: "scikit-learn", kind: "Read", kindHi: "Read",
+      access: "Free documentation", accessHi: "Free documentation",
+      title: "Avoiding data leakage in preprocessing", titleHi: "Avoiding data leakage in preprocessing",
+      description: "Companion to the September 26 regression practical: fit imputers and feature selection on training data only, then transform held-out data.",
+      descriptionHi: "Fit imputers and feature selection on training data only, then transform held-out data.",
+      url: "https://scikit-learn.org/stable/common_pitfalls.html"
+    },
+    {
+      provider: "scikit-learn", providerHi: "scikit-learn", kind: "Practice", kindHi: "Practice",
+      access: "Free runnable example", accessHi: "Free runnable example",
+      title: "Imputing missing values before building an estimator", titleHi: "Imputing missing values before building an estimator",
+      description: "Optional hands-on extension to global and groupwise filling: compare missing-value strategies through an estimator rather than judging only KDE appearance.",
+      descriptionHi: "Compare missing-value strategies through an estimator rather than judging only KDE appearance.",
+      url: "https://scikit-learn.org/stable/auto_examples/impute/plot_missing_values.html"
+    },
+    {
+      provider: "Seaborn", providerHi: "Seaborn", kind: "Read", kindHi: "Read",
+      access: "Free illustrated tutorial", accessHi: "Free illustrated tutorial",
+      title: "Visualizing distributions of data", titleHi: "Visualizing distributions of data",
+      description: "Revisit the September 26 histogram and KDE demonstrations, including how distribution displays depend on visualization choices.",
+      descriptionHi: "Revisit histograms and KDE plots, including the effect of visualization choices.",
+      url: "https://seaborn.pydata.org/tutorial/distributions.html"
+    },
+    {
       provider: "Stanford University",
       providerHi: "Stanford University",
       kind: "Open course",

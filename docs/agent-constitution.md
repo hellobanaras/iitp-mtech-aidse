@@ -96,6 +96,8 @@ Files under `resources/<course-slug>/` and `resources/program/` are intentionall
 
 Each subject page exposes the verified SharePoint recording-folder link. Each published lecture exposes the stable Microsoft Stream page URL obtained from that folder so a subscribed learner can return to the source recording. Store the human-facing Stream page, not a discovered media manifest, signed CDN URL, cookie-bearing request, DRM datum, or stream segment. Remove transient navigation parameters such as `referrer` and `referrerScenario` before publication. Access remains subject to the learner's institution account and course permissions.
 
+Owner-authorized live-capture exception (26 September 2026): a fully reviewed, finalized live capture may support immediate notes before a Stream upload exists when the owner explicitly asks not to wait. Use the strict source-evidence fields in the content contract, disclose the local-capture timebase, and show a pending recording-link label plus the verified subject folder. Never fabricate a provider URL or deploy the recording. All other evidence and publication gates remain unchanged.
+
 ## 13. Readable canonical course routes
 
 The internal course `slug` is a stable data key, while `routeSlug` is the shareable public URL segment. Canonical public subject URLs include both the course code and a readable English name, for example `#/course/eai-6403-selective-topics-in-generative-ai`. Existing code-only course and resource links redirect to their descriptive equivalent so historical bookmarks continue to work. Public URLs remain language-neutral and do not transliterate the English-only note body.

@@ -4,6 +4,16 @@ Last checked: 3 September 2026 (America/Chicago)
 
 This file records only technical metadata needed for study-note production. It intentionally omits participant names and private meeting details.
 
+## EAI 6402 — 26 September 2026 live capture
+
+The authorized live capture was explicitly finalized with matching timing metadata and review export. Saved-media review covered all seven required timeline positions. Two bounded teaching segments exclude the internal break and final idle tail; both were transcribed and reviewed, including closing dataset/notebook access questions. Public timecodes refer to the local capture, not an unavailable provider timeline.
+
+The publication unit `eai-6402-2026-09-26` covers housing/wine/life-expectancy EDA, missing-value deletion and filling, feature comparison and regression. It includes 25 individually explained MCQs, an original responsive study map, six academic-signal categories, and the optional MissingnessLab capstone. Three verified primary read/practice resources refresh the subject trail. Classroom estimates are distinguished from leakage-safe evaluation guidance; two-feature and 18-feature experiments are not conflated.
+
+At source-link verification the official folder's newest row was September 19. Under the owner's explicit immediate live-publication request, the catalog therefore uses the documented finalized-live-capture source state and an honest pending recording-link label. No provider URL is fabricated and no recording, transcript, notebook screen image or participant detail is deployed.
+
+Prepublication checks pass for 89 notes. Desktop and 390-pixel mobile review verified the note, 25 question accordions, explicit empty academic categories, capstone and pending-link archive row. Mobile scroll width stayed within the viewport; the final MCQ expanded with all four explanations. Release remains subject to the queue's guarded source/GitHub Pages publication transaction and live verification.
+
 #### EBB 6402 — 3 September 2026, 18:01:28 source
 
 `Blockchain policy – Legal, Social and Economic Impact-20260903_180128-Meeting Recording.mp4` is a 106 MB, 1h 30m 37s view-only source with no visible provider Download action. The seven-point visible Stream sweep found participant/title-card setup at the beginning, KYC requirements at 09:50, functional requirements and AML risk management at 22:30, risk-based customer due diligence at 45:27, stablecoin policy at 1:07:48, stablecoin benefits at 1:20:48, and participant-only idle content at 1:30:24. Teaching was bounded to source 00:07:20–01:29:24; the structured evidence is `.course-data/review/ebb-6402-2026-09-03-180128-review.json`.
