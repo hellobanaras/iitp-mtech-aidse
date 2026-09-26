@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-26",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 89,
+  filesInventoried: 90,
   courses: [
     {
       code: "EAI 6103",
@@ -361,8 +361,8 @@ export const catalog = {
       icon: "GA",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/people?emailId=course74%5Fhybrid%40iitp%2Eac%2Ein",
       status: "active",
-      statusLabel: "7 lectures available",
-      note: "Lectures from 23 August through 13 September are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
+      statusLabel: "8 lectures available",
+      note: "Lectures from 23 August through 26 September are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
       lectures: [
         {
           id: "eai-6403-2026-08-23",
@@ -461,6 +461,21 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Regular LLMs versus Large Reasoning Models", "Inference-time planning, verification, and staged training", "Accuracy, latency, cost, licensing, and task-fit evaluation"]
+        },
+        {
+          id: "eai-6403-2026-09-26-153739",
+          number: 8,
+          date: "2026-09-26",
+          sourceRecordedAt: "2026-09-26T15:37:39+05:30",
+          sourceFilename: "Selective Topics in Generative AI-20260926_153739-Meeting Recording.mp4",
+          displayDate: "26 September 2026",
+          title: "Constitutional AI: self-critique, AI feedback, and ethical guardrails",
+          duration: "24m 58s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course74_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse74_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSelective+Topics+in+Generative+AI-20260926_153739-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:00:09–00:24:50" },
+          overview: ["Constitutional AI principles and critique-and-revision", "RLAIF workflow, preference modelling, and the helpfulness–harmlessness trade-off", "Fairness, transparency, accountability, privacy/security, safety, and ongoing audits"]
         }
       ]
     },

@@ -2386,5 +2386,35 @@ export const capstones = Object.freeze({
       "milestones": ["ECC point-encryption trace", "RSA leakage visualiser", "Digest versus MAC flow", "Avalanche and standards report"],
       "success": "A learner can identify which property each mechanism provides, reproduce the toy arithmetic, explain why timing leakage is an implementation issue, and cite the relevant public standard for a production design."
     }
+  },
+  "eai-6403-2026-09-26-153739": {
+    "en": {
+      "title": "PrincipleTrace: an auditable Constitutional AI evaluation lab",
+      "pitch": "Build an accessible local-first study tool that compares direct responses with a critique-and-revision workflow on safe synthetic prompts and records the principles, feedback, human review, and evaluation evidence behind each decision.",
+      "problem": "A constitution does not become accountability by itself. Learners need to see how principles become test cases, critiques, revisions, feedback signals, audits, and update decisions.",
+      "learning": "You will connect helpfulness, honesty, harmlessness, fairness, transparency, privacy, human oversight, critique-and-revision, and AI-feedback evaluation in one inspectable product.",
+      "mvp": [
+        "Create a privacy-safe prompt set covering helpfulness, honesty, harmlessness, fairness, privacy, and transparency cases.",
+        "Implement a side-by-side direct-response and critique/revision view with principle, critique, revision, and reviewer fields.",
+        "Measure safety, utility, refusal quality, false positives, bias-sensitive slices, latency, and review effort.",
+        "Export an accessible governance card describing principle ownership, audit cadence, escalation, monitoring, and update decisions."
+      ],
+      "stretch": [
+        "Compare human feedback and AI feedback on the same synthetic evaluation set.",
+        "Add scenario mutation to test whether a principle generalises beyond its original wording.",
+        "Create an audit trail that shows which failures caused a policy or evaluation update.",
+        "Add a model-card section for privacy, licensing, deployment context, and known limitations."
+      ],
+      "plan": [
+        "Week 1: define the principle, prompt, critique, revision, reviewer, and evidence schemas.",
+        "Week 2: implement safe synthetic cases and the direct-versus-revised response view.",
+        "Week 3: add metrics, bias-sensitive slices, audit events, and accessibility checks.",
+        "Week 4: complete the governance report, limitations review, and reproducibility checklist."
+      ],
+      "novelty": "The lab makes the full path from a written principle to an auditable deployment decision visible without using private data or unsafe instructions.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Principle and prompt schema", "Critique/revision workflow", "Evaluation and audit report", "Accessible governance card"],
+      "success": "A learner can show evidence for each principle-based decision, distinguish model-generated critique from human accountability, measure both safety and usefulness, and report missed cases and corrective updates."
+    }
   }
 });
