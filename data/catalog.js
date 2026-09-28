@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-26",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 90,
+  filesInventoried: 91,
   courses: [
     {
       code: "EAI 6103",
@@ -361,8 +361,8 @@ export const catalog = {
       icon: "GA",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/people?emailId=course74%5Fhybrid%40iitp%2Eac%2Ein",
       status: "active",
-      statusLabel: "8 lectures available",
-      note: "Lectures from 23 August through 26 September are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
+      statusLabel: "9 lectures available",
+      note: "Lectures from 23 August through 27 September are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
       lectures: [
         {
           id: "eai-6403-2026-08-23",
@@ -476,6 +476,21 @@ export const catalog = {
           statusLabel: "Notes published",
           sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:00:09–00:24:50" },
           overview: ["Constitutional AI principles and critique-and-revision", "RLAIF workflow, preference modelling, and the helpfulness–harmlessness trade-off", "Fairness, transparency, accountability, privacy/security, safety, and ongoing audits"]
+        },
+        {
+          id: "eai-6403-2026-09-27-153416",
+          number: 9,
+          date: "2026-09-27",
+          sourceRecordedAt: "2026-09-27T15:34:16+05:30",
+          sourceFilename: "Selective Topics in Generative AI-20260927_153416-Meeting Recording.mp4",
+          displayDate: "27 September 2026",
+          title: "Planning an application-based Generative AI mini-project",
+          duration: "42m 21s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course74_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse74_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSelective+Topics+in+Generative+AI-20260927_153416-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:07:42–00:50:03" },
+          overview: ["Frame an industry problem, user need, literature gap, and requirements", "Choose only the GenAI components justified by the use case", "Build and evaluate a fresh mini-project; project logistics and student questions"]
         }
       ]
     },

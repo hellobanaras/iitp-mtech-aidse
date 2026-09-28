@@ -2416,5 +2416,35 @@ export const capstones = Object.freeze({
       "milestones": ["Principle and prompt schema", "Critique/revision workflow", "Evaluation and audit report", "Accessible governance card"],
       "success": "A learner can show evidence for each principle-based decision, distinguish model-generated critique from human accountability, measure both safety and usefulness, and report missed cases and corrective updates."
     }
+  },
+  "eai-6403-2026-09-27-153416": {
+    "en": {
+      "title": "UseCaseBench: an evidence-led GenAI project studio",
+      "pitch": "Build a small accessible workspace that turns one real user need into a justified GenAI prototype and a reproducible evaluation report.",
+      "problem": "Projects often begin with a fashionable model or a pile of techniques instead of a user problem, data constraints, and measurable success criteria.",
+      "learning": "Practice problem formulation, literature-gap analysis, data provenance and privacy, fit-for-purpose architecture, controlled comparison, and concise technical communication.",
+      "mvp": [
+        "Create a project brief with target user, problem, existing approaches, gap, requirements, and measurable outcomes.",
+        "Record data source, access status, format, size, preparation, privacy constraints, and train/validation/test split.",
+        "Implement one justified baseline and one proposed approach; add RAG or parameter-efficient tuning only when the use case benefits.",
+        "Compare task quality, groundedness or factuality as appropriate, latency, and cost on the same evaluation set.",
+        "Present the architecture and working result in an accessible four-to-six-slide report with limitations and a live demo or screenshots."
+      ],
+      "stretch": [
+        "Add a privacy-safe synthetic-data option and a checklist that blocks accidental confidential-data disclosure.",
+        "Add ablations that isolate the contribution of retrieval, prompting, or adaptation rather than bundling every technique.",
+        "Generate a reproducibility card with model, data, prompt, split, hyperparameters, and evaluation settings."
+      ],
+      "plan": [
+        "Week 1: select the user problem, review prior work, define the gap, team, and success criteria.",
+        "Week 2: document data and privacy; build the simplest baseline and application flow.",
+        "Week 3: implement the proposed method and run a controlled comparison.",
+        "Week 4: analyse quality, latency, and cost; prepare the demo, limitations, and concise presentation."
+      ],
+      "novelty": "The studio makes the reasoning from application need to method choice and measured evidence explicit, while discouraging unnecessary techniques and protecting private data.",
+      "stack": ["Python", "FastAPI", "Streamlit", "scikit-learn", "Sentence Transformers", "FAISS", "pytest"],
+      "milestones": ["User/problem brief", "Data and privacy card", "Baseline and proposed prototype", "Controlled evaluation and demo"],
+      "success": "A learner can explain why the system addresses a real user need, reproduce its comparison, identify limitations and privacy risks, and defend the selected components using measured evidence."
+    }
   }
 });

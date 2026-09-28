@@ -409,6 +409,32 @@ export const openLearningResources = {
   ],
   "eai-6403": [
     {
+      provider: "Microsoft Learn",
+      providerHi: "Microsoft Learn",
+      kind: "Architecture guidance",
+      kindHi: "Architecture guidance",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Data Platform for AI Workloads on Azure",
+      titleHi: "Data Platform for AI Workloads on Azure",
+      description: "Architecture guidance for data preparation, platform choices, and AI workload requirements relevant to a project's data pipeline.",
+      descriptionHi: "Project data pipeline के लिए data preparation, platform choices और AI workload requirements पर architecture guidance।",
+      url: "https://learn.microsoft.com/en-us/azure/well-architected/ai/data-platform"
+    },
+    {
+      provider: "Google Cloud",
+      providerHi: "Google Cloud",
+      kind: "Architecture guide",
+      kindHi: "Architecture guide",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Deploy and operate generative AI applications",
+      titleHi: "Deploy and operate generative AI applications",
+      description: "Guidance on application architecture, grounding, evaluation, and operations that complements the lecture's prototype-to-deployment discussion.",
+      descriptionHi: "Application architecture, grounding, evaluation और operations पर guidance, जो lecture की prototype-to-deployment चर्चा को आगे बढ़ाती है।",
+      url: "https://docs.cloud.google.com/architecture/deploy-operate-generative-ai-applications"
+    },
+    {
       provider: "arXiv",
       providerHi: "arXiv",
       kind: "Research paper",
