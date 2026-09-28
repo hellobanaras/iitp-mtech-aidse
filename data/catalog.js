@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-26",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 91,
+  filesInventoried: 92,
   courses: [
     {
       code: "EAI 6103",
@@ -245,6 +245,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Episodic returns and sample-average prediction", "First-visit and every-visit Monte Carlo", "Blackjack coverage and Monte Carlo versus dynamic programming"]
+        },
+        {
+          id: "eai-6401-2026-09-28-180548",
+          number: 13,
+          date: "2026-09-28",
+          sourceRecordedAt: "2026-09-28T18:05:48+05:30",
+          sourceFilename: "Reinforcement Learning-20260928_180548-Meeting Recording.mp4",
+          displayDate: "28 September 2026",
+          title: "Monte Carlo control and gradient-bandit learning",
+          duration: "1h 25m 40s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course72_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course72%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FReinforcement%20Learning%2D20260928%5F180548%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Monte Carlo action-value estimates and exploring starts", "Epsilon-soft policy improvement and Blackjack", "Softmax gradient bandits, reward baselines, and regret"]
         }
       ]
     },

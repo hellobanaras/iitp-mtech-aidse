@@ -98,6 +98,19 @@ export const openLearningResources = {
   ],
   "eai-6401": [
     {
+      provider: "Gymnasium",
+      providerHi: "Gymnasium",
+      kind: "Interactive tutorial",
+      kindHi: "इंटरैक्टिव tutorial",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Solving Blackjack with episodic reinforcement learning",
+      titleHi: "Solving Blackjack with episodic reinforcement learning",
+      description: "A runnable Blackjack environment with explicit player-total, dealer-card, usable-ace, and hit/stick state-action structure for experimenting with sampled-return methods.",
+      descriptionHi: "Sampled-return methods के अभ्यास हेतु player total, dealer card, usable ace और hit/stick विकल्प वाला runnable Blackjack environment।",
+      url: "https://gymnasium.farama.org/tutorials/training_agents/blackjack_tutorial/"
+    },
+    {
       provider: "Stanford University",
       providerHi: "Stanford University",
       kind: "Open course",

@@ -1190,6 +1190,35 @@ export const capstones = Object.freeze({
       "success": "A learner can calculate one discounted return, explain why first-visit and every-visit differ on a repeated state, identify a coverage limitation, and distinguish a full-episode Monte Carlo target from a one-step model backup."
     }
   },
+  "eai-6401-2026-09-28-180548": {
+    "en": {
+      "title": "ActionLab: Monte Carlo Control and Preference Learning",
+      "pitch": "Build an accessible, local-first simulator where learners compare exploring-starts Monte Carlo control, epsilon-soft control, and softmax gradient bandits on small episodic tasks and Blackjack-style states.",
+      "problem": "Action-value estimates need completed episodes and enough action coverage. A greedy policy can leave alternatives unseen, while preference-gradient updates introduce probabilities and baselines that are easy to conflate with value estimates.",
+      "learning": "Generate reproducible episodes, calculate first-visit and every-visit returns for state-action pairs, visualize exploration coverage and epsilon-soft probabilities, and update softmax preferences from reward relative to a baseline.",
+      "mvp": [
+        "Define a small terminating environment with explicit states, legal actions, rewards, discount factor, and seeded episode generation.",
+        "Show each episode and backward-computed returns; implement first-visit and every-visit Q estimates with repeated-pair tests.",
+        "Compare exploring-starts and epsilon-soft control while plotting visit counts, Q estimates, and the changing greedy policy.",
+        "Implement a softmax gradient bandit with a running-average reward baseline and display preferences separately from action probabilities."
+      ],
+      "stretch": [
+        "Add a Blackjack-like state view for player total, dealer up-card, and usable ace, with hit/stick actions.",
+        "Compare policies across many fixed random seeds and report uncertainty, cumulative reward, and regret only against a declared comparator.",
+        "Let learners vary epsilon, step size, baseline choice, and gamma while preserving the same reproducible episode stream."
+      ],
+      "plan": [
+        "Week 1: implement the finite episodic environment, seeded trajectories, and return calculator.",
+        "Week 2: add first-visit/every-visit estimates, MC-ES coverage, and greedy policy improvement.",
+        "Week 3: add epsilon-soft probabilities and softmax preference updates with a reward baseline.",
+        "Week 4: compare methods across seeds, document assumptions and limits, and complete accessibility and export checks."
+      ],
+      "novelty": "The lab places sampled returns, action coverage, estimated values, preferences, and probabilities in separate but linked views, helping learners see which evidence drives each policy change.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Week 1: episodes and returns", "Week 2: Monte Carlo action values", "Week 3: persistent exploration and preferences", "Week 4: reproducible comparison and audit"],
+      "success": "A learner can hand-calculate an episode return, explain how a state-action pair enters first-visit versus every-visit estimates, verify an epsilon-soft distribution sums to one, and distinguish a gradient-bandit preference from an action value."
+    }
+  },
   "ebb-6403-2026-08-29-053554": {
     "en": {
       "title": "CipherLens: an adversary-aware cryptography learning lab",
