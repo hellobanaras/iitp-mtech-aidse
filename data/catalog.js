@@ -1,5 +1,5 @@
 export const catalog = {
-  updated: "2026-09-26",
+  updated: "2026-09-28",
   semester: "Semester 4 · August–November 2026",
   filesInventoried: 92,
   courses: [
