@@ -34,6 +34,12 @@ const templates = {
     steps: ["Sample a complete episode", "Update Q(s,a) from returns", "Improve the policy", "Keep actions explorable"],
     detail: "The flow distinguishes Monte Carlo return estimation from the policy update and makes the exploration requirement visible."
   },
+  mcImportanceSampling: {
+    title: "From behavior episodes to target-policy value",
+    description: "Check action support before reweighting behavior-policy trajectories to estimate a target policy; then inspect weight concentration and estimator variance.",
+    steps: ["Check action coverage", "Compute trajectory ratios", "Reweight returns", "Inspect variance"],
+    detail: "The study map follows the lecture from the coverage assumption through ordinary and weighted importance sampling."
+  },
   meta: {
     title: "The meta-learning adaptation loop",
     description: "A model learns a reusable way to adapt across related tasks, then tests that adaptation on a new task.",
@@ -127,7 +133,7 @@ const visualTemplates = {
   "eai-6103-2026-08-18-193045": "ml",
   "eai-6103-2026-08-22-092455": "python",
   "eai-6103-2026-08-25-183026": "ml",
-  "eai-6401-2026-08-17": "rl", "eai-6401-2026-08-18": "rl", "eai-6401-2026-08-24": "rl", "eai-6401-2026-08-25": "rl", "eai-6401-2026-08-31": "rl", "eai-6401-2026-09-01": "rl", "eai-6401-2026-09-07-180458": "rl", "eai-6401-2026-09-08-180828": "rl", "eai-6401-2026-09-14-180423": "rl", "eai-6401-2026-09-15-180436": "rl", "eai-6401-2026-09-21-180808": "rl", "eai-6401-2026-09-22-180000": "rl", "eai-6401-2026-09-28-180548": "mcControl",
+  "eai-6401-2026-08-17": "rl", "eai-6401-2026-08-18": "rl", "eai-6401-2026-08-24": "rl", "eai-6401-2026-08-25": "rl", "eai-6401-2026-08-31": "rl", "eai-6401-2026-09-01": "rl", "eai-6401-2026-09-07-180458": "rl", "eai-6401-2026-09-08-180828": "rl", "eai-6401-2026-09-14-180423": "rl", "eai-6401-2026-09-15-180436": "rl", "eai-6401-2026-09-21-180808": "rl", "eai-6401-2026-09-22-180000": "rl", "eai-6401-2026-09-28-180548": "mcControl", "eai-6401-2026-09-29-180346": "mcImportanceSampling",
   "eai-6402-2026-08-22": "meta", "eai-6402-2026-08-29": "meta", "eai-6402-2026-09-05-101246": "genai", "eai-6402-2026-09-12-100922": "meta", "eai-6402-2026-09-19-102556": "logistic",
   "eai-6403-2026-08-23": "genai", "eai-6403-2026-08-29": "genai", "eai-6403-2026-08-30": "genai", "eai-6403-2026-09-05-154129": "genai", "eai-6403-2026-09-06-154745": "genai", "eai-6403-2026-09-12-153203": "genai", "eai-6403-2026-09-13-153353": "genai", "eai-6403-2026-09-26-153739": "constitutionalAi", "eai-6403-2026-09-27-153416": "genaiProject",
   "ecs-6401-2026-08-19-175559": "timeseries", "ecs-6401-2026-08-21-180935": "timeseries", "ecs-6401-2026-08-26-180538": "timeseries", "ecs-6401-2026-08-28-180221": "timeseries", "ecs-6401-2026-09-02-180510": "timeseries", "ecs-6401-2026-09-04-180115": "timeseries", "ecs-6401-2026-09-09-180431": "timeseries", "ecs-6401-2026-09-11-180457": "timeseries", "ecs-6401-2026-09-16-180603": "timeseries", "ecs-6401-2026-09-18-180406": "timeseries", "ecs-6401-2026-09-23-180413": "timeseries",

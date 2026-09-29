@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-09-28",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 92,
+  filesInventoried: 93,
   courses: [
     {
       code: "EAI 6103",
@@ -75,8 +75,8 @@ export const catalog = {
       icon: "RL",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course72_hybrid_iitp_ac_in/IgAGzyBinTNjQ69x8TC7U-ZQAedbzLJLRwPOzm3drlcdWcc?e=fR761s",
       status: "active",
-      statusLabel: "11 lectures available",
-      note: "The August 17, 18, 24, 25, 31, September 1, 7, 8, 14, 15, and 21 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; long idle tails after the verified class intervals are excluded.",
+      statusLabel: "14 lectures available",
+      note: "The August 17 through September 29 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; verified teaching intervals exclude internal interruptions and long idle tails.",
       lectures: [
         {
           id: "eai-6401-2026-08-17",
@@ -259,6 +259,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Monte Carlo action-value estimates and exploring starts", "Epsilon-soft policy improvement and Blackjack", "Softmax gradient bandits, reward baselines, and regret"]
+        },
+        {
+          id: "eai-6401-2026-09-29-180346",
+          number: 14,
+          date: "2026-09-29",
+          sourceRecordedAt: "2026-09-29T18:03:46+05:30",
+          sourceFilename: "Reinforcement Learning-20260929_180346-Meeting Recording.mp4",
+          displayDate: "29 September 2026",
+          title: "Off-policy Monte Carlo prediction with importance sampling",
+          duration: "55m 38s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course72_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse72%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FReinforcement%20Learning%2D20260929%5F180346%2DMeeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Epsilon-soft policy improvement", "Behavior and target policies with coverage", "Ordinary versus weighted importance sampling and infinite variance"]
         }
       ]
     },

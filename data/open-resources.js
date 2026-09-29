@@ -124,6 +124,19 @@ export const openLearningResources = {
       url: "https://web.stanford.edu/class/cs234/"
     },
     {
+      provider: "Stanford University",
+      providerHi: "Stanford University",
+      kind: "Open course module",
+      kindHi: "मुक्त course module",
+      access: "Free course materials",
+      accessHi: "मुफ़्त course सामग्री",
+      title: "CS234: Tabular RL policy evaluation",
+      titleHi: "CS234: Tabular RL policy evaluation",
+      description: "Course-module notes connect Monte Carlo prediction with Sutton and Barto Sections 5.1 and 5.5, reinforcing the lecture's off-policy estimator and variance discussion.",
+      descriptionHi: "Monte Carlo prediction और Sutton–Barto Sections 5.1 तथा 5.5 से lecture के off-policy estimator और variance discussion को दोहराएँ।",
+      url: "https://web.stanford.edu/class/cs234/modules.html"
+    },
+    {
       provider: "Sutton & Barto",
       providerHi: "Sutton & Barto",
       kind: "HTML book",
