@@ -1514,6 +1514,49 @@ export const openLearningResources = {
       description: "Primary AML/CFT guidance for connecting the lecture's KYC, risk-management, and travel-rule themes to real policy obligations; check later FATF updates for current requirements.",
       descriptionHi: "Lecture के KYC, risk-management और travel-rule themes को real policy obligations से जोड़ने वाली primary AML/CFT guidance; current requirements के लिए बाद के FATF updates भी देखें।",
       url: "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Guidance-rba-virtual-assets-2021.html"
+    },
+    {
+      provider: "Bank for International Settlements",
+      providerHi: "Bank for International Settlements",
+      kind: "Research report",
+      kindHi: "research report",
+      access: "Free public research",
+      accessHi: "मुफ़्त public research",
+      title: "The next-generation monetary and financial system",
+      titleHi: "The next-generation monetary and financial system · BIS",
+      description: "Explains tokenized platforms that integrate messaging, reconciliation, and asset transfer, extending the lecture's discussion of settlement and financial intermediaries.",
+      descriptionHi: "Messaging, reconciliation और asset transfer को जोड़ने वाले tokenized platforms की व्याख्या—lecture की settlement और financial-intermediary discussion को आगे बढ़ाती है।",
+      url: "https://www.bis.org/publications/aer-2025/next-generation-monetary-financial-system"
+    },
+    {
+      provider: "Financial Stability Board",
+      providerHi: "Financial Stability Board",
+      kind: "Policy report",
+      kindHi: "policy report",
+      access: "Free public report",
+      accessHi: "मुफ़्त public report",
+      title: "The Financial Stability Implications of Tokenisation",
+      titleHi: "The Financial Stability Implications of Tokenisation · FSB",
+      description: "Reviews liquidity and maturity mismatch, leverage, interconnectedness, and operational fragilities relevant to claims about token-market efficiency.",
+      descriptionHi: "Token-market efficiency के दावों से जुड़े liquidity/maturity mismatch, leverage, interconnectedness और operational fragilities की समीक्षा।",
+      url: "https://www.fsb.org/2024/10/the-financial-stability-implications-of-tokenisation/"
+    },
+    {
+      provider: "U.S. Securities and Exchange Commission",
+      providerHi: "U.S. Securities and Exchange Commission",
+      kind: "Primary regulatory source",
+      kindHi: "primary regulatory source",
+      access: "Free public information",
+      accessHi: "मुफ़्त public information",
+      title: "Shareholder Proposals and current SEC rulemaking",
+      titleHi: "Shareholder Proposals और current SEC rulemaking",
+      description: "Primary source for Rule 14a-8 information and rulemaking updates; the September 2026 rescission item is a proposal, not a final rule.",
+      descriptionHi: "Rule 14a-8 और rulemaking updates का primary source; September 2026 rescission item proposal है, final rule नहीं।",
+      links: [
+        { label: "Shareholder Proposals", url: "https://www.sec.gov/rules-regulations/shareholder-proposals" },
+        { label: "September 2026 proposed rescission", url: "https://www.sec.gov/newsroom/press-releases/2026-89-sec-proposes-rescission-shareholder-proposal-rule-reforms-proxy-solicitation-process" }
+      ],
+      url: "https://www.sec.gov/rules-regulations/shareholder-proposals"
     }
   ],
   "ebb-6403": [

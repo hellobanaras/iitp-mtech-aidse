@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-05",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 94,
+  filesInventoried: 95,
   courses: [
     {
       code: "EAI 6103",
@@ -1361,8 +1361,8 @@ export const catalog = {
       icon: "BP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course126_hybrid_iitp_ac_in/IgCHFNnPY4p5T6ER5i66wfU6ARez8raFCClh3yjgh9MvxQ4?e=BpEdrU",
       status: "active",
-      statusLabel: "9 lectures available",
-      note: "Lectures 1–9 are published from verified teaching intervals; participant-only openings, announced breaks, and idle tails were excluded after full timeline sweeps. View-only sources were captured at 2×.",
+      statusLabel: "10 lectures available",
+      note: "Lectures 1–10 are published from verified teaching intervals; participant-only openings, internal breaks, and idle tails were excluded after full timeline sweeps.",
       lectures: [
         {
           id: "ebb-6402-2026-08-18-180205",
@@ -1489,6 +1489,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Governance, regulation, social, and ethical blockchain impact", "Tokenized physical assets, fractional real-estate ownership, and transaction benefits", "Issuer, wallet, custodian, exchange, AML, and permissioned-network architecture"]
+        },
+        {
+          id: "ebb-6402-2026-09-29-180500",
+          number: 10,
+          date: "2026-09-29",
+          sourceRecordedAt: "2026-09-29T18:05:00+05:30",
+          sourceFilename: "Blockchain policy – Legal, Social and Economic Impact-20260929_180500-Meeting Recording.mp4",
+          displayDate: "29 September 2026",
+          title: "Fractional ownership, blockchain stakeholders, and shareholder engagement",
+          duration: "2h 20m 09s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course126_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course126_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FBlockchain+policy+%E2%80%93+Legal%2C+Social+and+Economic+Impact-20260929_180500-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Fractional tokenized interests and conditional liquidity benefits", "Stakeholder incentives, governance, and redistributed responsibilities", "Financial intermediaries, shareholder engagement, and investor privacy"]
         }
       ]
     }

@@ -1683,6 +1683,35 @@ export const capstones = Object.freeze({
       "success": "A learner can trace one synthetic asset from physical claim to token, explain who controls every transition, identify one benefit and one residual risk, and support the explanation with evidence."
     }
   },
+  "ebb-6402-2026-09-29-180500": {
+    "en": {
+      "title": "GovernanceBridge — a stakeholder engagement and privacy workbench",
+      "pitch": "Build an accessible simulation that compares token-market and shareholder-engagement decisions while making each actor's rights, incentives, duties, and disclosure boundaries explicit.",
+      "problem": "Fractional tokens can imply access without proving liquidity, and engagement can support accountability while exposing sensitive investor information. GovernanceBridge makes these trade-offs reviewable instead of hiding them behind a token or a disclosure toggle.",
+      "learning": "Model defined asset rights, stakeholder incentives, intermediary functions, disclosure choices, privacy risks, and accountable owners for each decision.",
+      "mvp": [
+        "Create a synthetic tokenized asset with explicit ownership, income, transfer, eligibility, and custody rules; distinguish transferability from observed liquidity.",
+        "Map investors, issuer, platform, financial institution, end users, and supervisors to benefits, costs, and responsibilities.",
+        "Compare private engagement, a public shareholder proposal/proxy vote, and collaborative stewardship using synthetic cases.",
+        "Add a disclosure matrix showing purpose, audience, data exposed, privacy risk, decision owner, and audit evidence."
+      ],
+      "stretch": [
+        "Simulate weak demand, transfer restrictions, a custody incident, and a change in intermediary fee revenue.",
+        "Compare stakeholder adoption under different benefit and cost assumptions without presenting the results as legal advice.",
+        "Export an accessible decision record with source timecodes, assumptions, and unresolved risks."
+      ],
+      "plan": [
+        "Week 1: define synthetic assets, actors, rights, incentives, and evidence fields.",
+        "Week 2: implement transfer, custody, institutional-service, and market-demand scenarios.",
+        "Week 3: build engagement options and disclosure/privacy comparisons.",
+        "Week 4: test scenarios, accessibility, audit export, and limitations."
+      ],
+      "novelty": "It evaluates tokenization, stakeholder power shifts, and shareholder-engagement privacy within one auditable governance workflow.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Rights and actor model", "Market and institutional scenarios", "Engagement/privacy workbench", "Accessible audit export"],
+      "success": "A learner can explain why fractionalisation does not guarantee liquidity, identify who performs each intermediary function, compare engagement choices, and justify a proportionate disclosure boundary with explicit residual risks."
+    }
+  },
   "ecs-6402-2026-09-03-203415": {
     "en": {
       "title": "LayerLens: an ATM and OSI protocol-stack visualizer",
