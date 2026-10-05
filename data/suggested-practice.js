@@ -66,6 +66,12 @@ const fallback = {
 };
 
 export function suggestedPracticeForLecture(lecture, course) {
+  if (lecture?.id === "ebb-6401-2026-09-28-181150") return {
+    assignments: [{ title: "Prefix-trie drawing", detail: "Optionally draw car, card, care, and cat as a compact trie. Label the shared paths, branch choice, and terminal values; this is not instructor-assigned." }],
+    homework: [{ title: "Proof versus canonicality", detail: "Optionally explain how a membership proof checks a value against a supplied state root, then list what separate evidence would establish that the root is canonical." }],
+    labs: [{ title: "Nibble-path encoder", detail: "Optionally implement round-trip tests for synthetic even- and odd-length nibble paths, distinguishing extension and leaf flags without using private or live account data." }],
+    projects: [{ title: "TrieProof Explorer", detail: "Optionally build the lecture's capstone: trace a public or synthetic key through extension, branch, and leaf nodes and show hash/inline references. Clearly separate proof consistency from canonical-root selection." }]
+  };
   if (lecture?.id === "eai-6402-2026-09-26") return {
     assignments: [{ title: "Data-audit worksheet", detail: "Optionally inspect a public table's types, missing counts and distributions; explain the unit of each row and the prediction target." }],
     homework: [{ title: "Missingness trade-offs", detail: "Optionally compare the rows retained by complete-case deletion and missing-target-only deletion; explain why the difference matters." }],
