@@ -1236,6 +1236,19 @@ export const openLearningResources = {
       url: "https://ethereum.org/developers/docs/data-structures-and-encoding/patricia-merkle-trie/"
     },
     {
+      provider: "Ethereum Execution Layer Specifications",
+      providerHi: "Ethereum Execution Layer Specifications",
+      kind: "Execution-spec test format",
+      kindHi: "Execution-spec test format",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Blockchain test format: state and trie-root verification",
+      titleHi: "Blockchain test format: state and trie-root verification",
+      description: "Implementation-oriented reference for checking calculated execution state and trie roots against block-header commitments, reinforcing the lecture's distinction between state, transaction, and receipt roots.",
+      descriptionHi: "Implementation-oriented reference for checking calculated execution state and trie roots against block-header commitments, reinforcing the lecture's distinction between state, transaction, and receipt roots.",
+      url: "https://steel.ethereum.foundation/docs/execution-specs/running_tests/test_formats/blockchain_test/"
+    },
+    {
       provider: "Ethereum",
       providerHi: "Ethereum",
       kind: "Concept guide",

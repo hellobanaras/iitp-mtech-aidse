@@ -70,6 +70,35 @@ export const capstones = Object.freeze({
       "success": "A learner can explain why each state change is allowed, show the validation and modifier paths, compare gas costs, and trace a change through its emitted event."
     }
   },
+  "ebb-6401-2026-09-28-181150": {
+    en: {
+      title: "TrieProof Explorer: trace a value to its root",
+      pitch: "Build a small educational explorer that follows an Ethereum-style key through compressed trie nodes and explains how a proof is checked against a block root.",
+      problem: "A root hash can look like an opaque fingerprint, while a trie diagram can hide the encoding details that make verification work. A path explorer makes the relationship between keys, node references, values, and the commitment inspectable.",
+      learning: "Practise nibble-path conversion, shared-prefix compression, branch/extension/leaf roles, inline versus hashed child references, and the boundary between proof validity and root canonicality. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Use synthetic key-value pairs and render each key as a hexadecimal nibble path; show the shared-prefix compression and divergence points.",
+        "Represent extension, branch, and leaf nodes with accessible labels and allow one selected key path to be traced from root to value.",
+        "For a toy encoded node set, show whether a child is embedded or referenced by a hash and recompute the path commitment with a documented Ethereum-compatible encoding library.",
+        "Accept a public block header root and a public proof fixture, then report whether the supplied path is consistent with that root; clearly distinguish this check from deciding whether the root is canonical."
+      ],
+      stretch: [
+        "Add compact hex-prefix examples for even and odd nibble counts, with tests that round-trip node type and path.",
+        "Compare state, transaction, receipt, and account storage roots without treating them as interchangeable.",
+        "Add malformed proof cases and explain which parent reference or path element fails verification."
+      ],
+      plan: [
+        "Define a small typed model for nibble paths and extension, branch, and leaf nodes; write round-trip tests before drawing the tree.",
+        "Implement deterministic synthetic examples and the accessible path visualiser, including inline and hash references.",
+        "Add a trusted-root proof fixture, negative tests, and a plain-language explanation of the canonical-root trust boundary.",
+        "Publish the source of each fixture, library and encoding version, test results, accessibility checks, and limitations."
+      ],
+      novelty: "The explorer teaches both how a proof succeeds and what it does not establish, preventing a valid membership proof from being mistaken for proof of canonical-chain status.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Ethereum-compatible trie encoding library", "Vitest"],
+      milestones: ["Nibble and node model", "Prefix-path explorer", "Proof verification", "Negative cases and trust-boundary report"],
+      success: "A learner can trace a synthetic or public proof to a stated root, identify the node and path choices, explain inline versus hashed references, and state what separate evidence establishes that the root is canonical. This is optional study practice, not an instructor-assigned task."
+    }
+  },
   "eai-6103-2026-08-22-092455": {
     "en": {
       "title": "NotebookStarter: a reproducible Python data-practice lab",
