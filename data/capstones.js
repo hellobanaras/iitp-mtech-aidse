@@ -2219,6 +2219,30 @@ export const capstones = Object.freeze({
       "guardrails": ["Use synthetic or public toy data only.", "Do not include credentials or private learner data."]
     }
   },
+  "ecc-6404-2026-09-28-193454": {
+    en: {
+      title: "TreeAudit: when a better fit becomes a worse prediction",
+      pitch: "Build an accessible experiment that contrasts simple and deep decision trees on the same labelled toy data.",
+      problem: "A low training error can hide noisy-label memorisation and poor generalization. A learner needs to see the training, validation, and complexity evidence together.",
+      learning: "Practise axis-parallel and oblique boundaries, node impurity, resubstitution error, pessimistic leaf penalties, MDL reasoning, and held-out validation. This is optional study practice, not the instructor's planned assignment.",
+      mvp: [
+        "Generate a small reproducible two-feature binary-class dataset and plot the axis-parallel regions of a decision tree alongside the line x + y = 1.",
+        "Inject a documented pair of incorrect training labels and compare shallow and deep trees on a fixed independent validation set.",
+        "Show training error, validation error, leaf count, and the lecture's half-error-per-leaf pessimistic estimate in one accessible table.",
+        "Add a simple description-length proxy for model and residual data; explain its limits rather than calling it a universal MDL implementation."
+      ],
+      stretch: [
+        "Compare validation-set fractions and report how less fitting data changes the estimate.",
+        "Add an interactive noise-rate control and show when the deeper tree starts memorising the wrong labels."
+      ],
+      plan: [
+        "Specify the synthetic data generator, random seed, split, label-noise rule, and evaluation metrics.",
+        "Train controlled depth variants and verify the error and leaf-penalty arithmetic with tests.",
+        "Render plots plus a keyboard-accessible evidence table, then document data-leakage and small-sample limitations."
+      ],
+      success: "A learner can explain why the deepest training-fit tree need not generalize best and reproduce the lecture's 24-record pessimistic-error comparison without private data."
+    }
+  },
   "ecs-6401-2026-09-09-180431": {
     "en": {
       "title": "Impulse and seasonality lab",

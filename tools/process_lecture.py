@@ -285,7 +285,10 @@ def main() -> None:
 
     frame_map: list[dict] = []
     for index, frame in enumerate(sorted(regular_dir.glob("frame-*.jpg"))):
-        local_seconds = index * args.frame_interval
+        # ffmpeg's fps filter selects the representative frame near the centre
+        # of each interval; using the interval start shifts slide references by
+        # half an interval (30 source seconds at 2x with the 30s default).
+        local_seconds = (index + 0.5) * args.frame_interval
         capture_seconds = lead_in + local_seconds
         frame_map.append({
             "file": str(frame.relative_to(ROOT)),

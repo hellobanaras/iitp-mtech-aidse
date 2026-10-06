@@ -766,9 +766,25 @@ export const openLearningResources = {
       accessHi: "मुफ़्त documentation और examples",
       title: "Decision trees and cost-complexity pruning",
       titleHi: "Decision trees और cost-complexity pruning",
-      description: "Official implementation guidance for impurity criteria, tree structure, threshold tests, and pruning—the practical companion to the 21 September split-search lecture.",
-      descriptionHi: "Impurity criteria, tree structure, threshold tests और pruning पर official implementation guidance—21 September split-search lecture का practical companion।",
+      description: "Official implementation guidance for impurity criteria, tree structure, threshold tests, and pruning across the September decision-tree sequence.",
+      descriptionHi: "September decision-tree sequence के impurity criteria, tree structure, threshold tests और pruning पर official implementation guidance।",
       url: "https://scikit-learn.org/stable/modules/tree.html"
+    },
+    {
+      provider: "scikit-learn",
+      kind: "Worked example",
+      access: "Free documentation and code",
+      title: "Post-pruning with minimal cost complexity",
+      description: "Compare tree size and validation accuracy along a cost-complexity pruning path after the September 28 overfitting lesson.",
+      url: "https://scikit-learn.org/stable/auto_examples/tree/plot_cost_complexity_pruning.html"
+    },
+    {
+      provider: "Carnegie Mellon University",
+      kind: "Open lecture slides",
+      access: "Free course material",
+      title: "Decision trees, minimum description length, and early stopping",
+      description: "Lecture slides connect model-encoding cost and data errors to the MDL trade-off, then list pre-pruning stopping rules.",
+      url: "https://www.cs.cmu.edu/~epxing/Class/10701-08s/Lecture/lecture6-annotated.pdf"
     }
   ],
   "ecs-6401": [

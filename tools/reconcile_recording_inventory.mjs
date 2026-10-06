@@ -104,7 +104,8 @@ const mergeSource = (candidate) => {
     ...previous,
     ...normalized,
     sourceUrl: cleanSourceUrl(normalized.sourceUrl || previous.sourceUrl),
-    classification: normalized.classification || previous.classification ||
+    classification: (normalized.classification === "pending" && previous.classification && previous.classification !== "pending"
+      ? previous.classification : normalized.classification) || previous.classification ||
       (normalized.publicationId ? "canonical" : undefined),
   });
 };

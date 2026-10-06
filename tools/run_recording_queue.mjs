@@ -157,64 +157,23 @@ const save = (state) => {
   writeJsonAtomic(statePath, state);
 };
 
-// Round-robin ordering: one oldest eligible item per course in each round.
+// Keep a single source-time order. A later course recording must not jump
+// ahead of an older recording merely because its course has higher priority.
 const orderedPending = (state) => {
   const pending = Object.values(state.items).filter((item) =>
     !["complete", "rejected", "blocked"].includes(item.status) &&
     (!scopeDate || item.nominalDate === scopeDate));
   // A full-loop publication is one transaction. Once any item has advanced
   // beyond plain pending/awaiting-browser, it must be resumed and published
-  // before course rotation may select another source.
+  // before selecting another source.
   const active = pending.filter((item) =>
     item.status !== "pending" || item.stage !== "awaiting-browser");
   if (active.length > 1) {
     throw new Error(`Queue invariant violated: ${active.length} active items exist. Reconcile before continuing.`);
   }
   const activeItem = active[0];
-  const eligible = activeItem ? pending.filter((item) => item !== activeItem) : pending;
-  const grouped = new Map();
-  for (const item of eligible) {
-    const code = item.courseCode || item.course;
-    if (!grouped.has(code)) grouped.set(code, []);
-    grouped.get(code).push(item);
-  }
-  for (const group of grouped.values()) group.sort(sortSources);
-  const priority = Array.isArray(state.coursePriority) ? state.coursePriority : [];
-  const courseItem = (course) => grouped.get(course)?.[0];
-  const rank = (course) => {
-    const item = courseItem(course);
-    const aliases = [course, item?.course, item?.courseCode]
-      .filter(Boolean)
-      .map((entry) => String(entry).toLowerCase().replace(/[\s-]+/g, ""));
-    const index = priority.findIndex((entry) => aliases.includes(String(entry).toLowerCase().replace(/[\s-]+/g, "")));
-    return index < 0 ? Number.MAX_SAFE_INTEGER : index;
-  };
-  let courses = [...grouped.keys()].sort((left, right) =>
-    rank(left) - rank(right) ||
-    sortSources(courseItem(left), courseItem(right)) ||
-    left.localeCompare(right));
-  if (state.lastCompletedCourse && courses.length > 1) {
-    const normalize = (value) => String(value || "").toLowerCase().replace(/[\s-]+/g, "");
-    const cursor = courses.findIndex((course) => {
-      const item = courseItem(course);
-      return [course, item?.course, item?.courseCode].some((value) =>
-        normalize(value) === normalize(state.lastCompletedCourse));
-    });
-    if (cursor >= 0) courses = [...courses.slice(cursor + 1), ...courses.slice(0, cursor + 1)];
-  }
-  const result = [];
-  let remaining = true;
-  while (remaining) {
-    remaining = false;
-    for (const course of courses) {
-      const item = grouped.get(course)?.shift();
-      if (item) {
-        result.push(item);
-        remaining = true;
-      }
-    }
-  }
-  return activeItem ? [activeItem, ...result] : result;
+  const eligible = pending.filter((item) => item !== activeItem).sort(sortSources);
+  return activeItem ? [activeItem, ...eligible] : eligible;
 };
 
 const acquireLock = () => {
@@ -270,6 +229,12 @@ const processOne = (state, item) => {
     save(state);
     throw new Error(`Timeline triage gate failed: ${triage.reason}. Complete the seven-point sweep, identify sustained teaching boundaries, export/save the review manifest, and link it in the source inventory.`);
   }
+  if (!item.classification || item.classification === "pending") {
+    item.classification = triage.review.reviewClassification;
+  }
+  if (!["canonical", "unique-fragment"].includes(item.classification)) {
+    throw new Error(`Reviewed source needs a capture disposition before processing: ${item.classification || "missing"}`);
+  }
   if (!item.input || !existsSync(resolve(item.input))) {
     item.status = "awaiting-capture";
     item.stage = "awaiting-browser";
@@ -297,7 +262,9 @@ const processOne = (state, item) => {
     save(state);
     console.log("✅ Media processing complete. Author/verify the English note, then rerun with --publish <publicationId>.");
   } catch (error) {
-    item.status = "blocked";
+    // A local processing error is a retryable active checkpoint, not a
+    // terminal source blocker that lets the queue skip to a newer recording.
+    item.status = "in-progress";
     item.stage = "local-processing-failed";
     item.error = error.message;
     item.updatedAt = now();

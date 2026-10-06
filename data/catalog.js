@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-10-05",
+  updated: "2026-10-06",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 95,
+  filesInventoried: 96,
   courses: [
     {
       code: "EAI 6103",
@@ -1190,8 +1190,8 @@ export const catalog = {
       icon: "DW",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course76_hybrid_iitp_ac_in/IgAWWFJqFmpXRay8IkonggGRASO0x6czOy20BYDTjv8HHXI?e=5DXrhH",
       status: "active",
-      statusLabel: "11 lectures available",
-      note: "Lectures 1–11 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; the 21 September optimized split-search lecture is bounded to 00:01:10–01:20:30.",
+      statusLabel: "12 lectures available",
+      note: "Lectures 1–12 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; the 28 September decision-tree generalization lecture is bounded to 00:01:31–01:23:41.",
       lectures: [
         {
           id: "ecc-6404-2026-08-17-193438",
@@ -1346,6 +1346,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Sorted midpoint and class-change threshold search", "High-cardinality bias, CART binary tests, and C4.5 gain ratio", "Recursive growth, stopping rules, pruning, and generalization"]
+        },
+        {
+          id: "ecc-6404-2026-09-28-193454",
+          number: 12,
+          date: "2026-09-28",
+          sourceRecordedAt: "2026-09-28T19:34:54+05:30",
+          sourceFilename: "Data Warehousing-20260928_193454-Meeting Recording.mp4",
+          displayDate: "28 September 2026",
+          title: "Decision boundaries, overfitting, and generalization-error estimates",
+          duration: "1h 22m 9s teaching",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse76_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FData+Warehousing-20260928_193454-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Axis-parallel versus oblique decision boundaries", "Training error, noisy labels, overfitting, and underfitting", "Pessimistic error, Minimum Description Length, and validation-set trade-offs"]
         }
       ]
     },
