@@ -1379,6 +1379,32 @@ export const openLearningResources = {
     {
       provider: "Ethereum",
       providerHi: "Ethereum",
+      kind: "Testing guide",
+      kindHi: "Testing guide",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Testing smart contracts",
+      titleHi: "Testing smart contracts",
+      description: "Official guidance on pre-deployment testing, test suites, and why immutable code makes security and correctness checks important; directly reinforces the lecture's local-test and vulnerability checklist.",
+      descriptionHi: "Official guidance on pre-deployment testing, test suites, and why immutable code makes security and correctness checks important; directly reinforces the lecture's local-test and vulnerability checklist.",
+      url: "https://ethereum.org/developers/docs/smart-contracts/testing/"
+    },
+    {
+      provider: "Ethereum",
+      providerHi: "Ethereum",
+      kind: "Deployment guide",
+      kindHi: "Deployment guide",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Deploying smart contracts",
+      titleHi: "Deploying smart contracts",
+      description: "First-party walkthrough of compiled bytecode, deployment transactions, gas, and the resulting on-chain contract; complements the lecture's deployment and execution stages.",
+      descriptionHi: "First-party walkthrough of compiled bytecode, deployment transactions, gas, and the resulting on-chain contract; complements the lecture's deployment and execution stages.",
+      url: "https://ethereum.org/developers/docs/smart-contracts/deploying/"
+    },
+    {
+      provider: "Ethereum",
+      providerHi: "Ethereum",
       kind: "Developer guide",
       kindHi: "Developer guide",
       access: "Free documentation",

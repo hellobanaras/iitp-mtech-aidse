@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-07",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 101,
+  filesInventoried: 102,
   courses: [
     {
       code: "EAI 6103",
@@ -764,8 +764,8 @@ export const catalog = {
       icon: "SC",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course77_hybrid_iitp_ac_in/IgCEBeWWlU_wQLE9fUZWW9fTAYhpk32mpJi8Lbo6Iba_Cy8?e=5wSELF",
       status: "active",
-      statusLabel: "11 lectures available",
-      note: "Eleven verified lectures are published. The 28 September session covers Ethereum's Merkle Patricia trie, prefix compression, node types, root commitments, proofs, and nibble-path encoding.",
+      statusLabel: "12 lectures available",
+      note: "Twelve verified lectures are published. The latest session connects smart-contract agreement phases with specification, modeling, verification, pre-deployment testing, deployment, execution, and ledger recording.",
       lectures: [
         {
           id: "ebb-6401-2026-08-17-180921",
@@ -920,6 +920,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Patricia compression, shared prefixes, and nibble paths", "Root, extension, branch, and leaf nodes", "Ethereum state commitments, membership proofs, and compact path flags"]
+        },
+        {
+          id: "ebb-6401-2026-10-05-180333-664a36",
+          number: 12,
+          date: "2026-10-05",
+          sourceRecordedAt: "2026-10-05T18:03:33+05:30",
+          sourceFilename: "Smart contracts and solidity programming-20261005_180333-Meeting Recording.mp4",
+          displayDate: "5 October 2026",
+          title: "Smart-contract lifecycles: agreement, testing, deployment, and execution",
+          duration: "1h 08m 51s instructional (break excluded)",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course77_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course77_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSmart+contracts+and+solidity+programming-20261005_180333-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Create, freeze, execute, and finalize an agreement", "Specification, modeling, verification, and local pre-deployment tests", "Compile and deploy code, execute node-validated transitions, and record results"]
         }
       ]
     },

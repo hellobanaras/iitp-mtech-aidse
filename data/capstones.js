@@ -129,6 +129,36 @@ export const capstones = Object.freeze({
       success: "A learner can trace a synthetic or public proof to a stated root, identify the node and path choices, explain inline versus hashed references, and state what separate evidence establishes that the root is canonical. This is optional study practice, not an instructor-assigned task."
     }
   },
+  "ebb-6401-2026-10-05-180333-664a36": {
+    en: {
+      title: "ContractSpec Lab: turn an agreement into tested state transitions",
+      pitch: "Build a small local-first Solidity learning tool that turns stakeholder conditions into a state model, tests valid and rejected paths, and shows the on-chain result without risking real assets.",
+      problem: "A contract can look plausible in source code while leaving actors, rejection rules, or failure cases underspecified. Learners need a transparent bridge from written agreement to verified program behaviour.",
+      learning: "Practise requirements elicitation, state and transition modeling, access/condition checks, local testing, compilation, gas observation, and deployment evidence. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Define a synthetic delivery escrow with buyer, seller, verifier, payment state, and explicit delivered/verified conditions.",
+        "Draw a finite-state diagram and write a plain-language specification that lists accepted and rejected actions for each state.",
+        "Implement the bounded contract in Solidity with clear checks and events; do not use real funds or private user data.",
+        "Test successful delivery, missing verification, duplicate release, unauthorized caller, and invalid state transitions on a local/test chain.",
+        "Publish a run report with compiler version, test cases/results, gas estimates, deployment transaction, and limitations."
+      ],
+      stretch: [
+        "Add property-based tests asserting that payment can be released at most once and only after verification.",
+        "Compare two state representations and document their readability, storage, and gas trade-offs.",
+        "Add a trace view that maps each test transaction to its before/after state and emitted event."
+      ],
+      plan: [
+        "Write the agreement and rejection rules before coding; identify assumptions that need an external verifier.",
+        "Model states and transitions, then review for unreachable states and unauthorized transitions.",
+        "Implement the smallest contract and add positive, negative, and invariant-focused tests locally.",
+        "Compile, estimate costs, deploy only in a local/test environment, and produce an evidence-backed readiness report."
+      ],
+      novelty: "The tool makes the link between human agreement, formal state transitions, and test evidence inspectable rather than treating successful compilation as proof of correctness.",
+      stack: ["Solidity", "Remix or Foundry local testing", "Finite-state diagram", "Accessible HTML report"],
+      milestones: ["Agreement specification", "State model", "Verification and test suite", "Local deployment and evidence report"],
+      success: "A learner can trace each accepted and rejected transaction to an explicit requirement, show that tests cover the transition rules, and explain why the local test result is not a guarantee of zero defects. This is optional study practice, not an instructor-assigned project."
+    }
+  },
   "eai-6103-2026-08-22-092455": {
     "en": {
       "title": "NotebookStarter: a reproducible Python data-practice lab",
