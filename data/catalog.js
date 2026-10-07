@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-07",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 102,
+  filesInventoried: 103,
   courses: [
     {
       code: "EAI 6103",
@@ -75,8 +75,8 @@ export const catalog = {
       icon: "RL",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course72_hybrid_iitp_ac_in/IgAGzyBinTNjQ69x8TC7U-ZQAedbzLJLRwPOzm3drlcdWcc?e=fR761s",
       status: "active",
-      statusLabel: "14 lectures available",
-      note: "The August 17 through September 29 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; verified teaching intervals exclude internal interruptions and long idle tails.",
+      statusLabel: "15 lectures available",
+      note: "The August 17 through October 5 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; verified teaching intervals exclude internal interruptions and long idle tails.",
       lectures: [
         {
           id: "eai-6401-2026-08-17",
@@ -273,6 +273,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Epsilon-soft policy improvement", "Behavior and target policies with coverage", "Ordinary versus weighted importance sampling and infinite variance"]
+        },
+        {
+          id: "eai-6401-2026-10-05-191710-953574",
+          number: 15,
+          date: "2026-10-05",
+          sourceRecordedAt: "2026-10-05T19:17:10+05:30",
+          sourceFilename: "Reinforcement Learning-20261005_191710-Meeting Recording.mp4",
+          displayDate: "5 October 2026",
+          title: "Discount-aware importance sampling and epsilon-soft policy improvement",
+          duration: "20m 00s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course72_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse72%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FReinforcement%20Learning%2D20261005%5F191710%2DMeeting%20Recording%2Emp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Discounted return as a geometric mixture of partial horizons", "Horizon-matched importance-ratio correction", "Epsilon-soft policy-improvement inequality and student questions"]
         }
       ]
     },

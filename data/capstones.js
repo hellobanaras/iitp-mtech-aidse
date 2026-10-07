@@ -1308,6 +1308,37 @@ export const capstones = Object.freeze({
       "success": "A learner can hand-calculate an episode return, explain how a state-action pair enters first-visit versus every-visit estimates, verify an epsilon-soft distribution sums to one, and distinguish a gradient-bandit preference from an action value."
     }
   },
+  "eai-6401-2026-10-05-191710-953574": {
+    en: {
+      title: "HorizonLab: inspect discounted returns and policy weights",
+      pitch: "Create an accessible, reproducible simulator that shows how the discount factor mixes flat partial returns and how horizon-matched importance ratios change their contributions.",
+      problem: "A discounted return can hide its effective horizon, while an off-policy estimate can hide which action segment produced a large weight. A paired visualization makes both assumptions inspectable.",
+      learning: "Practise geometric horizon weights, terminal-tail handling, target/behavior support, segment likelihood ratios, ordinary averaging, and epsilon-soft normalization. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Use a small deterministic episodic reward sequence and display its discounted return beside the flat partial return for each horizon.",
+        "Plot the stopping weights (1 − γ)γ^(h−1) and the residual terminal-tail mass; assert that the weights sum to one for each tested γ and episode length.",
+        "Add declared target and behavior action probabilities, flag unsupported target actions, and compute each horizon's own product of action-probability ratios.",
+        "Compare the ordinary mean of corrected contributions with a normalized weighted estimate on seeded synthetic episodes, labeling estimands and limitations.",
+        "Add a separate epsilon-soft panel that shows the greedy exploitation share, each exploration share, and a probability-sum check."
+      ],
+      stretch: [
+        "Vary γ, episode length, and behavior-policy support to show how effective horizon and ratio concentration change together.",
+        "Include rare-action trials and report weight quantiles and effective sample size rather than hiding unstable estimates.",
+        "Add an algebra view that distinguishes the greedy maximum from the epsilon-weighted expectation in the policy-improvement inequality."
+      ],
+      plan: [
+        "Specify the finite-episode return convention and write unit tests for the partial-return decomposition, including the terminal-tail case.",
+        "Implement horizon weights and a visual explanation of continuation mass versus termination mass.",
+        "Generate seeded behavior trajectories, validate coverage, and compute horizon-matched likelihood ratios and corrected estimates.",
+        "Add the epsilon-soft probability table and maximum-versus-average proof view; test normalization for different action counts.",
+        "Publish an accessible report with formulas, source trail, seeds, uncertainty, and a clear note that the exercise is optional."
+      ],
+      novelty: "The lab links two easily conflated normalizations—geometric horizon weights and epsilon-soft action probabilities—while keeping them in distinct visual panels.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Seeded simulation", "Vitest"],
+      milestones: ["Return decomposition", "Coverage and horizon ratios", "Estimator comparison", "Epsilon-soft proof and accessible report"],
+      success: "A learner can reproduce the discounted return from its horizon mixture, identify the ratio endpoint for each partial return, detect a support failure, and verify that an epsilon-soft action distribution sums to one. This is optional study practice, not an instructor-assigned project."
+    }
+  },
   "eai-6401-2026-09-29-180346": {
     en: {
       title: "PolicyLens: an auditable off-policy evaluation lab",
