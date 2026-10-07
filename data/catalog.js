@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-06",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 96,
+  filesInventoried: 97,
   courses: [
     {
       code: "EAI 6103",
@@ -288,8 +288,8 @@ export const catalog = {
       icon: "ML",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course73_hybrid_iitp_ac_in/IgAf1eu3AHhfSrcxcaecYZMNASegocBzjTgbUeQ7OhS3a1k?e=Sbp7Pi",
       status: "active",
-      statusLabel: "5 lectures available",
-      note: "Lectures from 22 August through 19 September are published in chronological order with verified teaching intervals, slide trails, explained quizzes, and applied builds.",
+      statusLabel: "7 lectures available",
+      note: "Lectures from 22 August through 3 October are published in chronological order with verified teaching intervals, slide trails, explained quizzes, and applied builds.",
       lectures: [
         {
           id: "eai-6402-2026-08-22",
@@ -374,6 +374,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Live-capture notes",
           overview: ["Housing, wine and life-expectancy data exploration", "Global and groupwise missing-value imputation", "Feature selection, regression and evaluation safeguards"]
+        },
+        {
+          id: "eai-6402-2026-10-03-102225-41b3dd",
+          number: 7,
+          date: "2026-10-03",
+          sourceRecordedAt: "2026-10-03T10:22:25+05:30",
+          sourceFilename: "Meta Learning-20261003_102225-Meeting Recording.mp4",
+          displayDate: "3 October 2026",
+          title: "Neural networks, knowledge distillation, and transfer learning",
+          duration: "2h 00m 50s teaching; recorded break excluded",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course73_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse73_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FMeta%20Learning%2D20261003_102225%2DMeeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Feed-forward neural networks and chain-rule backpropagation", "Validation-guided hyperparameter tuning and mini-batch updates", "Knowledge distillation versus compatible-weight transfer learning"]
         }
       ]
     },

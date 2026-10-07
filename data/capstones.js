@@ -11,6 +11,36 @@ export const capstones = Object.freeze({
       plan: ["Define the prediction unit, target, data license and evaluation split before fitting anything.", "Implement the preparation variants and tests for index alignment, no target leakage, consistent predictor columns and remaining nulls.", "Run the same folds for each variant, inspect errors and publish a concise limitations report with reproducible configuration."]
     }
   },
+  "eai-6402-2026-10-03-102225-41b3dd": {
+    en: {
+      title: "TinyTeacher Lab: compare weight reuse with distillation",
+      pitch: "Build a reproducible experiment that compares a small model trained from scratch, a transfer-learned model, and a distilled student on one permitted image task.",
+      problem: "A larger teacher or pretrained checkpoint may improve a constrained task, but its architecture, licence, compute cost, and evaluation conditions determine whether the transfer is useful.",
+      learning: "Practise feature and label design, validation-based hyperparameter tuning, frozen versus fine-tuned weights, teacher–student distillation, and a fair held-out comparison. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Choose a small openly licensed image dataset or deterministic synthetic task and document its source, labels, and split.",
+        "Train a compact baseline from scratch and record model size, training time, validation score, and test errors.",
+        "Add one compatible pretrained-weight transfer path and compare frozen-feature extraction with fine-tuning on the same split.",
+        "Train a smaller student from teacher outputs using a documented distillation objective; state clearly when teacher/student architectures differ.",
+        "Publish a compact report comparing accuracy, latency, parameter count, compute, error slices, and licence constraints without using the test set for tuning."
+      ],
+      stretch: [
+        "Vary the size of the training subset to test whether transfer helps more under data scarcity.",
+        "Compare hard labels with softened teacher probabilities while keeping the evaluation split fixed.",
+        "Add a resource budget and find a Pareto frontier between quality, latency, and model size."
+      ],
+      plan: [
+        "Define the task, data licence, baseline, fixed splits, metrics, and hardware budget before training.",
+        "Implement and validate the from-scratch baseline and a small hyperparameter search using validation data only.",
+        "Add compatible-layer transfer and log which weights are frozen or fine-tuned.",
+        "Train the student, compare all methods on the same held-out set, and explain uncertainty and failure cases."
+      ],
+      novelty: "The lab treats transfer strategy as a measured decision: compatible weight reuse and architecture-flexible distillation are compared under one task and resource budget.",
+      stack: ["Python", "PyTorch", "TorchVision", "Jupyter", "pytest"],
+      milestones: ["Task and split card", "Scratch baseline", "Transfer-learning comparison", "Distilled student and resource report"],
+      success: "A learner can distinguish learned parameters from hyperparameters, explain architectural compatibility, reproduce the comparison, and state which method best fits the declared resource budget."
+    }
+  },
   "ecs-6401-2026-09-25-180502": {
     en: {
       title: "EquilibriumLab: see a shared trend and its correction",

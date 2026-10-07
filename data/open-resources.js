@@ -431,6 +431,45 @@ export const openLearningResources = {
       description: "Official documentation for linear regression, least-squares fitting, and related estimators.",
       descriptionHi: "Linear regression, least-squares fitting और related estimators की official documentation।",
       url: "https://scikit-learn.org/stable/modules/linear_model.html"
+    },
+    {
+      provider: "PyTorch",
+      providerHi: "PyTorch",
+      kind: "Practice",
+      kindHi: "Practice",
+      access: "Free official tutorial",
+      accessHi: "Free official tutorial",
+      title: "Knowledge Distillation Tutorial",
+      titleHi: "Knowledge Distillation Tutorial",
+      description: "Official runnable teacher–student example that extends the October 3 lecture's distillation discussion into a training objective and code.",
+      descriptionHi: "Teacher–student training का official runnable example, जो 3 October lecture की distillation चर्चा को training objective और code तक बढ़ाता है।",
+      url: "https://docs.pytorch.org/tutorials/beginner/knowledge_distillation_tutorial.html"
+    },
+    {
+      provider: "PyTorch",
+      providerHi: "PyTorch",
+      kind: "Practice",
+      kindHi: "Practice",
+      access: "Free official tutorial",
+      accessHi: "Free official tutorial",
+      title: "Transfer Learning for Computer Vision",
+      titleHi: "Transfer Learning for Computer Vision",
+      description: "An official example of fixed feature extraction and fine-tuning that makes the lecture's freeze-versus-train decision reproducible.",
+      descriptionHi: "Fixed feature extraction और fine-tuning का official example, जो lecture के freeze-versus-train निर्णय को reproducible बनाता है।",
+      url: "https://docs.pytorch.org/tutorials/beginner/transfer_learning_tutorial.html"
+    },
+    {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Open research paper",
+      kindHi: "Open research paper",
+      access: "Free full text",
+      accessHi: "Free full text",
+      title: "Distilling the Knowledge in a Neural Network",
+      titleHi: "Distilling the Knowledge in a Neural Network",
+      description: "Hinton, Vinyals, and Dean's foundational paper provides a primary-source account of transferring a teacher's information to a compact student.",
+      descriptionHi: "Hinton, Vinyals और Dean का foundational paper teacher से compact student में information transfer का primary source है।",
+      url: "https://arxiv.org/abs/1503.02531"
     }
   ],
   "eai-6403": [
