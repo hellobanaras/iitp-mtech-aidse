@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-06",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 97,
+  filesInventoried: 99,
   courses: [
     {
       code: "EAI 6103",
@@ -548,8 +548,8 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "active",
-      statusLabel: "11 lectures available",
-      note: "The September 25 lecture develops path loss, a complete dBm/dBW link-budget example, reflection, diffraction, scattering, multipath fading, Doppler, echoes, and antenna diversity.",
+      statusLabel: "12 lectures available",
+      note: "The October 1 lecture derives Doppler shift, distinguishes fading classifications, and compares signal- and load-driven handoff decisions.",
       lectures: [
         {
           id: "ecs-6402-2026-08-21-204351",
@@ -704,6 +704,21 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Friis, reference-distance path loss, and the 50 W / 900 MHz worked example", "Reflection, diffraction, scattering, and constructive/destructive multipath interference", "Large- and small-scale models, Doppler, echoes, stationary-receiver questions, and space diversity"]
+        },
+        {
+          id: "ecs-6402-2026-10-01-203455-ca0fb3",
+          number: 12,
+          date: "2026-10-01",
+          sourceRecordedAt: "2026-10-01T20:34:55+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20261001_203455-Meeting Recording.mp4",
+          displayDate: "1 October 2026",
+          title: "Doppler shift, fading classes, and handoff decisions",
+          duration: "1h 20m 49s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse75%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSelected%20Topics%20in%20Wireless%20Networks%2D20261001_203455%2DMeeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:02:04–01:20:49" },
+          overview: ["Doppler shift from velocity, wavelength, and angle of arrival", "Large/small-scale, flat/selective, and fast/slow fading distinctions", "RSS, mobile-assisted, and traffic-load handoff decisions and metrics"]
         }
       ]
     },

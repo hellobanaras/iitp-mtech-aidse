@@ -982,6 +982,14 @@ export const openLearningResources = {
   ],
   "ecs-6402": [
     {
+      provider: "Stanford University EE 359",
+      kind: "University lecture notes",
+      access: "Free course PDF",
+      title: "Lecture 7 — Wideband Fading, Doppler and Delay Spread",
+      description: "A visual follow-up to the October 1 lecture's Doppler spread, coherence time, delay spread, and coherence bandwidth distinctions.",
+      url: "https://web.stanford.edu/class/archive/ee/ee359/ee359.1062/lecture7.pdf"
+    },
+    {
       provider: "Tse and Viswanath / Stanford University",
       kind: "Author-hosted textbook chapters",
       access: "Free online reading; copyrighted text",

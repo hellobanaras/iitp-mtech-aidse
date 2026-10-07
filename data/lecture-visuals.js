@@ -88,6 +88,12 @@ const templates = {
     steps: ["Requirements", "Channel model", "Protocol / algorithm", "Measured performance"],
     detail: "The stages make the trade-offs discussed in the lecture explicit."
   },
+  dopplerFading: {
+    title: "From motion to a fading-aware handoff",
+    description: "Project mobile velocity onto each arriving path to estimate Doppler; compare frequency and time scales to classify fading, then use radio and load measurements to make a handoff decision.",
+    steps: ["Velocity + arrival angle → Doppler", "Multipath delays → flat / selective", "Doppler spread → slow / fast", "RSS + cell load → handoff"],
+    detail: "The two fading classifications use different axes; the final handoff step is a network-management decision, not another fading label."
+  },
   smartcontract: {
     title: "From agreement to verified execution",
     description: "A smart contract works only when human intent is translated into testable conditions, authorised cryptographically, and executed by the blockchain runtime.",
@@ -146,6 +152,7 @@ const templates = {
 
 const visualTemplates = {
   "ecs-6402-2026-09-25-203453": "radioPropagation",
+  "ecs-6402-2026-10-01-203455-ca0fb3": "dopplerFading",
   "eai-6402-2026-09-26": "edaImputation",
   "ecs-6401-2026-09-25-180502": "cointegration",
   "eai-6103-2026-08-18-193045": "ml",

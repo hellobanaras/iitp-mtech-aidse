@@ -2118,6 +2118,35 @@ export const capstones = Object.freeze({
       "success": "A learner can reproduce the lecture example, explain why LOS can coexist with multipath, distinguish mean coverage from local fades, and show a diversity benefit without treating a simplified sandbox as a real-world coverage guarantee."
     }
   },
+  "ecs-6402-2026-10-01-203455-ca0fb3": {
+    en: {
+      title: "HandoffScope: an explainable mobility and fading simulator",
+      pitch: "Build an accessible simulator that connects moving-user geometry to Doppler, fading classifications, and handoff outcomes under changing signal and cell load.",
+      problem: "Learners can conflate frequency-selective fading, fast fading, Doppler shift, and handoff even though they describe different channel or network decisions.",
+      learning: "Practise fD = v cos θ/λ, unit conversions, Doppler spread and coherence time, delay spread and coherence bandwidth, and threshold/load-based handoff metrics. This is optional educational practice, not an instructor-assigned project.",
+      mvp: [
+        "Let a learner set carrier frequency, speed, and arrival angle; display wavelength, signed Doppler shift, and the projected velocity with units.",
+        "Render a set of multipath arrivals with different angles and delays, then show their Doppler spread and delay spread separately.",
+        "Provide clearly labelled flat/selective and slow/fast classification controls whose assumptions are visible beside the signal and symbol timescales.",
+        "Simulate two neighbouring cells with RSS traces and load; display candidate handoff reasons and separately count blocking, dropping, and interruption events."
+      ],
+      stretch: [
+        "Compare a single-arrival model with a multipath channel and show how receiver motion changes the channel over time.",
+        "Add hysteresis and a time-to-trigger setting, and measure how they trade ping-pong handoffs against delayed transfers.",
+        "Add a reproducible scenario export with assumptions and source-time references, without collecting user or device data."
+      ],
+      plan: [
+        "Define the angle convention, SI units, channel assumptions, and separate frequency/time fading criteria.",
+        "Implement and unit-test the Doppler calculation, including toward, away, and perpendicular cases.",
+        "Add multipath delay and Doppler distributions and make each classification inspectable.",
+        "Implement RSS/load handoff policy and compare network outcomes across fixed scenarios."
+      ],
+      novelty: "One linked visual separates propagation physics from network policy while letting learners see how a weak radio channel and a congested cell can lead to different handoff reasons.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Vitest"],
+      milestones: ["Doppler geometry", "Multipath and fading axes", "Handoff policy", "Accessible evidence report"],
+      success: "A learner can calculate the Doppler sign and scale, explain both fading taxonomies, and distinguish a signal-triggered handoff from a load-balancing transfer. This is optional study practice, not an instructor-assigned project."
+    }
+  },
   "eai-6403-2026-09-05-154129": {
     "en": {
       "title": "Attention map explainer",
