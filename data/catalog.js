@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-10-06",
+  updated: "2026-10-07",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 99,
+  filesInventoried: 100,
   courses: [
     {
       code: "EAI 6103",
@@ -403,8 +403,8 @@ export const catalog = {
       icon: "GA",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/people?emailId=course74%5Fhybrid%40iitp%2Eac%2Ein",
       status: "active",
-      statusLabel: "9 lectures available",
-      note: "Lectures from 23 August through 27 September are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
+      statusLabel: "10 lectures available",
+      note: "Lectures from 23 August through 3 October are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
       lectures: [
         {
           id: "eai-6403-2026-08-23",
@@ -533,6 +533,21 @@ export const catalog = {
           statusLabel: "Notes published",
           sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:07:42–00:50:03" },
           overview: ["Frame an industry problem, user need, literature gap, and requirements", "Choose only the GenAI components justified by the use case", "Build and evaluate a fresh mini-project; project logistics and student questions"]
+        },
+        {
+          id: "eai-6403-2026-10-03-155454",
+          number: 10,
+          date: "2026-10-03",
+          sourceRecordedAt: "2026-10-03T15:54:54+05:30",
+          sourceFilename: "Selective Topics in Generative AI-20261003_155454-Meeting Recording.mp4",
+          displayDate: "3 October 2026",
+          title: "Mixture-of-Experts Transformers: sparse routing, load balance, and trade-offs",
+          duration: "36m 06s teaching; participant-only tail excluded",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course74_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course74_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSelective+Topics+in+Generative+AI-20261003_155454-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:01:34–00:37:40" },
+          overview: ["Sparse expert routing in Transformer feed-forward layers", "Top-k selection, expert capacity, and load balancing", "Fine-tuning, memory, communication, and deployment trade-offs"]
         }
       ]
     },

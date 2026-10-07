@@ -698,6 +698,58 @@ export const openLearningResources = {
       description: "Public implementation reference for BERT inputs, special tokens, hidden states, and task-specific outputs.",
       descriptionHi: "BERT inputs, special tokens, hidden states और task-specific outputs का public implementation reference।",
       url: "https://huggingface.co/docs/transformers/model_doc/bert"
+    },
+    {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Open research paper",
+      kindHi: "मुक्त research paper",
+      access: "Free full text",
+      accessHi: "मुफ़्त full text",
+      title: "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity",
+      titleHi: "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity",
+      description: "Primary source for single-expert routing, capacity, and stability trade-offs discussed in the 3 October lecture.",
+      descriptionHi: "3 October lecture के single-expert routing, capacity और stability trade-offs का primary source।",
+      url: "https://arxiv.org/abs/2101.03961"
+    },
+    {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Open research paper",
+      kindHi: "मुक्त research paper",
+      access: "Free full text",
+      accessHi: "मुफ़्त full text",
+      title: "GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding",
+      titleHi: "GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding",
+      description: "Connects conditional expert computation with automatic sharding and distributed execution from the lecture.",
+      descriptionHi: "Lecture के conditional expert computation को automatic sharding और distributed execution से जोड़ता है।",
+      url: "https://arxiv.org/abs/2006.16668"
+    },
+    {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Open research paper",
+      kindHi: "मुक्त research paper",
+      access: "Free full text",
+      accessHi: "मुफ़्त full text",
+      title: "Mixtral of Experts",
+      titleHi: "Mixtral of Experts",
+      description: "A modern sparse-MoE example for comparing total model capacity with the experts active for each token.",
+      descriptionHi: "हर token के लिए active experts और total model capacity की तुलना का modern sparse-MoE example।",
+      url: "https://arxiv.org/abs/2401.04088"
+    },
+    {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Open research paper",
+      kindHi: "मुक्त research paper",
+      access: "Free full text",
+      accessHi: "मुफ़्त full text",
+      title: "MegaBlocks: Efficient Sparse Training with Mixture-of-Experts",
+      titleHi: "MegaBlocks: Efficient Sparse Training with Mixture-of-Experts",
+      description: "Studies block-sparse MoE execution and expert utilization, extending the lecture's optimization discussion.",
+      descriptionHi: "Lecture की optimization चर्चा को block-sparse MoE execution और expert utilization से आगे बढ़ाता है।",
+      url: "https://arxiv.org/abs/2211.15841"
     }
   ],
   "ecc-6404": [

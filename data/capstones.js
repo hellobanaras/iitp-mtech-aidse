@@ -2673,5 +2673,34 @@ export const capstones = Object.freeze({
       "milestones": ["User/problem brief", "Data and privacy card", "Baseline and proposed prototype", "Controlled evaluation and demo"],
       "success": "A learner can explain why the system addresses a real user need, reproduce its comparison, identify limitations and privacy risks, and defend the selected components using measured evidence."
     }
+  },
+  "eai-6403-2026-10-03-155454": {
+    "en": {
+      "title": "RouterBench: an inspectable Mixture-of-Experts simulator",
+      "pitch": "Build a small synthetic experiment that makes token routing, expert imbalance, and sparse-compute versus memory trade-offs visible without requiring a large model or GPU cluster.",
+      "problem": "MoE diagrams can hide what each token activates and why a sparse model may still be expensive to store or distribute. A tiny simulator makes routing and system costs measurable.",
+      "learning": "Practise top-k routing, expert-capacity limits, load balancing, dense-versus-sparse comparison, and honest resource reporting. This is optional study practice, not an instructor-assigned project.",
+      "mvp": [
+        "Generate a reproducible synthetic token dataset and define a small set of expert subnetworks.",
+        "Implement top-1 and top-2 routers and record per-expert assignments, overflow, and active computations.",
+        "Compare plain gating with a balancing penalty or noisy routing on the same data and compute budget.",
+        "Report task score, active operations, total stored parameters, batch throughput, and limitations.",
+        "Draw an accessible path showing one token's router scores, selected experts, and combined output."
+      ],
+      "stretch": [
+        "Vary batch size and expert capacity to visualize the balance between overflow and unused capacity.",
+        "Model an inter-device transfer cost and compare expert placement strategies.",
+        "Train a small dense student from the synthetic MoE outputs and compare its size and task score."
+      ],
+      "plan": [
+        "Define the synthetic task, seed, expert count, evaluation split, and resource measures.",
+        "Implement and test token scoring, top-k selection, capacity, and output combination.",
+        "Run controlled balance and routing comparisons; preserve per-expert assignment evidence.",
+        "Write an accessible report that separates active computation from total model storage and avoids production-scale claims."
+      ],
+      "stack": ["Python", "NumPy", "PyTorch", "Jupyter", "Matplotlib"],
+      "milestones": ["Synthetic task and expert model", "Router and capacity", "Load-balance comparison", "Resource-aware evaluation"],
+      "success": "A reader can trace token routing, identify overloaded or underused experts, reproduce the comparison, and explain why sparse active computation does not eliminate total parameter-memory or communication costs."
+    }
   }
 });
