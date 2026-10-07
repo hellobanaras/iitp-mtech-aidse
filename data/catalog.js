@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-07",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 103,
+  filesInventoried: 104,
   courses: [
     {
       code: "EAI 6103",
@@ -1291,8 +1291,8 @@ export const catalog = {
       icon: "DW",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course76_hybrid_iitp_ac_in/IgAWWFJqFmpXRay8IkonggGRASO0x6czOy20BYDTjv8HHXI?e=5DXrhH",
       status: "active",
-      statusLabel: "12 lectures available",
-      note: "Lectures 1–12 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; the 28 September decision-tree generalization lecture is bounded to 00:01:31–01:23:41.",
+      statusLabel: "13 lectures available",
+      note: "Lectures 1–13 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; the October 5 rule-classification lecture is bounded to 00:05:45.96–01:16:40.83.",
       lectures: [
         {
           id: "ecc-6404-2026-08-17-193438",
@@ -1461,6 +1461,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Axis-parallel versus oblique decision boundaries", "Training error, noisy labels, overfitting, and underfitting", "Pessimistic error, Minimum Description Length, and validation-set trade-offs"]
+        },
+        {
+          id: "ecc-6404-2026-10-05-193409-a5328c",
+          number: 13,
+          date: "2026-10-05",
+          sourceRecordedAt: "2026-10-05T19:34:09+05:30",
+          sourceFilename: "Data Warehousing-20261005_193409-Meeting Recording.mp4",
+          displayDate: "5 October 2026",
+          title: "Rule-based classification: ordering, extraction, and rule growth",
+          duration: "1h 10m 55s teaching",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course76_hybrid_iitp_ac_in%2FDocuments/Recordings/Data%20Warehousing-20261005_193409-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Default rules, ordered decision lists, unordered voting, and class/rule priority", "Indirect rule extraction and direct sequential covering with greedy growth and beam search", "Accuracy versus coverage, including the small-support R2 example"]
         }
       ]
     },

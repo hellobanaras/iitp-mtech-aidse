@@ -928,6 +928,32 @@ export const openLearningResources = {
       title: "Decision trees, minimum description length, and early stopping",
       description: "Lecture slides connect model-encoding cost and data errors to the MDL trade-off, then list pre-pruning stopping rules.",
       url: "https://www.cs.cmu.edu/~epxing/Class/10701-08s/Lecture/lecture6-annotated.pdf"
+    },
+    {
+      provider: "Carnegie Mellon University",
+      providerHi: "Carnegie Mellon University",
+      kind: "Open course slides",
+      kindHi: "मुक्त course slides",
+      access: "Free course material",
+      accessHi: "मुफ़्त course सामग्री",
+      title: "Machine Learning — Sequential Covering Algorithm",
+      titleHi: "Machine Learning — Sequential Covering Algorithm",
+      description: "A focused treatment of learning one rule at a time, specializing candidates, removing covered positives, and keeping a beam of promising alternatives.",
+      descriptionHi: "एक समय में एक rule सीखने, candidates specialize करने, covered positives हटाने और promising विकल्पों का beam रखने की focused व्याख्या।",
+      url: "https://www.cs.cmu.edu/afs/cs/project/theo-20/www/mlbook/ch10.pdf"
+    },
+    {
+      provider: "WEKA",
+      providerHi: "WEKA",
+      kind: "Official classifier documentation",
+      kindHi: "Official classifier documentation",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "JRip (RIPPER) rule learner",
+      titleHi: "JRip (RIPPER) rule learner",
+      description: "Official API documentation for a practical propositional learner that grows and prunes rules, uses description length, and optimizes a rule set.",
+      descriptionHi: "एक practical propositional learner का official API reference जो rules grow/prune करता, description length उपयोग करता और rule set optimize करता है।",
+      url: "https://weka.sourceforge.io/doc.stable/weka/classifiers/rules/JRip.html"
     }
   ],
   "ecs-6401": [

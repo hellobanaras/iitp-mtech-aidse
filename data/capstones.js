@@ -2339,6 +2339,35 @@ export const capstones = Object.freeze({
       "guardrails": ["Use synthetic or public toy data only.", "Do not include credentials or private learner data."]
     }
   },
+  "ecc-6404-2026-10-05-193409-a5328c": {
+    en: {
+      title: "RuleLens: compare coverage-aware classifiers",
+      pitch: "Build a small, inspectable rule-learning lab that lets students compare ordered lists, unordered voting, and sequential covering on the same labelled dataset.",
+      problem: "A tiny rule can look perfect on the examples it matches, while an ordering choice can silently determine which prediction wins. Learners need to inspect support, conflicts, and residual examples together.",
+      learning: "Practise target-class positive/negative framing, greedy conjunct growth, sequential removal of covered positives, ordered and weighted-unordered prediction, and accuracy/coverage reporting. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Use a small public or synthetic labelled dataset and document the target class, features, split, and class imbalance.",
+        "Implement a transparent one-versus-rest sequential-covering baseline with configurable stopping and a small beam width.",
+        "Display every learned rule, its covered positive and negative counts, accuracy, and coverage; clearly mark the default rule for uncovered records.",
+        "Run predictions under first-match ordering, equal unordered voting, and accuracy-weighted voting, then show disagreements and confusion matrices on held-out data."
+      ],
+      stretch: [
+        "Compare rule-by-rule ranking with class-group ranking and create a case where the class priority hides a better individual rule.",
+        "Measure how changing beam width or the stopping rule changes rule count, training fit, and held-out performance.",
+        "Add uncertainty intervals or repeated splits so a 100%-accurate rule with tiny support is not presented as reliable evidence."
+      ],
+      plan: [
+        "Define the dataset, target class, reproducible split, and rule metrics before coding.",
+        "Implement and test candidate-condition growth, removal of covered positives, and an explicit stopping condition.",
+        "Add ordered and unordered prediction modes and verify their behavior on deliberately conflicting rules.",
+        "Publish an accessible comparison report with support counts, coverage, accuracy, errors, and limitations."
+      ],
+      novelty: "The interface makes model policy visible: it shows not only which rules matched, but why priority or voting changed the final class and how much evidence supported each rule.",
+      stack: ["Python", "pandas", "scikit-learn-compatible evaluation", "Accessible HTML/SVG", "pytest"],
+      milestones: ["Dataset and split card", "Sequential-covering learner", "Conflict and coverage explorer", "Held-out evaluation report"],
+      success: "A learner can reproduce the rule set, explain the effect of the prediction policy, and distinguish a rule's accuracy from the amount and representativeness of evidence behind it. This is optional study practice, not instructor-assigned work."
+    }
+  },
   "ecc-6404-2026-09-28-193454": {
     en: {
       title: "TreeAudit: when a better fit becomes a worse prediction",
