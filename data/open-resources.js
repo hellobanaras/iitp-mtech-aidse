@@ -1848,6 +1848,14 @@ export const openLearningResources = {
       url: "https://www.rfc-editor.org/rfc/rfc2104.html"
     },
     {
+      provider: "IETF / NIST",
+      kind: "MD5 security analysis",
+      access: "Free public RFC",
+      title: "RFC 6151: Updated Security Considerations for MD5 and HMAC-MD5",
+      description: "Explains why MD5 must not be used where collision resistance is required, directly contextualizing the lecture's MD5 collision timeline and its distinction between hashes and keyed MACs.",
+      url: "https://www.rfc-editor.org/rfc/rfc6151.html"
+    },
+    {
       provider: "NIST",
       kind: "Implementation-security lecture",
       access: "Free public guidance",

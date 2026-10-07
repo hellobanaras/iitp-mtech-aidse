@@ -2584,6 +2584,36 @@ export const capstones = Object.freeze({
       "success": "A learner can identify which property each mechanism provides, reproduce the toy arithmetic, explain why timing leakage is an implementation issue, and cite the relevant public standard for a production design."
     }
   },
+  "ebb-6403-2026-10-03-053942": {
+    "en": {
+      "title": "DigestGuard: an integrity and collision-risk teaching lab",
+      "pitch": "Build an accessible local-first lab that lets learners inspect digest verification, keyed authentication, birthday collision risk, and the limits of legacy hashes using clearly labelled toy data.",
+      "problem": "A checksum, an unkeyed digest, a MAC, and a digital signature can look interchangeable to learners even though they provide different guarantees and depend on different trust assumptions.",
+      "learning": "Model the trust path for a message digest, distinguish preimage/second-preimage/collision goals, visualize birthday scaling, and explain why MD5 is not appropriate when collision resistance is required.",
+      "mvp": [
+        "Create a message-integrity flow where an attacker can alter the message, digest, or both; show which trust assumptions allow the receiver to detect the change.",
+        "Compare unkeyed digest recomputation with a standards-library HMAC verification flow using synthetic messages and locally generated test keys.",
+        "Visualize the approximate collision probability 1-exp(-Q(Q-1)/(2N)) for configurable toy output spaces, while clearly labelling it as a simulation.",
+        "Add a property selector for preimage, second-preimage, and collision attacks, with an explanation of which input is fixed and what the attacker chooses.",
+        "Present MD5's 128-bit output and public collision-security warning alongside links to authoritative modern guidance; do not implement or recommend MD5 for protection."
+      ],
+      "stretch": [
+        "Add a block-padding walkthrough for synthetic short messages, including block alignment and the encoded original length.",
+        "Compare digest length with generic collision work on a logarithmic chart and provide accessible text alternatives.",
+        "Add negative tests for altered messages, replaced digests, wrong keys, truncated tags, and mismatched encodings."
+      ],
+      "plan": [
+        "Week 1: define the message, trust-channel, digest, MAC, and attacker-action models.",
+        "Week 2: implement the integrity flows and property-specific attack explanations.",
+        "Week 3: build the collision-probability visual and test against the birthday approximation.",
+        "Week 4: add accessible explanations, standards links, security caveats, and a reproducible test report."
+      ],
+      "novelty": "The lab connects cryptographic probability to real trust boundaries, making clear that a digest only helps when its reference is protected and that collision, preimage, and authentication guarantees are not interchangeable.",
+      "stack": ["TypeScript", "Accessible HTML/SVG", "Web Crypto API", "Vitest"],
+      "milestones": ["Tamper-and-trust message flow", "Digest versus keyed authentication", "Birthday-bound visualization", "Accessible security and limitations report"],
+      "success": "A learner can explain which attacker goal each hash property addresses, demonstrate why an untrusted digest can be replaced, estimate collision work for a toy output space, and justify avoiding MD5 for modern collision-resistant use."
+    }
+  },
   "eai-6403-2026-09-26-153739": {
     "en": {
       "title": "PrincipleTrace: an auditable Constitutional AI evaluation lab",

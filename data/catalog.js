@@ -905,8 +905,8 @@ export const catalog = {
       icon: "SP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course78_hybrid_iitp_ac_in/IgCwVcRuGq_lR6u1S5D-yQeRAb5jOjVzObdfYRB-vn1qvBQ?e=wtwqhi",
       status: "active",
-      statusLabel: "8 lectures available",
-      note: "Eight verified lectures are published. View-only sources were captured at 2× with setup and idle tails excluded after full timeline sweeps.",
+      statusLabel: "9 lectures available",
+      note: "Nine verified lectures are published. View-only sources were captured at 2× with setup and idle tails excluded after full timeline sweeps.",
       lectures: [
         {
           id: "ebb-6403-2026-08-21-075934",
@@ -1019,6 +1019,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Elliptic-curve point encryption and decryption", "RSA timing and side-channel leakage", "Unkeyed hashes, keyed MACs, collisions, and avalanche effect"]
+        },
+        {
+          id: "ebb-6403-2026-10-03-053942",
+          number: 9,
+          date: "2026-10-03",
+          sourceRecordedAt: "2026-10-03T05:39:42+05:30",
+          sourceFilename: "Security and Privacy for Big Data-20261003_053942-Meeting Recording.mp4",
+          displayDate: "3 October 2026",
+          title: "Hash security, birthday attacks, and the MD5 construction",
+          duration: "1h 27m 57s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course78_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse78_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSecurity%2Band%2BPrivacy%2Bfor%2BBig%2BData-20261003_053942-Meeting%2BRecording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Integrity, authentication, and hash properties", "Random-oracle reasoning and birthday collision bounds", "MD5 padding, iterative design, and collision weaknesses"]
         }
       ]
     },
