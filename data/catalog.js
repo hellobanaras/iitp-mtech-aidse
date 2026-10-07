@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-07",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 100,
+  filesInventoried: 101,
   courses: [
     {
       code: "EAI 6103",
@@ -403,8 +403,8 @@ export const catalog = {
       icon: "GA",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/people?emailId=course74%5Fhybrid%40iitp%2Eac%2Ein",
       status: "active",
-      statusLabel: "10 lectures available",
-      note: "Lectures from 23 August through 3 October are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
+      statusLabel: "11 lectures available",
+      note: "Lectures from 23 August through 4 October are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
       lectures: [
         {
           id: "eai-6403-2026-08-23",
@@ -548,6 +548,21 @@ export const catalog = {
           statusLabel: "Notes published",
           sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:01:34–00:37:40" },
           overview: ["Sparse expert routing in Transformer feed-forward layers", "Top-k selection, expert capacity, and load balancing", "Fine-tuning, memory, communication, and deployment trade-offs"]
+        },
+        {
+          id: "eai-6403-2026-10-04-154331-f1db94",
+          number: 11,
+          date: "2026-10-04",
+          sourceRecordedAt: "2026-10-04T15:43:31+05:30",
+          sourceFilename: "Selective Topics in Generative AI-20261004_154331-Meeting Recording.mp4",
+          displayDate: "4 October 2026",
+          title: "Vision and Diffusion Transformers: from image patches to DiT",
+          duration: "17m 19s teaching; participant-only opening and tail excluded",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course74_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course74_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSelective%20Topics%20in%20Generative%20AI-20261004_154331-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:01:35–00:18:54" },
+          overview: ["CNN locality, global attention, and ViT patch tokens", "Forward/reverse diffusion and compressed image latents", "DiT latent patches with timestep, class, and block conditioning"]
         }
       ]
     },

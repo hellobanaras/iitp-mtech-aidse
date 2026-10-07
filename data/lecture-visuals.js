@@ -148,6 +148,12 @@ const templates = {
     steps: ["Features and metric", "Linear score z", "Sigmoid probability", "Loss and optimisation", "Argmax class"],
     detail: "The stages expose the lecture's path from distance and error to binary and multiclass decisions."
   },
+  patchDiffusion: {
+    title: "From image patches to conditioned denoising",
+    description: "Track how a visual representation becomes patch tokens, then a compressed latent sequence that a conditioned Transformer denoises.",
+    steps: ["Image and local features", "Patch tokens", "Latent and timestep", "Conditioned denoising"],
+    detail: "Keep patch count, raw patch width, projected embedding width, and denoising conditions distinct."
+  },
   generic: {
     title: "A concept-to-practice learning path",
     description: "The lecture moves from a motivating problem through core concepts to an applied evaluation step.",
@@ -166,7 +172,7 @@ const visualTemplates = {
   "eai-6103-2026-08-25-183026": "ml",
   "eai-6401-2026-08-17": "rl", "eai-6401-2026-08-18": "rl", "eai-6401-2026-08-24": "rl", "eai-6401-2026-08-25": "rl", "eai-6401-2026-08-31": "rl", "eai-6401-2026-09-01": "rl", "eai-6401-2026-09-07-180458": "rl", "eai-6401-2026-09-08-180828": "rl", "eai-6401-2026-09-14-180423": "rl", "eai-6401-2026-09-15-180436": "rl", "eai-6401-2026-09-21-180808": "rl", "eai-6401-2026-09-22-180000": "rl", "eai-6401-2026-09-28-180548": "mcControl", "eai-6401-2026-09-29-180346": "mcImportanceSampling",
   "eai-6402-2026-08-22": "meta", "eai-6402-2026-08-29": "meta", "eai-6402-2026-09-05-101246": "genai", "eai-6402-2026-09-12-100922": "meta", "eai-6402-2026-09-19-102556": "logistic", "eai-6402-2026-10-03-102225-41b3dd": "neuralTransfer",
-  "eai-6403-2026-08-23": "genai", "eai-6403-2026-08-29": "genai", "eai-6403-2026-08-30": "genai", "eai-6403-2026-09-05-154129": "genai", "eai-6403-2026-09-06-154745": "genai", "eai-6403-2026-09-12-153203": "genai", "eai-6403-2026-09-13-153353": "genai", "eai-6403-2026-09-26-153739": "constitutionalAi", "eai-6403-2026-09-27-153416": "genaiProject", "eai-6403-2026-10-03-155454": "moe",
+  "eai-6403-2026-08-23": "genai", "eai-6403-2026-08-29": "genai", "eai-6403-2026-08-30": "genai", "eai-6403-2026-09-05-154129": "genai", "eai-6403-2026-09-06-154745": "genai", "eai-6403-2026-09-12-153203": "genai", "eai-6403-2026-09-13-153353": "genai", "eai-6403-2026-09-26-153739": "constitutionalAi", "eai-6403-2026-09-27-153416": "genaiProject", "eai-6403-2026-10-03-155454": "moe", "eai-6403-2026-10-04-154331-f1db94": "patchDiffusion",
   "ecs-6401-2026-08-19-175559": "timeseries", "ecs-6401-2026-08-21-180935": "timeseries", "ecs-6401-2026-08-26-180538": "timeseries", "ecs-6401-2026-08-28-180221": "timeseries", "ecs-6401-2026-09-02-180510": "timeseries", "ecs-6401-2026-09-04-180115": "timeseries", "ecs-6401-2026-09-09-180431": "timeseries", "ecs-6401-2026-09-11-180457": "timeseries", "ecs-6401-2026-09-16-180603": "timeseries", "ecs-6401-2026-09-18-180406": "timeseries", "ecs-6401-2026-09-23-180413": "timeseries",
   "ecs-6402-2026-08-21-204351": "wireless", "ecs-6402-2026-08-27-203455": "wireless", "ecs-6402-2026-08-28-203443": "wireless", "ecs-6402-2026-09-03-203415": "wireless", "ecs-6402-2026-09-04-203546": "wireless", "ecs-6402-2026-09-10-203424": "wireless", "ecs-6402-2026-09-11-203535": "wireless", "ecs-6402-2026-09-17-203648": "wireless", "ecs-6402-2026-09-18-203429": "wireless", "ecs-6402-2026-09-24-203744": "wireless",
   "ebb-6401-2026-08-17-180921": "smartcontract", "ebb-6401-2026-08-17-184812": "smartcontract", "ebb-6401-2026-08-19-180224": "smartcontract", "ebb-6401-2026-08-24-180004": "smartcontract", "ebb-6401-2026-09-02-180427": "smartcontract", "ebb-6401-2026-09-07-183334": "smartcontract", "ebb-6401-2026-09-09-180136": "smartcontract", "ebb-6401-2026-09-14-180946": "smartcontract", "ebb-6401-2026-09-16-180450": "smartcontract", "ebb-6401-2026-09-23-190135": "smartcontract", "ebb-6401-2026-09-28-181150": "merklePatricia",

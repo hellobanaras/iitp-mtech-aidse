@@ -750,6 +750,58 @@ export const openLearningResources = {
       description: "Studies block-sparse MoE execution and expert utilization, extending the lecture's optimization discussion.",
       descriptionHi: "Lecture की optimization चर्चा को block-sparse MoE execution और expert utilization से आगे बढ़ाता है।",
       url: "https://arxiv.org/abs/2211.15841"
+    },
+    {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Open research paper",
+      kindHi: "मुक्त research paper",
+      access: "Free full text",
+      accessHi: "मुफ़्त full text",
+      title: "An Image Is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      titleHi: "An Image Is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      description: "Primary ViT paper for patchifying images into tokens and applying a Transformer encoder for classification.",
+      descriptionHi: "Images को tokens में patchify कर Transformer encoder से classify करने वाले ViT का primary paper।",
+      url: "https://arxiv.org/abs/2010.11929"
+    },
+    {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Open research paper",
+      kindHi: "मुक्त research paper",
+      access: "Free full text",
+      accessHi: "मुफ़्त full text",
+      title: "Scalable Diffusion Models with Transformers",
+      titleHi: "Scalable Diffusion Models with Transformers",
+      description: "The primary DiT paper explains transformer backbones over latent image patches and the role of model compute in scaling.",
+      descriptionHi: "Latent image patches पर Transformer backbone और model compute के scaling role का DiT primary paper।",
+      url: "https://arxiv.org/abs/2212.09748"
+    },
+    {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Open research paper",
+      kindHi: "मुक्त research paper",
+      access: "Free full text",
+      accessHi: "मुफ़्त full text",
+      title: "FiLM: Visual Reasoning with a General Conditioning Layer",
+      titleHi: "FiLM: Visual Reasoning with a General Conditioning Layer",
+      description: "A primary source for feature-wise affine conditioning, where the conditioning signal predicts scale and shift values for feature maps.",
+      descriptionHi: "Feature maps पर scale और shift देने वाली feature-wise affine conditioning का primary source।",
+      url: "https://arxiv.org/abs/1709.07871"
+    },
+    {
+      provider: "Meta AI Research",
+      providerHi: "Meta AI Research",
+      kind: "Practice implementation",
+      kindHi: "Practice implementation",
+      access: "Free source code",
+      accessHi: "मुफ़्त source code",
+      title: "Official PyTorch implementation of DiT",
+      titleHi: "Official PyTorch implementation of DiT",
+      description: "A codebase for tracing latent patch inputs, conditioning, and transformer blocks in the paper's diffusion architecture.",
+      descriptionHi: "Paper की diffusion architecture में latent patches, conditioning और Transformer blocks trace करने का codebase।",
+      url: "https://github.com/facebookresearch/DiT"
     }
   ],
   "ecc-6404": [

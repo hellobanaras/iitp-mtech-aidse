@@ -2703,4 +2703,18 @@ export const capstones = Object.freeze({
       "success": "A reader can trace token routing, identify overloaded or underused experts, reproduce the comparison, and explain why sparse active computation does not eliminate total parameter-memory or communication costs."
     }
   }
+  ,"eai-6403-2026-10-04-154331-f1db94": {
+    en: {
+      title: "Patch-to-latent vision lab",
+      pitch: "Make image patchification, Transformer token cost, and diffusion conditioning visible with a small, reproducible vision experiment.",
+      problem: "Patch count, feature width, latent size, and conditioning are easy to conflate. An inspectable lab can make each representation and its computational consequences explicit.",
+      learning: "Practise patch embeddings, attention scaling, latent diffusion, and conditional denoising. This is optional study practice, not an instructor-assigned project.",
+      mvp: ["Patch a 256×256 RGB image into 16×16 patches; verify 256 tokens and 768 raw values per patch before projection.", "Visualize positional embeddings, Transformer blocks, and a classification head; compare approximate attention-map sizes for several patch sizes.", "Show forward noise addition and reverse denoising on a tiny latent representation.", "Vary timestep and class conditions independently and record model outputs without overstating what a tiny experiment proves."],
+      stretch: ["Compare a small CNN classifier with a ViT-style patch encoder under matched data and compute budgets.", "Report how latent resolution and patch size affect sequence length, attention work, and reconstruction quality."],
+      plan: ["Choose a permitted or synthetic image dataset and document its split and limitations.", "Implement and test patch counts, flattened widths, projections, and attention-size calculations.", "Build the small diffusion/conditioning visualization and capture reproducible outputs.", "Write an accessible comparison of CNN, ViT, and DiT representations, with compute and quality caveats."],
+      stack: ["Python", "PyTorch", "Jupyter", "Matplotlib"],
+      milestones: ["Patch and embedding audit", "Attention-cost comparison", "Latent diffusion visualization", "Conditioning experiment and report"],
+      success: "The report distinguishes sequence length from feature width, represents diffusion directions correctly, and explains the computational limits of its small experiment."
+    }
+  }
 });
