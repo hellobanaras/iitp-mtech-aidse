@@ -1339,6 +1339,37 @@ export const capstones = Object.freeze({
       success: "A learner can reproduce the discounted return from its horizon mixture, identify the ratio endpoint for each partial return, detect a support failure, and verify that an epsilon-soft action distribution sums to one. This is optional study practice, not an instructor-assigned project."
     }
   },
+  "eai-6401-2026-10-06-180409-cd5720": {
+    en: {
+      title: "TraceWise: an auditable Monte Carlo-to-TD workbench",
+      pitch: "Build a small local-first simulator that lets learners compare off-policy return corrections with one-step TD updates on the same reproducible episodes.",
+      problem: "Importance ratios can obscure which decisions influence a reward, while bootstrapped updates can look like model expectations. A transparent workbench should show the evidence, weights, and update target separately.",
+      learning: "Practise behavior/target coverage, incremental weighted estimates, horizon-aware and per-decision ratios, and the distinction between Monte Carlo returns, dynamic-programming expectations, and TD(0) sample updates. This is optional educational guidance, not an instructor-assigned project.",
+      mvp: [
+        "Define a tiny episodic environment with seeded transitions, rewards, and separate behavior and target policies; visualize whether the target has support under behavior.",
+        "Show each sampled action probability and cumulative importance ratio, and compare ordinary and normalized weighted return estimates with weight-concentration diagnostics.",
+        "For a fixed trajectory, display flat partial returns by horizon and per-decision reward corrections, highlighting which action ratios affect each reward.",
+        "Run TD(0) on the same observed transitions, displaying R(t+1), V(S(t+1)), the TD target, δ(t), and the updated V(S(t)) after every step.",
+        "Add tests for probability normalization, unsupported actions, terminal-state value zero, and hand-calculated return and TD updates."
+      ],
+      stretch: [
+        "Vary episode length, γ, and behavior-policy support; report estimator spread across seeds rather than presenting one trajectory as a guarantee.",
+        "Compare MC and TD learning curves while keeping their update timing and target definitions visible.",
+        "Add an accessible export that includes assumptions, equations, source-time concepts, and a clear statement that results are simulated."
+      ],
+      plan: [
+        "Specify the finite MDP, policy interface, episode schema, and reproducible seed handling.",
+        "Implement coverage checks and return/ratio calculations with hand-verifiable unit tests.",
+        "Add incremental weighted estimates, partial-horizon and per-decision views, and weight diagnostics.",
+        "Implement sampled TD(0), the TD error trace, and a side-by-side MC/TD comparison.",
+        "Review keyboard access, small-screen layout, labels, and exported explanation before sharing the educational simulator."
+      ],
+      novelty: "TraceWise keeps reward causality, trajectory weighting, and bootstrapped value updates in separate linked panels, so a learner can trace exactly why each estimate changes.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Seeded simulator", "Vitest"],
+      milestones: ["Episode and policy model", "Coverage and IS estimators", "Per-decision and horizon views", "TD(0) comparison and accessible report"],
+      success: "A learner can verify support before reweighting, reproduce one per-decision estimate by hand, calculate a TD error, and explain why TD prediction does not require a transition model."
+    }
+  },
   "eai-6401-2026-09-29-180346": {
     en: {
       title: "PolicyLens: an auditable off-policy evaluation lab",

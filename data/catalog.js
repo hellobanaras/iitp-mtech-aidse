@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-07",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 104,
+  filesInventoried: 105,
   courses: [
     {
       code: "EAI 6103",
@@ -75,8 +75,8 @@ export const catalog = {
       icon: "RL",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course72_hybrid_iitp_ac_in/IgAGzyBinTNjQ69x8TC7U-ZQAedbzLJLRwPOzm3drlcdWcc?e=fR761s",
       status: "active",
-      statusLabel: "15 lectures available",
-      note: "The August 17 through October 5 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; verified teaching intervals exclude internal interruptions and long idle tails.",
+      statusLabel: "16 lectures available",
+      note: "The August 17 through October 6 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; verified teaching intervals exclude internal interruptions and long idle tails.",
       lectures: [
         {
           id: "eai-6401-2026-08-17",
@@ -287,6 +287,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Discounted return as a geometric mixture of partial horizons", "Horizon-matched importance-ratio correction", "Epsilon-soft policy-improvement inequality and student questions"]
+        },
+        {
+          id: "eai-6401-2026-10-06-180409-cd5720",
+          number: 16,
+          date: "2026-10-06",
+          sourceRecordedAt: "2026-10-06T18:04:09+05:30",
+          sourceFilename: "Reinforcement Learning-20261006_180409-Meeting Recording.mp4",
+          displayDate: "6 October 2026",
+          title: "Discount-aware off-policy Monte Carlo and TD prediction",
+          duration: "1h 21m 48s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course72_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course72_hybrid_iitp_ac_in%2FDocuments/Recordings/Reinforcement%20Learning-20261006_180409-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Incremental weighted off-policy Monte Carlo control", "Discount-aware and per-decision importance sampling", "Sample-based TD(0), bootstrapping, and temporal-difference error"]
         }
       ]
     },
