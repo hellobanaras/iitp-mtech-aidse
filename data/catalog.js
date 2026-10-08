@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-07",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 105,
+  filesInventoried: 106,
   courses: [
     {
       code: "EAI 6103",
@@ -1504,8 +1504,8 @@ export const catalog = {
       icon: "BP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course126_hybrid_iitp_ac_in/IgCHFNnPY4p5T6ER5i66wfU6ARez8raFCClh3yjgh9MvxQ4?e=BpEdrU",
       status: "active",
-      statusLabel: "10 lectures available",
-      note: "Lectures 1–10 are published from verified teaching intervals; participant-only openings, internal breaks, and idle tails were excluded after full timeline sweeps.",
+      statusLabel: "11 lectures available",
+      note: "Lectures 1–11 are published from verified teaching intervals; participant-only openings, internal breaks, and idle tails were excluded after full timeline sweeps.",
       lectures: [
         {
           id: "ebb-6402-2026-08-18-180205",
@@ -1646,6 +1646,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Fractional tokenized interests and conditional liquidity benefits", "Stakeholder incentives, governance, and redistributed responsibilities", "Financial intermediaries, shareholder engagement, and investor privacy"]
+        },
+        {
+          id: "ebb-6402-2026-10-06-180411-c70949",
+          number: 11,
+          date: "2026-10-06",
+          sourceRecordedAt: "2026-10-06T18:04:11+05:30",
+          sourceFilename: "Blockchain policy – Legal, Social and Economic Impact-20261006_180411-Meeting Recording.mp4",
+          displayDate: "6 October 2026",
+          title: "Blockchain industry bodies, EEA standards, and Hyperledger governance",
+          duration: "1h 17m 40s teaching",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course126_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse126_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FBlockchain+policy+%E2%80%93+Legal%2C+Social+and+Economic+Impact-20261006_180411-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Industry bodies, standards, and regulatory dialogue", "Enterprise Ethereum Alliance interoperability and compatibility goals", "Hyperledger governance, Fabric architecture, and structural challenges"]
         }
       ]
     }

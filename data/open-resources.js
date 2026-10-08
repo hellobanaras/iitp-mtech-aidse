@@ -1776,6 +1776,32 @@ export const openLearningResources = {
         { label: "September 2026 proposed rescission", url: "https://www.sec.gov/newsroom/press-releases/2026-89-sec-proposes-rescission-shareholder-proposal-rule-reforms-proxy-solicitation-process" }
       ],
       url: "https://www.sec.gov/rules-regulations/shareholder-proposals"
+    },
+    {
+      provider: "Enterprise Ethereum Alliance",
+      providerHi: "Enterprise Ethereum Alliance",
+      kind: "Interoperability specification",
+      kindHi: "Interoperability specification",
+      access: "Free public specification",
+      accessHi: "Free public specification",
+      title: "EEA DLT Interoperability Specification v1.0",
+      titleHi: "EEA DLT Interoperability Specification v1.0",
+      description: "A primary EEA specification that extends the lecture's discussion of shared standards and cross-ledger interoperability with concrete requirements.",
+      descriptionHi: "Shared standards और cross-ledger interoperability पर lecture discussion को concrete requirements से जोड़ने वाली EEA की primary specification।",
+      url: "https://hub.entethalliance.org/crosschain-interoperability/spec/dlt-interop/"
+    },
+    {
+      provider: "Hyperledger Foundation",
+      providerHi: "Hyperledger Foundation",
+      kind: "Technical documentation",
+      kindHi: "Technical documentation",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Hyperledger Fabric membership and MSPs",
+      titleHi: "Hyperledger Fabric membership and MSPs",
+      description: "Official reference for how trusted identities, organisations, roles, and channel membership govern permissioned Fabric participation.",
+      descriptionHi: "Trusted identities, organisations, roles और channel membership द्वारा permissioned Fabric participation कैसे नियंत्रित होता है—इसकी official reference।",
+      url: "https://hyperledger-fabric.readthedocs.io/en/latest/membership/membership.html"
     }
   ],
   "ebb-6403": [

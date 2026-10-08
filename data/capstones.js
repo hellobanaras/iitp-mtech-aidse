@@ -1834,6 +1834,35 @@ export const capstones = Object.freeze({
       "success": "A learner can explain why fractionalisation does not guarantee liquidity, identify who performs each intermediary function, compare engagement choices, and justify a proportionate disclosure boundary with explicit residual risks."
     }
   },
+  "ebb-6402-2026-10-06-180411-c70949": {
+    "en": {
+      "title": "ConsortiumCommons — an industry standards and Fabric governance workbench",
+      "pitch": "Design a reviewable consortium blueprint that connects industry-body standards and policy representation to organisation membership, Fabric transaction roles, and residual governance risks.",
+      "problem": "A standards document does not ensure compatible implementations, and a permissioned ledger does not decide who deserves membership or influence. ConsortiumCommons makes those institutional choices explicit and testable.",
+      "learning": "Model industry stakeholders, specification conformance, organisation identities, channel membership, endorsement policies, privacy boundaries, and governance conflicts.",
+      "mvp": [
+        "Create a fictional four-organisation consortium and map each participant's interests, technical role, policy concerns, and decision rights.",
+        "Translate a short interoperability requirement into a conformance checklist with test evidence and implementation exceptions.",
+        "Model CA-issued identities, MSP roles, channel membership, peer endorsement, ordering, and data visibility for one synthetic transaction.",
+        "Add an open-governance log for proposals, technical decisions, objections, conflicts of interest, and jurisdiction-specific constraints."
+      ],
+      "stretch": [
+        "Simulate a new member request, a compromised identity, a disputed specification change, and a regulator requesting scoped access.",
+        "Compare centralised, neutral-foundation, and member-vote governance without treating any model as automatically fair.",
+        "Export an accessible audit brief showing interoperability evidence, representation gaps, privacy boundaries, and unresolved capture risks."
+      ],
+      "plan": [
+        "Week 1: define stakeholder roles, membership rules, and a small interoperability requirement.",
+        "Week 2: implement identity, organisation, channel, transaction, and endorsement models.",
+        "Week 3: add governance proposals, conflict disclosure, policy constraints, and failure scenarios.",
+        "Week 4: test conformance and access cases, then publish an accessible audit report with limitations."
+      ],
+      "novelty": "The workbench traces standards and advocacy choices all the way into permissioned identities and transaction-level access, while keeping representation and regulatory risks visible.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Stakeholder and standards map", "Identity and Fabric transaction model", "Governance and risk scenarios", "Accessible conformance/audit export"],
+      "success": "A learner can trace one consortium transaction from a shared standard to identity, endorsement, ordering, and visibility; explain the decision owners; and identify one interoperability limitation and one governance risk with evidence."
+    }
+  },
   "ecs-6402-2026-09-03-203415": {
     "en": {
       "title": "LayerLens: an ATM and OSI protocol-stack visualizer",
