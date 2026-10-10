@@ -1647,6 +1647,45 @@ export const openLearningResources = {
       description: "Explains gas as the computation resource behind simple transfers and more expensive contract interactions.",
       descriptionHi: "Simple transfers और complex contract interactions के computation resource gas की व्याख्या।",
       url: "https://ethereum.org/developers/docs/gas/"
+    },
+    {
+      provider: "Ethereum",
+      providerHi: "Ethereum",
+      kind: "Scaling guide",
+      kindHi: "Scaling guide",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Optimistic rollups",
+      titleHi: "Optimistic rollups",
+      description: "First-party guide to off-chain execution, batching and compression, L1 data availability and settlement, sequencers, challenge periods, and fraud proofs; it extends the lecture's rollup architecture with implementation context.",
+      descriptionHi: "First-party guide to off-chain execution, batching and compression, L1 data availability and settlement, sequencers, challenge periods, and fraud proofs; it extends the lecture's rollup architecture with implementation context.",
+      url: "https://ethereum.org/developers/docs/scaling/optimistic-rollups/"
+    },
+    {
+      provider: "Ethereum",
+      providerHi: "Ethereum",
+      kind: "Consensus guide",
+      kindHi: "Consensus guide",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Proof of Stake",
+      titleHi: "Proof of Stake",
+      description: "Official current explanation of Ethereum's validator-based consensus, useful for updating the lecture's historical PoW-to-PoS transition overview.",
+      descriptionHi: "Official current explanation of Ethereum's validator-based consensus, useful for updating the lecture's historical PoW-to-PoS transition overview.",
+      url: "https://ethereum.org/developers/docs/consensus-mechanisms/pos/"
+    },
+    {
+      provider: "Ethereum",
+      providerHi: "Ethereum",
+      kind: "Node guide",
+      kindHi: "Node guide",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Nodes and clients",
+      titleHi: "Nodes and clients",
+      description: "Official reference to full and light clients and execution/consensus roles; clarifies the simplified node diagram used in the lecture.",
+      descriptionHi: "Official reference to full and light clients and execution/consensus roles; clarifies the simplified node diagram used in the lecture.",
+      url: "https://ethereum.org/developers/docs/nodes-and-clients"
     }
   ],
   "ebb-6402": [

@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-07",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 107,
+  filesInventoried: 108,
   courses: [
     {
       code: "EAI 6103",
@@ -792,8 +792,8 @@ export const catalog = {
       icon: "SC",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course77_hybrid_iitp_ac_in/IgCEBeWWlU_wQLE9fUZWW9fTAYhpk32mpJi8Lbo6Iba_Cy8?e=5wSELF",
       status: "active",
-      statusLabel: "12 lectures available",
-      note: "Twelve verified lectures are published. The latest session connects smart-contract agreement phases with specification, modeling, verification, pre-deployment testing, deployment, execution, and ledger recording.",
+      statusLabel: "13 lectures available",
+      note: "Thirteen verified lectures are published. The latest session traces Ethereum's architecture and optimistic-rollup flow from L2 transaction ordering to L1 settlement and fraud-proof challenges.",
       lectures: [
         {
           id: "ebb-6401-2026-08-17-180921",
@@ -962,6 +962,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Create, freeze, execute, and finalize an agreement", "Specification, modeling, verification, and local pre-deployment tests", "Compile and deploy code, execute node-validated transitions, and record results"]
+        },
+        {
+          id: "ebb-6401-2026-10-07-180906-acd0c4",
+          number: 13,
+          date: "2026-10-07",
+          sourceRecordedAt: "2026-10-07T18:09:06+05:30",
+          sourceFilename: "Smart contracts and solidity programming-20261007_180906-Meeting Recording.mp4",
+          displayDate: "7 October 2026",
+          title: "Ethereum architecture and optimistic rollups: batches, sequencers, and fraud proofs",
+          duration: "1h 08m 34s instructional (8m02s break excluded)",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course77_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse77_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSmart+contracts+and+solidity+programming-20261007_180906-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Ethereum applications, EVM, RPC, nodes, consensus, and gas", "Why rollups move execution to L2 and batch data for L1", "Optimistic assumptions, data availability, challenge periods, and fraud proofs"]
         }
       ]
     },

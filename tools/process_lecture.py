@@ -202,7 +202,10 @@ def main() -> None:
     if source != media_copy:
         shutil.copy2(source, media_copy)
     if args.sidecar:
-        shutil.copy2(args.sidecar.expanduser(), recording_dir / f"{args.date}-segment-{args.segment}-capture.json")
+        sidecar_source = args.sidecar.expanduser().resolve()
+        sidecar_target = (recording_dir / f"{args.date}-segment-{args.segment}-capture.json").resolve()
+        if sidecar_source != sidecar_target:
+            shutil.copy2(sidecar_source, sidecar_target)
 
     start = float(timing.get("captureStartSourceSeconds") or 0)
     rate = float(timing.get("playbackRate") or 1)
@@ -216,15 +219,22 @@ def main() -> None:
     else:
         lead_in = 0.0
     effective_capture_duration = max(0.0, duration - lead_in)
+    if marked_end is not None:
+        # A Companion stop marker may precede the actual recorder stop. Bound
+        # the retained media at that source-time endpoint so trailing room
+        # audio/video is not mistaken for an opening capture lead-in.
+        expected_playback_seconds = max(0.0, (float(marked_end) - start) / rate)
+        effective_capture_duration = min(effective_capture_duration, expected_playback_seconds)
     observed_end = start + effective_capture_duration * rate
     end = min(float(marked_end), observed_end) if marked_end is not None else observed_end
     audio_path = recording_dir / f"{args.date}-segment-{args.segment}-audio.wav"
     audio_command = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-t", f"{duration:.6f}", "-i", str(media_copy),
                      "-vn"]
     tempo = atempo_filter(rate)
-    audio_filters = []
-    if lead_in:
-        audio_filters.extend([f"atrim=start={lead_in:.6f}", "asetpts=PTS-STARTPTS"])
+    audio_filters = [
+        f"atrim=start={lead_in:.6f}:duration={effective_capture_duration:.6f}",
+        "asetpts=PTS-STARTPTS",
+    ]
     if tempo:
         audio_filters.append(tempo)
     if audio_filters:

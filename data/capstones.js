@@ -186,6 +186,36 @@ export const capstones = Object.freeze({
       success: "A learner can trace each accepted and rejected transaction to an explicit requirement, show that tests cover the transition rules, and explain why the local test result is not a guarantee of zero defects. This is optional study practice, not an instructor-assigned project."
     }
   },
+  "ebb-6401-2026-10-07-180906-acd0c4": {
+    en: {
+      title: "Rollup Batch and Challenge Explorer",
+      pitch: "Build a local simulator that lets learners trace synthetic L2 transactions through ordering, batching, data publication, and an optimistic challenge flow.",
+      problem: "Rollup diagrams can blur execution, data availability, settlement, and fraud proofs into one box. A small interactive model makes each stage and its trust boundary inspectable.",
+      learning: "Practise transaction ordering, state-transition reasoning, batch compression trade-offs, L1 data availability, challenge windows, and the distinction between a proposed state and a challenged result. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Create a synthetic set of dependent L2 transactions and show how the sequencer orders them before execution.",
+        "Group the transactions into batches and compare uncompressed input size with a clearly labelled toy compression estimate.",
+        "Apply each batch to a deterministic sample state and record the proposed state root or digest without presenting the toy hash as Ethereum-compatible.",
+        "Let a verifier flag one deliberately incorrect transition; walk through a simplified challenge and show the invalid state being rejected.",
+        "Display which data is posted to L1, what a verifier needs to reconstruct the result, and which assumptions the simulator does not model."
+      ],
+      stretch: [
+        "Compare two transaction orders and show when dependent operations produce different states.",
+        "Add a configurable illustrative challenge window and label it as a simulation parameter, not a universal rollup constant.",
+        "Add a second view that contrasts optimistic dispute handling with a validity-proof flow without claiming protocol equivalence."
+      ],
+      plan: [
+        "Define a tiny state machine and synthetic transaction schema; test deterministic execution first.",
+        "Implement sequencer ordering, batching, and a transparent compression-cost estimate.",
+        "Add data publication and a challenge workflow with positive, negative, and unavailable-data cases.",
+        "Render an accessible flow diagram and document where the toy model differs from production rollup protocols."
+      ],
+      novelty: "The explorer separates L2 execution from L1 availability and settlement, making the optimistic assumption and challenge boundary visible rather than treating a batch as a trusted black box.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Vitest", "Local-only synthetic data"],
+      milestones: ["State-transition model", "Sequencer and batch view", "L1 data and challenge simulation", "Accessible explainer and limitations"],
+      success: "A learner can explain how an ordered batch changes L2 state, identify what must be available for an independent challenge, and distinguish the simulation from a production fraud-proof protocol. This is optional study practice, not an instructor-assigned project."
+    }
+  },
   "eai-6103-2026-08-22-092455": {
     "en": {
       "title": "NotebookStarter: a reproducible Python data-practice lab",
