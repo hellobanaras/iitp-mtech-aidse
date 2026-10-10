@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-07",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 106,
+  filesInventoried: 107,
   courses: [
     {
       code: "EAI 6103",
@@ -1120,8 +1120,8 @@ export const catalog = {
       icon: "TS",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course129_hybrid_iitp_ac_in/IgC377O2f2n2SI6uo-EJPeMMAZbBcmUQN6fmgL_JHX60GiA?e=yUCaLx",
       status: "active",
-      statusLabel: "12 lectures available",
-      note: "Lectures 1–12 are published in chronological order. The Sep 25 source develops cointegration, the equilibrium residual, error-correction dynamics, spurious regression, and an introduction to levels-OLS estimation. Opening and closing instructional audio are retained; the internal break is excluded from the teaching summary.",
+      statusLabel: "13 lectures available",
+      note: "Lectures 1–13 are published in chronological order. The Oct 7 lecture continues Johansen cointegration-rank testing and introduces ARCH/GARCH conditional volatility; its short announced break and idle tail are excluded from the learning summary.",
       lectures: [
         {
           id: "ecs-6401-2026-08-19-175559",
@@ -1290,6 +1290,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["I(1) levels and a stationary long-run equilibrium gap", "ECM components, adjustment signs, and a worked numerical example", "Spurious regression, estimation, testing roadmap, and student questions"]
+        },
+        {
+          id: "ecs-6401-2026-10-07-180243",
+          number: 13,
+          date: "2026-10-07",
+          sourceRecordedAt: "2026-10-07T18:02:43+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20261007_180243-Meeting Recording.mp4",
+          displayDate: "7 October 2026",
+          title: "Johansen cointegration, VECM rank, and ARCH/GARCH volatility",
+          duration: "1h 33m teaching interval; 2h 19m source",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse129%5Fhybrid_iitp_ac_in%2FDocuments%2FRecordings%2FAdvanced%20Time%20Series%20Analysis%2D20261007%5F180243%2DMeeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["VECM Π = αβ′ and cointegration rank", "Johansen trace and maximum-eigenvalue tests", "ARCH/GARCH conditional variance, volatility persistence, and diagnostics"]
         }
       ]
     },

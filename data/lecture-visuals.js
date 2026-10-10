@@ -22,6 +22,12 @@ const templates = {
     steps: ["I(1) series", "Long-run relation", "Stationary gap", "Short-run correction"],
     detail: "Follow the original source timecodes to connect the equilibrium equation with its adjustment mechanism."
   },
+  vecmArch: {
+    title: "Two models, two kinds of dynamics",
+    description: "The VECM separates long-run equilibrium relations from short-run adjustment; ARCH/GARCH models a changing conditional variance from shocks and prior volatility.",
+    steps: ["Levels → β′y equilibrium relations", "α adjusts changes toward equilibrium", "Past shocks → ARCH variance", "Past variance → GARCH persistence"],
+    detail: "A study map contrasting long-run multivariate dependence with time-varying uncertainty; the models answer different questions."
+  },
   rl: {
     title: "The reinforcement-learning feedback loop",
     description: "A learner improves by acting, observing the outcome, and feeding the experience back into its next decision.",
@@ -191,6 +197,7 @@ const visualTemplates = {
   "ecs-6402-2026-10-01-203455-ca0fb3": "dopplerFading",
   "eai-6402-2026-09-26": "edaImputation",
   "ecs-6401-2026-09-25-180502": "cointegration",
+  "ecs-6401-2026-10-07-180243": "vecmArch",
   "eai-6103-2026-08-18-193045": "ml",
   "eai-6103-2026-08-22-092455": "python",
   "eai-6103-2026-08-25-183026": "ml",

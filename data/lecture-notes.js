@@ -1,5 +1,6 @@
 const releaseVersion = new URL(import.meta.url).searchParams.get("v") || "dev";
 const { ebb6401Lecture20261005180333 } = await import(`./lectures/ebb-6401-2026-10-05-180333-664a36.js?v=${releaseVersion}`);
+const { ecs6401Lecture20261007180243 } = await import(`./lectures/ecs-6401-2026-10-07-180243.js?v=${releaseVersion}`);
 const [
   { eai6103Lecture20260818193045 },
   { eai6103Lecture20260822092455 },
@@ -265,6 +266,7 @@ export const lectureNotes = {
   "ecs-6401-2026-09-18-180406": ecs6401Lecture20260918180406,
   "ecs-6401-2026-09-23-180413": ecs6401Lecture20260923180413,
   "ecs-6401-2026-09-25-180502": ecs6401Lecture20260925180502,
+  "ecs-6401-2026-10-07-180243": ecs6401Lecture20261007180243,
   "ecc-6404-2026-08-17-193438": ecc6404Lecture20260817,
   "ecc-6404-2026-08-19-193245": ecc6404Lecture20260819,
   "ecc-6404-2026-08-24-193338": ecc6404Lecture20260824,

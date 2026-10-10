@@ -1108,6 +1108,30 @@ export const openLearningResources = {
       title: "NIST Trend and Stationarity Diagnostics",
       description: "Practical guidance for checking trends, autocorrelation, transformations, and residual behaviour before forecasting.",
       url: "https://www.itl.nist.gov/div898/handbook/pmc/pmc.htm"
+    },
+    {
+      provider: "statsmodels",
+      kind: "Cointegration rank-test API",
+      access: "Free documentation",
+      title: "Johansen cointegration test",
+      description: "Official reference for the VECM rank test, including deterministic-term and lag-difference inputs and trace/max-eigenvalue results.",
+      url: "https://www.statsmodels.org/stable/generated/statsmodels.tsa.vector_ar.vecm.coint_johansen.html"
+    },
+    {
+      provider: "arch",
+      kind: "Volatility modeling guide",
+      access: "Free documentation",
+      title: "Introduction to ARCH models",
+      description: "Official guide separating mean, volatility, and standardized-residual distribution components while introducing ARCH/GARCH equations.",
+      url: "https://arch.readthedocs.io/en/stable/univariate/introduction.html"
+    },
+    {
+      provider: "arch",
+      kind: "Modeling practice",
+      access: "Free documentation",
+      title: "Univariate volatility modeling",
+      description: "Official examples for fitting volatility processes and inspecting estimated conditional volatility and standardized residuals.",
+      url: "https://arch.readthedocs.io/en/stable/univariate/univariate_volatility_modeling.html"
     }
   ],
   "ecs-6402": [

@@ -1,5 +1,32 @@
 // Public English-only mini-capstone ideas.
 export const capstones = Object.freeze({
+  "ecs-6401-2026-10-07-180243": {
+    en: {
+      title: "Equilibrium & Volatility Lab",
+      pitch: "Build one reproducible notebook that compares long-run cointegration evidence with conditional-volatility behavior, keeping the two model questions distinct.",
+      problem: "A multivariate level relation and a changing shock variance are easy to conflate. Learners need to see what rank tests establish, what a variance recursion models, and what neither result proves.",
+      learning: "Practise VECM rank interpretation, Johansen test specification, ARCH/GARCH estimation, residual diagnostics, and chronological forecast evaluation. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Choose a public, documented multivariate series and record its source, frequency, sample window, transformations, and integration checks.",
+        "Estimate a VECM under an explicitly justified deterministic and lag specification; compare trace and maximum-eigenvalue rank decisions without describing them as causal proof.",
+        "For one return or residual series, fit ARCH(1) and GARCH(1,1), plot conditional volatility, and examine standardized residuals and their squares.",
+        "Compare one-step volatility forecasts on a chronological holdout with a constant-variance baseline; report limitations and uncertainty."
+      ],
+      stretch: [
+        "Repeat the rank analysis under a small, predeclared set of plausible lag/deterministic specifications and show where conclusions change.",
+        "Compare symmetric GARCH with one asymmetric variant only when diagnostics and the research question justify it."
+      ],
+      plan: [
+        "Write separate research questions for long-run level relations and conditional volatility; predeclare data and evaluation periods.",
+        "Implement the VECM and volatility models with reproducible settings and checks for residual alignment.",
+        "Run rank and forecast sensitivity checks, then render an accessible plot pairing each claim with the relevant evidence."
+      ],
+      novelty: "The project makes model purpose, assumptions, and evidence visible side by side without treating cointegration as causation or forecasts as certainty.",
+      stack: ["Python", "pandas", "statsmodels", "arch", "Jupyter", "Matplotlib"],
+      milestones: ["Data and assumptions card", "VECM rank comparison", "ARCH/GARCH diagnostic report", "Holdout forecast and limitations"],
+      success: "A learner can explain α/β and rank, distinguish ARCH shocks from GARCH variance persistence, reproduce the diagnostics, and communicate what the analysis cannot establish."
+    }
+  },
   "eai-6402-2026-09-26": {
     en: {
       title: "MissingnessLab: an auditable regression experiment",
