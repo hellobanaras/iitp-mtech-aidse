@@ -2923,5 +2923,33 @@ export const capstones = Object.freeze({
       milestones: ["Patch and embedding audit", "Attention-cost comparison", "Latent diffusion visualization", "Conditioning experiment and report"],
       success: "The report distinguishes sequence length from feature width, represents diffusion directions correctly, and explains the computational limits of its small experiment."
     }
+  },
+  "ecc-6404-2026-10-07-193350-939c11": {
+    en: {
+      title: "RuleVote Lab: compare global rules with local neighbors",
+      pitch: "Build a compact, reproducible classifier comparison that makes rule support, pruning, and k-NN voting visible on the same held-out examples.",
+      problem: "A high rule accuracy can hide tiny support, while a nearest-neighbor prediction can shift when k or feature scale changes. Learners need to see both evidence limitations without conflating the two model families.",
+      learning: "Practise one-rule-at-a-time learning, validation-based pruning, support-aware evaluation, k-NN distance and voting, and a leakage-safe comparison. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Use the openly licensed UCI Zoo dataset or a documented synthetic dataset; identify the target, encode categorical features, and preserve a stratified train/validation/test split.",
+        "Fit a simple rule learner and report each rule's covered count, positive/negative support, accuracy, and a smoothed measure; prune only using validation data.",
+        "Fit k-NN over a predeclared set of k values with preprocessing learned inside a training pipeline; report the distance metric, scale treatment, tie policy, and validation score.",
+        "Evaluate the selected versions once on the untouched test split using per-class confusion counts and a suitable summary score; include a case where rule coverage or neighbor votes explain the result.",
+        "Visualize one rule's covered region and one query's nearest-neighbor vote, then state what the small dataset cannot establish."
+      ],
+      stretch: [
+        "Compare uniform and inverse-distance voting while holding the split, features, and k-selection procedure fixed.",
+        "Measure prediction time and memory alongside performance, and discuss why lazy storage and rule-set compactness have different operational costs."
+      ],
+      plan: [
+        "Document data licensing, target semantics, feature handling, random seed, and split before modeling.",
+        "Implement rule and k-NN pipelines with explicit validation-only selection and tests that prevent test-set leakage.",
+        "Inspect support, pruning decisions, distances, ties, and per-class errors; preserve examples that explain disagreements.",
+        "Publish an accessible comparison chart and a short limitations report distinguishing measured evidence from general claims."
+      ],
+      stack: ["Python", "pandas", "scikit-learn", "Jupyter", "Matplotlib"],
+      milestones: ["Dataset and split card", "Rule support/pruning audit", "k-NN neighborhood comparison", "Held-out comparison and visual report"],
+      success: "A learner can reproduce both classifiers, explain a prediction from its source evidence, select settings without test leakage, and distinguish rule coverage from neighborhood size."
+    }
   }
 });

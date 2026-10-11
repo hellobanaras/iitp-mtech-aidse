@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-07",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 108,
+  filesInventoried: 109,
   courses: [
     {
       code: "EAI 6103",
@@ -1333,8 +1333,8 @@ export const catalog = {
       icon: "DW",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course76_hybrid_iitp_ac_in/IgAWWFJqFmpXRay8IkonggGRASO0x6czOy20BYDTjv8HHXI?e=5DXrhH",
       status: "active",
-      statusLabel: "13 lectures available",
-      note: "Lectures 1–13 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; the October 5 rule-classification lecture is bounded to 00:05:45.96–01:16:40.83.",
+      statusLabel: "14 lectures available",
+      note: "Lectures 1–14 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; recent rule-learning and k-nearest-neighbor notes include source-time slide trails.",
       lectures: [
         {
           id: "ecc-6404-2026-08-17-193438",
@@ -1517,6 +1517,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Default rules, ordered decision lists, unordered voting, and class/rule priority", "Indirect rule extraction and direct sequential covering with greedy growth and beam search", "Accuracy versus coverage, including the small-support R2 example"]
+        },
+        {
+          id: "ecc-6404-2026-10-07-193350-939c11",
+          number: 14,
+          date: "2026-10-07",
+          sourceRecordedAt: "2026-10-07T19:33:50+05:30",
+          sourceFilename: "Data Warehousing-20261007_193350-Meeting Recording.mp4",
+          displayDate: "7 October 2026",
+          title: "Rule evaluation and pruning, RIPPER, and nearest neighbors",
+          duration: "1h 21m 55s teaching interval",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse76_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FData+Warehousing-20261007_193350-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Likelihood-ratio, Laplace/m-estimate, and FOIL rule scores", "Sequential covering, RIPPER pruning, and C4.5 rule extraction", "Lazy learning and k-NN majority voting; the choice of k changes a prediction"]
         }
       ]
     },

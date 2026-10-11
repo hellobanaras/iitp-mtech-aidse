@@ -954,6 +954,32 @@ export const openLearningResources = {
       description: "Official API documentation for a practical propositional learner that grows and prunes rules, uses description length, and optimizes a rule set.",
       descriptionHi: "एक practical propositional learner का official API reference जो rules grow/prune करता, description length उपयोग करता और rule set optimize करता है।",
       url: "https://weka.sourceforge.io/doc.stable/weka/classifiers/rules/JRip.html"
+    },
+    {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
+      kind: "Official user guide",
+      kindHi: "Official user guide",
+      access: "Free documentation and examples",
+      accessHi: "मुफ़्त documentation और examples",
+      title: "Nearest Neighbors",
+      titleHi: "Nearest Neighbors · k-NN classification",
+      description: "Official guidance for k-neighbor majority voting, distance weighting, choosing k, and the instance-based nature of the method introduced in the Oct 7 lecture.",
+      descriptionHi: "Oct 7 lecture में आए k-neighbor majority voting, distance weighting, k चुनने और instance-based learning के लिए official guidance।",
+      url: "https://scikit-learn.org/stable/modules/neighbors.html"
+    },
+    {
+      provider: "UCI Machine Learning Repository",
+      providerHi: "UCI Machine Learning Repository",
+      kind: "Open dataset",
+      kindHi: "मुक्त dataset",
+      access: "Free dataset · CC BY 4.0",
+      accessHi: "मुफ़्त dataset · CC BY 4.0",
+      title: "Zoo dataset",
+      titleHi: "Zoo dataset · k-NN practice",
+      description: "A small labeled, openly licensed dataset for experimenting with feature representation, distance, k, voting, and held-out evaluation after the lecture's nearest-neighbor introduction.",
+      descriptionHi: "Lecture के nearest-neighbor परिचय के बाद feature representation, distance, k, voting और held-out evaluation अभ्यास करने के लिए छोटा labeled, openly licensed dataset।",
+      url: "https://archive.ics.uci.edu/dataset/111/zoo"
     }
   ],
   "ecs-6401": [
