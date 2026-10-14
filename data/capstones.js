@@ -2354,6 +2354,34 @@ export const capstones = Object.freeze({
       success: "A learner can calculate the Doppler sign and scale, explain both fading taxonomies, and distinguish a signal-triggered handoff from a load-balancing transfer. This is optional study practice, not an instructor-assigned project."
     }
   },
+  "ecs-6402-2026-10-08-203525-de5447": {
+    en: {
+      title: "Handoff Margin Lab",
+      pitch: "Build an accessible two-cell simulator that makes fading, handoff stability, reuse geometry, and power-control assumptions visible.",
+      problem: "A strongest-RSS rule can ping-pong under fading, while overly conservative thresholds or margins can delay a necessary transfer. Separately, inconsistent distance and power units can hide mistakes in cellular calculations.",
+      learning: "Experiment with moving-average windows, serving thresholds, hysteresis, reuse distance, handoff delay, and an approximate CDMA near-far/power-control model. This is optional learner practice, not an instructor-assigned project.",
+      mvp: [
+        "Generate two clearly labelled RSS traces with a distance trend and seeded local fluctuations; display raw and moving-average values.",
+        "Implement strongest-RSS, threshold-plus-neighbour, hysteresis, and combined policies; log handoff time, reversals, and serving RSS at transfer.",
+        "Add the lecture's 72 km/h, four-minute cell-diameter, 12 dB S/I example with unit-labelled Q, D, N, delay distance, and dBm output.",
+        "Show a conceptual CDMA near-far panel that compares two users' received powers and explains why the simplified open-loop estimate depends on forward/reverse correlation."
+      ],
+      stretch: [
+        "Run multiple reproducible fading seeds and compare ping-pong count with time spent below a configurable serving threshold.",
+        "Add an optional time-to-trigger parameter and explain how it differs from an RSS hysteresis margin."
+      ],
+      plan: [
+        "Define the RSS, path-loss, unit, and cell-geometry assumptions and label the simulator as illustrative rather than a coverage predictor.",
+        "Implement and unit-test dB-to-linear conversion, Q and reuse-distance arithmetic, threshold logic, and dBm path-loss calculation.",
+        "Compare policies on identical seeded traces and report both reversals and late/weak-link events.",
+        "Make the plots keyboard-accessible and provide a concise text alternative with the parameters and outcomes."
+      ],
+      novelty: "One experiment ties a handoff policy to its measured stability and delay while keeping cellular geometry and CDMA power balance as separate but connected layers.",
+      stack: ["TypeScript", "Responsive HTML/SVG", "Vitest"],
+      milestones: ["RSS traces and smoothing", "Policy comparison", "Unit-tested reuse calculation", "Accessible near-far explainer"],
+      success: "A learner can explain why margin reduces rapid reversals but may delay handoff, reproduce the example without unit errors, and identify the limits of pilot-based open-loop power estimates."
+    }
+  },
   "eai-6403-2026-09-05-154129": {
     "en": {
       "title": "Attention map explainer",

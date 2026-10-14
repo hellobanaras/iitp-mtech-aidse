@@ -16,6 +16,12 @@ const templates = {
     steps: ["Free-space baseline", "Propagation paths", "Multipath variation", "Model scale and diversity"],
     detail: "An original study map of the lecture's path-loss, multipath, and antenna-diversity argument."
   },
+  handoffPower: {
+    title: "From fading RSS to a controlled cellular link",
+    description: "First stabilize the handoff decision with a threshold and margin; then estimate the delayed handoff point and control transmit power to balance link quality and interference.",
+    steps: ["Smooth noisy RSS", "Apply threshold + hysteresis", "Estimate reuse and handoff geometry", "Set power; check CDMA near-far"],
+    detail: "This original study aid connects the lecture's mobility decision, worked geometry, and reverse-link power-control motivation."
+  },
   cointegration: {
     title: "From a shared trend to error correction",
     description: "Two individually nonstationary series can share a stationary equilibrium gap. The error-correction model links that gap to the next change.",
@@ -207,6 +213,7 @@ const templates = {
 const visualTemplates = {
   "ecs-6402-2026-09-25-203453": "radioPropagation",
   "ecs-6402-2026-10-01-203455-ca0fb3": "dopplerFading",
+  "ecs-6402-2026-10-08-203525-de5447": "handoffPower",
   "eai-6402-2026-09-26": "edaImputation",
   "ecs-6401-2026-09-25-180502": "cointegration",
   "ecs-6401-2026-10-07-180243": "vecmArch",

@@ -1449,6 +1449,30 @@ export const openLearningResources = {
       description: "Review public regulatory context for spectrum, wireless services, and deployment constraints that sit above the lecture's cellular geometry.",
       descriptionHi: "Spectrum, wireless services और deployment constraints का public regulatory context देखें।",
       url: "https://www.fcc.gov/wireless-telecommunications"
+    },
+    {
+      provider: "MIT OpenCourseWare",
+      kind: "Open lecture case study",
+      access: "Free course materials",
+      title: "Case Study: Code Division Multiple Access (CDMA)",
+      description: "An open university case study extending the lecture's introduction to shared-spectrum CDMA and code-separated users.",
+      url: "https://ocw.mit.edu/courses/6-450-principles-of-digital-communication-i-fall-2009/resources/mit6_450f09_slide24/"
+    },
+    {
+      provider: "ns-3",
+      kind: "Simulator documentation",
+      access: "Free documentation",
+      title: "A3 RSRP handover algorithm",
+      description: "Practice with a simulated neighbour-RSRP handoff using hysteresis and time-to-trigger settings; compare these controls with the lecture's RSS margin.",
+      url: "https://www.nsnam.org/docs/release/3.26/doxygen/classns3_1_1_a3_rsrp_handover_algorithm.html"
+    },
+    {
+      provider: "3GPP",
+      kind: "Primary radio specification",
+      access: "Public specification page",
+      title: "TS 36.331 — E-UTRA Radio Resource Control (RRC)",
+      description: "Advanced primary reference for radio measurements and mobility-control procedures related to the lecture's introductory handoff discussion.",
+      url: "https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=2440"
     }
   ],
   "ebb-6401": [

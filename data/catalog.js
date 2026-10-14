@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-07",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 110,
+  filesInventoried: 111,
   courses: [
     {
       code: "EAI 6103",
@@ -606,8 +606,8 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "active",
-      statusLabel: "12 lectures available",
-      note: "The October 1 lecture derives Doppler shift, distinguishes fading classifications, and compares signal- and load-driven handoff decisions.",
+      statusLabel: "13 lectures available",
+      note: "The October 8 lecture compares RSS handoff policies, works cellular reuse geometry, and introduces CDMA power control.",
       lectures: [
         {
           id: "ecs-6402-2026-08-21-204351",
@@ -777,6 +777,21 @@ export const catalog = {
           statusLabel: "Notes published",
           sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:02:04–01:20:49" },
           overview: ["Doppler shift from velocity, wavelength, and angle of arrival", "Large/small-scale, flat/selective, and fast/slow fading distinctions", "RSS, mobile-assisted, and traffic-load handoff decisions and metrics"]
+        },
+        {
+          id: "ecs-6402-2026-10-08-203525-de5447",
+          number: 13,
+          date: "2026-10-08",
+          sourceRecordedAt: "2026-10-08T20:35:25+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20261008_203525-Meeting Recording.mp4",
+          displayDate: "8 October 2026",
+          title: "RSS handoff, hysteresis, and CDMA power control",
+          duration: "1h 27m 28s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse75%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSelected+Topics+in+Wireless+Networks-20261008_203525-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:01:18.79–01:27:02.25" },
+          overview: ["RSS smoothing, thresholds, hysteresis, and ping-pong handoffs", "Reuse-distance and delayed-handoff power calculation", "CDMA near-far problem and pilot-based open-loop power control"]
         }
       ]
     },
