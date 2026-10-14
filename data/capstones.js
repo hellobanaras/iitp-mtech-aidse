@@ -58,6 +58,35 @@ export const capstones = Object.freeze({
       success: "A learner can explain why a public digest does not authenticate by itself, identify what a MAC verifies, distinguish CBC chaining from counter mode, and reject modified data when authentication fails."
     }
   },
+  "ebb-6403-2026-10-10-053339-7a8c92": {
+    en: {
+      title: "PacketGuard: a network-defense tabletop lab",
+      pitch: "Build an interactive, synthetic network model that helps learners connect packet visibility, address-resolution trust, service capacity, and monitoring signals to layered defenses.",
+      problem: "Sniffing, spoofing, flooding, and fragment reassembly stress different parts of a network. A single control cannot address all of them, and attack demonstrations on real systems create unnecessary risk.",
+      learning: "Model safe toy events to distinguish confidentiality, integrity, and availability risks; reason about ARP mappings, switch learning, connection queues, bandwidth budgets, and bounded fragment reassembly. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Create a closed synthetic topology with fictional hosts, a switch table, a local ARP cache, and no packet-generation or external-network capability.",
+        "Replay authored toy events for passive visibility, a suspicious mapping change, MAC-table pressure, connection-state saturation, and incomplete fragments; label each event as a scenario, not an exploit tool.",
+        "Let learners select protective controls such as authenticated encryption, switch port policy, rate limits, bounded queues, timeout handling, and anomaly alerts; show which risk each control addresses and what remains.",
+        "Render an accessible event timeline plus a table showing assets, threat, affected security goal, control, detection signal, and residual risk.",
+        "Test that all scenarios use deterministic synthetic data, enforce resource bounds, and cannot send traffic or target real addresses."
+      ],
+      stretch: [
+        "Add a toy fragment-reassembly visualizer with identifier, offset, more-fragments flag, timeout, and strict maximum buffer limits.",
+        "Compare alert quality under benign bursts and authored anomalous patterns while reporting false positives and missed events."
+      ],
+      plan: [
+        "Define the synthetic threat model and security goals; prohibit external sockets, real addresses, and unbounded input sizes.",
+        "Implement the topology and event schema with tests for state transitions, capacity ceilings, and safe reassembly timeouts.",
+        "Add control selection and explain the limits of each control, especially that encryption does not prevent availability attacks.",
+        "Complete an accessibility and safety review, then export the toy event ledger and residual-risk summary."
+      ],
+      novelty: "The lab lets a student compare threat classes and control coverage in one harmless simulation, making both defensive value and residual risk explicit.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Vitest", "Deterministic synthetic events"],
+      milestones: ["Threat model and safe event schema", "Bounded network-state simulator", "Control and detection comparison", "Accessible evidence report and safety audit"],
+      success: "A learner can explain why ARP trust, packet confidentiality, service capacity, and fragment handling require different controls, using only a bounded synthetic scenario."
+    }
+  },
   "ecs-6401-2026-10-07-180243": {
     en: {
       title: "Equilibrium & Volatility Lab",

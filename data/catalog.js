@@ -1163,6 +1163,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["MD5 padding, rounds, and collision weaknesses", "SHA-family context and shared-key MACs", "CBC, counter mode, and authenticated encryption"]
+        },
+        {
+          id: "ebb-6403-2026-10-10-053339-7a8c92",
+          number: 11,
+          date: "2026-10-10",
+          sourceRecordedAt: "2026-10-10T05:33:39+05:30",
+          sourceFilename: "Security and Privacy for Big Data-20261010_053339-Meeting Recording.mp4",
+          displayDate: "10 October 2026",
+          title: "Network intrusion, sniffing, spoofing, and denial of service",
+          duration: "1h 58m 39s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course78_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse78_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSecurity+and+Privacy+for+Big+Data-20261010_053339-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Connected-system threat boundaries and the CIA triad", "Packet sniffing, MAC-table and ARP threats, and session risk", "DoS patterns, IPv4 fragmentation, and resource resilience"]
         }
       ]
     },

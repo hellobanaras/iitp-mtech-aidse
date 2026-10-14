@@ -2262,6 +2262,38 @@ export const openLearningResources = {
       title: "Side-Channel Attacks: Defences and Evaluation Schemes",
       description: "NIST material extending the lecture's timing and implementation-leakage discussion with practical side-channel threat and defence context.",
       url: "https://csrc.nist.gov/presentations/2021/side-channels-attacks-defences-and-evaluation-sche"
+    },
+    {
+      provider: "IETF",
+      kind: "Internet protocol standard",
+      access: "Free public RFC",
+      title: "RFC 826: Address Resolution Protocol",
+      description: "Primary protocol specification for the IPv4-to-Ethernet address resolution that underlies the lecture's ARP mapping and spoofing examples.",
+      url: "https://www.rfc-editor.org/info/rfc826/"
+    },
+    {
+      provider: "IETF",
+      kind: "Internet protocol standard",
+      access: "Free public RFC",
+      title: "RFC 791: Internet Protocol",
+      description: "Primary reference for IPv4 datagrams, fragmentation flags and offsets, and reassembly concepts covered in the closing worked example.",
+      url: "https://www.rfc-editor.org/rfc/rfc791.html"
+    },
+    {
+      provider: "NIST",
+      kind: "Intrusion detection guidance",
+      access: "Free public guidance",
+      title: "SP 800-94: Guide to Intrusion Detection and Prevention Systems",
+      description: "NIST's final guidance introduces network-, wireless-, host-, and behavior-based detection/prevention systems; NIST notes its later revision draft was retired.",
+      url: "https://csrc.nist.gov/pubs/sp/800/94/final"
+    },
+    {
+      provider: "Wireshark Foundation",
+      kind: "Packet-analysis documentation",
+      access: "Free documentation",
+      title: "Wireshark User's Guide",
+      description: "Official packet-analysis documentation for authorized local captures and supplied practice traces, extending the lecture's packet-sniffing discussion.",
+      url: "https://www.wireshark.org/docs/wsug_html_chunked/"
     }
   ]
 };
