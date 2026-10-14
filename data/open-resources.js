@@ -826,6 +826,32 @@ export const openLearningResources = {
       description: "A codebase for tracing latent patch inputs, conditioning, and transformer blocks in the paper's diffusion architecture.",
       descriptionHi: "Paper की diffusion architecture में latent patches, conditioning और Transformer blocks trace करने का codebase।",
       url: "https://github.com/facebookresearch/DiT"
+    },
+    {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Open research paper",
+      kindHi: "मुक्त research paper",
+      access: "Free full text",
+      accessHi: "मुफ़्त full text",
+      title: "PixArt-α: Fast Training of Diffusion Transformer for Photorealistic Text-to-Image Synthesis",
+      titleHi: "PixArt-α: Fast Training of Diffusion Transformer for Photorealistic Text-to-Image Synthesis",
+      description: "The paper named in class develops an efficient text-to-image Diffusion Transformer and complements the lecture's conditioning discussion.",
+      descriptionHi: "Class में उल्लेखित text-to-image Diffusion Transformer paper, जो efficient training और conditioning चर्चा को आगे बढ़ाता है।",
+      url: "https://arxiv.org/abs/2310.00426"
+    },
+    {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Open research paper",
+      kindHi: "मुक्त research paper",
+      access: "Free full text",
+      accessHi: "मुफ़्त full text",
+      title: "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      titleHi: "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      description: "The primary MMDiT/rectified-flow paper behind the lecture's image-text representations and joint-attention example.",
+      descriptionHi: "Lecture के image-text representations और joint-attention उदाहरण का primary MMDiT/rectified-flow paper।",
+      url: "https://arxiv.org/abs/2403.03206"
     }
   ],
   "ecc-6404": [

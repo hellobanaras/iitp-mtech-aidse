@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-14",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 116,
+  filesInventoried: 117,
   courses: [
     {
       code: "EAI 6103",
@@ -445,8 +445,8 @@ export const catalog = {
       icon: "GA",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/people?emailId=course74%5Fhybrid%40iitp%2Eac%2Ein",
       status: "active",
-      statusLabel: "11 lectures available",
-      note: "Lectures from 23 August through 4 October are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
+      statusLabel: "12 lectures available",
+      note: "Lectures from 23 August through 10 October are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
       lectures: [
         {
           id: "eai-6403-2026-08-23",
@@ -605,6 +605,21 @@ export const catalog = {
           statusLabel: "Notes published",
           sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:01:35–00:18:54" },
           overview: ["CNN locality, global attention, and ViT patch tokens", "Forward/reverse diffusion and compressed image latents", "DiT latent patches with timestep, class, and block conditioning"]
+        },
+        {
+          id: "eai-6403-2026-10-10-154512-7b1fb6",
+          number: 12,
+          date: "2026-10-10",
+          sourceRecordedAt: "2026-10-10T15:45:12+05:30",
+          sourceFilename: "Selective Topics in Generative AI-20261010_154512-Meeting Recording.mp4",
+          displayDate: "10 October 2026",
+          title: "Diffusion Transformers: latent patches, conditioning, and multimodal attention",
+          duration: "23m 23s teaching; participant-only opening and tail excluded",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course74_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course74_hybrid_iitp_ac_in/Documents/Recordings/Selective+Topics+in+Generative+AI-20261010_154512-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:02:09–00:25:32" },
+          overview: ["DiT scaling, FID, and compute trade-offs", "VAE latent patch tokens and conditioned denoising", "FiLM, PixArt-α, and image-text joint attention"]
         }
       ]
     },

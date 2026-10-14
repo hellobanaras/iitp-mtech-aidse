@@ -3146,4 +3146,32 @@ export const capstones = Object.freeze({
       success: "A learner can reproduce both classifiers, explain a prediction from its source evidence, select settings without test leakage, and distinguish rule coverage from neighborhood size."
     }
   }
+  ,"eai-6403-2026-10-10-154512-7b1fb6": {
+    en: {
+      title: "Trace a prompt-conditioned latent denoiser",
+      pitch: "Make latent patch tokens, timestep conditioning, and image-text interaction inspectable in a small, reproducible study.",
+      problem: "Patch count, hidden width, noise state, and text conditioning are easy to conflate. A traced pipeline should expose the representation at each stage without making benchmark claims from a toy experiment.",
+      learning: "Practise DiT tokenization, latent diffusion, conditioning, and multimodal attention. This is optional study practice, not instructor-assigned work.",
+      mvp: [
+        "Draw image → VAE latent → p×p patch tokens → denoising blocks → unpatch → VAE decode, and label the tensor shapes.",
+        "For a 32×32 latent, compute token counts for p=2, 4, and 8, then compare dense attention-map sizes and explain the compute trade-off.",
+        "Diagram separate image, timestep, and text/class conditions, showing one modulation path and one image-text joint-attention path.",
+        "Use a small public model or synthetic demonstration; record prompt, resolution, seed, sampler, runtime, and limitations.",
+        "Compare two prompts that differ in one relation and describe the observed output without claiming one sample establishes general reliability."
+      ],
+      stretch: [
+        "Compare patch widths while holding latent size and model settings fixed; report sequence length, approximate attention work, runtime, and output limitations.",
+        "Contrast adaLN-style modulation with joint attention using a diagram or a small controlled implementation."
+      ],
+      plan: [
+        "Choose licensed or synthetic inputs and document model and data provenance.",
+        "Implement tested shape and token-count calculations for multiple patch widths.",
+        "Trace the forward-noise and reverse-denoising directions and keep timestep separate from content conditioning.",
+        "Present outputs with reproducible settings and explicitly bounded conclusions."
+      ],
+      stack: ["Python", "PyTorch", "Jupyter", "Matplotlib"],
+      milestones: ["Shape and patch audit", "Attention-cost comparison", "Conditioning diagram", "Reproducible demonstration and limitations"],
+      success: "The study distinguishes latent dimensions, patch width, token count, and embedding width; correctly explains denoising and conditioning; and makes no unsupported quality claims."
+    }
+  }
 });
