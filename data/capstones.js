@@ -2440,6 +2440,26 @@ export const capstones = Object.freeze({
       success: "A learner can explain why margin reduces rapid reversals but may delay handoff, reproduce the example without unit errors, and identify the limits of pilot-based open-loop power estimates."
     }
   },
+  "ecs-6402-2026-10-09-203445-515ec3": {
+    en: {
+      title: "ErlangScope: an accessible cellular capacity explorer",
+      pitch: "Build a transparent traffic-engineering tool that connects call arrivals and holding times to average occupancy, blocking, carried load, and finite-source effects.",
+      problem: "A channel count that matches average demand can still fail during fluctuations, while offered traffic and carried traffic are easily confused.",
+      learning: "Let learners vary λ, H, channel count, blocking probability, handoff arrivals, and finite source population; keep assumptions visible and explain when each model applies.",
+      mvp: [
+        "Compute A=λH with unit-aware inputs and label the result in Erlangs and average busy channels.",
+        "Show offered versus carried load under configurable blocking, clearly labelling C=A(1−P) as the lecture's simplified relation.",
+        "Compare infinite-source arrivals with λ_k=λ_0(L−k)/L for a finite population and plot how busy sources change the arrival rate.",
+        "Create a reproducible busy-hour measurement panel that distinguishes average load from a short-lived peak."
+      ],
+      stretch: ["Add a labelled Erlang-B loss model as an optional extension, with assumptions and comparison against the lecture's simplified accounting relation.", "Export an accessible text report containing units, model assumptions, and scenario results."],
+      plan: ["Define offered, carried, blocked, and handoff traffic and establish consistent time units.", "Implement and unit-test λH, the worked 4.9-Erlang measurement, and finite-source rate calculations.", "Add channel-capacity and blocking visualisations without implying the mean is a guaranteed peak bound.", "Test keyboard navigation, screen-reader labels, and exported explanation against known examples."],
+      novelty: "The learner can inspect how identical average load can arise from different populations and arrival assumptions, while seeing exactly where blocking and handoff traffic enter.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Vitest"],
+      milestones: ["Unit-aware Erlang calculator", "Offered/carried comparison", "Finite-source simulator", "Accessible scenario report"],
+      success: "A learner can reproduce both lecture examples, explain why average load is not a peak guarantee, and identify the source-population assumption behind a finite-source model. This is optional study practice, not an instructor-assigned project."
+    }
+  },
   "eai-6403-2026-09-05-154129": {
     "en": {
       "title": "Attention map explainer",

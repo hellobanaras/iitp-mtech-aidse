@@ -1512,6 +1512,30 @@ export const openLearningResources = {
       title: "TS 36.331 — E-UTRA Radio Resource Control (RRC)",
       description: "Advanced primary reference for radio measurements and mobility-control procedures related to the lecture's introductory handoff discussion.",
       url: "https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=2440"
+    },
+    {
+      provider: "ITU-T",
+      kind: "Primary traffic-measurement recommendation",
+      access: "Free recommendation page",
+      title: "E.500 — Traffic intensity measurement principles",
+      description: "Follow the October 9 traffic-engineering lecture with primary guidance on measured intensity, carried load, busy-hour definitions, and dimensioning methods.",
+      url: "https://www.itu.int/rec/T-REC-E.500-199811-I/en"
+    },
+    {
+      provider: "ITU-T",
+      kind: "Primary traffic-estimation recommendation",
+      access: "Recommendation page",
+      title: "E.501 — Estimation of traffic offered in the network",
+      description: "Study how offered traffic can be estimated when observations reflect carried load under congestion; complements the lecture's A=λH and blocking discussion.",
+      url: "https://www.itu.int/rec/T-REC-E.501/en"
+    },
+    {
+      provider: "3GPP",
+      kind: "Primary radio specification",
+      access: "Public specification page",
+      title: "TS 25.214 — Physical layer procedures (FDD)",
+      description: "Advanced primary reference for feedback power-control procedures; compare its system-specific procedures with the lecture's open-loop and closed-loop overview.",
+      url: "https://www.3gpp.org/dynareport/25214.htm"
     }
   ],
   "ebb-6401": [

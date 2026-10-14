@@ -226,6 +226,7 @@ const visualTemplates = {
   "ecs-6402-2026-09-25-203453": "radioPropagation",
   "ecs-6402-2026-10-01-203455-ca0fb3": "dopplerFading",
   "ecs-6402-2026-10-08-203525-de5447": "handoffPower",
+  "ecs-6402-2026-10-09-203445-515ec3": "wireless",
   "eai-6402-2026-09-26": "edaImputation",
   "ecs-6401-2026-09-25-180502": "cointegration",
   "ecs-6401-2026-10-07-180243": "vecmArch",

@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-14",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 113,
+  filesInventoried: 115,
   courses: [
     {
       code: "EAI 6103",
@@ -606,8 +606,8 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "active",
-      statusLabel: "13 lectures available",
-      note: "The October 8 lecture compares RSS handoff policies, works cellular reuse geometry, and introduces CDMA power control.",
+      statusLabel: "14 lectures available",
+      note: "The October 9 lecture contrasts open- and closed-loop radio power control, then develops Erlang traffic, blocking, busy-hour sizing, and finite-source models.",
       lectures: [
         {
           id: "ecs-6402-2026-08-21-204351",
@@ -792,6 +792,21 @@ export const catalog = {
           statusLabel: "Notes published",
           sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:01:18.79–01:27:02.25" },
           overview: ["RSS smoothing, thresholds, hysteresis, and ping-pong handoffs", "Reuse-distance and delayed-handoff power calculation", "CDMA near-far problem and pilot-based open-loop power control"]
+        },
+        {
+          id: "ecs-6402-2026-10-09-203445-515ec3",
+          number: 14,
+          date: "2026-10-09",
+          sourceRecordedAt: "2026-10-09T20:34:45+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20261009_203445-Meeting Recording.mp4",
+          displayDate: "9 October 2026",
+          title: "Power control and cellular traffic engineering",
+          duration: "1h 29m 39s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course75_hybrid_iitp_ac_in/Documents/Recordings/Selected%20Topics%20in%20Wireless%20Networks-20261009_203445-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:02:32–01:19:42" },
+          overview: ["Pilot-based open-loop and receiver-feedback closed-loop power control", "Erlang traffic intensity, channel capacity, blocking, and carried load", "Busy-hour planning and finite-source arrival rates"]
         }
       ]
     },
