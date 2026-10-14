@@ -1,5 +1,34 @@
 // Public English-only mini-capstone ideas.
 export const capstones = Object.freeze({
+  "ecs-6401-2026-10-09-180708-92c407": {
+    en: {
+      title: "SplitSense: an explainable decision-tree workbench",
+      pitch: "Build a small browser lab that lets learners calculate entropy, information gain, split information, and gain ratio for transparent toy datasets, then inspect how pruning changes tree size and held-out performance.",
+      problem: "A split can look impressive because it creates many tiny branches, while an overgrown tree can memorize training rows. Learners need an auditable way to distinguish genuine label-uncertainty reduction from high-cardinality artifacts and to see the generalization trade-off introduced by pruning.",
+      learning: "Implement categorical tree splits, class-count calculations, information-gain and gain-ratio comparisons, high-cardinality counterexamples, pre/post-pruning controls, and a leakage-safe evaluation. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Create a tiny synthetic labelled dataset with categorical age-like values and a deliberately unhelpful identifier feature; show every class count at each branch.",
+        "Calculate parent entropy, each child entropy, child-size weights, weighted post-split entropy, and information gain with a clear base-2 convention.",
+        "Calculate split information and gain ratio, compare the chosen root under information gain and gain ratio, and explain why neither criterion alone proves predictive usefulness.",
+        "Grow a small deterministic tree and compare unrestricted growth with pre-pruning and post-pruning controls using a separate validation set and a final held-out test set.",
+        "Render an accessible tree diagram and a compact evidence table showing feature, child counts, entropy, gain, split information, ratio, node count, and held-out score."
+      ],
+      stretch: [
+        "Add numeric-threshold candidates and show how the threshold search changes the split comparison without using test labels.",
+        "Run repeated seeded splits and report uncertainty in held-out performance alongside tree size, rather than selecting from one favorable split."
+      ],
+      plan: [
+        "Define label conventions, entropy edge cases, and a deterministic synthetic dataset with tests for pure and balanced nodes.",
+        "Implement branch counts and weighted impurity criteria; test the calculations against hand-worked examples.",
+        "Add tree growth, pruning controls, and leakage-safe train/validation/test partitions.",
+        "Polish the accessible visualization and export a reproducible report that separates training fit from generalization evidence."
+      ],
+      novelty: "The workbench makes the full decision visible: it shows not only which feature wins, but how class counts, branch cardinality, tree complexity, and held-out evidence support or challenge that choice.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Vitest", "Seeded synthetic data"],
+      milestones: ["Week 1: entropy and count-tested data model", "Week 2: gain and gain-ratio comparison", "Week 3: tree growth and pruning evaluation", "Week 4: accessibility, repeated trials, and evidence export"],
+      success: "A learner can reproduce each split score from visible counts, explain an identifier-like high-cardinality counterexample, and justify a pruned model using held-out evidence without tuning on the test set."
+    }
+  },
   "ebb-6403-2026-10-09-073615-b3e48e": {
     en: {
       title: "IntegrityGate: an authenticated message lab",

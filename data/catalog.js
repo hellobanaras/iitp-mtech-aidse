@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-14",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 112,
+  filesInventoried: 113,
   courses: [
     {
       code: "EAI 6103",
@@ -1163,8 +1163,8 @@ export const catalog = {
       icon: "TS",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course129_hybrid_iitp_ac_in/IgC377O2f2n2SI6uo-EJPeMMAZbBcmUQN6fmgL_JHX60GiA?e=yUCaLx",
       status: "active",
-      statusLabel: "13 lectures available",
-      note: "Lectures 1–13 are published in chronological order. The Oct 7 lecture continues Johansen cointegration-rank testing and introduces ARCH/GARCH conditional volatility; its short announced break and idle tail are excluded from the learning summary.",
+      statusLabel: "14 lectures available",
+      note: "Lectures 1–14 are published in chronological order. The Oct 7 lecture continues Johansen cointegration-rank testing and introduces ARCH/GARCH conditional volatility. The Oct 9 recording covers decision-tree entropy, information gain, gain ratio, and pruning; a numerical-data interpretation activity and participant-only tail are identified separately.",
       lectures: [
         {
           id: "ecs-6401-2026-08-19-175559",
@@ -1347,6 +1347,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["VECM Π = αβ′ and cointegration rank", "Johansen trace and maximum-eigenvalue tests", "ARCH/GARCH conditional variance, volatility persistence, and diagnostics"]
+        },
+        {
+          id: "ecs-6401-2026-10-09-180708-92c407",
+          number: 14,
+          date: "2026-10-09",
+          sourceRecordedAt: "2026-10-09T18:07:08+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20261009_180708-Meeting Recording.mp4",
+          displayDate: "9 October 2026",
+          title: "Decision trees: entropy, information gain, gain ratio, and pruning",
+          duration: "1h 08m 29s bounded source interval; numerical-data activity noted separately",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse129_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FAdvanced+Time+Series+Analysis-20261009_180708-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Entropy and weighted information gain for categorical splits", "ID3 information gain and C4.5 gain-ratio contrast", "Overfitting, pruning, and unseen-data generalization"]
         }
       ]
     },

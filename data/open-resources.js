@@ -922,6 +922,19 @@ export const openLearningResources = {
       url: "https://scikit-learn.org/stable/auto_examples/tree/plot_cost_complexity_pruning.html"
     },
     {
+      provider: "Google for Developers",
+      providerHi: "Google for Developers",
+      kind: "Interactive practice",
+      kindHi: "Interactive practice",
+      access: "Free course exercise",
+      accessHi: "मुफ़्त course exercise",
+      title: "Creating a decision tree",
+      titleHi: "Creating a decision tree",
+      description: "Build and inspect a small tree, using validation examples to reason about pruning and the limits of a single tree.",
+      descriptionHi: "छोटा tree बनाकर देखें और validation examples से pruning तथा single tree की सीमाओं को समझें।",
+      url: "https://developers.google.com/machine-learning/decision-forests/practice"
+    },
+    {
       provider: "Carnegie Mellon University",
       kind: "Open lecture slides",
       access: "Free course material",
@@ -983,6 +996,32 @@ export const openLearningResources = {
     }
   ],
   "ecs-6401": [
+    {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
+      kind: "Official documentation",
+      kindHi: "Official documentation",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Decision Trees user guide",
+      titleHi: "Decision Trees user guide",
+      description: "Review entropy and Gini split criteria, tree growth, overfitting, and implementation caveats alongside the lecture's worked ID3/CART examples.",
+      descriptionHi: "Lecture के worked ID3/CART examples के साथ entropy और Gini split criteria, tree growth, overfitting और implementation caveats पढ़ें।",
+      url: "https://scikit-learn.org/stable/modules/tree.html"
+    },
+    {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
+      kind: "Official worked example",
+      kindHi: "Official worked example",
+      access: "Free example and code",
+      accessHi: "मुफ़्त example और code",
+      title: "Post-pruning decision trees with cost-complexity pruning",
+      titleHi: "Post-pruning decision trees with cost-complexity pruning",
+      description: "Run the official example to inspect pruning paths, effective alpha values, tree size, and validation performance; it extends the lecture's overfitting and post-pruning discussion.",
+      descriptionHi: "Pruning paths, effective alpha, tree size और validation performance देखें; यह lecture की overfitting और post-pruning चर्चा को आगे बढ़ाता है।",
+      url: "https://scikit-learn.org/stable/auto_examples/tree/plot_cost_complexity_pruning.html"
+    },
     {
       provider: "Nobel Prize",
       kind: "Watch and read",

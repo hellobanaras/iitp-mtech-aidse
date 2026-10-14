@@ -34,6 +34,12 @@ const templates = {
     steps: ["Levels → β′y equilibrium relations", "α adjusts changes toward equilibrium", "Past shocks → ARCH variance", "Past variance → GARCH persistence"],
     detail: "A study map contrasting long-run multivariate dependence with time-varying uncertainty; the models answer different questions."
   },
+  decisionTree: {
+    title: "From uncertain labels to a generalizing tree",
+    description: "Compute class uncertainty at the parent, compare child-size-weighted entropy for each candidate split, account for high-cardinality bias, then prune complexity against unseen-data performance.",
+    steps: ["Count positive / negative labels", "Compute parent entropy", "Weight child entropies → information gain", "Normalize by split information when needed", "Prune; evaluate generalization"],
+    detail: "The age-category example, ID3/C4.5 contrast, and overfitting discussion are tied to the lecture's timecoded slide trail."
+  },
   rl: {
     title: "The reinforcement-learning feedback loop",
     description: "A learner improves by acting, observing the outcome, and feeding the experience back into its next decision.",
@@ -223,6 +229,7 @@ const visualTemplates = {
   "eai-6402-2026-09-26": "edaImputation",
   "ecs-6401-2026-09-25-180502": "cointegration",
   "ecs-6401-2026-10-07-180243": "vecmArch",
+  "ecs-6401-2026-10-09-180708-92c407": "decisionTree",
   "eai-6103-2026-08-18-193045": "ml",
   "eai-6103-2026-08-22-092455": "python",
   "eai-6103-2026-08-25-183026": "ml",
