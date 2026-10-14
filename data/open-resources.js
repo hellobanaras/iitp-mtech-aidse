@@ -1891,6 +1891,32 @@ export const openLearningResources = {
       description: "Official reference for how trusted identities, organisations, roles, and channel membership govern permissioned Fabric participation.",
       descriptionHi: "Trusted identities, organisations, roles और channel membership द्वारा permissioned Fabric participation कैसे नियंत्रित होता है—इसकी official reference।",
       url: "https://hyperledger-fabric.readthedocs.io/en/latest/membership/membership.html"
+    },
+    {
+      provider: "OECD",
+      providerHi: "OECD",
+      kind: "Corporate governance principles",
+      kindHi: "Corporate governance principles",
+      access: "Free public report",
+      accessHi: "मुफ़्त public report",
+      title: "G20/OECD Principles of Corporate Governance 2023",
+      titleHi: "G20/OECD Principles of Corporate Governance 2023",
+      description: "Official principles on shareholder rights, disclosure and transparency, board responsibilities, and the legal and institutional framework—the core governance layers in the Oct 8 lecture.",
+      descriptionHi: "Shareholder rights, disclosure, transparency और board responsibilities के official principles—Oct 8 lecture के मुख्य governance layers।",
+      url: "https://www.oecd.org/en/publications/g20-oecd-principles-of-corporate-governance-2023_ed750b30-en/full-report.html"
+    },
+    {
+      provider: "Bank for International Settlements",
+      providerHi: "Bank for International Settlements",
+      kind: "Tokenisation research",
+      kindHi: "Tokenisation research",
+      access: "Free public research",
+      accessHi: "मुफ़्त public research",
+      title: "The tokenisation continuum",
+      titleHi: "The tokenisation continuum · BIS",
+      description: "Explains how a tokenized claim combines asset/ownership information with platform rules and governance, and why legal, economic, and technical constraints condition tokenization benefits.",
+      descriptionHi: "Tokenized claim में asset/ownership information और platform rules कैसे जुड़ते हैं तथा legal, economic और technical constraints benefits को कैसे प्रभावित करते हैं।",
+      url: "https://www.bis.org/publications/bulletin-72-tokenisation-continuum"
     }
   ],
   "ebb-6403": [

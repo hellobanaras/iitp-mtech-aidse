@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-07",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 109,
+  filesInventoried: 110,
   courses: [
     {
       code: "EAI 6103",
@@ -1546,8 +1546,8 @@ export const catalog = {
       icon: "BP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course126_hybrid_iitp_ac_in/IgCHFNnPY4p5T6ER5i66wfU6ARez8raFCClh3yjgh9MvxQ4?e=BpEdrU",
       status: "active",
-      statusLabel: "11 lectures available",
-      note: "Lectures 1–11 are published from verified teaching intervals; participant-only openings, internal breaks, and idle tails were excluded after full timeline sweeps.",
+      statusLabel: "12 lectures available",
+      note: "Lectures 1–12 are published from verified teaching intervals; participant-only openings, internal breaks, and idle tails were excluded from instructional summaries after full timeline sweeps.",
       lectures: [
         {
           id: "ebb-6402-2026-08-18-180205",
@@ -1702,6 +1702,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Industry bodies, standards, and regulatory dialogue", "Enterprise Ethereum Alliance interoperability and compatibility goals", "Hyperledger governance, Fabric architecture, and structural challenges"]
+        },
+        {
+          id: "ebb-6402-2026-10-08-180522-6ce676",
+          number: 12,
+          date: "2026-10-08",
+          sourceRecordedAt: "2026-10-08T18:05:22+05:30",
+          sourceFilename: "Blockchain policy – Legal, Social and Economic Impact-20261008_180522-Meeting Recording.mp4",
+          displayDate: "8 October 2026",
+          title: "Corporate governance systems and blockchain-based ownership",
+          duration: "1h 09m 52s teaching",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course126_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse126_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FBlockchain+policy+%E2%80%93+Legal%2C+Social+and+Economic+Impact-20261008_180522-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Stakeholder roles and corporate-governance hierarchy", "Legal duties, internal controls, transparency, and accountability", "On-chain processes, tokenized ownership, and legal limitations"]
         }
       ]
     }

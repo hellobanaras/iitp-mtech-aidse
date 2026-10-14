@@ -1920,6 +1920,35 @@ export const capstones = Object.freeze({
       "success": "A learner can trace one consortium transaction from a shared standard to identity, endorsement, ordering, and visibility; explain the decision owners; and identify one interoperability limitation and one governance risk with evidence."
     }
   },
+  "ebb-6402-2026-10-08-180522-6ce676": {
+    "en": {
+      "title": "RightsLedger — a corporate-governance and token-claim workbench",
+      "pitch": "Build an accessible simulator that traces a synthetic asset claim from board-approved policy through evidence, token issuance, transfer rules, and accountable review.",
+      "problem": "A token can move between wallets without proving that the underlying asset exists, that the holder has enforceable rights, or that a responsible institution will resolve a dispute. RightsLedger makes the legal, operational, and technical links visible.",
+      "learning": "Model stakeholder roles, board and executive decisions, internal controls, transparency, asset evidence, token permissions, and the legal/institutional connection between an on-chain record and an off-chain claim.",
+      "mvp": [
+        "Create a fictional asset and specify the issuer, evidence source, claim represented, eligible holders, transfer restrictions, and governing process.",
+        "Map shareholders, board committees, executives, auditors, customers, regulators, and affected stakeholders to authority, responsibility, and disclosure needs.",
+        "Simulate token issuance, a transfer request, an evidence mismatch, and a disputed claim; show which decision is automated and which requires human or institutional review.",
+        "Export a transparent decision log with the policy, procedure, evidence, decision owner, accountability path, and unresolved limitations."
+      ],
+      "stretch": [
+        "Compare a permissionless transfer with a permissioned eligibility workflow without assuming either is legally superior.",
+        "Test stale evidence, a compromised issuer key, conflicting ownership records, and a jurisdiction-specific transfer restriction.",
+        "Add a privacy review that minimises personal information while preserving the audit evidence required by the scenario."
+      ],
+      "plan": [
+        "Week 1: define the synthetic asset, rights, stakeholders, and governance map.",
+        "Week 2: implement evidence validation, issuance, transfer rules, and decision logs.",
+        "Week 3: add dispute, control-failure, privacy, and regulatory scenarios.",
+        "Week 4: test accessibility and edge cases, then publish a concise audit report with assumptions and limits."
+      ],
+      "novelty": "It treats tokenization as a governed claim backed by evidence and institutional responsibility, rather than a token-minting demonstration.",
+      "stack": ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      "milestones": ["Governance and rights map", "Evidence and token lifecycle", "Controls and dispute scenarios", "Accessible audit export"],
+      "success": "A learner can explain what the token represents, who approved and controls it, what evidence supports it, how a transfer is constrained, and why on-chain execution alone cannot establish legal title."
+    }
+  },
   "ecs-6402-2026-09-03-203415": {
     "en": {
       "title": "LayerLens: an ATM and OSI protocol-stack visualizer",
