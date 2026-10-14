@@ -470,6 +470,30 @@ export const openLearningResources = {
       description: "Hinton, Vinyals, and Dean's foundational paper provides a primary-source account of transferring a teacher's information to a compact student.",
       descriptionHi: "Hinton, Vinyals और Dean का foundational paper teacher से compact student में information transfer का primary source है।",
       url: "https://arxiv.org/abs/1503.02531"
+    },
+    {
+      provider: "PyTorch", providerHi: "PyTorch", kind: "Practice", kindHi: "Practice",
+      access: "Free official tutorial", accessHi: "Free official tutorial",
+      title: "Build the Neural Network", titleHi: "Build the Neural Network",
+      description: "An official nn.Module tutorial connecting affine layers, activations, and a model forward pass to the lecture's vectorized network notation.",
+      descriptionHi: "Official nn.Module tutorial connecting affine layers, activations और forward pass को lecture के vectorized network notation से जोड़ता है।",
+      url: "https://docs.pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html"
+    },
+    {
+      provider: "scikit-learn", providerHi: "scikit-learn", kind: "Reference", kindHi: "Reference",
+      access: "Free official documentation", accessHi: "Free official documentation",
+      title: "Regression metrics: MAE and MSE", titleHi: "Regression metrics: MAE and MSE",
+      description: "Official formulas for MAE and MSE help compare the lecture's discussion of residual size, outliers, and metric choice.",
+      descriptionHi: "MAE और MSE के official formulas residual size, outliers और metric choice पर lecture की चर्चा को मजबूत करते हैं।",
+      url: "https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics"
+    },
+    {
+      provider: "PMLR", providerHi: "PMLR", kind: "Open research paper", kindHi: "Open research paper",
+      access: "Free full text", accessHi: "Free full text",
+      title: "Understanding the difficulty of training deep feedforward neural networks", titleHi: "Understanding the difficulty of training deep feedforward neural networks",
+      description: "Glorot and Bengio's primary study analyzes saturation and gradient behavior across deep layers, extending the lecture's activation discussion.",
+      descriptionHi: "Glorot और Bengio का primary study deep layers में saturation और gradient behavior का विश्लेषण करता है।",
+      url: "https://proceedings.mlr.press/v9/glorot10a.html"
     }
   ],
   "eai-6403": [

@@ -155,6 +155,36 @@ export const capstones = Object.freeze({
       success: "A learner can distinguish learned parameters from hyperparameters, explain architectural compatibility, reproduce the comparison, and state which method best fits the declared resource budget."
     }
   },
+  "eai-6402-2026-10-10-100436-dfea95": {
+    en: {
+      title: "Gradient and Generalization Lab",
+      pitch: "Build a small, accessible simulator that connects activation and loss choices to gradient flow and train/validation behavior on synthetic classification and regression tasks.",
+      problem: "Activation plots, loss curves, and bias–variance diagrams are often learned separately. A compact experiment can show how each choice affects optimization and how a training result can fail to generalize.",
+      learning: "Compare sigmoid, tanh, ReLU, and Leaky ReLU; contrast MAE, MSE, and Huber; visualize gradient norms and model complexity; and use a held-out validation set to diagnose underfit versus overfit. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Use deterministic synthetic data with a documented nonlinear target and fixed train/validation/test splits; do not use private student data.",
+        "Plot each activation and derivative, then show layer-by-layer gradient magnitudes for controlled toy networks with small, ordinary, and large initial scales.",
+        "Compare MAE, MSE, and Huber on the same residuals, including a clearly marked outlier; label each loss and derivative accurately.",
+        "Fit low-, medium-, and high-capacity curves and plot training and validation errors on a common scale to illustrate high bias and high variance.",
+        "Add a clipping toggle and a regularization/data-size comparison, reporting what changes and what does not on the fixed held-out test set."
+      ],
+      stretch: [
+        "Add one-hot softmax cross-entropy and verify numerically that the logit gradient equals predicted probabilities minus the target vector.",
+        "Let learners change the Leaky ReLU negative slope and show the distinction between an inactive unit and a gradient that shrinks through depth.",
+        "Repeat experiments across fixed random seeds and show variability bands rather than presenting one run as universal evidence."
+      ],
+      plan: [
+        "Write down the synthetic target, data-generation seed, model families, loss definitions, and evaluation split before running comparisons.",
+        "Implement activation/derivative and loss/derivative unit tests, including numerical gradient checks for the softmax cross-entropy case.",
+        "Run the capacity and gradient experiments with identical data splits; preserve training and validation histories and keep test results sealed until choices are fixed.",
+        "Render an accessible diagram and results table with text alternatives, then explain which conclusions are specific to the toy setup."
+      ],
+      novelty: "The lab aligns three views—equations, gradient traces, and held-out performance—so learners can distinguish an optimization symptom from a generalization problem.",
+      stack: ["Python", "NumPy", "PyTorch", "Jupyter", "Accessible HTML/SVG"],
+      milestones: ["Derivative and loss checks", "Activation/gradient explorer", "Bias–variance curve comparison", "Accessible evidence report"],
+      success: "A learner can distinguish vanishing gradients from dead units, justify an error metric, read training/validation gaps, and state the limits of synthetic evidence."
+    }
+  },
   "ecs-6401-2026-09-25-180502": {
     en: {
       title: "EquilibriumLab: see a shared trend and its correction",

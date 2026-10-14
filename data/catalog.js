@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-14",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 115,
+  filesInventoried: 116,
   courses: [
     {
       code: "EAI 6103",
@@ -416,6 +416,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Feed-forward neural networks and chain-rule backpropagation", "Validation-guided hyperparameter tuning and mini-batch updates", "Knowledge distillation versus compatible-weight transfer learning"]
+        },
+        {
+          id: "eai-6402-2026-10-10-100436-dfea95",
+          number: 8,
+          date: "2026-10-10",
+          sourceRecordedAt: "2026-10-10T10:04:36+05:30",
+          sourceFilename: "Meta Learning-20261010_100436-Meeting Recording.mp4",
+          displayDate: "10 October 2026",
+          title: "Neural-network activations, losses, and bias–variance",
+          duration: "Approximately 1h 25m teaching interval; quiet transition retained",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course73_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse73_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FMeta+Learning-20261010_100436-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Vectorized forward propagation and softmax/cross-entropy gradients", "Activation functions, loss choices, and gradient failure modes", "Bias–variance diagnosis using training and validation performance"]
         }
       ]
     },
