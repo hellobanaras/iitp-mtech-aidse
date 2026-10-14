@@ -178,6 +178,12 @@ const templates = {
     steps: ["Data and assets", "Threat / risk", "Controls", "Monitor and respond"],
     detail: "The loop connects privacy, security, and operational response."
   },
+  hashMacAuth: {
+    title: "From a message to an authenticated decision",
+    description: "Compare a recomputable digest with a shared-key MAC, then encrypt as needed; the receiver accepts content only after the intended authentication check succeeds.",
+    steps: ["Message and trusted reference", "Choose unkeyed hash or keyed MAC", "Encrypt for confidentiality", "Verify tag before accepting"],
+    detail: "The flow separates change detection, key-based authentication, confidentiality, and the receiver's reject-on-failure decision."
+  },
   logistic: {
     title: "From metric geometry to a class decision",
     description: "A supervised classifier chooses a geometry, maps a linear score through a sigmoid, optimises a loss, and selects the class with the strongest hypothesis.",
@@ -228,7 +234,7 @@ const visualTemplates = {
   "ebb-6401-2026-08-17-180921": "smartcontract", "ebb-6401-2026-08-17-184812": "smartcontract", "ebb-6401-2026-08-19-180224": "smartcontract", "ebb-6401-2026-08-24-180004": "smartcontract", "ebb-6401-2026-09-02-180427": "smartcontract", "ebb-6401-2026-09-07-183334": "smartcontract", "ebb-6401-2026-09-09-180136": "smartcontract", "ebb-6401-2026-09-14-180946": "smartcontract", "ebb-6401-2026-09-16-180450": "smartcontract", "ebb-6401-2026-09-23-190135": "smartcontract", "ebb-6401-2026-09-28-181150": "merklePatricia", "ebb-6401-2026-10-05-180333-664a36": "contractLifecycle", "ebb-6401-2026-10-07-180906-acd0c4": "optimisticRollup",
   "ecc-6404-2026-08-17-193438": "warehouse", "ecc-6404-2026-08-19-193245": "warehouse", "ecc-6404-2026-08-24-193338": "warehouse", "ecc-6404-2026-08-26-193241": "warehouse", "ecc-6404-2026-08-31-193236": "warehouse", "ecc-6404-2026-09-02-193120": "warehouse", "ecc-6404-2026-09-07-193559": "warehouse", "ecc-6404-2026-09-09-193233": "warehouse", "ecc-6404-2026-09-14-193017": "warehouse", "ecc-6404-2026-09-16-193307": "warehouse", "ecc-6404-2026-09-21-193834": "warehouse", "ecc-6404-2026-09-28-193454": "warehouse", "ecc-6404-2026-10-05-193409-a5328c": "ruleClassification", "ecc-6404-2026-10-07-193350-939c11": "ruleAndNeighbors",
   "ebb-6402-2026-08-18-180205": "blockchain", "ebb-6402-2026-08-20-180203": "blockchain", "ebb-6402-2026-08-25-180424": "blockchain", "ebb-6402-2026-09-01-180239": "blockchain", "ebb-6402-2026-09-03-180128": "blockchain", "ebb-6402-2026-09-08-180225": "blockchain", "ebb-6402-2026-09-10-180236": "blockchain", "ebb-6402-2026-09-15-180515": "blockchain", "ebb-6402-2026-09-17-180630": "blockchain", "ebb-6402-2026-09-29-180500": "stakeholderGovernance", "ebb-6402-2026-10-06-180411-c70949": "blockchain", "ebb-6402-2026-10-08-180522-6ce676": "stakeholderGovernance",
-  "ebb-6403-2026-08-21-075934": "security", "ebb-6403-2026-08-28-074445": "security", "ebb-6403-2026-08-29-053554": "security", "ebb-6403-2026-09-04-074036": "security", "ebb-6403-2026-09-05-055030": "security", "ebb-6403-2026-09-12-054641": "security", "ebb-6403-2026-09-18-073357": "security", "ebb-6403-2026-09-19-054724": "security", "ebb-6403-2026-10-03-053942": "security"
+  "ebb-6403-2026-08-21-075934": "security", "ebb-6403-2026-08-28-074445": "security", "ebb-6403-2026-08-29-053554": "security", "ebb-6403-2026-09-04-074036": "security", "ebb-6403-2026-09-05-055030": "security", "ebb-6403-2026-09-12-054641": "security", "ebb-6403-2026-09-18-073357": "security", "ebb-6403-2026-09-19-054724": "security", "ebb-6403-2026-10-03-053942": "security", "ebb-6403-2026-10-09-073615-b3e48e": "hashMacAuth"
 };
 
 export const lectureVisuals = Object.fromEntries(Object.entries(visualTemplates).map(([id, template]) => [id, { template }]));

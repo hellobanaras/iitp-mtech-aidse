@@ -1,5 +1,34 @@
 // Public English-only mini-capstone ideas.
 export const capstones = Object.freeze({
+  "ebb-6403-2026-10-09-073615-b3e48e": {
+    en: {
+      title: "IntegrityGate: an authenticated message lab",
+      pitch: "Build a small visual simulator that lets a learner compare an unkeyed digest, a shared-key MAC, and encryption-plus-authentication under controlled message tampering.",
+      problem: "A digest comparison can look like authentication even when an attacker can replace both the message and digest. Encryption can conceal content without proving that it stayed intact. Learners need to see which value is authenticated and what the receiver must reject.",
+      learning: "Practise MD5-style padding arithmetic on toy inputs, distinguish collision work from preimage work, compare encrypt-then-MAC with other compositions, and test receiver-side tag verification. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Create a clearly labelled toy message and show its unkeyed digest; let a simulated attacker replace both the message and digest to demonstrate why the reference must be trusted.",
+        "Add a shared-key MAC mode where sender and receiver compute tags, then flip one message or ciphertext bit and require the receiver to reject a mismatched tag.",
+        "Visualize a CBC dependency chain beside independent counter-mode blocks; label the counter/nonce uniqueness requirement and never recommend nonce reuse.",
+        "Show a safe teaching-only MD5 padding calculator for sample bit lengths, including the reserved 64-bit length field; do not use MD5 for real security.",
+        "Add an explanation panel separating confidentiality, integrity, authentication, collision resistance, and non-repudiation."
+      ],
+      stretch: [
+        "Compare encrypt-then-MAC and a library-provided AEAD interface using a documented test vector and an explicit tampering test.",
+        "Record a short threat-model table showing which attacker capabilities each toy mode handles and what remains out of scope."
+      ],
+      plan: [
+        "Write the learning threat model first and use synthetic messages and randomly generated local demo keys only.",
+        "Implement the digest, MAC, and block-dependency visualizations with tests for successful verification and tampered-message rejection.",
+        "Use vetted library APIs for any real cryptographic demonstration; keep toy MD5 arithmetic isolated and visibly labelled educational-only.",
+        "Publish an accessible step-by-step report that distinguishes what the experiment proves from what it does not."
+      ],
+      novelty: "The simulator makes the trust boundary visible: it shows the difference between a recomputable fingerprint, a keyed authenticator, and confidentiality, then demonstrates why failed verification must block acceptance.",
+      stack: ["TypeScript", "Web Crypto API", "Vitest", "Accessible HTML/SVG"],
+      milestones: ["Threat-model and goal map", "Digest replacement demonstration", "MAC verification and tampering tests", "CBC/counter comparison and safety review"],
+      success: "A learner can explain why a public digest does not authenticate by itself, identify what a MAC verifies, distinguish CBC chaining from counter mode, and reject modified data when authentication fails."
+    }
+  },
   "ecs-6401-2026-10-07-180243": {
     en: {
       title: "Equilibrium & Volatility Lab",

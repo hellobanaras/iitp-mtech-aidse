@@ -2177,6 +2177,22 @@ export const openLearningResources = {
       url: "https://www.rfc-editor.org/rfc/rfc6151.html"
     },
     {
+      provider: "IETF",
+      kind: "Transport security standard",
+      access: "Free public RFC",
+      title: "RFC 7366: Encrypt-then-MAC for TLS and DTLS",
+      description: "A standards-track example of the composition order discussed in the 9 October lecture, with concrete protocol rules for authenticating ciphertext.",
+      url: "https://www.rfc-editor.org/rfc/rfc7366.html"
+    },
+    {
+      provider: "NIST",
+      kind: "Hash standard",
+      access: "Free public standard",
+      title: "FIPS 180-4: Secure Hash Standard",
+      description: "Primary specification for SHA-1/SHA-2 preprocessing and digest computation; read alongside NIST's current SHA-1 transition guidance when selecting an algorithm.",
+      url: "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+    },
+    {
       provider: "NIST",
       kind: "Implementation-security lecture",
       access: "Free public guidance",

@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-10-07",
+  updated: "2026-10-14",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 111,
+  filesInventoried: 112,
   courses: [
     {
       code: "EAI 6103",
@@ -1006,8 +1006,8 @@ export const catalog = {
       icon: "SP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course78_hybrid_iitp_ac_in/IgCwVcRuGq_lR6u1S5D-yQeRAb5jOjVzObdfYRB-vn1qvBQ?e=wtwqhi",
       status: "active",
-      statusLabel: "9 lectures available",
-      note: "Nine verified lectures are published. View-only sources were captured at 2× with setup and idle tails excluded after full timeline sweeps.",
+      statusLabel: "10 lectures available",
+      note: "Ten verified lectures are published. View-only sources were captured at 2× with setup and idle tails excluded after full timeline sweeps.",
       lectures: [
         {
           id: "ebb-6403-2026-08-21-075934",
@@ -1134,6 +1134,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Integrity, authentication, and hash properties", "Random-oracle reasoning and birthday collision bounds", "MD5 padding, iterative design, and collision weaknesses"]
+        },
+        {
+          id: "ebb-6403-2026-10-09-073615-b3e48e",
+          number: 10,
+          date: "2026-10-09",
+          sourceRecordedAt: "2026-10-09T07:36:15+05:30",
+          sourceFilename: "Security and Privacy for Big Data-20261009_073615-Meeting Recording.mp4",
+          displayDate: "9 October 2026",
+          title: "Cryptographic hashes, MACs, and authenticated encryption",
+          duration: "56m 52s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course78_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse78_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSecurity+and+Privacy+for+Big+Data-20261009_073615-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["MD5 padding, rounds, and collision weaknesses", "SHA-family context and shared-key MACs", "CBC, counter mode, and authenticated encryption"]
         }
       ]
     },
