@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-15",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 119,
+  filesInventoried: 120,
   courses: [
     {
       code: "EAI 6103",
@@ -880,8 +880,8 @@ export const catalog = {
       icon: "SC",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course77_hybrid_iitp_ac_in/IgCEBeWWlU_wQLE9fUZWW9fTAYhpk32mpJi8Lbo6Iba_Cy8?e=5wSELF",
       status: "active",
-      statusLabel: "13 lectures available",
-      note: "Thirteen verified lectures are published. The latest session traces Ethereum's architecture and optimistic-rollup flow from L2 transaction ordering to L1 settlement and fraud-proof challenges.",
+      statusLabel: "14 lectures available",
+      note: "Fourteen verified lectures are published. The latest session compares optimistic and ZK-rollup proofs, then covers Solidity inheritance and DAO governance.",
       lectures: [
         {
           id: "ebb-6401-2026-08-17-180921",
@@ -1064,6 +1064,21 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Ethereum applications, EVM, RPC, nodes, consensus, and gas", "Why rollups move execution to L2 and batch data for L1", "Optimistic assumptions, data availability, challenge periods, and fraud proofs"]
+        },
+        {
+          id: "ebb-6401-2026-10-12-180732-bfc221",
+          number: 14,
+          date: "2026-10-12",
+          sourceRecordedAt: "2026-10-12T18:07:32+05:30",
+          sourceFilename: "Smart contracts and solidity programming-20261012_180732-Meeting Recording.mp4",
+          displayDate: "12 October 2026",
+          title: "ZK rollups, Solidity inheritance, and decentralized autonomous organizations",
+          duration: "1h 07m 10s instructional (7m49s break excluded)",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course77_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse77_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSmart+contracts+and+solidity+programming-20261012_180732-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:05:06–01:20:05 (7m49s break excluded)" },
+          overview: ["ZK validity proofs compared with optimistic fraud-proof challenges", "Single, multilevel, hierarchical, and multiple Solidity inheritance", "DAO membership, voting, contract rules, and governance limitations"]
         }
       ]
     },

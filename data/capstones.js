@@ -333,6 +333,36 @@ export const capstones = Object.freeze({
       success: "A learner can explain how an ordered batch changes L2 state, identify what must be available for an independent challenge, and distinguish the simulation from a production fraud-proof protocol. This is optional study practice, not an instructor-assigned project."
     }
   },
+  "ebb-6401-2026-10-12-180732-bfc221": {
+    en: {
+      title: "DAO Inheritance and Governance Sandbox",
+      pitch: "Build a local-only teaching model that makes a DAO treasury's voting rules, inherited contract behaviour, and execution safeguards inspectable.",
+      problem: "A governance diagram can hide how inherited rules interact with voting and treasury actions. A small synthetic model helps learners test the rule graph without risking funds or treating code as a substitute for governance design.",
+      learning: "Practise Solidity single/multiple inheritance, explicit `virtual`/`override` behaviour, proposal and quorum rules, state transitions, and adversarial tests. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Specify a toy DAO with members, a proposal lifecycle, a voting window, a quorum, and one simulated treasury action; state every assumption in plain English.",
+        "Create a base voting-policy contract and a derived policy that explicitly overrides one `virtual` rule; use a second base only if its responsibilities are distinct.",
+        "Run tests in a local VM for eligible and ineligible voters, duplicate votes, quorum failure, expired proposals, and one-time execution.",
+        "Render the contract inheritance graph beside the proposal state machine and show which rule authorizes each transition.",
+        "Write a governance-risk note covering upgrade authority, emergency powers, voter concentration, external information, and why the simulation is not a production DAO."
+      ],
+      stretch: [
+        "Add a conflicting base function and resolve it with an explicit Solidity override list; verify the resulting method-resolution behaviour.",
+        "Model a proposal that fails because its source information is unavailable and explain why on-chain voting cannot validate every external claim.",
+        "Compare two quorum or delegation rules using synthetic participants and report how each changes participation and minority protection."
+      ],
+      plan: [
+        "Define actors, permissions, states, transitions, and explicit reject conditions before writing code.",
+        "Implement the smallest base/derived contract pair and compile it against a pinned Solidity version.",
+        "Add invariant-focused local tests and inspect both expected and rejected transitions.",
+        "Build the accessible visual explanation and separate test evidence from unresolved governance assumptions."
+      ],
+      novelty: "The sandbox links the Solidity inheritance graph to the DAO's proposal state machine, making it possible to trace a governance decision to the exact inherited or overridden rule that permits execution.",
+      stack: ["Solidity", "Remix local JavaScript VM or Foundry local tests", "Synthetic participants only", "Accessible HTML/SVG state and inheritance diagrams"],
+      milestones: ["Governance specification", "Inheritance and override model", "Local positive/negative tests", "Risk and evidence report"],
+      success: "A learner can explain which contract rule governs each proposal transition, demonstrate that invalid or duplicate actions are rejected, and identify human or protocol assumptions that remain outside the toy model. This is optional study practice, not an instructor-assigned project."
+    }
+  },
   "eai-6103-2026-08-22-092455": {
     "en": {
       "title": "NotebookStarter: a reproducible Python data-practice lab",

@@ -1721,6 +1721,32 @@ export const openLearningResources = {
       url: "https://ethereum.org/developers/docs/smart-contracts/"
     },
     {
+      provider: "Ethereum",
+      providerHi: "Ethereum",
+      kind: "Scaling guide",
+      kindHi: "Scaling guide",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Zero-knowledge rollups",
+      titleHi: "Zero-knowledge rollups",
+      description: "Official Ethereum documentation explains offchain execution, validity proofs, state roots, data availability, and how ZK-rollups differ from optimistic rollups.",
+      descriptionHi: "Official Ethereum documentation explains offchain execution, validity proofs, state roots, data availability, and how ZK-rollups differ from optimistic rollups.",
+      url: "https://ethereum.org/developers/docs/scaling/zk-rollups/"
+    },
+    {
+      provider: "Ethereum",
+      providerHi: "Ethereum",
+      kind: "Scaling guide",
+      kindHi: "Scaling guide",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Optimistic rollups",
+      titleHi: "Optimistic rollups",
+      description: "Official overview of transaction batching, onchain data, challenge windows, and fraud-proof dispute resolution.",
+      descriptionHi: "Official overview of transaction batching, onchain data, challenge windows, and fraud-proof dispute resolution.",
+      url: "https://ethereum.org/developers/docs/scaling/optimistic-rollups/"
+    },
+    {
       provider: "Ethereum Foundation",
       providerHi: "Ethereum Foundation",
       kind: "Browser practice lab",
@@ -1745,6 +1771,32 @@ export const openLearningResources = {
       description: "The canonical language reference for contracts, types, functions, and compiler behaviour.",
       descriptionHi: "Contracts, types, functions और compiler behaviour के लिए canonical language reference।",
       url: "https://docs.soliditylang.org/en/latest/"
+    },
+    {
+      provider: "Solidity Foundation",
+      providerHi: "Solidity Foundation",
+      kind: "Language reference",
+      kindHi: "Language reference",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Solidity inheritance and overriding",
+      titleHi: "Solidity inheritance and overriding",
+      description: "The official contract reference explains base and derived contracts, inheritance linearization, and the current virtual/override rules used in the lecture.",
+      descriptionHi: "The official contract reference explains base and derived contracts, inheritance linearization, and the current virtual/override rules used in the lecture.",
+      url: "https://docs.soliditylang.org/en/latest/contracts.html#inheritance"
+    },
+    {
+      provider: "Ethereum",
+      providerHi: "Ethereum",
+      kind: "Governance guide",
+      kindHi: "Governance guide",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "What is a DAO?",
+      titleHi: "What is a DAO?",
+      description: "First-party overview of collective ownership, proposals, voting, smart-contract rules, and the governance choices that remain around an on-chain organization.",
+      descriptionHi: "First-party overview of collective ownership, proposals, voting, smart-contract rules, and the governance choices that remain around an on-chain organization.",
+      url: "https://ethereum.org/dao/"
     },
     {
       provider: "Ethereum",
