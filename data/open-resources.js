@@ -1098,6 +1098,32 @@ export const openLearningResources = {
       url: "https://scikit-learn.org/stable/modules/neighbors.html"
     },
     {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
+      kind: "Official user guide",
+      kindHi: "Official user guide",
+      access: "Free documentation and examples",
+      accessHi: "मुफ़्त documentation और examples",
+      title: "Ensemble methods",
+      titleHi: "Ensemble methods · bagging and voting",
+      description: "Official guide to bagging, voting, random forests, and boosting, extending the lecture's comparison of classifier diversity and aggregation.",
+      descriptionHi: "Lecture के classifier diversity और aggregation विचारों को आगे बढ़ाने के लिए bagging, voting, random forests और boosting की official guide।",
+      url: "https://scikit-learn.org/stable/modules/ensemble.html"
+    },
+    {
+      provider: "An Introduction to Statistical Learning",
+      providerHi: "An Introduction to Statistical Learning",
+      kind: "Open textbook",
+      kindHi: "Open textbook",
+      access: "Free PDF and companion materials",
+      accessHi: "मुफ़्त PDF और companion सामग्री",
+      title: "An Introduction to Statistical Learning",
+      titleHi: "An Introduction to Statistical Learning",
+      description: "Author-maintained textbook and materials for statistical learning concepts, including resampling and ensemble methods.",
+      descriptionHi: "Statistical learning, resampling और ensemble methods के लिए लेखक द्वारा रखी गई textbook और सामग्री।",
+      url: "https://www.statlearning.com/"
+    },
+    {
       provider: "UCI Machine Learning Repository",
       providerHi: "UCI Machine Learning Repository",
       kind: "Open dataset",

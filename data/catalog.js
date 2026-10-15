@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-15",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 121,
+  filesInventoried: 122,
   courses: [
     {
       code: "EAI 6103",
@@ -1492,8 +1492,8 @@ export const catalog = {
       icon: "DW",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course76_hybrid_iitp_ac_in/IgAWWFJqFmpXRay8IkonggGRASO0x6czOy20BYDTjv8HHXI?e=5DXrhH",
       status: "active",
-      statusLabel: "14 lectures available",
-      note: "Lectures 1–14 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; recent rule-learning and k-nearest-neighbor notes include source-time slide trails.",
+      statusLabel: "15 lectures available",
+      note: "Lectures 1–15 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; recent rule-learning, nearest-neighbor, and ensemble notes include source-time slide trails.",
       lectures: [
         {
           id: "ecc-6404-2026-08-17-193438",
@@ -1690,6 +1690,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Likelihood-ratio, Laplace/m-estimate, and FOIL rule scores", "Sequential covering, RIPPER pruning, and C4.5 rule extraction", "Lazy learning and k-NN majority voting; the choice of k changes a prediction"]
+        },
+        {
+          id: "ecc-6404-2026-10-12-193349-bf0749",
+          number: 15,
+          date: "2026-10-12",
+          sourceRecordedAt: "2026-10-12T19:33:49+05:30",
+          sourceFilename: "Data Warehousing-20261012_193349-Meeting Recording.mp4",
+          displayDate: "12 October 2026",
+          title: "Nearest neighbors, ensemble construction, and bagging",
+          duration: "1h 16m teaching interval",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course76_hybrid_iitp_ac_in/Documents/Recordings/Data%20Warehousing-20261012_193349-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["k-NN neighborhood size, local voting, and distance considerations", "Ensemble accuracy, error diversity, and four ways to create varied classifiers", "Bootstrap aggregation, out-of-bag intuition, and when bagging helps; boosting continues next class"]
         }
       ]
     },

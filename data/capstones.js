@@ -3267,5 +3267,33 @@ export const capstones = Object.freeze({
       milestones: ["Licensed corpus and evidence set", "Baseline retrieve-and-generate pipeline", "Stage-specific evaluation", "Controlled improvement and limitations report"],
       success: "The system cites traceable evidence, distinguishes retrieval from generation errors, uses a fixed evaluation set without leakage, and makes bounded claims about any improvement."
     }
+  },
+  "ecc-6404-2026-10-12-193349-bf0749": {
+    en: {
+      title: "NeighborVote: test local and ensemble decisions",
+      pitch: "Use one reproducible dataset to inspect how k changes local votes and how bootstrap diversity changes an ensemble vote.",
+      problem: "A prediction can change with neighborhood size, feature scale, or overlapping base-learner errors. A controlled comparison should expose each source of variation rather than report only one accuracy score.",
+      learning: "Practise k-nearest-neighbor voting, feature scaling, bootstrap sampling, bagging, error diversity, and leakage-safe evaluation. This is optional study practice, not instructor-assigned work.",
+      mvp: [
+        "Use the open UCI Zoo dataset or a documented synthetic dataset; state its license, target, seed, and train/validation/test split.",
+        "Fit a scaled k-NN pipeline and compare a predeclared set of k values on validation data; inspect ties and several individual neighbor votes.",
+        "Fit an unstable decision-tree baseline and bootstrap ensemble with same-size samples drawn with replacement; report unique and out-of-bag counts per sample.",
+        "Compare single-tree and bagged predictions on the same held-out test examples, including accuracy, per-class errors, and error overlap between base trees.",
+        "Draw one accessible study visual linking feature scale → neighborhood vote and bootstrap variation → ensemble aggregation; state the limits of the small experiment."
+      ],
+      stretch: [
+        "Compare uniform and distance-weighted k-NN votes while selecting k only with validation data.",
+        "Vary tree depth and ensemble size to see when bagging gains disappear as base learners become more stable."
+      ],
+      plan: [
+        "Record data provenance, feature treatment, random seed, evaluation split, and metrics before fitting models.",
+        "Build tested pipelines that learn scaling and model choices without using the test split.",
+        "Preserve neighbor lists, bootstrap sample identities, out-of-bag membership, and per-tree predictions for audit.",
+        "Publish the comparison with uncertainty and small-data limitations; do not claim bagging or one k is universally better."
+      ],
+      stack: ["Python", "pandas", "scikit-learn", "Jupyter", "Matplotlib"],
+      milestones: ["Dataset and split card", "k-NN vote inspector", "Bootstrap and out-of-bag audit", "Held-out comparison and accessible report"],
+      success: "A learner can reproduce why a local vote changes with k, explain how bootstrap resampling creates different base learners, and assess bagging without test leakage or unsupported generalization."
+    }
   }
 });
