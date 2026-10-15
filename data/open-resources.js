@@ -106,9 +106,9 @@ export const openLearningResources = {
       accessHi: "मुफ़्त documentation",
       title: "Solving Blackjack with episodic reinforcement learning",
       titleHi: "Solving Blackjack with episodic reinforcement learning",
-      description: "A runnable Blackjack environment with explicit player-total, dealer-card, usable-ace, and hit/stick state-action structure for experimenting with sampled-return methods.",
-      descriptionHi: "Sampled-return methods के अभ्यास हेतु player total, dealer card, usable ace और hit/stick विकल्प वाला runnable Blackjack environment।",
-      url: "https://gymnasium.farama.org/tutorials/training_agents/blackjack_tutorial/"
+      description: "The current official training walkthrough uses episodic Blackjack to introduce sampled transitions, rewards, and value-based updates.",
+      descriptionHi: "Current official training walkthrough episodic Blackjack के माध्यम से sampled transitions, rewards और value-based updates बताता है।",
+      url: "https://gymnasium.farama.org/main/introduction/train_agent/"
     },
     {
       provider: "Stanford University",
@@ -132,9 +132,22 @@ export const openLearningResources = {
       accessHi: "मुफ़्त course सामग्री",
       title: "CS234: Tabular RL policy evaluation",
       titleHi: "CS234: Tabular RL policy evaluation",
-      description: "Course-module notes connect Monte Carlo prediction with Sutton and Barto Sections 5.1 and 5.5, reinforcing the lecture's off-policy estimator and variance discussion.",
-      descriptionHi: "Monte Carlo prediction और Sutton–Barto Sections 5.1 तथा 5.5 से lecture के off-policy estimator और variance discussion को दोहराएँ।",
+      description: "The current course module maps policy evaluation to Sutton and Barto Sections 5.1, 5.5, and 6.1–6.3, spanning Monte Carlo and TD prediction.",
+      descriptionHi: "Current course module policy evaluation को Sutton–Barto Sections 5.1, 5.5 और 6.1–6.3 से जोड़ता है; इसमें Monte Carlo और TD prediction शामिल हैं।",
       url: "https://web.stanford.edu/class/cs234/modules.html"
+    },
+    {
+      provider: "Stanford University",
+      providerHi: "Stanford University",
+      kind: "Lecture slides",
+      kindHi: "Lecture slides",
+      access: "Free course materials",
+      accessHi: "मुफ़्त course सामग्री",
+      title: "CS234 Lecture 3: Model-Free Policy Evaluation",
+      titleHi: "CS234 Lecture 3: Model-Free Policy Evaluation",
+      description: "Annotated official slides derive Monte Carlo and TD(0) policy evaluation and explain why one-step TD does not require an episodic task.",
+      descriptionHi: "Official annotated slides में Monte Carlo और TD(0) policy evaluation तथा one-step TD का episodic task पर निर्भर न होना समझाया गया है।",
+      url: "https://web.stanford.edu/class/cs234/slides/lecture3post.pdf"
     },
     {
       provider: "Sutton & Barto",

@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-10-14",
+  updated: "2026-10-15",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 118,
+  filesInventoried: 119,
   courses: [
     {
       code: "EAI 6103",
@@ -301,6 +301,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Incremental weighted off-policy Monte Carlo control", "Discount-aware and per-decision importance sampling", "Sample-based TD(0), bootstrapping, and temporal-difference error"]
+        },
+        {
+          id: "eai-6401-2026-10-12-180653-327bc0",
+          number: 17,
+          date: "2026-10-12",
+          sourceRecordedAt: "2026-10-12T18:06:53+05:30",
+          sourceFilename: "Reinforcement Learning-20261012_180653-Meeting Recording.mp4",
+          displayDate: "12 October 2026",
+          title: "TD(0) prediction, random walks, and batch updating",
+          duration: "1h 23m 07s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course72_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course72_hybrid_iitp_ac_in%2FDocuments/Recordings/Reinforcement%20Learning-20261012_180653-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["TD(0) error and bootstrapping", "Five-state random walk and RMS convergence", "Batch TD versus Monte Carlo on finite data"]
         }
       ]
     },

@@ -1,0 +1,105 @@
+const quizSeed = [
+  ["What does TD(0) use to update a state's value before the episode ends?", ["The immediate reward and the current estimate of the next state's value", "The complete return from the episode", "The transition probabilities for every possible next state", "Only the terminal reward"], 0],
+  ["What is the one-step TD error?", ["Rₜ₊₁ + γV(Sₜ₊₁) − V(Sₜ)", "V(Sₜ) − γRₜ₊₁", "The return divided by episode length", "The target-policy probability minus the behavior probability"], 0],
+  ["Why is the identity between accumulated TD errors and Monte Carlo error conditional?", ["It is exact when value estimates remain fixed during the episode; online changes break that equality", "It holds only when all rewards are positive", "It requires the episode to have one step", "It depends on deterministic transitions"], 0],
+  ["In the driving-home analogy, what does TD do when the predicted remaining trip time changes at a later state?", ["It immediately adjusts the previous state's estimate toward the one-step target", "It waits until the car reaches home", "It replaces all values with final elapsed time", "It estimates transition probabilities"], 0],
+  ["What is bootstrapping in TD prediction?", ["Using one learned estimate, such as V(Sₜ₊₁), to update another estimate", "Averaging only complete episodic returns", "Sampling from a known model", "Resetting values after each step"], 0],
+  ["Which transition information does a model-free TD update need?", ["The observed action, reward, and next state", "Every possible next state and its probability", "The complete transition matrix", "The optimal policy"], 0],
+  ["Why can TD update during a continuing task?", ["It does not need to wait for episode termination", "It requires no observations", "It always knows the true values", "Monte Carlo requires a transition model"], 0],
+  ["Under the lecture's conditions, what does tabular TD(0) converge to for a fixed policy?", ["The policy's true value function with suitable step-size conditions", "The optimal action-value function for every policy", "The first episode's return", "A policy-independent value"], 0],
+  ["What step-size guidance was given?", ["Use sufficiently small steps and decrease the learning rate over time where required", "Increase α without bound", "Set α to zero after initialization", "Use a model for each α"], 0],
+  ["In the five-state random walk, what did the two terminal outcomes represent?", ["Terminal rewards 0 on the left and 1 on the right", "Two nonterminal states with reward 1", "Two actions with equal positive rewards", "A model value and a sample value"], 0],
+  ["With equiprobable moves in the five-state walk, what was Vπ(C)?", ["3/6 = 0.5", "1/6", "5/6", "1"], 0],
+  ["What did the random-walk learning-curve comparison illustrate?", ["TD reduced RMS error faster in early experience in the shown experiment", "MC had zero error after one episode", "TD never depends on α", "The methods always agree on finite samples"], 0],
+  ["What did the in-class exercise ask students to do?", ["Give at least two ways to compute the five true values and explain which method was likely used", "Implement optimal control", "Prove neural-network TD convergence", "Derive a policy-gradient estimator"], 0],
+  ["How can dynamic programming compute the random-walk values?", ["Solve Bellman equations using the known transition structure", "Use one sampled episode only", "Use terminal returns without a model", "Apply action importance sampling"], 0],
+  ["What is batch updating as described in the lecture?", ["Accumulate increments over the dataset, apply them together, and repeat over the same experience", "Update immediately once and never revisit data", "Average terminal rewards only", "Replace TD with a transition model"], 0],
+  ["Why can batch TD and batch Monte Carlo produce different finite-data answers?", ["They use different criteria: a maximum-likelihood Markov-process estimate versus training-return mean-squared error", "TD ignores observed rewards", "MC assumes every state has equal value", "They define different terminal states"], 0],
+  ["In the eight-episode example, why did TD estimate V(A)=3/4?", ["A went to B with reward 0, and the learned B value was 3/4", "A appeared six times with reward 1", "The model specified reward 3/4 at A", "The episode terminated at A"], 0],
+  ["Why did Monte Carlo estimate V(A)=0 in the same sample?", ["A appeared once and its observed complete return was zero", "MC bootstrapped from B", "A's true value is always zero", "There were no terminal states"], 0],
+  ["What did the instructor mean by a Monte Carlo training set in the final exchange?", ["The sampled episodes are the data; MC estimates from their observed returns", "A separate labelled image dataset", "A transition model generated before sampling", "Only synthetic episodes"], 0],
+  ["What is the TD(0) target for a nonterminal transition?", ["Rₜ₊₁ + γV(Sₜ₊₁)", "The complete return after termination", "The average of all possible successor values", "The largest observed reward"], 0],
+  ["How does the learning rate α affect a TD(0) update?", ["It scales the TD error added to the current estimate", "It is the transition probability", "It replaces the discount factor", "It counts the states in an episode"], 0],
+  ["Why does dynamic programming generally need a model for its Bellman backup?", ["It computes an expectation over possible next states and rewards", "It uses only one observed transition", "It waits for a terminal return", "It updates without state values"], 0],
+  ["What does the random-walk RMS curve average in the lecture's comparison?", ["State-value error over runs and states, plotted against generated episodes", "Only terminal rewards in one episode", "Action probabilities over time", "The number of visits to the right terminal"], 0],
+  ["For state A in the five-state walk, what is the true value under the stated policy?", ["1/6", "2/6", "3/6", "5/6"], 0],
+  ["What is the central distinction between an online update and batch update here?", ["Online changes an estimate as samples arrive; batch accumulates increments and applies them together", "Online requires a model and batch does not", "Batch uses no repeated experience", "Online is only for terminal states"], 0],
+];
+
+const quiz = quizSeed.map(([question, options, answer], index) => ({
+  question,
+  options,
+  answer,
+  explanation: [
+    "This follows the lecture's stated update target and timing.",
+    "The worked example distinguishes this quantity from a complete return or a model expectation.",
+    "The comparison depends on the evidence and update rule described in class.",
+  ][index % 3],
+  optionNotes: options.map((option, optionIndex) => optionIndex === answer
+    ? `Correct: ${option}.`
+    : `Not correct: ${option}.`),
+}));
+
+export const eai6401Lecture20261012180653 = { en: {
+  title: "TD(0) prediction, random walks, and batch updating",
+  lede: "The lecture develops temporal-difference prediction from a driving-time example, compares TD with Monte Carlo on a five-state random walk, and explains why batch learning can produce different finite-data estimates.",
+  instructionalInterval: "00:00:20–01:22:46 source time; captured at 2× with the idle tail excluded",
+  reviewLevel: "Seven-point full-timeline Stream triage, source-matched review manifest, visible-tab capture at 2×, time-restored transcript review, and marked teaching-end boundary",
+  coverage: [
+    { title: "A changing prediction can update now", body: "Driving-home estimates show how a later prediction revises an earlier state's value without waiting for the final outcome." },
+    { title: "TD(0) bootstraps from one sampled transition", body: "The update combines observed reward with the current next-state estimate; it needs neither a transition model nor a terminal return." },
+    { title: "Random-walk values and learning curves", body: "A five-state Markov reward process makes policy values concrete and compares MC and TD RMS error over episodes." },
+    { title: "Batch updates reuse finite experience", body: "Accumulate increments across the dataset, apply them together, then repeat; TD and MC reflect different objectives." },
+  ],
+  slideTrail: [
+    { time: "00:14:46", title: "Driving Home", note: "State-by-state travel-time prediction motivates immediate TD correction." },
+    { time: "00:29:51", title: "Temporal-Difference Learning", note: "Bootstrapping, sample updates, and the model-free advantage." },
+    { time: "00:37:19", title: "Random Walk", note: "Five nonterminal values and the Monte Carlo versus TD comparison." },
+    { time: "00:51:42", title: "Exercise", note: "Two ways to calculate the random-walk values." },
+    { time: "00:58:30", title: "Batch Updating", note: "Repeated updates over a fixed finite experience dataset." },
+    { time: "01:10:11", title: "TD vs Monte Carlo Example", note: "Finite-data estimates differ because the methods fit different targets." },
+  ],
+  summary: [
+    { title: "1. Driving home: prediction error arrives state by state", sourceRefs: ["00:14:46–00:29:51", "Driving Home", "Temporal-Difference (TD) Error"], paragraphs: ["The instructor models a trip as successive states with estimates of remaining travel time. At departure, the estimate is about 30 minutes; rain changes a later prediction, and subsequent locations revise the expected time again. Monte Carlo compares earlier predictions with the eventual outcome after the episode. TD uses each transition's reward and next-state estimate to adjust the preceding state's estimate immediately.", "The accumulated-error identity is exact when value estimates remain fixed throughout the episode. If online updates change them mid-episode, the equality need not hold."] , formula: "δₜ = Rₜ₊₁ + γV(Sₜ₊₁) − V(Sₜ)" },
+    { title: "2. TD(0) learns from a guess and a sample", sourceRefs: ["00:29:51–00:37:19", "Temporal-Difference Learning", "TD Prediction"], paragraphs: ["TD bootstraps: it updates a current estimate using the learned estimate of the next state. The method is sample-based, needs no environment model, and can update before an episode ends, including in continuing tasks.", "For a fixed policy, tabular TD(0) converges to its value function under suitable step-size conditions. The lecture cautions that these tabular statements do not automatically prove convergence for approximate value-function methods."] , formula: "V(Sₜ) ← V(Sₜ) + α[Rₜ₊₁ + γV(Sₜ₊₁) − V(Sₜ)]" },
+    { title: "3. The five-state random walk", sourceRefs: ["00:37:19–00:51:42", "Random Walk", "RMS Error"], paragraphs: ["The Markov reward process has nonterminal states A–E, two terminal states, zero intermediate rewards, and terminal rewards 0 on the left and 1 on the right. Under equiprobable left/right moves, the state values are the probabilities of reaching the right terminal: 1/6, 2/6, 3/6, 4/6, and 5/6. In particular, Vπ(C)=3/6=0.5.", "The plotted estimates move toward these values as experience accumulates. In the illustrated RMS-error comparison, TD reduces error faster in early episodes than MC. The plots also compare learning rates; this is an empirical result, not a universal step-size guarantee."] },
+    { title: "4. Compute values by Bellman equations or sampled experience", sourceRefs: ["00:51:42–00:58:30", "Exercise", "Bellman Equations"], paragraphs: ["The in-class exercise asks for at least two ways to obtain the five true values and asks which approach was probably used. One route solves Bellman equations using known transition probabilities and terminal values. Another estimates values from generated episodes and repeated updates. The instructor favors the Bellman solution when an explicit mathematical derivation is desired.", "This was an exercise discussed in class; no separate take-home assignment was announced in the reviewed recording."] },
+    { title: "5. Batch updating and finite-data objectives", sourceRefs: ["00:58:30–01:10:11", "Batch Updating", "Random Walk Batch Updating"], paragraphs: ["With finite experience, batch updating computes increments over the dataset, accumulates them, applies the combined change, and repeats using the same data until convergence. This differs from retaining every update immediately after each transition.", "Batch MC minimizes mean-squared error on observed training returns. Batch TD converges to the maximum-likelihood Markov-process estimate implied by sampled transitions and rewards. Reusing finite data therefore does not make the estimators equivalent."] },
+    { title: "6. A finite-sample example separates TD from Monte Carlo", sourceRefs: ["01:10:11–01:20:00", "Maximum Likelihood", "TD vs Monte Carlo Example"], paragraphs: ["Across the eight listed episodes, B is followed directly by termination: six observed rewards are 1 and two are 0, giving an estimated value of 3/4. The sole observed transition from A goes to B with reward 0. TD therefore uses the learned B value and estimates V(A)=0+γ(3/4)=3/4 when γ=1. MC has one complete return after A in the sample, equal to zero, and estimates V(A)=0 from that return.", "These are different data-based answers, not a contradiction in arithmetic: TD bootstraps through the fitted Markov process while MC fits observed complete returns. A student asks what the lecture means by a Monte Carlo training set; the instructor clarifies that the generated episodes are the data and their returns are the samples."] },
+  ],
+  insights: [
+    { label: "Update timing", title: "TD does not wait for termination", body: "Each observed reward and next-state estimate can revise the previous state immediately." },
+    { label: "Model requirement", title: "A sample is not a model expectation", body: "TD uses the transition that occurred; dynamic programming averages over possible successors using a model." },
+    { label: "Finite data", title: "Different targets can yield different fits", body: "MC matches sampled complete returns, while batch TD fits a Markov process inferred from sampled transitions." },
+  ],
+  courseSignals: {
+    assignments: [], homework: [], labs: [], projects: [], references: [],
+    studentQuestions: [
+      { time: "00:28:03", question: "Is the accumulated TD-error identity true in every situation?", response: "No. It is exact when value estimates are not updated during the episode; changing estimates make the equality inexact." },
+      { time: "01:20:00", question: "What is meant by a Monte Carlo training set if MC does not use a conventional model-training dataset?", response: "The instructor identifies sampled episodes as the data; their observed returns are the samples used for the estimate." },
+    ],
+  },
+  suggestedPractice: {
+    assignments: [{ title: "Optional practice—not assigned: derive the random-walk values", detail: "Write one Bellman equation per state in A–E, use equiprobable moves and terminal values 0 and 1, then solve the system." }],
+    homework: [{ title: "Optional practice—not assigned: compare one TD and MC estimate", detail: "Use the eight-episode A/B example to calculate the observed MC return for A and the TD estimate bootstrapping from B." }],
+    labs: [{ title: "Optional practice—not assigned: reproduce the learning curves", detail: "Implement tabular TD(0) and first-visit MC on the five-state walk; report RMS error by episode over repeated seeds and state the step sizes." }],
+    projects: [{ title: "Optional idea—not assigned: finite-data estimator explorer", detail: "Visualize how changing the eight-episode dataset changes the fitted Markov model, TD values, and MC return averages." }],
+    references: [{ title: "Optional reading map", detail: "Sutton and Barto Chapter 6 covers TD prediction and the random-walk comparison; the lecture's batch section contrasts empirical-return and maximum-likelihood interpretations." }],
+    studentQuestions: [],
+  },
+  resources: [
+    { kind: "read", title: "Sutton & Barto, Reinforcement Learning: An Introduction (2e)", url: "https://incompleteideas.net/book/the-book-2nd.html", detail: "The authors' open companion text; Chapter 6 develops TD prediction, random walks, and batch updating." },
+    { kind: "course", title: "Stanford CS234: Tabular RL policy evaluation", url: "https://web.stanford.edu/class/cs234/modules.html", detail: "Official course modules provide complementary material on Monte Carlo and TD policy evaluation." },
+    { kind: "slides", title: "Stanford CS234 Lecture 3: Model-Free Policy Evaluation", url: "https://web.stanford.edu/class/cs234/slides/lecture3post.pdf", detail: "Official annotated slides cover Monte Carlo and TD(0), including why one-step TD need not wait for an episodic return." },
+    { kind: "practice", title: "Gymnasium: Training an agent with Blackjack", url: "https://gymnasium.farama.org/main/introduction/train_agent/", detail: "Current official walkthrough for a small episodic environment; use it to experiment with sampled transitions and value updates as an optional extension beyond the lecture's random walk." },
+  ],
+  keyTerms: [
+    { term: "TD(0)", definition: "One-step temporal-difference prediction from an observed reward and next-state value estimate." },
+    { term: "TD error", definition: "The one-step target minus the current value estimate." },
+    { term: "Bootstrapping", definition: "Updating one estimate using another learned estimate, such as the next state's value." },
+    { term: "Markov reward process", definition: "A state-transition and reward process without explicit action choices in its value model." },
+    { term: "Batch updating", definition: "Accumulating increments over fixed experience, applying them together, and repeating until convergence." },
+    { term: "RMS error", definition: "Root mean squared difference between estimated and true state values, averaged as specified in an experiment." },
+  ],
+  quiz,
+} };

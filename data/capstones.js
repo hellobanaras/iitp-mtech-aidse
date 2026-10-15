@@ -1544,6 +1544,27 @@ export const capstones = Object.freeze({
       success: "A learner can verify support before reweighting, reproduce one per-decision estimate by hand, calculate a TD error, and explain why TD prediction does not require a transition model."
     }
   },
+  "eai-6401-2026-10-12-180653-327bc0": {
+    en: {
+      title: "WalkWise: a batch TD and Monte Carlo explorer",
+      pitch: "Build a reproducible five-state random-walk simulator that compares incremental and batch TD(0) with Monte Carlo on the same episodes.",
+      problem: "TD bootstraps through a learned next-state estimate, while Monte Carlo fits sampled complete returns. On finite data their answers can differ, and update timing can obscure why.",
+      learning: "Explore the five-state value function, RMS learning curves, step-size effects, batch increments, and distinct finite-sample objectives. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Represent states A–E, equiprobable left/right moves, zero intermediate rewards, and terminal rewards 0 and 1; verify the Bellman solution 1/6 through 5/6.",
+        "Generate seeded episodes and implement incremental TD(0) and Monte Carlo prediction with configurable step sizes.",
+        "Add batch mode that accumulates dataset increments, applies them together, and reuses the data until convergence.",
+        "Plot RMS error over episodes and repeated seeds; show the true value, estimate, update target, and data behind each curve.",
+        "Include the eight-episode A/B example and explain why MC can estimate A as zero while TD bootstraps to 3/4.",
+      ],
+      stretch: ["Change the episode dataset and show how the fitted Markov process and empirical return means change separately.", "Compare constant and decaying step sizes with repeated-seed confidence bands."],
+      plan: ["Specify the state graph, rewards, terminal handling, and deterministic seeds.", "Test Bellman values and hand-calculated TD and MC updates.", "Implement online and batch modes and log increments before applying them.", "Add repeated-run RMS summaries and an accessible curve table."],
+      novelty: "The explorer links sampled episodes, update increments, the fitted Markov process, and completed-return targets so that different estimates can be traced to their evidence.",
+      stack: ["TypeScript", "Seeded simulation", "Accessible HTML/SVG", "Vitest"],
+      milestones: ["Random-walk model and Bellman checks", "Online TD/MC", "Batch updates", "RMS study and accessible explanation"],
+      success: "A learner can reproduce the 1/6…5/6 values, calculate a TD error and an MC return, and explain different finite-data estimates without conflating them."
+    }
+  },
   "eai-6401-2026-09-29-180346": {
     en: {
       title: "PolicyLens: an auditable off-policy evaluation lab",
