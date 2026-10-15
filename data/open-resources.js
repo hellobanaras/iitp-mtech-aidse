@@ -853,6 +853,46 @@ export const openLearningResources = {
       descriptionHi: "Lecture के image-text representations और joint-attention उदाहरण का primary MMDiT/rectified-flow paper।",
       url: "https://arxiv.org/abs/2403.03206"
     }
+    ,{
+      provider: "arXiv", providerHi: "arXiv", kind: "Research paper", kindHi: "Research paper",
+      access: "Free public paper", accessHi: "Free public paper",
+      title: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks", titleHi: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      description: "The original NeurIPS paper formalizes a parametric generator paired with non-parametric retrieved memory, grounding the October 11 lecture's retrieve-then-generate pipeline.",
+      descriptionHi: "October 11 lecture के retrieve-then-generate pipeline के लिए parametric generator और retrieved memory पर original NeurIPS paper।",
+      url: "https://arxiv.org/abs/2005.11401"
+    },
+    {
+      provider: "Anthropic", providerHi: "Anthropic", kind: "Engineering guide", kindHi: "Engineering guide",
+      access: "Free article", accessHi: "Free article",
+      title: "Building effective agents", titleHi: "Building effective agents",
+      description: "Distinguishes predefined workflows from dynamically directed agents and explains chaining, routing, parallelization, orchestrator-worker, and evaluator-optimizer patterns discussed in class.",
+      descriptionHi: "Class में discussed chaining, routing, parallelization, orchestrator-worker और evaluator-optimizer patterns के साथ workflows और agents का अंतर।",
+      url: "https://www.anthropic.com/engineering/building-effective-agents"
+    },
+    {
+      provider: "LangChain", providerHi: "LangChain", kind: "Hands-on documentation", kindHi: "Hands-on documentation",
+      access: "Free documentation", accessHi: "Free documentation",
+      title: "Thinking in LangGraph", titleHi: "Thinking in LangGraph",
+      description: "A practical guide to modeling an agent workflow as state, nodes, routing, retries, and human checkpoints, reinforcing the lecture's graph and orchestration patterns.",
+      descriptionHi: "Lecture के graph और orchestration patterns के लिए state, nodes, routing, retries और human checkpoints का practical guide।",
+      url: "https://docs.langchain.com/oss/javascript/langgraph/thinking-in-langgraph"
+    },
+    {
+      provider: "LangChain", providerHi: "LangChain", kind: "Tutorial collection", kindHi: "Tutorial collection",
+      access: "Free tutorials", accessHi: "Free tutorials",
+      title: "LangChain and LangGraph learning tutorials", titleHi: "LangChain and LangGraph learning tutorials",
+      description: "Official tutorials include RAG agents, custom RAG, router knowledge bases, and multi-agent patterns that map directly to the lecture's architecture comparisons.",
+      descriptionHi: "Lecture के RAG agents, custom RAG, router knowledge bases और multi-agent comparisons पर official tutorials।",
+      url: "https://docs.langchain.com/oss/python/learn"
+    },
+    {
+      provider: "arXiv", providerHi: "arXiv", kind: "Research paper", kindHi: "Research paper",
+      access: "Free public paper", accessHi: "Free public paper",
+      title: "From Local to Global: A Graph RAG Approach to Query-Focused Summarization", titleHi: "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+      description: "Primary research on graph-based indexing and query-focused summarization, extending the lecture's relationship-aware retrieval and Agent-G discussion.",
+      descriptionHi: "Lecture के relationship-aware retrieval और Agent-G discussion को आगे बढ़ाने वाला graph-based indexing research paper।",
+      url: "https://arxiv.org/abs/2404.16130"
+    }
   ],
   "ecc-6404": [
     {

@@ -3173,5 +3173,33 @@ export const capstones = Object.freeze({
       milestones: ["Shape and patch audit", "Attention-cost comparison", "Conditioning diagram", "Reproducible demonstration and limitations"],
       success: "The study distinguishes latent dimensions, patch width, token count, and embedding width; correctly explains denoising and conditioning; and makes no unsupported quality claims."
     }
+  },
+  "eai-6403-2026-10-11-154131-d8858b": {
+    en: {
+      title: "Build an evidence-audited RAG workflow",
+      pitch: "Create a small question-answering system that exposes retrieval quality, context assembly, and answer support as separately testable stages.",
+      problem: "A fluent answer can still be unsupported when retrieval returns irrelevant passages or context is assembled poorly. A visible evaluation harness makes the failure stage easier to diagnose.",
+      learning: "Practise RAG indexing, retrieval, reranking, evidence-aware generation, and simple agent workflow choices. This is optional study practice, not instructor-assigned work.",
+      mvp: [
+        "Choose a small public, licensed document collection and create a question set with source-grounded expected answers and citations.",
+        "Implement chunking, embeddings, vector retrieval, and a prompt that includes retrieved passages; preserve document IDs and source spans.",
+        "Measure retrieval relevance separately from answer support, completeness, and abstention; inspect examples where a fluent answer uses the wrong chunk.",
+        "Compare a baseline with one intervention such as metadata filtering, a reranker, or context compression while keeping the evaluation questions fixed.",
+        "Add a fixed chain, router, or evaluator-feedback workflow only where it addresses an observed failure; report latency and limits."
+      ],
+      stretch: [
+        "Compare vector-only retrieval with a small entity-relation graph on multi-hop questions, and label which evidence path supports each answer.",
+        "Add a deterministic citation check or human review checkpoint and measure how often it catches unsupported claims."
+      ],
+      plan: [
+        "Record the dataset source, license, question set, and expected evidence before tuning.",
+        "Build and test the index and retrieval output, preserving chunk provenance.",
+        "Evaluate retrieval and generation separately; change one stage at a time.",
+        "Publish a compact error analysis, architecture diagram, and reproducible settings without exposing private data."
+      ],
+      stack: ["Python", "Jupyter", "sentence-transformers", "FAISS", "pandas"],
+      milestones: ["Licensed corpus and evidence set", "Baseline retrieve-and-generate pipeline", "Stage-specific evaluation", "Controlled improvement and limitations report"],
+      success: "The system cites traceable evidence, distinguishes retrieval from generation errors, uses a fixed evaluation set without leakage, and makes bounded claims about any improvement."
+    }
   }
 });

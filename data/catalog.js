@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-14",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 117,
+  filesInventoried: 118,
   courses: [
     {
       code: "EAI 6103",
@@ -445,8 +445,8 @@ export const catalog = {
       icon: "GA",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/people?emailId=course74%5Fhybrid%40iitp%2Eac%2Ein",
       status: "active",
-      statusLabel: "12 lectures available",
-      note: "Lectures from 23 August through 10 October are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
+      statusLabel: "13 lectures available",
+      note: "Lectures from 23 August through 11 October are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
       lectures: [
         {
           id: "eai-6403-2026-08-23",
@@ -620,6 +620,21 @@ export const catalog = {
           statusLabel: "Notes published",
           sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:02:09–00:25:32" },
           overview: ["DiT scaling, FID, and compute trade-offs", "VAE latent patch tokens and conditioned denoising", "FiLM, PixArt-α, and image-text joint attention"]
+        },
+        {
+          id: "eai-6403-2026-10-11-154131-d8858b",
+          number: 13,
+          date: "2026-10-11",
+          sourceRecordedAt: "2026-10-11T15:41:31+05:30",
+          sourceFilename: "Selective Topics in Generative AI-20261011_154131-Meeting Recording.mp4",
+          displayDate: "11 October 2026",
+          title: "From RAG pipelines to agentic workflows",
+          duration: "19m 47s teaching; participant-only opening and tail excluded",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course74_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse74_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSelective+Topics+in+Generative+AI-20261011_154131-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:01:07–00:20:54" },
+          overview: ["Naive, advanced, modular, and graph RAG", "Agent memory, planning, tools, and reflection", "Prompt chaining, routing, orchestrator-worker, and evaluator-optimizer patterns"]
         }
       ]
     },

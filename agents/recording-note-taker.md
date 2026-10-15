@@ -31,6 +31,19 @@ rule only; it does not create Hindi lecture-note data.
 
 ## Required lifecycle
 
+For future requests, **“full loop”** means the complete workflow, not only
+note-writing: check the live Schedule page for relevant past occurrences; verify
+each scheduled course/date against the course-root and optional nested
+`Recordings` folder; reconcile the stable source inventory and deterministic
+queue; then process every pending identity one at a time through review,
+capture/rejection, English note, subject-resource refresh, validation, source
+push, and GitHub Pages deployment. Review sequentially at 2× (or the fastest
+intelligible speed). On expired SharePoint sessions, choose the saved IITP
+account/username and click `Sign in`; if the browser autofills the saved
+password, click `Sign in` without viewing or typing it. A date mentioned as a
+discovery hint does not narrow the queue; only an explicit date-only request
+does.
+
 1. **Discovery, queue, and identity** — inspect each authenticated SharePoint
    course root and its `Recordings` child folder when present. Layouts vary:
    some courses keep MP4s directly in the root; others place them inside

@@ -130,12 +130,23 @@ stale locks are recoverable after a crash. `npm run queue:status` and
 advances until it reaches the next required browser gesture or note-authoring
 checkpoint, then can be rerun without repeating completed media work.
 
-“Full loop” always covers all verified pending identities unless the user says
-`date-only` (or equivalent) and the runner is invoked with `--date YYYY-MM-DD`.
-A newly discovered date is not an implicit scope boundary. Once one identity
-leaves plain `pending`, its capture, processing, note, validation, source push,
-and GitHub Pages deployment form one transaction. Resume that active identity
-before selecting another course; never batch several captures ahead of their
+In this repository, the phrase **“full loop”** is the complete schedule-to-
+publication instruction set: check the live Schedule page first, verify
+scheduled past class occurrences against both each authenticated course root
+and its `Recordings` child folder when present, add any missing stable source
+identities, then reconcile/status the queue and process every verified pending
+identity in deterministic course-round order. Review each Stream recording
+sequentially at 2× (or the fastest intelligible speed), complete and persist
+the seven-position triage plus teaching boundaries, then capture/process or
+reject, author the English note, refresh that subject's resources, validate,
+push `origin/main`, deploy GitHub Pages, mark the identity published, and only
+then select the next identity. For an expired SharePoint session, select the
+saved IITP account/username and click `Sign in`; if the saved password is
+autofilled on the next screen, click `Sign in` without reading or entering the
+credential. A newly discovered date is not an implicit scope boundary. Only an
+explicit date-only request narrows the queue and permits `--date YYYY-MM-DD`.
+Once one identity leaves plain `pending`, its full transaction must finish
+before another source is selected; never batch several captures ahead of their
 individual publication steps.
 
 Stream/Chrome capture remains an explicit visible-UI gesture boundary. It does
