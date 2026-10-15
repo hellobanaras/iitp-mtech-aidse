@@ -7,11 +7,13 @@ behavior; follow it together with this evidence checklist.
 
 ## 0. Build the queue and enforce one-at-a-time review
 
-1. Inventory every visible source without opening multiple recordings.
-2. Sort the queue by original lecture date/time, oldest first. Resolve ties by course code and source filename. Preserve the source recording timestamp and filename in the private manifest and catalog metadata for every canonical or unique-fragment output.
-3. Check `(course, lecture date, source filename or source URL hash)` against the inventory/processing manifests. Do not reopen a source with a completed disposition unless the inventory records a reason for re-review.
-4. Open only the first unprocessed recording. Triage it, reject or process it, persist the result, and close its tab before opening the next queue item.
-5. Keep transcription and frame processing local and sequentially associated with that source. Never play two recordings at once.
+1. For every course, inspect the actual SharePoint course root (for example, `Hybrid Course72`) and, if present, its child folder named `Recordings`. Folder layouts vary: recordings may be stored directly in the root or one level down in `Recordings`. Check both levels even when one already contains files; do not treat the OneDrive “People”/recently-shared listing as a complete folder inventory.
+2. Scan the complete listing at each level, including additional pages or virtualized rows, and collect the visible filename, source date/time, size, and stable Stream page URL where available. Compare both locations with `.course-data/recording-sources.json` by `(course, lecture date, filename or cleaned Stream URL)` and add each source identity once, even if a shared listing exposes the same file more than once. Do not store transient `referrer` parameters or hidden media URLs.
+3. Inventory every visible source without opening multiple recordings.
+4. Sort the queue by original lecture date/time, oldest first. Resolve ties by course code and source filename. Preserve the source recording timestamp and filename in the private manifest and catalog metadata for every canonical or unique-fragment output.
+5. Check `(course, lecture date, source filename or source URL hash)` against the inventory/processing manifests. Do not reopen a source with a completed disposition unless the inventory records a reason for re-review.
+6. Open only the first unprocessed recording. Triage it, reject or process it, persist the result, and close its tab before opening the next queue item.
+7. Keep transcription and frame processing local and sequentially associated with that source. Never play two recordings at once.
 
 When several newly added subjects have recordings in the same chronological cohort, review in subject rounds: take at most one oldest eligible source per subject before taking a second source from any of them. This rotation broadens coverage without overriding the primary oldest-first rule; never skip an older source merely to complete a round.
 

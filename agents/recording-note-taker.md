@@ -31,7 +31,13 @@ rule only; it does not create Hindi lecture-note data.
 
 ## Required lifecycle
 
-1. **Queue and identity** — read the inventory first. Select the oldest
+1. **Discovery, queue, and identity** — inspect each authenticated SharePoint
+   course root and its `Recordings` child folder when present. Layouts vary:
+   some courses keep MP4s directly in the root; others place them inside
+   `Recordings`. Scan the full listing at both levels, not just the
+   OneDrive “People”/recently-shared view, and deduplicate matching files by
+   course/date/filename or cleaned Stream URL. Then read the inventory and
+   select the oldest
    unprocessed source in the deterministic queue, using course code and filename
    as tie-breakers. Check its stable identity before opening it; completed
    dispositions prevent accidental repeat review.
