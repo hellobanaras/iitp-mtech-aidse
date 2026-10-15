@@ -310,6 +310,19 @@ export const openLearningResources = {
       description: "The authors' treatment of episodic returns, first-visit and every-visit estimates, and model-free value prediction.",
       descriptionHi: "Episodic returns, first-visit और every-visit estimates तथा model-free value prediction पर authors' treatment।",
       url: "https://incompleteideas.net/book/the-book-2nd.html"
+    },
+    {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Research paper",
+      kindHi: "Research paper",
+      access: "Open paper",
+      accessHi: "Open paper",
+      title: "Deep Reinforcement Learning with Double Q-learning",
+      titleHi: "Deep Reinforcement Learning with Double Q-learning",
+      description: "Van Hasselt, Guez, and Silver extend Double Q-learning's separated action selection and evaluation to deep value learning.",
+      descriptionHi: "Van Hasselt, Guez और Silver deep value learning में Double Q-learning के अलग action selection और evaluation को आगे बढ़ाते हैं।",
+      url: "https://arxiv.org/abs/1509.06461"
     }
   ],
   "eai-6402": [

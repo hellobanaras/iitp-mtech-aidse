@@ -1574,6 +1574,21 @@ export const capstones = Object.freeze({
       success: "A learner can verify support before reweighting, reproduce one per-decision estimate by hand, calculate a TD error, and explain why TD prediction does not require a transition model."
     }
   },
+  "eai-6401-2026-10-13-180443-6594cb": {
+    en: {
+      title: "ControlTarget Lab: compare SARSA, Q-learning, and Double Q-learning",
+      pitch: "Build an accessible gridworld explorer that exposes each algorithm's action-value target and shows how exploration and noisy maxima alter learned routes.",
+      problem: "Algorithms can share an ε-greedy behavior policy yet learn different action values because their targets sample, maximize, or average next-action estimates. A noisy maximum can also exaggerate value.",
+      learning: "Practise SARSA, Q-learning, Expected SARSA, and Double Q-learning targets; compare safe and short routes; observe maximization bias across seeded runs. This is optional practice, not an instructor-assigned project.",
+      mvp: ["Implement a small deterministic gridworld with a cliff, terminal goal, explicit rewards, and reproducible seeds.", "Show the next action and target equation for SARSA, Q-learning, and Expected SARSA after each transition.", "Implement two Q tables with alternating selection and cross-evaluation; display both estimates and the selected action.", "Run repeated trials with noisy equal-valued actions and report the average max estimate beside the true value.", "Provide an accessible event log and a route comparison that distinguishes path length from risk under exploratory behavior."],
+      stretch: ["Vary ε and compare SARSA's safe route with Q-learning's greedy route over repeated trials.", "Add confidence intervals and a warning that one seed or one grid does not establish a universal ranking."],
+      plan: ["Specify the environment, terminal behavior, rewards, and seeded test cases.", "Unit-test the three target calculations with hand-checkable values.", "Implement tabular control and Double Q updates with logged intermediate terms.", "Run repeated experiments, validate bias calculations, and review keyboard and screen-reader accessibility."],
+      novelty: "The lab makes algorithm differences inspectable at the transition level: learners can see exactly which next-action estimate enters each update and whether the same noisy estimate selected and evaluated it.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Seeded simulation", "Vitest"],
+      milestones: ["Gridworld and target unit tests", "SARSA/Q-learning/Expected SARSA", "Double Q and bias experiment", "Accessible reports and repeated-run comparison"],
+      success: "A learner can reproduce each update by hand, explain why behavior and target policies differ, and demonstrate why Double Q separates action selection from evaluation."
+    }
+  },
   "eai-6401-2026-10-12-180653-327bc0": {
     en: {
       title: "WalkWise: a batch TD and Monte Carlo explorer",

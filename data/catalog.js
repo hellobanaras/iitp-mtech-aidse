@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-15",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 120,
+  filesInventoried: 121,
   courses: [
     {
       code: "EAI 6103",
@@ -75,8 +75,8 @@ export const catalog = {
       icon: "RL",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course72_hybrid_iitp_ac_in/IgAGzyBinTNjQ69x8TC7U-ZQAedbzLJLRwPOzm3drlcdWcc?e=fR761s",
       status: "active",
-      statusLabel: "16 lectures available",
-      note: "The August 17 through October 6 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; verified teaching intervals exclude internal interruptions and long idle tails.",
+      statusLabel: "18 lectures available",
+      note: "The August 17 through October 13 lectures are published in chronological order. Three numbered August 17 uploads were classified as idle/error; verified teaching intervals exclude internal interruptions and long idle tails.",
       lectures: [
         {
           id: "eai-6401-2026-08-17",
@@ -315,6 +315,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["TD(0) error and bootstrapping", "Five-state random walk and RMS convergence", "Batch TD versus Monte Carlo on finite data"]
+        },
+        {
+          id: "eai-6401-2026-10-13-180443-6594cb",
+          number: 18,
+          date: "2026-10-13",
+          sourceRecordedAt: "2026-10-13T18:04:43+05:30",
+          sourceFilename: "Reinforcement Learning-20261013_180443-Meeting Recording.mp4",
+          displayDate: "13 October 2026",
+          title: "SARSA, Q-learning, Expected SARSA, and Double Q-learning",
+          duration: "1h 23m 24s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course72_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse72_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FReinforcement+Learning-20261013_180443-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["On-policy SARSA and Windy Gridworld", "Q-learning versus Expected SARSA", "Maximization bias and Double Q-learning"]
         }
       ]
     },
