@@ -1135,6 +1135,19 @@ export const openLearningResources = {
       description: "A small labeled, openly licensed dataset for experimenting with feature representation, distance, k, voting, and held-out evaluation after the lecture's nearest-neighbor introduction.",
       descriptionHi: "Lecture के nearest-neighbor परिचय के बाद feature representation, distance, k, voting और held-out evaluation अभ्यास करने के लिए छोटा labeled, openly licensed dataset।",
       url: "https://archive.ics.uci.edu/dataset/111/zoo"
+    },
+    {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
+      kind: "Worked examples",
+      kindHi: "Worked examples",
+      access: "Free documentation and code",
+      accessHi: "मुफ़्त documentation और code",
+      title: "Ensemble methods: AdaBoost examples",
+      titleHi: "Ensemble methods: AdaBoost examples",
+      description: "Official executable examples extend the lecture's adaptive reweighting idea with AdaBoost classification and regression demonstrations.",
+      descriptionHi: "Official executable examples lecture के adaptive reweighting विचार को AdaBoost classification और regression demonstrations से आगे बढ़ाते हैं।",
+      url: "https://scikit-learn.org/stable/auto_examples/ensemble/index.html"
     }
   ],
   "ecs-6401": [

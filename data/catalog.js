@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-16",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 124,
+  filesInventoried: 125,
   courses: [
     {
       code: "EAI 6103",
@@ -1521,8 +1521,8 @@ export const catalog = {
       icon: "DW",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course76_hybrid_iitp_ac_in/IgAWWFJqFmpXRay8IkonggGRASO0x6czOy20BYDTjv8HHXI?e=5DXrhH",
       status: "active",
-      statusLabel: "15 lectures available",
-      note: "Lectures 1–15 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; recent rule-learning, nearest-neighbor, and ensemble notes include source-time slide trails.",
+      statusLabel: "16 lectures available",
+      note: "Lectures 1–16 are published in chronological order. Waiting-room and idle tails were excluded after full timeline sweeps; recent rule-learning, nearest-neighbor, and boosting notes include source-time slide trails.",
       lectures: [
         {
           id: "ecc-6404-2026-08-17-193438",
@@ -1733,6 +1733,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["k-NN neighborhood size, local voting, and distance considerations", "Ensemble accuracy, error diversity, and four ways to create varied classifiers", "Bootstrap aggregation, out-of-bag intuition, and when bagging helps; boosting continues next class"]
+        },
+        {
+          id: "ecc-6404-2026-10-14-193354",
+          number: 16,
+          date: "2026-10-14",
+          sourceRecordedAt: "2026-10-14T19:33:54+05:30",
+          sourceFilename: "Data Warehousing-20261014_193354-Meeting Recording.mp4",
+          displayDate: "14 October 2026",
+          title: "Boosting: adaptive weights for hard-to-classify examples",
+          duration: "13m 9s teaching",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse76_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FData+Warehousing-20261014_193354-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Boosting iteratively changes example weights so later learners focus on earlier mistakes", "Weights can drive resampling or be used directly by a weighted base learner", "A ten-example illustration shows difficult example 4 gaining influence before round learners are aggregated"]
         }
       ]
     },

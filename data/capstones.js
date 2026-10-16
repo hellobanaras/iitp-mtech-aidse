@@ -1,5 +1,33 @@
 // Public English-only mini-capstone ideas.
 export const capstones = Object.freeze({
+  "ecc-6404-2026-10-14-193354": {
+    en: {
+      title: "WeightShift: a boosting-round visualizer",
+      pitch: "Build a safe synthetic-data simulator that makes each boosting round's sample weights and selected examples visible.",
+      problem: "The iterative idea is easy to reduce to a slogan. Learners need to see how evaluating the original training set after each base fit changes which cases influence the next round.",
+      learning: "Compare uniform bagging draws with an explicitly labelled boosting-style reweighted sampler, trace example frequencies across rounds, and explain how a learner that accepts sample weights can use the same emphasis without duplicated rows. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Create a small, deterministic synthetic binary dataset with ten clearly labelled examples and one deliberately difficult case.",
+        "Show a uniform with-replacement baseline and a separate boosting-style sampler whose illustrative weights increase for current mistakes and decrease for current correct predictions.",
+        "After each base model, evaluate all original examples, display the confusion table, update weights only at the round boundary, and plot sample multiplicities.",
+        "Aggregate the round classifiers, compare their predictions with the individual models, and clearly mark that the toy update is an instructional visualization rather than a complete AdaBoost implementation."
+      ],
+      stretch: [
+        "Add a second mode that passes sample weights to a documented learner instead of resampling rows, and compare its results under a fixed synthetic setup.",
+        "Let learners vary the difficult-case label or noise level and inspect when repeated focus helps, plateaus, or reinforces an outlier."
+      ],
+      plan: [
+        "Define a deterministic toy dataset, the illustrative update rules, and the explicit distinction from a production boosting implementation.",
+        "Implement round-by-round evaluation on the original dataset and test that the next round uses only weights updated after the previous evaluation.",
+        "Render the weights, sampled multiplicities, mistakes, and aggregate predictions with accessible labels and source-grounded explanations.",
+        "Audit the comparison for leakage, hidden randomness, and claims that exceed what the toy demonstrates."
+      ],
+      novelty: "The visual ledger separates the original dataset from each resampled training set, making the feedback from a model's errors to the next round's training emphasis concrete.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Deterministic synthetic data", "Vitest"],
+      milestones: ["Synthetic dataset and reproducible rounds", "Original-data evaluation and weight ledger", "Bagging/boosting comparison", "Accessible visual and limitation review"],
+      success: "A learner can trace one mistake through evaluation, weight adjustment, next-round sampling, and final aggregation while distinguishing the lecture's general procedure from a library's precise algorithm."
+    }
+  },
   "ecs-6401-2026-10-14-180544": {
     en: {
       title: "GeneralizeTS: a leakage-aware model comparison lab",
