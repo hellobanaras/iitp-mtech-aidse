@@ -1141,6 +1141,32 @@ export const openLearningResources = {
     {
       provider: "scikit-learn",
       providerHi: "scikit-learn",
+      kind: "Official worked example",
+      kindHi: "Official worked example",
+      access: "Free example and code",
+      accessHi: "मुफ़्त example और code",
+      title: "Lagged features for time-series forecasting",
+      titleHi: "Lagged features for time-series forecasting",
+      description: "Build lagged inputs and compare chronological evaluation with a shuffled split; useful for avoiding future-information leakage in time-series classification and regression.",
+      descriptionHi: "Lagged inputs और chronological evaluation देखें; time-series classification और regression में future-information leakage से बचने के लिए उपयोगी।",
+      url: "https://scikit-learn.org/stable/auto_examples/applications/plot_time_series_lagged_features.html"
+    },
+    {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
+      kind: "Official documentation",
+      kindHi: "Official documentation",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Linear models",
+      titleHi: "Linear models",
+      description: "Official overview of linear regression and least-squares objectives, extending the lecture's slope/intercept and squared-residual discussion.",
+      descriptionHi: "Linear regression और least-squares objectives का official overview; lecture के slope/intercept और squared-residual विषय को आगे बढ़ाता है।",
+      url: "https://scikit-learn.org/stable/modules/linear_model.html"
+    },
+    {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
       kind: "Official documentation",
       kindHi: "Official documentation",
       access: "Free documentation",

@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-15",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 122,
+  filesInventoried: 123,
   courses: [
     {
       code: "EAI 6103",
@@ -1477,6 +1477,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Entropy and weighted information gain for categorical splits", "ID3 information gain and C4.5 gain-ratio contrast", "Overfitting, pruning, and unseen-data generalization"]
+        },
+        {
+          id: "ecs-6401-2026-10-14-180544",
+          number: 15,
+          date: "2026-10-14",
+          sourceRecordedAt: "2026-10-14T18:05:44+05:30",
+          sourceFilename: "Advanced Time Series Analysis-20261014_180544-Meeting Recording.mp4",
+          displayDate: "14 October 2026",
+          title: "Bias–variance, tree pruning, lag features, and linear regression",
+          duration: "1h 03m 23s bounded teaching interval",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course129_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse129_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FAdvanced+Time+Series+Analysis-20261014_180544-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Bias–variance and training-versus-test generalization", "CART cost-complexity pruning", "Lagged time-series features and linear least-squares regression"]
         }
       ]
     },

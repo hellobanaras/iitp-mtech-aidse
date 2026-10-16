@@ -40,6 +40,12 @@ const templates = {
     steps: ["Count positive / negative labels", "Compute parent entropy", "Weight child entropies → information gain", "Normalize by split information when needed", "Prune; evaluate generalization"],
     detail: "The age-category example, ID3/C4.5 contrast, and overfitting discussion are tied to the lecture's timecoded slide trail."
   },
+  biasVarianceTimeSeries: {
+    title: "From model fit to time-aware evaluation",
+    description: "Compare training and test behavior, penalize unnecessary tree complexity, build inputs only from the past, and fit a regression line by its residual cost.",
+    steps: ["Compare training vs test error", "Select tree complexity with validation", "Build historical lag features", "Fit slope and intercept", "Check held-out performance"],
+    detail: "An original study map connecting the lecture's bias–variance, CART pruning, lagged time-series features, and least-squares regression sections."
+  },
   neighborsEnsemble: {
     title: "From local votes to a diverse ensemble",
     description: "Inspect how a query's k-neighbor vote changes with neighborhood size, then create varied base learners and aggregate their predictions. Bootstrap sampling supplies one concrete route to diversity.",
@@ -255,6 +261,7 @@ const visualTemplates = {
   "ecs-6401-2026-09-25-180502": "cointegration",
   "ecs-6401-2026-10-07-180243": "vecmArch",
   "ecs-6401-2026-10-09-180708-92c407": "decisionTree",
+  "ecs-6401-2026-10-14-180544": "biasVarianceTimeSeries",
   "eai-6103-2026-08-18-193045": "ml",
   "eai-6103-2026-08-22-092455": "python",
   "eai-6103-2026-08-25-183026": "ml",

@@ -1,5 +1,34 @@
 // Public English-only mini-capstone ideas.
 export const capstones = Object.freeze({
+  "ecs-6401-2026-10-14-180544": {
+    en: {
+      title: "GeneralizeTS: a leakage-aware model comparison lab",
+      pitch: "Build a reproducible notebook that compares tree pruning and lag-feature regression/classification under a strict chronological evaluation protocol.",
+      problem: "A model can look excellent on training examples yet fail later. Randomly mixed time-series rows can also leak future structure into evaluation, hiding that failure.",
+      learning: "Explore bias–variance behavior, CART cost-complexity pruning, lag-feature construction, linear least squares, and time-ordered validation. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Create or select a documented chronological dataset and record its target, time index, feature availability, and preprocessing decisions.",
+        "Compare a shallow and unrestricted decision tree with a cost-complexity pruning path; select complexity on validation data and report one final held-out score.",
+        "Build lagged features from prior observations only and compare an up/down classifier with a continuous-response linear regression baseline where appropriate.",
+        "Plot training, validation, and test errors against model complexity; state why a low training error alone is insufficient.",
+        "Add tests that prevent future-target columns from entering predictors and verify that each split preserves chronological order."
+      ],
+      stretch: [
+        "Repeat the comparison across several rolling-origin windows and report score variation rather than a single favorable split.",
+        "Compare the simple linear baseline with a regularized model while documenting scaling and fit-only-on-training requirements."
+      ],
+      plan: [
+        "Define prediction time, target horizon, and which observations are available at inference.",
+        "Implement chronological partitions and leak-checked lag construction with unit tests.",
+        "Fit tree and regression candidates; select complexity using validation evidence only.",
+        "Report held-out results, error curves, limitations, and a reproducible configuration."
+      ],
+      novelty: "The lab makes time availability and generalization evidence explicit, so learners can see how an apparently strong model can fail under a realistic future-facing evaluation.",
+      stack: ["Python", "pandas", "scikit-learn", "Jupyter", "pytest"],
+      milestones: ["Temporal data contract", "Leakage-safe features", "Pruning and regression comparison", "Rolling evaluation and report"],
+      success: "Every reported score can be reproduced from a chronological split, no future-derived feature enters training, and complexity choices are justified using validation rather than final-test tuning."
+    }
+  },
   "ecs-6401-2026-10-09-180708-92c407": {
     en: {
       title: "SplitSense: an explainable decision-tree workbench",
