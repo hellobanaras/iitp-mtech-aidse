@@ -2019,6 +2019,32 @@ export const openLearningResources = {
       description: "Official reference to full and light clients and execution/consensus roles; clarifies the simplified node diagram used in the lecture.",
       descriptionHi: "Official reference to full and light clients and execution/consensus roles; clarifies the simplified node diagram used in the lecture.",
       url: "https://ethereum.org/developers/docs/nodes-and-clients"
+    },
+    {
+      provider: "Ethereum Foundation",
+      providerHi: "Ethereum Foundation",
+      kind: "Historical security incident",
+      kindHi: "Historical security incident",
+      access: "Free primary-source article",
+      accessHi: "Free primary-source article",
+      title: "Critical update on The DAO vulnerability",
+      titleHi: "Critical update on The DAO vulnerability",
+      description: "Contemporaneous primary account of the recursive-calling exploit and the Foundation's distinction between the DAO application and Ethereum itself.",
+      descriptionHi: "Contemporaneous primary account of the recursive-calling exploit and the Foundation's distinction between the DAO application and Ethereum itself.",
+      url: "https://blog.ethereum.org/2016/06/17/critical-update-re-dao-vulnerability"
+    },
+    {
+      provider: "Solidity",
+      providerHi: "Solidity",
+      kind: "Security reference",
+      kindHi: "Security reference",
+      access: "Free language documentation",
+      accessHi: "Free language documentation",
+      title: "Security Considerations",
+      titleHi: "Security Considerations",
+      description: "Official guidance on re-entrancy, external calls, checks-effects-interactions, and contract-security assumptions directly relevant to The DAO example.",
+      descriptionHi: "Official guidance on re-entrancy, external calls, checks-effects-interactions, and contract-security assumptions directly relevant to The DAO example.",
+      url: "https://docs.soliditylang.org/en/latest/security-considerations.html"
     }
   ],
   "ebb-6402": [

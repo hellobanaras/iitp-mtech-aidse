@@ -66,6 +66,12 @@ const fallback = {
 };
 
 export function suggestedPracticeForLecture(lecture, course) {
+  if (lecture?.id === "ebb-6401-2026-10-14-180605") return {
+    assignments: [{ title: "Optional proposal-flow sketch", detail: "Optional, not instructor-assigned: map member eligibility, proposal, voting, quorum, contract execution, treasury effects, and any outside-world evidence needed for one hypothetical DAO action." }],
+    homework: [{ title: "Optional governance threat review", detail: "Optional, not instructor-assigned: identify who can propose, vote, upgrade, pause, or recover a toy DAO; describe one concentration-of-power risk and one re-entrancy risk." }],
+    labs: [{ title: "Optional local re-entrancy test", detail: "Optional, not instructor-assigned: in a local Solidity VM, compare a withdrawal contract that updates balances after an external call with a checks-effects-interactions version. Use synthetic accounts and no real funds." }],
+    projects: [{ title: "Optional DAO governance simulator", detail: "Optional, not instructor-assigned: build an accessible simulator for proposals, voting power, quorum, mock treasury actions, upgrade/emergency controls, and tests for unauthorized or duplicate execution." }]
+  };
   if (lecture?.id === "ebb-6401-2026-09-28-181150") return {
     assignments: [{ title: "Prefix-trie drawing", detail: "Optionally draw car, card, care, and cat as a compact trie. Label the shared paths, branch choice, and terminal values; this is not instructor-assigned." }],
     homework: [{ title: "Proof versus canonicality", detail: "Optionally explain how a membership proof checks a value against a supplied state root, then list what separate evidence would establish that the root is canonical." }],

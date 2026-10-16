@@ -1,6 +1,7 @@
 const releaseVersion = new URL(import.meta.url).searchParams.get("v") || "dev";
 const { ebb6401Lecture20261005180333 } = await import(`./lectures/ebb-6401-2026-10-05-180333-664a36.js?v=${releaseVersion}`);
 const { ebb6401Lecture20261012180732 } = await import(`./lectures/ebb-6401-2026-10-12-180732-bfc221.js?v=${releaseVersion}`);
+const { ebb6401Lecture20261014180605 } = await import(`./lectures/ebb-6401-2026-10-14-180605.js?v=${releaseVersion}`);
 const { ecs6401Lecture20261007180243 } = await import(`./lectures/ecs-6401-2026-10-07-180243.js?v=${releaseVersion}`);
 const { ecs6401Lecture20261009180708 } = await import(`./lectures/ecs-6401-2026-10-09-180708-92c407.js?v=${releaseVersion}`);
 const { ecs6401Lecture20261014180544 } = await import(`./lectures/ecs-6401-2026-10-14-180544.js?v=${releaseVersion}`);
@@ -324,6 +325,7 @@ export const lectureNotes = {
   "ebb-6401-2026-09-28-181150": ebb6401Lecture20260928181150,
   "ebb-6401-2026-10-07-180906-acd0c4": ebb6401Lecture20261007180906,
   "ebb-6401-2026-10-12-180732-bfc221": ebb6401Lecture20261012180732,
+  "ebb-6401-2026-10-14-180605": ebb6401Lecture20261014180605,
   "ebb-6401-2026-10-05-180333-664a36": ebb6401Lecture20261005180333,
   "ecs-6402-2026-08-21-204351": ecs6402Lecture20260821,
   "ecs-6402-2026-08-27-203455": ecs6402Lecture20260827,

@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-10-15",
+  updated: "2026-10-16",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 123,
+  filesInventoried: 124,
   courses: [
     {
       code: "EAI 6103",
@@ -894,8 +894,8 @@ export const catalog = {
       icon: "SC",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course77_hybrid_iitp_ac_in/IgCEBeWWlU_wQLE9fUZWW9fTAYhpk32mpJi8Lbo6Iba_Cy8?e=5wSELF",
       status: "active",
-      statusLabel: "14 lectures available",
-      note: "Fourteen verified lectures are published. The latest session compares optimistic and ZK-rollup proofs, then covers Solidity inheritance and DAO governance.",
+      statusLabel: "15 lectures available",
+      note: "Fifteen verified lectures are published. The latest sessions cover DAO governance, Ethereum smart contracts, Solidity inheritance, and rollup proof designs.",
       lectures: [
         {
           id: "ebb-6401-2026-08-17-180921",
@@ -1093,6 +1093,21 @@ export const catalog = {
           statusLabel: "Notes published",
           sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:05:06–01:20:05 (7m49s break excluded)" },
           overview: ["ZK validity proofs compared with optimistic fraud-proof challenges", "Single, multilevel, hierarchical, and multiple Solidity inheritance", "DAO membership, voting, contract rules, and governance limitations"]
+        },
+        {
+          id: "ebb-6401-2026-10-14-180605",
+          number: 15,
+          date: "2026-10-14",
+          sourceRecordedAt: "2026-10-14T18:06:05+05:30",
+          sourceFilename: "Smart contracts and solidity programming-20261014_180605-Meeting Recording.mp4",
+          displayDate: "14 October 2026",
+          title: "DAO characteristics, governance workflow, and Ethereum smart contracts",
+          duration: "58m 13s instructional",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course77_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse77_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSmart+contracts+and+solidity+programming-20261014_180605-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:01:39–00:59:52" },
+          overview: ["Decentralization, autonomy, transparency, and DAO self-governance", "Member proposals, voting, treasury rules, and off-chain trust boundaries", "The DAO exploit, Ethereum smart contracts, Ether/gas, and the EVM"]
         }
       ]
     },

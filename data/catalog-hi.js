@@ -139,8 +139,8 @@ export const catalogHi = {
       shortTitle: "स्मार्ट कॉन्ट्रैक्ट्स",
       cadence: "सोमवार और बुधवार",
       time: "शाम ६:००–७:३० IST",
-      statusLabel: "८ व्याख्यान उपलब्ध",
-      note: "१७ अगस्त से १४ सितंबर तक के आठ सत्यापित व्याख्यान क्रम में प्रकाशित हैं। १४ सितंबर का सत्र Ethereum nonce, account state, gas, EVM execution और transaction finality पर है।",
+      statusLabel: "१५ व्याख्यान उपलब्ध",
+      note: "१७ अगस्त से १४ अक्टूबर तक के पंद्रह सत्यापित व्याख्यान क्रम में प्रकाशित हैं। नवीनतम सत्र DAO governance, Ethereum smart contracts, Ether/gas और EVM execution पर है।",
       lectures: {}
     },
     "ebb-6403": {

@@ -392,6 +392,35 @@ export const capstones = Object.freeze({
       success: "A learner can explain which contract rule governs each proposal transition, demonstrate that invalid or duplicate actions are rejected, and identify human or protocol assumptions that remain outside the toy model. This is optional study practice, not an instructor-assigned project."
     }
   },
+  "ebb-6401-2026-10-14-180605": {
+    en: {
+      title: "DAO DecisionTrace: a governance-to-execution simulator",
+      pitch: "Build a local-only, accessible simulator that traces a DAO proposal through voting rules, contract checks, a mock treasury action, and an auditable outcome.",
+      problem: "A governance chart can hide who has authority, what evidence a contract receives, and whether an action can be repeated or upgraded. A small deterministic model makes those trust boundaries and state transitions reviewable without real funds.",
+      learning: "Practise proposal lifecycles, voting and quorum rules, contract-enforced conditions, external-input assumptions, treasury safeguards, and a re-entrancy threat review. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Define synthetic members, voting power, proposal states, deadlines, quorum, and a single mock treasury action; document every assumption.",
+        "Render an accessible proposal-to-execution flow and label which checks happen on-chain versus which facts require a trusted external report.",
+        "Test valid approval, insufficient quorum, ineligible and duplicate votes, expired proposals, unauthorized execution, and duplicate treasury execution.",
+        "Add a local-only withdrawal scenario and a test showing why state must be updated before an external interaction.",
+        "Publish a threat and governance table covering voter concentration, upgrade and emergency authority, external facts, and residual risks."
+      ],
+      stretch: [
+        "Compare two synthetic voting-power or quorum policies and show how proposal outcomes change without presenting the simulation as a fairness proof.",
+        "Add a safe state-transition invariant that proves the same mock proposal cannot execute twice."
+      ],
+      plan: [
+        "Specify actors, permissions, states, transitions, reject conditions, and threat boundaries before implementation.",
+        "Implement deterministic proposal and voting logic with unit tests for accepted and rejected transitions.",
+        "Add the mock treasury and re-entrancy scenario using local-only synthetic state.",
+        "Build the responsive accessible visual, then write a short evidence and limitations report."
+      ],
+      novelty: "The project links collective policy to exact state transitions and threat checks, making the path from a member vote to contract execution inspectable without implying that automation guarantees good governance.",
+      stack: ["Solidity local VM or TypeScript state simulator", "Accessible HTML/SVG", "Vitest or a Solidity test runner", "Synthetic participants only"],
+      milestones: ["Governance specification", "Proposal and voting model", "Treasury safeguards and adversarial tests", "Accessible decision trace and risk report"],
+      success: "A learner can trace who authorized each action, reproduce both accepted and rejected transitions, identify outside-world and upgrade assumptions, and demonstrate that the toy model uses no real funds. This is optional study practice, not an instructor-assigned project."
+    }
+  },
   "eai-6103-2026-08-22-092455": {
     "en": {
       "title": "NotebookStarter: a reproducible Python data-practice lab",
