@@ -2179,6 +2179,32 @@ export const openLearningResources = {
       description: "Official guidance on re-entrancy, external calls, checks-effects-interactions, and contract-security assumptions directly relevant to The DAO example.",
       descriptionHi: "Official guidance on re-entrancy, external calls, checks-effects-interactions, and contract-security assumptions directly relevant to The DAO example.",
       url: "https://docs.soliditylang.org/en/latest/security-considerations.html"
+    },
+    {
+      provider: "Polkadot Developer Docs",
+      providerHi: "Polkadot Developer Docs",
+      kind: "Interoperability tutorial",
+      kindHi: "Interoperability tutorial",
+      access: "Free documentation",
+      accessHi: "Free documentation",
+      title: "Get started with XCM",
+      titleHi: "Get started with XCM",
+      description: "Official hands-on introduction to Polkadot's Cross-Consensus Messaging format, its message semantics, and how independent consensus systems communicate.",
+      descriptionHi: "Official hands-on introduction to Polkadot's Cross-Consensus Messaging format, its message semantics, and how independent consensus systems communicate.",
+      url: "https://docs.polkadot.com/parachains/interoperability/get-started/"
+    },
+    {
+      provider: "Cosmos IBC",
+      providerHi: "Cosmos IBC",
+      kind: "Protocol specification and practice",
+      kindHi: "Protocol specification and practice",
+      access: "Free open-source documentation",
+      accessHi: "Free open-source documentation",
+      title: "Inter-Blockchain Communication protocol",
+      titleHi: "Inter-Blockchain Communication protocol",
+      description: "The maintained IBC standards repository explains authenticated packet transport, connection/channel semantics, and cross-chain verification; use it to compare interoperability designs with Polkadot XCM.",
+      descriptionHi: "The maintained IBC standards repository explains authenticated packet transport, connection/channel semantics, and cross-chain verification; use it to compare interoperability designs with Polkadot XCM.",
+      url: "https://github.com/cosmos/ibc"
     }
   ],
   "ebb-6402": [

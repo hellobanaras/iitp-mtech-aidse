@@ -1167,6 +1167,21 @@ export const catalog = {
           statusLabel: "Notes published",
           sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:01:39–00:59:52" },
           overview: ["Decentralization, autonomy, transparency, and DAO self-governance", "Member proposals, voting, treasury rules, and off-chain trust boundaries", "The DAO exploit, Ethereum smart contracts, Ether/gas, and the EVM"]
+        },
+        {
+          id: "ebb-6401-2026-10-21-181206",
+          number: 16,
+          date: "2026-10-21",
+          sourceRecordedAt: "2026-10-21T18:12:06+05:30",
+          sourceFilename: "Smart contracts and solidity programming-20261021_181206-Meeting Recording.mp4",
+          displayDate: "21 October 2026",
+          title: "DAO infrastructure evolution: interoperability, scaling, UX, and security",
+          duration: "55m 49s instructional (10m46s break/disconnection excluded)",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course77_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse77_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSmart+contracts+and+solidity+programming-20261021_181206-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:06:35–01:13:10 (10m46s break/disconnection excluded)" },
+          overview: ["Evolution from early smart-contract prototypes to DAO governance frameworks", "Cross-chain interoperability, Layer 2 scaling, rollups, and sidechain distinctions", "Usability, audits, bug bounties, identity approaches, and formal verification"]
         }
       ]
     },

@@ -506,6 +506,21 @@ export const capstones = Object.freeze({
       success: "A learner can trace who authorized each action, reproduce both accepted and rejected transitions, identify outside-world and upgrade assumptions, and demonstrate that the toy model uses no real funds. This is optional study practice, not an instructor-assigned project."
     }
   },
+  "ebb-6401-2026-10-21-181206": {
+    en: {
+      title: "DAO ConnectLab: an interoperability and assurance sandbox",
+      pitch: "Build a local-only, accessible model that traces a DAO action across a simulated chain boundary and evaluates its scaling, usability, and security assumptions.",
+      problem: "A DAO proposal can depend on a bridge, external report, sequencer, or interface while hiding who validates each step. A bounded sandbox makes those trust boundaries visible without using real networks or funds.",
+      learning: "Compare authenticated message flow, optimistic challenges and validity-proof checks, sidechain assumptions, user-interface checkpoints, and scoped security evidence. This is optional study practice, not an instructor-assigned project.",
+      mvp: ["Define two synthetic ledgers, a mock proposal, a message packet, and explicit origin/destination verification assumptions.", "Simulate accepted, malformed, replayed, delayed, and unavailable messages; show which participant can pause or challenge each path.", "Compare a rollup-style validity/challenge workflow with an independently secured sidechain model; do not imply equivalent guarantees.", "Add an accessible dashboard that explains the action, evidence, operator powers, and recovery path before a simulated user confirms it.", "Create a scoped assurance register for tests, audit findings, bounty reports, formal properties, unresolved assumptions, and version identifiers."],
+      stretch: ["Add synthetic oracle inputs with stale, conflicting, and unavailable values, and show how the DAO policy handles each case.", "Measure simulated latency and throughput while documenting which verification steps were simplified."],
+      plan: ["Draw the system boundary and write down assets, actors, message authentication, and trust assumptions.", "Implement deterministic local state transitions and negative tests for invalid or replayed messages.", "Compare the simulated scaling paths and expose operator/upgrade controls in the interface.", "Produce an accessible evidence report that separates verified properties from untested assumptions."],
+      novelty: "The sandbox connects DAO governance, inter-chain messaging, scaling, interface design, and security evidence in one traceable action path while keeping each guarantee and trust boundary explicit.",
+      stack: ["TypeScript or a local Solidity VM", "Synthetic chain and participant state only", "Vitest or equivalent tests", "Responsive accessible HTML/SVG"],
+      milestones: ["Threat and trust-boundary model", "Local message and governance simulator", "Scaling and UX comparison", "Scoped assurance report"],
+      success: "A learner can reproduce valid and invalid message paths, explain which layer verifies each claim, distinguish rollup and sidechain assumptions, and identify what the sandbox does not prove. No real network, funds, or personal data are used. This is optional study practice, not an instructor-assigned project."
+    }
+  },
   "eai-6103-2026-08-22-092455": {
     "en": {
       "title": "NotebookStarter: a reproducible Python data-practice lab",
