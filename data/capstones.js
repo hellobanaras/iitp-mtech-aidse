@@ -28,6 +28,35 @@ export const capstones = Object.freeze({
       success: "A learner can trace one mistake through evaluation, weight adjustment, next-round sampling, and final aggregation while distinguishing the lecture's general procedure from a library's precise algorithm."
     }
   },
+  "ecc-6404-2026-10-21-193612-5c8aba": {
+    en: {
+      title: "RareSignal: an imbalanced-class decision workbench",
+      pitch: "Build an accessible synthetic-data workbench that makes class-specific errors, metric trade-offs, decision costs, and multiclass reductions inspectable without using real personal records.",
+      problem: "A high accuracy score can hide a model that never detects a rare but consequential class. Learners need to compare error types and downstream costs rather than treat one metric as universally sufficient.",
+      learning: "Explore precision, recall, F1/Fβ, ROC points, cost matrices, and one-vs-rest/one-vs-one/ECOC using deterministic toy data. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Create a deterministic synthetic binary dataset with a configurable class ratio and transparent train/test split; prohibit personal or health data.",
+        "Render a confusion matrix and calculate precision, recall, F1, and class-specific rates with explicit zero-denominator handling.",
+        "Allow a decision threshold and user-defined false-positive/false-negative costs; show how the operating point and expected cost change without claiming causal or clinical validity.",
+        "Add small visual demonstrations of one-vs-rest, pairwise voting, and codeword/Hamming-distance decoding using synthetic labels.",
+        "Explain in plain language which cases each metric rewards or penalizes and preserve the same data split across comparisons."
+      ],
+      stretch: [
+        "Add an optional separate market-basket toy that converts transaction presence to binary rows and computes itemset support counts; label co-occurrence as non-causal.",
+        "Compare two class ratios and cost matrices while keeping the random seed fixed, then export a concise accessible results report."
+      ],
+      plan: [
+        "Specify synthetic examples, metric equations, threshold semantics, and cost-matrix orientation with tests.",
+        "Implement the confusion table and metric calculations, including edge cases where no positive prediction is made.",
+        "Build threshold and cost comparisons and verify that all values are computed from the same held-out examples.",
+        "Add multiclass reduction demonstrations and audit labels for accuracy, accessibility, privacy, and non-causal interpretation."
+      ],
+      novelty: "The workbench makes the gap between overall accuracy and minority-class usefulness visible, then connects that gap to explicit decision costs and model-reduction choices.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Deterministic synthetic data", "Vitest"],
+      milestones: ["Synthetic dataset and verified metrics", "Threshold and cost comparison", "Multiclass reduction visualizers", "Accessibility, privacy, and interpretation audit"],
+      success: "A learner can explain why two models with similar accuracy can have different minority-class value, and defend a metric/threshold choice using explicit application costs."
+    }
+  },
   "ecs-6401-2026-10-14-180544": {
     en: {
       title: "GeneralizeTS: a leakage-aware model comparison lab",

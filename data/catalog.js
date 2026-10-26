@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-26",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 132,
+  filesInventoried: 133,
   courses: [
     {
       code: "EAI 6103",
@@ -1849,6 +1849,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Boosting iteratively changes example weights so later learners focus on earlier mistakes", "Weights can drive resampling or be used directly by a weighted base learner", "A ten-example illustration shows difficult example 4 gaining influence before round learners are aggregated"]
+        },
+        {
+          id: "ecc-6404-2026-10-21-193612-5c8aba",
+          number: 17,
+          date: "2026-10-21",
+          sourceRecordedAt: "2026-10-21T19:36:12+05:30",
+          sourceFilename: "Data Warehousing-20261021_193612-Meeting Recording.mp4",
+          displayDate: "21 October 2026",
+          title: "Imbalanced classification, decision costs, and association analysis",
+          duration: "1h 21m 23s teaching",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course76_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course76_hybrid_iitp_ac_in/Documents/Recordings/Data+Warehousing-20261021_193612-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Class imbalance, confusion-matrix rates, precision/recall, F measures, and ROC", "Cost-sensitive decisions and one-vs-rest, one-vs-one, and ECOC multiclass methods", "Association analysis begins with binary market baskets, itemsets, and support count"]
         }
       ]
     },

@@ -1019,6 +1019,46 @@ export const openLearningResources = {
   ],
   "ecc-6404": [
     {
+      provider: "scikit-learn", providerHi: "scikit-learn", kind: "Metric reference", kindHi: "Metric reference",
+      access: "Free documentation", accessHi: "Free documentation",
+      title: "Confusion matrix", titleHi: "Confusion matrix",
+      description: "Official definitions for the class-specific counts behind this lecture's precision, recall, sensitivity, and false-alarm rates.",
+      descriptionHi: "इस lecture की precision, recall, sensitivity और false-alarm rates के पीछे के class-specific counts की official definitions।",
+      url: "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html"
+    },
+    {
+      provider: "scikit-learn", providerHi: "scikit-learn", kind: "Evaluation example", kindHi: "Evaluation example",
+      access: "Free documentation", accessHi: "Free documentation",
+      title: "Precision–recall and threshold trade-offs", titleHi: "Precision–recall and threshold trade-offs",
+      description: "An official worked example showing how threshold choices affect the precision/recall balance discussed in class.",
+      descriptionHi: "Threshold बदलने पर precision/recall संतुलन कैसे बदलता है, इसका official worked example।",
+      url: "https://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html"
+    },
+    {
+      provider: "scikit-learn", providerHi: "scikit-learn", kind: "Multiclass reference", kindHi: "Multiclass reference",
+      access: "Free documentation", accessHi: "Free documentation",
+      title: "OutputCodeClassifier", titleHi: "OutputCodeClassifier",
+      description: "Official API reference for the error-correcting output-code multiclass strategy introduced in this lecture.",
+      descriptionHi: "इस lecture में प्रस्तुत error-correcting output-code multiclass strategy का official API reference।",
+      url: "https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OutputCodeClassifier.html"
+    },
+    {
+      provider: "mlxtend", providerHi: "mlxtend", kind: "Hands-on practice", kindHi: "Hands-on practice",
+      access: "Free documentation", accessHi: "Free documentation",
+      title: "Apriori frequent-itemset mining", titleHi: "Apriori frequent-itemset mining",
+      description: "A practical continuation from the lecture's transaction, itemset, and support-count introduction.",
+      descriptionHi: "Lecture के transaction, itemset और support-count परिचय से आगे का practical अभ्यास।",
+      url: "https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/apriori/"
+    },
+    {
+      provider: "mlxtend", providerHi: "mlxtend", kind: "Hands-on practice", kindHi: "Hands-on practice",
+      access: "Free documentation", accessHi: "Free documentation",
+      title: "Association-rule generation", titleHi: "Association-rule generation",
+      description: "A companion continuation for generating and evaluating rules from frequent itemsets; this recording defers the topic's remaining material.",
+      descriptionHi: "Frequent itemsets से rules बनाने और जाँचने का अगला अभ्यास; recording में बाकी विषय आगे के लिए छोड़ा गया है।",
+      url: "https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/association_rules/"
+    },
+    {
       provider: "Stanford University",
       providerHi: "Stanford University",
       kind: "Open course",
