@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-26",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 136,
+  filesInventoried: 137,
   courses: [
     {
       code: "EAI 6103",
@@ -722,8 +722,8 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "active",
-      statusLabel: "15 lectures available",
-      note: "The October 15 lecture reviews cellular generations and AMPS call setup before comparing FDMA and synchronous/asynchronous TDM.",
+      statusLabel: "16 lectures available",
+      note: "The October 23 lecture connects TDM framing and T1 rate arithmetic with an illustrative TDMA timing example and GSM network architecture.",
       lectures: [
         {
           id: "ecs-6402-2026-08-21-204351",
@@ -938,6 +938,21 @@ export const catalog = {
           statusLabel: "Notes published",
           sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:03:22–01:22:30" },
           overview: ["1G–4G service and multiple-access overview", "AMPS bands, channelization, and MTSO call setup", "FDMA guard bands and TDM frames, slots, and allocation"]
+        },
+        {
+          id: "ecs-6402-2026-10-23-203527-8281dc",
+          number: 16,
+          date: "2026-10-23",
+          sourceRecordedAt: "2026-10-23T20:35:27+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20261023_203527-Meeting Recording.mp4",
+          displayDate: "23 October 2026",
+          title: "TDM framing, T1 rate arithmetic, and GSM network architecture",
+          duration: "1h 23m 45s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse75_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSelected%20Topics%20in%20Wireless%20Networks-20261023_203527-Meeting%20Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:00:35–01:22:50" },
+          overview: ["TDM buffers, synchronous frames, and the 193-bit T1 rate calculation", "Illustrative TDMA training and guard-time design", "GSM mobile-station, BTS, BSC, and MSC architecture"]
         }
       ]
     },

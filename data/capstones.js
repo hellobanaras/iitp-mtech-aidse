@@ -2841,6 +2841,21 @@ export const capstones = Object.freeze({
       success: "A learner can correctly trace a call from validation to release, distinguish frequency from time allocation, and explain the idle-capacity trade-off. This is optional study material, not an instructor-assigned project."
     }
   },
+  "ecs-6402-2026-10-23-203527-8281dc": {
+    en: {
+      title: "FrameLab: a TDM and mobile-network visualizer",
+      pitch: "Build an accessible learning tool that lets a student inspect bit-level framing and follow a mobile connection through the GSM teaching diagram.",
+      problem: "Learners can conflate payload with framing overhead or confuse radio-channel training with guard time and network switching roles.",
+      learning: "Compare source payload and synchronization overhead, calculate a line rate from bits per frame and frames per second, then trace the ME/SIM → BTS → BSC → MSC path.",
+      mvp: ["Create an editable TDM frame with configurable sources, fixed slots, and an optional synchronization bit.", "Calculate and explain the resulting bit rate with units and intermediate arithmetic.", "Animate two adjacent radio bursts to show training separately from guard time.", "Provide a keyboard-accessible GSM architecture map with a concise responsibility for each component."],
+      stretch: ["Add a clearly labelled toy channel-estimation example using a known training sequence.", "Compare fixed synchronous slots with a dynamically filled toy frame without claiming either is a complete GSM implementation."],
+      plan: ["Model slot, frame, and overhead data with unit tests.", "Build the rate calculator and explain the 193 × 8,000 example.", "Add the accessible burst timing and architecture diagrams.", "Test keyboard navigation, units, and screen-reader descriptions."],
+      novelty: "One interactive artifact connects bit-level multiplexing arithmetic to the higher-level radio and switching path, while keeping their distinct functions visible.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Vitest"],
+      milestones: ["Frame editor", "Unit-aware line-rate calculator", "Training/guard comparison", "Accessible GSM path"],
+      success: "A learner can derive the frame rate, explain the difference between training and guard intervals, and trace mobile traffic through BTS, BSC, and MSC. This is optional study material, not an instructor-assigned project."
+    }
+  },
   "eai-6403-2026-09-05-154129": {
     "en": {
       "title": "Attention map explainer",

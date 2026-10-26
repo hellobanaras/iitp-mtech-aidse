@@ -28,6 +28,12 @@ const templates = {
     steps: ["Subscriber initiates", "MTSO validates and assigns", "Call rings → answer connects", "FDMA: frequency / TDM: slots", "Hangup releases the channel"],
     detail: "An original study aid linking the lecture's AMPS call flow to fixed frequency allocation and the time-slot/frame alternative."
   },
+  tdmToGsm: {
+    title: "From multiplexed bits to the GSM network path",
+    description: "The lecture moves from ordered TDM source contributions to a simplified mobile radio and switching architecture.",
+    steps: ["Buffer and scan sources", "Interleave data into slots and frames", "Mobile Station reaches the BTS", "BSC coordinates radio resources", "MSC switches calls onward"],
+    detail: "Training supports channel estimation; guard time protects adjacent bursts. TDMA and CDMA are different access-separation choices."
+  },
   cointegration: {
     title: "From a shared trend to error correction",
     description: "Two individually nonstationary series can share a stationary equilibrium gap. The error-correction model links that gap to the next change.",
@@ -321,6 +327,7 @@ const templates = {
 const visualTemplates = {
   "eai-6403-2026-10-18-154312-11074e": "ragRetrieval",
   "ecs-6402-2026-10-15-203546": "cellularAccess",
+  "ecs-6402-2026-10-23-203527-8281dc": "tdmToGsm",
   "ecs-6402-2026-09-25-203453": "radioPropagation",
   "ecs-6402-2026-10-01-203455-ca0fb3": "dopplerFading",
   "ecs-6402-2026-10-08-203525-de5447": "handoffPower",
