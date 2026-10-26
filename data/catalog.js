@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-16",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 126,
+  filesInventoried: 127,
   courses: [
     {
       code: "EAI 6103",
@@ -693,8 +693,8 @@ export const catalog = {
       icon: "WN",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course75_hybrid_iitp_ac_in/IgD2-Iw_Ss2YQres-kXS6bK2AWBFn72XjomgpBh-Lrzs9SA?e=06YZ0f",
       status: "active",
-      statusLabel: "14 lectures available",
-      note: "The October 9 lecture contrasts open- and closed-loop radio power control, then develops Erlang traffic, blocking, busy-hour sizing, and finite-source models.",
+      statusLabel: "15 lectures available",
+      note: "The October 15 lecture reviews cellular generations and AMPS call setup before comparing FDMA and synchronous/asynchronous TDM.",
       lectures: [
         {
           id: "ecs-6402-2026-08-21-204351",
@@ -894,6 +894,21 @@ export const catalog = {
           statusLabel: "Notes published",
           sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:02:32–01:19:42" },
           overview: ["Pilot-based open-loop and receiver-feedback closed-loop power control", "Erlang traffic intensity, channel capacity, blocking, and carried load", "Busy-hour planning and finite-source arrival rates"]
+        },
+        {
+          id: "ecs-6402-2026-10-15-203546",
+          number: 15,
+          date: "2026-10-15",
+          sourceRecordedAt: "2026-10-15T20:35:46+05:30",
+          sourceFilename: "Selected Topics in Wireless Networks-20261015_203546-Meeting Recording.mp4",
+          displayDate: "15 October 2026",
+          title: "Cellular generations, AMPS call setup, and multiple access",
+          duration: "1h 23m 52s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course75_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse75%5Fhybrid%5Fiitp%5Fac%5Fin%2FDocuments%2FRecordings%2FSelected+Topics+in+Wireless+Networks-20261015_203546-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:03:22–01:22:30" },
+          overview: ["1G–4G service and multiple-access overview", "AMPS bands, channelization, and MTSO call setup", "FDMA guard bands and TDM frames, slots, and allocation"]
         }
       ]
     },

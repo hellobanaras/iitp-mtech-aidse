@@ -1756,6 +1756,30 @@ export const openLearningResources = {
       title: "TS 25.214 — Physical layer procedures (FDD)",
       description: "Advanced primary reference for feedback power-control procedures; compare its system-specific procedures with the lecture's open-loop and closed-loop overview.",
       url: "https://www.3gpp.org/dynareport/25214.htm"
+    },
+    {
+      provider: "MIT OpenCourseWare",
+      kind: "Open university textbook chapter",
+      access: "Free course PDF",
+      title: "Wireless Digital Communication — Chapter 9",
+      description: "A focused follow-up to the October 15 lecture on cellular call setup, forward/reverse links, analog-to-digital systems, and frequency reuse.",
+      url: "https://ocw.mit.edu/courses/6-450-principles-of-digital-communications-i-fall-2006/f8ed1cb4abc0b50d10c0e5974c1875ce_book_9.pdf"
+    },
+    {
+      provider: "MIT OpenCourseWare",
+      kind: "University lecture slides",
+      access: "Free course PDF",
+      title: "Multiple Access Technologies — FDMA, TDMA, and CDMA",
+      description: "A concise visual comparison that reinforces the lecture's frequency-, time-, and code-sharing distinction and its frequency-reuse discussion.",
+      url: "https://ocw.mit.edu/courses/15-564-information-technology-i-spring-2003/ff62b2b438a68a7d45841a552c41655d_lec14.pdf"
+    },
+    {
+      provider: "3GPP",
+      kind: "Standards-body overview",
+      access: "Free presentation PDF",
+      title: "LTE evolution and radio-access overview",
+      description: "Extends the generation survey with 3GPP context for LTE-family OFDMA downlink and SC-FDMA uplink; use as an overview rather than a current specification.",
+      url: "https://www.3gpp.org/ftp/Information/presentations/presentations_2016/2016_10_LTE%20evolution%20and%205G.pdf"
     }
   ],
   "ebb-6401": [

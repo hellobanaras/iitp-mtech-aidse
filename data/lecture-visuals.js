@@ -22,6 +22,12 @@ const templates = {
     steps: ["Smooth noisy RSS", "Apply threshold + hysteresis", "Estimate reuse and handoff geometry", "Set power; check CDMA near-far"],
     detail: "This original study aid connects the lecture's mobility decision, worked geometry, and reverse-link power-control motivation."
   },
+  cellularAccess: {
+    title: "From a call request to shared radio resources",
+    description: "Trace call control from the subscriber through MTSO validation and channel assignment, then compare how users share the radio link by frequency or time.",
+    steps: ["Subscriber initiates", "MTSO validates and assigns", "Call rings → answer connects", "FDMA: frequency / TDM: slots", "Hangup releases the channel"],
+    detail: "An original study aid linking the lecture's AMPS call flow to fixed frequency allocation and the time-slot/frame alternative."
+  },
   cointegration: {
     title: "From a shared trend to error correction",
     description: "Two individually nonstationary series can share a stationary equilibrium gap. The error-correction model links that gap to the next change.",
@@ -265,6 +271,7 @@ const templates = {
 };
 
 const visualTemplates = {
+  "ecs-6402-2026-10-15-203546": "cellularAccess",
   "ecs-6402-2026-09-25-203453": "radioPropagation",
   "ecs-6402-2026-10-01-203455-ca0fb3": "dopplerFading",
   "ecs-6402-2026-10-08-203525-de5447": "handoffPower",

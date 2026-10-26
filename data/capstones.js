@@ -2671,6 +2671,26 @@ export const capstones = Object.freeze({
       success: "A learner can reproduce both lecture examples, explain why average load is not a peak guarantee, and identify the source-population assumption behind a finite-source model. This is optional study practice, not an instructor-assigned project."
     }
   },
+  "ecs-6402-2026-10-15-203546": {
+    en: {
+      title: "CellShare: an accessible cellular resource-allocation explorer",
+      pitch: "Build a small, evidence-led simulator that lets learners compare frequency-separated calls, fixed TDM slots, and dynamically assigned slots while following one call through the MTSO/MSC.",
+      problem: "Students can memorize FDMA and TDM labels without seeing how a call-control sequence reserves, connects, and releases scarce radio resources—or why a fixed allocation can sit idle.",
+      learning: "Represent the lecture's subscriber → MTSO validation → channel assignment → ringing/answer → circuit connection → release sequence, then compare frequency and time allocation under simple traffic traces.",
+      mvp: [
+        "Animate the call setup state machine and display which control action belongs to the MTSO/MSC versus the radio channel.",
+        "Let users allocate configurable frequency channels with guard-band margins and show reserved-but-idle capacity.",
+        "Build synchronous TDM frames with fixed slots and an asynchronous mode that assigns slots only to active sources.",
+        "Display a text-accessible comparison of assigned resources, idle intervals, and the 3 × 9.6 kb/s = 28.8 kb/s example."
+      ],
+      stretch: ["Add a clearly labelled historical AMPS preset for the lecture's stated bands and 30 kHz channel width.", "Export a keyboard-accessible diagram and test scenarios without presenting historical values as current network limits."],
+      plan: ["Define the call-state model and unit tests for setup, answer, hangup, and resource release.", "Implement frequency allocation and guard-band visualization with a small deterministic call trace.", "Add fixed-frame synchronous and dynamically allocated TDM modes; compare idle resource time.", "Validate keyboard access, screen-reader descriptions, and every displayed rate/unit calculation."],
+      novelty: "Learners can compare two kinds of sharing using the same traffic trace and see both call-control state and resource occupancy rather than treating multiple-access acronyms as isolated definitions.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Vitest"],
+      milestones: ["Call setup state machine", "FDMA/guard-band view", "Synchronous and asynchronous TDM", "Accessible comparison report"],
+      success: "A learner can correctly trace a call from validation to release, distinguish frequency from time allocation, and explain the idle-capacity trade-off. This is optional study material, not an instructor-assigned project."
+    }
+  },
   "eai-6403-2026-09-05-154129": {
     "en": {
       "title": "Attention map explainer",
