@@ -459,6 +459,32 @@ export const openLearningResources = {
       url: "https://scikit-learn.org/stable/modules/linear_model.html"
     },
     {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
+      kind: "Official documentation",
+      kindHi: "Official documentation",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Support Vector Machines",
+      titleHi: "Support Vector Machines",
+      description: "Official guide to hyperplanes, maximum margins, support vectors, and SVM classification and regression; directly extends the lecture's geometric boundary discussion.",
+      descriptionHi: "Hyperplanes, maximum margins, support vectors और SVM classification/regression का official guide; lecture की geometric boundary चर्चा को आगे बढ़ाता है।",
+      url: "https://scikit-learn.org/stable/modules/svm.html"
+    },
+    {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
+      kind: "Official API reference",
+      kindHi: "Official API reference",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "LogisticRegression classifier",
+      titleHi: "LogisticRegression classifier",
+      description: "Review the regularized binary and multiclass classifier API and supported penalty choices after the lecture's linear-score and sigmoid explanation.",
+      descriptionHi: "Lecture के linear-score और sigmoid explanation के बाद regularized binary/multiclass classifier API और penalty choices देखें।",
+      url: "https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html"
+    },
+    {
       provider: "PyTorch",
       providerHi: "PyTorch",
       kind: "Practice",

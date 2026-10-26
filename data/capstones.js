@@ -57,6 +57,35 @@ export const capstones = Object.freeze({
       success: "Every reported score can be reproduced from a chronological split, no future-derived feature enters training, and complexity choices are justified using validation rather than final-test tuning."
     }
   },
+  "ecs-6401-2026-10-21-180527-44a61f": {
+    en: {
+      title: "PenaltyPath: an auditable regularization and margin workbench",
+      pitch: "Build a small visual lab that compares Ridge shrinkage, Lasso feature selection, logistic decision scores, and an SVM maximum-margin boundary on reproducible synthetic data.",
+      problem: "Regularization strength, classification thresholds, and SVM margins are often treated as magic settings. Learners need to see which objective changes, how coefficients and boundaries respond, and whether the choice transfers to held-out observations.",
+      learning: "Implement least-squares and L1/L2 penalties, binary sigmoid scores, linear SVM margins, validation-based selection, and a separate chronological evaluation path for time-series targets. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Create a seeded synthetic regression set with correlated features and display ordinary least squares, Ridge, and Lasso coefficients side by side.",
+        "Plot validation error and coefficient paths across a regularization grid; identify which Lasso weights reach zero without treating sparsity as causal evidence.",
+        "Create a two-class dataset and visualize logistic scores, a separately selected threshold, an SVM boundary, margin planes, and support vectors.",
+        "Keep training, validation, and final test roles distinct; add a chronological split for a lag-feature time-series example and prevent future leakage.",
+        "Export an accessible report with objective formulas, parameter settings, source-time evidence, and limits on what a score demonstrates."
+      ],
+      stretch: [
+        "Compare hard- and soft-margin behavior on deliberately overlapping classes and show how changing the penalty alters violations.",
+        "Repeat seeded experiments and show variability in held-out performance rather than presenting one favorable split."
+      ],
+      plan: [
+        "Define deterministic datasets, objectives, label conventions, and tests for the Ridge/Lasso penalty calculations.",
+        "Add coefficient-path plots and validation-based regularization selection.",
+        "Implement logistic-score and linear-SVM boundary visualizations with explicit threshold and margin labels.",
+        "Add chronological evaluation, leakage checks, accessibility, and a reproducible evidence export."
+      ],
+      novelty: "The workbench makes objective choice and geometric margin visible in a single audit trail, from a coefficient penalty to a held-out decision boundary.",
+      stack: ["Python", "NumPy", "scikit-learn", "Jupyter", "pytest"],
+      milestones: ["Objective and penalty checks", "Ridge/Lasso coefficient paths", "Logistic/SVM boundary view", "Leakage-safe evaluation report"],
+      success: "A learner can explain how L1 and L2 penalties differ, identify support vectors, justify validation choices, and reproduce a held-out result without using future observations or test labels for tuning."
+    }
+  },
   "ecs-6401-2026-10-09-180708-92c407": {
     en: {
       title: "SplitSense: an explainable decision-tree workbench",

@@ -52,6 +52,12 @@ const templates = {
     steps: ["Compare training vs test error", "Select tree complexity with validation", "Build historical lag features", "Fit slope and intercept", "Check held-out performance"],
     detail: "An original study map connecting the lecture's bias–variance, CART pruning, lagged time-series features, and least-squares regression sections."
   },
+  regularizationAndMargin: {
+    title: "From fit penalty to a generalizing boundary",
+    description: "Add a coefficient penalty to control a linear fit, map classification scores through a sigmoid when probabilities are needed, or choose a separating hyperplane by its margin.",
+    steps: ["Fit a linear score", "Add Ridge/Lasso penalty", "Sigmoid → bounded class score", "SVM separator → widest margin", "Validate complexity and generalization"],
+    detail: "An original study map of the lecture's regularization, logistic classification, and support-vector margin sequence."
+  },
   neighborsEnsemble: {
     title: "From local votes to a diverse ensemble",
     description: "Inspect how a query's k-neighbor vote changes with neighborhood size, then create varied base learners and aggregate their predictions. Bootstrap sampling supplies one concrete route to diversity.",
@@ -300,6 +306,7 @@ const visualTemplates = {
   "ecs-6401-2026-10-07-180243": "vecmArch",
   "ecs-6401-2026-10-09-180708-92c407": "decisionTree",
   "ecs-6401-2026-10-14-180544": "biasVarianceTimeSeries",
+  "ecs-6401-2026-10-21-180527-44a61f": "regularizationAndMargin",
   "eai-6103-2026-08-18-193045": "ml",
   "eai-6103-2026-08-22-092455": "python",
   "eai-6103-2026-08-25-183026": "ml",
