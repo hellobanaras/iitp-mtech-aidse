@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-26",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 129,
+  filesInventoried: 130,
   courses: [
     {
       code: "EAI 6103",
@@ -487,8 +487,8 @@ export const catalog = {
       icon: "GA",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/people?emailId=course74%5Fhybrid%40iitp%2Eac%2Ein",
       status: "active",
-      statusLabel: "14 lectures available",
-      note: "Lectures from 23 August through 17 October are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
+      statusLabel: "15 lectures available",
+      note: "Lectures from 23 August through 18 October are published in chronological order with verified source intervals, slide trails, further study, and 25 explained MCQs each.",
       lectures: [
         {
           id: "eai-6403-2026-08-23",
@@ -692,6 +692,21 @@ export const catalog = {
           statusLabel: "Notes published",
           sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:02:38–00:26:24" },
           overview: ["Query/document embeddings, cosine similarity, top-k, and weighted generation", "Naive and advanced RAG indexing, retrieval, reranking, and context shaping", "Modular and graph RAG design questions, frameworks, and evaluation limits"]
+        },
+        {
+          id: "eai-6403-2026-10-18-154312-11074e",
+          number: 15,
+          date: "2026-10-18",
+          sourceRecordedAt: "2026-10-18T15:43:12+05:30",
+          sourceFilename: "Selective Topics in Generative AI-20261018_154312-Meeting Recording.mp4",
+          displayDate: "18 October 2026",
+          title: "Advanced RAG: chunking, retrieval patterns, and evaluation",
+          duration: "18m 57s teaching; participant-only lead-in and idle tail excluded",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course74_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course74_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSelective+Topics+in+Generative+AI-20261018_154312-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          sourceEvidence: { kind: "sharepoint-recording", directDownload: false, captureFinalized: true, reviewComplete: true, timebase: "source-time-restored", teachingInterval: "00:01:28–00:20:24" },
+          overview: ["Chunk sizing, embeddings, and hierarchical retrieval", "HyDE, sentence windows, parent-child merging, and hybrid search", "Query routing, reranking, and separate retrieval/answer evaluation"]
         }
       ]
     },

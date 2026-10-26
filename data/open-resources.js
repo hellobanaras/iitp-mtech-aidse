@@ -973,6 +973,22 @@ export const openLearningResources = {
       description: "Primary research on graph-based indexing and query-focused summarization, extending the lecture's relationship-aware retrieval and Agent-G discussion.",
       descriptionHi: "Lecture के relationship-aware retrieval और Agent-G discussion को आगे बढ़ाने वाला graph-based indexing research paper।",
       url: "https://arxiv.org/abs/2404.16130"
+    },
+    {
+      provider: "LlamaIndex", providerHi: "LlamaIndex", kind: "Hands-on documentation", kindHi: "Hands-on documentation",
+      access: "Free documentation", accessHi: "Free documentation",
+      title: "Auto Merging Retriever", titleHi: "Auto Merging Retriever",
+      description: "An official worked example of hierarchical parent/child nodes and merging precise leaf hits into a larger context, matching this lecture's context-expansion pattern.",
+      descriptionHi: "इस lecture के context-expansion pattern के लिए hierarchical parent/child nodes और बड़े context में leaf hits merge करने का official example।",
+      url: "https://docs.llamaindex.ai/en/v0.10.17/examples/retrievers/auto_merging_retriever.html"
+    },
+    {
+      provider: "Microsoft Learn", providerHi: "Microsoft Learn", kind: "Evaluation guidance", kindHi: "Evaluation guidance",
+      access: "Free documentation", accessHi: "Free documentation",
+      title: "Evaluate retrieval-augmented generation systems", titleHi: "Evaluate retrieval-augmented generation systems",
+      description: "Practical guidance for measuring retrieved-context quality separately from grounded answer quality, extending the lecture's RAG evaluation checklist.",
+      descriptionHi: "Lecture की RAG evaluation checklist के लिए retrieved context और grounded answer quality को अलग-अलग मापने की practical guidance।",
+      url: "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-llm-evaluation-phase"
     }
   ],
   "ecc-6404": [

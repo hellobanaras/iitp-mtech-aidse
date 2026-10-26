@@ -274,6 +274,12 @@ const templates = {
     steps: ["Prepare and index sources", "Retrieve and rerank evidence", "Assemble context and generate", "Evaluate, revise, or route", "Choose fixed workflow or dynamic agent"],
     detail: "Separate RAG stages from agent control flow; each needs its own evidence and evaluation."
   },
+  ragRetrieval: {
+    title: "From chunk search to an evidence-checked answer",
+    description: "Trace the RAG path and locate where to adjust retrieval granularity, context expansion, ranking, or generation.",
+    steps: ["Prepare sources and chunk hierarchy", "Embed and search the query", "Expand sentence or parent context", "Fuse, filter, and rerank evidence", "Generate with source context", "Evaluate retrieval and answer support"],
+    detail: "A stage-by-stage map of the lecture's advanced retrieval choices and separate retrieval/grounding checks."
+  },
   generic: {
     title: "A concept-to-practice learning path",
     description: "The lecture moves from a motivating problem through core concepts to an applied evaluation step.",
@@ -283,6 +289,7 @@ const templates = {
 };
 
 const visualTemplates = {
+  "eai-6403-2026-10-18-154312-11074e": "ragRetrieval",
   "ecs-6402-2026-10-15-203546": "cellularAccess",
   "ecs-6402-2026-09-25-203453": "radioPropagation",
   "ecs-6402-2026-10-01-203455-ca0fb3": "dopplerFading",

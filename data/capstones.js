@@ -3458,6 +3458,34 @@ export const capstones = Object.freeze({
       milestones: ["Provenance-preserving corpus", "Similarity and top-k trace", "Reranking and graph comparison", "Grounding evaluation and accessible report"],
       success: "A learner can reproduce a retrieval trace, explain which source passages support each answer claim, identify a stage-specific failure, and state the limits of the demonstration."
     }
+  },
+  "eai-6403-2026-10-18-154312-11074e": {
+    en: {
+      title: "RAG StageScope: compare retrieval repairs",
+      pitch: "Build a compact RAG evaluation sandbox that compares chunk sizing, context expansion, hybrid retrieval, and reranking on a fixed set of evidence-grounded questions.",
+      problem: "A RAG answer can fail because the right passage was not retrieved, the context was too narrow or noisy, or the generator made an unsupported claim. One headline score hides which stage needs repair.",
+      learning: "Practise chunking, vector and lexical search, sentence-window or parent-child context expansion, ranking, provenance, and separate retrieval/answer evaluation. This is optional study practice, not instructor-assigned work.",
+      mvp: [
+        "Use a small synthetic or openly licensed corpus with stable document IDs, known evidence spans, and a fixed query set.",
+        "Compare two chunk sizes and a sentence-window or parent-child expansion while holding the query set and generator constant.",
+        "Add lexical search beside vector search and fuse rankings; optionally compare a cross-encoder reranker on the same candidates.",
+        "Report retrieval relevance/coverage separately from answer faithfulness, citation support, latency, and context-token cost.",
+        "Show one trace from source document to selected chunks to expanded context to answer claims, and flag unsupported claims rather than scoring fluency as correctness."
+      ],
+      stretch: [
+        "Add a summary-first hierarchical index or generated-question retrieval and test whether it improves recall on paraphrased queries.",
+        "Create a failure dashboard that separates missing-source, ranking, context-window, and unsupported-generation errors."
+      ],
+      plan: [
+        "Document source licenses, evidence spans, query set, and metrics before building the index.",
+        "Implement a simple vector baseline and preserve chunk-to-source provenance.",
+        "Change one retrieval or context-stage choice at a time, then measure retrieval and answer outcomes independently.",
+        "Publish the trace and limitations with reproducible settings; do not claim a toy benchmark generalizes to production."
+      ],
+      stack: ["Python", "sentence-transformers", "FAISS", "BM25", "Jupyter", "Accessible HTML visualization"],
+      milestones: ["Evidence-grounded corpus and query set", "Vector baseline and chunk trace", "Hybrid and context-expansion comparisons", "Stage-specific evaluation report"],
+      success: "A learner can identify which RAG stage failed on a query, reproduce how a retrieval change affects evidence and context, and explain why similarity or fluency alone does not prove answer correctness."
+    }
   }
   ,"eai-6402-2026-10-17-100126-3bb287": {
     en: {

@@ -18,6 +18,7 @@ const { ebb6403Lecture20261017053820 } = await import(`./lectures/ebb-6403-2026-
 const { eai6403Lecture20261010154512 } = await import(`./lectures/eai-6403-2026-10-10-154512-7b1fb6.js?v=${releaseVersion}`);
 const { eai6403Lecture20261011154131 } = await import(`./lectures/eai-6403-2026-10-11-154131-d8858b.js?v=${releaseVersion}`);
 const { eai6403Lecture20261017154828 } = await import(`./lectures/eai-6403-2026-10-17-154828.js?v=${releaseVersion}`);
+const { eai6403Lecture20261018154312 } = await import(`./lectures/eai-6403-2026-10-18-154312-11074e.js?v=${releaseVersion}`);
 const [
   { eai6103Lecture20260818193045 },
   { eai6103Lecture20260822092455 },
@@ -289,6 +290,7 @@ export const lectureNotes = {
   "eai-6403-2026-10-10-154512-7b1fb6": eai6403Lecture20261010154512,
   "eai-6403-2026-10-11-154131-d8858b": eai6403Lecture20261011154131,
   "eai-6403-2026-10-17-154828": eai6403Lecture20261017154828,
+  "eai-6403-2026-10-18-154312-11074e": eai6403Lecture20261018154312,
   "ecs-6401-2026-08-19-175559": ecs6401Lecture20260819,
   "ecs-6401-2026-08-21-180935": ecs6401Lecture20260821,
   "ecs-6401-2026-08-26-180538": ecs6401Lecture20260826,
