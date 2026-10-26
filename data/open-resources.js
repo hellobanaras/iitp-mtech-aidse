@@ -2792,6 +2792,22 @@ export const openLearningResources = {
       title: "Wireshark User's Guide",
       description: "Official packet-analysis documentation for authorized local captures and supplied practice traces, extending the lecture's packet-sniffing discussion.",
       url: "https://www.wireshark.org/docs/wsug_html_chunked/"
+    },
+    {
+      provider: "UNSW Canberra",
+      kind: "Research dataset",
+      access: "Public dataset and documentation",
+      title: "The UNSW-NB15 Dataset",
+      description: "Original dataset page with labelled traffic, feature descriptions, and attack-family context mentioned in the lecture; useful for reproducible IDS comparisons, with benchmark limitations noted.",
+      url: "https://research.unsw.edu.au/projects/unsw-nb15-dataset"
+    },
+    {
+      provider: "Canadian Institute for Cybersecurity · University of New Brunswick",
+      kind: "Research dataset",
+      access: "Public dataset page",
+      title: "NSL-KDD Dataset",
+      description: "University dataset page for the historical benchmark discussed in class; useful for learning confusion-matrix evaluation, but not a stand-in for current operational traffic.",
+      url: "https://www.unb.ca/cic/datasets/nsl.html"
     }
   ]
 };

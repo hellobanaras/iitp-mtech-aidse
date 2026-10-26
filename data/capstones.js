@@ -230,6 +230,34 @@ export const capstones = Object.freeze({
       success: "A learner can distinguish connection-state exhaustion from link saturation and malformed-input cost, select suitable controls, and explain residual risk using only a local synthetic model."
     }
   },
+  "ebb-6403-2026-10-23-073746-34767f": {
+    en: {
+      title: "SignalScope: a safe IDS evaluation workbench",
+      pitch: "Build an offline learning tool that compares known-signature rules with baseline-based anomaly alerts on a small, clearly synthetic network-event dataset.",
+      problem: "Signature and anomaly detectors expose different trade-offs, but a single accuracy score can obscure both missed attacks and alert fatigue. Learners need a transparent way to compare detection evidence and confusion-matrix outcomes.",
+      learning: "Explore signatures, thresholds, entity profiles, TP/TN/FP/FN, accuracy, false-positive rate, and the effect of changing event distributions. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Generate a deterministic, fictional dataset with labelled normal and attack-like events; prohibit packet capture, sockets, external targets, and real personal data.",
+        "Implement one explicit signature rule and one threshold/profile detector, showing which feature triggered each alert and keeping the two methods distinct.",
+        "Render TP, TN, FP, and FN counts plus accuracy and false-positive rate, with unit tests for the formulas and zero-denominator cases.",
+        "Let learners vary benign burst levels or attack-family mix and see how precision, misses, and alert volume change without claiming benchmark or production performance."
+      ],
+      stretch: [
+        "Add a separate host-versus-network and centralized-versus-distributed architecture diagram without simulating real traffic.",
+        "Compare synthetic train/test distributions and flag when baseline drift makes a previously reasonable threshold produce more alerts or misses."
+      ],
+      plan: [
+        "Specify an offline-only synthetic event schema, labels, detector rules, and confusion-matrix definitions.",
+        "Implement deterministic signature and baseline detectors with tests that trace each decision to its evidence.",
+        "Build accessible metric views and drift scenarios, reporting both false positives and false negatives.",
+        "Audit the tool to ensure it cannot generate or transmit network traffic and clearly label all examples as synthetic."
+      ],
+      novelty: "The workbench makes the lecture's core trade-off inspectable: a known signature can be precise but incomplete, while a baseline may surface novel behavior and also over-alert on benign change.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Deterministic synthetic data", "Vitest"],
+      milestones: ["Synthetic event schema and formula tests", "Signature and profile detectors", "Confusion-matrix and drift views", "Safety, accessibility, and interpretation audit"],
+      success: "A learner can explain each alert, calculate the stated metrics, compare both detector types, and identify limitations without interacting with a real network."
+    }
+  },
   "ecs-6401-2026-10-07-180243": {
     en: {
       title: "Equilibrium & Volatility Lab",

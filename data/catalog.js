@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-26",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 134,
+  filesInventoried: 135,
   courses: [
     {
       code: "EAI 6103",
@@ -1197,8 +1197,8 @@ export const catalog = {
       icon: "SP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course78_hybrid_iitp_ac_in/IgCwVcRuGq_lR6u1S5D-yQeRAb5jOjVzObdfYRB-vn1qvBQ?e=wtwqhi",
       status: "active",
-      statusLabel: "11 lectures available",
-      note: "Eleven verified lectures are published. View-only sources were reviewed at 2× with setup and idle tails excluded after full timeline sweeps; the Oct 17 continuation covers malformed fragments, SYN cookies, reflection, and layered DoS defenses.",
+      statusLabel: "12 lectures available",
+      note: "Twelve verified lectures are published. View-only sources were reviewed at 2× with setup and idle tails excluded after full timeline sweeps; the Oct 23 continuation compares signature and anomaly detection and evaluates IDS alerts.",
       lectures: [
         {
           id: "ebb-6403-2026-08-21-075934",
@@ -1367,6 +1367,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["DoS resource classes and malformed IPv4 fragments", "SYN flooding, connection state, and SYN cookies", "Reflection, Smurf traffic, and layered availability defenses"]
+        },
+        {
+          id: "ebb-6403-2026-10-23-073746-34767f",
+          number: 13,
+          date: "2026-10-23",
+          sourceRecordedAt: "2026-10-23T07:37:46+05:30",
+          sourceFilename: "Security and Privacy for Big Data-20261023_073746-Meeting Recording.mp4",
+          displayDate: "23 October 2026",
+          title: "Intrusion detection: signatures, anomaly baselines, and IDS evaluation",
+          duration: "49m 55s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course78_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course78_hybrid_iitp_ac_in%2FDocuments/Recordings/Security+and+Privacy+for+Big+Data-20261023_073746-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Firewall, IDS, and IPS roles and architecture", "Signature versus anomaly detection and deployment choices", "Confusion-matrix metrics, benchmark datasets, and adaptive IDS motivation"]
         }
       ]
     },
