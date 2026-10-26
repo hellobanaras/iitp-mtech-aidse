@@ -1291,6 +1291,32 @@ export const openLearningResources = {
     {
       provider: "scikit-learn",
       providerHi: "scikit-learn",
+      kind: "Official documentation",
+      kindHi: "Official documentation",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Support Vector Machines",
+      titleHi: "Support Vector Machines",
+      description: "Review support vectors, margin geometry, kernel choices, feature scaling, and the RBF C/gamma trade-off from the October 23 lecture.",
+      descriptionHi: "October 23 lecture के support vectors, margin geometry, kernel choices और feature scaling का official reference।",
+      url: "https://scikit-learn.org/stable/modules/svm.html"
+    },
+    {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
+      kind: "Official documentation",
+      kindHi: "Official documentation",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Ensemble methods",
+      titleHi: "Ensemble methods",
+      description: "Compare bagging, boosting, voting, and stacking in the official guide, extending the lecture's model-combination discussion.",
+      descriptionHi: "Lecture की model-combination चर्चा के साथ bagging, boosting, voting और stacking की तुलना करें।",
+      url: "https://scikit-learn.org/stable/modules/ensemble.html"
+    },
+    {
+      provider: "scikit-learn",
+      providerHi: "scikit-learn",
       kind: "Official worked example",
       kindHi: "Official worked example",
       access: "Free example and code",

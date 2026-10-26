@@ -58,6 +58,12 @@ const templates = {
     steps: ["Fit a linear score", "Add Ridge/Lasso penalty", "Sigmoid → bounded class score", "SVM separator → widest margin", "Validate complexity and generalization"],
     detail: "An original study map of the lecture's regularization, logistic classification, and support-vector margin sequence."
   },
+  svmForecastEnsemble: {
+    title: "From a maximum-margin boundary to a combined forecast",
+    description: "Choose a boundary from its nearest examples, build time-series features only from the past, then combine learners using the ensemble strategy that matches the error pattern.",
+    steps: ["Map examples → choose SVM margin", "Past-only lags → forecast target", "Bootstrap → fit varied learners", "Sequential errors → boosting", "Meta-model → combine predictions", "Validate on unseen data"],
+    detail: "This study aid links the lecture's SVM geometry, lagged-value example, and distinct bagging, boosting, and stacking workflows.",
+  },
   neighborsEnsemble: {
     title: "From local votes to a diverse ensemble",
     description: "Inspect how a query's k-neighbor vote changes with neighborhood size, then create varied base learners and aggregate their predictions. Bootstrap sampling supplies one concrete route to diversity.",
@@ -325,6 +331,7 @@ const visualTemplates = {
   "ecs-6401-2026-10-09-180708-92c407": "decisionTree",
   "ecs-6401-2026-10-14-180544": "biasVarianceTimeSeries",
   "ecs-6401-2026-10-21-180527-44a61f": "regularizationAndMargin",
+  "ecs-6401-2026-10-23-180412-561fcd": "svmForecastEnsemble",
   "eai-6103-2026-08-18-193045": "ml",
   "eai-6103-2026-08-22-092455": "python",
   "eai-6103-2026-08-25-183026": "ml",

@@ -9,6 +9,7 @@ const { ecs6401Lecture20261007180243 } = await import(`./lectures/ecs-6401-2026-
 const { ecs6401Lecture20261009180708 } = await import(`./lectures/ecs-6401-2026-10-09-180708-92c407.js?v=${releaseVersion}`);
 const { ecs6401Lecture20261014180544 } = await import(`./lectures/ecs-6401-2026-10-14-180544.js?v=${releaseVersion}`);
 const { ecs6401Lecture20261021180527 } = await import(`./lectures/ecs-6401-2026-10-21-180527-44a61f.js?v=${releaseVersion}`);
+const { ecs6401Lecture20261023180412 } = await import(`./lectures/ecs-6401-2026-10-23-180412-561fcd.js?v=${releaseVersion}`);
 const { ecc6404Lecture20261007193350 } = await import(`./lectures/ecc-6404-2026-10-07-193350-939c11.js?v=${releaseVersion}`);
 const { ecc6404Lecture20261012193349 } = await import(`./lectures/ecc-6404-2026-10-12-193349-bf0749.js?v=${releaseVersion}`);
 const { ecc6404Lecture20261014193354 } = await import(`./lectures/ecc-6404-2026-10-14-193354.js?v=${releaseVersion}`);
@@ -312,6 +313,7 @@ export const lectureNotes = {
   "ecs-6401-2026-10-09-180708-92c407": ecs6401Lecture20261009180708,
   "ecs-6401-2026-10-14-180544": ecs6401Lecture20261014180544,
   "ecs-6401-2026-10-21-180527-44a61f": ecs6401Lecture20261021180527,
+  "ecs-6401-2026-10-23-180412-561fcd": ecs6401Lecture20261023180412,
   "ecc-6404-2026-08-17-193438": ecc6404Lecture20260817,
   "ecc-6404-2026-08-19-193245": ecc6404Lecture20260819,
   "ecc-6404-2026-08-24-193338": ecc6404Lecture20260824,

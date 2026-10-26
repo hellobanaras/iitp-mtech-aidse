@@ -115,6 +115,27 @@ export const capstones = Object.freeze({
       success: "A learner can explain how L1 and L2 penalties differ, identify support vectors, justify validation choices, and reproduce a held-out result without using future observations or test labels for tuning."
     }
   },
+  "ecs-6401-2026-10-23-180412-561fcd": {
+    en: {
+      title: "MarginMix: a time-aware model comparison bench",
+      pitch: "Build a reproducible workbench that compares SVM boundaries, lag-based forecasts, and three ensemble strategies without leaking future data.",
+      problem: "A larger margin, more historical features, or a bigger ensemble may look attractive on training data but still fail on future examples. Learners need a clear way to compare methods under one honest evaluation protocol.",
+      learning: "Explore support vectors and kernel boundaries, construct past-only lag inputs, and compare bagging, boosting, and stacking with validation and test separation. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Create one seeded classification dataset and one chronological numeric series; document targets, feature availability, and split dates.",
+        "Scale SVM features using training data only; compare linear and RBF boundaries and identify support vectors on a compact plot.",
+        "Build lagged forecasting inputs from prior values only and verify with tests that no future value enters a feature row.",
+        "Compare one base learner, bootstrap bagging, sequential boosting, and a stacking meta-model using the same training/validation/test protocol.",
+        "Report held-out metrics, model disagreement, limitations, and a source-time-linked accessible visual explanation.",
+      ],
+      stretch: ["Repeat across rolling-origin windows and report variability rather than one favorable score.", "Compare hard/soft-margin behavior on overlapping classes and document how regularization changes violations."],
+      plan: ["Specify data contracts, prediction times, random seeds, and leakage tests.", "Implement SVM scaling and linear/RBF comparisons with validation-only selection.", "Add lag construction plus bagging, boosting, and stacking baselines.", "Evaluate once on untouched future data and publish a reproducible, accessible comparison report."],
+      novelty: "The same evidence protocol connects geometric classification, future-facing forecasting, and model combination while making leakage and model disagreement visible.",
+      stack: ["Python", "NumPy", "scikit-learn", "Jupyter", "pytest"],
+      milestones: ["Leakage-safe data contract", "SVM margin explorer", "Past-only forecasting features", "Ensemble comparison and audit report"],
+      success: "The results are reproducible, feature construction respects prediction time, tuning uses validation data only, and the final report compares every approach on unseen observations.",
+    },
+  },
   "ecs-6401-2026-10-09-180708-92c407": {
     en: {
       title: "SplitSense: an explainable decision-tree workbench",
