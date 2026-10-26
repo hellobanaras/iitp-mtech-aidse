@@ -2330,6 +2330,32 @@ export const openLearningResources = {
   ],
   "ebb-6403": [
     {
+      provider: "RFC Editor · IETF",
+      providerHi: "RFC Editor · IETF",
+      kind: "TCP security reference",
+      kindHi: "TCP security reference",
+      access: "Free public RFC",
+      accessHi: "मुफ़्त public RFC",
+      title: "RFC 4987: TCP SYN Flooding Attacks and Common Mitigations",
+      titleHi: "RFC 4987: TCP SYN Flooding Attacks and Common Mitigations",
+      description: "Primary technical treatment of SYN-flood mechanics, SYN cookies, and mitigation trade-offs; directly extends the connection-state section.",
+      descriptionHi: "SYN-flood mechanics, SYN cookies और mitigation trade-offs पर primary technical reference; connection-state topic को आगे बढ़ाता है।",
+      url: "https://www.rfc-editor.org/info/rfc4987/"
+    },
+    {
+      provider: "CISA",
+      providerHi: "CISA",
+      kind: "DDoS response guide",
+      kindHi: "DDoS response guide",
+      access: "Free public guide",
+      accessHi: "मुफ़्त public guide",
+      title: "Understanding and Responding to DDoS Attacks",
+      titleHi: "Understanding and Responding to DDoS Attacks",
+      description: "Operational guidance for preparing, detecting, and responding to DDoS activity; complements the lecture's layered mitigation list.",
+      descriptionHi: "DDoS activity की तैयारी, पहचान और response के लिए operational guidance; lecture के layered mitigation points से मेल खाती है।",
+      url: "https://www.cisa.gov/sites/default/files/publications/understanding-and-responding-to-ddos-attacks_508c.pdf"
+    },
+    {
       provider: "Stanford University",
       providerHi: "Stanford University",
       kind: "Open course",

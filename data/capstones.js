@@ -144,6 +144,34 @@ export const capstones = Object.freeze({
       success: "A learner can explain why ARP trust, packet confidentiality, service capacity, and fragment handling require different controls, using only a bounded synthetic scenario."
     }
   },
+  "ebb-6403-2026-10-17-053820-584b5f": {
+    en: {
+      title: "Resilient Service Capacity Planner",
+      pitch: "Build a harmless, synthetic tabletop that helps learners identify which service resource is constrained and compare defenses without generating network traffic.",
+      problem: "Malformed input, incomplete handshakes, and volumetric traffic stress different resources. Treating them as one generic attack makes it hard to select proportionate controls or understand residual risk.",
+      learning: "Model bounded CPU, connection-queue, and link-capacity scenarios; compare patching, SYN-cookie-style deferred state, filtering, rate limits, and provider response. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Create a closed simulation with invented addresses, fixed traffic records, strict event-count limits, and no sockets or packet-generation capability.",
+        "Represent three events: malformed-fragment pressure, incomplete TCP handshake state, and a reflected traffic burst; never make them executable against a real service.",
+        "Let learners choose controls and show the resource each control protects, possible false positives or costs, and what remains unmitigated.",
+        "Visualize a time series for queue occupancy and link utilization, with accessible labels and a short written incident summary."
+      ],
+      stretch: [
+        "Add a synthetic fragment-reassembly exercise that validates offset alignment, overlap, total size, and expiry under a strict buffer ceiling.",
+        "Compare anomaly thresholds on benign bursts and authored synthetic attack-like patterns, reporting false positives and missed cases."
+      ],
+      plan: [
+        "Define the synthetic threat model and hard resource limits; prohibit external addresses, network access, and unbounded inputs.",
+        "Implement deterministic event generation and a resource ledger for processing, pending connections, and bandwidth.",
+        "Add control selection with transparent assumptions and trade-offs, then test every scenario against its expected residual risk.",
+        "Review accessibility and safety, and publish a concise explanation of why no one control solves every availability problem."
+      ],
+      novelty: "The tabletop makes the lecture's central diagnostic move interactive: identify the bottleneck first, then see which control helps and what it cannot fix.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Vitest", "Deterministic synthetic data"],
+      milestones: ["Threat model and safety limits", "Resource ledger and event scenarios", "Control trade-off comparison", "Accessible report and validation"],
+      success: "A learner can distinguish connection-state exhaustion from link saturation and malformed-input cost, select suitable controls, and explain residual risk using only a local synthetic model."
+    }
+  },
   "ecs-6401-2026-10-07-180243": {
     en: {
       title: "Equilibrium & Volatility Lab",

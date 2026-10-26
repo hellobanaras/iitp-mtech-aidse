@@ -1,7 +1,7 @@
 export const catalog = {
-  updated: "2026-10-16",
+  updated: "2026-10-26",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 127,
+  filesInventoried: 128,
   courses: [
     {
       code: "EAI 6103",
@@ -1153,8 +1153,8 @@ export const catalog = {
       icon: "SP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course78_hybrid_iitp_ac_in/IgCwVcRuGq_lR6u1S5D-yQeRAb5jOjVzObdfYRB-vn1qvBQ?e=wtwqhi",
       status: "active",
-      statusLabel: "10 lectures available",
-      note: "Ten verified lectures are published. View-only sources were captured at 2× with setup and idle tails excluded after full timeline sweeps.",
+      statusLabel: "11 lectures available",
+      note: "Eleven verified lectures are published. View-only sources were reviewed at 2× with setup and idle tails excluded after full timeline sweeps; the Oct 17 continuation covers malformed fragments, SYN cookies, reflection, and layered DoS defenses.",
       lectures: [
         {
           id: "ebb-6403-2026-08-21-075934",
@@ -1309,6 +1309,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Connected-system threat boundaries and the CIA triad", "Packet sniffing, MAC-table and ARP threats, and session risk", "DoS patterns, IPv4 fragmentation, and resource resilience"]
+        },
+        {
+          id: "ebb-6403-2026-10-17-053820-584b5f",
+          number: 12,
+          date: "2026-10-17",
+          sourceRecordedAt: "2026-10-17T05:38:20+05:30",
+          sourceFilename: "Security and Privacy for Big Data-20261017_053820-Meeting Recording.mp4",
+          displayDate: "17 October 2026",
+          title: "Denial of service: fragmentation abuse, SYN cookies, reflection, and layered defenses",
+          duration: "1h 04m 55s",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course78_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse78_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FSecurity+and+Privacy+for+Big+Data-20261017_053820-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["DoS resource classes and malformed IPv4 fragments", "SYN flooding, connection state, and SYN cookies", "Reflection, Smurf traffic, and layered availability defenses"]
         }
       ]
     },
