@@ -112,6 +112,12 @@ const templates = {
     steps: ["Affine layers + nonlinear activation", "Choose output and loss", "Backpropagate; inspect gradient scale", "Compare training and validation", "Adjust capacity, data, or regularization"],
     detail: "This study aid links the lecture's equations and bias–variance slides into one accessible diagnostic workflow."
   },
+  neuralForensics: {
+    title: "From image evidence to a cautious forensic decision",
+    description: "Prepare a handwriting sample, extract usable features, train and evaluate a classifier, then distinguish writer identification from genuineness verification.",
+    steps: ["Prepare image and segment", "Flatten pixels or extract features", "Train with layers, activation, and loss", "Evaluate distance or decision boundary", "Check a verification margin and uncertainty"],
+    detail: "Use source timecodes to connect the model-building demonstration to the forensic discussion; a model score supports review but does not establish identity or diagnose disease."
+  },
   genai: {
     title: "From context to generated output",
     description: "Generative systems transform input context into representations, then decode those representations into a useful output.",
@@ -291,7 +297,7 @@ const visualTemplates = {
   "eai-6103-2026-08-22-092455": "python",
   "eai-6103-2026-08-25-183026": "ml",
   "eai-6401-2026-08-17": "rl", "eai-6401-2026-08-18": "rl", "eai-6401-2026-08-24": "rl", "eai-6401-2026-08-25": "rl", "eai-6401-2026-08-31": "rl", "eai-6401-2026-09-01": "rl", "eai-6401-2026-09-07-180458": "rl", "eai-6401-2026-09-08-180828": "rl", "eai-6401-2026-09-14-180423": "rl", "eai-6401-2026-09-15-180436": "rl", "eai-6401-2026-09-21-180808": "rl", "eai-6401-2026-09-22-180000": "rl", "eai-6401-2026-09-28-180548": "mcControl", "eai-6401-2026-09-29-180346": "mcImportanceSampling", "eai-6401-2026-10-05-191710-953574": "discountAware", "eai-6401-2026-10-06-180409-cd5720": "mcToTd", "eai-6401-2026-10-12-180653-327bc0": "mcToTd", "eai-6401-2026-10-13-180443-6594cb": "rl",
-  "eai-6402-2026-08-22": "meta", "eai-6402-2026-08-29": "meta", "eai-6402-2026-09-05-101246": "genai", "eai-6402-2026-09-12-100922": "meta", "eai-6402-2026-09-19-102556": "logistic", "eai-6402-2026-10-03-102225-41b3dd": "neuralTransfer", "eai-6402-2026-10-10-100436-dfea95": "neuralDiagnostics",
+  "eai-6402-2026-08-22": "meta", "eai-6402-2026-08-29": "meta", "eai-6402-2026-09-05-101246": "genai", "eai-6402-2026-09-12-100922": "meta", "eai-6402-2026-09-19-102556": "logistic", "eai-6402-2026-10-03-102225-41b3dd": "neuralTransfer", "eai-6402-2026-10-10-100436-dfea95": "neuralDiagnostics", "eai-6402-2026-10-17-100126-3bb287": "neuralForensics",
   "eai-6403-2026-08-23": "genai", "eai-6403-2026-08-29": "genai", "eai-6403-2026-08-30": "genai", "eai-6403-2026-09-05-154129": "genai", "eai-6403-2026-09-06-154745": "genai", "eai-6403-2026-09-12-153203": "genai", "eai-6403-2026-09-13-153353": "genai", "eai-6403-2026-09-26-153739": "constitutionalAi", "eai-6403-2026-09-27-153416": "genaiProject", "eai-6403-2026-10-03-155454": "moe", "eai-6403-2026-10-04-154331-f1db94": "patchDiffusion", "eai-6403-2026-10-10-154512-7b1fb6": "patchDiffusion", "eai-6403-2026-10-11-154131-d8858b": "ragAgent", "eai-6403-2026-10-17-154828": "ragAgent",
   "ecs-6401-2026-08-19-175559": "timeseries", "ecs-6401-2026-08-21-180935": "timeseries", "ecs-6401-2026-08-26-180538": "timeseries", "ecs-6401-2026-08-28-180221": "timeseries", "ecs-6401-2026-09-02-180510": "timeseries", "ecs-6401-2026-09-04-180115": "timeseries", "ecs-6401-2026-09-09-180431": "timeseries", "ecs-6401-2026-09-11-180457": "timeseries", "ecs-6401-2026-09-16-180603": "timeseries", "ecs-6401-2026-09-18-180406": "timeseries", "ecs-6401-2026-09-23-180413": "timeseries",
   "ecs-6402-2026-08-21-204351": "wireless", "ecs-6402-2026-08-27-203455": "wireless", "ecs-6402-2026-08-28-203443": "wireless", "ecs-6402-2026-09-03-203415": "wireless", "ecs-6402-2026-09-04-203546": "wireless", "ecs-6402-2026-09-10-203424": "wireless", "ecs-6402-2026-09-11-203535": "wireless", "ecs-6402-2026-09-17-203648": "wireless", "ecs-6402-2026-09-18-203429": "wireless", "ecs-6402-2026-09-24-203744": "wireless",

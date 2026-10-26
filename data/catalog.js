@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-26",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 128,
+  filesInventoried: 129,
   courses: [
     {
       code: "EAI 6103",
@@ -344,8 +344,8 @@ export const catalog = {
       icon: "ML",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course73_hybrid_iitp_ac_in/IgAf1eu3AHhfSrcxcaecYZMNASegocBzjTgbUeQ7OhS3a1k?e=Sbp7Pi",
       status: "active",
-      statusLabel: "7 lectures available",
-      note: "Lectures from 22 August through 3 October are published in chronological order with verified teaching intervals, slide trails, explained quizzes, and applied builds.",
+      statusLabel: "9 lectures available",
+      note: "Lectures from 22 August through 17 October are published in chronological order with verified teaching intervals, slide trails, explained quizzes, and applied builds.",
       lectures: [
         {
           id: "eai-6402-2026-08-22",
@@ -458,6 +458,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Vectorized forward propagation and softmax/cross-entropy gradients", "Activation functions, loss choices, and gradient failure modes", "Bias–variance diagnosis using training and validation performance"]
+        },
+        {
+          id: "eai-6402-2026-10-17-100126-3bb287",
+          number: 9,
+          date: "2026-10-17",
+          sourceRecordedAt: "2026-10-17T10:01:26+05:30",
+          sourceFilename: "Meta Learning-20261017_100126-Meeting Recording.mp4",
+          displayDate: "17 October 2026",
+          title: "Nonlinear decision boundaries and handwriting forensics",
+          duration: "2h 07m 34s teaching interval; idle tail excluded",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course73_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse73_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FMeta+Learning-20261017_100126-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Nonlinear boundaries and learning-rate behavior", "Dense image classifiers, activations, and losses", "Handwriting identification, verification, and forgery challenges"]
         }
       ]
     },

@@ -3459,4 +3459,33 @@ export const capstones = Object.freeze({
       success: "A learner can reproduce a retrieval trace, explain which source passages support each answer claim, identify a stage-specific failure, and state the limits of the demonstration."
     }
   }
+  ,"eai-6402-2026-10-17-100126-3bb287": {
+    en: {
+      title: "Synthetic Signature Verification Audit",
+      pitch: "Build a small, privacy-conscious experiment that compares a simple feature-distance baseline with a learned classifier on synthetic signature-like images, then explains where verification becomes uncertain.",
+      problem: "A similarity score can look decisive even when genuine writing varies or a skilled imitation is close. Learners need to see how data splits, writer overlap, and decision thresholds change a verification result.",
+      learning: "Practise image preprocessing, feature extraction, binary classification, held-out evaluation, and the distinction between writer identification and signature verification. This is an optional study idea, not an instructor-assigned project.",
+      mvp: [
+        "Generate or draw synthetic, non-personal signature-like strokes; do not collect classmates' signatures or claim forensic validity.",
+        "Create writer-disjoint training and test partitions so near-duplicate samples cannot leak across the split.",
+        "Compare a simple geometric-distance baseline with a small CNN or feature classifier on genuine-versus-imitation pairs.",
+        "Plot false-accept and false-reject rates across thresholds and show examples where the model is uncertain.",
+        "Document that the toy dataset is not suitable for identity decisions, medical conclusions, or real-world authentication."
+      ],
+      stretch: [
+        "Vary within-writer shape, pen width, spacing, missing strokes, and imitation quality to measure which perturbations change the score.",
+        "Add a calibrated abstain region and compare its coverage with false-accept/false-reject trade-offs."
+      ],
+      plan: [
+        "Specify the synthetic data generator, writer-disjoint split, labels, and evaluation metrics before tuning.",
+        "Implement image normalization and the distance baseline; save a fixed evaluation set.",
+        "Train a compact classifier and compare its ROC-style threshold behavior against the baseline.",
+        "Publish an accessible diagram and limitations report that separates a classroom demonstration from forensic evidence."
+      ],
+      novelty: "The project centers uncertainty and dataset leakage instead of optimizing one headline accuracy, making the lecture's variability and forgery risks tangible without using real biometric data.",
+      stack: ["Python", "PyTorch or scikit-learn", "Synthetic raster strokes", "Matplotlib or accessible HTML charts"],
+      milestones: ["Synthetic sample generator", "Writer-disjoint baseline", "Classifier and threshold analysis", "Privacy and limitations report"],
+      success: "A learner can reproduce the split, compare methods, explain false acceptance versus false rejection, identify a failure case, and state why the prototype must not be used to authenticate a real person."
+    }
+  }
 });

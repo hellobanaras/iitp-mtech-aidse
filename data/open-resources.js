@@ -520,6 +520,22 @@ export const openLearningResources = {
       description: "Glorot and Bengio's primary study analyzes saturation and gradient behavior across deep layers, extending the lecture's activation discussion.",
       descriptionHi: "Glorot और Bengio का primary study deep layers में saturation और gradient behavior का विश्लेषण करता है।",
       url: "https://proceedings.mlr.press/v9/glorot10a.html"
+    },
+    {
+      provider: "TensorFlow", providerHi: "TensorFlow", kind: "Interactive practice", kindHi: "Interactive practice",
+      access: "Free interactive tool", accessHi: "Free interactive tool",
+      title: "TensorFlow Playground", titleHi: "TensorFlow Playground",
+      description: "Recreate the lecture's circular, diagonal-cluster, and spiral classification experiments by changing hidden units, activation, and learning rate.",
+      descriptionHi: "Hidden units, activation और learning rate बदलकर lecture के circle, cluster और spiral classification experiments दोहराएँ।",
+      url: "https://playground.tensorflow.org/"
+    },
+    {
+      provider: "IEEE Access", providerHi: "IEEE Access", kind: "Research review", kindHi: "Research review",
+      access: "Abstract and publication record", accessHi: "Abstract and publication record",
+      title: "Advances in Offline Handwritten Signature Recognition Research: A Review", titleHi: "Advances in Offline Handwritten Signature Recognition Research: A Review",
+      description: "A peer-reviewed overview of offline signature-recognition pipelines, learned representations, classification methods, and open challenges relevant to the lecture's forensic application.",
+      descriptionHi: "Offline signature recognition pipelines, learned features, classification methods और lecture की forensic application से जुड़े challenges का peer-reviewed review।",
+      url: "https://doi.org/10.1109/ACCESS.2023.3326471"
     }
   ],
   "eai-6403": [
