@@ -3381,5 +3381,34 @@ export const capstones = Object.freeze({
       milestones: ["Dataset and split card", "k-NN vote inspector", "Bootstrap and out-of-bag audit", "Held-out comparison and accessible report"],
       success: "A learner can reproduce why a local vote changes with k, explain how bootstrap resampling creates different base learners, and assess bagging without test leakage or unsupported generalization."
     }
+  },
+  "eai-6403-2026-10-17-154828": {
+    en: {
+      title: "TraceRAG: an evidence-path debugger",
+      pitch: "Build a small RAG sandbox that lets learners inspect how chunking, vector similarity, top-k selection, reranking, and graph relations change an evidence-grounded answer.",
+      problem: "A fluent response can conceal weak retrieval, missing relationships, or noisy context. A visible retrieval trace makes it possible to locate the failure instead of treating the generated answer as proof.",
+      learning: "Practise embedding-based search, top-k retrieval, reranking, graph neighborhoods, and evidence checks. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Use a small public or synthetic document set with stable source IDs, short passages, and a separately documented entity-relation graph.",
+        "Show a query embedding search with similarity ranks, selected top-k passages, metadata filters, and an optional second-stage reranker.",
+        "Generate a cited answer only from selected passages and visibly flag claims without a supporting source span.",
+        "Compare one direct passage query and one multi-hop relation query using vector-only and graph-assisted retrieval.",
+        "Record retrieval relevance, answer support, latency, and failure examples; do not present the toy set as a benchmark of general model quality."
+      ],
+      stretch: [
+        "Compare chunk sizes and overlap using a fixed query set, reporting when recall improves at the cost of redundant context.",
+        "Add an abstention rule for unsupported questions and test it against paraphrases and distractor passages."
+      ],
+      plan: [
+        "Define a licensed or synthetic corpus, query set, expected evidence IDs, and evaluation rules before tuning.",
+        "Implement and test chunking, embeddings, similarity ranking, top-k selection, and provenance preservation.",
+        "Add one advanced retrieval option and one graph traversal; compare both with the untouched baseline.",
+        "Render an accessible trace from sources to ranked passages to answer claims and document limitations."
+      ],
+      novelty: "The project makes the evidence path inspectable at every stage, so a learner can distinguish ranking failure from generation failure and compare vector similarity with explicit graph relationships.",
+      stack: ["JavaScript", "Small local vector index", "Synthetic or openly licensed text", "Accessible HTML visualization"],
+      milestones: ["Provenance-preserving corpus", "Similarity and top-k trace", "Reranking and graph comparison", "Grounding evaluation and accessible report"],
+      success: "A learner can reproduce a retrieval trace, explain which source passages support each answer claim, identify a stage-specific failure, and state the limits of the demonstration."
+    }
   }
 });

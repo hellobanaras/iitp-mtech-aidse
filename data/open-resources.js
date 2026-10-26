@@ -524,6 +524,45 @@ export const openLearningResources = {
   ],
   "eai-6403": [
     {
+      provider: "arXiv",
+      providerHi: "arXiv",
+      kind: "Research paper",
+      kindHi: "Research paper",
+      access: "Open paper",
+      accessHi: "Open paper",
+      title: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      titleHi: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      description: "The original RAG paper provides the research foundation for combining a parametric generator with retrieved non-parametric memory.",
+      descriptionHi: "यह मूल RAG paper parametric generator और retrieved non-parametric memory को जोड़ने का शोध-आधार देता है।",
+      url: "https://arxiv.org/abs/2005.11401"
+    },
+    {
+      provider: "Microsoft Learn",
+      providerHi: "Microsoft Learn",
+      kind: "Technical documentation",
+      kindHi: "Technical documentation",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Vector search and ranking",
+      titleHi: "Vector search and ranking",
+      description: "Official documentation on vector similarity, ranking behavior, and the difference between a search score and raw cosine similarity.",
+      descriptionHi: "Vector similarity, ranking और search score तथा raw cosine similarity के अंतर पर official documentation।",
+      url: "https://learn.microsoft.com/en-us/azure/search/vector-search-ranking"
+    },
+    {
+      provider: "Microsoft Learn",
+      providerHi: "Microsoft Learn",
+      kind: "Technical documentation",
+      kindHi: "Technical documentation",
+      access: "Free documentation",
+      accessHi: "मुफ़्त documentation",
+      title: "Vector Search Overview",
+      titleHi: "Vector Search Overview",
+      description: "A practical follow-up on vector and hybrid search concepts that complements the lecture's embedding and retrieval walkthrough.",
+      descriptionHi: "Vector और hybrid search concepts पर practical follow-up, जो lecture के embedding और retrieval walkthrough को आगे बढ़ाता है।",
+      url: "https://learn.microsoft.com/en-us/azure/search/vector-search-overview"
+    },
+    {
       provider: "Microsoft Learn",
       providerHi: "Microsoft Learn",
       kind: "Architecture guidance",
