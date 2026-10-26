@@ -3588,5 +3588,35 @@ export const capstones = Object.freeze({
       milestones: ["Synthetic sample generator", "Writer-disjoint baseline", "Classifier and threshold analysis", "Privacy and limitations report"],
       success: "A learner can reproduce the split, compare methods, explain false acceptance versus false rejection, identify a failure case, and state why the prototype must not be used to authenticate a real person."
     }
+  },
+  "ebb-6402-2026-10-22-180622": {
+    en: {
+      title: "GovLens — a participatory-governance fairness workbench",
+      pitch: "Build an accessible simulator that tests how proposal access, voting weights, token concentration, and public-service barriers affect who participates and who shapes a decision.",
+      problem: "A system may invite open contributions yet concentrate final voting power among a few large holders. GovLens makes the gap between nominal participation and effective influence measurable.",
+      learning: "Model proposal rules, token-weighted and alternative voting options, participation barriers, treasury decisions, and transparent outcome reporting. This is an optional study idea, not an instructor-assigned project.",
+      mvp: [
+        "Create a synthetic community and governance-token distribution; do not use real learner or account data.",
+        "Compare one-token-one-vote with capped, quadratic, or delegated voting using clearly stated assumptions.",
+        "Simulate a protocol-upgrade proposal and treasury allocation; show participation, turnout, concentration, and which groups influence the result.",
+        "Add access scenarios such as low connectivity, language barriers, and limited technical familiarity, then report who could not participate and why.",
+        "Export an accessible decision brief with the voting rule, results, fairness indicators, and limitations."
+      ],
+      stretch: [
+        "Test a large holder with 30% of tokens and compare proposal outcomes across governance rules.",
+        "Model Sybil resistance, delegation conflicts, privacy boundaries, and the risk that a fairness metric hides minority preferences.",
+        "Compare a digital-wallet access intervention with a non-digital participation path without assuming either is universally suitable."
+      ],
+      plan: [
+        "Define synthetic participants, proposal types, token distribution, access constraints, and evaluation measures.",
+        "Implement voting baselines and transparent calculation of concentration and participation.",
+        "Add access and governance scenarios; change one design choice at a time and compare results.",
+        "Publish an accessible report distinguishing measured outcomes from value judgments and unresolved policy questions."
+      ],
+      novelty: "The workbench compares who can enter a governance process with who holds practical decision power, turning the lecture's equality concern into inspectable scenarios.",
+      stack: ["TypeScript", "Accessible HTML", "SVG", "Vitest"],
+      milestones: ["Synthetic community and baseline vote", "Concentration and turnout metrics", "Access-barrier scenarios", "Accessible fairness report"],
+      success: "A learner can reproduce a governance outcome, explain how token concentration affected it, identify an access barrier, and justify a design trade-off without claiming that one voting rule is universally fair."
+    }
   }
 });

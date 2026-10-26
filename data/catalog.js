@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-26",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 133,
+  filesInventoried: 134,
   courses: [
     {
       code: "EAI 6103",
@@ -1878,8 +1878,8 @@ export const catalog = {
       icon: "BP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course126_hybrid_iitp_ac_in/IgCHFNnPY4p5T6ER5i66wfU6ARez8raFCClh3yjgh9MvxQ4?e=BpEdrU",
       status: "active",
-      statusLabel: "12 lectures available",
-      note: "Lectures 1–12 are published from verified teaching intervals; participant-only openings, internal breaks, and idle tails were excluded from instructional summaries after full timeline sweeps.",
+      statusLabel: "13 lectures available",
+      note: "Lectures 1–13 are published from verified teaching intervals; participant-only openings, internal breaks, and idle tails were excluded from instructional summaries after full timeline sweeps.",
       lectures: [
         {
           id: "ebb-6402-2026-08-18-180205",
@@ -2048,6 +2048,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Stakeholder roles and corporate-governance hierarchy", "Legal duties, internal controls, transparency, and accountability", "On-chain processes, tokenized ownership, and legal limitations"]
+        },
+        {
+          id: "ebb-6402-2026-10-22-180622",
+          number: 13,
+          date: "2026-10-22",
+          sourceRecordedAt: "2026-10-22T18:06:22+05:30",
+          sourceFilename: "Blockchain policy – Legal, Social and Economic Impact-20261022_180622-Meeting Recording.mp4",
+          displayDate: "22 October 2026",
+          title: "Blockchain governance: developer communities, social impact, and equality",
+          duration: "1h 09m 50s teaching",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course126_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal/course126_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FBlockchain+policy+%E2%80%93+Legal%2C+Social+and+Economic+Impact-20261022_180622-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Open developer contributions, protocol proposals, and community governance", "Possible social effects in finance and public services, with El Salvador and Estonia examples", "Token-weighted voting, limited influence for small holders, and governance inequality"]
         }
       ]
     }

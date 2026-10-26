@@ -2275,6 +2275,32 @@ export const openLearningResources = {
       url: "https://www.nber.org/search?query=blockchain"
     },
     {
+      provider: "Ethereum.org",
+      providerHi: "Ethereum.org",
+      kind: "Governance guide",
+      kindHi: "Governance guide",
+      access: "Free public guide",
+      accessHi: "मुफ़्त public guide",
+      title: "What is a DAO?",
+      titleHi: "What is a DAO?",
+      description: "Compare token-, share-, and reputation-based membership, delegation, proposals, and treasury controls with the lecture's concern that token-weighted governance can concentrate influence.",
+      descriptionHi: "Token, share और reputation आधारित membership, delegation तथा treasury controls को lecture में उठे token-weighted governance और influence concentration के प्रश्न से जोड़कर देखें।",
+      url: "https://ethereum.org/dao/"
+    },
+    {
+      provider: "Estonian State Electoral Office",
+      providerHi: "Estonian State Electoral Office",
+      kind: "Official system overview",
+      kindHi: "Official system overview",
+      access: "Free public guidance",
+      accessHi: "मुफ़्त public guidance",
+      title: "Introduction to internet voting in Estonia",
+      titleHi: "Introduction to internet voting in Estonia",
+      description: "Use the election authority's account of Estonia's i-voting workflow to examine security and ballot-secrecy requirements, and distinguish the country's digital-election system from any separate blockchain infrastructure example.",
+      descriptionHi: "Estonia के i-voting workflow, security और ballot secrecy को election authority के विवरण से समझें; इसे अलग blockchain-infrastructure उदाहरण से न मिलाएँ।",
+      url: "https://www.valimised.ee/en/internet-voting/more-about-i-voting/introduction-i-voting"
+    },
+    {
       provider: "Center for Open Education",
       providerHi: "Center for Open Education",
       kind: "Open textbook library",
