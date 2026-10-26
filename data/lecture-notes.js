@@ -137,6 +137,8 @@ const [
   ,{ ebb6403Lecture20260918073357 }
   ,{ ebb6403Lecture20260919054724 }
   ,{ ebb6403Lecture20261003053942 }
+  ,
+  ,{ ebb6403Lecture20261024054007 }
 ] = await Promise.all([
   import(`./lectures/eai-6103-2026-08-18-193045.js?v=${releaseVersion}`),
   import(`./lectures/eai-6103-2026-08-22-092455.js?v=${releaseVersion}`),
@@ -249,6 +251,7 @@ const [
   ,import(`./lectures/ebb-6403-2026-09-19-054724.js?v=${releaseVersion}`)
   ,import(`./lectures/ebb-6403-2026-10-03-053942.js?v=${releaseVersion}`)
   ,import(`./lectures/ebb-6403-2026-10-10-053339-7a8c92.js?v=${releaseVersion}`)
+  ,import(`./lectures/ebb-6403-2026-10-24-054007-1f993d.js?v=${releaseVersion}`)
 ]);
 
 // Each lecture is a single English-only publication unit.
@@ -390,4 +393,5 @@ export const lectureNotes = {
   ,"ebb-6403-2026-10-10-053339-7a8c92": ebb6403Lecture20261010053339
   ,"ebb-6403-2026-10-17-053820-584b5f": ebb6403Lecture20261017053820
   ,"ebb-6403-2026-10-23-073746-34767f": ebb6403Lecture20261023073746
+  ,"ebb-6403-2026-10-24-054007-1f993d": ebb6403Lecture20261024054007
 };

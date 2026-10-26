@@ -1,7 +1,7 @@
 export const catalog = {
   updated: "2026-10-26",
   semester: "Semester 4 · August–November 2026",
-  filesInventoried: 137,
+  filesInventoried: 138,
   courses: [
     {
       code: "EAI 6103",
@@ -1212,8 +1212,8 @@ export const catalog = {
       icon: "SP",
       recordingUrl: "https://cciitpatna-my.sharepoint.com/:f:/g/personal/course78_hybrid_iitp_ac_in/IgCwVcRuGq_lR6u1S5D-yQeRAb5jOjVzObdfYRB-vn1qvBQ?e=wtwqhi",
       status: "active",
-      statusLabel: "12 lectures available",
-      note: "Twelve verified lectures are published. View-only sources were reviewed at 2× with setup and idle tails excluded after full timeline sweeps; the Oct 23 continuation compares signature and anomaly detection and evaluates IDS alerts.",
+      statusLabel: "14 lectures published",
+      note: "Thirteen verified lectures are published; the Oct 24 small variant was rejected as participant-only. View-only sources were reviewed at 2× with setup and idle tails excluded after full timeline sweeps. The Oct 24 continuation covers adaptive IDS, signatures, DSA, and firewall architectures.",
       lectures: [
         {
           id: "ebb-6403-2026-08-21-075934",
@@ -1396,6 +1396,20 @@ export const catalog = {
           status: "published",
           statusLabel: "Notes published",
           overview: ["Firewall, IDS, and IPS roles and architecture", "Signature versus anomaly detection and deployment choices", "Confusion-matrix metrics, benchmark datasets, and adaptive IDS motivation"]
+        },
+        {
+          id: "ebb-6403-2026-10-24-054007-1f993d",
+          number: 14,
+          date: "2026-10-24",
+          sourceRecordedAt: "2026-10-24T05:40:07+05:30",
+          sourceFilename: "New Security and Privacy for Big Data-20261024_054007-Meeting Recording.mp4",
+          displayDate: "24 October 2026",
+          title: "Adaptive intrusion detection, digital signatures, and firewall architectures",
+          duration: "1h 55m",
+          recordingUrl: "https://cciitpatna-my.sharepoint.com/personal/course78_hybrid_iitp_ac_in/_layouts/15/stream.aspx?id=%2Fpersonal%2Fcourse78_hybrid_iitp_ac_in%2FDocuments%2FRecordings%2FNew+Security+and+Privacy+for+Big+Data-20261024_054007-Meeting+Recording.mp4",
+          status: "published",
+          statusLabel: "Notes published",
+          overview: ["Adaptive IDS agents, reward feedback, adversarial examples, and malware detection", "Digital-signature goals, forgery models, RSA example, and DSA verification", "Stateful packet filtering, application proxies, and circuit gateways"]
         }
       ]
     },

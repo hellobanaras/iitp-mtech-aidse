@@ -279,6 +279,35 @@ export const capstones = Object.freeze({
       success: "A learner can explain each alert, calculate the stated metrics, compare both detector types, and identify limitations without interacting with a real network."
     }
   },
+  "ebb-6403-2026-10-24-054007-1f993d": {
+    en: {
+      title: "TrustTrace: a safe signature and firewall-state workbench",
+      pitch: "Build an offline simulator that traces signed-message verification and stateful firewall decisions without touching real networks or keys.",
+      problem: "Learners can memorize signature equations and firewall rules without seeing which evidence each receiver checks. A local workbench can make signature integrity, nonce safety, connection state, and policy decisions auditable.",
+      learning: "Compare valid and altered signed messages, explore toy signature-forgery conditions, and distinguish a tracked return flow from an out-of-context packet. This is optional study practice, not an instructor-assigned project.",
+      mvp: [
+        "Use toy-sized arithmetic and clearly mark it as educational only; never generate or store production keys or real credentials.",
+        "Show a message digest, a toy signature pair, the public verification steps, and exactly why a changed message fails verification.",
+        "Demonstrate why reusing a toy signing nonce is dangerous with a worked explanation, without presenting the toy construction as secure software.",
+        "Create fictional UDP/TCP flows and compare stateless policy matching with a state table that validates a response against an earlier request.",
+        "Add a separate proxy diagram showing two mediated connections and contrast it with an end-to-end circuit gateway."
+      ],
+      stretch: [
+        "Add unit tests for signature range checks and flow-state matching, including altered addresses, ports, and missing sessions.",
+        "Include a standards panel linking to current NIST signature and firewall guidance, and flag DSA as legacy verification-only under FIPS 186-5."
+      ],
+      plan: [
+        "Specify the toy threat models, synthetic data boundaries, and explicit non-production warnings.",
+        "Implement deterministic message hashing/signature verification examples and test tampering and nonce-reuse explanations.",
+        "Implement a separate firewall policy and connection-state model with matched and unmatched return traffic.",
+        "Render the evidence paths accessibly and validate that the UI never opens sockets or collects user secrets."
+      ],
+      novelty: "The workbench keeps cryptographic authenticity and network-flow authorization separate, then shows exactly which evidence makes each decision pass or fail.",
+      stack: ["TypeScript", "Accessible HTML/SVG", "Vitest", "Deterministic toy inputs"],
+      milestones: ["Threat model and safe toy arithmetic", "Signature verification and tampering", "Stateful versus stateless filtering", "Accessible diagrams and tests"],
+      success: "A learner can explain why signatures do not encrypt, identify unsafe nonce reuse, verify a message change failure, and trace why a firewall accepts or rejects a response packet."
+    }
+  },
   "ecs-6401-2026-10-07-180243": {
     en: {
       title: "Equilibrium & Volatility Lab",

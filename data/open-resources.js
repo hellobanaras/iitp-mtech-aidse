@@ -2506,6 +2506,22 @@ export const openLearningResources = {
   ],
   "ebb-6403": [
     {
+      provider: "NIST",
+      kind: "Digital-signature standard",
+      access: "Free public standard",
+      title: "FIPS 186-5: Digital Signature Standard",
+      description: "Current NIST signature standard. It retains DSA only for verifying existing signatures, making it the essential update to the lecture's historical DSA walkthrough.",
+      url: "https://csrc.nist.gov/pubs/fips/186-5/final"
+    },
+    {
+      provider: "NIST",
+      kind: "Firewall guidance",
+      access: "Free public guidance",
+      title: "SP 800-41 Rev. 1: Guidelines on Firewalls and Firewall Policy",
+      description: "Authoritative background on packet filters, stateful inspection, proxies, policy, and deployment choices from the lecture's firewall section.",
+      url: "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+    },
+    {
       provider: "RFC Editor · IETF",
       providerHi: "RFC Editor · IETF",
       kind: "TCP security reference",
